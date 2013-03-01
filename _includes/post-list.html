@@ -1,0 +1,35 @@
+<div class="main">
+  {% for page in paginator.posts %}
+  {% include logic_getAuthor.html %}	
+  <div class="item">
+    <h3>
+      <a href="{{ site.url }}{{ page.url }}">{{ page.title }}</a>
+    </h3>
+
+    <p class="small">{{ author.display_name }}, {{ page.date | date: "%B %d, %Y" }}</p>
+
+    <p>{{ page.content | strip_html | truncatewords: 50 }}</p>
+
+    <p class="small">
+      <a href="{{ site.url }}{{ page.url }}#disqus_thread" data-disqus-identifier="{{ page.url }}">Comments</a>
+    </p>
+
+    <p class="read_more">
+      <a href="{{ site.url }}{{ page.url }}">Read More</a>
+    </p>
+    <hr/>
+	</div>
+    {% endfor %}
+    <p class="pager">
+      {% if paginator.previous_page %}
+      <a href="{{ site.url }}{% if paginator.previous_page != 1 %}page{{ paginator.previous_page }}{% endif %}">&laquo; Previous Page</a>
+      {% endif %}
+      {% if paginator.next_page %}{% if paginator.previous_page %}
+        -
+      {% endif %}{% endif %}
+      {% if paginator.next_page %}
+      <a href="{{ site.url }}page{{ paginator.next_page }}">Next Page &raquo;</a>
+      {% endif %}
+    </p>
+  
+</div>

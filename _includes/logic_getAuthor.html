@@ -1,0 +1,7 @@
+<!-- Begin Logic for getting the author -->
+	{% for authorItem in site.authors %}
+		{% if authorItem.name == page.author %} 
+			{% assign author = authorItem %}
+		{% endif %}
+	{% endfor %}
+<!-- End Logic for getting the author -->

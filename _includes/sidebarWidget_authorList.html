@@ -1,0 +1,26 @@
+<div class="mod sidebar nugget menu">
+  <b class="top">
+    <b class="tl"></b>
+    <b class="tr"></b>
+  </b>
+
+  <div class="inner">
+    <div class="hd">
+      <h3>Authors</h3>
+    </div>
+    <div class="bd">
+      <div class="textwidget">
+	  <ul>
+		<li><a href="{{ site.url }}index.html">Main Blog</a></li>
+		{% for author in site.authors %}				
+		<li><a href="{{ site.url }}{{author.site_page}}">{{ author.display_name }}</a></li>
+		{% endfor %}		
+	  </ul>
+      </div>
+    </div>
+  </div>
+  <b class="bottom">
+    <b class="bl"></b>
+    <b class="br"></b>
+  </b>
+</div>
