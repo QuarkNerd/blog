@@ -21,9 +21,9 @@ rssimage_height: XXX
 rssimage_width: XXX
 language: en
 authors:
-    - name:               Colin Eberhardt
-      display_name:       Colin Eberhardt
-      site_page:        colin.html
+    - name:   			Colin Eberhardt
+      display_name:   	Colin Eberhardt
+      site_page:		colin.html
       job_title: Technical Architect
       gravatar: 458f2e0d08d4114f8b323798cfea141d
       email: ceberhardt@scottlogic.co.uk
@@ -31,48 +31,48 @@ authors:
       twitter: ColinEberhardt
       github: coline
       bio: '<strong>Colin</strong> is a blah blah blah, <a href="http://www.flickr.com/photos/matthackett/3488395022/in/photostream">lah lah lah</a> and <a href="http://richtaur.deviantart.com/">something else</a>. Also a lah lah lah <a href="http://widgets.yahoo.com/">nah nah</a> and blah blah blah.'
-    - name:               Chris Price
-      display_name:       Chris Price
-      site_page:        chris.html
-    - name:               Luke Page
-      display_name:       Luke Alexander Page
-      site_page:        luke-page.html
-    - name:               Andrew Aylett
-      display_name:       Andrew Aylett
-      site_page:        andrew-aylett.html
-    - name:               Rolf Baxter
-      display_name:       Rolf Baxter
-      site_page:        rolf-baxter.html
-    - name:               Jonathan Cardy
-      display_name:       Jonathan Cardy
-      site_page:        jonathan-cardy.html
-    - name:               Chris Grant
-      display_name:       Chris Grant
-      site_page:        chris-grant.html
-    - name:               Steven Hall
-      display_name:       Steven Hall
-      site_page:        steven-hall.html
-    - name:               Nicholas Hemley
-      display_name:       Nicholas Hemley
-      site_html:        nicholas-hemley.html
-    - name:               Graham Odds
-      display_name:       Graham Odds
-      site_page:        graham.html
-    - name:               Gergely Orosz
-      display_name:       Gergely Orosz
-      site_page:        gorosz.html
-    - name:               Mike Perrin
-      display_name:       Mike Perrin
-      site_page:        mike-perrin.html
-    - name:               Mark Rhodes
-      display_name:       Mark Rhodes
-      site_page:        mark-rhodes.html
-    - name:               Sam Hogarth
-      display_name:       Sam Hogarth
-      site_page:        sam-hogarth.html
-    - name:               Nicholas Wolverson
-      display_name:       Nicholas Wolverson
-      site_page:        nicholas-wolverson.html
-    - name:               James Farrier
-      display_name:       James Farrier
-      site_page:        james-farrier.html
+    - name:   			Chris Price
+      display_name:   	Chris Price
+      site_page:		chris.html
+    - name:   			Luke Page
+      display_name:   	Luke Alexander Page
+      site_page:		luke-page.html
+    - name:   			Andrew Aylett
+      display_name:   	Andrew Aylett
+      site_page:		andrew-aylett.html
+    - name:   			Rolf Baxter
+      display_name:   	Rolf Baxter
+      site_page:		rolf-baxter.html
+    - name:   			Jonathan Cardy
+      display_name:   	Jonathan Cardy
+      site_page:		jonathan-cardy.html
+    - name:   			Chris Grant
+      display_name:   	Chris Grant
+      site_page:		chris-grant.html
+    - name:   			Steven Hall
+      display_name:   	Steven Hall
+      site_page:		steven-hall.html
+    - name:   			Nicholas Hemley
+      display_name:   	Nicholas Hemley
+      site_html:		nicholas-hemley.html
+    - name:   			Graham Odds
+      display_name:   	Graham Odds
+      site_page:		graham.html
+    - name:   			Gergely Orosz
+      display_name:   	Gergely Orosz
+      site_page:		gorosz.html
+    - name:   			Mike Perrin
+      display_name:   	Mike Perrin
+      site_page:		mike-perrin.html
+    - name:   			Mark Rhodes
+      display_name:   	Mark Rhodes
+      site_page:		mark-rhodes.html
+    - name:   			Sam Hogarth
+      display_name:   	Sam Hogarth
+      site_page:		sam-hogarth.html
+    - name:   			Nicholas Wolverson
+      display_name:   	Nicholas Wolverson
+      site_page:		nicholas-wolverson.html
+    - name:   			James Farrier
+      display_name:   	James Farrier
+      site_page:		james-farrier.html
