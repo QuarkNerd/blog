@@ -1,19 +1,16 @@
-GIBBERISH!!!!!!!!!!!!!!!!!!
 auto: false
 server: false
 lsi: false
 baseurl: /
-destination: ~/public_html/blog/
+destination: _site-safe
 paginate: 10
 exclude: [_migration]
 name: Scott Logic
 description: Financial Software Development
-url: http://localhost/blog/
 disqus_shortname: jekyllplayground
 disqus-site-url: http://chrisprice.github.com/jekyll-playground/
 debug: false
 safe: true
-lsi: false
 pygments: true
 markdown: maruku
 include: [.htaccess]
