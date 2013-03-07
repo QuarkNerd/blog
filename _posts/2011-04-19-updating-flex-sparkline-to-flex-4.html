@@ -1,0 +1,110 @@
+---
+id: 119291
+author: Graham Odds
+tags: 
+- charts
+- flex
+- visualisation
+categories: 
+- Blog
+layout: codds_post
+---
+
+<p>In <a href="http://www.scottlogic.co.uk/blog/graham/2010/02/flex-sparkline/" >a previous post</a> I presented a library of <a href="http://en.wikipedia.org/wiki/Sparkline%20>sparkline</a> implementations for Flex 3.  I have finally gotten round to updating it for Flex 4.  The new source code, documentation and pre-compiled swf (namespace: <code>http://www.scottlogic.com/sparkline</code>) can be obtained from <a href='http://www.scottlogic.co.uk/blog/graham/wp-content/uploads/2011/04/Sparkline.zip'>here</a>.  As before, the components are being made available under the <a href='http://www.gnu.org/licenses/gpl.html'>GNU General Public License</a>.</p>
+<p>As you can see, the versions appear identical:</p>
+<p><b>Flex 3</b></p>
+<p>    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="sparklines_3" width="445" height="85" align="center"><param name="movie" value="http://www.scottlogic.co.uk/blog/graham/wp-content/uploads/2010/02/SparklineApp.swf" /><param name="align" value="center" /><!--[if !IE]>-->      <object type="application/x-shockwave-flash" data="http://www.scottlogic.co.uk/blog/graham/wp-content/uploads/2010/02/SparklineApp.swf" width="445" height="85" align="center">      <!--<![endif]--></p>
+<p>      <!--[if !IE]>-->      </object>      <!--<![endif]-->    </object></p>
+<p><b>Flex 4</b></p>
+<p>    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="sparklines_4" width="445" height="85" align="center"><param name="movie" value="http://www.scottlogic.co.uk/blog/graham/wp-content/uploads/2011/04/SparklineApp.swf" /><param name="align" value="center" /><!--[if !IE]>-->      <object type="application/x-shockwave-flash" data="http://www.scottlogic.co.uk/blog/graham/wp-content/uploads/2011/04/SparklineApp.swf" width="445" height="85" align="center">      <!--<![endif]--></p>
+<p>      <!--[if !IE]>-->      </object>      <!--<![endif]-->    </object> </p>
+<h4>Updating to Flex 4</h4>
+<p>For those of you interested in some of the changes required to migrate code from Flex 3 to Flex 4, here follow some of the details required to update this particular code.</p>
+<p>The main change was due to Flex 4 essentially deprecating the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/styles/StyleManager.html" ><code>StyleManager</code></a> class and its static methods in order to provide mechanisms allowing <a href="http://livedocs.adobe.com/flex/3/html/help.html?content=modular_5.html" >modules</a> to have independent style declarations.  At the forefront of this change is the new <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/styles/IStyleManager2.html" ><code>IStyleManager2</code></a> interface, an instance of which can be obtained from the static <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/styles/StyleManager.html#getStyleManager()" ><code>getStyleManager</code></a> method on <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/styles/StyleManager.html" ><code>StyleManager</code></a> or, preferably, the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/core/UIComponent.html#styleManager" ><code>styleManager</code></a> property of <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/core/UIComponent.html" ><code>UIComponent</code></a>.  In practice, using the <code>Sparkline</code> class as an example, this means changing from the static Flex 3 style declaration approach:</p>
+<div class="wp_syntax"><table><tr><td class="code">{% highlight actionscript %}<span style="color: #0066CC;">public</span> <span style="color: #000000; font-weight: bold;">class</span> Sparkline <span style="color: #0066CC;">extends</span> SparklineBase
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #808080; font-style: italic;">/**
+     *  @private
+     */</span>
+    <span style="color: #0066CC;">private</span> <span style="color: #0066CC;">static</span> <span style="color: #000000; font-weight: bold;">var</span> stylesInited:<span style="color: #0066CC;">Boolean</span> = initStyles<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #808080; font-style: italic;">/**
+     *  @private
+     */</span>
+    <span style="color: #0066CC;">private</span> <span style="color: #0066CC;">static</span> <span style="color: #000000; font-weight: bold;">function</span> initStyles<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>:<span style="color: #0066CC;">Boolean</span>
+    <span style="color: #66cc66;">&#123;</span>
+        <span style="color: #000000; font-weight: bold;">var</span> sd:CSSStyleDeclaration = StyleManager.<span style="color: #006600;">getStyleDeclaration</span><span style="color: #66cc66;">&#40;</span><span style="color: #ff0000;">&quot;Sparkline&quot;</span><span style="color: #66cc66;">&#41;</span>;
+        <span style="color: #b1b100;">if</span> <span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">!</span>sd<span style="color: #66cc66;">&#41;</span>
+        <span style="color: #66cc66;">&#123;</span>
+            sd = <span style="color: #000000; font-weight: bold;">new</span> CSSStyleDeclaration<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+            StyleManager.<span style="color: #006600;">setStyleDeclaration</span><span style="color: #66cc66;">&#40;</span><span style="color: #ff0000;">&quot;Sparkline&quot;</span>, sd, <span style="color: #000000; font-weight: bold;">false</span><span style="color: #66cc66;">&#41;</span>;
+        <span style="color: #66cc66;">&#125;</span>
+&nbsp;
+        sd.<span style="color: #006600;">defaultFactory</span> = <span style="color: #000000; font-weight: bold;">function</span><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>:<span style="color: #0066CC;">void</span>
+        <span style="color: #66cc66;">&#123;</span>
+            <span style="color: #0066CC;">this</span>.<span style="color: #006600;">lineStroke</span> = <span style="color: #000000; font-weight: bold;">new</span> Stroke<span style="color: #66cc66;">&#40;</span>0x828282, <span style="color: #cc66cc;">1</span><span style="color: #66cc66;">&#41;</span>;
+            <span style="color: #0066CC;">this</span>.<span style="color: #006600;">markerFill</span> = <span style="color: #000000; font-weight: bold;">new</span> SolidColor<span style="color: #66cc66;">&#40;</span>0x2963a3<span style="color: #66cc66;">&#41;</span>;
+            <span style="color: #0066CC;">this</span>.<span style="color: #006600;">markerStroke</span> = <span style="color: #000000; font-weight: bold;">new</span> Stroke<span style="color: #66cc66;">&#40;</span>0x2963a3, <span style="color: #cc66cc;">0</span>, <span style="color: #cc66cc;">0</span><span style="color: #66cc66;">&#41;</span>;
+            <span style="color: #0066CC;">this</span>.<span style="color: #006600;">markerRadius</span> = <span style="color: #cc66cc;">2</span>;
+            <span style="color: #0066CC;">this</span>.<span style="color: #006600;">normalRangeFill</span> = <span style="color: #000000; font-weight: bold;">new</span> SolidColor<span style="color: #66cc66;">&#40;</span>0x000000, <span style="color: #cc66cc;">0.1</span><span style="color: #66cc66;">&#41;</span>;
+        <span style="color: #66cc66;">&#125;</span>
+&nbsp;
+        <span style="color: #b1b100;">return</span> <span style="color: #000000; font-weight: bold;">true</span>;
+    <span style="color: #66cc66;">&#125;</span>
+&nbsp;
+    ...
+&nbsp;
+<span style="color: #66cc66;">&#125;</span>{% endhighlight %}
+</td>
+</tr>
+</table>
+</div>
+<p>To overriding <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/core/UIComponent.html" ><code>UIComponent</code></a>&#8216;s <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/core/UIComponent.html#moduleFactory" ><code>moduleFactory</code></a> property to provide the &#8220;hook&#8221; for invoking the style declaration:</p>
+<div class="wp_syntax"><table><tr><td class="code">{% highlight actionscript %}<span style="color: #0066CC;">public</span> <span style="color: #000000; font-weight: bold;">class</span> Sparkline <span style="color: #0066CC;">extends</span> SparklineBase
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #808080; font-style: italic;">/**
+     * @private
+     */</span>
+    <span style="color: #0066CC;">private</span> <span style="color: #000000; font-weight: bold;">var</span> _moduleFactoryInitialized:<span style="color: #0066CC;">Boolean</span>;
+&nbsp;
+    <span style="color: #808080; font-style: italic;">/**
+     * @private
+     */</span>
+    <span style="color: #0066CC;">public</span> override <span style="color: #000000; font-weight: bold;">function</span> <span style="color: #0066CC;">set</span> moduleFactory<span style="color: #66cc66;">&#40;</span>factory:IFlexModuleFactory<span style="color: #66cc66;">&#41;</span>:<span style="color: #0066CC;">void</span>
+    <span style="color: #66cc66;">&#123;</span>
+        <span style="color: #0066CC;">super</span>.<span style="color: #006600;">moduleFactory</span> = factory;
+        <span style="color: #b1b100;">if</span> <span style="color: #66cc66;">&#40;</span>_moduleFactoryInitialized<span style="color: #66cc66;">&#41;</span>
+            <span style="color: #b1b100;">return</span>;
+        _moduleFactoryInitialized = <span style="color: #000000; font-weight: bold;">true</span>;
+        initStyles<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #66cc66;">&#125;</span>
+&nbsp;
+    <span style="color: #808080; font-style: italic;">/**
+     * @private
+     */</span>
+    <span style="color: #0066CC;">private</span> <span style="color: #000000; font-weight: bold;">function</span> initStyles<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>:<span style="color: #0066CC;">void</span>
+    <span style="color: #66cc66;">&#123;</span>
+        <span style="color: #000000; font-weight: bold;">var</span> sd:CSSStyleDeclaration = styleManager.<span style="color: #006600;">getStyleDeclaration</span><span style="color: #66cc66;">&#40;</span><span style="color: #ff0000;">&quot;com.scottlogic.sparkline.Sparkline&quot;</span><span style="color: #66cc66;">&#41;</span>;
+        <span style="color: #b1b100;">if</span> <span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">!</span>sd<span style="color: #66cc66;">&#41;</span>
+        <span style="color: #66cc66;">&#123;</span>
+            sd = <span style="color: #000000; font-weight: bold;">new</span> CSSStyleDeclaration<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+            styleManager.<span style="color: #006600;">setStyleDeclaration</span><span style="color: #66cc66;">&#40;</span><span style="color: #ff0000;">&quot;com.scottlogic.sparkline.Sparkline&quot;</span>, sd, <span style="color: #000000; font-weight: bold;">false</span><span style="color: #66cc66;">&#41;</span>;
+        <span style="color: #66cc66;">&#125;</span>
+        sd.<span style="color: #006600;">defaultFactory</span> = <span style="color: #000000; font-weight: bold;">function</span><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>:<span style="color: #0066CC;">void</span>
+        <span style="color: #66cc66;">&#123;</span>
+            <span style="color: #0066CC;">this</span>.<span style="color: #006600;">lineStroke</span> = <span style="color: #000000; font-weight: bold;">new</span> SolidColorStroke<span style="color: #66cc66;">&#40;</span>0x828282, <span style="color: #cc66cc;">1</span><span style="color: #66cc66;">&#41;</span>;
+            <span style="color: #0066CC;">this</span>.<span style="color: #006600;">markerFill</span> = <span style="color: #000000; font-weight: bold;">new</span> SolidColor<span style="color: #66cc66;">&#40;</span>0x2963a3<span style="color: #66cc66;">&#41;</span>;
+            <span style="color: #0066CC;">this</span>.<span style="color: #006600;">markerStroke</span> = <span style="color: #000000; font-weight: bold;">new</span> SolidColorStroke<span style="color: #66cc66;">&#40;</span>0x2963a3, <span style="color: #cc66cc;">0</span>, <span style="color: #cc66cc;">0</span><span style="color: #66cc66;">&#41;</span>;
+            <span style="color: #0066CC;">this</span>.<span style="color: #006600;">markerRadius</span> = <span style="color: #cc66cc;">2</span>;
+            <span style="color: #0066CC;">this</span>.<span style="color: #006600;">normalRangeFill</span> = <span style="color: #000000; font-weight: bold;">new</span> SolidColor<span style="color: #66cc66;">&#40;</span>0x000000, <span style="color: #cc66cc;">0.1</span><span style="color: #66cc66;">&#41;</span>;
+        <span style="color: #66cc66;">&#125;</span>
+    <span style="color: #66cc66;">&#125;</span>
+&nbsp;
+    ...
+&nbsp;
+<span style="color: #66cc66;">&#125;</span>{% endhighlight %}
+</td>
+</tr>
+</table>
+</div>
+<p>You will also see that as of Flex 4, getting style declarations now requires a fully qualified class name rather than just the name of the class, e.g. <code>com.scottlogic.sparkline.Sparkline</code> rather than <code>Sparkline</code>.  As before, this change is required due to the underlying shift in the approach used for style management by the framework in order to support independence between modules.</p>
+<p>The other update required was due to the changed <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/graphics/IFill.html" ><code>IFill</code></a> and <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/graphics/IStroke.html" ><code>IStroke</code></a> interfaces.  In particular, the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/graphics/IFill.html#begin()" ><code>begin</code></a> method on <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/graphics/IFill.html" ><code>IFill</code></a> takes an additional <code>targetOrigin</code> argument of type <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/geom/Point.html" ><code>Point</code></a> that specifies intended origin of the shape drawing.  Similarly, <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/graphics/IStroke.html" ><code>IStroke</code></a>&#8216;s <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/graphics/IStroke.html#apply()" ><code>apply</code></a> method now takes two additional arguments, <code>targetBounds</code> and <code>targetOrigin</code>, to provide the same drawing manipulation/restriction as <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/graphics/IFill.html" ><code>IFill</code></a>.  Fortunately, the SDK team appear to have anticipated the potential complications and frustrations arising from these changes and have implemented them so that specifying a <code>null</code> value for the additional arguments results in identical behaviour to that which would have occurred in the Flex 3 code.</p>

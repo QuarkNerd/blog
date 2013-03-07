@@ -1,0 +1,151 @@
+---
+id: 117425
+author: Colin Eberhardt
+tags: 
+- codeproject
+categories: 
+- Blog
+layout: ceberhardt_post
+---
+
+<p>For the past few months I have been writing a Metro-In-Motion blog series which describes how to recreate some of the fluid effects found in native Windows Phone 7 applications within your own applications. So far I have covered <a href="http://www.scottlogic.co.uk/blog/colin/2011/03/metro-in-motion-fluid-list-animation/">fluid list animations</a>, <a href="http://www.scottlogic.co.uk/blog/colin/2011/03/metro-in-motion-part-2-peel-animations/">&#8216;peel&#8217; animations</a>, <a href="http://www.scottlogic.co.uk/blog/colin/2011/04/metro-in-motion-3-flying-titles/">flying titles</a> and a <a href="http://www.scottlogic.co.uk/blog/colin/2011/05/metro-in-motion-part-4-tilt-effect/">&#8217;tilt&#8217; effect</a> &#8211; and now &#8230; I am all out of ideas!</p>
+<p>The previous blog posts used a pretty simple little application to demonstrate their functionality, so I thought it might be fun to put these effects together within a more meaningful application. Rather than simply re-hashing an old idea, like a Twitter app, I decided to create something original, something inspiring, something which explores a subject area close to my heart &#8211; and stomache. This is how I came up with the (entirely original) SandwichFlow &#8230; an application for the sandwich aficionado!!!</p>
+<p>SandwichFlow &#8211; As good as sandwiches get on a mobile &#8230; Brought to you by Team Distraction and ColinDoesIt(AsWell): </p>
+<p><iframe width="640" height="510"  src="http://www.youtube.com/embed/dBmXAhZyJ7I" frameborder="0" allowfullscreen></iframe></p>
+<h2>Random Points Of Interest</h2>
+<p>The important bits of this application are covered in the previous Metro-In_motion blog posts, so the following is just a random bunch of things that your might find interesting about this application:</p>
+<h2>Recipe Thief</h2>
+<p>The recipes were scraped from the fantastic <a href="http://www.bbc.co.uk/food/sandwich">BBC Food</a> web-pages, which are published in XHTML format, making it easy for me to grab the various component parts of each recipe. The scraped output was saved as an XML file which the application uses to build a view model using Linq to XML:</p>
+<div class="wp_syntax"><div class="code">{% highlight csharp %}XDocument doc <span style="color: #008000;">=</span> XDocument<span style="color: #008000;">.</span><span style="color: #0000FF;">Parse</span><span style="color: #008000;">&#40;</span>xml<span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+Sandwiches <span style="color: #008000;">=</span> doc<span style="color: #008000;">.</span><span style="color: #0000FF;">Descendants</span><span style="color: #008000;">&#40;</span><span style="color: #666666;">&quot;sandwich&quot;</span><span style="color: #008000;">&#41;</span>
+                <span style="color: #008000;">.</span><span style="color: #0600FF; font-weight: bold;">Select</span><span style="color: #008000;">&#40;</span>el <span style="color: #008000;">=&gt;</span> <span style="color: #008000;">new</span> Sandwich<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>
+                <span style="color: #008000;">&#123;</span>
+                  Title <span style="color: #008000;">=</span> el<span style="color: #008000;">.</span><span style="color: #0000FF;">Attribute</span><span style="color: #008000;">&#40;</span><span style="color: #666666;">&quot;title&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Value</span>,
+                  Id <span style="color: #008000;">=</span> id<span style="color: #008000;">++</span>,
+                  Keywords <span style="color: #008000;">=</span> el<span style="color: #008000;">.</span><span style="color: #0000FF;">Descendants</span><span style="color: #008000;">&#40;</span><span style="color: #666666;">&quot;keyword&quot;</span><span style="color: #008000;">&#41;</span>
+                                <span style="color: #008000;">.</span><span style="color: #0600FF; font-weight: bold;">Select</span><span style="color: #008000;">&#40;</span>l <span style="color: #008000;">=&gt;</span> Regex<span style="color: #008000;">.</span><span style="color: #0000FF;">Replace</span><span style="color: #008000;">&#40;</span>l<span style="color: #008000;">.</span><span style="color: #0000FF;">Value</span>, <span style="color: #666666;">@&quot;\b(\w)&quot;</span>, m <span style="color: #008000;">=&gt;</span> m<span style="color: #008000;">.</span><span style="color: #0000FF;">Value</span><span style="color: #008000;">.</span><span style="color: #0000FF;">ToUpper</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span>                                      
+                                <span style="color: #008000;">.</span><span style="color: #0000FF;">ToList</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>,
+                  Ingredients <span style="color: #008000;">=</span> el<span style="color: #008000;">.</span><span style="color: #0000FF;">Descendants</span><span style="color: #008000;">&#40;</span><span style="color: #666666;">&quot;ingredient&quot;</span><span style="color: #008000;">&#41;</span>
+                                  <span style="color: #008000;">.</span><span style="color: #0600FF; font-weight: bold;">Select</span><span style="color: #008000;">&#40;</span>l <span style="color: #008000;">=&gt;</span> l<span style="color: #008000;">.</span><span style="color: #0000FF;">Value</span><span style="color: #008000;">&#41;</span>
+                                  <span style="color: #008000;">.</span><span style="color: #0000FF;">ToList</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>,
+                  Instructions <span style="color: #008000;">=</span> el<span style="color: #008000;">.</span><span style="color: #0000FF;">Descendants</span><span style="color: #008000;">&#40;</span><span style="color: #666666;">&quot;instruction&quot;</span><span style="color: #008000;">&#41;</span>
+                                  <span style="color: #008000;">.</span><span style="color: #0600FF; font-weight: bold;">Select</span><span style="color: #008000;">&#40;</span>l <span style="color: #008000;">=&gt;</span> <span style="color: #008000;">new</span> InstructionStep<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>
+                                  <span style="color: #008000;">&#123;</span>
+                                    Text <span style="color: #008000;">=</span> l<span style="color: #008000;">.</span><span style="color: #0000FF;">Value</span>,
+                                    Step <span style="color: #008000;">=</span> l<span style="color: #008000;">.</span><span style="color: #0000FF;">ElementsBeforeSelf</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Count</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">+</span> <span style="color: #FF0000;">1</span>
+                                  <span style="color: #008000;">&#125;</span><span style="color: #008000;">&#41;</span>
+                                  <span style="color: #008000;">.</span><span style="color: #0000FF;">ToList</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>
+&nbsp;
+                <span style="color: #008000;">&#125;</span><span style="color: #008000;">&#41;</span>
+                <span style="color: #008000;">.</span><span style="color: #0000FF;">ToList</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>{% endhighlight %}
+</div>
+</div>
+<h2>Jump then slide</h2>
+<p>The front-page of the application uses the <a href="http://www.scottlogic.co.uk/blog/colin/2011/01/a-windows-phone-7-jump-list-control/">JumpList control</a> I wrote a few months back, with DataTemplates supplied for rending recipes or keywords that have the MetroInMotion.AnimationLevel property set on various elements so that they slide gracefully as the pivot control is animated from one item to the next:</p>
+<div class="wp_syntax"><div class="code">{% highlight xml %}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;DataTemplate</span> <span style="color: #000066;">x:Key</span>=<span style="color: #ff0000;">&quot;SandwichTemplate&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;StackPanel</span> <span style="color: #000066;">Orientation</span>=<span style="color: #ff0000;">&quot;Vertical&quot;</span></span>
+<span style="color: #009900;">              <span style="color: #000066;">Margin</span>=<span style="color: #ff0000;">&quot;0,5,0,5&quot;</span></span>
+<span style="color: #009900;">              <span style="color: #000066;">mim:MetroInMotion.Tilt</span>=<span style="color: #ff0000;">&quot;3&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;TextBlock</span>  <span style="color: #000066;">Text</span>=<span style="color: #ff0000;">&quot;{Binding Title}&quot;</span></span>
+<span style="color: #009900;">                <span style="color: #000066;">mim:MetroInMotion.AnimationLevel</span>=<span style="color: #ff0000;">&quot;1&quot;</span></span>
+<span style="color: #009900;">                <span style="color: #000066;">x:Name</span>=<span style="color: #ff0000;">&quot;Title&quot;</span></span>
+<span style="color: #009900;">                <span style="color: #000066;">Foreground</span>=<span style="color: #ff0000;">&quot;Black&quot;</span></span>
+<span style="color: #009900;">                <span style="color: #000066;">FontSize</span>=<span style="color: #ff0000;">&quot;{StaticResource PhoneFontSizeLarge}&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;TextBlock</span> <span style="color: #000066;">Text</span>=<span style="color: #ff0000;">&quot;{Binding KeywordSummary}&quot;</span></span>
+<span style="color: #009900;">                <span style="color: #000066;">mim:MetroInMotion.AnimationLevel</span>=<span style="color: #ff0000;">&quot;2&quot;</span></span>
+<span style="color: #009900;">                <span style="color: #000066;">FontSize</span>=<span style="color: #ff0000;">&quot;{StaticResource PhoneFontSizeNormal}&quot;</span></span>
+<span style="color: #009900;">                <span style="color: #000066;">Foreground</span>=<span style="color: #ff0000;">&quot;#888&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/StackPanel<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/DataTemplate<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>{% endhighlight %}
+</div>
+</div>
+<h2>Bring it back</h2>
+<p>I originally added the background image to each page, then I realised a better place to put this is the application frame:</p>
+<div class="wp_syntax"><div class="code">{% highlight csharp %}<span style="color: #008000;">&lt;</span>Style x<span style="color: #008000;">:</span>Key<span style="color: #008000;">=</span><span style="color: #666666;">&quot;mainFrameStyle&quot;</span>
+    TargetType<span style="color: #008000;">=</span><span style="color: #666666;">&quot;phone:PhoneApplicationFrame&quot;</span><span style="color: #008000;">&gt;</span>
+  <span style="color: #008000;">&lt;</span>Setter Property<span style="color: #008000;">=</span><span style="color: #666666;">&quot;Template&quot;</span><span style="color: #008000;">&gt;</span>
+    <span style="color: #008000;">&lt;</span>Setter<span style="color: #008000;">.</span><span style="color: #0000FF;">Value</span><span style="color: #008000;">&gt;</span>
+      <span style="color: #008000;">&lt;</span>ControlTemplate TargetType<span style="color: #008000;">=</span><span style="color: #666666;">&quot;phone:PhoneApplicationFrame&quot;</span><span style="color: #008000;">&gt;</span>
+        <span style="color: #008000;">&lt;</span>Grid Background<span style="color: #008000;">=</span><span style="color: #666666;">&quot;White&quot;</span><span style="color: #008000;">&gt;</span>
+          <span style="color: #008000;">&lt;!--</span> background image <span style="color: #008000;">--&gt;</span>
+          <span style="color: #008000;">&lt;</span>Image Source<span style="color: #008000;">=</span><span style="color: #666666;">&quot;background.jpg&quot;</span>
+                HorizontalAlignment<span style="color: #008000;">=</span><span style="color: #666666;">&quot;Stretch&quot;</span>
+                VerticalAlignment<span style="color: #008000;">=</span><span style="color: #666666;">&quot;Stretch&quot;</span><span style="color: #008000;">/&gt;</span>
+          <span style="color: #008000;">&lt;</span>Border x<span style="color: #008000;">:</span>Name<span style="color: #008000;">=</span><span style="color: #666666;">&quot;ClientArea&quot;</span>
+                  BorderBrush<span style="color: #008000;">=</span><span style="color: #666666;">&quot;{TemplateBinding BorderBrush}&quot;</span>
+                  BorderThickness<span style="color: #008000;">=</span><span style="color: #666666;">&quot;{TemplateBinding BorderThickness}&quot;</span>
+                  Background<span style="color: #008000;">=</span><span style="color: #666666;">&quot;{TemplateBinding Background}&quot;</span>
+                  HorizontalAlignment<span style="color: #008000;">=</span><span style="color: #666666;">&quot;{TemplateBinding HorizontalAlignment}&quot;</span>
+                  VerticalAlignment<span style="color: #008000;">=</span><span style="color: #666666;">&quot;{TemplateBinding VerticalAlignment}&quot;</span><span style="color: #008000;">&gt;</span>
+            <span style="color: #008000;">&lt;</span>ContentPresenter ContentTemplate<span style="color: #008000;">=</span><span style="color: #666666;">&quot;{TemplateBinding ContentTemplate}&quot;</span>
+                              Content<span style="color: #008000;">=</span><span style="color: #666666;">&quot;{TemplateBinding Content}&quot;</span>
+                              HorizontalAlignment<span style="color: #008000;">=</span><span style="color: #666666;">&quot;{TemplateBinding HorizontalContentAlignment}&quot;</span>
+                              Margin<span style="color: #008000;">=</span><span style="color: #666666;">&quot;{TemplateBinding Padding}&quot;</span>
+                              VerticalAlignment<span style="color: #008000;">=</span><span style="color: #666666;">&quot;{TemplateBinding VerticalContentAlignment}&quot;</span><span style="color: #008000;">/&gt;</span>
+          <span style="color: #008000;">&lt;/</span>Border<span style="color: #008000;">&gt;</span>
+        <span style="color: #008000;">&lt;/</span>Grid<span style="color: #008000;">&gt;</span>
+      <span style="color: #008000;">&lt;/</span>ControlTemplate<span style="color: #008000;">&gt;</span>
+    <span style="color: #008000;">&lt;/</span>Setter<span style="color: #008000;">.</span><span style="color: #0000FF;">Value</span><span style="color: #008000;">&gt;</span>
+  <span style="color: #008000;">&lt;/</span>Setter<span style="color: #008000;">&gt;</span>
+<span style="color: #008000;">&lt;/</span>Style<span style="color: #008000;">&gt;</span>{% endhighlight %}
+</div>
+</div>
+<p>The application frame remains throughout the application lifetime, it hosts the currently displayed page. I have a feeling that the application frame is a little under-used. Rather than adding your application title to each page, why not add it to the frame?</p>
+<h2>The same but different</h2>
+<p>The code to find similar sandwiches uses an interesting Linq method which I have not used before, <code>Intersect</code>. It is always good to learn something new!</p>
+<div class="wp_syntax"><div class="code">{% highlight csharp %}<span style="color: #008080; font-style: italic;">// locate related sandwiches</span>
+<span style="color: #0600FF; font-weight: bold;">foreach</span> <span style="color: #008000;">&#40;</span>var sandwich <span style="color: #0600FF; font-weight: bold;">in</span> Sandwiches<span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span>
+  sandwich<span style="color: #008000;">.</span><span style="color: #0000FF;">Similar</span> <span style="color: #008000;">=</span> Sandwiches<span style="color: #008000;">.</span><span style="color: #0600FF; font-weight: bold;">Where</span><span style="color: #008000;">&#40;</span>s <span style="color: #008000;">=&gt;</span> s <span style="color: #008000;">!=</span> sandwich<span style="color: #008000;">&#41;</span>
+                      <span style="color: #008000;">.</span><span style="color: #0600FF; font-weight: bold;">Select</span><span style="color: #008000;">&#40;</span>s <span style="color: #008000;">=&gt;</span>
+                        <span style="color: #008000;">new</span>
+                        <span style="color: #008000;">&#123;</span>
+                          Sandwich <span style="color: #008000;">=</span> s,
+                          Score <span style="color: #008000;">=</span> KeywordCorrelation<span style="color: #008000;">&#40;</span>s<span style="color: #008000;">.</span><span style="color: #0000FF;">Keywords</span>, sandwich<span style="color: #008000;">.</span><span style="color: #0000FF;">Keywords</span><span style="color: #008000;">&#41;</span>
+                        <span style="color: #008000;">&#125;</span><span style="color: #008000;">&#41;</span>
+                      <span style="color: #008000;">.</span><span style="color: #0000FF;">OrderBy</span><span style="color: #008000;">&#40;</span>s <span style="color: #008000;">=&gt;</span> s<span style="color: #008000;">.</span><span style="color: #0000FF;">Score</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Reverse</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>
+                      <span style="color: #008000;">.</span><span style="color: #0000FF;">Take</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">5</span><span style="color: #008000;">&#41;</span>
+                      <span style="color: #008000;">.</span><span style="color: #0600FF; font-weight: bold;">Select</span><span style="color: #008000;">&#40;</span>s <span style="color: #008000;">=&gt;</span> s<span style="color: #008000;">.</span><span style="color: #0000FF;">Sandwich</span><span style="color: #008000;">&#41;</span>
+                      <span style="color: #008000;">.</span><span style="color: #0000FF;">ToList</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;
+<span style="color: #0600FF; font-weight: bold;">private</span> <span style="color: #6666cc; font-weight: bold;">double</span> KeywordCorrelation<span style="color: #008000;">&#40;</span>List<span style="color: #008000;">&lt;</span><span style="color: #6666cc; font-weight: bold;">string</span><span style="color: #008000;">&gt;</span> keywordsOne, List<span style="color: #008000;">&lt;</span><span style="color: #6666cc; font-weight: bold;">string</span><span style="color: #008000;">&gt;</span> keywordsTwo<span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span>
+  var commonKeywords <span style="color: #008000;">=</span> keywordsOne<span style="color: #008000;">.</span><span style="color: #0000FF;">Intersect</span><span style="color: #008000;">&#40;</span>keywordsTwo<span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+  var allKeywords <span style="color: #008000;">=</span> keywordsOne<span style="color: #008000;">.</span><span style="color: #0000FF;">Union</span><span style="color: #008000;">&#40;</span>keywordsTwo<span style="color: #008000;">&#41;</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Distinct</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+  <span style="color: #0600FF; font-weight: bold;">return</span> <span style="color: #008000;">&#40;</span><span style="color: #6666cc; font-weight: bold;">double</span><span style="color: #008000;">&#41;</span>commonKeywords<span style="color: #008000;">.</span><span style="color: #0000FF;">Count</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">/</span> <span style="color: #008000;">&#40;</span><span style="color: #6666cc; font-weight: bold;">double</span><span style="color: #008000;">&#41;</span>allKeywords<span style="color: #008000;">.</span><span style="color: #0000FF;">Count</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+<span style="color: #008000;">&#125;</span>{% endhighlight %}
+</div>
+</div>
+<p>The <code>KeywordCorrelation</code> methods finds the number of keywords that both sandwiches have in common, then divides this by the distinct collection of keywords for both sandwiches. Yummy.</p>
+<h2>Slippery Ingredients</h2>
+<p>When you view a recipe, the ingredients slide in from the right. I didn&#8217;t really have time to find images for all of the ingredients on the web, so each recipe has the ingredients of my favourite &#8211; the cheese and pickle sandwich. Each ingredient slides in using a storyboard, with their <code>BeginTime</code> staggered:</p>
+<div class="wp_syntax"><div class="code">{% highlight xml %}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Image</span> <span style="color: #000066;">Source</span>=<span style="color: #ff0000;">&quot;tom.png&quot;</span></span>
+<span style="color: #009900;">        <span style="color: #000066;">Margin</span>=<span style="color: #ff0000;">&quot;150,70,0,0&quot;</span></span>
+<span style="color: #009900;">        <span style="color: #000066;">mim:MetroInMotion.AnimationLevel</span>=<span style="color: #ff0000;">&quot;2&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Image.RenderTransform<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;TranslateTransform</span> <span style="color: #000066;">x:Name</span>=<span style="color: #ff0000;">&quot;tomTrans&quot;</span></span>
+<span style="color: #009900;">                          <span style="color: #000066;">X</span>=<span style="color: #ff0000;">&quot;400&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/Image.RenderTransform<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Image.Triggers<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;EventTrigger</span> <span style="color: #000066;">RoutedEvent</span>=<span style="color: #ff0000;">&quot;Image.Loaded&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+      <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;BeginStoryboard<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+        <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Storyboard</span> <span style="color: #000066;">BeginTime</span>=<span style="color: #ff0000;">&quot;00:00:0.2&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+          <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;DoubleAnimation</span> <span style="color: #000066;">Duration</span>=<span style="color: #ff0000;">&quot;00:00:0.7&quot;</span></span>
+<span style="color: #009900;">                            <span style="color: #000066;">Storyboard.TargetName</span>=<span style="color: #ff0000;">&quot;tomTrans&quot;</span> </span>
+<span style="color: #009900;">                            <span style="color: #000066;">Storyboard.TargetProperty</span>=<span style="color: #ff0000;">&quot;X&quot;</span> </span>
+<span style="color: #009900;">                            <span style="color: #000066;">From</span>=<span style="color: #ff0000;">&quot;400&quot;</span> <span style="color: #000066;">To</span>=<span style="color: #ff0000;">&quot;0&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+            <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;DoubleAnimation.EasingFunction<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+              <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;SineEase</span> <span style="color: #000066;">EasingMode</span>=<span style="color: #ff0000;">&quot;EaseOut&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+            <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/DoubleAnimation.EasingFunction<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+          <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/DoubleAnimation<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+        <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/Storyboard<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+      <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/BeginStoryboard<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/EventTrigger<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/Image.Triggers<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/Image<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>{% endhighlight %}
+</div>
+</div>
+<p>They also have the <code>MetroInMotion.AnimationLevel</code> attached property set so that they slide with the pivot control. </p>
+<p>You can grab the code here: <a href='http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/05/SandwichFlow.zip'>SandwichFlow.zip</a></p>
+<p>Regards, Colin E.<a href="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/05/SplashScreenImage.jpg"><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/05/SplashScreenImage.jpg" alt="" title="SplashScreenImage" width="480" height="800" class="aligncenter size-full wp-image-1499" /></a></p>

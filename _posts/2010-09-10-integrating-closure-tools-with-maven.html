@@ -1,0 +1,191 @@
+---
+id: 68666
+author: Steven Hall
+tags: 
+- Closure
+- Google
+- Javascript
+- closure-compiler
+categories: 
+- Blog
+layout: default_post
+---
+<p>Apache Maven is a popular build management tool that we use at Scott Logic to handle our internal projects. When I began using the Closure Tools, integrating the Compiler into the Maven build process became an important task.</p>
+<p>Having the compilation of code in the build process assures that the code will be built correctly both at development and release time, as well as ensuring repeatability in the build. We also chose to integrate Closure Linter into the build process to ensure adherence to style. This blog article will aim to show you one technique for including Closure compilation and style checking into your Maven project.</p>
+<h2>Closure Compiler</h2>
+<p>Let's imagine we want to include the following builder configuration into Maven:</p>
+{% highlight bat %}python closurebuilder.py --root=js --namespace=foo.bar --output_mode=compiled /
+--compiler_flags="--compilation_level=ADVANCED_OPTIMIZATIONS" /
+--compiler_jar=compiler.jar --output_file=compiled.js{% endhighlight %}
+<h2>Maven Integration</h2>
+<p>Integrating an executable with Maven is simple using the <a href="http://mojo.codehaus.org/exec-maven-plugin/" target="_blank">Maven Exec Plugin</a>. However, the tricky part comes with requiring all the source files in one location to compile.</p>
+<p>It's to be assumed that you've been using the war plugin to package your web project. The war:war goal will explode all the required files in a target directory, and then package them into a WAR file. The uncompressed files remain in the target directory after the WAR has been created, and we will use these exploded files to compile the code.</p>
+<p>The goal is to have all the JavaScript source files in the Maven directory before creating the final WAR file, so we can compile them. We do this by adding a war:war goal to the prepare-package phase. This goal explodes all the required source into the target directory, and allows us to compile, before the actual packaging is done in the package phase.</p>
+<p>In its simplest form, the phases are as follows:</p>
+<ul>
+<li>[<span style="color: #800000">prepare-package</span>(war:war)] Explode the WAR file into the target directory, then create an empty WAR file from the files just exploded.</li>
+<li>[<span style="color: #800000">prepare-package</span>(exec:exec)] Compile the exploded files that were left behind by the war goal of the prepare-package phase.</li>
+<li>[<span style="color: #800000">package</span>(war:war)] Create a WAR with the compiled source in it, and no other JavaScript sources.</li>
+</ul>
+<p>This can get a little complicated, so I've put together a small table showing the phases:</p>
+<table class="blogTable">
+<thead>
+<tr>
+<th>Phase</th>
+<th>Goal</th>
+<th>Configuration</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>prepare-package</th>
+<td>war:war</td>
+<td></td>
+<td>Creating a WAR archive will explode all files into the target directory. This is how we get all the files we want to compile.</td>
+</tr>
+<tr>
+<th></th>
+<td></td>
+<td>only include JavaScript source files</td>
+<td>We only want JavaScript source files - don't include any other files</td>
+</tr>
+<tr>
+<th></th>
+<td></td>
+<td>exclude everything from archive</td>
+<td>Maven will automatically create an archive from the exploded directory. Although this is the goal, we aren't interested in the war file (we only want the contents of the exploded directory). Don't include anything in the war to save processing.</td>
+</tr>
+<tr>
+<th></th>
+<td>exec:exec</td>
+<td></td>
+<td>The exec goal is what will execute the compiler python script.</td>
+</tr>
+<tr>
+<th></th>
+<td></td>
+<td>output to target folder</td>
+<td>Ensure that the compiled file is output to the target folder, so when we package, we can include it.</td>
+</tr>
+<tr>
+<th>package</th>
+<td>war:war</td>
+<td></td>
+<td>Now that we have the compiled file, we can create the WAR archive.</td>
+</tr>
+<tr>
+<th></th>
+<td></td>
+<td>exclude all JavaScript sources except the compiled file</td>
+<td>Only include the compiled file (no other JS sources) as they are contained within the compiled file.</td>
+</tr>
+</tbody>
+</table>
+<p>Here's the XML that reflects this:</p>
+{% highlight xml %}&lt;plugin&gt;
+  &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+  &lt;artifactId&gt;maven-war-plugin&lt;/artifactId&gt;
+  &lt;version&gt;2.1-beta-1&lt;/version&gt;
+  &lt;executions&gt;
+    &lt;execution&gt;
+      &lt;id&gt;write-deps&lt;/id&gt;
+      &lt;phase&gt;prepare-package&lt;/phase&gt;
+      &lt;goals&gt;
+        &lt;goal&gt;war&lt;/goal&gt;
+      &lt;/goals&gt;
+      &lt;configuration&gt;
+        &lt;!-- Make sure to include only the JavaScript source files --&gt;
+        &lt;warSourceIncludes&gt;**/*.js&lt;/warSourceIncludes&gt;
+        &lt;dependencyWarIncludes&gt;**/*.js&lt;/dependencyWarIncludes&gt;
+        &lt;!-- Exclude everything from the final WAR file, as we won't use it --&gt;
+        &lt;packagingExcludes&gt;**/*&lt;/packagingExcludes&gt;
+      &lt;/configuration&gt;
+    &lt;/execution&gt;
+    &lt;execution&gt;
+      &lt;id&gt;default-war&lt;/id&gt;
+      &lt;phase&gt;package&lt;/phase&gt;
+      &lt;goals&gt;
+        &lt;goal&gt;war&lt;/goal&gt;
+      &lt;/goals&gt;
+      &lt;configuration&gt;
+        &lt;!-- This is the final WAR package.
+          Exclude all the JavaScript sources except the compiled file --&gt;
+        &lt;packagingExcludes&gt;js/*/**/*.js&lt;/packagingExcludes&gt;
+      &lt;/configuration&gt;
+    &lt;/execution&gt;
+  &lt;/executions&gt;
+&lt;/plugin&gt;
+&lt;plugin&gt;
+  &lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
+  &lt;artifactId&gt;exec-maven-plugin&lt;/artifactId&gt;
+  &lt;version&gt;1.1.1&lt;/version&gt;
+  &lt;executions&gt;
+    &lt;execution&gt;
+      &lt;id&gt;resolve-and-compile-js&lt;/id&gt;
+      &lt;phase&gt;prepare-package&lt;/phase&gt;
+      &lt;goals&gt;
+        &lt;goal&gt;exec&lt;/goal&gt;
+      &lt;/goals&gt;
+      &lt;configuration&gt;
+        &lt;!-- We're running a python script, so the executable is python. --&gt;
+        &lt;executable&gt;python&lt;/executable&gt;
+        &lt;workingDirectory&gt;${project.build.directory}/${project.build.finalName}&lt;/workingDirectory&gt;
+        &lt;!-- Here we define the arguments to the Python execution.
+          This includes the location of closure-builder,
+          and any other arguments to the Python script --&gt;
+        &lt;arguments&gt;
+          &lt;!-- Remember that you're in the BUILD directory.
+            Make sure this points to the correct place. --&gt;
+          &lt;argument&gt;../closure-builder.py&lt;/argument&gt;
+          &lt;!-- Ensure this points to the root of all your JS files,
+            including any dependencies that may have been pulled in.
+            Everything in this directory will be compiled. --&gt;
+          &lt;argument&gt;--root=js&lt;/argument&gt;
+          &lt;argument&gt;--namespace="foo.bar"&lt;/argument&gt;
+          &lt;argument&gt;--output_mode=compiled&lt;/argument&gt;
+          &lt;argument&gt;--compiler_flags="--compilation_level=ADVANCED_OPTIMIZATIONS"&lt;/argument&gt;
+          &lt;!-- As with closure-builder, ensure that this points to
+            the Compiler .jar file from the build directory. --&gt;
+          &lt;argument&gt;--compiler_jar=../compiler.jar&lt;/argument&gt;
+          &lt;argument&gt;--output_file=compiled.js&lt;/argument&gt;
+        &lt;/arguments&gt;
+      &lt;/configuration&gt;
+    &lt;/execution&gt;
+  &lt;/executions&gt;
+&lt;/plugin&gt;{% endhighlight %}
+<h3>war:exploded</h3>
+<p>Note that we could have used war:exploded in the prepare-package phase as the packaged war file isn't required (war:exploded does the job of war:war but without the last step, where the exploded files are added to a war archive).</p>
+<p>However, war:exploded doesn't have the same optimization of ignoring dependency changes as war:war, so while it would work the build would be much slower.</p>
+<h2>Dependencies</h2>
+<p>It's better practice in Maven to keep individual modules separate, so that you can build against specific versions and therefore improve the repeatability and reliability of your builds. For this reason, you probably won't want to have your application and the Closure Library in the same project, which can be achieved by using a <a href="http://maven.apache.org/plugins/maven-war-plugin/examples/war-overlay.html" target="_blank">War overlay</a>.</p>
+<p>As long as both projects are war packaged, the war goal will explode all files into the same directory. For example, your structure may be similar to the example below:</p>
+<p style="text-align: center"><a href="http://www.scottlogic.co.uk/wp-content/uploads/2010/09/FileStruct1.png"><img class="aligncenter" src="http://www.scottlogic.co.uk/wp-content/uploads/2010/09/FileStruct1.png" alt="" width="225" height="306" /></a></p>
+<p>As you can see, the target directory in myproject has combined the js folders from both projects, so giving the Compiler access to the js folder will include all JavaScript source.</p>
+<h2>Closure Linter</h2>
+<p>As another step, you may wish to include a Closure Linter pass in your build process. This is done a very similar way, albeit with fewer complications. Using the same Exec Plugin (remember your dependency!) we can add another execution to the prepare-package phase as such:</p>
+{% highlight xml %}&lt;execution&gt;
+  &lt;id&gt;check-style&lt;/id&gt;
+  &lt;phase&gt;prepare-package&lt;/phase&gt;
+  &lt;goals&gt;
+    &lt;goal&gt;exec&lt;/goal&gt;
+  &lt;/goals&gt;
+  &lt;configuration&gt;
+    &lt;!-- We aren't using Python anymore; if you've followed the instructions from Google,
+      gjslint should be runnable from the command line. --&gt;
+    &lt;executable&gt;gjslint&lt;/executable&gt;
+    &lt;workingDirectory&gt;${project.build.directory}/${project.build.finalName}&lt;/workingDirectory&gt;
+    &lt;arguments&gt;
+      &lt;!-- Set your arguments here --&gt;
+      &lt;argument&gt;--strict&lt;/argument&gt;
+      &lt;argument&gt;-r&lt;/argument&gt;
+      &lt;!-- Each source file in this directory will be checked. --&gt;
+      &lt;argument&gt;js/scottlogic&lt;/argument&gt;
+    &lt;/arguments&gt;
+  &lt;/configuration&gt;
+&lt;/execution&gt;{% endhighlight %}
+<p>The build will then output the results of the style check to the standard output. Of course, if you wanted to use fixjsstyle too, this would only require changing the executable tag.</p>
+<h2>Conclusion</h2>
+<p>Hopefully this article has explained the method of integrating the Closure Compiler into your build process. Whilst in theory it doesn't sound like a complicated task, the management of files between different projects can be quite complex.</p>
+<p>The main goal of this article was to introduce the method of exploding the required files into one directory, manipulating the files, and then creating the final WAR.</p>
+<p>Hopefully I've provided a framework for working with the Closure Tools and Maven and that, in theory, different executables and Maven goals can be applied to the source files (jsdoc-toolkit and JSLint as examples) before they are packaged into the final WAR.</p>

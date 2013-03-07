@@ -1,0 +1,233 @@
+---
+id: 114807
+author: Colin Eberhardt
+tags: 
+- codeproject
+- visiblox
+categories: 
+- Blog
+layout: ceberhardt_post
+---
+
+<p><em>In this blog post I will describe the creation of a simple range selector UserControl, which can be used alongside a Visiblox chart to create an interactive navigator for time series data.</em></p>
+<p>Whether you are studying finance, politics, meteorology or sociology you are sure to encounter time series data. Time series are everywhere! And until the universe starts to collapse in on itself and the arrow of time reverses, these time series are going to keep on growing in size. When charting and exploring large time series datasets, it can help to have a navigator control &#8211; a small chart showing the entire dataset at a lower resolution, with controls that allow the user to select a range to view in detail.</p>
+<p>This blog post describes how to create a simple navigator control which allows the user to select and drag a time range, as shown below:</p>
+<div style="text-align: center;"><object width="450" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/01/VisibloxRangeControl.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>The data in the above chart comes from the <a href="http://robjhyndman.com/TSDL/">Time Series Data Library</a> collected and published online by Rob Hyndman.</p>
+<h2>The Range Control</h2>
+<p>The markup for the range selector user control is a <code>Grid</code> divided into three columns. The left and right hand column each contain a <code>Border</code> with a blue fill which shades the sections which are outside of the selected range. These cells also each contain a <code>Thumb</code> control, this is the element that the user interacts with. The central column contains a thumb that occupies the entire cell, however, its opacity is set to zero so that it is not visible:</p>
+<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/01/rangeSelector.png" alt="" title="rangeSelector" width="332" height="124" class="aligncenter size-full wp-image-1154" /></p>
+<div class="wp_syntax"><div class="code">{% highlight xml %}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;UserControl</span> <span style="color: #000066;">x:Class</span>=<span style="color: #ff0000;">&quot;VisibloxRangeControl.DateTimeRangeControl&quot;</span></span>
+<span style="color: #009900;">    ... <span style="color: #000000; font-weight: bold;">&gt;</span></span>
+&nbsp;
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Grid</span> <span style="color: #000066;">x:Name</span>=<span style="color: #ff0000;">&quot;LayoutRoot&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Grid.ColumnDefinitions<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+      <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;ColumnDefinition</span> <span style="color: #000066;">Width</span>=<span style="color: #ff0000;">&quot;400&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+      <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;ColumnDefinition</span> <span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+      <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;ColumnDefinition</span> <span style="color: #000066;">Width</span>=<span style="color: #ff0000;">&quot;50&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/Grid.ColumnDefinitions<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+&nbsp;
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Thumb</span> <span style="color: #000066;">Grid.Column</span>=<span style="color: #ff0000;">&quot;1&quot;</span></span>
+<span style="color: #009900;">           <span style="color: #000066;">Opacity</span>=<span style="color: #ff0000;">&quot;0&quot;</span></span>
+<span style="color: #009900;">           <span style="color: #000066;">Cursor</span>=<span style="color: #ff0000;">&quot;Hand&quot;</span></span>
+<span style="color: #009900;">           <span style="color: #000066;">DragDelta</span>=<span style="color: #ff0000;">&quot;CentreThumb_DragDelta&quot;</span></span>
+<span style="color: #009900;">           <span style="color: #000066;">DragCompleted</span>=<span style="color: #ff0000;">&quot;Thumb_DragCompleted&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+&nbsp;
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Border</span> <span style="color: #000066;">Background</span>=<span style="color: #ff0000;">&quot;Blue&quot;</span></span>
+<span style="color: #009900;">            <span style="color: #000066;">BorderBrush</span>=<span style="color: #ff0000;">&quot;Black&quot;</span></span>
+<span style="color: #009900;">            <span style="color: #000066;">BorderThickness</span>=<span style="color: #ff0000;">&quot;0,0,1,0&quot;</span></span>
+<span style="color: #009900;">            <span style="color: #000066;">Opacity</span>=<span style="color: #ff0000;">&quot;0.3&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Thumb</span> <span style="color: #000066;">x:Name</span>=<span style="color: #ff0000;">&quot;LeftThumb&quot;</span></span>
+<span style="color: #009900;">           <span style="color: #000066;">Width</span>=<span style="color: #ff0000;">&quot;10&quot;</span> <span style="color: #000066;">Height</span>=<span style="color: #ff0000;">&quot;20&quot;</span></span>
+<span style="color: #009900;">           <span style="color: #000066;">Margin</span>=<span style="color: #ff0000;">&quot;0,0,-5,0&quot;</span></span>
+<span style="color: #009900;">           <span style="color: #000066;">VerticalAlignment</span>=<span style="color: #ff0000;">&quot;Center&quot;</span> <span style="color: #000066;">HorizontalAlignment</span>=<span style="color: #ff0000;">&quot;Right&quot;</span></span>
+<span style="color: #009900;">           <span style="color: #000066;">Cursor</span>=<span style="color: #ff0000;">&quot;SizeWE&quot;</span></span>
+<span style="color: #009900;">           <span style="color: #000066;">DragDelta</span>=<span style="color: #ff0000;">&quot;LeftThumb_DragDelta&quot;</span></span>
+<span style="color: #009900;">           <span style="color: #000066;">DragCompleted</span>=<span style="color: #ff0000;">&quot;Thumb_DragCompleted&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+&nbsp;
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Border</span> <span style="color: #000066;">Background</span>=<span style="color: #ff0000;">&quot;Blue&quot;</span></span>
+<span style="color: #009900;">            <span style="color: #000066;">BorderThickness</span>=<span style="color: #ff0000;">&quot;1,0,0,0&quot;</span></span>
+<span style="color: #009900;">            <span style="color: #000066;">BorderBrush</span>=<span style="color: #ff0000;">&quot;Black&quot;</span></span>
+<span style="color: #009900;">            <span style="color: #000066;">Opacity</span>=<span style="color: #ff0000;">&quot;0.3&quot;</span></span>
+<span style="color: #009900;">            <span style="color: #000066;">Grid.Column</span>=<span style="color: #ff0000;">&quot;2&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Thumb</span> <span style="color: #000066;">x:Name</span>=<span style="color: #ff0000;">&quot;RightThumb&quot;</span></span>
+<span style="color: #009900;">           <span style="color: #000066;">Grid.Column</span>=<span style="color: #ff0000;">&quot;2&quot;</span></span>
+<span style="color: #009900;">           <span style="color: #000066;">Width</span>=<span style="color: #ff0000;">&quot;10&quot;</span> <span style="color: #000066;">Height</span>=<span style="color: #ff0000;">&quot;20&quot;</span></span>
+<span style="color: #009900;">           <span style="color: #000066;">Cursor</span>=<span style="color: #ff0000;">&quot;SizeWE&quot;</span></span>
+<span style="color: #009900;">           <span style="color: #000066;">Margin</span>=<span style="color: #ff0000;">&quot;-5,0,0,0&quot;</span></span>
+<span style="color: #009900;">           <span style="color: #000066;">VerticalAlignment</span>=<span style="color: #ff0000;">&quot;Center&quot;</span> <span style="color: #000066;">HorizontalAlignment</span>=<span style="color: #ff0000;">&quot;Left&quot;</span></span>
+<span style="color: #009900;">           <span style="color: #000066;">DragDelta</span>=<span style="color: #ff0000;">&quot;RightThumb_DragDelta&quot;</span></span>
+<span style="color: #009900;">           <span style="color: #000066;">DragCompleted</span>=<span style="color: #ff0000;">&quot;Thumb_DragCompleted&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/Grid<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/UserControl<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>{% endhighlight %}
+</div>
+</div>
+<p>Event handlers are added to the <code>DragDelta</code> and <code>DragCompleted</code> event of each <code>Thumb</code> control. The Thumb control is a bit of an odd one, you might expect that it moves itself as the user clicks and drags it, however, this is not the case. When the user clicks and drags the <code>Thumb</code>, it fires <code>DragDelta</code> events as the mouse moves, however, it is your responsibility to move the <code>Thumb</code> to the updated location to reflect this drag operation.</p>
+<p>This might sound odd at first, however, there are many in which a control can be moved, you can set its <code>Canvas</code> location, update its <code>Margin</code>, apply a <code>RenderTransform</code>, to name just a few methods. In the case of the range control described in the XAML above, the <code>Thumb</code> location is dictated by the width of the column that contains it. Therefore, when <code>DragDelta</code> events are fired, we need to update these widths on code-behind, as shown below:</p>
+<div class="wp_syntax"><div class="code">{% highlight csharp %}<span style="color: #008080; font-style: italic;">/// &lt;summary&gt;</span>
+<span style="color: #008080; font-style: italic;">/// Handles dragging of the left hand thumb control</span>
+<span style="color: #008080; font-style: italic;">/// &lt;/summary&gt;</span>
+<span style="color: #0600FF; font-weight: bold;">private</span> <span style="color: #6666cc; font-weight: bold;">void</span> LeftThumb_DragDelta<span style="color: #008000;">&#40;</span><span style="color: #6666cc; font-weight: bold;">object</span> sender, DragDeltaEventArgs e<span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span>
+  <span style="color: #008080; font-style: italic;">// obtain the column width and apply an offset</span>
+  var columnDef <span style="color: #008000;">=</span> LayoutRoot<span style="color: #008000;">.</span><span style="color: #0000FF;">ColumnDefinitions</span><span style="color: #008000;">&#91;</span><span style="color: #FF0000;">0</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">;</span>
+  var width <span style="color: #008000;">=</span> columnDef<span style="color: #008000;">.</span><span style="color: #0000FF;">Width</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Value</span><span style="color: #008000;">;</span>
+  width <span style="color: #008000;">+=</span> e<span style="color: #008000;">.</span><span style="color: #0000FF;">HorizontalChange</span><span style="color: #008000;">;</span>
+&nbsp;
+  <span style="color: #008080; font-style: italic;">// prevent the user from dragging the thumb outside of the control</span>
+  <span style="color: #0600FF; font-weight: bold;">if</span> <span style="color: #008000;">&#40;</span>width <span style="color: #008000;">&lt;</span> <span style="color: #FF0000;">0</span><span style="color: #008000;">&#41;</span>
+  <span style="color: #008000;">&#123;</span>
+    width <span style="color: #008000;">=</span> <span style="color: #FF0000;">0</span><span style="color: #008000;">;</span>
+  <span style="color: #008000;">&#125;</span>
+&nbsp;
+  <span style="color: #008080; font-style: italic;">// prevent the overlap of the left + right regions</span>
+  <span style="color: #0600FF; font-weight: bold;">if</span> <span style="color: #008000;">&#40;</span>width <span style="color: #008000;">+</span> LayoutRoot<span style="color: #008000;">.</span><span style="color: #0000FF;">ColumnDefinitions</span><span style="color: #008000;">&#91;</span><span style="color: #FF0000;">2</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Width</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Value</span> <span style="color: #008000;">+</span> <span style="color: #FF0000;">20</span> <span style="color: #008000;">&gt;</span> <span style="color: #0600FF; font-weight: bold;">this</span><span style="color: #008000;">.</span><span style="color: #0000FF;">ActualWidth</span><span style="color: #008000;">&#41;</span>
+  <span style="color: #008000;">&#123;</span>
+    width <span style="color: #008000;">=</span> columnDef<span style="color: #008000;">.</span><span style="color: #0000FF;">Width</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Value</span><span style="color: #008000;">;</span>
+  <span style="color: #008000;">&#125;</span>
+&nbsp;
+  <span style="color: #008080; font-style: italic;">// update the column width</span>
+  columnDef<span style="color: #008000;">.</span><span style="color: #0000FF;">Width</span> <span style="color: #008000;">=</span> <span style="color: #008000;">new</span> GridLength<span style="color: #008000;">&#40;</span>width<span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;
+<span style="color: #0600FF; font-weight: bold;">private</span> <span style="color: #6666cc; font-weight: bold;">void</span> Thumb_DragCompleted<span style="color: #008000;">&#40;</span><span style="color: #6666cc; font-weight: bold;">object</span> sender, DragCompletedEventArgs e<span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span>
+    UpdateExposedBounds<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+<span style="color: #008000;">&#125;</span>{% endhighlight %}
+</div>
+</div>
+<p>The event handler for the right hand thumb is very similar to the above. The handler for the centre thumb which allows you to drag a region of fixed time is a little more complex, updating the widths of both left and right hand columns, however, the principle is very much the same.</p>
+<p>In order to use this control as an interactive range selector, we need to be able to specify the <code>DateTime</code> range it represents and also the control needs to expose the <code>DateTime</code> range for the current selection. To achieve this purpose, the control exposes a Range dependency property of type <code>DateTimeRange</code> (from the Visiblox APIs), which is used to specify the overall date range. The <code>DragCompleted</code> event handler above calls <code>UpdateExposedBounds()</code> which updates a <code>Bounds</code>  dependency property to reflect the selected range:</p>
+<div class="wp_syntax"><div class="code">{% highlight csharp %}<span style="color: #0600FF; font-weight: bold;">private</span> <span style="color: #6666cc; font-weight: bold;">void</span> UpdateExposedBounds<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span>
+  <span style="color: #0600FF; font-weight: bold;">if</span> <span style="color: #008000;">&#40;</span>Range <span style="color: #008000;">==</span> <span style="color: #0600FF; font-weight: bold;">null</span><span style="color: #008000;">&#41;</span>
+    <span style="color: #0600FF; font-weight: bold;">return</span><span style="color: #008000;">;</span>
+&nbsp;
+  <span style="color: #6666cc; font-weight: bold;">double</span> deltaMinutes <span style="color: #008000;">=</span> <span style="color: #008000;">&#40;</span>Range<span style="color: #008000;">.</span><span style="color: #0000FF;">Maximum</span> <span style="color: #008000;">-</span> Range<span style="color: #008000;">.</span><span style="color: #0000FF;">Minimum</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">.</span><span style="color: #0000FF;">TotalMinutes</span><span style="color: #008000;">;</span>
+  <span style="color: #6666cc; font-weight: bold;">double</span> width <span style="color: #008000;">=</span> <span style="color: #0600FF; font-weight: bold;">this</span><span style="color: #008000;">.</span><span style="color: #0000FF;">ActualWidth</span><span style="color: #008000;">;</span>
+&nbsp;
+  <span style="color: #6666cc; font-weight: bold;">double</span> leftThumbPos <span style="color: #008000;">=</span> LayoutRoot<span style="color: #008000;">.</span><span style="color: #0000FF;">ColumnDefinitions</span><span style="color: #008000;">&#91;</span><span style="color: #FF0000;">0</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Width</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Value</span><span style="color: #008000;">;</span>
+  <span style="color: #6666cc; font-weight: bold;">double</span> rightThumbPos <span style="color: #008000;">=</span> LayoutRoot<span style="color: #008000;">.</span><span style="color: #0000FF;">ColumnDefinitions</span><span style="color: #008000;">&#91;</span><span style="color: #FF0000;">2</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Width</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Value</span><span style="color: #008000;">;</span>
+&nbsp;
+  DateTime upper <span style="color: #008000;">=</span> Range<span style="color: #008000;">.</span><span style="color: #0000FF;">Maximum</span><span style="color: #008000;">.</span><span style="color: #0000FF;">AddMinutes</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">-</span>deltaMinutes <span style="color: #008000;">*</span> <span style="color: #008000;">&#40;</span>rightThumbPos <span style="color: #008000;">/</span> width<span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+  DateTime lower <span style="color: #008000;">=</span> Range<span style="color: #008000;">.</span><span style="color: #0000FF;">Minimum</span><span style="color: #008000;">.</span><span style="color: #0000FF;">AddMinutes</span><span style="color: #008000;">&#40;</span>deltaMinutes <span style="color: #008000;">*</span> <span style="color: #008000;">&#40;</span>leftThumbPos <span style="color: #008000;">/</span> width<span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+  Bounds <span style="color: #008000;">=</span> <span style="color: #008000;">new</span> DateTimeRange<span style="color: #008000;">&#40;</span>lower, upper<span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+<span style="color: #008000;">&#125;</span>{% endhighlight %}
+</div>
+</div>
+<p>The above code uses a simple bit of algebra to compute the Bounds as a proportion of the overall exposed Range.</p>
+<p>Using this range control to create a 'navigator' chart and update a 'detail' is as simple as binding the range control's Range property to the <code>XAxis.ActualRange</code> property of the navigator chart, and its <code>Bounds</code> property to the <code>XAxis.Range</code> property of the detail chart.</p>
+<p>This can all be achieved via UI bindings as shown below:</p>
+<div class="wp_syntax"><div class="code">{% highlight xml %}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Grid<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Grid.RowDefinitions<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;RowDefinition</span> <span style="color: #000066;">Height</span>=<span style="color: #ff0000;">&quot;2*&quot;</span> <span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;RowDefinition</span> <span style="color: #000066;">Height</span>=<span style="color: #ff0000;">&quot;*&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/Grid.RowDefinitions<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+&nbsp;
+  <span style="color: #808080; font-style: italic;">&lt;!-- the 'detail' chart --&gt;</span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;vis:Chart</span> <span style="color: #000066;">LegendVisibility</span>=<span style="color: #ff0000;">&quot;Collapsed&quot;</span></span>
+<span style="color: #009900;">             <span style="color: #000066;">x:Name</span>=<span style="color: #ff0000;">&quot;detailChart&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;vis:Chart.YAxis<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+      <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;vis:LinearAxis</span> <span style="color: #000066;">LabelsPosition</span>=<span style="color: #ff0000;">&quot;Inside&quot;</span></span>
+<span style="color: #009900;">                      <span style="color: #000066;">AutoScaleToVisibleData</span>=<span style="color: #ff0000;">&quot;True&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/vis:Chart.YAxis<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;vis:Chart.XAxis<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+      <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;vis:DateTimeAxis</span> <span style="color: #000066;">Range</span>=<span style="color: #ff0000;">&quot;{Binding ElementName=rangeControl, Path=Bounds}&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/vis:Chart.XAxis<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/vis:Chart<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+&nbsp;
+  <span style="color: #808080; font-style: italic;">&lt;!-- the navigator chart --&gt;</span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;vis:Chart</span> <span style="color: #000066;">Grid.Row</span>=<span style="color: #ff0000;">&quot;1&quot;</span></span>
+<span style="color: #009900;">             <span style="color: #000066;">LegendVisibility</span>=<span style="color: #ff0000;">&quot;Collapsed&quot;</span></span>
+<span style="color: #009900;">             <span style="color: #000066;">x:Name</span>=<span style="color: #ff0000;">&quot;chartNavigator&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;vis:Chart.XAxis<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+      <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;vis:DateTimeAxis</span> <span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/vis:Chart.XAxis<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/vis:Chart<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+&nbsp;
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;local:DateTimeRangeControl</span> <span style="color: #000066;">x:Name</span>=<span style="color: #ff0000;">&quot;rangeControl&quot;</span></span>
+<span style="color: #009900;">           <span style="color: #000066;">Grid.Row</span>=<span style="color: #ff0000;">&quot;1&quot;</span></span>
+<span style="color: #009900;">           <span style="color: #000066;">Range</span>=<span style="color: #ff0000;">&quot;{Binding ElementName=chartNavigator, Path=XAxis.ActualRange}&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/Grid<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>{% endhighlight %}
+</div>
+</div>
+<p>You can see the above code in action:</p>
+<div style="text-align: center;"><object width="450" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/01/VisibloxRangeControl2.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<h2>Performance Considerations</h2>
+<p>With the code above, the range control <code>Bounds</code> property is bound to the X axis range of the upper chart. Each time this range is changed the chart has to perform quite a bit of work, computing the new Y-axis range, re-drawing the series etc&#8230; For this reason, the implementation only updates the <code>Bounds</code> property when the user finishes adjusting the range. It would be better if the chart could update whilst the user drags the navigator range. In order to do this, we need a more lightweight method of updating the upper chart. </p>
+<p>The Visiblox axes expose a <code>Zoom</code> property which can be used to supply a <code>Scale</code> / <code>Offset</code> which rapidly updates the chart. In order to use the <code>Zoom</code> property we need to convert the <code>Bounds</code> exposed by the range control into a suitable zoom. This is easiest done in code-behind. </p>
+<p>The following code handles property changed events from the range control:</p>
+<div class="wp_syntax"><div class="code">{% highlight csharp %}<span style="color: #0600FF; font-weight: bold;">private</span> <span style="color: #6666cc; font-weight: bold;">void</span> RangeControl_PropertyChanged<span style="color: #008000;">&#40;</span><span style="color: #6666cc; font-weight: bold;">object</span> sender, PropertyChangedEventArgs e<span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span>
+  <span style="color: #0600FF; font-weight: bold;">if</span> <span style="color: #008000;">&#40;</span>rangeControl<span style="color: #008000;">.</span><span style="color: #0000FF;">Bounds</span> <span style="color: #008000;">==</span> <span style="color: #0600FF; font-weight: bold;">null</span><span style="color: #008000;">&#41;</span>
+    <span style="color: #0600FF; font-weight: bold;">return</span><span style="color: #008000;">;</span>
+&nbsp;
+  DateTimeAxis xAxis <span style="color: #008000;">=</span> detailChart<span style="color: #008000;">.</span><span style="color: #0000FF;">XAxis</span> <span style="color: #0600FF; font-weight: bold;">as</span> DateTimeAxis<span style="color: #008000;">;</span>
+&nbsp;
+  <span style="color: #6666cc; font-weight: bold;">double</span> lower <span style="color: #008000;">=</span> xAxis<span style="color: #008000;">.</span><span style="color: #0000FF;">GetDataValueAsRenderPositionWithZoom</span><span style="color: #008000;">&#40;</span>rangeControl<span style="color: #008000;">.</span><span style="color: #0000FF;">Bounds</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Minimum</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+  <span style="color: #6666cc; font-weight: bold;">double</span> upper <span style="color: #008000;">=</span> xAxis<span style="color: #008000;">.</span><span style="color: #0000FF;">GetDataValueAsRenderPositionWithZoom</span><span style="color: #008000;">&#40;</span>rangeControl<span style="color: #008000;">.</span><span style="color: #0000FF;">Bounds</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Maximum</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+  var zoom <span style="color: #008000;">=</span> xAxis<span style="color: #008000;">.</span><span style="color: #0000FF;">GetZoom</span><span style="color: #008000;">&#40;</span>lower, upper<span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+  xAxis<span style="color: #008000;">.</span><span style="color: #0000FF;">Zoom</span> <span style="color: #008000;">=</span> zoom<span style="color: #008000;">;</span>
+<span style="color: #008000;">&#125;</span>{% endhighlight %}
+</div>
+</div>
+<p>The axis exposes a <code>GetZoom</code> method which can be used to create a zoom which will cause the axis to display the data within the given range (in pixels). However, the range control exposes a Bounds which is in the data coordinate system (i.e. dates) rather than the screen coordinate system. Therefore, we first need to apply the <code>GetDataValueAsRenderPositionWithZoom</code> coordinate system conversion method to the upper and lower bound.</p>
+<p>With the above method, the chart now updates much more rapidly and we are able to update as the user drags the navigator range:</p>
+<div style="text-align: center;"><object width="450" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/01/VisibloxRangeControl.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<h2>The Example Data</h2>
+<p>The data in the examples shows the daily maximum and minimum temperatures in Melbourne from 1981 to 1990. The data was supplied as two separate files, one with maximum temperatures, and the other with minimum temperatures. </p>
+<p>These are parsed into a Visiblox DataSeries using the following code:</p>
+<div class="wp_syntax"><div class="code">{% highlight csharp %}var assembly <span style="color: #008000;">=</span> <span style="color: #0600FF; font-weight: bold;">this</span><span style="color: #008000;">.</span><span style="color: #0000FF;">GetType</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Assembly</span><span style="color: #008000;">;</span>
+var dataSeries <span style="color: #008000;">=</span> <span style="color: #008000;">new</span> DataSeries<span style="color: #008000;">&lt;</span>DateTime, <span style="color: #6666cc; font-weight: bold;">double</span><span style="color: #008000;">&gt;</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+var date <span style="color: #008000;">=</span> <span style="color: #008000;">new</span> DateTime<span style="color: #008000;">&#40;</span><span style="color: #FF0000;">1981</span>,<span style="color: #FF0000;">1</span>,<span style="color: #FF0000;">1</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+var maxStream <span style="color: #008000;">=</span> assembly<span style="color: #008000;">.</span><span style="color: #0000FF;">GetManifestResourceStream</span><span style="color: #008000;">&#40;</span><span style="color: #666666;">&quot;VisibloxRangeControl.melbmax.dat&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+var minStream <span style="color: #008000;">=</span> assembly<span style="color: #008000;">.</span><span style="color: #0000FF;">GetManifestResourceStream</span><span style="color: #008000;">&#40;</span><span style="color: #666666;">&quot;VisibloxRangeControl.melbmin.dat&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+<span style="color: #0600FF; font-weight: bold;">using</span> <span style="color: #008000;">&#40;</span>StreamReader minReader <span style="color: #008000;">=</span> <span style="color: #008000;">new</span> StreamReader<span style="color: #008000;">&#40;</span>minStream<span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span>
+<span style="color: #0600FF; font-weight: bold;">using</span> <span style="color: #008000;">&#40;</span>StreamReader maxReader <span style="color: #008000;">=</span> <span style="color: #008000;">new</span> StreamReader<span style="color: #008000;">&#40;</span>maxStream<span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span>
+  <span style="color: #0600FF; font-weight: bold;">while</span> <span style="color: #008000;">&#40;</span>minReader<span style="color: #008000;">.</span><span style="color: #0000FF;">Peek</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&gt;</span> <span style="color: #FF0000;">0</span><span style="color: #008000;">&#41;</span>
+  <span style="color: #008000;">&#123;</span>
+    <span style="color: #6666cc; font-weight: bold;">string</span> minLine <span style="color: #008000;">=</span> minReader<span style="color: #008000;">.</span><span style="color: #0000FF;">ReadLine</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+    <span style="color: #6666cc; font-weight: bold;">string</span> maxLine <span style="color: #008000;">=</span> maxReader<span style="color: #008000;">.</span><span style="color: #0000FF;">ReadLine</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+    var yValues <span style="color: #008000;">=</span> <span style="color: #008000;">new</span> Dictionary<span style="color: #008000;">&lt;</span><span style="color: #6666cc; font-weight: bold;">object</span>, <span style="color: #6666cc; font-weight: bold;">double</span><span style="color: #008000;">&gt;</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+      <span style="color: #008000;">&#123;</span>BandSeries<span style="color: #008000;">.</span><span style="color: #0000FF;">Upper</span>, <span style="color: #6666cc; font-weight: bold;">double</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Parse</span><span style="color: #008000;">&#40;</span>maxLine<span style="color: #008000;">&#41;</span><span style="color: #008000;">&#125;</span>,
+      <span style="color: #008000;">&#123;</span>BandSeries<span style="color: #008000;">.</span><span style="color: #0000FF;">Lower</span>, <span style="color: #6666cc; font-weight: bold;">double</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Parse</span><span style="color: #008000;">&#40;</span>minLine<span style="color: #008000;">&#41;</span><span style="color: #008000;">&#125;</span>
+    <span style="color: #008000;">&#125;</span><span style="color: #008000;">;</span>
+    dataSeries<span style="color: #008000;">.</span><span style="color: #0000FF;">Add</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">new</span> MultiValuedDataPoint<span style="color: #008000;">&lt;</span>DateTime, <span style="color: #6666cc; font-weight: bold;">double</span><span style="color: #008000;">&gt;</span><span style="color: #008000;">&#40;</span>date, yValues<span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+    date <span style="color: #008000;">=</span> date<span style="color: #008000;">.</span><span style="color: #0000FF;">AddDays</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">1</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+  <span style="color: #008000;">&#125;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;
+detailChart<span style="color: #008000;">.</span><span style="color: #0000FF;">Series</span><span style="color: #008000;">&#91;</span><span style="color: #FF0000;">0</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">.</span><span style="color: #0000FF;">DataSeries</span> <span style="color: #008000;">=</span> dataSeries<span style="color: #008000;">;</span>{% endhighlight %}
+</div>
+</div>
+<p>The detail chart uses this data directly, rendering the max / min values as a band series:</p>
+<div class="wp_syntax"><div class="code">{% highlight xml %}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;vis:Chart.Series<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;vis:BandSeries</span> <span style="color: #000066;">UpperLineStroke</span>=<span style="color: #ff0000;">&quot;Blue&quot;</span></span>
+<span style="color: #009900;">                  <span style="color: #000066;">LowerLineStroke</span>=<span style="color: #ff0000;">&quot;Blue&quot;</span></span>
+<span style="color: #009900;">                  <span style="color: #000066;">ShowArea</span>=<span style="color: #ff0000;">&quot;True&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;vis:BandSeries.AreaFill<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+      <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;SolidColorBrush</span> <span style="color: #000066;">Color</span>=<span style="color: #ff0000;">&quot;Blue&quot;</span></span>
+<span style="color: #009900;">                        <span style="color: #000066;">Opacity</span>=<span style="color: #ff0000;">&quot;0.3&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/vis:BandSeries.AreaFill<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/vis:BandSeries<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/vis:Chart.Series<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>{% endhighlight %}
+</div>
+</div>
+<p>Because there are ~3,500 datapoints in this dataset it does not make much sense for the navigator chart to render every point. The following Linq query groups the datapoints by month, then extracts the average upper temperature for each month. This data is then supplied to the lower chart:</p>
+<div class="wp_syntax"><div class="code">{% highlight csharp %}var monthlyAverage <span style="color: #008000;">=</span> dataSeries<span style="color: #008000;">.</span><span style="color: #0000FF;">GroupBy</span><span style="color: #008000;">&#40;</span>pt <span style="color: #008000;">=&gt;</span> <span style="color: #008000;">new</span> DateTime<span style="color: #008000;">&#40;</span>pt<span style="color: #008000;">.</span><span style="color: #0000FF;">X</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Year</span>, pt<span style="color: #008000;">.</span><span style="color: #0000FF;">X</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Month</span>, <span style="color: #FF0000;">1</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span>
+                            <span style="color: #008000;">.</span><span style="color: #0600FF; font-weight: bold;">Select</span><span style="color: #008000;">&#40;</span>group <span style="color: #008000;">=&gt;</span> <span style="color: #008000;">new</span> DataPoint<span style="color: #008000;">&lt;</span>DateTime, <span style="color: #6666cc; font-weight: bold;">double</span><span style="color: #008000;">&gt;</span>
+                            <span style="color: #008000;">&#123;</span>
+                              X <span style="color: #008000;">=</span> group<span style="color: #008000;">.</span><span style="color: #0000FF;">Key</span>,
+                              Y <span style="color: #008000;">=</span> group<span style="color: #008000;">.</span><span style="color: #0600FF; font-weight: bold;">Select</span><span style="color: #008000;">&#40;</span>pt <span style="color: #008000;">=&gt;</span> <span style="color: #008000;">&#40;</span><span style="color: #6666cc; font-weight: bold;">double</span><span style="color: #008000;">&#41;</span>pt<span style="color: #008000;">&#91;</span>BandSeries<span style="color: #008000;">.</span><span style="color: #0000FF;">Upper</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Average</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>
+                            <span style="color: #008000;">&#125;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+&nbsp;
+chartNavigator<span style="color: #008000;">.</span><span style="color: #0000FF;">Series</span><span style="color: #008000;">&#91;</span><span style="color: #FF0000;">0</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">.</span><span style="color: #0000FF;">DataSeries</span> <span style="color: #008000;">=</span> <span style="color: #008000;">new</span> DataSeries<span style="color: #008000;">&lt;</span>DateTime, <span style="color: #6666cc; font-weight: bold;">double</span><span style="color: #008000;">&gt;</span><span style="color: #008000;">&#40;</span>monthlyAverage<span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>{% endhighlight %}
+</div>
+</div>
+<p>I will never grow tired of the power of Linq!</p>
+<h2>Final thoughts</h2>
+<p>The range selector control has been implemented as a <code>UserControl</code>, it could be made more generic by implementing it as a custom control, which would allow it to be templated. Also, it should be possible to make the <code>Range</code> and <code>Bound</code> properties use <code>double</code> rather than <code>DateTime</code>, then use a value converter in the binding to the chart. This would allow range selector to be used in context where the range being selected is not a <code>DateTime</code> one. I&#8217;ll leave this as an exercise for the reader!</p>
+<p>You can download the full sourcecode here: <a href="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/01/VisiblxRangeSelector.zip">VisibloxRangeSelector.zip</a></p>
+<p>You will also need to <a href="http://www.visiblox.com/download">download the free Visiblox charts</a> to compile the code.</p>
+<p>Regards, Colin E.</p>

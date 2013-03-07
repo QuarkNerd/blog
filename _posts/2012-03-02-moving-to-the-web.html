@@ -1,0 +1,33 @@
+---
+id: 145764
+author: Chris Price
+tags: 
+categories: 
+- Blog
+layout: default_post
+---
+<p><a style="float:right; margin-left: 16px;" href="http://www.scottlogic.co.uk/blog/chris/"><img style="border:1px solid black" src="http://www.scottlogic.co.uk/wp-content/uploads/2012/03/me1.png" alt="" title="Chris Price" class="aligncenter size-full wp-image-145833" /></a><em>This post is an attempt to do the impossible, to try and give desktop developers a brief introduction to developing on the web. I say impossible because the web is such a vast topic. On one side sits stacks of bizarre and nuanced APIs, but on the other mountains of really useful resources and frameworks that help smooth over the cracks. I can't hope to cover even a small fraction of what exists, so I apologise now if your framework/resource of choice is missing. I've simply tried to give an ordered list of concepts to work through, in a way that I think I would find useful if I was first starting out on the web.</em></p>
+<h2 style="clear:both">JavaScript</h2>
+<p>As a developer new to the web, there are two facts you need to know about JavaScript -</p>
+<ul>
+<li>Like it or lump it, there is no way of avoiding it, it is the glue that holds the web together. Even producing very simple sites, you're going to have to get your hands dirty with it.</li>
+<li>You don't know JavaScript! Even if it looks familiar, even if you'd played around with it - <em>you still don't know JavaScript</em>! I'm not being mean, it's just that if there was only one thing I wish someone had told me on day one, this would be it.</li>
+</ul>
+<p><a style="float:left; margin: 16px 16px 16px 0;" href="http://shop.oreilly.com/product/9780596517748.do"><img class="aligncenter size-full wp-image-145783" title="cat" src="http://www.scottlogic.co.uk/wp-content/uploads/2012/03/cat.gif" alt="" width="180" height="236" /></a>The best resource I know of for learning JavaScript is <a href="http://shop.oreilly.com/product/9780596517748.do">JavaScript: The Good Parts</a> by Douglas Crockford. The book doesn't make any reference to the DOM, jQuery or any other APIs, it is just a reference book for the language itself, but don't let that put you off buying it - this is what makes it so good.</p>
+<p><a style="float:right; margin-left: 16px;" href="https://developer.mozilla.org/en-US/"><img class="aligncenter size-full wp-image-145781" title="mdn-logo" src="http://www.scottlogic.co.uk/wp-content/uploads/2012/03/mdn-logo.png" alt="" width="128" height="146" /></a> When starting out with the language, once you've covered the basics it is very easy to get distracted by the APIs. However, that way madness lies. JavaScript has at least 5 major gotchas (i.e. prototype, coersion, equality, this, scope) and I guarantee you'll run into them very quickly if you try to dive straight in.</p>
+<p>Once you've read through the book, you'll probably be looking for an online reference resource (e.g. for Array.prototype methods). I recommend you avoid w3schools, its JavaScript reference hasn't been updated in years and some of the linked topics are just plain wrong. Instead I personally use <a href="https://developer.mozilla.org/en-US/">Mozilla Developer Network</a>, it has a well maintained, advert-free <a href="https://developer.mozilla.org/en/JavaScript">JavaScript wiki</a> which is full of useful and up-to-date reference material.</p>
+<h4 style="clear:both">JSON</h4>
+<p>These days it's likely, even just doing desktop development, that you've already come across JSON. The book covers it and it's relationship with Javascript in great detail (mainly becuase it was the brainchild of the book's author). I hope you don't ignore my advice on learning JavaScript but if you do, the bare minimum you'll need is a working understanding of JSON. <a href="http://json.org">JSON.org</a> is a great resource for this and also for finding serialization/deserialization libraries for your server stack of choice.</p>
+<p style="text-align:center"><a href="http://json.org/"><img style="border:1px solid black"  class="aligncenter size-full wp-image-145821" title="Capture" src="http://www.scottlogic.co.uk/wp-content/uploads/2012/03/Capture1.png" alt="" width="402" height="122" /></a></p>
+<h4>Tools</h4>
+<p>In this list I'm only attempting to cover tools that help you write better JavaScript and not tools which help optimise/compress the code for production use.</p>
+<ul>
+<li><a href="http://www.jslint.com/">JSLint</a> - Probably the most famous JavaScript tool on the web. It will pick up on syntax errors and questionable practices, forcing you to stay on the straight and narrow. It is a long way away from the Java or C# compiler in terms of the kinds of checks it can perform, but this is an unfortunate side-effect of JavaScript being a dynamic language.</li>
+<li><a href="http://www.jshint.com/">JSHint</a> - JSLint is great when you're starting out, following a rigorous set of rules really helps when learning a language. However, once you start to understand the theory behind some of the compulsary checks in JSLint, they can seem a bit draconian. JSHint offers the same checks as JSLint but allows you to customise the checks with far more freedom.</li>
+<li><a href="http://jsonlint.com/">JSONLint</a> - Same idea but this time for JSON.</li>
+<li><a href="https://developers.google.com/closure/compiler/">ClosureCompiler</a> - This is a whole different kettle of fish. I mention it here because it is a tool that can work with plain JavaScript to provide annotation driven type-safety. In my opinion it is a great tool and one I'll come back to, but ultimately one who's benefits will only really be felt on large-scale projects. Hopefully if you're just starting out, that's not what you're looking to tackle just yet!</li>
+</ul>
+<h2>HTML</h2>
+<p><a  style="float:right; margin-left: 16px;" href="http://www.w3.org/html"><img class="aligncenter size-full wp-image-145786" title="HTML5_Logo_128" src="http://www.scottlogic.co.uk/wp-content/uploads/2012/03/HTML5_Logo_128.png" alt="" width="128" height="128" /></a></p>
+<p>HTML is going to be the one thing that I assume everyone has a rudimentrary knowledge of, if that's not you <a href="http://en.wikipedia.org/wiki/HTML">Wikipedia</a> is as good a place as any to start. There's not really much to say here, other than to point out the new doctype on the block (this goes at the top of all your HTML pages) -</p>
+<pre style="font-size:48px; font-weight:bold; text-align: center">&lt;!DOCTYPE html&gt;

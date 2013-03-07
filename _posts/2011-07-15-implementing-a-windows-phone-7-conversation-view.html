@@ -1,0 +1,177 @@
+---
+id: 123637
+author: Colin Eberhardt
+tags: 
+- codeproject
+- Windows Phone 7
+categories: 
+- Blog
+layout: ceberhardt_post
+---
+
+<p><em>This blog post looks at how to to create a conversation view, mimicking the SMS messaging interface within Windows Phone 7. This post shows how we can select different DataTemplate for each item in an ItemsControl to achieve this effect.</em></p>
+<p>The Windows Phone 7 SMS messaging interface graphically illustrates between yourself and the other party by showing your messages as speech bubbles. Creating this view in your own application is not a straightforward process, with the template for each message being dependant on which side of the conversation it belongs to. In this blog post I will show how to create a simple template selector to achieve the view shown below:</p>
+<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/07/conversation.png" alt="" title="conversation" width="305" height="554" class="aligncenter size-full wp-image-1598" /></p>
+<p>Firstly, we&#8217;ll start with the model that represents our conversation:</p>
+<div class="wp_syntax"><div class="code">{% highlight csharp %}<span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #6666cc; font-weight: bold;">enum</span> MessageSide
+<span style="color: #008000;">&#123;</span>
+  Me,
+  You
+<span style="color: #008000;">&#125;</span>
+&nbsp;
+<span style="color: #008080; font-style: italic;">/// &lt;summary&gt;</span>
+<span style="color: #008080; font-style: italic;">/// An SMS message</span>
+<span style="color: #008080; font-style: italic;">/// &lt;/summary&gt;</span>
+<span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #6666cc; font-weight: bold;">class</span> Message
+<span style="color: #008000;">&#123;</span> 
+  <span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #6666cc; font-weight: bold;">string</span> Text <span style="color: #008000;">&#123;</span> get<span style="color: #008000;">;</span> set<span style="color: #008000;">;</span> <span style="color: #008000;">&#125;</span>
+&nbsp;
+  <span style="color: #0600FF; font-weight: bold;">public</span> DateTime Timestamp <span style="color: #008000;">&#123;</span> get<span style="color: #008000;">;</span> set<span style="color: #008000;">;</span> <span style="color: #008000;">&#125;</span>
+&nbsp;
+  <span style="color: #0600FF; font-weight: bold;">public</span> MessageSide Side <span style="color: #008000;">&#123;</span> get<span style="color: #008000;">;</span> set<span style="color: #008000;">;</span> <span style="color: #008000;">&#125;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;
+<span style="color: #008080; font-style: italic;">/// &lt;summary&gt;</span>
+<span style="color: #008080; font-style: italic;">/// A collection of messages</span>
+<span style="color: #008080; font-style: italic;">/// &lt;/summary&gt;</span>
+<span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #6666cc; font-weight: bold;">class</span> MessageCollection <span style="color: #008000;">:</span> ObservableCollection<span style="color: #008000;">&lt;</span>Message<span style="color: #008000;">&gt;</span>
+<span style="color: #008000;">&#123;</span>
+<span style="color: #008000;">&#125;</span>{% endhighlight %}
+</div>
+</div>
+<p>It&#8217;s pretty simple, a collection of <code>Message</code> objects, each one with a <code>Text</code> and <code>Timestamp</code> property and a <code>Side</code> which indicates which side of the conversation it is on.</p>
+<p>To aid in the design of this view, I created some design-time data:</p>
+<div class="wp_syntax"><div class="code">{% highlight xml %}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;MessageCollection</span> <span style="color: #000066;">xmlns</span>=<span style="color: #ff0000;">&quot;clr-namespace:WP7ConversationView&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Message</span> <span style="color: #000066;">Text</span>=<span style="color: #ff0000;">&quot;Hi, How are you?&quot;</span> <span style="color: #000066;">Side</span>=<span style="color: #ff0000;">&quot;You&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Message</span> <span style="color: #000066;">Text</span>=<span style="color: #ff0000;">&quot;Pretty good thanks. How are things at your end?&quot;</span> <span style="color: #000066;">Side</span>=<span style="color: #ff0000;">&quot;Me&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Message</span> <span style="color: #000066;">Text</span>=<span style="color: #ff0000;">&quot;The weather here is a bit grim&quot;</span> <span style="color: #000066;">Side</span>=<span style="color: #ff0000;">&quot;Me&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Message</span> <span style="color: #000066;">Text</span>=<span style="color: #ff0000;">&quot;Aye, not bad here, a bit of sun&quot;</span> <span style="color: #000066;">Side</span>=<span style="color: #ff0000;">&quot;You&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Message</span> <span style="color: #000066;">Text</span>=<span style="color: #ff0000;">&quot;Do you want to hear a joke?&quot;</span> <span style="color: #000066;">Side</span>=<span style="color: #ff0000;">&quot;You&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Message</span> <span style="color: #000066;">Text</span>=<span style="color: #ff0000;">&quot;Go on then&quot;</span> <span style="color: #000066;">Side</span>=<span style="color: #ff0000;">&quot;Me&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Message</span> <span style="color: #000066;">Text</span>=<span style="color: #ff0000;">&quot;Knock knock&quot;</span> <span style="color: #000066;">Side</span>=<span style="color: #ff0000;">&quot;You&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Message</span> <span style="color: #000066;">Text</span>=<span style="color: #ff0000;">&quot;Who's there?&quot;</span> <span style="color: #000066;">Side</span>=<span style="color: #ff0000;">&quot;Me&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Message</span> <span style="color: #000066;">Text</span>=<span style="color: #ff0000;">&quot;Doctor!&quot;</span> <span style="color: #000066;">Side</span>=<span style="color: #ff0000;">&quot;You&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Message</span> <span style="color: #000066;">Text</span>=<span style="color: #ff0000;">&quot;Doctor who?&quot;</span> <span style="color: #000066;">Side</span>=<span style="color: #ff0000;">&quot;Me&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Message</span> <span style="color: #000066;">Text</span>=<span style="color: #ff0000;">&quot;Doctor Who ... ha ha ROFLMAO&quot;</span> <span style="color: #000066;">Side</span>=<span style="color: #ff0000;">&quot;You&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Message</span> <span style="color: #000066;">Text</span>=<span style="color: #ff0000;">&quot;genius. Pure genius&quot;</span> <span style="color: #000066;">Side</span>=<span style="color: #ff0000;">&quot;Me&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/MessageCollection<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>{% endhighlight %}
+</div>
+</div>
+<p>Formatting a <code>Message</code> instance so that it looks like a speech bubble is pretty straightforward. We create a grid with three rows, the first has the message text, the next has the date and the final one contains a path which renders a small triangle:</p>
+<div class="wp_syntax"><div class="code">{% highlight xml %}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;contribConverters:StringFormatConverter</span> <span style="color: #000066;">x:Key</span>=<span style="color: #ff0000;">&quot;StringFormatConverter&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+&nbsp;
+&nbsp;
+<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Grid</span> <span style="color: #000066;">Margin</span>=<span style="color: #ff0000;">&quot;30, 10, 5, 0&quot;</span></span>
+<span style="color: #009900;">      <span style="color: #000066;">contribControls:GridUtils.RowDefinitions</span>=<span style="color: #ff0000;">&quot;,,&quot;</span></span>
+<span style="color: #009900;">      <span style="color: #000066;">Width</span>=<span style="color: #ff0000;">&quot;420&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Rectangle</span> <span style="color: #000066;">Fill</span>=<span style="color: #ff0000;">&quot;{StaticResource PhoneAccentBrush}&quot;</span></span>
+<span style="color: #009900;">             <span style="color: #000066;">Grid.RowSpan</span>=<span style="color: #ff0000;">&quot;2&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;TextBlock</span> <span style="color: #000066;">Text</span>=<span style="color: #ff0000;">&quot;{Binding Path=Text}&quot;</span></span>
+<span style="color: #009900;">             <span style="color: #000066;">Style</span>=<span style="color: #ff0000;">&quot;{StaticResource TextBlockStyle}&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;TextBlock</span> <span style="color: #000066;">Text</span>=<span style="color: #ff0000;">&quot;{Binding Path=Timestamp, Converter={StaticResource StringFormatConverter},</span>
+<span style="color: #009900;">                                            ConverterParameter='ddd, HH:mm'}&quot;</span></span>
+<span style="color: #009900;">             <span style="color: #000066;">Style</span>=<span style="color: #ff0000;">&quot;{StaticResource TimestampStyle}&quot;</span></span>
+<span style="color: #009900;">             <span style="color: #000066;">Grid.Row</span>=<span style="color: #ff0000;">&quot;1&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Path</span> <span style="color: #000066;">Data</span>=<span style="color: #ff0000;">&quot;m 0,0 l 16,0 l 0,16 l -16,-16&quot;</span></span>
+<span style="color: #009900;">        <span style="color: #000066;">Fill</span>=<span style="color: #ff0000;">&quot;{StaticResource PhoneAccentBrush}&quot;</span></span>
+<span style="color: #009900;">        <span style="color: #000066;">Margin</span>=<span style="color: #ff0000;">&quot;0,0,5,0&quot;</span></span>
+<span style="color: #009900;">        <span style="color: #000066;">HorizontalAlignment</span>=<span style="color: #ff0000;">&quot;Right&quot;</span></span>
+<span style="color: #009900;">        <span style="color: #000066;">Grid.Row</span>=<span style="color: #ff0000;">&quot;2&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/Grid<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>{% endhighlight %}
+</div>
+</div>
+<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/07/message.png" alt="" title="message" width="426" height="127" class="aligncenter size-full wp-image-1601" /></p>
+<p>The above code uses a couple of useful little classes from the <a href="http://wp7contrib.codeplex.com/">WP7Contrib</a> project. The first is <code>GridUtils</code>, which gives a simplified grid syntax. In the above example three rows were constructed using the simple string <code>",,"</code>. The second is a <code>StringFormatConverter</code>, which formats bound values using the supplied string.</p>
+<p>Now, the problem is, the above markup renders a speech bubble for messages that have been sent, for received messages we want the bubble to have different margins (aligning it to the left) and have the triangle at the top. This could be achieved using a horrible mess of value converters, however, it would be better if we could just use different markup for each.</p>
+<p>WPF and Silverlight v5 have the concept of implicit <code>DataTemplates</code>, where a template is selected based on the type of the item being rendered, however, this feature is not present in WP7. Also, in this case we need to select a template based on the <code>Message.Side</code> property.</p>
+<p>The Silverlight <code>ContentControl</code> renders the object assign to its <code>Content</code> property using the <code>DataTemplate</code> specified by the <code>ContentTemplate</code> property. It is actually very easy to extend this control to additional <code>DataTemplate</code> properties which are applied based on the bound data:</p>
+<div class="wp_syntax"><div class="code">{% highlight csharp %}<span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #6666cc; font-weight: bold;">class</span> MessageContentPresenter <span style="color: #008000;">:</span> ContentControl
+<span style="color: #008000;">&#123;</span>
+  <span style="color: #008080; font-style: italic;">/// &lt;summary&gt;</span>
+  <span style="color: #008080; font-style: italic;">/// The DataTemplate to use when Message.Side == Side.Me</span>
+  <span style="color: #008080; font-style: italic;">/// &lt;/summary&gt;</span>
+  <span style="color: #0600FF; font-weight: bold;">public</span> DataTemplate MeTemplate <span style="color: #008000;">&#123;</span> get<span style="color: #008000;">;</span> set<span style="color: #008000;">;</span> <span style="color: #008000;">&#125;</span>
+&nbsp;
+  <span style="color: #008080; font-style: italic;">/// &lt;summary&gt;</span>
+  <span style="color: #008080; font-style: italic;">/// The DataTemplate to use when Message.Side == Side.You</span>
+  <span style="color: #008080; font-style: italic;">/// &lt;/summary&gt;</span>
+  <span style="color: #0600FF; font-weight: bold;">public</span> DataTemplate YouTemplate <span style="color: #008000;">&#123;</span> get<span style="color: #008000;">;</span> set<span style="color: #008000;">;</span> <span style="color: #008000;">&#125;</span>
+&nbsp;
+  <span style="color: #0600FF; font-weight: bold;">protected</span> <span style="color: #0600FF; font-weight: bold;">override</span> <span style="color: #6666cc; font-weight: bold;">void</span> OnContentChanged<span style="color: #008000;">&#40;</span><span style="color: #6666cc; font-weight: bold;">object</span> oldContent, <span style="color: #6666cc; font-weight: bold;">object</span> newContent<span style="color: #008000;">&#41;</span>
+  <span style="color: #008000;">&#123;</span>
+    <span style="color: #0600FF; font-weight: bold;">base</span><span style="color: #008000;">.</span><span style="color: #0000FF;">OnContentChanged</span><span style="color: #008000;">&#40;</span>oldContent, newContent<span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+&nbsp;
+    <span style="color: #008080; font-style: italic;">// apply the required template</span>
+    Message message <span style="color: #008000;">=</span> newContent <span style="color: #0600FF; font-weight: bold;">as</span> Message<span style="color: #008000;">;</span>
+    <span style="color: #0600FF; font-weight: bold;">if</span> <span style="color: #008000;">&#40;</span>message<span style="color: #008000;">.</span><span style="color: #0000FF;">Side</span> <span style="color: #008000;">==</span> MessageSide<span style="color: #008000;">.</span><span style="color: #0000FF;">Me</span><span style="color: #008000;">&#41;</span>
+    <span style="color: #008000;">&#123;</span>
+      ContentTemplate <span style="color: #008000;">=</span> MeTemplate<span style="color: #008000;">;</span>
+    <span style="color: #008000;">&#125;</span>
+    <span style="color: #0600FF; font-weight: bold;">else</span>
+    <span style="color: #008000;">&#123;</span>
+      ContentTemplate <span style="color: #008000;">=</span> YouTemplate<span style="color: #008000;">;</span>
+    <span style="color: #008000;">&#125;</span>
+  <span style="color: #008000;">&#125;</span>
+<span style="color: #008000;">&#125;</span>{% endhighlight %}
+</div>
+</div>
+<p>Using the above template-selector, we can supply different templates for the messages from either side of the conversation as follows:</p>
+<div class="wp_syntax"><div class="code">{% highlight xml %}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;ItemsControl</span> <span style="color: #000066;">ItemsSource</span>=<span style="color: #ff0000;">&quot;{Binding}&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;ItemsControl.ItemTemplate<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;DataTemplate<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+      <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;local:MessageContentPresenter</span> <span style="color: #000066;">Content</span>=<span style="color: #ff0000;">&quot;{Binding}&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+        <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;local:MessageContentPresenter.MeTemplate<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+          <span style="color: #808080; font-style: italic;">&lt;!-- template for sent messages --&gt;</span>
+          <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;DataTemplate<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+            <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Grid</span> <span style="color: #000066;">Margin</span>=<span style="color: #ff0000;">&quot;30, 10, 5, 0&quot;</span></span>
+<span style="color: #009900;">                  <span style="color: #000066;">contribControls:GridUtils.RowDefinitions</span>=<span style="color: #ff0000;">&quot;,,&quot;</span></span>
+<span style="color: #009900;">                  <span style="color: #000066;">Width</span>=<span style="color: #ff0000;">&quot;420&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+              <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Rectangle</span> <span style="color: #000066;">Fill</span>=<span style="color: #ff0000;">&quot;{StaticResource PhoneAccentBrush}&quot;</span></span>
+<span style="color: #009900;">                          <span style="color: #000066;">Grid.RowSpan</span>=<span style="color: #ff0000;">&quot;2&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+              <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;TextBlock</span> <span style="color: #000066;">Text</span>=<span style="color: #ff0000;">&quot;{Binding Path=Text}&quot;</span></span>
+<span style="color: #009900;">                          <span style="color: #000066;">Style</span>=<span style="color: #ff0000;">&quot;{StaticResource TextBlockStyle}&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+              <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;TextBlock</span> <span style="color: #000066;">Text</span>=<span style="color: #ff0000;">&quot;{Binding Path=Timestamp, Converter={StaticResource StringFormatConverter},</span>
+<span style="color: #009900;">                                                        ConverterParameter='ddd, HH:mm'}&quot;</span></span>
+<span style="color: #009900;">                          <span style="color: #000066;">Style</span>=<span style="color: #ff0000;">&quot;{StaticResource TimestampStyle}&quot;</span></span>
+<span style="color: #009900;">                          <span style="color: #000066;">Grid.Row</span>=<span style="color: #ff0000;">&quot;1&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+              <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Path</span> <span style="color: #000066;">Data</span>=<span style="color: #ff0000;">&quot;m 0,0 l 16,0 l 0,16 l -16,-16&quot;</span></span>
+<span style="color: #009900;">                    <span style="color: #000066;">Fill</span>=<span style="color: #ff0000;">&quot;{StaticResource PhoneAccentBrush}&quot;</span></span>
+<span style="color: #009900;">                    <span style="color: #000066;">Margin</span>=<span style="color: #ff0000;">&quot;0,0,5,0&quot;</span></span>
+<span style="color: #009900;">                    <span style="color: #000066;">HorizontalAlignment</span>=<span style="color: #ff0000;">&quot;Right&quot;</span></span>
+<span style="color: #009900;">                    <span style="color: #000066;">Grid.Row</span>=<span style="color: #ff0000;">&quot;2&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+            <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/Grid<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>                
+          <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/DataTemplate<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+        <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/local:MessageContentPresenter.MeTemplate<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+        <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;local:MessageContentPresenter.YouTemplate<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+          <span style="color: #808080; font-style: italic;">&lt;!-- template for received messages --&gt;</span>
+          <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;DataTemplate<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+            <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Grid</span> <span style="color: #000066;">Margin</span>=<span style="color: #ff0000;">&quot;5, 10, 30, 0&quot;</span></span>
+<span style="color: #009900;">                  <span style="color: #000066;">contribControls:GridUtils.RowDefinitions</span>=<span style="color: #ff0000;">&quot;,,&quot;</span></span>
+<span style="color: #009900;">                  <span style="color: #000066;">Width</span>=<span style="color: #ff0000;">&quot;420&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+              <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Path</span> <span style="color: #000066;">Data</span>=<span style="color: #ff0000;">&quot;m 0,0 l 0,16 l 16,0 l -16,-16&quot;</span></span>
+<span style="color: #009900;">                    <span style="color: #000066;">Fill</span>=<span style="color: #ff0000;">&quot;{StaticResource PhoneAccentBrush}&quot;</span></span>
+<span style="color: #009900;">                    <span style="color: #000066;">Margin</span>=<span style="color: #ff0000;">&quot;5,0,0,0&quot;</span></span>
+<span style="color: #009900;">                    <span style="color: #000066;">HorizontalAlignment</span>=<span style="color: #ff0000;">&quot;Left&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+              <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Rectangle</span> <span style="color: #000066;">Fill</span>=<span style="color: #ff0000;">&quot;{StaticResource PhoneAccentBrush}&quot;</span></span>
+<span style="color: #009900;">                          <span style="color: #000066;">Grid.Row</span>=<span style="color: #ff0000;">&quot;1&quot;</span> <span style="color: #000066;">Grid.RowSpan</span>=<span style="color: #ff0000;">&quot;2&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+              <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;TextBlock</span> <span style="color: #000066;">Text</span>=<span style="color: #ff0000;">&quot;{Binding Path=Text}&quot;</span></span>
+<span style="color: #009900;">                          <span style="color: #000066;">Style</span>=<span style="color: #ff0000;">&quot;{StaticResource TextBlockStyle}&quot;</span></span>
+<span style="color: #009900;">                          <span style="color: #000066;">Grid.Row</span>=<span style="color: #ff0000;">&quot;1&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+              <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;TextBlock</span> <span style="color: #000066;">Text</span>=<span style="color: #ff0000;">&quot;{Binding Path=Timestamp, Converter={StaticResource StringFormatConverter},</span>
+<span style="color: #009900;">                                                        ConverterParameter='ddd, HH:mm'}&quot;</span></span>
+<span style="color: #009900;">                          <span style="color: #000066;">Style</span>=<span style="color: #ff0000;">&quot;{StaticResource TimestampStyle}&quot;</span></span>
+<span style="color: #009900;">                          <span style="color: #000066;">Grid.Row</span>=<span style="color: #ff0000;">&quot;2&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+            <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/Grid<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+          <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/DataTemplate<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+        <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/local:MessageContentPresenter.YouTemplate<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+      <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/local:MessageContentPresenter<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/DataTemplate<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/ItemsControl.ItemTemplate<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/ItemsControl<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>{% endhighlight %}
+</div>
+</div>
+<p>In the above XAML, the two templates are subtly different, rendering a triangle at a different grid location with a different orientation. The type of differences that would be hard to achieve via value converters.</p>
+<p>I was able to test all of the above using design time data in Visual Studio, not having to execute the code once within the emulator!</p>
+<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/07/WP7ConversationDesignTime.png" alt="" title="WP7ConversationDesignTime" width="600" height="328" class="aligncenter size-full wp-image-1604" /></p>
+<p>You can download the full sourcecode for the project: <a href='http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/07/WP7ConversationView.zip'>WP7ConversationView.zip</a></p>
+<p>Regards, Colin E.</p>

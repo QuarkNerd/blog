@@ -1,0 +1,36 @@
+---
+id: 161035
+author: Chris Price
+tags: 
+- Javascript
+- Conferences
+- jsconfeu
+categories: 
+- Blog
+layout: default_post
+---
+<p><a style="float: right; margin-left: 16px;" href="http://www.scottlogic.co.uk/blog/chris/"><img class="aligncenter size-full wp-image-145833" style="border: 1px solid black;" title="Chris Price" src="http://www.scottlogic.co.uk/wp-content/uploads/2012/03/me1.png" alt="" /></a><em>Hot on the heels of Reject.js was JSConf EU, a weekend conference about, well, JavaScript! It was my first time there so I was a little unsure what to expect, I was absolutely blown away by the venue, the organisation, the food, the drinks, the talks and most importantly the people. Thanks this time goes to Holger Blank, Malte Ubl, Jan Lehnardt and Tiffany Conroy.</em></p>
+<h3 style="clear:both">Keynote</h3>
+<p>Brendan Eich (the creator of JavaScript) opened the conference with this Apple-inspired satirical advert for ES6.</p>
+<p style="text-align:center"><iframe width="600" height="315" src="http://www.youtube.com/embed/NJxB0Pp69IQ" frameborder="0" allowfullscreen></iframe></p>
+<p>He was closely followed by <a href="http://vimeo.com/50897876">Jed Schmidt (I knew I hadn't seen the last of him!) and Mandy Lauderdale performing an incredible assortment of topical songs about JavaScript</a>. Unfortunately the quality of this video isn't great, but you'll get the idea!</p>
+<h3>Mary Rose Cook - A Programming Language for Children</h3>
+<p>Mary introduced a programming language that she's aiming at children called Isla. During her talk she said something that has really stuck with me. Programming is about magic. The magic that happens once you've typed in your program and then you first see it run. Much the same as stacking dominoes and then knocking the first one over. Mary was right, I had forgotten that's why I love programming.</p>
+<p>Sticking to the theme, she suggested that every programmer should at some point try writing a language (if you're using JavaScript <a href="http://pegjs.majda.cz/">PEG.js</a> and <a href="https://github.com/KrisJordan/multimethod-js">multimethod.js</a> might come in handy).</p>
+<h3>Michael Bebenita - Low Level JavaScript</h3>
+<p>This talk was turtles all the way down! The <del datetime="2012-10-29T09:14:41+00:00">Google</del> Mozilla guys have implemented <a href="http://mbebenita.github.com/LLJS/">a tool</a> that allows a C-like language along with structs, pointers, malloc and free, to be built on top JavaScript TypedArrays. They suggested that it can be useful for performance critical sections of code e.g. for physics calculations etc..</p>
+<h3>Sam Dutton - WebRTC: Real-Time Communication Without Plugins</h3>
+<p>A frustratingly high-level look at <a href="http://www.html5rocks.com/en/tutorials/webrtc/basics/">WebRTC</a>, which you can think of as a P2P version of WebSockets. I was hoping for a real deep-dive into some of the details but we were only shown the shiny demos. Don't get me wrong the technology itself is very cool, I think we'll be seeing a lot more of it as the browser support improves.</p>
+<h3>Lennart C. L. Kats - Effectively Building Language Tools</h3>
+<p>This talk was a bit of a sales pitch, encouraging developers to start writing plugins for the Cloud9 IDE platform.</p>
+<p><a href="https://plus.google.com/u/0/103747379090421872359"><img style="float:right; margin: 0 0 10px 10px" src="http://www.scottlogic.co.uk/wp-content/uploads/2012/10/production.jpg" alt="That's me! Thanks to Martin Kleppe for the photo." title="That's me! Thanks to Martin Kleppe for the photo." width="307" height="307" class="aligncenter size-full wp-image-161040" /></a></p>
+<h3>Florian Loitsch - JavaScript as a Compilation Target - Making it Fast</h3>
+<p>A look at how the DART team has approached optimising their JavaScript output. DART itself doesn't interest me too much but it was interesting to see how similar the DART optimisations are to the optimisations applied by the JavaScript JIT compiler. The take home from this talk, DART's not quite as bad as it used to be.</p>
+<h3>John Bender - Faster JavaScript with Category Theory</h3>
+<p>John gave us a crash course on category theory and how it could be applied to the jQuery internals to speed things up. I'd recommend checking out the <a href="https://github.com/johnbender/wield">Wield project page</a>.</p>
+<h3>Garann Means - Improvisational JavaScript</h3>
+<p>Garann noticed that bloggers were applying Tina Fey's rules of improv to everything from the <a href="http://balancedworklife.com/blog/tina-feys-rules-for-improv-and-the-workplace/">workplace</a> to <a href="http://sostark.net/post/4965998605/tina-feys-rules-of-improvisation-that-will-change-your">dieting</a> and thought that JavaScript was missing out. Her talk was a very interesting take on how to design robust, easy-to-use library code and interfaces.  I think the most relevant of the improv rules was "Say yes and...", i.e. expect that users will give you partial or broken input sometimes, so try your best to work with it instead of throwing it back in their faces. E.g. don't interrupt a sign-up flow with an error if someone chooses an existing username, use their user ID instead and allow them to change it at a later date.</p>
+<h3>Axel Rauschmayer - JavaScript Inheritance: Beyond the Basics</h3>
+<p>Axel did a deep dive into inheritance as it was in JavaScript in ES3, how some <a href="http://docs.webplatform.org/wiki/concepts/programming/javascript/inheritance">new features in ES5</a> can help tidy up your code and how the proposed <a href="https://github.com/dherman/tc39-codex-wiki/blob/master/data/es6/classes/index.md">class feature of ES6</a> could help even further. My pro-tip -</p>
+<pre style="font-size:16px; text-align: center;">Functions have a prototype property
+Objects have an internal prototype reference

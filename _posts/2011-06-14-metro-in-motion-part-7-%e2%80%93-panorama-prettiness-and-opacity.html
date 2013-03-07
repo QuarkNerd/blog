@@ -1,0 +1,122 @@
+---
+id: 120197
+author: Colin Eberhardt
+tags: 
+- codeproject
+categories: 
+- Blog
+layout: ceberhardt_post
+---
+
+<p><em>This blog post details a simple metro-in-motion behaviour which reduces the Panorama control&#8217;s contents while the user slides from item-to-item so that they can really appreciate your fancy background graphic!</em></p>
+<p>For those of you who have not been following my Metro-In-Motion series, I&#8217;ll briefly recap. My aim is to provide an implementation of the &#8216;fluid&#8217; UI transitions and effects seen in native Windows Phone 7 applications but absent from the Silverlight APIs. So far I have covered <a href="http://www.scottlogic.co.uk/blog/colin/2011/03/metro-in-motion-fluid-list-animation/">fluid list animations</a>, <a href="http://www.scottlogic.co.uk/blog/colin/2011/03/metro-in-motion-part-2-peel-animations/">&#8216;peel&#8217; animations</a>, <a href="http://www.scottlogic.co.uk/blog/colin/2011/04/metro-in-motion-3-flying-titles/">flying titles</a>, a <a href="http://www.scottlogic.co.uk/blog/colin/2011/05/metro-in-motion-part-4-tilt-effect/">&#8217;tilt&#8217; effect</a> and a <a href="http://www.scottlogic.co.uk/blog/colin/2011/06/metro-in-motion-part-6-rolling-list-location-indicator/">rolling list location indicator</a>. In this post I look at a very simple and subtle effect, reducing the opacity of your Panorama contents when the user slides from item-to-item.</p>
+<p>The Panorama is probably the prettiest of all the Windows Phone 7 controls, it really embodies what the<a href="http://en.wikipedia.org/wiki/Metro_(design_language)"> Metro Design Language</a> is all about. Typically a pretty graphic is used as a background for the Panorama as follows:</p>
+<div class="wp_syntax"><div class="code">{% highlight xml %}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;controls:Panorama</span> <span style="color: #000066;">Title</span>=<span style="color: #ff0000;">&quot;Panorama&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;controls:Panorama.Background<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;ImageBrush</span> <span style="color: #000066;">ImageSource</span>=<span style="color: #ff0000;">&quot;PanoramaBackground.jpg&quot;</span> <span style="color: #000066;">Opacity</span>=<span style="color: #ff0000;">&quot;0.5&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/controls:Panorama.Background<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+&nbsp;
+  <span style="color: #808080; font-style: italic;">&lt;!-- panorama content goes here --&gt;</span>
+&nbsp;
+<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/controls:Panorama<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>{% endhighlight %}
+</div>
+</div>
+<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/06/Panorama.jpg" alt="" title="Panorama" width="220" height="400" class="aligncenter size-full wp-image-1542" /></p>
+<p>Note, in the example above, the opacity of the image is reduced to 0.5 in order that it is not too bold and overpowering.</p>
+<p>Unfortunately, our beautiful background graphic is almost entirely obscured by the panorama contents. The native applications, such as the pictures and games hubs, use a cunning little trick to allow the user to enjoy the background, whilst the user is sliding the Panorama, the contents become opaque, making the background visible behind the various tiles. That is the effect I will re-create in this blog post.</p>
+<p>The code to achieve this effect is very simple. It is a basic Blend Behaviour, which handles the <code>Panorama</code> <code>ManipulationDelta</code> event in order to set the item&#8217;s <code>Opacity</code>, with the <code>ManipulationCompleted</code> event handler resetting the <code>Opacity</code> to 1.0.</p>
+<p>The behaviour is show in its entirety below:</p>
+<div class="wp_syntax"><div class="code">{% highlight csharp %}<span style="color: #008080; font-style: italic;">/// &lt;summary&gt;</span>
+<span style="color: #008080; font-style: italic;">/// This behaviour, when associated with a Panorama control, will reduce the opacity</span>
+<span style="color: #008080; font-style: italic;">/// of each PanoramaItem while the user slides the control.</span>
+<span style="color: #008080; font-style: italic;">/// &lt;/summary&gt;</span>
+<span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #6666cc; font-weight: bold;">class</span> PanoramaOpacityBehaviour <span style="color: #008000;">:</span> Behavior<span style="color: #008000;">&lt;</span>Panorama<span style="color: #008000;">&gt;</span>
+<span style="color: #008000;">&#123;</span>
+    <span style="color: #008080;">#region DPs</span>
+&nbsp;
+    <span style="color: #008080; font-style: italic;">/// &lt;summary&gt;</span>
+    <span style="color: #008080; font-style: italic;">/// Gets or sets the opacity used for the panorama items whilst the user is 'sliding'</span>
+    <span style="color: #008080; font-style: italic;">/// &lt;/summary&gt;</span>
+    <span style="color: #008000;">&#91;</span>Description<span style="color: #008000;">&#40;</span><span style="color: #666666;">&quot;Indicates the opacity used for the panorama items whilst the user is 'sliding'&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#93;</span>
+    <span style="color: #008000;">&#91;</span>Category<span style="color: #008000;">&#40;</span><span style="color: #666666;">&quot;Appearance&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#93;</span>
+    <span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #6666cc; font-weight: bold;">double</span> Opacity
+    <span style="color: #008000;">&#123;</span>
+        get <span style="color: #008000;">&#123;</span> <span style="color: #0600FF; font-weight: bold;">return</span> <span style="color: #008000;">&#40;</span><span style="color: #6666cc; font-weight: bold;">double</span><span style="color: #008000;">&#41;</span>GetValue<span style="color: #008000;">&#40;</span>OpacityProperty<span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span> <span style="color: #008000;">&#125;</span>
+        set <span style="color: #008000;">&#123;</span> SetValue<span style="color: #008000;">&#40;</span>OpacityProperty, value<span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span> <span style="color: #008000;">&#125;</span>
+    <span style="color: #008000;">&#125;</span>
+&nbsp;
+    <span style="color: #008080; font-style: italic;">/// &lt;summary&gt;</span>
+    <span style="color: #008080; font-style: italic;">/// Identifies the Opacity dependency property</span>
+    <span style="color: #008080; font-style: italic;">/// &lt;/summary&gt;</span>
+    <span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #0600FF; font-weight: bold;">static</span> <span style="color: #0600FF; font-weight: bold;">readonly</span> DependencyProperty OpacityProperty <span style="color: #008000;">=</span>
+        DependencyProperty<span style="color: #008000;">.</span><span style="color: #0000FF;">Register</span><span style="color: #008000;">&#40;</span><span style="color: #666666;">&quot;Opacity&quot;</span>, <span style="color: #008000;">typeof</span><span style="color: #008000;">&#40;</span><span style="color: #6666cc; font-weight: bold;">double</span><span style="color: #008000;">&#41;</span>,
+        <span style="color: #008000;">typeof</span><span style="color: #008000;">&#40;</span>PanoramaOpacityBehaviour<span style="color: #008000;">&#41;</span>, <span style="color: #008000;">new</span> PropertyMetadata<span style="color: #008000;">&#40;</span><span style="color: #FF0000;">0.7</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+&nbsp;
+    <span style="color: #008080;">#endregion</span>
+&nbsp;
+&nbsp;
+    <span style="color: #008080;">#region overrides</span>
+&nbsp;
+    <span style="color: #0600FF; font-weight: bold;">protected</span> <span style="color: #0600FF; font-weight: bold;">override</span> <span style="color: #6666cc; font-weight: bold;">void</span> OnAttached<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>
+    <span style="color: #008000;">&#123;</span>
+        <span style="color: #0600FF; font-weight: bold;">base</span><span style="color: #008000;">.</span><span style="color: #0000FF;">OnAttached</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+&nbsp;
+        AssociatedObject<span style="color: #008000;">.</span><span style="color: #0000FF;">ManipulationDelta</span> <span style="color: #008000;">+=</span> Panorama_ManipulationDelta<span style="color: #008000;">;</span>
+        AssociatedObject<span style="color: #008000;">.</span><span style="color: #0000FF;">ManipulationCompleted</span> <span style="color: #008000;">+=</span> Panorama_ManipulationCompleted<span style="color: #008000;">;</span>
+    <span style="color: #008000;">&#125;</span>
+&nbsp;
+    <span style="color: #0600FF; font-weight: bold;">protected</span> <span style="color: #0600FF; font-weight: bold;">override</span> <span style="color: #6666cc; font-weight: bold;">void</span> OnDetaching<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>
+    <span style="color: #008000;">&#123;</span>
+        <span style="color: #0600FF; font-weight: bold;">base</span><span style="color: #008000;">.</span><span style="color: #0000FF;">OnDetaching</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+&nbsp;
+        AssociatedObject<span style="color: #008000;">.</span><span style="color: #0000FF;">ManipulationDelta</span> <span style="color: #008000;">-=</span> Panorama_ManipulationDelta<span style="color: #008000;">;</span>
+        AssociatedObject<span style="color: #008000;">.</span><span style="color: #0000FF;">ManipulationCompleted</span> <span style="color: #008000;">-=</span> Panorama_ManipulationCompleted<span style="color: #008000;">;</span>
+    <span style="color: #008000;">&#125;</span>
+&nbsp;
+    <span style="color: #008080;">#endregion</span>
+&nbsp;
+    <span style="color: #008080;">#region private</span>
+&nbsp;
+    <span style="color: #0600FF; font-weight: bold;">private</span> <span style="color: #6666cc; font-weight: bold;">void</span> Panorama_ManipulationCompleted<span style="color: #008000;">&#40;</span><span style="color: #6666cc; font-weight: bold;">object</span> sender, ManipulationCompletedEventArgs e<span style="color: #008000;">&#41;</span>
+    <span style="color: #008000;">&#123;</span>            
+        <span style="color: #0600FF; font-weight: bold;">foreach</span> <span style="color: #008000;">&#40;</span>FrameworkElement fe <span style="color: #0600FF; font-weight: bold;">in</span> AssociatedObject<span style="color: #008000;">.</span><span style="color: #0000FF;">Items</span><span style="color: #008000;">&#41;</span>
+        <span style="color: #008000;">&#123;</span>
+            <span style="color: #008080; font-style: italic;">// restore the previous opacity</span>
+            fe<span style="color: #008000;">.</span><span style="color: #0000FF;">Opacity</span> <span style="color: #008000;">=</span> <span style="color: #FF0000;">1.0</span><span style="color: #008000;">;</span>
+        <span style="color: #008000;">&#125;</span>
+    <span style="color: #008000;">&#125;</span>
+&nbsp;
+    <span style="color: #0600FF; font-weight: bold;">private</span> <span style="color: #6666cc; font-weight: bold;">void</span> Panorama_ManipulationDelta<span style="color: #008000;">&#40;</span><span style="color: #6666cc; font-weight: bold;">object</span> sender, ManipulationDeltaEventArgs e<span style="color: #008000;">&#41;</span>
+    <span style="color: #008000;">&#123;</span>
+        <span style="color: #0600FF; font-weight: bold;">foreach</span> <span style="color: #008000;">&#40;</span>FrameworkElement fe <span style="color: #0600FF; font-weight: bold;">in</span> AssociatedObject<span style="color: #008000;">.</span><span style="color: #0000FF;">Items</span><span style="color: #008000;">&#41;</span>
+        <span style="color: #008000;">&#123;</span>
+            <span style="color: #008080; font-style: italic;">// store the opacity and set the new value</span>
+            fe<span style="color: #008000;">.</span><span style="color: #0000FF;">Opacity</span> <span style="color: #008000;">=</span> Opacity<span style="color: #008000;">;</span>
+        <span style="color: #008000;">&#125;</span>
+    <span style="color: #008000;">&#125;</span>
+&nbsp;
+    <span style="color: #008080;">#endregion</span>
+<span style="color: #008000;">&#125;</span>{% endhighlight %}
+</div>
+</div>
+<p>This behaviour can be applied programmatically as follows:</p>
+<div class="wp_syntax"><div class="code">{% highlight xml %}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;controls:Panorama</span> <span style="color: #000066;">Title</span>=<span style="color: #ff0000;">&quot;Panorama&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;i:Interaction.Behaviors<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;WP7Contrib_View_Controls_Behaviors:PanoramaOpacityBehaviour</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/i:Interaction.Behaviors<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;controls:Panorama.Background<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;ImageBrush</span> <span style="color: #000066;">ImageSource</span>=<span style="color: #ff0000;">&quot;PanoramaBackground.jpg&quot;</span> <span style="color: #000066;">Opacity</span>=<span style="color: #ff0000;">&quot;0.5&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/controls:Panorama.Background<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+&nbsp;
+  <span style="color: #808080; font-style: italic;">&lt;!-- panorama content goes here --&gt;</span>
+&nbsp;
+<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/controls:Panorama<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>{% endhighlight %}
+</div>
+</div>
+<p>Or applied by drag and drop within Expression Blend:</p>
+<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/06/PanoramaBehaviour.jpg" alt="" title="PanoramaBehaviour" width="367" height="450" class="aligncenter size-full wp-image-1546" /></p>
+<p>With this behaviour applied, the user can now fully appreciate your Panorama control&#8217;s beautiful background graphic:</p>
+<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/06/Panorama2.jpg" alt="" title="Panorama2" width="220" height="400" class="aligncenter size-full wp-image-1547" /></p>
+<p>You can download the sourcecode for this behaviour and an example project here: <a href='http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/06/MetroInMotionSeven.zip'>MetroInMotionSeven.zip</a></p>
+<p>I have also added this behaviour to the <a href="http://wp7contrib.codeplex.com/">WP7Contrib project on codeplex</a>. I would recommend that anyone doing WP7 development should download the WP7Contrib code, it is packed full of useful utilities.</p>
+<p>Regards, Colin E.</p>

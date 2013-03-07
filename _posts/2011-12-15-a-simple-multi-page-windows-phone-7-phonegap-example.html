@@ -1,0 +1,160 @@
+---
+id: 137875
+author: Colin Eberhardt
+tags: 
+- Windows Phone 7
+categories: 
+- Blog
+layout: ceberhardt_post
+---
+
+<p><em>This blog post shows how you can use PhoneGap to create Windows Phone 7 applications that are comprised of multiple, simple HTML pages, whilst meeting the Marketplace certification requirements.</em></p>
+<p>Readers of my blog will know that I have been working on, and writing about, the use of <a href="http://phonegap.com/">PhoneGap</a> to create HTML5-based Windows Phone 7 applications. Along the way I have solved problems such as <a href="http://www.scottlogic.co.uk/blog/colin/2011/11/handling-the-back-stack-in-windows-phone-7-phonegap-applications/">back-button support</a>, <a href="http://www.scottlogic.co.uk/blog/colin/2011/10/tombstoning-with-phonegap-for-windows-phone-7-and-knockoutjs/">tombstoning</a> and <a href="http://www.scottlogic.co.uk/blog/colin/2011/11/suppressing-zoom-and-scroll-interactions-in-the-windows-phone-7-browser-control/">suppressing browser pan and zoom</a>. So far the applications I have discussed have all been single-page JavaScript applications, i.e. the <code>WebBrowser </code>control loads a single HTML page which links to the application JavaScript. All subsequent navigation involves updating the DOM dynamically rather than navigating to a new URL. However, I have had numerous questions to my previous blog posts from people who are using PhoneGap to create simple navigation-based applications. In this context PhoneGap is being used as a mechanism for packaging up a collection of relatively static HTML pages.</p>
+<p>So why would you want to do this? This is a perfectly valid question! If you have static HTML based content why not simply put it on the web? There are a few reasons, one is to ensure that the content is always available, whether the phone is connected to a network or not. Another is monetization, the app-store model provides an easy way to charge for this content. Regardless of the pros and cons, based on the feedback my previous articles have received, people are very interested in using PhoneGap as a model for packaging static content.</p>
+<p>In this blog post I will show how to solve the problems of back-button support and pan / zoom for a simple navigation-based HTML application. As an example, I have chosen a subject which I have a lot of interest in ... sandwiches! I have previously blogged about <a href="http://www.scottlogic.co.uk/blog/colin/2011/05/metro-in-motion-5-sandwichflow/">SandwichFlow</a>, an example application which showcased my metro-in-motion series, here I have transformed the sandwich recipe HTML into a collection of static HTML pages.</p>
+<h2>Packaging the HTML</h2>
+<p>My <a href="http://www.scottlogic.co.uk/blog/colin/2011/09/developing-windows-phone-7-html5-apps-with-phonegap/">first PhoneGap blog post</a> detailed how to get up-and-running with PhoneGap, if you have never used this framework before I would recommend that you read that first. Packaging my sandwich recipe content into an application was simply a matter of copying the files (HTML and CSS) into the 'www' directory, running the T4 template that auto-generates the <code>GapSourceDictionary.xml</code>, building and running. The resulting application is as follows:</p>
+<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/12/SandwichFlowThree.jpg" alt="" title="SandwichFlowThree" width="600" height="346" class="aligncenter size-full wp-image-1883" /></p>
+<p>PhoneGap does a great job of making it very easy to package HTML content into an application, loading the files into isolates storage etc ... However, there are a few Windows Phone 7 specific concepts that have to be supported in order to ensure certification on submission to the marketplace.</p>
+<h2>Back-button Support</h2>
+<p><strong>UPDATE:</strong> There are a few issues with the code below. See my <a href="http://www.scottlogic.co.uk/blog/colin/2012/01/wp7-phonegap-backbutton-support-re-visited/" title="WP7 PhoneGap Backbutton support re-visited">more recent blogpost for an improved solution</a>.</p>
+<p>Correct back-button support is a mandatory requirement for marketplace certification. Hitting the back button should navigate back through the various screens of an application. Hitting the back-button on the first screen should terminate the application. The standard PhoneGap Visual Studio template does not support the back-button by default, this no-doubt reflects the fact that the other PhoneGap platforms (iPhone, Android, BlackBerry) do not share this same requirement, or lack a back-button altogether.</p>
+<p>In my <a href="http://www.scottlogic.co.uk/blog/colin/2011/11/handling-the-back-stack-in-windows-phone-7-phonegap-applications/">previous blog post on back-button support</a> I described how a single-page JavaScript application can manage its own back-stack. This approach does not work for navingation-based HTML applications.</p>
+<p>The <code>WebBrowser</code> control which PhoneGap uses to render its contents stores its navigation history in the same way that a desktop browser does. This history can be accessed via the JavaScript 'history' object. If the back-button is pressed after navigating to one of the packaged HTML pages, invoking <code>history.go(-1)</code> will cause the WebBrowser control to navigate backwards. All we need to do is to keep track of navigation events to determine whether to route the back-button too our HTML application or not. </p>
+<p>The following utility class does just that:</p>
+<div class="wp_syntax"><div class="code">{% highlight csharp %}<span style="color: #008080; font-style: italic;">/// &lt;summary&gt;</span>
+<span style="color: #008080; font-style: italic;">/// Handles the back-button for a PhoneGap application. When the back-button</span>
+<span style="color: #008080; font-style: italic;">/// is pressed, the browser history is navigated. If no history is present,</span>
+<span style="color: #008080; font-style: italic;">/// the application will exit.</span>
+<span style="color: #008080; font-style: italic;">/// &lt;/summary&gt;</span>
+<span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #6666cc; font-weight: bold;">class</span> BackButtonHandler
+<span style="color: #008000;">&#123;</span>
+  <span style="color: #0600FF; font-weight: bold;">private</span> <span style="color: #6666cc; font-weight: bold;">int</span> _browserHistoryLength <span style="color: #008000;">=</span> <span style="color: #FF0000;">0</span><span style="color: #008000;">;</span>
+  <span style="color: #0600FF; font-weight: bold;">private</span> PGView _phoneGapView<span style="color: #008000;">;</span>
+&nbsp;
+  <span style="color: #0600FF; font-weight: bold;">public</span> BackButtonHandler<span style="color: #008000;">&#40;</span>PhoneApplicationPage page, PGView phoneGapView<span style="color: #008000;">&#41;</span>
+  <span style="color: #008000;">&#123;</span>
+    <span style="color: #008080; font-style: italic;">// subscribe to the hardware back-button</span>
+    page<span style="color: #008000;">.</span><span style="color: #0000FF;">BackKeyPress</span> <span style="color: #008000;">+=</span> Page_BackKeyPress<span style="color: #008000;">;</span>
+&nbsp;
+    <span style="color: #008080; font-style: italic;">// handle navigation events</span>
+    phoneGapView<span style="color: #008000;">.</span><span style="color: #0000FF;">Browser</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Navigated</span> <span style="color: #008000;">+=</span> Browser_Navigated<span style="color: #008000;">;</span>
+&nbsp;
+    _phoneGapView <span style="color: #008000;">=</span> phoneGapView<span style="color: #008000;">;</span>
+  <span style="color: #008000;">&#125;</span>
+&nbsp;
+  <span style="color: #0600FF; font-weight: bold;">private</span> <span style="color: #6666cc; font-weight: bold;">void</span> Browser_Navigated<span style="color: #008000;">&#40;</span><span style="color: #6666cc; font-weight: bold;">object</span> sender, NavigationEventArgs e<span style="color: #008000;">&#41;</span>
+  <span style="color: #008000;">&#123;</span>
+    <span style="color: #0600FF; font-weight: bold;">if</span> <span style="color: #008000;">&#40;</span>e<span style="color: #008000;">.</span><span style="color: #0000FF;">NavigationMode</span> <span style="color: #008000;">==</span> NavigationMode<span style="color: #008000;">.</span><span style="color: #008000;">New</span><span style="color: #008000;">&#41;</span>
+    <span style="color: #008000;">&#123;</span>
+      _browserHistoryLength<span style="color: #008000;">++;</span>
+    <span style="color: #008000;">&#125;</span>
+  <span style="color: #008000;">&#125;</span>
+&nbsp;
+  <span style="color: #0600FF; font-weight: bold;">private</span> <span style="color: #6666cc; font-weight: bold;">void</span> Page_BackKeyPress<span style="color: #008000;">&#40;</span><span style="color: #6666cc; font-weight: bold;">object</span> sender, CancelEventArgs e<span style="color: #008000;">&#41;</span>
+  <span style="color: #008000;">&#123;</span>
+    <span style="color: #0600FF; font-weight: bold;">if</span> <span style="color: #008000;">&#40;</span>_browserHistoryLength <span style="color: #008000;">&gt;</span> <span style="color: #FF0000;">1</span><span style="color: #008000;">&#41;</span>
+    <span style="color: #008000;">&#123;</span>
+      _phoneGapView<span style="color: #008000;">.</span><span style="color: #0000FF;">Browser</span><span style="color: #008000;">.</span><span style="color: #0000FF;">InvokeScript</span><span style="color: #008000;">&#40;</span><span style="color: #666666;">&quot;eval&quot;</span>, <span style="color: #666666;">&quot;history.go(-1)&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+      _browserHistoryLength <span style="color: #008000;">-=</span> <span style="color: #FF0000;">2</span><span style="color: #008000;">;</span>
+      e<span style="color: #008000;">.</span><span style="color: #0000FF;">Cancel</span> <span style="color: #008000;">=</span> <span style="color: #0600FF; font-weight: bold;">true</span><span style="color: #008000;">;</span>
+    <span style="color: #008000;">&#125;</span>
+  <span style="color: #008000;">&#125;</span>
+<span style="color: #008000;">&#125;</span>{% endhighlight %}
+</div>
+</div>
+<p><strong>Note:</strong> I have had a number of requests from readers who do not have any C# / Silverlight experience, so are unsure how to use code snippets like the one above. In this blog post I have included the full sourcecode. Just grab the code and replace the contents of the 'www' directory with your own content, and you are good to go!</p>
+<p>With the above code in place the application now supports the back-button </p>
+<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/12/BackStack.jpg" alt="" title="BackStack" width="600" height="249" class="aligncenter size-full wp-image-1874" /></p>
+<p>With this feature in place you should be able to successfully submit a PhoneGap based application to the Windows Phone 7 marketplace. The other bits of code that follow are all about improving the cosmetics.</p>
+<h2>Suppressing Pan and Zoom</h2>
+<p>Whilst the viewport metadata settings can be used to prevent scaling, the cosmetics of this feature are not terribly good with Windows Phone 7, the user can still 'pinch' your HTML page, however, it snaps back to its original scale when the manipulation ends. I previously published a <a href="http://www.scottlogic.co.uk/blog/colin/2011/11/suppressing-zoom-and-scroll-interactions-in-the-windows-phone-7-browser-control/">simple class which can intercept manipulation events</a> in order to suppress the pinch zoom behaviour.</p>
+<p>This class can also 'lock' the browser windows entirely, supressing scroll as well as zoom. However, this is only appropriate for use on pages where you can be sure the content fits entirely within a single page. In order to 'activate' this behaviour we need to send a message from the HTML / JavaScript to the C# utility class. The 'about' page of this application does just that. When it is loaded the following JavaScript is executed:</p>
+<div class="wp_syntax"><div class="code">{% highlight javascript %}<span style="color: #339933;">&lt;</span>script type<span style="color: #339933;">=</span><span style="color: #3366CC;">&quot;text/javascript&quot;</span> charset<span style="color: #339933;">=</span><span style="color: #3366CC;">&quot;utf-8&quot;</span><span style="color: #339933;">&gt;</span>
+  <span style="color: #006600; font-style: italic;">// ensure that this page does not scroll</span>
+  window.<span style="color: #660066;">external</span>.<span style="color: #660066;">Notify</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;noScroll&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+<span style="color: #339933;">&lt;/</span>script<span style="color: #339933;">&gt;</span>{% endhighlight %}
+</div>
+</div>
+<p>The utility class (described in the earlier blog post) is instantiated in code-behind, with the above Notify being used to 'lock' the page:</p>
+<div class="wp_syntax"><div class="code">{% highlight csharp %}<span style="color: #0600FF; font-weight: bold;">private</span> WebBrowserHelper _browserHelper<span style="color: #008000;">;</span>
+&nbsp;
+<span style="color: #008080; font-style: italic;">// Constructor</span>
+<span style="color: #0600FF; font-weight: bold;">public</span> MainPage<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span>
+  InitializeComponent<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+&nbsp;
+  <span style="color: #008000;">new</span> BackButtonHandler<span style="color: #008000;">&#40;</span><span style="color: #0600FF; font-weight: bold;">this</span>, PGView<span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+  _browserHelper <span style="color: #008000;">=</span> <span style="color: #008000;">new</span> WebBrowserHelper<span style="color: #008000;">&#40;</span>PGView<span style="color: #008000;">.</span><span style="color: #0000FF;">Browser</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+&nbsp;
+  PGView<span style="color: #008000;">.</span><span style="color: #0000FF;">Browser</span><span style="color: #008000;">.</span><span style="color: #0000FF;">ScriptNotify</span> <span style="color: #008000;">+=</span> Browser_ScriptNotify<span style="color: #008000;">;</span>
+  PGView<span style="color: #008000;">.</span><span style="color: #0000FF;">Browser</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Navigated</span> <span style="color: #008000;">+=</span> Browser_Navigated<span style="color: #008000;">;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;
+<span style="color: #0600FF; font-weight: bold;">private</span> <span style="color: #6666cc; font-weight: bold;">void</span> Browser_Navigated<span style="color: #008000;">&#40;</span><span style="color: #6666cc; font-weight: bold;">object</span> sender, NavigationEventArgs e<span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span>
+  <span style="color: #008080; font-style: italic;">// when we first navigate to a page, we assume that it can be scrolled</span>
+  _browserHelper<span style="color: #008000;">.</span><span style="color: #0000FF;">ScrollDisabled</span> <span style="color: #008000;">=</span> <span style="color: #0600FF; font-weight: bold;">false</span><span style="color: #008000;">;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;
+<span style="color: #0600FF; font-weight: bold;">private</span> <span style="color: #6666cc; font-weight: bold;">void</span> Browser_ScriptNotify<span style="color: #008000;">&#40;</span><span style="color: #6666cc; font-weight: bold;">object</span> sender, NotifyEventArgs e<span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span>
+  <span style="color: #008080; font-style: italic;">// if a page notifies that it should not be scrollable, disable</span>
+  <span style="color: #008080; font-style: italic;">// scrolling.</span>
+  <span style="color: #0600FF; font-weight: bold;">if</span> <span style="color: #008000;">&#40;</span>e<span style="color: #008000;">.</span><span style="color: #0000FF;">Value</span> <span style="color: #008000;">==</span> <span style="color: #666666;">&quot;noScroll&quot;</span><span style="color: #008000;">&#41;</span>
+  <span style="color: #008000;">&#123;</span>
+    _browserHelper<span style="color: #008000;">.</span><span style="color: #0000FF;">ScrollDisabled</span> <span style="color: #008000;">=</span> <span style="color: #0600FF; font-weight: bold;">true</span><span style="color: #008000;">;</span>
+  <span style="color: #008000;">&#125;</span>
+<span style="color: #008000;">&#125;</span>{% endhighlight %}
+</div>
+</div>
+<p>Again, the code above is included in the download at the end of this article. To &#8216;lock&#8217; the scroll on any of your HTML pages, simply add the JavaScript &#8216;Notify&#8217; above. </p>
+<h2>Splashscreen</h2>
+<p>One final cosmetic issue is the application startup. The application splashcreen is hidden automatically when your application starts up. This is fine for a native application, however a PhoneGap application isn't quite ready at this point. After the native wrapper starts, the code is loaded into the WebBrwoser control and the HTML / JavaScript application starts. This results in a rather ugly white screen appearing for ~ 0.5 second when the application starts up.</p>
+<p>The start screen duration is not configurable, however, there is a simple solution to this problem, when the application first starts, render the splashscreen as the application content, then hide this image when the PhoneGap application starts. </p>
+<p>To do this, create an image and position it in front of the PhoneGap browser control:</p>
+<div class="wp_syntax"><div class="code">{% highlight xml %}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Grid</span> <span style="color: #000066;">x:Name</span>=<span style="color: #ff0000;">&quot;LayoutRoot&quot;</span> <span style="color: #000066;">Background</span>=<span style="color: #ff0000;">&quot;Transparent&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+&nbsp;
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;my:PGView</span> <span style="color: #000066;">HorizontalAlignment</span>=<span style="color: #ff0000;">&quot;Stretch&quot;</span> </span>
+<span style="color: #009900;">                  <span style="color: #000066;">Margin</span>=<span style="color: #ff0000;">&quot;0,0,0,0&quot;</span>  </span>
+<span style="color: #009900;">                  <span style="color: #000066;">Name</span>=<span style="color: #ff0000;">&quot;PGView&quot;</span> </span>
+<span style="color: #009900;">                  <span style="color: #000066;">VerticalAlignment</span>=<span style="color: #ff0000;">&quot;Stretch&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+&nbsp;
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Image</span> <span style="color: #000066;">Source</span>=<span style="color: #ff0000;">&quot;/SplashScreenImage.jpg&quot;</span></span>
+<span style="color: #009900;">          <span style="color: #000066;">x:Name</span>=<span style="color: #ff0000;">&quot;splashImage&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Image.Resources<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+      <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Storyboard</span> <span style="color: #000066;">x:Name</span>=<span style="color: #ff0000;">&quot;fadeOut&quot;</span></span>
+<span style="color: #009900;">                  <span style="color: #000066;">BeginTime</span>=<span style="color: #ff0000;">&quot;0:0:0.5&quot;</span></span>
+<span style="color: #009900;">                  <span style="color: #000066;">Completed</span>=<span style="color: #ff0000;">&quot;fadeOut_Completed&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+        <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;DoubleAnimation</span></span>
+<span style="color: #009900;">                <span style="color: #000066;">Storyboard.TargetName</span>=<span style="color: #ff0000;">&quot;splashImage&quot;</span></span>
+<span style="color: #009900;">                <span style="color: #000066;">Storyboard.TargetProperty</span>=<span style="color: #ff0000;">&quot;Opacity&quot;</span></span>
+<span style="color: #009900;">                <span style="color: #000066;">From</span>=<span style="color: #ff0000;">&quot;1.0&quot;</span> <span style="color: #000066;">To</span>=<span style="color: #ff0000;">&quot;0.0&quot;</span> <span style="color: #000066;">Duration</span>=<span style="color: #ff0000;">&quot;0:0:0.3&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+      <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/Storyboard<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/Image.Resources<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/Image<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/Grid<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>{% endhighlight %}
+</div>
+</div>
+<p>This image has a storyboard that fades-out the image. </p>
+<p>This animation is triggered when the browser navigates to the first age of the application:</p>
+<div class="wp_syntax"><div class="code">{% highlight csharp %}EventHandler<span style="color: #008000;">&lt;</span>NavigationEventArgs<span style="color: #008000;">&gt;</span> hideSplashScreen <span style="color: #008000;">=</span> <span style="color: #0600FF; font-weight: bold;">null</span><span style="color: #008000;">;</span>
+hideSplashScreen <span style="color: #008000;">=</span> <span style="color: #008000;">&#40;</span>s, e <span style="color: #008000;">&#41;</span> <span style="color: #008000;">=&gt;</span>
+  <span style="color: #008000;">&#123;</span>
+    fadeOut<span style="color: #008000;">.</span><span style="color: #0000FF;">Begin</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+    PGView<span style="color: #008000;">.</span><span style="color: #0000FF;">Browser</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Navigated</span> <span style="color: #008000;">-=</span> hideSplashScreen<span style="color: #008000;">;</span>
+  <span style="color: #008000;">&#125;</span><span style="color: #008000;">;</span>
+PGView<span style="color: #008000;">.</span><span style="color: #0000FF;">Browser</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Navigated</span> <span style="color: #008000;">+=</span> hideSplashScreen<span style="color: #008000;">;</span>{% endhighlight %}
+</div>
+</div>
+<p>Finally, the <code>Completed </code>event handler removes the image altogether when the animation ends:</p>
+<div class="wp_syntax"><div class="code">{% highlight csharp %}<span style="color: #0600FF; font-weight: bold;">private</span> <span style="color: #6666cc; font-weight: bold;">void</span> fadeOut_Completed<span style="color: #008000;">&#40;</span><span style="color: #6666cc; font-weight: bold;">object</span> sender, EventArgs e<span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span>
+  splashImage<span style="color: #008000;">.</span><span style="color: #0000FF;">Visibility</span> <span style="color: #008000;">=</span> Visibility<span style="color: #008000;">.</span><span style="color: #0000FF;">Collapsed</span><span style="color: #008000;">;</span>
+<span style="color: #008000;">&#125;</span>{% endhighlight %}
+</div>
+</div>
+<h2>Conclusions</h2>
+<p>Hopefully this blog post will help people who are new to WP7 and wish to release PhoneGap applications comprised of multiple HTML pages. </p>
+<p>You can download the sourcecode: <a href='http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/12/HTML5SandwichFlow.zip'>HTML5SandwichFlow.zip</a></p>
+<p>Regards, Colin E.</p>

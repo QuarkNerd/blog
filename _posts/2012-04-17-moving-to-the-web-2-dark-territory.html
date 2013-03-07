@@ -1,0 +1,12 @@
+---
+id: 147409
+author: Chris Price
+tags: 
+categories: 
+- Blog
+layout: default_post
+---
+<p><a style="float: right; margin-left: 16px;" href="http://www.scottlogic.co.uk/blog/chris/"><img class="aligncenter size-full wp-image-145833" style="border: 1px solid black;" title="Chris Price" src="http://www.scottlogic.co.uk/wp-content/uploads/2012/03/me1.png" alt="" /></a><em>This series of posts (<a href="http://www.scottlogic.co.uk/2012/03/moving-to-the-web/">part 1</a>) are attempting to do the impossible, to try and give desktop developers a brief introduction to developing on the web. I say impossible because the web is such a vast topic. On one side sits stacks of bizarre and nuanced APIs, but on the other mountains of really useful resources and frameworks that help smooth over the cracks. I can't hope to cover even a small fraction of what exists, so I apologise now if your framework/resource of choice is missing. I've simply tried to give an ordered list of concepts to work through, in a way that I think I would find useful if I was first starting out on the web.</em></p>
+<h2 style="clear: both;">Debugging</h2>
+<p>If you've had any experience of JavaScript development before it's likely that along the way you've used the window method alert to aid your debugging. It's a blocking call which shows a dialog box containing some static text and an OK button which the user must click. The blocking nature of the call is as much a blessing as a curse depending on what you were trying to debug, and being restricted to static text at some point invariably means writing a custom object formatter. But by far the biggest annoyance of this method is if you accidentally leave one in a loop!</p>
+<pre style="font-size: 48px; font-weight: bold; text-align: center;">alert("alerts suck!")
