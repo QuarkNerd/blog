@@ -1,7 +1,9 @@
 auto: false
 server: false
 lsi: false
-baseurl: /
+baseurl:
+url:
+permalink: /:year/:month/:day/:title.html
 destination: _site-safe
 paginate: 10
 exclude: [_migration]
