@@ -2,7 +2,7 @@ auto: false
 server: false
 lsi: false
 baseurl:
-url: /Blog
+url: /Blog/
 permalink: /:year/:month/:day/:title.html
 destination: _site-safe
 paginate: 10
