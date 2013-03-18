@@ -12,7 +12,16 @@ Get a copy of the code from SCM (either yourself or by asking the IT Admins) and
 
 #### Linux-y
 
-SSH to dev.scottlogic.co.uk and check out a copy of the code, to somewhere like ~/dev/scottlogic-website-blogs.  Do writing things.  Run "jekyll".  This will build the code to ~/public_html/blog/.  That will then be visible at http://dev.scottlogic.co.uk/~USERNAME/blog/.  If you want the code to be output to a different folder then specify it as the first command line argument to jekyll (or RTFM).
+From git bash -
+* `ssh dev`
+* `cd ~/public_html/`
+** If you don't have a public_html folder, create one and give it global read and execute (traverse permissions) `mkdir ~/public_html; chmod a=rx ~/public_html`
+* `git clone ssh://git.scottlogic.co.uk/scottlogic-website-blogs.git`
+* `cd scottlogic-website-blogs`
+* Edit _config.yml, change the following line `url: /Blog/` to `url: http://dev.scottlogic.co.uk/~USERNAME/scottlogic-website-blogs/_site-safe`.
+* `jekyll`
+** This takes a little while, when authoring you may find it more productive to just re-generate the latest post by using the `--limit_posts=1` command line switch.
+* Visit http://dev.scottlogic.co.uk/~USERNAME/scottlogic-website-blogs/_site-safe in your browser.
 
 #### Semi-Linux-y
 
