@@ -1,13 +1,16 @@
 ---
 id: 1907
 author: Colin Eberhardt
+title: "FastClick for WP7 - Improving Browser Responsiveness for PhoneGap Apps"
+permalink: /blog/colin/2012/01/fastclick-for-wp7-improving-browser-responsiveness-for-phonegap-apps.html
 tags: 
 - Windows Phone 7
 - WebBrowser
 - phone
 categories: 
-- Uncategorized
+- blog
 layout: ceberhardt_post
+source: wordpress
 ---
 <p>I recently released an update of the HTML5 / PhoneGap application I wrote a few months ago to the marketplace. This update fixed the location detection issue, where the marketplace certification process failed to detect that the application was using geolocation data via the browser (this issue <a href="https://issues.apache.org/jira/browse/CB-138">has been fixed in PhoneGap 1.2</a>), plus a few cosmetic improvements.</p>
 <p>This application still exhibits a few UI quirks that make it fairly obvious that this is not a native application, the first is the <a href="http://stackoverflow.com/questions/6378008/windows-phone-7-browser-turn-off-the-gray-shading-when-links-are-clicked">gray box that appears whenever a link is clicked</a>, the second is the overall responsiveness - there is a short delay between clicking on links / buttons and the application responding. It is this responsiveness that I would like to tackle in this blog post. This delay unfortunately gives the impression that your application is less responsive than it actually is!</p>
@@ -21,7 +24,7 @@ layout: ceberhardt_post
 <p><strong>Improving responsiveness</strong></p>
 <p>The problem I want to tackle in this blog post is that of the click DOM event firing delay to support the double-tap gesture. With HTML5-based applications you will typically want to disable pinch zoom, double-tap zoom and (optionally) scrolling <a href="http://www.scottlogic.co.uk/blog/colin/2011/11/suppressing-zoom-and-scroll-interactions-in-the-windows-phone-7-browser-control/" title="Suppressing Zoom and Scroll interactions in the Windows Phone 7 WebBrowser Control">as I described in a previous blog post</a>. As a result your application has no need for the double-tap and pinch gestures and we are safe to short-circuit this behaviour, immediately raising DOM click events when the user taps the screen.</p>
 <p>My solution follows a similar approach to the utility class I wrote for suppressing pan / zoom, where event handlers are added to the <code>Border </code>that sits within the <code>WebBrowser </code>control visual tree:</p>
-{% highlight csharp %}
+<pre>
 \-WebBrowser
   \-Border
     \-Border
@@ -30,7 +33,7 @@ layout: ceberhardt_post
           \-Border (*)
             \-ContentPresenter
               \-TileHost
-{% endhighlight %}
+</pre>
 <p>In order to forward Tap gestures to the browser, we can add event handlers to the Border element, then use <code>InvokeScript</code> to pass this onto the DOM rendered within the <code>TileHost</code>.</p>
 <p>The JavaScript code to achieve this is very simple, the DOM exposes an <code>elementFromPoint</code> function which allows you to hit test the DOM. The IE9 DOM interface also exposes a non-standard <code>click</code> function which invokes any click event handlers, this will cause an anchor element to navigate. Putting it together, if you have an anchor element at <code>(x=100, y=100)</code>, you can cause it to navigate using the following simple code:</p>
 {% highlight javascript %}

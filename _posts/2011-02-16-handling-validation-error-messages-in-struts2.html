@@ -1,25 +1,28 @@
 ---
 id: 106961
 author: Steven Hall
+title: "Handling Validation Error Messages in Struts2"
+permalink: /2011/02/handling-validation-error-messages-in-struts2.html
 tags: 
 - Javascript
 - validation
 - JQuery
 - Struts2
 categories: 
-- Blog
+- blog
 layout: default_post
+source: site
 ---
 <p>I've recently been developing a web project using the Struts2 framework.  A problem that came up during development was validation. More specifically, the way error messages and page redirects are sent back to the user. In this blog post I'll explain the problems I encountered, and some solutions to those problems.</p>
 <h2>Struts' Validation Framework</h2>
 <p>Struts already has an excellent validation framework, using an XML-based solution to perform validation on specific fields. The pre-defined validation tests are robust and generally fit most validation cases. For example, take the follow excerpt, where we specify that the username is a required string:</p>
-{% highlight xml %}&lt;validators&gt;
-  &lt;field name="username"&gt;
-    &lt;field-validator type="requiredstring"&gt;
-      &lt;message key="username.required" /&gt;
-    &lt;/field-validator&gt;
-  &lt;/field&gt;
-&lt;/validators&gt;{% endhighlight %}
+{% highlight xml %}<validators>
+  <field name="username">
+    <field-validator type="requiredstring">
+      <message key="username.required" />
+    </field-validator>
+  </field>
+</validators>{% endhighlight %}
 <p>We also define that the message should be looked up from a key (username.required) in a separate properties file, making string externalization very simple. There are a lot of pre-defined field validators to choose from, and they will generally fit most of your needs.</p>
 <p>If they don't, adding a custom validation check is easy and intuitive. Simply implement the validate method on the action you wish to perform validation on and specify your logic there. For example, if we want to ensure that the username doesn't already exist in the database, we could implement validate like so:</p>
 {% highlight java %}public class CreateUserAccountAction extends ActionSupport {
@@ -34,7 +37,7 @@ layout: default_post
 <p>Struts' validation framework is excellent. Should you hit a validation error, the workflow interceptor will return the string "input", and avoid executing the action. It's pretty safe to say you can trust Struts to handle all your validation provided you've configured it correctly.</p>
 <h2>Error Messages</h2>
 <p>You start to run into problems when you try to report the error messages to the user.  Struts will attempt to display field errors next to the fields of a form, or you can display the messages in the page like so:</p>
-{% highlight xml %}  &lt;fielderrors /&gt;{% endhighlight %}
+{% highlight xml %}  <fielderrors />{% endhighlight %}
 <p>The errors are added as HTML elements and can be styled with CSS fairly simply. However, I ran into the following issues with this system:</p>
 <ul>
 <li>If you want to do anything with the errors other than display them in static HTML elements, you have to work for it. For example, I wanted to use jQuery to animate the errors over the form they were for, and highlight the culprit fields red. Doable, but unnecessarily complicated. It'd require listening for any errors that're placed into the form, removing them, and then adding them to your own custom elements.  DOM manipulation alarm bells should be ringing.</li>
@@ -85,16 +88,16 @@ layout: default_post
 });{% endhighlight %}
 <h3>Analysing the return result</h3>
 <p>The result is, as we discussed before, whatever comes back from the "input" result. This is a bit of a problem, as we don't have any way of accessing the errors through the "input" page (it'll be a string representing the return page). The solution is to return a JSON object of the errors. This is very easy to do with the json return type in Struts. I modified my struts.xml to read:</p>
-{% highlight xml %}&lt;struts&gt;
-  &lt;package name="myPackage" extends="struts-default json-default"&gt;
-    &lt;global-results&gt;
-      &lt;result name="input" type="json"&gt;
-        &lt;param name="root"&gt;fieldErrors&lt;/param&gt;
-        &lt;param name="wrapPrefix"&gt;&lt;![CDATA[{ "errors" : ]]&gt;&lt;/param&gt;
-        &lt;param name="wrapSuffix"&gt;&lt;![CDATA[}]]&gt;&lt;/param&gt;
-      &lt;/result&gt;
-    &lt;/global-results&gt;
-&lt;!-- remainder of struts.xml defined here --&gt;{% endhighlight %}
+{% highlight xml %}<struts>
+  <package name="myPackage" extends="struts-default json-default">
+    <global-results>
+      <result name="input" type="json">
+        <param name="root">fieldErrors</param>
+        <param name="wrapPrefix"><![CDATA[{ "errors" : ]]></param>
+        <param name="wrapSuffix"><![CDATA[}]]></param>
+      </result>
+    </global-results>
+<!-- remainder of struts.xml defined here -->{% endhighlight %}
 <p>Firstly, adding "json-default" to the package declaration gives me access to the json result type. I've then defined a global result for the type input, meaning that any uncaught input results will redirect to here.</p>
 <p>The type is JSON, and I've specified the root to be fieldErrors (which is a bean property, and thus would map to <a href="http://www.opensymphony.com/xwork/api/com/opensymphony/xwork/ActionSupport.html#getFieldErrors()" target="_blank">getFieldErrors()</a>). Finally, I've added a prefix and suffix to wrap the produced JSON in another object for nicer encapsulation. Using the example above, when calling the action with a username that already exists I receive the following object:</p>
 {% highlight javascript %}{

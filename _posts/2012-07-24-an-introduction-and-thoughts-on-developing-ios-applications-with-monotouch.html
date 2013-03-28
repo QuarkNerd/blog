@@ -1,12 +1,15 @@
 ---
 id: 155860
 author: Colin Eberhardt
+title: "An Introduction and Thoughts on Developing iOS Applications with MonoTouch"
+permalink: /blog/colin/2012/07/an-introduction-and-thoughts-on-developing-ios-applications-with-monotouch.html
 tags: 
 - codeproject
 - iOS
 categories: 
-- Blog
+- blog
 layout: ceberhardt_post
+source: site
 ---
 
 <p><em>This blog post describes the creation of a simple twitter search application for iOS, based on a similar application I wrote for Windows Phone a few months back. In this blog post I'll used the MonoTouch platform, which allows you to write iOS applications using C#. This blog posts describes my experiences, and how it compares to Windows Phone and .NET development in general.</em></p>
@@ -25,7 +28,7 @@ layout: ceberhardt_post
 <p>i.e. the View Model is aware of the Model, but the Model is not aware of the View Model. Likewise, the View is aware of the View Model, but not vice-versa. In the absence of a binding framework, you have to manually &#8216;bind&#8217; the view model to the UI, handling property and collection changes and updating the view accordingly. As an alternative, we give the View Model a reference to the View, allowing it to 'push' these changes directly to the view. This change of visibility means that we are no longer using the MVVM pattern, the View Model is now a Presenter as described by the Model View Presenter (MVP) pattern:</p>
 <p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2012/07/MVP.png" alt="" title="MVP" width="500" height="52" class="aligncenter size-full wp-image-2238" /></p>
 <p>I tend to use the pattern where the view for a presenter is declared as an inner-interface of the presenter class (a convention <a href="http://www.scottlogic.co.uk/blog/colin/2012/03/developing-a-gwt-todomvc-application/">I learnt from using Google Web Toolkit</a>). Properties that would raise <code>PropertyChanged </code>events in a View Model now invoke methods on the View interface to indicate their state change.  The View interface can also define events in order to indicate user interactions in place of commands. The complete presenter for my iOS application is given below:</p>
-<div class="wp_syntax"><table><tr><td class="code">{% highlight csharp %}<span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #6666cc; font-weight: bold;">class</span> TwitterSearchPresenter
+<div class="wp_syntax"><table><tr><td class="code"><pre class="csharp" style="font-family:monospace;"><span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #6666cc; font-weight: bold;">class</span> TwitterSearchPresenter
 <span style="color: #008000;">&#123;</span>
   <span style="color: #008080; font-style: italic;">/// &lt;summary&gt;</span>
   <span style="color: #008080; font-style: italic;">/// The interface that this presenter depends upon</span>
@@ -108,7 +111,7 @@ layout: ceberhardt_post
     <span style="color: #6666cc; font-weight: bold;">int</span> bracketIndex <span style="color: #008000;">=</span> name<span style="color: #008000;">.</span><span style="color: #0000FF;">IndexOf</span><span style="color: #008000;">&#40;</span><span style="color: #666666;">&quot;(&quot;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">+</span> <span style="color: #FF0000;">1</span><span style="color: #008000;">;</span>
     <span style="color: #0600FF; font-weight: bold;">return</span> name<span style="color: #008000;">.</span><span style="color: #0000FF;">Substring</span><span style="color: #008000;">&#40;</span>bracketIndex, name<span style="color: #008000;">.</span><span style="color: #0000FF;">Length</span> <span style="color: #008000;">-</span> bracketIndex <span style="color: #008000;">-</span> <span style="color: #FF0000;">1</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
   <span style="color: #008000;">&#125;</span>
-<span style="color: #008000;">&#125;</span>{% endhighlight %}
+<span style="color: #008000;">&#125;</span></pre>
 </td>
 </tr>
 </table>
@@ -119,7 +122,7 @@ layout: ceberhardt_post
 <p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2012/07/InterfaceBuilder.jpg" alt="" title="InterfaceBuilder" width="550" height="359" class="aligncenter size-full wp-image-2239" /></p>
 <p>Interface Builder also allows you to wire up controls and their 'events' to your Objective-C code, using outlets and actions. The screenshot above shows how I have created outlets for the text-field, activity-indicator and table-view controls, together with an action which is invoked when the search button is pressed.</p>
 <p>When you save the view-controller file, MonoDevelop steps in and performs its magic, generating a C# partial class with properties for each outlet and partial methods for actions:</p>
-<div class="wp_syntax"><table><tr><td class="code">{% highlight csharp %}<span style="color: #008000;">&#91;</span>Register<span style="color: #008000;">&#40;</span><span style="color: #666666;">&quot;TwitterSearchViewController&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#93;</span>
+<div class="wp_syntax"><table><tr><td class="code"><pre class="csharp" style="font-family:monospace;"><span style="color: #008000;">&#91;</span>Register<span style="color: #008000;">&#40;</span><span style="color: #666666;">&quot;TwitterSearchViewController&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#93;</span>
 <span style="color: #0600FF; font-weight: bold;">partial</span> <span style="color: #6666cc; font-weight: bold;">class</span> TwitterSearchViewController
 <span style="color: #008000;">&#123;</span>
   <span style="color: #008000;">&#91;</span>Outlet<span style="color: #008000;">&#93;</span>
@@ -138,14 +141,14 @@ layout: ceberhardt_post
   <span style="color: #008000;">&#123;</span>
     <span style="color: #008000;">...</span>
   <span style="color: #008000;">&#125;</span>
-<span style="color: #008000;">&#125;</span>{% endhighlight %}
+<span style="color: #008000;">&#125;</span></pre>
 </td>
 </tr>
 </table>
 </div>
 <p>The net result is that you can wire-up UI controls in much the same way you would using the VS designer. </p>
 <p>Your view logic is placed in the associated partial class, in my example this implements the view interface declared by the presenter. It didn't take me too long to navigate round the API for the various UI controls, using the <a href="http://iosapi.xamarin.com/">Xamarin MonoTouch reference</a> as a guide:</p>
-<div class="wp_syntax"><table><tr><td class="code">{% highlight csharp %}<span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #0600FF; font-weight: bold;">partial</span> <span style="color: #6666cc; font-weight: bold;">class</span> TwitterSearchViewController <span style="color: #008000;">:</span> UIViewController, TwitterSearchPresenter<span style="color: #008000;">.</span><span style="color: #0000FF;">View</span>
+<div class="wp_syntax"><table><tr><td class="code"><pre class="csharp" style="font-family:monospace;"><span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #0600FF; font-weight: bold;">partial</span> <span style="color: #6666cc; font-weight: bold;">class</span> TwitterSearchViewController <span style="color: #008000;">:</span> UIViewController, TwitterSearchPresenter<span style="color: #008000;">.</span><span style="color: #0000FF;">View</span>
 <span style="color: #008000;">&#123;</span>
   <span style="color: #0600FF; font-weight: bold;">public</span> TwitterSearchViewController<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>
     <span style="color: #008000;">:</span> <span style="color: #0600FF; font-weight: bold;">base</span><span style="color: #008000;">&#40;</span><span style="color: #666666;">&quot;TwitterSearchViewController&quot;</span>, <span style="color: #0600FF; font-weight: bold;">null</span><span style="color: #008000;">&#41;</span>
@@ -203,7 +206,7 @@ layout: ceberhardt_post
   <span style="color: #008000;">&#125;</span>
 &nbsp;
   <span style="color: #008000;">...</span>
-<span style="color: #008000;">&#125;</span>{% endhighlight %}
+<span style="color: #008000;">&#125;</span></pre>
 </td>
 </tr>
 </table>
@@ -213,7 +216,7 @@ layout: ceberhardt_post
 <p>In the .NET world you would expect controls to raise events that you can handle in order to react to user input, for example the <code>TextBox </code>control raises a <code>KeyUp </code>event which could be used to detect an enter key press. The Objective-C approach to this is for UI controls to declare a delegate, which is defined by a protocol. You can supply a delegate to a control and it will be notified of user interactions. For example, the UITextField exposes a <a href="http://developer.apple.com/library/ios/#DOCUMENTATION/UIKit/Reference/UITextFieldDelegate_Protocol/UITextFieldDelegate/UITextFieldDelegate.html%23//apple_ref/occ/intf/UITextFieldDelegate">UITextFieldDelegate</a> which receives notifications of user interaction. </p>
 <p>Protocols are similar to C# interfaces, but with one subtle difference, they can have optional methods. As a result your delegate does not have to handle all of the 'events' that a UI control can raise. Unfortunately because C# interfaces cannot have optional methods, it is not possible to map directly from the Objective-C to the C# APIs. MonoTouch solves this by supplying base-classes for each delegate, which implements all the methods defined by a delegate's protocol. You can sub-class this base implementation so that you just need to add the methods you are interested in.</p>
 <p>For example, in order to hide the keyboard on enter key press, we create a delegate implementation and assign it to the UI control as follows:</p>
-<div class="wp_syntax"><table><tr><td class="code">{% highlight csharp %}<span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #0600FF; font-weight: bold;">override</span> <span style="color: #6666cc; font-weight: bold;">void</span> ViewDidLoad<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>
+<div class="wp_syntax"><table><tr><td class="code"><pre class="csharp" style="font-family:monospace;"><span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #0600FF; font-weight: bold;">override</span> <span style="color: #6666cc; font-weight: bold;">void</span> ViewDidLoad<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>
 <span style="color: #008000;">&#123;</span>
   <span style="color: #0600FF; font-weight: bold;">base</span><span style="color: #008000;">.</span><span style="color: #0000FF;">ViewDidLoad</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
 &nbsp;
@@ -228,7 +231,7 @@ layout: ceberhardt_post
     textField<span style="color: #008000;">.</span><span style="color: #0000FF;">ResignFirstResponder</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
     <span style="color: #0600FF; font-weight: bold;">return</span> <span style="color: #0600FF; font-weight: bold;">true</span><span style="color: #008000;">;</span>
   <span style="color: #008000;">&#125;</span>
-<span style="color: #008000;">&#125;</span>{% endhighlight %}
+<span style="color: #008000;">&#125;</span></pre>
 </td>
 </tr>
 </table>
@@ -238,7 +241,7 @@ layout: ceberhardt_post
 <p>For rendering lists of items CocoaTouch provides the <code>UITableView </code>control. This is somewhat equivalent to the Silverlight <code>ItemsControl </code>in terms of where you might use it in your application, however, the API and capabilities are quite different.</p>
 <p>In order to render data within a <code>UITableView</code> you must supply a datasource, which is defined by a protocol. MonoTouch again exposes this via a base-class that implements all of the protocol methods, in the case of the <code>UITableView </code>it also combines this with the delegate protocol. The <code>UITableView</code> is virtualised, which means you do not present it with your full set of data, instead you simply inform the table of the number of rows. As the user scrolls the table, the <code>UITableView </code>determines which rows are visible and requests the corresponding cells via the datasource protocol. The <code>UITableView </code>also has a built-in mechanism for re-cycling cells in order to reduce memory usage. </p>
 <p>The datasource implementation for the twitter application is shown below:</p>
-<div class="wp_syntax"><table><tr><td class="code">{% highlight csharp %}<span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #6666cc; font-weight: bold;">void</span> SetSearchResults<span style="color: #008000;">&#40;</span>List<span style="color: #008000;">&lt;</span>TweetViewModel<span style="color: #008000;">&gt;</span> results<span style="color: #008000;">&#41;</span>
+<div class="wp_syntax"><table><tr><td class="code"><pre class="csharp" style="font-family:monospace;"><span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #6666cc; font-weight: bold;">void</span> SetSearchResults<span style="color: #008000;">&#40;</span>List<span style="color: #008000;">&lt;</span>TweetViewModel<span style="color: #008000;">&gt;</span> results<span style="color: #008000;">&#41;</span>
 <span style="color: #008000;">&#123;</span>
   tweetList<span style="color: #008000;">.</span><span style="color: #0000FF;">Source</span> <span style="color: #008000;">=</span> <span style="color: #008000;">new</span> TableSource<span style="color: #008000;">&#40;</span>NavigationController, results<span style="color: #008000;">.</span><span style="color: #0000FF;">ToArray</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
   tweetList<span style="color: #008000;">.</span><span style="color: #0000FF;">ReloadData</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
@@ -276,7 +279,7 @@ layout: ceberhardt_post
     cell<span style="color: #008000;">.</span><span style="color: #0000FF;">ImageView</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Image</span> <span style="color: #008000;">=</span> UIImage<span style="color: #008000;">.</span><span style="color: #0000FF;">LoadFromData</span><span style="color: #008000;">&#40;</span>NSData<span style="color: #008000;">.</span><span style="color: #0000FF;">FromUrl</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">new</span> NSUrl<span style="color: #008000;">&#40;</span>tweet<span style="color: #008000;">.</span><span style="color: #0000FF;">ProfileImageUrl</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
     <span style="color: #0600FF; font-weight: bold;">return</span> cell<span style="color: #008000;">;</span>
   <span style="color: #008000;">&#125;</span>
-<span style="color: #008000;">&#125;</span>{% endhighlight %}
+<span style="color: #008000;">&#125;</span></pre>
 </td>
 </tr>
 </table>
@@ -289,7 +292,7 @@ layout: ceberhardt_post
 </table>
 </div>
 <p>It did take a little while to work out how to translate the above to my required C# equivalent:</p>
-<div class="wp_syntax"><table><tr><td class="code">{% highlight csharp %}cell<span style="color: #008000;">.</span><span style="color: #0000FF;">ImageView</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Image</span> <span style="color: #008000;">=</span> UIImage<span style="color: #008000;">.</span><span style="color: #0000FF;">LoadFromData</span><span style="color: #008000;">&#40;</span>NSData<span style="color: #008000;">.</span><span style="color: #0000FF;">FromUrl</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">new</span> NSUrl<span style="color: #008000;">&#40;</span>tweet<span style="color: #008000;">.</span><span style="color: #0000FF;">ProfileImageUrl</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>{% endhighlight %}
+<div class="wp_syntax"><table><tr><td class="code"><pre class="csharp" style="font-family:monospace;">cell<span style="color: #008000;">.</span><span style="color: #0000FF;">ImageView</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Image</span> <span style="color: #008000;">=</span> UIImage<span style="color: #008000;">.</span><span style="color: #0000FF;">LoadFromData</span><span style="color: #008000;">&#40;</span>NSData<span style="color: #008000;">.</span><span style="color: #0000FF;">FromUrl</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">new</span> NSUrl<span style="color: #008000;">&#40;</span>tweet<span style="color: #008000;">.</span><span style="color: #0000FF;">ProfileImageUrl</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span></pre>
 </td>
 </tr>
 </table>
@@ -299,7 +302,7 @@ layout: ceberhardt_post
 <p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2012/07/Navigation.jpg" alt="" title="Navigation" width="600" height="424" class="aligncenter size-full wp-image-2240" /></p>
 <p>iOS applications can make use of a <code>UINavigationController</code>, which is similar to the Windows Phone <code>NavigationContext </code>in that it controls the navigation flow of an application, including the back-stack. However, there is a subtle difference, while the <code>NavigationContext </code>is not a UI control, the iOS <code>UINavigationController</code> is responsible for rendering the header-panel and the back-button. This results in a more uniform look and feel for iOS applications and makes it a bit easier to implement basic navigation-based applications.</p>
 <p>Using the <code>UINavigationController </code>is simple, you create an instance and set it as your 'root' view controller. You can then navigate from one view to the next by 'pushing' it:</p>
-<div class="wp_syntax"><table><tr><td class="code">{% highlight csharp %}<span style="color: #008000;">&#91;</span>Register<span style="color: #008000;">&#40;</span><span style="color: #666666;">&quot;AppDelegate&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#93;</span>
+<div class="wp_syntax"><table><tr><td class="code"><pre class="csharp" style="font-family:monospace;"><span style="color: #008000;">&#91;</span>Register<span style="color: #008000;">&#40;</span><span style="color: #666666;">&quot;AppDelegate&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#93;</span>
 <span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #0600FF; font-weight: bold;">partial</span> <span style="color: #6666cc; font-weight: bold;">class</span> AppDelegate <span style="color: #008000;">:</span> UIApplicationDelegate
 <span style="color: #008000;">&#123;</span>
   <span style="color: #008080; font-style: italic;">// class-level declarations</span>
@@ -326,13 +329,13 @@ layout: ceberhardt_post
 &nbsp;
     <span style="color: #0600FF; font-weight: bold;">return</span> <span style="color: #0600FF; font-weight: bold;">true</span><span style="color: #008000;">;</span>
   <span style="color: #008000;">&#125;</span>
-<span style="color: #008000;">&#125;</span>{% endhighlight %}
+<span style="color: #008000;">&#125;</span></pre>
 </td>
 </tr>
 </table>
 </div>
 <p>In order to navigate from a tweet to the detail page, we simply handle the row selection within our table source / delegate:</p>
-<div class="wp_syntax"><table><tr><td class="code">{% highlight csharp %}<span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #6666cc; font-weight: bold;">class</span> TableSource <span style="color: #008000;">:</span> UITableViewSource
+<div class="wp_syntax"><table><tr><td class="code"><pre class="csharp" style="font-family:monospace;"><span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #6666cc; font-weight: bold;">class</span> TableSource <span style="color: #008000;">:</span> UITableViewSource
 <span style="color: #008000;">&#123;</span>
   <span style="color: #008000;">...</span>
 &nbsp;
@@ -344,7 +347,7 @@ layout: ceberhardt_post
 &nbsp;
     _navigationController<span style="color: #008000;">.</span><span style="color: #0000FF;">PushViewController</span><span style="color: #008000;">&#40;</span>controller, <span style="color: #0600FF; font-weight: bold;">true</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
   <span style="color: #008000;">&#125;</span>
-<span style="color: #008000;">&#125;</span>{% endhighlight %}
+<span style="color: #008000;">&#125;</span></pre>
 </td>
 </tr>
 </table>

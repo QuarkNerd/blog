@@ -1,6 +1,8 @@
 ---
 id: 71618
 author: Steven Hall
+title: "JavaScript Array.push Performance"
+permalink: /2010/10/javascript-array-performance.html
 tags: 
 - Javascript
 - array
@@ -8,8 +10,9 @@ tags:
 - performance
 - push
 categories: 
-- Blog
+- blog
 layout: default_post
+source: site
 ---
 <p>I was recently reading <a href="http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml" target="_blank">Google's JavaScript Style Guide</a> when I came across the following claim:</p>
 <blockquote><p>"Note that since assigning values to an array is faster than using <code>push()</code> you should use assignment where possible."</p></blockquote>
@@ -36,11 +39,11 @@ layout: default_post
     var result = 0;
     var a = [];
 
-    for (var i = 0; i&lt;10; i++) { // run the test 10 times
+    for (var i = 0; i<10; i++) { // run the test 10 times
       a = []; // we start with an empty array each time
       var start = new Date().getTime(); // get the start time of the test
 
-      for (var j = 0; j&lt;400000; j++) {
+      for (var j = 0; j<400000; j++) {
         a.push(i);
       }
 
@@ -113,11 +116,11 @@ function push(i) {
   a.push(i);
 }
 
-for(var i = 0; i&lt;10; i++) {
+for(var i = 0; i<10; i++) {
   a.push(i);
 }{% endhighlight %}
 <p>We observe the following output:</p>
-{% highlight javascript %}  for(var a=[],b=0;b&lt;10;b++)a.push(b);{% endhighlight %}
+{% highlight javascript %}  for(var a=[],b=0;b<10;b++)a.push(b);{% endhighlight %}
 <p>Showing that the Compiler doesn't do anything about push statements in pre-compiled code. However, with an improved performance in most browsers, you might expect it to.</p>
 <p>However, it wouldn't be as simple as converting all pushes to index assignments as there is a subtle difference between the two; Array.push returns the length of the array after the element has been added (something you don't get with array[array.length]). Converting all Array.push statements would cause semantic problems if the user has assigned that statement to a variable. For example:</p>
 {% highlight javascript %}var a = [];

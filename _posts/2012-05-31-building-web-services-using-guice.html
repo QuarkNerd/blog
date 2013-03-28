@@ -1,11 +1,14 @@
 ---
 id: 152124
 author: Andrew Aylett
+title: "Building Web-Services Using Guice "
+permalink: /2012/05/building-web-services-using-guice.html
 tags: 
 - Java
 categories: 
-- Blog
+- blog
 layout: default_post
+source: site
 ---
 <p>I've recently had the opportunity to investigate building web services using Java.  I think it's fair to say that Spring is the most commonly used dependency injection framework for Java, and it comes with a lot of other useful tools too, but I have no experience using it so I decided to investigate <a title="Google Guice" href="https://code.google.com/p/google-guice/">Guice</a>, a dependency injection framework written by Google and used in their AdWords back-end.  It doesn't provide any of the extras that Spring gives you, but does strive to be a lightweight and simple to use framework.</p>
 <p>If you're using Guice to build servlets, you probably want to make use of the <a href="https://code.google.com/p/google-guice/wiki/Servlets">guice-servlet</a> extension.  This builds on the dependency injection core of Guice, adding <code lang="java">@RequestScoped</code>, an annotation which allows injected objects to last for the duration of a request (as opposed to having ephemeral or singleton scope), and the GuiceServletContextListener, which is what ties Guice in to the request pipeline.  Piping requests through Guice lets you avoid having to define routing in web.xml, and is required for injection to work correctly as the injector can't inject into an object which it did not construct.  It's perfectly possible to continue to serve non-Guice servlets at the same time as Guice-provided servlets.</p>

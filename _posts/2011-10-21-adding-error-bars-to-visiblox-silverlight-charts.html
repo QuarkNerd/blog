@@ -1,230 +1,232 @@
 ---
-id: 133258
+id: 1766
 author: Colin Eberhardt
+title: "Adding Error Bars to Visiblox Silverlight Charts"
+permalink: /blog/colin/2011/10/adding-error-bars-to-visiblox-silverlight-charts.html
 tags: 
 - charts
-- codeproject
 - visiblox
+- databinding
 categories: 
-- Blog
+- codeproject
 layout: ceberhardt_post
+source: wordpress
 ---
-
 <p>Having spent a number of years studying Physics at university, I have had the importance of error bars well and truly drummed into me! Within physics, or any experimental science, there are always going to be errors in the measurements you make. The more repeat measurements you make, the more confident you can be in the mean value, however you cannot remove the errors altogether. Error bars provide a way to represent the spread of experimental observations graphically, without them, it is hard to have any confidence in the conclusions drawn from the observations!</p>
 <p>In this blog post I will show how to implement a custom <a href="http://www.visiblox.com/">Visiblox</a> chart series to render error bars:</p>
 <p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/10/VisibloxErrorBars.png" alt="" title="VisibloxErrorBars" width="499" height="240" class="aligncenter size-full wp-image-1767" /></p>
 <p>(The data in the above chart is from a page which details how to calculate the <a href="http://www.ncsu.edu/labwrite/res/gt/gt-stat-home.html">standard error from experimental results</a>).</p>
 <h2>Creating a Custom Series</h2>
 <p>As described in my previous blog post on <a href="http://www.scottlogic.co.uk/blog/colin/2010/11/adding-a-smoothed-line-series-bezier-curve-to-a-visiblox-chart/" title="Adding a Smoothed Line Series (B&eacute;zier curve) to a Visiblox Chart">creating a spline series</a>, to create a new series type, you sub-class one of the Visiblox base-classes, in this case <code>MultiValueSeriesBase </code>is a suitable starting point:</p>
-<div class="wp_syntax"><div class="code">{% highlight csharp %}<span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #6666cc; font-weight: bold;">class</span> ErrorBarSeries <span style="color: #008000;">:</span> MultiValueSeriesBase
-<span style="color: #008000;">&#123;</span> 
-  <span style="color: #0600FF; font-weight: bold;">protected</span> <span style="color: #0600FF; font-weight: bold;">override</span> FrameworkElement CreatePoint<span style="color: #008000;">&#40;</span>IDataPoint dataPoint<span style="color: #008000;">&#41;</span>
-  <span style="color: #008000;">&#123;</span>
-    <span style="color: #0600FF; font-weight: bold;">throw</span> <span style="color: #008000;">new</span> NotImplementedException<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-  <span style="color: #008000;">&#125;</span>
-&nbsp;
-  <span style="color: #0600FF; font-weight: bold;">protected</span> <span style="color: #0600FF; font-weight: bold;">override</span> <span style="color: #6666cc; font-weight: bold;">void</span> RenderDataLabels<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>
-  <span style="color: #008000;">&#123;</span>
-    <span style="color: #0600FF; font-weight: bold;">throw</span> <span style="color: #008000;">new</span> NotImplementedException<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-  <span style="color: #008000;">&#125;</span>
-<span style="color: #008000;">&#125;</span>{% endhighlight %}
-</div>
-</div>
-<p>I don&#8217;t want data labels, so the only method I need to implement is <code>CreatePoint</code>, which takes the (multi-valued) point to be rendered as its only argument. The lifecycle of point creating and destruction is taken care of by the base-class.</p>
+{% highlight csharp %}
+public class ErrorBarSeries : MultiValueSeriesBase
+{ 
+  protected override FrameworkElement CreatePoint(IDataPoint dataPoint)
+  {
+    throw new NotImplementedException();
+  }
+
+  protected override void RenderDataLabels()
+  {
+    throw new NotImplementedException();
+  }
+}
+{% endhighlight %}
+<p>I don't want data labels, so the only method I need to implement is <code>CreatePoint</code>, which takes the (multi-valued) point to be rendered as its only argument. The lifecycle of point creating and destruction is taken care of by the base-class.</p>
 <p>The <code>IDataPoint </code>has a string indexer which is used to retrieve multiple Y values for multi-valued series. It is a good idea to define these in a single place, here we define the three y-values required for an error-bar series:</p>
-<div class="wp_syntax"><div class="code">{% highlight csharp %}<span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #0600FF; font-weight: bold;">static</span> <span style="color: #0600FF; font-weight: bold;">readonly</span> <span style="color: #6666cc; font-weight: bold;">string</span> ErrorUp <span style="color: #008000;">=</span> <span style="color: #666666;">&quot;ErrorUp&quot;</span><span style="color: #008000;">;</span>
-&nbsp;
-<span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #0600FF; font-weight: bold;">static</span> <span style="color: #0600FF; font-weight: bold;">readonly</span> <span style="color: #6666cc; font-weight: bold;">string</span> ErrorDown <span style="color: #008000;">=</span> <span style="color: #666666;">&quot;ErrorDown&quot;</span><span style="color: #008000;">;</span>
-&nbsp;
-<span style="color: #0600FF; font-weight: bold;">public</span> <span style="color: #0600FF; font-weight: bold;">static</span> <span style="color: #0600FF; font-weight: bold;">readonly</span> <span style="color: #6666cc; font-weight: bold;">string</span> Value <span style="color: #008000;">=</span> <span style="color: #666666;">&quot;Value&quot;</span><span style="color: #008000;">;</span>{% endhighlight %}
-</div>
-</div>
+{% highlight csharp %}
+public static readonly string ErrorUp = "ErrorUp";
+
+public static readonly string ErrorDown = "ErrorDown";
+
+public static readonly string Value = "Value";
+{% endhighlight %}
 <p>The <code>CreatePoint</code> implementation for this series creates a Path as follows:</p>
-<div class="wp_syntax"><div class="code">{% highlight csharp %}<span style="color: #0600FF; font-weight: bold;">protected</span> <span style="color: #0600FF; font-weight: bold;">override</span> FrameworkElement CreatePoint<span style="color: #008000;">&#40;</span>IDataPoint dataPoint<span style="color: #008000;">&#41;</span>
-<span style="color: #008000;">&#123;</span>
-  var lineGeometry <span style="color: #008000;">=</span> BuildGeometry<span style="color: #008000;">&#40;</span>dataPoint<span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-&nbsp;
-  Path line <span style="color: #008000;">=</span> <span style="color: #008000;">new</span> Path<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-  line<span style="color: #008000;">.</span><span style="color: #0000FF;">Stroke</span> <span style="color: #008000;">=</span> <span style="color: #008000;">new</span> SolidColorBrush<span style="color: #008000;">&#40;</span>Colors<span style="color: #008000;">.</span><span style="color: #0000FF;">Black</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-  line<span style="color: #008000;">.</span><span style="color: #0000FF;">Fill</span> <span style="color: #008000;">=</span> <span style="color: #008000;">new</span> SolidColorBrush<span style="color: #008000;">&#40;</span>Colors<span style="color: #008000;">.</span><span style="color: #0000FF;">Gray</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-  line<span style="color: #008000;">.</span><span style="color: #0000FF;">StrokeThickness</span> <span style="color: #008000;">=</span> <span style="color: #FF0000;">1.0</span><span style="color: #008000;">;</span>
-  line<span style="color: #008000;">.</span><span style="color: #0000FF;">StrokeLineJoin</span> <span style="color: #008000;">=</span> PenLineJoin<span style="color: #008000;">.</span><span style="color: #0000FF;">Bevel</span><span style="color: #008000;">;</span>
-  line<span style="color: #008000;">.</span><span style="color: #0000FF;">Data</span> <span style="color: #008000;">=</span> lineGeometry<span style="color: #008000;">;</span>
-  line<span style="color: #008000;">.</span><span style="color: #0000FF;">SetValue</span><span style="color: #008000;">&#40;</span>ZoomCanvas<span style="color: #008000;">.</span><span style="color: #0000FF;">IsScaledPathProperty</span>, <span style="color: #0600FF; font-weight: bold;">true</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-&nbsp;
-  <span style="color: #0600FF; font-weight: bold;">return</span> line<span style="color: #008000;">;</span>
-<span style="color: #008000;">&#125;</span>{% endhighlight %}
-</div>
-</div>
+{% highlight csharp %}
+protected override FrameworkElement CreatePoint(IDataPoint dataPoint)
+{
+  var lineGeometry = BuildGeometry(dataPoint);
+
+  Path line = new Path();
+  line.Stroke = new SolidColorBrush(Colors.Black);
+  line.Fill = new SolidColorBrush(Colors.Gray);
+  line.StrokeThickness = 1.0;
+  line.StrokeLineJoin = PenLineJoin.Bevel;
+  line.Data = lineGeometry;
+  line.SetValue(ZoomCanvas.IsScaledPathProperty, true);
+   
+  return line;
+} 
+{% endhighlight %}
 <p>The <code>BuildGeometry</code> method does most of the work, extracting the values from the IDataPoint, transforming them (via the axis) to the required coordinate system, then creating a suitable geometry:</p>
-<div class="wp_syntax"><div class="code">{% highlight csharp %}<span style="color: #008080; font-style: italic;">/// &lt;summary&gt;</span>
-<span style="color: #008080; font-style: italic;">/// Creates the geometry for the given datapoint</span>
-<span style="color: #008080; font-style: italic;">/// &lt;/summary&gt;</span>
-<span style="color: #0600FF; font-weight: bold;">private</span> PathGeometry BuildGeometry<span style="color: #008000;">&#40;</span>IDataPoint dataPoint<span style="color: #008000;">&#41;</span>
-<span style="color: #008000;">&#123;</span>
-  var halfWidth <span style="color: #008000;">=</span> SuggestedPointWidth <span style="color: #008000;">*</span> WidthFactor<span style="color: #008000;">;</span>
-&nbsp;
-  <span style="color: #008080; font-style: italic;">// obtain the data values</span>
-  var topDataValue <span style="color: #008000;">=</span> dataPoint<span style="color: #008000;">&#91;</span>ErrorUp<span style="color: #008000;">&#93;</span> <span style="color: #0600FF; font-weight: bold;">as</span> IComparable<span style="color: #008000;">;</span>
-  var middleDataValue <span style="color: #008000;">=</span> dataPoint<span style="color: #008000;">&#91;</span>Value<span style="color: #008000;">&#93;</span> <span style="color: #0600FF; font-weight: bold;">as</span> IComparable<span style="color: #008000;">;</span>
-  var bottomDataValue <span style="color: #008000;">=</span> dataPoint<span style="color: #008000;">&#91;</span>ErrorDown<span style="color: #008000;">&#93;</span> <span style="color: #0600FF; font-weight: bold;">as</span> IComparable<span style="color: #008000;">;</span>
-&nbsp;
-  <span style="color: #008080; font-style: italic;">// convert to a the required render coordinates</span>
-  <span style="color: #6666cc; font-weight: bold;">double</span> topRenderPos <span style="color: #008000;">=</span> YAxis<span style="color: #008000;">.</span><span style="color: #0000FF;">GetDataValueAsRenderPositionWithoutZoom</span><span style="color: #008000;">&#40;</span>topDataValue<span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-  <span style="color: #6666cc; font-weight: bold;">double</span> middleRenderPos <span style="color: #008000;">=</span> YAxis<span style="color: #008000;">.</span><span style="color: #0000FF;">GetDataValueAsRenderPositionWithoutZoom</span><span style="color: #008000;">&#40;</span>middleDataValue<span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-  <span style="color: #6666cc; font-weight: bold;">double</span> bottomRenderPos <span style="color: #008000;">=</span> YAxis<span style="color: #008000;">.</span><span style="color: #0000FF;">GetDataValueAsRenderPositionWithoutZoom</span><span style="color: #008000;">&#40;</span>bottomDataValue<span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-&nbsp;
-  <span style="color: #6666cc; font-weight: bold;">double</span> xMiddleRenderPos <span style="color: #008000;">=</span> XAxis<span style="color: #008000;">.</span><span style="color: #0000FF;">GetDataValueAsRenderPositionWithoutZoom</span><span style="color: #008000;">&#40;</span>dataPoint<span style="color: #008000;">.</span><span style="color: #0000FF;">X</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-  <span style="color: #6666cc; font-weight: bold;">double</span> xRightRenderPos <span style="color: #008000;">=</span> xMiddleRenderPos <span style="color: #008000;">-</span> halfWidth<span style="color: #008000;">;</span>
-  <span style="color: #6666cc; font-weight: bold;">double</span> xLeftRenderPos <span style="color: #008000;">=</span> xMiddleRenderPos <span style="color: #008000;">+</span> halfWidth<span style="color: #008000;">;</span>
-&nbsp;
-  <span style="color: #008080; font-style: italic;">// build a suitable gemoetry</span>
-  PathGeometry lineGeometry <span style="color: #008000;">=</span> <span style="color: #008000;">new</span> PathGeometry<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-&nbsp;
-  PathFigure upperVerticalLine <span style="color: #008000;">=</span> CreateLineFigure<span style="color: #008000;">&#40;</span>
-    <span style="color: #008000;">new</span> Point<span style="color: #008000;">&#40;</span>xMiddleRenderPos, middleRenderPos <span style="color: #008000;">-</span> halfWidth<span style="color: #008000;">&#41;</span>,
-    <span style="color: #008000;">new</span> Point<span style="color: #008000;">&#40;</span>xMiddleRenderPos, topRenderPos<span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-  lineGeometry<span style="color: #008000;">.</span><span style="color: #0000FF;">Figures</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Add</span><span style="color: #008000;">&#40;</span>upperVerticalLine<span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-&nbsp;
-  PathFigure lowerVerticalLine <span style="color: #008000;">=</span> CreateLineFigure<span style="color: #008000;">&#40;</span>
-    <span style="color: #008000;">new</span> Point<span style="color: #008000;">&#40;</span>xMiddleRenderPos, bottomRenderPos<span style="color: #008000;">&#41;</span>,
-    <span style="color: #008000;">new</span> Point<span style="color: #008000;">&#40;</span>xMiddleRenderPos, middleRenderPos <span style="color: #008000;">+</span> halfWidth<span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-  lineGeometry<span style="color: #008000;">.</span><span style="color: #0000FF;">Figures</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Add</span><span style="color: #008000;">&#40;</span>lowerVerticalLine<span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-&nbsp;
-  PathFigure upperBar <span style="color: #008000;">=</span> CreateLineFigure<span style="color: #008000;">&#40;</span>
-    <span style="color: #008000;">new</span> Point<span style="color: #008000;">&#40;</span>xLeftRenderPos, topRenderPos<span style="color: #008000;">&#41;</span>,
-    <span style="color: #008000;">new</span> Point<span style="color: #008000;">&#40;</span>xRightRenderPos, topRenderPos<span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-  lineGeometry<span style="color: #008000;">.</span><span style="color: #0000FF;">Figures</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Add</span><span style="color: #008000;">&#40;</span>upperBar<span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-&nbsp;
-  PathFigure lowerBar <span style="color: #008000;">=</span> CreateLineFigure<span style="color: #008000;">&#40;</span>
-    <span style="color: #008000;">new</span> Point<span style="color: #008000;">&#40;</span>xLeftRenderPos, bottomRenderPos<span style="color: #008000;">&#41;</span>,
-    <span style="color: #008000;">new</span> Point<span style="color: #008000;">&#40;</span>xRightRenderPos, bottomRenderPos<span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-  lineGeometry<span style="color: #008000;">.</span><span style="color: #0000FF;">Figures</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Add</span><span style="color: #008000;">&#40;</span>lowerBar<span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-&nbsp;
-  PathFigure center <span style="color: #008000;">=</span> CreateLineFigure<span style="color: #008000;">&#40;</span>
-    <span style="color: #008000;">new</span> Point<span style="color: #008000;">&#40;</span>xMiddleRenderPos <span style="color: #008000;">-</span> halfWidth, middleRenderPos<span style="color: #008000;">&#41;</span>,
-    <span style="color: #008000;">new</span> Point<span style="color: #008000;">&#40;</span>xMiddleRenderPos, middleRenderPos <span style="color: #008000;">+</span> halfWidth<span style="color: #008000;">&#41;</span>,
-    <span style="color: #008000;">new</span> Point<span style="color: #008000;">&#40;</span>xMiddleRenderPos <span style="color: #008000;">+</span> halfWidth, middleRenderPos<span style="color: #008000;">&#41;</span>,
-    <span style="color: #008000;">new</span> Point<span style="color: #008000;">&#40;</span>xMiddleRenderPos, middleRenderPos <span style="color: #008000;">-</span> halfWidth<span style="color: #008000;">&#41;</span>
-  <span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-  lineGeometry<span style="color: #008000;">.</span><span style="color: #0000FF;">Figures</span><span style="color: #008000;">.</span><span style="color: #0000FF;">Add</span><span style="color: #008000;">&#40;</span>center<span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-&nbsp;
-  <span style="color: #0600FF; font-weight: bold;">return</span> lineGeometry<span style="color: #008000;">;</span>
-<span style="color: #008000;">&#125;</span>
-&nbsp;
-<span style="color: #008080; font-style: italic;">/// &lt;summary&gt;</span>
-<span style="color: #008080; font-style: italic;">/// Create a line figure that connects the given points</span>
-<span style="color: #008080; font-style: italic;">/// &lt;/summary&gt;</span>
-<span style="color: #0600FF; font-weight: bold;">private</span> PathFigure CreateLineFigure<span style="color: #008000;">&#40;</span><span style="color: #0600FF; font-weight: bold;">params</span> Point<span style="color: #008000;">&#91;</span><span style="color: #008000;">&#93;</span> points<span style="color: #008000;">&#41;</span>
-<span style="color: #008000;">&#123;</span>
-  <span style="color: #008080; font-style: italic;">// add all the points (except the first)</span>
-  var pointCollection <span style="color: #008000;">=</span> <span style="color: #008000;">new</span> PointCollection<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-  <span style="color: #0600FF; font-weight: bold;">foreach</span> <span style="color: #008000;">&#40;</span>var point <span style="color: #0600FF; font-weight: bold;">in</span> points<span style="color: #008000;">.</span><span style="color: #0000FF;">Skip</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">1</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span>
-  <span style="color: #008000;">&#123;</span>
-    pointCollection<span style="color: #008000;">.</span><span style="color: #0000FF;">Add</span><span style="color: #008000;">&#40;</span>point<span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-  <span style="color: #008000;">&#125;</span>
-&nbsp;
-  <span style="color: #008080; font-style: italic;">// create a figure, using the first point as the StartPoint.</span>
-  <span style="color: #0600FF; font-weight: bold;">return</span> <span style="color: #008000;">new</span> PathFigure<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>
-  <span style="color: #008000;">&#123;</span>
-    IsClosed <span style="color: #008000;">=</span> <span style="color: #0600FF; font-weight: bold;">true</span>,
-    StartPoint <span style="color: #008000;">=</span> points<span style="color: #008000;">.</span><span style="color: #0000FF;">First</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>,
-    Segments <span style="color: #008000;">=</span> <span style="color: #008000;">new</span> PathSegmentCollection<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>
-    <span style="color: #008000;">&#123;</span>
-      <span style="color: #008000;">new</span> PolyLineSegment
-      <span style="color: #008000;">&#123;</span>
-        Points <span style="color: #008000;">=</span> pointCollection
-      <span style="color: #008000;">&#125;</span>
-    <span style="color: #008000;">&#125;</span>
-  <span style="color: #008000;">&#125;</span><span style="color: #008000;">;</span>
-<span style="color: #008000;">&#125;</span>{% endhighlight %}
-</div>
-</div>
+{% highlight csharp %}
+/// <summary>
+/// Creates the geometry for the given datapoint
+/// </summary>
+private PathGeometry BuildGeometry(IDataPoint dataPoint)
+{
+  var halfWidth = SuggestedPointWidth * WidthFactor;
+
+  // obtain the data values
+  var topDataValue = dataPoint[ErrorUp] as IComparable;
+  var middleDataValue = dataPoint[Value] as IComparable;
+  var bottomDataValue = dataPoint[ErrorDown] as IComparable;
+
+  // convert to a the required render coordinates
+  double topRenderPos = YAxis.GetDataValueAsRenderPositionWithoutZoom(topDataValue);
+  double middleRenderPos = YAxis.GetDataValueAsRenderPositionWithoutZoom(middleDataValue);
+  double bottomRenderPos = YAxis.GetDataValueAsRenderPositionWithoutZoom(bottomDataValue);
+
+  double xMiddleRenderPos = XAxis.GetDataValueAsRenderPositionWithoutZoom(dataPoint.X);
+  double xRightRenderPos = xMiddleRenderPos - halfWidth;
+  double xLeftRenderPos = xMiddleRenderPos + halfWidth;
+
+  // build a suitable gemoetry
+  PathGeometry lineGeometry = new PathGeometry();
+
+  PathFigure upperVerticalLine = CreateLineFigure(
+    new Point(xMiddleRenderPos, middleRenderPos - halfWidth),
+    new Point(xMiddleRenderPos, topRenderPos));
+  lineGeometry.Figures.Add(upperVerticalLine);
+
+  PathFigure lowerVerticalLine = CreateLineFigure(
+    new Point(xMiddleRenderPos, bottomRenderPos),
+    new Point(xMiddleRenderPos, middleRenderPos + halfWidth));
+  lineGeometry.Figures.Add(lowerVerticalLine);
+
+  PathFigure upperBar = CreateLineFigure(
+    new Point(xLeftRenderPos, topRenderPos),
+    new Point(xRightRenderPos, topRenderPos));
+  lineGeometry.Figures.Add(upperBar);
+
+  PathFigure lowerBar = CreateLineFigure(
+    new Point(xLeftRenderPos, bottomRenderPos),
+    new Point(xRightRenderPos, bottomRenderPos));
+  lineGeometry.Figures.Add(lowerBar);
+
+  PathFigure center = CreateLineFigure(
+    new Point(xMiddleRenderPos - halfWidth, middleRenderPos),
+    new Point(xMiddleRenderPos, middleRenderPos + halfWidth),
+    new Point(xMiddleRenderPos + halfWidth, middleRenderPos),
+    new Point(xMiddleRenderPos, middleRenderPos - halfWidth)
+  );
+  lineGeometry.Figures.Add(center);
+
+  return lineGeometry;
+}
+
+/// <summary>
+/// Create a line figure that connects the given points
+/// </summary>
+private PathFigure CreateLineFigure(params Point[] points)
+{
+  // add all the points (except the first)
+  var pointCollection = new PointCollection();
+  foreach (var point in points.Skip(1))
+  {
+    pointCollection.Add(point);
+  }
+
+  // create a figure, using the first point as the StartPoint.
+  return new PathFigure()
+  {
+    IsClosed = true,
+    StartPoint = points.First(),
+    Segments = new PathSegmentCollection()
+    {
+      new PolyLineSegment
+      {
+        Points = pointCollection
+      }
+    }
+  };
+}
+{% endhighlight %}
 <p>We can now create an instance of this series in XAML:</p>
-<div class="wp_syntax"><div class="code">{% highlight xml %}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;vis:Chart</span> <span style="color: #000066;">x:Name</span>=<span style="color: #ff0000;">&quot;chart&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
-  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;vis:Chart.Series<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
-    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;local:ErrorBarSeries</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
-  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/vis:Chart.Series<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
-<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/vis:Chart<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>{% endhighlight %}
-</div>
-</div>
+{% highlight xml %}
+<vis:Chart x:Name="chart">
+  <vis:Chart.Series>
+    <local:ErrorBarSeries/>
+  </vis:Chart.Series>
+</vis:Chart>
+{% endhighlight %}
 <p>Supplying data to the chart via <code>MultiValuedDataPoint</code> as follows:</p>
-<div class="wp_syntax"><div class="code">{% highlight csharp %}<span style="color: #0600FF; font-weight: bold;">public</span> MainPage<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>
-<span style="color: #008000;">&#123;</span>
-  InitializeComponent<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-&nbsp;
-  var data <span style="color: #008000;">=</span> <span style="color: #008000;">new</span> DataSeries<span style="color: #008000;">&lt;</span><span style="color: #6666cc; font-weight: bold;">double</span>, <span style="color: #6666cc; font-weight: bold;">double</span><span style="color: #008000;">&gt;</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-  data<span style="color: #008000;">.</span><span style="color: #0000FF;">Add</span><span style="color: #008000;">&#40;</span>CreatePoint<span style="color: #008000;">&#40;</span><span style="color: #008000;">-</span><span style="color: #FF0000;">195</span>, <span style="color: #FF0000;">1.4</span>, <span style="color: #FF0000;">0.2</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-  data<span style="color: #008000;">.</span><span style="color: #0000FF;">Add</span><span style="color: #008000;">&#40;</span>CreatePoint<span style="color: #008000;">&#40;</span><span style="color: #FF0000;">0</span>, <span style="color: #FF0000;">62.2</span>, <span style="color: #FF0000;">9.3</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-  data<span style="color: #008000;">.</span><span style="color: #0000FF;">Add</span><span style="color: #008000;">&#40;</span>CreatePoint<span style="color: #008000;">&#40;</span><span style="color: #FF0000;">20</span>, <span style="color: #FF0000;">70.4</span>, <span style="color: #FF0000;">6.5</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-  data<span style="color: #008000;">.</span><span style="color: #0000FF;">Add</span><span style="color: #008000;">&#40;</span>CreatePoint<span style="color: #008000;">&#40;</span><span style="color: #FF0000;">100</span>, <span style="color: #FF0000;">77.4</span>, <span style="color: #FF0000;">1.9</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-&nbsp;
-  chart<span style="color: #008000;">.</span><span style="color: #0000FF;">Series</span><span style="color: #008000;">&#91;</span><span style="color: #FF0000;">0</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">.</span><span style="color: #0000FF;">DataSeries</span> <span style="color: #008000;">=</span> data<span style="color: #008000;">;</span>
-<span style="color: #008000;">&#125;</span>
-&nbsp;
-<span style="color: #0600FF; font-weight: bold;">private</span> MultiValuedDataPoint<span style="color: #008000;">&lt;</span><span style="color: #6666cc; font-weight: bold;">double</span>, <span style="color: #6666cc; font-weight: bold;">double</span><span style="color: #008000;">&gt;</span> CreatePoint<span style="color: #008000;">&#40;</span><span style="color: #6666cc; font-weight: bold;">double</span> x, <span style="color: #6666cc; font-weight: bold;">double</span> y, <span style="color: #6666cc; font-weight: bold;">double</span> error<span style="color: #008000;">&#41;</span>
-<span style="color: #008000;">&#123;</span>
-  var point <span style="color: #008000;">=</span> <span style="color: #008000;">new</span> MultiValuedDataPoint<span style="color: #008000;">&lt;</span><span style="color: #6666cc; font-weight: bold;">double</span>, <span style="color: #6666cc; font-weight: bold;">double</span><span style="color: #008000;">&gt;</span><span style="color: #008000;">&#40;</span>x,
-    <span style="color: #008000;">new</span> Dictionary<span style="color: #008000;">&lt;</span><span style="color: #6666cc; font-weight: bold;">object</span>, <span style="color: #6666cc; font-weight: bold;">double</span><span style="color: #008000;">&gt;</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>
-    <span style="color: #008000;">&#123;</span>
-      <span style="color: #008000;">&#123;</span> ErrorBarSeries<span style="color: #008000;">.</span><span style="color: #0000FF;">ErrorUp</span>, y <span style="color: #008000;">+</span> error <span style="color: #008000;">&#125;</span>,
-      <span style="color: #008000;">&#123;</span> ErrorBarSeries<span style="color: #008000;">.</span><span style="color: #0000FF;">ErrorDown</span>, y <span style="color: #008000;">-</span> error <span style="color: #008000;">&#125;</span>,
-      <span style="color: #008000;">&#123;</span> ErrorBarSeries<span style="color: #008000;">.</span><span style="color: #0000FF;">Value</span>, y <span style="color: #008000;">&#125;</span>
-    <span style="color: #008000;">&#125;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-  <span style="color: #0600FF; font-weight: bold;">return</span> point<span style="color: #008000;">;</span>
-<span style="color: #008000;">&#125;</span>{% endhighlight %}
-</div>
-</div>
+{% highlight csharp %}
+public MainPage()
+{
+  InitializeComponent();
+
+  var data = new DataSeries<double, double>();
+  data.Add(CreatePoint(-195, 1.4, 0.2));
+  data.Add(CreatePoint(0, 62.2, 9.3));
+  data.Add(CreatePoint(20, 70.4, 6.5));
+  data.Add(CreatePoint(100, 77.4, 1.9));
+
+  chart.Series[0].DataSeries = data;
+}
+
+private MultiValuedDataPoint<double, double> CreatePoint(double x, double y, double error)
+{
+  var point = new MultiValuedDataPoint<double, double>(x,
+    new Dictionary<object, double>()
+    {
+      { ErrorBarSeries.ErrorUp, y + error },
+      { ErrorBarSeries.ErrorDown, y - error },
+      { ErrorBarSeries.Value, y }
+    });
+  return point;
+}
+{% endhighlight %}
 <p>This results in the following chart:</p>
 <p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/10/VisibloxErrorBars2.png" alt="" title="VisibloxErrorBars2" width="476" height="293" class="aligncenter size-full wp-image-1772" /></p>
 <h2>Binding to a Multi-valued Series</h2>
 <p>In the previous example we created instances of <code>MultiValuedDataPoint</code>, a Visiblox type for representing multi-valued points. As an alternative, we can create model objects to represent each point, rendering them in the chart via databinding.</p>
 <p>We first modify the code to create a collection of <code>Measurement</code> instances (a simple model object that implements <code>INotifyPropertyChanged</code>):</p>
-<div class="wp_syntax"><div class="code">{% highlight csharp %}<span style="color: #0600FF; font-weight: bold;">public</span> MainPage<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>
-<span style="color: #008000;">&#123;</span>
-  InitializeComponent<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-&nbsp;
-  var data <span style="color: #008000;">=</span> <span style="color: #008000;">new</span> ObservableCollection<span style="color: #008000;">&lt;</span>Measurement<span style="color: #008000;">&gt;</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-  data<span style="color: #008000;">.</span><span style="color: #0000FF;">Add</span><span style="color: #008000;">&#40;</span>CreateMeasurement<span style="color: #008000;">&#40;</span><span style="color: #008000;">-</span><span style="color: #FF0000;">195</span>, <span style="color: #FF0000;">1.4</span>, <span style="color: #FF0000;">0.2</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-  data<span style="color: #008000;">.</span><span style="color: #0000FF;">Add</span><span style="color: #008000;">&#40;</span>CreateMeasurement<span style="color: #008000;">&#40;</span><span style="color: #FF0000;">0</span>, <span style="color: #FF0000;">62.2</span>, <span style="color: #FF0000;">9.3</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-  data<span style="color: #008000;">.</span><span style="color: #0000FF;">Add</span><span style="color: #008000;">&#40;</span>CreateMeasurement<span style="color: #008000;">&#40;</span><span style="color: #FF0000;">20</span>, <span style="color: #FF0000;">70.4</span>, <span style="color: #FF0000;">6.5</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-  data<span style="color: #008000;">.</span><span style="color: #0000FF;">Add</span><span style="color: #008000;">&#40;</span>CreateMeasurement<span style="color: #008000;">&#40;</span><span style="color: #FF0000;">100</span>, <span style="color: #FF0000;">77.4</span>, <span style="color: #FF0000;">1.9</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
-  <span style="color: #0600FF; font-weight: bold;">this</span><span style="color: #008000;">.</span><span style="color: #0000FF;">DataContext</span> <span style="color: #008000;">=</span> data<span style="color: #008000;">;</span>    
-<span style="color: #008000;">&#125;</span>
-&nbsp;
-<span style="color: #0600FF; font-weight: bold;">private</span> Measurement CreateMeasurement<span style="color: #008000;">&#40;</span><span style="color: #6666cc; font-weight: bold;">double</span> x, <span style="color: #6666cc; font-weight: bold;">double</span> y, <span style="color: #6666cc; font-weight: bold;">double</span> error<span style="color: #008000;">&#41;</span>
-<span style="color: #008000;">&#123;</span>
-  <span style="color: #0600FF; font-weight: bold;">return</span> <span style="color: #008000;">new</span> Measurement<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>
-    <span style="color: #008000;">&#123;</span>
-      XValue <span style="color: #008000;">=</span> x,
-      YValue <span style="color: #008000;">=</span> y,
-      YValueErrorUp <span style="color: #008000;">=</span> y <span style="color: #008000;">+</span> error,
-      YValueErrorDown <span style="color: #008000;">=</span> y <span style="color: #008000;">-</span> error
-    <span style="color: #008000;">&#125;</span><span style="color: #008000;">;</span>
-<span style="color: #008000;">&#125;</span>{% endhighlight %}
-</div>
-</div>
+{% highlight csharp %}
+public MainPage()
+{
+  InitializeComponent();
+
+  var data = new ObservableCollection<Measurement>();
+  data.Add(CreateMeasurement(-195, 1.4, 0.2));
+  data.Add(CreateMeasurement(0, 62.2, 9.3));
+  data.Add(CreateMeasurement(20, 70.4, 6.5));
+  data.Add(CreateMeasurement(100, 77.4, 1.9));
+  this.DataContext = data;    
+}
+
+private Measurement CreateMeasurement(double x, double y, double error)
+{
+  return new Measurement()
+    {
+      XValue = x,
+      YValue = y,
+      YValueErrorUp = y + error,
+      YValueErrorDown = y - error
+    };
+}
+{% endhighlight %}
 <p>The markup for the chart is modified to use a <code>BindableDataSeries</code>, with bindings specified for the various component of the error bar series. Also, the <code>ItemsSource </code>of the <code>BindableDataSeries</code> is bound to the inherited <code>DataContext</code>:</p>
-<div class="wp_syntax"><div class="code">{% highlight csharp %}<span style="color: #008000;">&lt;</span>local<span style="color: #008000;">:</span>ErrorBarSeries<span style="color: #008000;">&gt;</span>
-  <span style="color: #008000;">&lt;</span>local<span style="color: #008000;">:</span>ErrorBarSeries<span style="color: #008000;">.</span><span style="color: #0000FF;">DataSeries</span><span style="color: #008000;">&gt;</span>
-    <span style="color: #008000;">&lt;</span>vis<span style="color: #008000;">:</span>BindableDataSeries ItemsSource<span style="color: #008000;">=</span><span style="color: #666666;">&quot;{Binding}&quot;</span>
-                            XValueBinding<span style="color: #008000;">=</span><span style="color: #666666;">&quot;{Binding XValue}&quot;</span><span style="color: #008000;">&gt;</span>
-      <span style="color: #008000;">&lt;</span>vis<span style="color: #008000;">:</span>BindableDataSeries<span style="color: #008000;">.</span><span style="color: #0000FF;">YValueBindings</span><span style="color: #008000;">&gt;</span>
-        <span style="color: #008000;">&lt;</span>vis<span style="color: #008000;">:</span>YValueBinding YValueKey<span style="color: #008000;">=</span><span style="color: #666666;">&quot;Value&quot;</span> Binding<span style="color: #008000;">=</span><span style="color: #666666;">&quot;{Binding YValue}&quot;</span><span style="color: #008000;">/&gt;</span>
-        <span style="color: #008000;">&lt;</span>vis<span style="color: #008000;">:</span>YValueBinding YValueKey<span style="color: #008000;">=</span><span style="color: #666666;">&quot;ErrorUp&quot;</span> Binding<span style="color: #008000;">=</span><span style="color: #666666;">&quot;{Binding YValueErrorUp}&quot;</span><span style="color: #008000;">/&gt;</span>
-        <span style="color: #008000;">&lt;</span>vis<span style="color: #008000;">:</span>YValueBinding YValueKey<span style="color: #008000;">=</span><span style="color: #666666;">&quot;ErrorDown&quot;</span>  Binding<span style="color: #008000;">=</span><span style="color: #666666;">&quot;{Binding YValueErrorDown}&quot;</span><span style="color: #008000;">/&gt;</span>
-      <span style="color: #008000;">&lt;/</span>vis<span style="color: #008000;">:</span>BindableDataSeries<span style="color: #008000;">.</span><span style="color: #0000FF;">YValueBindings</span><span style="color: #008000;">&gt;</span>              
-    <span style="color: #008000;">&lt;/</span>vis<span style="color: #008000;">:</span>BindableDataSeries<span style="color: #008000;">&gt;</span>
-  <span style="color: #008000;">&lt;/</span>local<span style="color: #008000;">:</span>ErrorBarSeries<span style="color: #008000;">.</span><span style="color: #0000FF;">DataSeries</span><span style="color: #008000;">&gt;</span>
-<span style="color: #008000;">&lt;/</span>local<span style="color: #008000;">:</span>ErrorBarSeries<span style="color: #008000;">&gt;</span>{% endhighlight %}
-</div>
-</div>
+{% highlight csharp %}
+<local:ErrorBarSeries>
+  <local:ErrorBarSeries.DataSeries>
+    <vis:BindableDataSeries ItemsSource="{Binding}"
+                            XValueBinding="{Binding XValue}">
+      <vis:BindableDataSeries.YValueBindings>
+        <vis:YValueBinding YValueKey="Value" Binding="{Binding YValue}"/>
+        <vis:YValueBinding YValueKey="ErrorUp" Binding="{Binding YValueErrorUp}"/>
+        <vis:YValueBinding YValueKey="ErrorDown"  Binding="{Binding YValueErrorDown}"/>
+      </vis:BindableDataSeries.YValueBindings>              
+    </vis:BindableDataSeries>
+  </local:ErrorBarSeries.DataSeries>
+</local:ErrorBarSeries>
+{% endhighlight %}
 <p>We can also display our data in a DataGrid, allowing us to manipulate the values (not that I condone manipulation of scientific data!), with the changes being reflected in the chart:</p>
-<div class="wp_syntax"><div class="code">{% highlight xml %}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;sdk:DataGrid</span> <span style="color: #000066;">Grid.Row</span>=<span style="color: #ff0000;">&quot;1&quot;</span></span>
-<span style="color: #009900;">              <span style="color: #000066;">x:Name</span>=<span style="color: #ff0000;">&quot;grid&quot;</span></span>
-<span style="color: #009900;">              <span style="color: #000066;">ItemsSource</span>=<span style="color: #ff0000;">&quot;{Binding}&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>{% endhighlight %}
-</div>
-</div>
+{% highlight xml %}
+<sdk:DataGrid Grid.Row="1"
+              x:Name="grid"
+              ItemsSource="{Binding}"/>
+{% endhighlight %}
 <p>This gives us the following application:</p>
 <div style="text-align: center;"><object width="500" height="400" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/10/VisibloxErrorBarSeries.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <p>You can edit the values, with the changes reflected immediately in the chart above.</p>

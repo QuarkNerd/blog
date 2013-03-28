@@ -1,20 +1,23 @@
 ---
 id: 103156
 author: Luke Page
+title: "CSS Performance Part 3 - Updating Nodes"
+permalink: /2011/02/css-performance-part-3-updating-nodes.html
 tags: 
 - CSS
 - Javascript
 - performance
 categories: 
-- Blog
+- blog
 layout: default_post
+source: site
 ---
 <h3>Introduction</h3>
 <p>In the first two parts I looked at different ways of performing dom manipulation tasks like adding rows to a table and sorting rows in a table. These tend to be quite common since we display data in a table and a dynamic website may wish to show live updates to that data and present it in a user friendly way by allowing client side sorting.</p>
 <p>So, this is the last blog post before I go on to compare different CSS strategies. I will focus on the remaining tasks likely to occur in dynamic web applications, which is more general updating of the DOM. I'd like to test the performance of updating the entire dom with tweaking little bits and seeing if changing multiple classes is similar to changing single classes.</p>
 <h3>Content Changing - innerHTML</h3>
 <p>I'm going to take my table example and test 3 different ways of updating it. If you have the following HTML structure...</p>
-{% highlight csharp %}
+<pre>
 &lt;table&gt;
     &lt;tr&gt;
         &lt;td&gt;
@@ -25,7 +28,7 @@ layout: default_post
     &lt;/tr&gt;
     ...
 &lt;/table&gt;
-{% endhighlight %}
+</pre>
 <p>... and you wish to change the class on the span and the text to update then there are 3 ways to achieve this.</p>
 <ul>    <li>innerHTML = "&lt;span class="new_class"&lt;new text&gt;/span&gt;";</li>
 <li>childNodes[0].innerHTML = "new text"; <br />childNodes[0].className = "new_class";</li>
@@ -915,7 +918,7 @@ layout: default_post
 <div class="ib divtd"><span>TD</span></div>
 </div>
 </div>
-{% highlight csharp %}
+<pre>
 &lt;div class="divtable"&gt;
   &lt;div class="divtr"&gt;
     &lt;div class="ib divtd"&gt;&lt;span&gt;TD&lt;/span&gt;&lt;/div&gt;
@@ -925,4 +928,4 @@ layout: default_post
   &lt;div class="divtr"&gt;
   ...
 &lt;/div>&lt;/div&gt;
-{% endhighlight %}
+</pre>

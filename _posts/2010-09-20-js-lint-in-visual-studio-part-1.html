@@ -1,10 +1,13 @@
 ---
 id: 69829
 author: Luke Page
+title: "JSLint in Visual Studio Part 1"
+permalink: /2010/09/js-lint-in-visual-studio-part-1.html
 tags: 
 categories: 
-- Blog
+- blog
 layout: default_post
+source: site
 ---
 <h3>Introduction</h3>
 <p><a href="http://www.jslint.com/">Js Lint is a tool created by Douglas Crockford</a> to parse JavaScript, report errors and ensure good coding practices. If you write JavaScript, it's a good idea to at least have read and understood the rules - quite often they are because something that is common in a language like C# could have unintended consequences because of the nuances of JavaScript, which is why its particularly important to Asp.NET developers where Microsoft has specifically attempted to make an API that is familiar to .NET developers new to JavaScript. It's written in JavaScript and parses the file, ensures its validity, checks the rules you have switched on and can also report unused but defined variables.</p>
@@ -16,9 +19,9 @@ layout: default_post
 <p>So, I found two JavaScript interpreters for C# - <a href="http://jint.codeplex.com/">Jint</a>, a parser written from scratch with the help of <a href="http://www.antlr.org">ANTLR</a> and <a href="http://javascriptdotnet.codeplex.com/">JavaScript.NET</a> which was using the <a href="http://code.google.com/apis/v8/">Google V8</a> JavaScript engine - used in chrome and the fastest JavaScript engine (as far as I know). Jint has better support for integrating between C# and JavaScript, but JavaScript.NET used V8, so I felt it more likely to handle anything thrown at it. So I went with JavaScript.NET and the V8 JavaScript engine.</p>
 <p>So firstly, I embed the <a href="http://www.jslint.com/fulljslint.js">full JSLint JavaScript file</a>, create a JavaScript context and run the JSLint code in order that JSLint can be ready for linting.</p>
 {% highlight csharp %}
-/// &lt;summary&gt;
+/// <summary>
 ///  Constructs an object capable of linting JavaScript files and return
-/// &lt;/summary&gt;
+/// </summary>
 public class JsLinter
 {
     private JavascriptContext _context;
@@ -82,22 +85,22 @@ dataCollector.ProcessData({errors: data.errors, unused: data.unused});
 {% highlight csharp %}
 private class LintDataCollector
 {
-	private List&lt;jslintdata&gt; _errors = new List&lt;jslintdata&gt;();
+	private List<jslintdata> _errors = new List<jslintdata>();
 
-	public List&lt;jslintdata&gt; Errors
+	public List<jslintdata> Errors
 	{
 		get { return _errors; }
 	}
 
 	public void ProcessData(object data)
 	{
-		Dictionary&lt;string , object&gt; dataDict = data as Dictionary&lt;string , object&gt;;
+		Dictionary<string , object> dataDict = data as Dictionary<string , object>;
 
 		if (dataDict != null)
 		{
 			if (dataDict.ContainsKey("errors"))
 			{
-				ProcessListOfObject(dataDict["errors"], (error) =&gt;
+				ProcessListOfObject(dataDict["errors"], (error) =>
 				{
 					JsLintData jsError = new JsLintData();
 					if (error.ContainsKey("line"))
@@ -121,7 +124,7 @@ private class LintDataCollector
 
 			if (dataDict.ContainsKey("unused"))
 			{
-				ProcessListOfObject(dataDict["unused"], (unused) =&gt;
+				ProcessListOfObject(dataDict["unused"], (unused) =>
 				{
 					JsLintData jsError = new JsLintData();
 					if (unused.ContainsKey("line"))
@@ -140,7 +143,7 @@ private class LintDataCollector
 		}
 	}
 
-	private void ProcessListOfObject(object obj, Action<dictionary &lt;string, object&gt;&gt; processor)
+	private void ProcessListOfObject(object obj, Action<dictionary <string, object>> processor)
 	{
 		object[] array = obj as object[];
 
@@ -148,7 +151,7 @@ private class LintDataCollector
 		{
 			foreach (object objItem in array)
 			{
-				Dictionary&lt;string , object&gt; objItemDictionary = objItem as Dictionary&lt;string , object&gt;;
+				Dictionary<string , object> objItemDictionary = objItem as Dictionary<string , object>;
 
 				if (objItemDictionary != null)
 				{

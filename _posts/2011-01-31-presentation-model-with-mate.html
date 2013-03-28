@@ -1,6 +1,8 @@
 ---
 id: 432
 author: Graham Odds
+title: "Presentation Model (or MVVM) with Mate"
+permalink: /blog/graham/2011/01/presentation-model-with-mate.html
 tags: 
 - Flex
 - Flash
@@ -8,8 +10,9 @@ tags:
 - Code Structure
 - Testing
 categories: 
-- Flex
-layout: codds_post
+- flex
+layout: godds_post
+source: wordpress
 ---
 <p><em>This post introduces the <a href="http://martinfowler.com/eaaDev/PresentationModel.html" target="_blank">Presentation Model</a> (or <a href="http://en.wikipedia.org/wiki/Model_View_ViewModel" target="_blank">MVVM</a>) architectural pattern as one approach for creating "better" large-scale <a href="http://www.adobe.com/devnet/flex.html" target="_blank">Flex</a> applications and shows how the <a href="http://mate.asfusion.com/" target="_blank">Mate Framework</a> can be leveraged to not only achieve this pattern but increase <a href="http://en.wikipedia.org/wiki/Separation_of_concerns" target="_blank">separation of concerns</a> above that of a "standard" <a href="http://www.adobe.com/devnet/flex.html" target="_blank">Flex</a> application.</em></p>
 <h2>Background</h2>
@@ -36,7 +39,16 @@ layout: codds_post
 <h2>Worked Example</h2>
 <p>Here follows a worked example showing how the <a href="http://mate.asfusion.com/" target="_blank">Mate framework</a> can be leveraged to not only use the <a href="http://martinfowler.com/eaaDev/PresentationModel.html" target="_blank">Presentation Model</a> architectural pattern, but also add further elegance by using some of its core features.  As previously mentioned, <a href="http://www.flexstuff.co.uk/" target="_blank">Gilles Guillemin</a> has produced an excellent <a href="http://www.flexstuff.co.uk/tag/mate-framework/" target="_blank">set of articles introducing Mate</a>, and he even has an article that focuses on the exact same topic as this article.  Unfortunately, <a href="http://www.flexstuff.co.uk/2009/08/25/mate-examples-10-presentation-model/" target="_blank">his Presentation Model article</a> does not continue with the nice example application he used in his <a href="http://www.flexstuff.co.uk/tag/mate-framework/" target="_blank">previous articles</a> and instead uses an overly simplistic example that does not present an overly compelling case.</p>
 <p>The example below applies the Presentation Model (or MVVM) architectural pattern to the example Gilles Guillemin created for his <a href="http://www.flexstuff.co.uk/tag/mate-framework/" target="_blank">introductory series to Mate</a>.  That is, an application with a global count that can be increased and decreased both directly and by manipulating a dynamic number of counters.  Each counter maintains a sub-total that is the sum of its two sub-counters.  Additionally, there is a global countdown that on reaching 0 resets all counts at all levels.</p>
-<p>[swfobj src="http://www.scottlogic.co.uk/blog/graham/wp-content/uploads/2011/01/MatePresentationModel.swf" width="705" height="600" align="center" allowfullscreen="false" required_player_version="10,0,0"]<span style="font-size: 0.8em; font-style: italic;"><a href='http://www.scottlogic.co.uk/blog/graham/wp-content/uploads/2011/01/MatePresentationModel-src.zip'>Source code</a></span></p>
+<p><br /><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="705" height="600" align="center">
+<param name="movie" value="http://www.scottlogic.co.uk/blog/graham/wp-content/uploads/2011/01/MatePresentationModel.swf" />
+<!--[if !IE]>-->
+<object type="application/x-shockwave-flash" data="http://www.scottlogic.co.uk/blog/graham/wp-content/uploads/2011/01/MatePresentationModel.swf" width="705" height="600" align="center">
+<!--<![endif]-->
+<!--[if !IE]>-->
+</object>
+<!--<![endif]-->
+</object>
+<br /><span style="font-size: 0.8em; font-style: italic;"><a href='http://www.scottlogic.co.uk/blog/graham/wp-content/uploads/2011/01/MatePresentationModel-src.zip'>Source code</a></span></p>
 <h4>Core code</h4>
 <p>In order to not get too bogged down in application specifics and better focus on how Presentation Model (or MVVM) and Mate are used, I will focus on the sub-counter block of the user interface and logic.  As shown in the class diagram below, the entities involved are: the view, <code>SubCounterView</code>; the view model interface, <code>ISubCounterViewModel</code>; and, an implementation of the view model interface, <code>SubCounterViewModel</code>.  The diagram also shows how I have added some unifying interfaces for views and view models and a base class for view models containing some common functionality (more detail on this later when explaining the Mate-related specifics).</p>
 <p><em>The observant among you will have spotted that there are no model classes mentioned.  This is because in this particular example the models are the integer counts and as such do not require a custom class type.  In more real-world applications it would be normal to have custom model classes that are used by the view models to maintain state.</em></p>

@@ -1,12 +1,15 @@
 ---
 id: 106980
 author: Jonathan Cardy
+title: "Web Workers Part 1: Performance"
+permalink: /2011/02/web-workers-part-1-performance.html
 tags: 
 - Javascript
 - Web Workers
 categories: 
-- Blog
+- blog
 layout: default_post
+source: site
 ---
 <p>The Web Workers API is currently a draft HTML5 specification which defines an API for running JavaScript in a background thread.   In this series of blog posts I am going to investigate the practical use of Web Workers.</p>
 <p>In this first blog post I want to look at the performance of HTML 5 Web Workers in different browsers.  I don't just mean the performance increase that we're going to see by multi-threading our JavaScript, I also mean the difference in performance between executing the same code in a Worker vs. the UI thread, and the set-up cost of creating workers and the associated messaging involved.</p>
@@ -14,20 +17,20 @@ layout: default_post
 <p>Web Workers are created by writing a block of code in a separate js file.  This piece of code is then executed in an entirely separate context - it has no access to the window object, it can't see the DOM, and it receives input and sends output via messaging.  The messages are serialized, so the input and output is always copied - meaning we can't pass any object references into workers.  Although initially this seems like a serious downside, it can also be viewed as a great bonus - it forces thread safety.</p>
 <p>To implement a worker, we have to create worker code in a new file.  It needs to confirm to a specific "interface":</p>
 <ul>
-<li>{% highlight csharp %}onmessage{% endhighlight %}
+<li><pre>onmessage</pre>
 <p>implement this function to receive messages from UI thread</li>
-<li>{% highlight csharp %}onconnect{% endhighlight %}
+<li><pre>onconnect</pre>
 <p>implement this function in a Shared Worker, to receive notification when multiple UI threads (ie. from multiple windows) connect to the same worker instance</li>
-<li>{% highlight csharp %}postMessage{% endhighlight %}
+<li><pre>postMessage</pre>
 <p>call this function to send a message back to the UI thread</li>
 </ul>
 <p>Since a Worker doesn't have access to the window object, you can't use all the window functions you are used to (self is the global object in a Web Worker).  However you can still use these:</p>
 <ul>
-<li>{% highlight csharp %}setTimeout{% endhighlight %}
+<li><pre>setTimeout</pre>
 </li>
-<li>{% highlight csharp %}setInterval{% endhighlight %}
+<li><pre>setInterval</pre>
 </li>
-<li>{% highlight csharp %}XMLHttpRequest{% endhighlight %}
+<li><pre>XMLHttpRequest</pre>
 </li>
 </ul>
 <p>Here is a simple implementation of a prime-number calculating Worker, primes.js:</p>

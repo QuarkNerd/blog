@@ -1,21 +1,25 @@
 ---
-id: 130880
+id: 1692
 author: Colin Eberhardt
+title: "Developing Windows Phone 7 HTML5 apps with PhoneGap"
+permalink: /blog/colin/2011/09/developing-windows-phone-7-html5-apps-with-phonegap.html
 tags: 
 - codeproject
 - cross-platform
-- HTML5
 - Windows Phone 7
+- HTML5
+- PhoneGap
 categories: 
-- Blog
+- codeproject
 layout: ceberhardt_post
+source: wordpress
 ---
-
 <p><em>This article show the step-by-step development of a Windows Phone 7 HTML5 application using PhoneGap. It also looks at how viable this approach is for cross-platform mobile development.</em></p>
-<h2>Introduction &#8230; and Why HTML5?</h2>
-<p>Windows Phone 7 allows native application development in both Silverlight and XNA, both of which are mature framework with excellent tool support. So why would you want to develop an application with HTML5 / JavaScript instead? Personally I think the only viable reason for doing this (other than just for fun!) is to develop a cross-platform mobile application. HTML5 / JavaScript applications are platform agnostics, running on Android, iPhone, BlackBerry and now with the Mango WP7 supporting IE9, WP7.<br />In this blog post I will describe how I implemented the application shown below, which allows you to search properties for sale, using the GPS and various webservices to find and geocode your current location:</p>
+<div style="float:right; width:130px; margin:10px; padding:10px; border: solid 1px #aaa; font-size:0.8em;"><img src="http://0.gravatar.com/avatar/458f2e0d08d4114f8b323798cfea141d?s=64&d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&r=G" style="float:left; margin:5px;">Colin Eberhardt is a Scott Logic technical Evangelist and a Technical Architect for Visiblox, suppliers of <a href="http://www.visiblox.com">high-performance WPF and Silverlight charts</a>.<a href="http://www.visiblox.com"><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2012/04/visiblox-white.png"/></a></div>
+<h2>Introduction ... and Why HTML5?</h2>
+<p>Windows Phone 7 allows native application development in both Silverlight and XNA, both of which are mature framework with excellent tool support. So why would you want to develop an application with HTML5 / JavaScript instead? Personally I think the only viable reason for doing this (other than just for fun!) is to develop a cross-platform mobile application. HTML5 / JavaScript applications are platform agnostics, running on Android, iPhone, BlackBerry and now with the Mango WP7 supporting IE9, WP7.In this blog post I will describe how I implemented the application shown below, which allows you to search properties for sale, using the GPS and various webservices to find and geocode your current location:</p>
 <p><iframe src="http://www.youtube.com/embed/bpCo4O69WPs" frameborder="0" width="560" height="315"></iframe></p>
-<p>The basic concept behind HTML5 applications is that your native application is simply a full-screen WebBrowser, which hosts your JavaScript application logic. In order to achieve this in practice, you need to package the HTML, JavaScript, CSS and other resources into a XAP file, then use the WebBrowser APIs to pass messages between your JavaScript code and the native APIs in order to access the phone features such as the camera, accelerometer etc &#8230;</p>
+<p>The basic concept behind HTML5 applications is that your native application is simply a full-screen WebBrowser, which hosts your JavaScript application logic. In order to achieve this in practice, you need to package the HTML, JavaScript, CSS and other resources into a XAP file, then use the WebBrowser APIs to pass messages between your JavaScript code and the native APIs in order to access the phone features such as the camera, accelerometer etc ...</p>
 <p>A few people have developed frameworks to assist in development of HTML5 apps, for example the <a href="http://htmlappwp7.codeplex.com/">HTML App Host Framework</a>. However, the one I would recommend is <a href="http://www.phonegap.com/">PhoneGap</a>, as the name implies, this framework fills the gap between your JavaScript code and the native phone features. PhoneGap is an open source project that has been running for a couple of years now; currently a large range of phones are supported, meaning that you are guaranteed the same JavaScript APIs for accessing the phone features on Android, iPhone, BlackBerry and more.</p>
 <p>PhoneGap support for Windows Phone 7 was initiated by Matt Lacey, who created an <a href="http://blog.mrlacey.co.uk/2010/08/wp7dev-phonegap-and-windows-phone-7.html">initial implementation of the PhoneGap APIs</a>. More recently Nitobi (who run PhoneGap), announced <a href="http://blogs.nitobi.com/jesse/2011/09/08/pg-wp7mango/">an official beta release</a>, which they have worked on in conjunction with Microsoft.</p>
 <h2>Getting Started With PhoneGap</h2>
@@ -34,312 +38,312 @@ layout: ceberhardt_post
 <p>If you followed these steps correctly, you should see the following:</p>
 <p><a href="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/09/HelloWorld.png"><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/09/HelloWorld-165x300.png" alt="" title="HelloWorld" width="165" height="300" class="aligncenter size-medium wp-image-1696" /></a></p>
 <h2>Dissecting the Example App</h2>
-<p>The example application is a bit more complex than an equivalent Silverlight 'Hello World' app, so we'll look at it in some detail &#8230;</p>
-<p>The www folder contains the HTML5 application sourcecode, here you place images, HTML, JavaScript, and CSS. These files are marked as 'content' and will be included within the XAP file with the same directory structure. The project contains a <code>GapSourceDictionary.xml</code> file, this XML file lists all the HTML application resources. When the application starts, this XML file is read, and each file is added to isolated storage so that it can be served by the WebBrowser control:</p>
-<div class="wp_syntax"><div class="code">{% highlight xml %}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;GapSourceDictionary<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
-  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;FilePath</span> <span style="color: #000066;">Value</span>=<span style="color: #ff0000;">&quot;www/index.html&quot;</span> <span style="color: #000000; font-weight: bold;">/&gt;</span></span> 
-  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;FilePath</span> <span style="color: #000066;">Value</span>=<span style="color: #ff0000;">&quot;www/phonegap.1.0.js&quot;</span> <span style="color: #000000; font-weight: bold;">/&gt;</span></span> 
-  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;FilePath</span> <span style="color: #000066;">Value</span>=<span style="color: #ff0000;">&quot;www/master.css&quot;</span> <span style="color: #000000; font-weight: bold;">/&gt;</span></span> 
-<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/GapSourceDictionary<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>{% endhighlight %}
-</div>
-</div>
+<p>The example application is a bit more complex than an equivalent Silverlight 'Hello World' app, so we'll look at it in some detail ...</p>
+<p>The www folder contains the HTML5 application sourcecode, here you place images, HTML, JavaScript, and CSS. These files are marked as 'content' and will be included within the XAP file with the same directory structure. The project contains a <code>GapSourceDictionary.xml</code> file, this XML file lists all the HTML application resources. When the application starts, this XML file is read, and each file is added to isolated storage so that it can be served by the WebBrowser control: </p>
+{% highlight xml %}
+<GapSourceDictionary>
+  <FilePath Value="www/index.html" /> 
+  <FilePath Value="www/phonegap.1.0.js" /> 
+  <FilePath Value="www/master.css" /> 
+</GapSourceDictionary>
+{% endhighlight %}
 <p>The MainPage.xaml, which is the Silverlight UI for the application contains an instance of PGView:</p>
-<div class="wp_syntax"><div class="code">{% highlight xml %}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;phone:PhoneApplicationPage</span> </span>
-<span style="color: #009900;">    ... <span style="color: #000066;">xmlns:my</span>=<span style="color: #ff0000;">&quot;clr-namespace:WP7GapClassLib;assembly=WP7GapClassLib&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
-    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;Grid<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
-      <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;my:PGView</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
-    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/Grid<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
-<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/phone:PhoneApplicationPage<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>{% endhighlight %}
-</div>
-</div>
+{% highlight xml %}
+<phone:PhoneApplicationPage 
+    ... xmlns:my="clr-namespace:WP7GapClassLib;assembly=WP7GapClassLib">
+    <Grid>
+      <my:PGView/>
+    </Grid>
+</phone:PhoneApplicationPage>
+{% endhighlight %}
 <p>PGView is defined in the WP7GapClassLib, it is a UserControl which hosts a WebBrowser, and contains the code that bridges between the PhoneGap JavaScript APIs and the WP7 .NET APIs. On startup it will load your files into isolated storage and navigate the browser control to <code>"www/index.html"</code> (although this will probably be configurable in future).</p>
 <p>The <code>index.html</code> file from the template project is shown below (minus a few un-important parts):</p>
-<div class="wp_syntax"><div class="code">{% highlight html %}&lt;!doctype html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=320; user-scalable=no&quot; /&gt;    
-      &lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot; src=&quot;phonegap.1.0.js&quot;&gt;&lt;/script&gt;       
-      &lt;script type=&quot;text/javascript&quot;&gt;
+{% highlight html %}
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=320; user-scalable=no" />    
+      <script type="text/javascript" charset="utf-8" src="phonegap.1.0.js"></script>       
+      <script type="text/javascript">
         function init()
         {
-          document.addEventListener(&quot;deviceready&quot;,onDeviceReady,false);
+          document.addEventListener("deviceready",onDeviceReady,false);
         }
-&nbsp;
+        
         // once the device ready event fires, you can safely do your thing! -jm
         function onDeviceReady()
         {
-          document.getElementById(&quot;welcomeMsg&quot;).innerHTML += &quot;PhoneGap is ready!&quot;;
+          document.getElementById("welcomeMsg").innerHTML += "PhoneGap is ready!";
         }
-      &lt;/script&gt;
- &lt;/head&gt;
- &lt;body onLoad=&quot;init();&quot;&gt;
-  &lt;h1&gt;Hello PhoneGap&lt;/h1&gt;
-  &lt;div id=&quot;welcomeMsg&quot;&gt;&lt;/div&gt;
- &lt;/body&gt;
-&lt;/html&gt;{% endhighlight %}
-</div>
-</div>
+      </script>
+ </head>
+ <body onLoad="init();">
+  <h1>Hello PhoneGap</h1>
+  <div id="welcomeMsg"></div>
+ </body>
+</html>
+{% endhighlight %}
 <p>The important parts to note here are, firstly the viewport metadata, which relates to the complications that small mobile screens present to layout, resulting in the need for a separate layout viewport and visual viewport, as described in the article <a href="http://www.quirksmode.org/mobile/viewports2.html">"a tale of two viewports"</a>. Here the width is set to 320px, so each pixel-width in our HTML is two pixels on screen. I prefer one-to-one correlation, so would change this to the physical phone dimensions. The "user-scalable=no" should prevent the user from being able to pinch-zoom the page, unfortunately on my (mango) phone, this doesn't seem to be working. This is a shame, because it really spoils the illusion of this being an application rather than a web-page.</p>
-<p>When the DOM is loaded, the init function is invoked, which adds a handler for the deviceready event. When this has been fired, it is safe to use the PhoneGap APIs. This example does not actually use any of the APIs, but you can make a simple change to get the phone name via <a href="http://docs.phonegap.com/phonegap_device_device.md.html#device.name">device.name</a> for example to verify that PhoneGap really is working.<br />So how does the JavaScript / Silverlight bridge work?  The PhoneGap.js file communicates via window.external.Notify, which raises the <a href="http://msdn.microsoft.com/en-us/library/system.windows.controls.webbrowser.scriptnotify(v=vs.95).aspx">ScriptNotify </a>event within the WebBrowser control. Encoded strings are sent to the PGView control which uses the command pattern to identify the class which performs the required function, and executes it.</p>
+<p>When the DOM is loaded, the init function is invoked, which adds a handler for the deviceready event. When this has been fired, it is safe to use the PhoneGap APIs. This example does not actually use any of the APIs, but you can make a simple change to get the phone name via <a href="(http://docs.phonegap.com/phonegap_device_device.md.html#device.name">device.name</a> for example to verify that PhoneGap really is working.So how does the JavaScript / Silverlight bridge work?  The PhoneGap.js file communicates via window.external.Notify, which raises the <a href="http://msdn.microsoft.com/en-us/library/system.windows.controls.webbrowser.scriptnotify(v=vs.95).aspx">ScriptNotify </a>event within the WebBrowser control. Encoded strings are sent to the PGView control which uses the command pattern to identify the class which performs the required function, and executes it.</p>
 <h2>Creating the Property Search Application</h2>
 <p>Following the principles of <a href="http://en.wikipedia.org/wiki/Unobtrusive_JavaScript">Unobtrusive JavaScript</a>, where presentation is separated from logic, the I have moved application logic into a file <code>propertySearch.js</code> (adding this to <code>GapSourceDictionary.xml</code> of course). The HTML has the following markup, a simple form that can be used to input the string to search for:</p>
-<div class="wp_syntax"><div class="code">{% highlight xml %}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;h1</span> <span style="color: #000066;">id</span>=<span style="color: #ff0000;">&quot;welcomeMsg&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>Find A Home<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/h1<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
-<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;form</span> <span style="color: #000066;">id</span>=<span style="color: #ff0000;">&quot;form&quot;</span> <span style="color: #000066;">action</span>=<span style="color: #ff0000;">&quot;#&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
-  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;input</span> <span style="color: #000066;">type</span>=<span style="color: #ff0000;">&quot;text&quot;</span> <span style="color: #000066;">id</span>=<span style="color: #ff0000;">&quot;searchText&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
-  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;input</span> <span style="color: #000066;">type</span>=<span style="color: #ff0000;">&quot;submit&quot;</span> <span style="color: #000066;">id</span>=<span style="color: #ff0000;">&quot;searchButton&quot;</span> <span style="color: #000066;">value</span>=<span style="color: #ff0000;">&quot;Go&quot;</span> <span style="color: #000000; font-weight: bold;">/&gt;</span></span>
-  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;input</span> <span style="color: #000066;">type</span>=<span style="color: #ff0000;">&quot;button&quot;</span> <span style="color: #000066;">id</span>=<span style="color: #ff0000;">&quot;getLocationButton&quot;</span> <span style="color: #000066;">value</span>=<span style="color: #ff0000;">&quot;My Location&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
-<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/form<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>{% endhighlight %}
-</div>
-</div>
+{% highlight xml %}
+<h1 id="welcomeMsg">Find A Home</h1>
+<form id="form" action="#">
+  <input type="text" id="searchText"/>
+  <input type="submit" id="searchButton" value="Go" />
+  <input type="button" id="getLocationButton" value="My Location"/>
+</form>
+{% endhighlight %}
 <p>The event handlers are wired up as follows:</p>
-<div class="wp_syntax"><div class="code">{% highlight javascript %}$<span style="color: #009900;">&#40;</span>document<span style="color: #009900;">&#41;</span>.<span style="color: #660066;">ready</span><span style="color: #009900;">&#40;</span><span style="color: #003366; font-weight: bold;">function</span> <span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-  document.<span style="color: #660066;">addEventListener</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;deviceready&quot;</span><span style="color: #339933;">,</span> onDeviceReady<span style="color: #339933;">,</span> <span style="color: #003366; font-weight: bold;">false</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-<span style="color: #006600; font-style: italic;">// phonegap is initialised</span>
-<span style="color: #003366; font-weight: bold;">function</span> onDeviceReady<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-  <span style="color: #006600; font-style: italic;">// verify that the phone is ready!</span>
-  $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#welcomeMsg&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">append</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;...&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-  $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#form&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">submit</span><span style="color: #009900;">&#40;</span>searchProperties<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-  $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#getLocationButton&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">click</span><span style="color: #009900;">&#40;</span>getGeolocation<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span>{% endhighlight %}
-</div>
-</div>
-<p>Note, I have also added jQuery to the project. The code which appends an ellipsis (&#8230;) to the title is a subtle indication that the deviceready event has fired. I found when using the emulator that often the JavaScript code within the page was not being executed at all, this seems to have nothing to do with the PhoneGap JavaScript code. Fortunately the code is always executed when deployed to a real device.</p>
+{% highlight javascript %}
+$(document).ready(function () {
+  document.addEventListener("deviceready", onDeviceReady, false);
+});
+
+// phonegap is initialised
+function onDeviceReady() {
+  // verify that the phone is ready!
+  $("#welcomeMsg").append("...");
+
+  $("#form").submit(searchProperties);
+  $("#getLocationButton").click(getGeolocation);
+}
+{% endhighlight %}
+<p>Note, I have also added jQuery to the project. The code which appends an ellipsis (...) to the title is a subtle indication that the deviceready event has fired. I found when using the emulator that often the JavaScript code within the page was not being executed at all, this seems to have nothing to do with the PhoneGap JavaScript code. Fortunately the code is always executed when deployed to a real device.</p>
 <p>The search properties function is a simple AJAX call to the <a href="http://www.nestoria.co.uk/help/api">Nestoria APIs</a>, using the jQuery ajax() function, which manages the <a href="http://en.wikipedia.org/wiki/JSONP">JSONP</a> process of dynamically adding a script tag to the DOM which fetches the required data.</p>
-<div class="wp_syntax"><div class="code">{% highlight javascript %}<span style="color: #003366; font-weight: bold;">var</span> propertyTemplate <span style="color: #339933;">=</span> $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#propertyTemplate&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">template</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-<span style="color: #006600; font-style: italic;">// searches for properties based on the current search text</span>
-<span style="color: #003366; font-weight: bold;">function</span> searchProperties<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>      
-  <span style="color: #003366; font-weight: bold;">var</span> query <span style="color: #339933;">=</span> <span style="color: #3366CC;">&quot;http://api.nestoria.co.uk/api?&quot;</span> <span style="color: #339933;">+</span>
-                  <span style="color: #3366CC;">&quot;country=uk&amp;pretty=1&amp;action=search_listings&amp;encoding=json&amp;listing_type=buy&quot;</span> <span style="color: #339933;">+</span>
-                  <span style="color: #3366CC;">&quot;&amp;place_name=&quot;</span> <span style="color: #339933;">+</span> $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#searchText&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">val</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-  $.<span style="color: #660066;">ajax</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#123;</span>
-    dataType<span style="color: #339933;">:</span> <span style="color: #3366CC;">&quot;jsonp&quot;</span><span style="color: #339933;">,</span>
-    url<span style="color: #339933;">:</span> query<span style="color: #339933;">,</span>
-    success<span style="color: #339933;">:</span> <span style="color: #003366; font-weight: bold;">function</span> <span style="color: #009900;">&#40;</span>result<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-&nbsp;
-      <span style="color: #003366; font-weight: bold;">var</span> resultsContainer <span style="color: #339933;">=</span> $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#resultsContainer&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-      resultsContainer.<span style="color: #660066;">empty</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-      $.<span style="color: #660066;">each</span><span style="color: #009900;">&#40;</span>result.<span style="color: #660066;">response</span>.<span style="color: #660066;">listings</span><span style="color: #339933;">,</span> <span style="color: #003366; font-weight: bold;">function</span> <span style="color: #009900;">&#40;</span>index<span style="color: #339933;">,</span> property<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-        <span style="color: #003366; font-weight: bold;">var</span> $itemNode <span style="color: #339933;">=</span> $.<span style="color: #660066;">tmpl</span><span style="color: #009900;">&#40;</span>propertyTemplate<span style="color: #339933;">,</span> property<span style="color: #009900;">&#41;</span>.<span style="color: #660066;">data</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;propertyData&quot;</span><span style="color: #339933;">,</span> property<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-        $itemNode.<span style="color: #660066;">appendTo</span><span style="color: #009900;">&#40;</span>resultsContainer<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-      <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-    <span style="color: #009900;">&#125;</span>
-  <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-  <span style="color: #000066; font-weight: bold;">return</span> <span style="color: #003366; font-weight: bold;">false</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span>{% endhighlight %}
-</div>
-</div>
+{% highlight javascript %}
+var propertyTemplate = $("#propertyTemplate").template();
+
+// searches for properties based on the current search text
+function searchProperties() {      
+  var query = "http://api.nestoria.co.uk/api?" +
+                  "country=uk&pretty=1&action=search_listings&encoding=json&listing_type=buy" +
+                  "&place_name=" + $("#searchText").val();
+  $.ajax({
+    dataType: "jsonp",
+    url: query,
+    success: function (result) {
+
+      var resultsContainer = $("#resultsContainer");
+      resultsContainer.empty();
+      $.each(result.response.listings, function (index, property) {
+        var $itemNode = $.tmpl(propertyTemplate, property).data("propertyData", property);
+        $itemNode.appendTo(resultsContainer);
+      });
+    }
+  });
+
+  return false;
+}
+{% endhighlight %}
 <p>NOTE: The application uses the Nestoria UK APIs, so if you are trying it out in your emulator, set your location to somewhere in the UK!</p>
 <p>I am using a <a href="http://api.jquery.com/category/plugins/templates/">jQuery templates</a> to render each item. You can render an array of items via the <code>tmpl()</code> function, however, here I render each one individually, so that I can associate the raw JSON data for each property with the generated element via the jQuery <code>data()</code> function. This is rather like defining the <code>DataContext </code>for a Silverlight FrameworkElement.</p>
-<div class="wp_syntax"><div class="code">{% highlight xml %}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;script</span> <span style="color: #000066;">id</span>=<span style="color: #ff0000;">&quot;propertyTemplate&quot;</span> <span style="color: #000066;">type</span>=<span style="color: #ff0000;">&quot;text/x-jquery-tmpl&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
-  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;li</span> <span style="color: #000066;">class</span>=<span style="color: #ff0000;">&quot;property&quot;</span> <span style="color: #000066;">onClick</span>=<span style="color: #ff0000;">&quot;propertyClick(this); return false;&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
-    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;div</span> <span style="color: #000066;">class</span>=<span style="color: #ff0000;">&quot;propertyContainer&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
-      <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;div</span> <span style="color: #000066;">class</span>=<span style="color: #ff0000;">&quot;thumbnailColumn&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
-        <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;img</span> <span style="color: #000066;">src</span>=<span style="color: #ff0000;">&quot;${thumb_url}&quot;</span> <span style="color: #000066;">class</span>=<span style="color: #ff0000;">&quot;thumbnail&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
-      <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/div<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
-      <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;div</span> <span style="color: #000066;">class</span>=<span style="color: #ff0000;">&quot;detailsColumn&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
-        <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;div</span> <span style="color: #000066;">class</span>=<span style="color: #ff0000;">&quot;title&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>${title}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/div<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
-        <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;div</span> <span style="color: #000066;">class</span>=<span style="color: #ff0000;">&quot;price&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>${price_formatted}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/div<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
-      <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/div<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
-    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/div<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
-  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/li<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
-<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/script<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>{% endhighlight %}
-</div>
-</div>
+{% highlight xml %}
+<script id="propertyTemplate" type="text/x-jquery-tmpl">
+  <li class="property" onClick="propertyClick(this); return false;">
+    <div class="propertyContainer">
+      <div class="thumbnailColumn">
+        <img src="${thumb_url}" class="thumbnail"/>
+      </div>
+      <div class="detailsColumn">
+        <div class="title">${title}</div>
+        <div class="price">${price_formatted}</div>
+      </div>
+    </div>
+  </li>
+</script>
+{% endhighlight %}
 <p>When a property is clicked, the following function is invoked, which locates the clicked DOM element, then extract the JSON property details via the <code>data()</code> function described above. This is used in conjunction with another template to render the property details:</p>
-<div class="wp_syntax"><div class="code">{% highlight javascript %}<span style="color: #006600; font-style: italic;">// handle clicks on properties</span>
-<span style="color: #003366; font-weight: bold;">function</span> propertyClick<span style="color: #009900;">&#40;</span>propertyNode<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-&nbsp;
-  <span style="color: #006600; font-style: italic;">// get the property</span>
-  <span style="color: #003366; font-weight: bold;">var</span> property <span style="color: #339933;">=</span> $<span style="color: #009900;">&#40;</span>propertyNode<span style="color: #009900;">&#41;</span>.<span style="color: #660066;">data</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;propertyData&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-  <span style="color: #006600; font-style: italic;">// render the template</span>
-  $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#detailsContainer&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">empty</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-  $.<span style="color: #660066;">tmpl</span><span style="color: #009900;">&#40;</span>propertyDetailsTemplate<span style="color: #339933;">,</span> property<span style="color: #009900;">&#41;</span>.<span style="color: #660066;">appendTo</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#detailsContainer&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-  <span style="color: #006600; font-style: italic;">// switch pages</span>
-  showDetailsPage<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span>{% endhighlight %}
-</div>
-</div>
+{% highlight javascript %}
+// handle clicks on properties
+function propertyClick(propertyNode) {
+
+  // get the property
+  var property = $(propertyNode).data("propertyData");
+
+  // render the template
+  $("#detailsContainer").empty();
+  $.tmpl(propertyDetailsTemplate, property).appendTo("#detailsContainer");
+
+  // switch pages
+  showDetailsPage();
+}
+{% endhighlight %}
 <p>The template is shown here:</p>
-<div class="wp_syntax"><div class="code">{% highlight xml %}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;script</span> <span style="color: #000066;">id</span>=<span style="color: #ff0000;">&quot;propertyDetailsTemplate&quot;</span> <span style="color: #000066;">type</span>=<span style="color: #ff0000;">&quot;text/x-jquery-tmpl&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
-  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;div<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
-    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;h1<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>${price_formatted}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/h1<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
-    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;img</span> <span style="color: #000066;">src</span>=<span style="color: #ff0000;">&quot;${img_url}&quot;</span> <span style="color: #000066;">class</span>=<span style="color: #ff0000;">&quot;propertyImage&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>			  
-    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;h2<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>${title}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/h2<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
-    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;div</span> <span style="color: #000066;">class</span>=<span style="color: #ff0000;">&quot;bedrooms&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>bedrooms: ${bedroom_number}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/div<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
-    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;div</span> <span style="color: #000066;">class</span>=<span style="color: #ff0000;">&quot;bathrooms&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>bathrooms: ${bathroom_number}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/div<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
-    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;div</span> <span style="color: #000066;">class</span>=<span style="color: #ff0000;">&quot;summary&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>${summary}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/div<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
-  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/div<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
-<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/script<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>{% endhighlight %}
-</div>
-</div>
+{% highlight xml %}
+<script id="propertyDetailsTemplate" type="text/x-jquery-tmpl">
+  <div>
+    <h1>${price_formatted}</h1>
+    <img src="${img_url}" class="propertyImage"/>			  
+    <h2>${title}</h2>
+    <div class="bedrooms">bedrooms: ${bedroom_number}</div>
+    <div class="bathrooms">bathrooms: ${bathroom_number}</div>
+    <div class="summary">${summary}</div>
+  </div>
+</script>
+{% endhighlight %}
 <p>The navigation between pages is achieved by having the markup for both pages present in the DOM:</p>
-<div class="wp_syntax"><div class="code">{% highlight xml %}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;body<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
-  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;div</span> <span style="color: #000066;">class</span>=<span style="color: #ff0000;">&quot;page searchPage&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+{% highlight xml %}
+<body>
+  <div class="page searchPage">
      ...
-  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/div<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
-  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;div</span> <span style="color: #000066;">class</span>=<span style="color: #ff0000;">&quot;page detailsPage&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+  </div>
+  <div class="page detailsPage">
     ...
-  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/div<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
-<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/body<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>{% endhighlight %}
-</div>
-</div>
+  </div>
+</body>
+{% endhighlight %}
 <p>The pages are styled to use absolute positioning:</p>
-<div class="wp_syntax"><div class="code">{% highlight css %}div.<span style="color: #000000; font-weight: bold;">page</span> 
-<span style="color: #00AA00;">&#123;</span>
-  <span style="color: #000000; font-weight: bold;">position</span><span style="color: #00AA00;">:</span> <span style="color: #993333;">absolute</span><span style="color: #00AA00;">;</span>
-  <span style="color: #000000; font-weight: bold;">width</span><span style="color: #00AA00;">:</span> <span style="color: #933;">480px</span><span style="color: #00AA00;">;</span>  
-<span style="color: #00AA00;">&#125;</span>{% endhighlight %}
-</div>
-</div>
+{% highlight css %}
+div.page 
+{
+  position: absolute;
+  width: 480px;  
+}
+{% endhighlight %}
 <p>We can then show / hide these pages by simply animating their CSS left property:</p>
-<div class="wp_syntax"><div class="code">{% highlight javascript %}<span style="color: #003366; font-weight: bold;">function</span> showSearchPage<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-  $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;.detailsPage&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">animate</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#123;</span> left<span style="color: #339933;">:</span> <span style="color: #CC0000;">480</span> <span style="color: #009900;">&#125;</span><span style="color: #339933;">,</span> <span style="color: #CC0000;">300</span><span style="color: #339933;">,</span> <span style="color: #003366; font-weight: bold;">function</span> <span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-    $<span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">this</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">hide</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-  <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-  $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;.searchPage&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">show</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">animate</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#123;</span> left<span style="color: #339933;">:</span> <span style="color: #CC0000;">0</span> <span style="color: #009900;">&#125;</span><span style="color: #339933;">,</span> <span style="color: #CC0000;">300</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span><span style="color: #339933;">;</span>
-&nbsp;
-<span style="color: #003366; font-weight: bold;">function</span> showDetailsPage<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-  $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;.detailsPage&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">show</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">animate</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#123;</span> left<span style="color: #339933;">:</span> <span style="color: #CC0000;">0</span> <span style="color: #009900;">&#125;</span><span style="color: #339933;">,</span> <span style="color: #CC0000;">300</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-  $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;.searchPage&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">animate</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#123;</span> left<span style="color: #339933;">:</span> <span style="color: #339933;">-</span><span style="color: #CC0000;">480</span> <span style="color: #009900;">&#125;</span><span style="color: #339933;">,</span> <span style="color: #CC0000;">300</span><span style="color: #339933;">,</span> <span style="color: #003366; font-weight: bold;">function</span> <span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-    $<span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">this</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">hide</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-  <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span><span style="color: #339933;">;</span>{% endhighlight %}
-</div>
-</div>
+{% highlight javascript %}
+function showSearchPage() {
+  $(".detailsPage").animate({ left: 480 }, 300, function () {
+    $(this).hide();
+  });
+  $(".searchPage").show().animate({ left: 0 }, 300);
+};
+
+function showDetailsPage() {
+  $(".detailsPage").show().animate({ left: 0 }, 300);
+  $(".searchPage").animate({ left: -480 }, 300, function () {
+    $(this).hide();
+  });
+};
+{% endhighlight %}
 <p>It is worth noting that if the IE9 browser supported CSS3 transitions all of the above could have been done declaratively within CSS, unfortunately animations are not in <a href="http://windowsteamblog.com/windows_phone/b/wpdev/archive/2011/09/22/ie9-mobile-developer-overview.aspx">the list of supported features</a>. There is nothing wrong with jQuery animations, they have a very concise and simple syntax. However, CSS3 animation give the browser the option to use GPU acceleration, <a href="http://www.html5rocks.com/en/tutorials/speed/html5/">greatly improving performance</a>. The webkit browsers on Android and iOS support this feature (using the -webkit prefix on the required CSS properties).</p>
 <p>The current location is identified via <a href="http://docs.phonegap.com/phonegap_geolocation_geolocation.md.html">navigator.geolocation.getCurrentPosition</a>, using the <a href="http://msdn.microsoft.com/en-us/library/ff701713.aspx">Bing Maps REST APIs</a> to geocode from a lat / long coordinate to a postcode:</p>
-<div class="wp_syntax"><div class="code">{% highlight javascript %}<span style="color: #006600; font-style: italic;">// gets the current phone location</span>
-<span style="color: #003366; font-weight: bold;">function</span> getGeolocation<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-  navigator.<span style="color: #660066;">geolocation</span>.<span style="color: #660066;">getCurrentPosition</span><span style="color: #009900;">&#40;</span><span style="color: #003366; font-weight: bold;">function</span> <span style="color: #009900;">&#40;</span>position<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-    <span style="color: #006600; font-style: italic;">// geocode via Bing Maps</span>
-    <span style="color: #003366; font-weight: bold;">var</span> apiKey <span style="color: #339933;">=</span> <span style="color: #3366CC;">&quot;Ai9-KNy6Al-r_ueyLuLXFYB_GlPl-c-_iYtu16byW86qBx9uGbsdJpwvrP4ZUdgD&quot;</span><span style="color: #339933;">;</span>
-    <span style="color: #003366; font-weight: bold;">var</span> query <span style="color: #339933;">=</span> <span style="color: #3366CC;">&quot;http://dev.virtualearth.net/REST/v1/Locations/&quot;</span> <span style="color: #339933;">+</span> position.<span style="color: #660066;">coords</span>.<span style="color: #660066;">latitude</span> <span style="color: #339933;">+</span>
-                    <span style="color: #3366CC;">&quot;,&quot;</span> <span style="color: #339933;">+</span> position.<span style="color: #660066;">coords</span>.<span style="color: #660066;">longitude</span> <span style="color: #339933;">+</span> <span style="color: #3366CC;">&quot;?jsonp=onGeocode&amp;key=&quot;</span> <span style="color: #339933;">+</span> apiKey
-&nbsp;
-    $.<span style="color: #660066;">ajax</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#123;</span>
-      dataType<span style="color: #339933;">:</span> <span style="color: #3366CC;">&quot;jsonp&quot;</span><span style="color: #339933;">,</span>
-      url<span style="color: #339933;">:</span> query
-    <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-  <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span>
-&nbsp;
-<span style="color: #006600; font-style: italic;">// handle the geocode results</span>
-<span style="color: #003366; font-weight: bold;">function</span> onGeocode<span style="color: #009900;">&#40;</span>result<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-  <span style="color: #006600; font-style: italic;">// extract the 'outward' part of the postcode</span>
-  <span style="color: #003366; font-weight: bold;">var</span> postalCode <span style="color: #339933;">=</span> result.<span style="color: #660066;">resourceSets</span><span style="color: #009900;">&#91;</span><span style="color: #CC0000;">0</span><span style="color: #009900;">&#93;</span>.<span style="color: #660066;">resources</span><span style="color: #009900;">&#91;</span><span style="color: #CC0000;">0</span><span style="color: #009900;">&#93;</span>.<span style="color: #660066;">address</span>.<span style="color: #660066;">postalCode</span><span style="color: #339933;">;</span>
-  <span style="color: #003366; font-weight: bold;">var</span> codeSplit <span style="color: #339933;">=</span> postalCode.<span style="color: #660066;">split</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot; &quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-  <span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">&#40;</span>codeSplit.<span style="color: #660066;">length</span> <span style="color: #339933;">&gt;</span> <span style="color: #CC0000;">0</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-    $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#searchText&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">val</span><span style="color: #009900;">&#40;</span>codeSplit<span style="color: #009900;">&#91;</span><span style="color: #CC0000;">0</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-  <span style="color: #009900;">&#125;</span>
-<span style="color: #009900;">&#125;</span>{% endhighlight %}
-</div>
-</div>
+{% highlight javascript %}
+// gets the current phone location
+function getGeolocation() {
+  navigator.geolocation.getCurrentPosition(function (position) {
+    // geocode via Bing Maps
+    var apiKey = "Ai9-KNy6Al-r_ueyLuLXFYB_GlPl-c-_iYtu16byW86qBx9uGbsdJpwvrP4ZUdgD";
+    var query = "http://dev.virtualearth.net/REST/v1/Locations/" + position.coords.latitude +
+                    "," + position.coords.longitude + "?jsonp=onGeocode&key=" + apiKey
+
+    $.ajax({
+      dataType: "jsonp",
+      url: query
+    });
+  });
+}
+
+// handle the geocode results
+function onGeocode(result) {
+  // extract the 'outward' part of the postcode
+  var postalCode = result.resourceSets[0].resources[0].address.postalCode;
+  var codeSplit = postalCode.split(" ");
+  if (codeSplit.length > 0) {
+    $("#searchText").val(codeSplit[0]);
+  }
+}
+{% endhighlight %}
 <h2>Metro-style</h2>
 <p>The standard style for HTML controls doesn't look that great, however, with a simple bit of CSS it is possible to re-create something similar to the WP7 Metro styles. Here I have copied some of the properties that are present in the Silverlight resource dictionaries:</p>
-<div class="wp_syntax"><div class="code">{% highlight css %}body<span style="color: #00AA00;">,</span> input<span style="color: #00AA00;">,</span> div
-<span style="color: #00AA00;">&#123;</span>
-  <span style="color: #000000; font-weight: bold;">font-size</span><span style="color: #00AA00;">:</span> <span style="color: #933;">22.667px</span><span style="color: #00AA00;">;</span> <span style="color: #808080; font-style: italic;">/* PhoneFontSizeMedium */</span>
-<span style="color: #00AA00;">&#125;</span>
-&nbsp;
+{% highlight css %}
+body, input, div
+{
+  font-size: 22.667px; /* PhoneFontSizeMedium */
+}
+
 h2
-<span style="color: #00AA00;">&#123;</span>
-  <span style="color: #000000; font-weight: bold;">font-weight</span><span style="color: #00AA00;">:</span> <span style="color: #993333;">normal</span><span style="color: #00AA00;">;</span>
-  <span style="color: #000000; font-weight: bold;">font-size</span><span style="color: #00AA00;">:</span> <span style="color: #933;">32px</span><span style="color: #00AA00;">;</span> <span style="color: #808080; font-style: italic;">/* PhoneFontSizeLarge */</span>
-<span style="color: #00AA00;">&#125;</span>
-&nbsp;
+{
+  font-weight: normal;
+  font-size: 32px; /* PhoneFontSizeLarge */
+}
+
 h1
-<span style="color: #00AA00;">&#123;</span>
-  <span style="color: #000000; font-weight: bold;">font-weight</span><span style="color: #00AA00;">:</span> <span style="color: #993333;">normal</span><span style="color: #00AA00;">;</span>
-  <span style="color: #000000; font-weight: bold;">font-size</span><span style="color: #00AA00;">:</span> <span style="color: #933;">42.667px</span><span style="color: #00AA00;">;</span> <span style="color: #808080; font-style: italic;">/* PhoneFontSizeExtraLarge */</span>
-<span style="color: #00AA00;">&#125;</span>
-&nbsp;
-input<span style="color: #00AA00;">&#91;</span>type<span style="color: #00AA00;">=</span><span style="color: #ff0000;">&quot;button&quot;</span><span style="color: #00AA00;">&#93;</span><span style="color: #00AA00;">,</span> input<span style="color: #00AA00;">&#91;</span>type<span style="color: #00AA00;">=</span><span style="color: #ff0000;">&quot;submit&quot;</span><span style="color: #00AA00;">&#93;</span>
-<span style="color: #00AA00;">&#123;</span>
-  <span style="color: #000000; font-weight: bold;">background</span><span style="color: #00AA00;">:</span> <span style="color: #000000; font-weight: bold;">black</span><span style="color: #00AA00;">;</span>
-  <span style="color: #000000; font-weight: bold;">color</span><span style="color: #00AA00;">:</span> <span style="color: #993333;">white</span><span style="color: #00AA00;">;</span>
-  <span style="color: #000000; font-weight: bold;">border-color</span><span style="color: #00AA00;">:</span> <span style="color: #993333;">white</span><span style="color: #00AA00;">;</span>
-  <span style="color: #000000; font-weight: bold;">border-style</span><span style="color: #00AA00;">:</span> <span style="color: #993333;">solid</span><span style="color: #00AA00;">;</span>
-  <span style="color: #000000; font-weight: bold;">padding</span><span style="color: #00AA00;">:</span> <span style="color: #933;">4px</span> <span style="color: #933;">10px</span><span style="color: #00AA00;">;</span>
-  <span style="color: #000000; font-weight: bold;">border-width</span><span style="color: #00AA00;">:</span> <span style="color: #933;">3px</span><span style="color: #00AA00;">;</span> <span style="color: #808080; font-style: italic;">/* PhoneBorderThickness */</span>
-  <span style="color: #000000; font-weight: bold;">font-size</span><span style="color: #00AA00;">:</span> <span style="color: #933;">25.333px</span><span style="color: #00AA00;">;</span> <span style="color: #808080; font-style: italic;">/* PhoneFontSizeMediumLarge */</span>
-<span style="color: #00AA00;">&#125;</span>
-&nbsp;
-input<span style="color: #00AA00;">&#91;</span>type<span style="color: #00AA00;">=</span><span style="color: #ff0000;">&quot;button&quot;</span><span style="color: #00AA00;">&#93;</span><span style="color: #3333ff;">:active</span><span style="color: #00AA00;">,</span> input<span style="color: #00AA00;">&#91;</span>type<span style="color: #00AA00;">=</span><span style="color: #ff0000;">&quot;submit&quot;</span><span style="color: #00AA00;">&#93;</span><span style="color: #3333ff;">:active
-</span><span style="color: #00AA00;">&#123;</span>
-  <span style="color: #000000; font-weight: bold;">background</span><span style="color: #00AA00;">:</span> <span style="color: #993333;">white</span><span style="color: #00AA00;">;</span>
-  <span style="color: #000000; font-weight: bold;">color</span><span style="color: #00AA00;">:</span> <span style="color: #000000; font-weight: bold;">black</span><span style="color: #00AA00;">;</span>
-<span style="color: #00AA00;">&#125;</span>
-&nbsp;
-input<span style="color: #00AA00;">&#91;</span>type<span style="color: #00AA00;">=</span><span style="color: #ff0000;">&quot;text&quot;</span><span style="color: #00AA00;">&#93;</span>
-<span style="color: #00AA00;">&#123;</span>
-  <span style="color: #000000; font-weight: bold;">width</span><span style="color: #00AA00;">:</span> <span style="color: #933;">150px</span><span style="color: #00AA00;">;</span>
-  <span style="color: #000000; font-weight: bold;">padding</span><span style="color: #00AA00;">:</span> <span style="color: #933;">4px</span><span style="color: #00AA00;">;</span>
-<span style="color: #00AA00;">&#125;</span>{% endhighlight %}
-</div>
-</div>
+{
+  font-weight: normal;
+  font-size: 42.667px; /* PhoneFontSizeExtraLarge */
+}
+
+input[type="button"], input[type="submit"]
+{
+  background: black;
+  color: white;
+  border-color: white;
+  border-style: solid;
+  padding: 4px 10px;
+  border-width: 3px; /* PhoneBorderThickness */
+  font-size: 25.333px; /* PhoneFontSizeMediumLarge */
+}
+
+input[type="button"]:active, input[type="submit"]:active
+{
+  background: white;
+  color: black;
+}
+
+input[type="text"]
+{
+  width: 150px;
+  padding: 4px;
+}
+{% endhighlight %}
 <p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/09/MangoStyle.png" alt="" title="MangoStyle" width="600" height="193" class="aligncenter size-full wp-image-1697" /></p>
 <h2>ProgressBar</h2>
 <p>For a bit of fun I thought I'd try and create a HTML equivalent of the 'trailing dots' WP7 ProgressBar. With a simple bit of markup / CSS:</p>
-<div class="wp_syntax"><div class="code">{% highlight xml %}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;div</span> <span style="color: #000066;">class</span>=<span style="color: #ff0000;">&quot;progress&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
-  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;div</span> <span style="color: #000066;">class</span>=<span style="color: #ff0000;">&quot;pip&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span><span style="color: #000000; font-weight: bold;">&lt;/div<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
-  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;div</span> <span style="color: #000066;">class</span>=<span style="color: #ff0000;">&quot;pip&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span><span style="color: #000000; font-weight: bold;">&lt;/div<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
-  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;div</span> <span style="color: #000066;">class</span>=<span style="color: #ff0000;">&quot;pip&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span><span style="color: #000000; font-weight: bold;">&lt;/div<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
-  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;div</span> <span style="color: #000066;">class</span>=<span style="color: #ff0000;">&quot;pip&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span><span style="color: #000000; font-weight: bold;">&lt;/div<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
-  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;div</span> <span style="color: #000066;">class</span>=<span style="color: #ff0000;">&quot;pip&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span><span style="color: #000000; font-weight: bold;">&lt;/div<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
-<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/div<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>{% endhighlight %}
+{% highlight xml %}
+<div class="progress">
+  <div class="pip"></div>
+  <div class="pip"></div>
+  <div class="pip"></div>
+  <div class="pip"></div>
+  <div class="pip"></div>
 </div>
-</div>
-<div class="wp_syntax"><div class="code">{% highlight css %}<span style="color: #6666ff;">.progress</span> div
-<span style="color: #00AA00;">&#123;</span>
-  <span style="color: #000000; font-weight: bold;">width</span><span style="color: #00AA00;">:</span> <span style="color: #933;">5px</span><span style="color: #00AA00;">;</span>
-  <span style="color: #000000; font-weight: bold;">height</span><span style="color: #00AA00;">:</span> <span style="color: #933;">5px</span><span style="color: #00AA00;">;</span>
-  <span style="color: #000000; font-weight: bold;">overflow</span><span style="color: #00AA00;">:</span> <span style="color: #993333;">hidden</span><span style="color: #00AA00;">;</span>
-  <span style="color: #000000; font-weight: bold;">position</span><span style="color: #00AA00;">:</span> <span style="color: #993333;">absolute</span><span style="color: #00AA00;">;</span>  
-  <span style="color: #000000; font-weight: bold;">background</span><span style="color: #00AA00;">:</span> <span style="color: #993333;">green</span><span style="color: #00AA00;">;</span>
-<span style="color: #00AA00;">&#125;</span>
-&nbsp;
-<span style="color: #6666ff;">.progress</span>
-<span style="color: #00AA00;">&#123;</span>
-  <span style="color: #000000; font-weight: bold;">position</span><span style="color: #00AA00;">:</span> <span style="color: #993333;">relative</span><span style="color: #00AA00;">;</span>
-  <span style="color: #000000; font-weight: bold;">height</span><span style="color: #00AA00;">:</span><span style="color: #933;">10px</span><span style="color: #00AA00;">;</span>
-<span style="color: #00AA00;">&#125;</span>{% endhighlight %}
-</div>
-</div>
+{% endhighlight %}
+{% highlight css %}
+.progress div
+{
+  width: 5px;
+  height: 5px;
+  overflow: hidden;
+  position: absolute;  
+  background: green;
+}
+
+.progress
+{
+  position: relative;
+  height:10px;
+}
+{% endhighlight %}
 <p>And some further jQuery animations, this time making use of the easing plugin:</p>
-<div class="wp_syntax"><div class="code">{% highlight javascript %}<span style="color: #003366; font-weight: bold;">function</span> onDeviceReady<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+{% highlight javascript %}
+function onDeviceReady() {
   ...
-&nbsp;
-  <span style="color: #006600; font-style: italic;">// create an animation loop for the progress bar;</span>
-  startAnimation<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-  <span style="color: #003366; font-weight: bold;">var</span> tid <span style="color: #339933;">=</span> setInterval<span style="color: #009900;">&#40;</span>startAnimation<span style="color: #339933;">,</span> <span style="color: #CC0000;">3500</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span>
-&nbsp;
-<span style="color: #003366; font-weight: bold;">function</span> startAnimation<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-  <span style="color: #003366; font-weight: bold;">var</span> delay <span style="color: #339933;">=</span> <span style="color: #CC0000;">200</span><span style="color: #339933;">;</span>
-  $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;.pip&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">each</span><span style="color: #009900;">&#40;</span><span style="color: #003366; font-weight: bold;">function</span> <span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-    animatePip<span style="color: #009900;">&#40;</span>$<span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">this</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">,</span> delay<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-    delay <span style="color: #339933;">+=</span> <span style="color: #CC0000;">200</span><span style="color: #339933;">;</span>
-  <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span>
-&nbsp;
-<span style="color: #003366; font-weight: bold;">function</span> animatePip<span style="color: #009900;">&#40;</span>element<span style="color: #339933;">,</span> delay<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-  element.<span style="color: #660066;">css</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;left&quot;</span><span style="color: #339933;">,</span> <span style="color: #CC0000;">0</span><span style="color: #009900;">&#41;</span>
-        .<span style="color: #660066;">hide</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span>
-        .<span style="color: #660066;">delay</span><span style="color: #009900;">&#40;</span>delay<span style="color: #009900;">&#41;</span>
-        .<span style="color: #660066;">show</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span>
-        .<span style="color: #660066;">animate</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#123;</span> left<span style="color: #339933;">:</span> <span style="color: #CC0000;">240</span> <span style="color: #009900;">&#125;</span><span style="color: #339933;">,</span> <span style="color: #009900;">&#123;</span> duration<span style="color: #339933;">:</span> <span style="color: #CC0000;">1000</span><span style="color: #339933;">,</span> easing<span style="color: #339933;">:</span> <span style="color: #3366CC;">&quot;easeOutSine&quot;</span> <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span>
-        .<span style="color: #660066;">animate</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#123;</span> left<span style="color: #339933;">:</span> <span style="color: #CC0000;">480</span> <span style="color: #009900;">&#125;</span><span style="color: #339933;">,</span> <span style="color: #009900;">&#123;</span> duration<span style="color: #339933;">:</span> <span style="color: #CC0000;">1000</span><span style="color: #339933;">,</span> easing<span style="color: #339933;">:</span> <span style="color: #3366CC;">&quot;easeInSine&quot;</span> <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span>{% endhighlight %}
-</div>
-</div>
+
+  // create an animation loop for the progress bar;
+  startAnimation();
+  var tid = setInterval(startAnimation, 3500);
+}
+
+function startAnimation() {
+  var delay = 200;
+  $(".pip").each(function () {
+    animatePip($(this), delay);
+    delay += 200;
+  });
+}
+
+function animatePip(element, delay) {
+  element.css("left", 0)
+        .hide()
+        .delay(delay)
+        .show()
+        .animate({ left: 240 }, { duration: 1000, easing: "easeOutSine" })
+        .animate({ left: 480 }, { duration: 1000, easing: "easeInSine" });
+}
+{% endhighlight %}
 <p>We get something which approximates the WP7 progress bar:</p>
 <p><iframe src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/09/progress.html" width="480" height="25" scrolling="no"></iframe></p>
 <p>(Note, sometimes the animation goes a bit crazy, try refreshing your browser to reset it!)</p>
@@ -351,17 +355,17 @@ input<span style="color: #00AA00;">&#91;</span>type<span style="color: #00AA00;"
 <h2>The Development Process</h2>
 <p>Attempting to develop JavaScript applications with the browser within the WP7 emulator is not a pleasant process. Any JavaScript errors, including simple parsing errors, typically result in the HTML being rendered but the scripts ignored. A much better approach is to run your HTML / JavaScript within a browser, this gives you access to the usual developer tools such as Firebug, or the built in Chrome / IE tools.</p>
 <p>However, to do this, you need to mock the PhoneGap APIs. For my application, I found the following did the trick:</p>
-<div class="wp_syntax"><div class="code">{% highlight javascript %}document.<span style="color: #660066;">addEventListener</span> <span style="color: #339933;">=</span> <span style="color: #003366; font-weight: bold;">function</span> <span style="color: #009900;">&#40;</span>evt<span style="color: #339933;">,</span> handler<span style="color: #339933;">,</span> capture<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-  $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;body&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">bind</span><span style="color: #009900;">&#40;</span>evt<span style="color: #339933;">,</span> handler<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span><span style="color: #339933;">;</span>
-&nbsp;
-$<span style="color: #009900;">&#40;</span>document<span style="color: #009900;">&#41;</span>.<span style="color: #660066;">ready</span><span style="color: #009900;">&#40;</span><span style="color: #003366; font-weight: bold;">function</span> <span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-  setTimeout<span style="color: #009900;">&#40;</span><span style="color: #003366; font-weight: bold;">function</span> <span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-    $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;body&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">trigger</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;deviceready&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-  <span style="color: #009900;">&#125;</span><span style="color: #339933;">,</span> <span style="color: #CC0000;">100</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>{% endhighlight %}
-</div>
-</div>
+{% highlight javascript %}
+document.addEventListener = function (evt, handler, capture) {
+  $("body").bind(evt, handler);
+};
+
+$(document).ready(function () {
+  setTimeout(function () {
+    $("body").trigger("deviceready");
+  }, 100);
+});
+{% endhighlight %}
 <p>OK, I know what you are thinking, what about the geolocation code? Where is the mock for these PhoneGap APIs? The answer is that a number of the PhoneGap APIs are designed to exactly match the corresponding HTML5 specification. So for example, the PhoneGap geolocation API is exactly the same as the HTML5 geolocation APIs. For phones such as WP7 where the browser supports this HTML5 feature, PhoneGap does nothing, for phones that do not, PhoneGap provides an implementation (using the native APIs).</p>
 <p>If the PhoneGap mock is so simple, you might be wondering, why use PhoneGap at all? Well, PhoenGap is still giving us a mechanism for packaging files into a XAP file in such a way that they can be rendered by the browser.</p>
 <h2>How cross-platform is this approach?</h2>

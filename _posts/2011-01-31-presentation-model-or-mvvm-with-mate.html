@@ -1,11 +1,14 @@
 ---
 id: 119292
 author: Graham Odds
+title: "Presentation Model (or MVVM) with Mate"
+permalink: /blog/graham/2011/01/presentation-model-or-mvvm-with-mate.html
 tags: 
 - flex
 categories: 
-- Blog
-layout: codds_post
+- blog
+layout: godds_post
+source: site
 ---
 
 <p><em>This post introduces the <a href="http://martinfowler.com/eaaDev/PresentationModel.html" >Presentation Model</a> (or <a href="http://en.wikipedia.org/wiki/Model_View_ViewModel" >MVVM</a>) architectural pattern as one approach for creating &#8220;better&#8221; large-scale <a href="http://www.adobe.com/devnet/flex.html" >Flex</a> applications and shows how the <a href="http://mate.asfusion.com/" >Mate Framework</a> can be leveraged to not only achieve this pattern but increase <a href="http://en.wikipedia.org/wiki/Separation_of_concerns" >separation of concerns</a> above that of a &#8220;standard&#8221; <a href="http://www.adobe.com/devnet/flex.html" >Flex</a> application.</em></p>
@@ -40,7 +43,7 @@ layout: codds_post
 <p><em>The observant among you will have spotted that there are no model classes mentioned.  This is because in this particular example the models are the integer counts and as such do not require a custom class type.  In more real-world applications it would be normal to have custom model classes that are used by the view models to maintain state.</em></p>
 <p><img src="http://www.scottlogic.co.uk/blog/graham/wp-content/uploads/2011/01/presentation_model.png" alt="Presentation Model UML" title="presentation_model" width="701" height="415" class="aligncenter size-full wp-image-460" /><br /><span style="font-size: 0.8em; font-style: italic;">Class diagram abstractly showing presentation model example</span></p>
 <p>The <code>SubCounterView</code> MXML consists of the viewModel property, a Mate <a href="http://mate.asfusion.com/page/documentation/tags/localeventmap" >map</a> (more detail on this later when explaining the Mate-related specifics), a <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/containers/Grid.html" target"_blank">Grid</a> to neatly lay out the local and sub-total counts and a couple of buttons to increase and decrease the local count.  All state, such as the two count labels, is observed from the view model using binding and all logic/behaviour, such as the count increasing and decreasing, is delegated to the view model:</p>
-<div class="wp_syntax"><table><tr><td class="code">{% highlight xml %}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;?xml</span> <span style="color: #000066;">version</span>=<span style="color: #ff0000;">&quot;1.0&quot;</span> <span style="color: #000066;">encoding</span>=<span style="color: #ff0000;">&quot;utf-8&quot;</span><span style="color: #000000; font-weight: bold;">?&gt;</span></span>
+<div class="wp_syntax"><table><tr><td class="code"><pre class="xml" style="font-family:monospace;"><span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;?xml</span> <span style="color: #000066;">version</span>=<span style="color: #ff0000;">&quot;1.0&quot;</span> <span style="color: #000066;">encoding</span>=<span style="color: #ff0000;">&quot;utf-8&quot;</span><span style="color: #000000; font-weight: bold;">?&gt;</span></span>
 <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;mx:VBox</span></span>
 <span style="color: #009900;">    <span style="color: #000066;">xmlns:mx</span>=<span style="color: #ff0000;">&quot;http://www.adobe.com/2006/mxml&quot;</span></span>
 <span style="color: #009900;">    <span style="color: #000066;">xmlns:map</span>=<span style="color: #ff0000;">&quot;maps.*&quot;</span></span>
@@ -100,14 +103,14 @@ layout: codds_post
         <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;mx:Button</span> <span style="color: #000066;">label</span>=<span style="color: #ff0000;">&quot;-&quot;</span> <span style="color: #000066;">click</span>=<span style="color: #ff0000;">&quot;_viewModel.decreaseCount()&quot;</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
     <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/mx:HBox<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
 &nbsp;
-<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/mx:VBox<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>{% endhighlight %}
+<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/mx:VBox<span style="color: #000000; font-weight: bold;">&gt;</span></span></span></pre>
 </td>
 </tr>
 </table>
 </div>
 <p>As can be seen in the above code and class diagram, the view is tied to a view model interface rather than concrete class.  Although this may seem unnecessarily verbose it brings some powerful benefits.  it allows different view models, and therefore different logic and behaviour, to be used with the same view (i.e. <a href="http://en.wikipedia.org/wiki/Inversion_of_control" >inversion of control</a>).  This is both a relatively common code requirement and a useful mechanism for activities such as testing.  It allows for the potential case of a single view model being shared across multiple views.  A final (more arguable) benefit is that it encourages the developer to focus solely on the view rather than be distracted by behavioural details.</p>
 <p>The <code>ISubCounterViewModel</code> interface looks like this:</p>
-<div class="wp_syntax"><table><tr><td class="code">{% highlight actionscript %}<span style="color: #808080; font-style: italic;">/**
+<div class="wp_syntax"><table><tr><td class="code"><pre class="actionscript" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">/**
  * Interface for any presentation model that is to be used
  * with the SubCounterView view.
  */</span>
@@ -138,13 +141,13 @@ layout: codds_post
 	 * Decreases the local count.
 	 */</span>
 	<span style="color: #000000; font-weight: bold;">function</span> decreaseCount<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>:<span style="color: #0066CC;">void</span>;
-<span style="color: #66cc66;">&#125;</span>{% endhighlight %}
+<span style="color: #66cc66;">&#125;</span></pre>
 </td>
 </tr>
 </table>
 </div>
 <p>The implementation of the interface, <code>SubCounterViewModel</code>, then looks like this:</p>
-<div class="wp_syntax"><table><tr><td class="code">{% highlight actionscript %}<span style="color: #808080; font-style: italic;">/**
+<div class="wp_syntax"><table><tr><td class="code"><pre class="actionscript" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">/**
  * Default implementation of ISubCounterViewModel.
  */</span>
 <span style="color: #0066CC;">public</span> <span style="color: #000000; font-weight: bold;">class</span> SubCounterViewModel <span style="color: #0066CC;">extends</span> ViewModelBase <span style="color: #0066CC;">implements</span> ISubCounterViewModel
@@ -253,7 +256,7 @@ layout: codds_post
 		<span style="color: #808080; font-style: italic;">// inform everyone else that the count has changed</span>
 		dispatchEvent<span style="color: #66cc66;">&#40;</span><span style="color: #000000; font-weight: bold;">new</span> CountEvent<span style="color: #66cc66;">&#40;</span>CountEvent.<span style="color: #006600;">LOCAL_UPDATE</span>, _subTotal<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
 	<span style="color: #66cc66;">&#125;</span>
-<span style="color: #66cc66;">&#125;</span>{% endhighlight %}
+<span style="color: #66cc66;">&#125;</span></pre>
 </td>
 </tr>
 </table>
@@ -262,26 +265,26 @@ layout: codds_post
 <h4>Glueing everything together</h4>
 <p>At this point we have all the constituent parts of the application, but they are not actually combined together in any functional way.  Mate&#8217;s <a href="http://mate.asfusion.com/page/documentation/tags/eventmap" >EventMap</a> and <a href="http://mate.asfusion.com/page/documentation/tags/localeventmap" >LocalEventMap</a> components are a powerful mechanism whereby this glue code can be introduced with minimal impact on any of the core code and easily swapped in and out.  As exemplified in the <code>SubCounterView</code> code, maps are introduced as a simple MXML tag and beyond that are entirely self-contained.  They leverage Flex&#8217;s <a href="http://livedocs.adobe.com/flex/3/html/help.html?content=events_08.html" >event mechanism</a> by hooking into an application&#8217;s <a href="http://livedocs.adobe.com/flex/3/html/help.html?content=05_Display_Programming_02.html" >display tree</a>, either at the global <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Stage.html" >stage</a> level in the case of EventMap or at the level of a specific <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/DisplayObject.html" >DisplayObject</a> in the case of LocalEventMap (see how the <a href="http://mate.asfusion.com/api_docs/com/asfusion/mate/core/LocalEventMap.html#dispatcher" >dispatcher</a> of the <code>SubCounterViewMap</code> in the <code>SubCounterView</code> above is set to be the view).  To achieve better separation of concerns (and to avoid coding using what can quickly become little more than a global variable mechanism) LocalEventMaps are always preferable to EventMaps.</p>
 <p>The first part of pulling the parts of the application together is to appropriately combine views with their view model instances.  Mate&#8217;s map components allow us to inject these dependencies <a href="http://mate.asfusion.com/page/documentation/tags/injectors" >Injectors</a> tags.  The Injectors component can target any class instance that is added to the <a href="http://livedocs.adobe.com/flex/3/html/help.html?content=05_Display_Programming_02.html" >display tree</a> below the map&#8217;s dispatcher or that is created within the scope of the map.  With this hook, an <a href="http://mate.asfusion.com/page/documentation/tags/objectbuilder" >ObjectBuilder</a> is used to create the desired view model before being injected into the view using the <a href="http://mate.asfusion.com/page/documentation/tags/propertyinjector" >PropertyInjector</a>.  This way we can very specifically target (and easily change) any desired view/view-model combinations.  Here is what combining the <code>SubCounterView</code> with its <code>SubCounterViewModel</code> looks like in the <code>SubCounterViewMap</code>:</p>
-<div class="wp_syntax"><table><tr><td class="code">{% highlight xml %}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;mate:Injectors</span> <span style="color: #000066;">target</span>=<span style="color: #ff0000;">&quot;{SubCounterView}&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+<div class="wp_syntax"><table><tr><td class="code"><pre class="xml" style="font-family:monospace;"><span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;mate:Injectors</span> <span style="color: #000066;">target</span>=<span style="color: #ff0000;">&quot;{SubCounterView}&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
     <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;mate:ObjectBuilder</span></span>
 <span style="color: #009900;">        <span style="color: #000066;">generator</span>=<span style="color: #ff0000;">&quot;{SubCounterViewModel}&quot;</span></span>
 <span style="color: #009900;">        <span style="color: #000066;">constructorArguments</span>=<span style="color: #ff0000;">&quot;{scope.dispatcher}&quot;</span></span>
 <span style="color: #009900;">    <span style="color: #000000; font-weight: bold;">/&gt;</span></span>
     <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;mate:PropertyInjector</span> <span style="color: #000066;">source</span>=<span style="color: #ff0000;">&quot;{lastReturn}&quot;</span> <span style="color: #000066;">targetKey</span>=<span style="color: #ff0000;">&quot;viewModel&quot;</span> <span style="color: #000000; font-weight: bold;">/&gt;</span></span>
-<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/mate:Injectors<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>{% endhighlight %}
+<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/mate:Injectors<span style="color: #000000; font-weight: bold;">&gt;</span></span></span></pre>
 </td>
 </tr>
 </table>
 </div>
 <p>The second part of glue code required for the fully functional application is to turn the event communication assumption(s) of the view models (see <code>SubCounterViewModel</code> code and explanation above) into reality.  Once again, Mate&#8217;s map components form the basis, but here it is the <a href="http://mate.asfusion.com/page/documentation/tags/eventhandlers" >EventHandlers</a> tag that provides the desired hook.  The EventHandlers component allows a response to any event <a href="http://livedocs.adobe.com/flex/3/html/help.html?content=events_08.html" >bubbled</a> past the map&#8217;s dispatcher (or globally, depending on both the map type and the EventHandlers own <a href="http://mate.asfusion.com/api_docs/com/asfusion/mate/actionLists/AbstractHandlers.html#dispatcherType" >dispatcherType</a>).  This response can be any sequence of <a href="http://mate.asfusion.com/api_docs/com/asfusion/mate/actions/IAction.html" >actions</a>, such as invoking a method on a class (<a href="http://mate.asfusion.com/page/documentation/tags/methodinvoker" >MethodInvoker</a>), setting a property (<a href="http://mate.asfusion.com/api_docs/com/asfusion/mate/actions/builders/PropertySetter.html" >PropertySetter</a>) or even creating another event (<a href="http://mate.asfusion.com/page/documentation/tags/eventannouncer" >EventAnnouncer</a>).  An example from the application above is the reset event that is dispatched when the countdown reaches zero and all counters should be reset.  For the <code>SubCounterViewModel</code> this is handled by setting the zero value from the reset as its local count value, as shown in the following code snippet from <code>SubCounterViewMap</code>:</p>
-<div class="wp_syntax"><table><tr><td class="code">{% highlight xml %}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;mate:EventHandlers</span> <span style="color: #000066;">type</span>=<span style="color: #ff0000;">&quot;{CountEvent.RESET}&quot;</span> <span style="color: #000066;">dispatcherType</span>=<span style="color: #ff0000;">&quot;global&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+<div class="wp_syntax"><table><tr><td class="code"><pre class="xml" style="font-family:monospace;"><span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;mate:EventHandlers</span> <span style="color: #000066;">type</span>=<span style="color: #ff0000;">&quot;{CountEvent.RESET}&quot;</span> <span style="color: #000066;">dispatcherType</span>=<span style="color: #ff0000;">&quot;global&quot;</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
     <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;mate:PropertySetter</span></span>
 <span style="color: #009900;">        <span style="color: #000066;">generator</span>=<span style="color: #ff0000;">&quot;{SubCounterViewModel}&quot;</span></span>
 <span style="color: #009900;">        <span style="color: #000066;">source</span>=<span style="color: #ff0000;">&quot;event&quot;</span></span>
 <span style="color: #009900;">        <span style="color: #000066;">sourceKey</span>=<span style="color: #ff0000;">&quot;newCount&quot;</span></span>
 <span style="color: #009900;">        <span style="color: #000066;">targetKey</span>=<span style="color: #ff0000;">&quot;count&quot;</span></span>
 <span style="color: #009900;">    <span style="color: #000000; font-weight: bold;">/&gt;</span></span>
-<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/mate:EventHandlers<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>{% endhighlight %}
+<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/mate:EventHandlers<span style="color: #000000; font-weight: bold;">&gt;</span></span></span></pre>
 </td>
 </tr>
 </table>

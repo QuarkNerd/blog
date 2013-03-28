@@ -1,16 +1,17 @@
 ---
-id: 149405
+id: 2099
 author: Colin Eberhardt
+title: "WPF Charting Performance Comparisons (the Battle Continues)"
+permalink: /blog/colin/2012/04/wpf-charting-performance-comparisons-the-battle-continues.html
 tags: 
-- charts
-- codeproject
-- visiblox
 - WPF
+- charts
+- visiblox
 categories: 
-- Blog
+- codeproject
 layout: ceberhardt_post
+source: wordpress
 ---
-
 <p>This blog post presents a thorough analysis of the performance of various WPF Charting components. The results show that a new class of charting solutions, which use raster-based graphics as opposed to retained mode vector graphics, provide a considerable performance advantage.</p>
 <p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2012/04/LineSeriesFrameRate.png" alt="" title="LineSeriesFrameRate" width="650" height="361" class="aligncenter size-full wp-image-2104" /></p>
 <h2>Introduction</h2>
@@ -34,8 +35,7 @@ layout: ceberhardt_post
 <p>One thing worth noting is that some charting vendors use sampling in order to improve framerates. I found that Vendor A (not included above) uses sampling without providing a mechanism for turning it off. Whereas most vendors that do support sampling allow you to turn it on or off and configure the sampling algorithm used. In order to provide a fair comparison, sampling was turned off on all the charts.</p>
 <p>The chart above reveals some interesting patterns, due to the two very different classes of chart under test.</p>
 <p><strong>Vector based charts</strong> - WPF UIs are rendered via <a href="http://en.wikipedia.org/wiki/Retained_mode">retained mode vector graphics</a>. Whilst this approach is what has given rise to the very rich UI framework that WPF applications enjoy, it has been found that this approach just doesn't perform as well as the bitmap-based approach used by Windows Forms when faced with complex UIs. This has led some people to <a href="http://codefornothing.wordpress.com/2011/05/07/and-the-best-wpf-chart-is/">use WinForms charts within their WPF applications</a>! We can see that the faster vector charts from Microsoft Toolkit, Vendor B, the updated Visifire and Visiblox charts are all close to the limit of what is possible with this style of rendering.</p>
-<blockquote><p>" ... the major 'partners' cannot create a WPF chart that renders 2000 floating points of data in less that 5 seconds. I have tried them all and they are slow so we have had to regress to a WinForms version that renders the same data in milliseconds." &#8211; from the <a href="http://channel9.msdn.com/Forums/Coffeehouse/it-looks-like-the-WPF-team-still-exists-after-all/c451791f0eb7467d9cd29e1800912559">channel 9 forums</a>. </p>
-</blockquote>
+<blockquote><p>" ... the major 'partners' cannot create a WPF chart that renders 2000 floating points of data in less that 5 seconds. I have tried them all and they are slow so we have had to regress to a WinForms version that renders the same data in milliseconds." - from the <a href="http://channel9.msdn.com/Forums/Coffeehouse/it-looks-like-the-WPF-team-still-exists-after-all/c451791f0eb7467d9cd29e1800912559">channel 9 forums</a>. </p></blockquote>
 <p><strong>Raster based charts</strong> - Because of the limits of the WPF rendering system the two fastest charts in this test, Visiblox (via the new raster series type as part of the Ultimate Editition) and SciChart (a newcomer that exclusively uses this approach) both use a <a href="http://en.wikipedia.org/wiki/Raster_graphics">raster / bitmap graphics</a> approach, which the WPF and Silverlight frameworks both have support for via the <a href="http://msdn.microsoft.com/en-us/library/system.windows.media.imaging.writeablebitmap.aspx">WriteableBitmap class</a>. This approach yields results which are more than 100 times faster than what is possible with vector graphics.</p>
 <p>One of the other common complaints made about WPF charts is the initial render time, with charts containing just a few thousands datapoints taking seconds to show on screen. Whilst this test focusses in framerates, it is also gives a good indication of the initial render times, with raster based charts appearing almost instantly when loaded with tens of thousands of points.</p>
 <h2>Scatter Series Results</h2>

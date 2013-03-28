@@ -1,6 +1,8 @@
 ---
 id: 147146
 author: Nicholas Hemley
+title: "Synchronise Heterogeneous Data Sources"
+permalink: /2012/03/synchronise-heterogeneous-data-sources.html
 tags: 
 - Java
 - Graph database
@@ -8,8 +10,9 @@ tags:
 - JMS
 - JBoss
 categories: 
-- Blog
+- blog
 layout: default_post
+source: site
 ---
 <h1>Using message-based middleware to synchronise heterogeneous data sources</h1>
 <h3>by Nicholas Hemley, Lead Developer, ScottLogic Ltd, nhemley@scottlogic.co.uk</h3>
@@ -72,11 +75,11 @@ layout: default_post
 <p>The salient code from the JQuery plugin which creates the 'Add Comment' links is as follows:</p>
 <div class="wp_syntax">
 <div class="code">
-{% highlight csharp %}	function createLinks() {
+<pre>	function createLinks() {
 		$this.find('[' + dataContentKey + ']').each(function() {
 			$(this).append('&lt;a href="#" class="' + addCommentLink + '"&gt;&lt;img src="' + imageSrc + '" /&gt;&lt;/a&gt;');
 		});
-	};{% endhighlight %}
+	};</pre>
 </div>
 </div>
 <p>When rendered, this gives us the 'Add Comment' images as follows:</p>
@@ -237,14 +240,14 @@ layout: default_post
 <p>For example, the Content DAO will <strong>register itself</strong> to handle all messages that originate from a specific class of entity, as follows:</p>
 <div class="wp_syntax">
 <div class="code">
-{% highlight csharp %}	mappingDispatcher.registerEntityToNodeMappingHandler(this);{% endhighlight %}
+<pre>	mappingDispatcher.registerEntityToNodeMappingHandler(this);</pre>
 </div>
 </div>
 <p>All that remains is for us to specify the entity class in the relational domain when the JMS call originates.</p>
 <p>So in the RDBMS domain, we generate messages as follows:</p>
 <div class="wp_syntax">
 <div class="code">
-{% highlight csharp %}	getJmsProducer().sendEntityCreationMessage(entity.getClass().getCanonicalName(), entity.getId().toString(), entity.toMap());{% endhighlight %}
+<pre>	getJmsProducer().sendEntityCreationMessage(entity.getClass().getCanonicalName(), entity.getId().toString(), entity.toMap());</pre>
 </div>
 </div>
 <p>Here we can see that the first argument is the class of the entity, which then maps onto our content DAO. The second parameter is the entity id and the third is a map of entity properties i.e. the entity as a set of key/value pairs. Obviously this scheme only allows for string properties, but the scheme could easily be extended.</p>

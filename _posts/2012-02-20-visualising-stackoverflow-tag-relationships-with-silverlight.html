@@ -1,15 +1,17 @@
 ---
-id: 144882
+id: 1996
 author: Colin Eberhardt
+title: "Visualising StackOverflow Tag Relationships with Silverlight"
+permalink: /blog/colin/2012/02/visualising-stackoverflow-tag-relationships-with-silverlight.html
 tags: 
 - charts
 - silverlight
 - visualisation
 categories: 
-- Blog
+- blog
 layout: ceberhardt_post
+source: wordpress
 ---
-
 <p><strong>UPDATE:</strong> I have <a href="http://www.codeproject.com/Articles/342715/Plotting-Circular-Relationships-Graphs-with-Silver">posted the sourcecode for this control on codeproject</a>.</p>
 <p>Recently I have been wondering about the wealth of information that can be gleaned from the 2.5 million programming question on Stack Overflow. A few weeks back I found a <a href="http://meta.stackoverflow.com/questions/41450/interactive-tag-trend-comparison-page">tag trending tool</a>, which can be used to measure the rise and fall in popularity of tags over time. Whilst this is a great little tool, I am sure there is much more that can be done with the freely available Stack Overflow data, for example, exploring the relationships between the many technologies people ask questions about.</p>
 <div style="text-align: center;"><object width="550" height="500" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2012/02/StackOverflowTagRelationship.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
@@ -20,8 +22,8 @@ layout: ceberhardt_post
 <li>Connections between tags indicate questions that have been tagged with both technologies. The thickness of the connection indicates how many questions share these two tags, i.e. jQuery and JavaScript tags appear together quite often.</li>
 <li> Each segment is coloured based on the number of connections it has, red for many connections, blue for few.</li>
 </ul>
-<p>The ordering of segments can be changed using the drop-down control. Probably one of the most interesting views is the one where related tags are clustered. This is done by assigning a &#8216;weight&#8217; to the current configuration of the graph by summing the length of all connections, with connections that cross the centre of the circle adding most weight. An iterative process is used to minimise the overall graph weight by moving each segment a few steps left and right, until the least &#8216;weighty&#8217; configuration is found. This is the one where each tag is most closely related to its neighbours.</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2012/02/cluster.png" alt="" title="cluster" width="182" height="138" style="float:right; margin:10px" /> When clustering is applied we can see small &#8216;pockets&#8217; of related technologies, with the following patterns emerging</p>
+<p>The ordering of segments can be changed using the drop-down control. Probably one of the most interesting views is the one where related tags are clustered. This is done by assigning a 'weight' to the current configuration of the graph by summing the length of all connections, with connections that cross the centre of the circle adding most weight. An iterative process is used to minimise the overall graph weight by moving each segment a few steps left and right, until the least 'weighty' configuration is found. This is the one where each tag is most closely related to its neighbours.</p>
+<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2012/02/cluster.png" alt="" title="cluster" width="182" height="138" style="float:right; margin:10px" /> When clustering is applied we can see small 'pockets' of related technologies, with the following patterns emerging</p>
 <ul>
 <li>The two most popular tags, <strong>Java</strong> and <strong>Android</strong>, are very closely related to each other, but have very few other relationships.</li>
 <li><strong>iOS</strong>, <strong>Objective-C</strong> and <strong>iPhone</strong> form a close-knit group. However, <strong>Objective-C</strong> questions are sometimes also tagged with <strong>C#</strong>, <strong>C</strong> and <strong>C++</strong>.</li>

@@ -1,12 +1,15 @@
 ---
 id: 78151
 author: Mark Rhodes
+title: "Animating HTML \"Ranking\" Tables with jQuery"
+permalink: /2011/01/animating-html-ranking-tables-with-javascript.html
 tags: 
 - Javascript
 - JQuery
 categories: 
-- Blog
+- blog
 layout: default_post
+source: site
 ---
 <p><script src="/wp-content/uploads/2010/12/jquery-1.4.3.js"></script><script src="/wp-content/uploads/2010/12/animator.js"></script><script src="/wp-content/uploads/2010/12/rankingTableUpdate.js"></script><em>This post details a jQuery plugin which animates updates to html tables representing rankings</em>.  The code can be downloaded here: <a href="/wp-content/uploads/2010/12/rankingTableUpdate.js"><strong>rankingTableUpdate.js</strong></a>.  If you're just interested in how to use the plugin your web page skip ahead to <a href="#usage">the usage section</a>.</p>
 <p><a name="f1Example" style="color: black; text-decoration: none;">The example below shows the plugin at work, looking at the final few race results of the 2010 F1 season:</a></p>
@@ -277,27 +280,27 @@ $(oldTableElement).rankingTableUpdate(newTableElement);
 <p>If you don't supply any of these class names on the cells then the column is assumed to be an <em>updating</em> one.</p>
 <p>For example, the following table fine:</p>
 {% highlight html %}
-&lt;table&gt;
-    &lt;thead&gt;
-        &lt;tr&gt;
-            &lt;th class=&quot;anim:position&quot;&gt;Pos&lt;/th&gt;
-            &lt;th class=&quot;anim:id&quot;&gt;Name&lt;/th&gt;
-            &lt;th class=&quot;anim:update&quot;&gt;Value&lt;/th&gt;
-        &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-        &lt;tr&gt;
-            &lt;td&gt;1&lt;/td&gt;
-            &lt;td&gt;A&lt;/td&gt;
-            &lt;td&gt;Some number&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;td&gt;2&lt;/td&gt;
-            &lt;td&gt;B&lt;/td&gt;
-            &lt;td&gt;Some number&lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/tbody&gt;
-&lt;/table&gt;
+<table>
+    <thead>
+        <tr>
+            <th class="anim:position">Pos</th>
+            <th class="anim:id">Name</th>
+            <th class="anim:update">Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>A</td>
+            <td>Some number</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>B</td>
+            <td>Some number</td>
+        </tr>
+    </tbody>
+</table>
 {% endhighlight %}
 <p><a name="config" style="color: black; text-decoration: none;"><strong>Configuring the animation using the <code>options</code> parameter</strong></a>If you don't supply an <code>options</code> parameter, it gets set to the following:</p>
 {% highlight javascript %}
@@ -333,10 +336,10 @@ var defaultOptions = {
 <p>The only slight oddity about the <code>duration</code> setting is that it's ignored in the case that there are no updating columns, other than a position column, and the rows don't need to move (basically when the animation won't do anything!).  In this case, the tables will be switched as normal and the <code>onComplete</code> callback run after a short wait (100ms).  This short wait is there so it's easier to work with; you can always assume that the animation won't finish instantly and hog the thread.</p>
 <p>The <code>extractIdFromCell</code> function in the options object is one thing that usually doesn't need to be set, however sometimes you need to work with tables that don't have one natural "id" column but are uniquely identifiable using multiple columns.  The easiest way to make the plugin work in this case is to define any one of the constant columns as the id column, put a hidden <code>span</code> element inside it which uniquely identifies the row, then set the <code>extractIdFromCell</code> function to extract the value from this span.  For example, the cell of you're selected id columns could look like this:</p>
 {% highlight html %} 
-&lt;td&gt;
-    &lt;span style=&quot;display:none&quot;&gt;unique-value&lt;span&gt;
+<td>
+    <span style="display:none">unique-value<span>
     constant value
-&lt;/td&gt;
+</td>
 {% endhighlight %}
 <p>and you could include the following function in the the options parameter:</p>
 {% highlight javascript %}
@@ -387,10 +390,10 @@ $(oldTableElement).rankingTableUpdate(newTableElement, {
 <tr style="height: 25px;">
 <th class="company anim:constant fe-sortable fe-string"><a href="#">Company</a> </th>
 <th class="ticker anim:id fe-sortable fe-string"><a href="#">Ticker</a> </th>
-<th class="size anim:constant  fe-sortable fe:number"><a href="#">Size (£ M)</a> </th>
-<th class="inPrice anim:constant fe-sortable fe-number"><a href="#">In Price (£)</a> </th>
-<th class="livePrice anim:constant fe-sortable fe-number"><a href="#">Live Price (£)</a> </th>
-<th class="profitLoss anim:constant fe-sortable fe-number"><a href="#">P&amp;L (£ M)</a> </th>
+<th class="size anim:constant  fe-sortable fe:number"><a href="#">Size (Â£ M)</a> </th>
+<th class="inPrice anim:constant fe-sortable fe-number"><a href="#">In Price (Â£)</a> </th>
+<th class="livePrice anim:constant fe-sortable fe-number"><a href="#">Live Price (Â£)</a> </th>
+<th class="profitLoss anim:constant fe-sortable fe-number"><a href="#">P&amp;L (Â£ M)</a> </th>
 </tr>
 </thead>
 <tbody>      </tbody>
@@ -448,16 +451,16 @@ $(oldTableElement).rankingTableUpdate(newTableElement, {
 <p>The resizing of the table is pretty straight forward when it needs to shrink, but when it needs to get bigger it's a little more complicationed.  Since the new table and the old one should have all rows the same height, when the table needs to increase in size, it's because there are more <em>fresh</em> rows than <em>dropped</em> ones.  When this is the case, to make it look good, the fresh rows need to come up from the bottom of the table, after its increased in height.  To move them up, the fresh rows need to be added to the table, then moved, just the other rows, however to make this look right, you need to put in some enough "dummy" rows before adding the fresh ones, so when the table gets bigger, you are just seeing the new dummy rows at the bottom and not the new fresh rows.  For example, if the animation needs to add a new row and isn't dropping any, then the bottom of the tbody definition will go from:</p>
 {% highlight html %}
     ...
-    &lt;tr&gt;&lt;td&gt;This is the last row in the original table&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;
+    <tr><td>This is the last row in the original table</td></tr>
+</tbody>
 {% endhighlight %}
 <p>to something like:</p>
 {% highlight html %}
     ...
-    &lt;tr&gt;&lt;td&gt;This is the last row in the original table&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td style=&quot;color: tableBGColor; background-color: tableBGColor;&quot;&gt;Dummy Row&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;The fresh row to add&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;
+    <tr><td>This is the last row in the original table</td></tr>
+    <tr><td style="color: tableBGColor; background-color: tableBGColor;">Dummy Row</td></tr>
+    <tr><td>The fresh row to add</td></tr>
+</tbody>
 {% endhighlight %}
 <p>Then the animation expands the height of the table wrapping div so that it shows the dummy row, but not the fresh one.  Note that some text is added to the dummy row which is the same colour as the background so that the row is not artificially small (which it could be with no content at all).</p>
 <p>Apart from that, the rest of the code deals with figuring out what has happened to the rows (did they go up, down, etc.) and dealing with an array of annoying details, like figuring out what colour to set things or what distance to move things.  I should probably point out that one great (and almost remarkable) thing about this code, is that it doesn't need to mess with the z-index.  The rows all move over/under each other like you'd (or at least I did!) expect.  I was prepared for some horrible fixes around this, but, as chance would have it, the top down way in which the DOM elements are processed and added to the page causes the effect I wanted.</p>

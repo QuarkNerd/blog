@@ -1,0 +1,24 @@
+---
+id: 137601
+author: Graham Odds
+title: "XAML Finance"
+permalink: /blog/graham/2011/12/xaml-finance.html
+tags: 
+categories: 
+layout: godds_post
+source: site
+---
+<h3><a name="motivation"></a>Motivation</h3>
+<p>It is becoming increasingly common for investment banks to deliver their research and trading applications across a range of platforms, from desktop, to web, to mobile.  Ideally, a single codebase would be developed to cater for each platform, but due to differing development technologies this is infeasible.</p>
+<p>XAML Finance was developed as a demonstration project in code-sharing with Microsoft technologies.  The end result was an application which shared 75% of its code across the desktop, web and mobile.</p>
+<p><i>You can view the <a href="http://www.scottlogic.co.uk/blog/colin/xaml-finance/">web-based Silverlight version</a> of XAML Finance, watch a <a href="http://www.youtube.com/watch?v=ISWu2VOKIyc">video of the Windows Phone 7 version</a> and read the (more technical) <a href="http://www.codeproject.com/KB/windows-phone-7/XAMLFinance.aspx">accompanying CodeProject article</a>.</i></p>
+<h3><a name="overview"></a>Overview</h3>
+<p>XAML Finance is a .NET cross-platform application that provides access to FTSE 100 data and analytics on the desktop, web and mobile devices.  The same content and functionality is provided across all the form factors, but in each case their respective capabilities, such as multi-touch and orientation-awareness, and constraints, such as screen size, have been taken into consideration.</p>
+<p>The application presents a Price List for the entire FTSE 100 from which individual entries can be selected to open a corresponding Company Overview that provides more detailed information for a specific stock with an accompanying interactive chart.  The Heatmap is a combined <a href="http://en.wikipedia.org/wiki/Treemapping" target="_blank">treemap</a> and <a href="http://en.wikipedia.org/wiki/Heatmap" target="_blank">heatmap</a>, based on the concept implemented in our <a href="/labs/market-map/" target="_blank">Market Map project</a>, from which Company Overviews can also be opened.</p>
+<p>The web-based version of XAML Finance uses the Microsoft Silverlight plug-in technology.  The price list, company overviews and heatmap are presented as a tabbed user interface, allowing the user to switch rapidly between the pages of interest.  A live deployment of this version is available <a href="http://www.scottlogic.co.uk/blog/colin/xaml-finance/">here</a>.</p>
+<p class="center" style="width: 70%;"><img src="/wp-content/uploads/2011/12/xaml3.jpg" alt="" title="XAML Finance Silverlight" width="100%" /></p>
+<p>The desktop version of the application uses WPF and presents the functionality as a multi-window interface, making best use of desktop application capabilities.</p>
+<p class="center" style="width: 70%;"><img src="/wp-content/uploads/2011/12/xaml2.jpg" alt="" title="XAML Finance Desktop" width="100%" /></p>
+<p>The Windows Phone 7 version is the most distinct, closely following the Metro theme that defines the platform both in terms of look and behaviour.  A video of this version in action can be viewed <a href="http://www.youtube.com/watch?v=ISWu2VOKIyc">here</a>.</p>
+<p class="center" style="width: 70%;"><img src="/wp-content/uploads/2011/12/xaml4.jpg" alt="" title="XAML Finance Windows Phone 7" width="100%" /></p>
+<p><i>For a more technical discussion of the project, please read the <a href="http://www.codeproject.com/KB/windows-phone-7/XAMLFinance.aspx">accompanying CodeProject article</a>.</i></p>

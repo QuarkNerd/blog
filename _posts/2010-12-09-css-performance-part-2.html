@@ -1,11 +1,14 @@
 ---
 id: 77905
 author: Luke Page
+title: "Css Performance - Part 2"
+permalink: /2010/12/css-performance-part-2.html
 tags: 
 - Javascript Performance CSS
 categories: 
-- Blog
+- blog
 layout: default_post
+source: site
 ---
 <h3>Introduction</h3>
 <p>In the first part I created a simple speed test harness and found the best way of creating 100 rows in a large table, regardless of the CSS conditions. Now I'm going to do the same for sorting.</p>
@@ -16,11 +19,11 @@ layout: default_post
 	var tbl = document.getElementById("mytb").childNodes[0],
 		tbody = tbl.childNodes[0], rows = [], i;
 
-	for(i = tbody.childNodes.length-1; i &gt;= 0; i--) {
+	for(i = tbody.childNodes.length-1; i >= 0; i--) {
 		rows[rows.length] = tbody.childNodes[i];
 	}
 
-	for(i = 0; i &lt; rows.length; i++) {
+	for(i = 0; i < rows.length; i++) {
 		tbody.appendChild(rows[i]);
 	}
 };{% endhighlight %}
@@ -54,13 +57,13 @@ layout: default_post
 	var tbl = document.getElementById("mytb").childNodes[0],
 		tbody = tbl.childNodes[0], rows = [], i, row;
 
-	for(i = tbody.childNodes.length-1; i &gt;= 0; i--) {
+	for(i = tbody.childNodes.length-1; i >= 0; i--) {
 		row = tbody.childNodes[i];
 		rows[rows.length] = row;
 		tbody.removeChild(row);
 	}
 
-	for(i = 0; i &lt; rows.length; i++) {
+	for(i = 0; i < rows.length; i++) {
 		tbody.appendChild(rows[i]);
 	}
 };{% endhighlight %}
@@ -71,11 +74,11 @@ layout: default_post
 		tbody = tbl.childNodes[0], i, rows=[],
 		frag = document.createDocumentFragment();
 
-	for(i = tbody.childNodes.length-1; i &gt;= 0; i--) {
+	for(i = tbody.childNodes.length-1; i >= 0; i--) {
 		rows.push(tbody.childNodes[i]);
 	}
 
-	for(i = 0; i &lt; rows.length; i++) {
+	for(i = 0; i < rows.length; i++) {
 		frag.appendChild(rows[i]);
 	}
 
@@ -88,13 +91,13 @@ layout: default_post
 		tbody = tbl.childNodes[0], rows = [], i,
 		newContent = "", parent;
 
-	for(i = tbody.childNodes.length-1; i &gt;= 0; i--) {
+	for(i = tbody.childNodes.length-1; i >= 0; i--) {
 		newContent += tbody.childNodes[i].outerHTML;
 	}
 
 	// This really is best case scenario, otherwise we might need to create on
 	// a div and move it and then we are stuck with the previous situation
-	tbl.parentNode.innerHTML = '&lt;table&gt;&lt;tbody&gt;'+newContent+'&lt;/tbody&gt;&lt;/table&gt;';
+	tbl.parentNode.innerHTML = '<table><tbody>'+newContent+'</tbody></table>';
 };{% endhighlight %}
 <h3>insertBefore</h3>
 <p>All of the attempts so far have assumed that we have sorted the rows and we need to re-order every row, even if it is already in the right position. In order to determine if it might grant a performance increase to only move those rows that have changed position, I am applying a test to reverse a row by using insertBefore - our worst case scenario if attempting to be clever about which rows are moved.</p>
@@ -103,12 +106,12 @@ layout: default_post
 		tbody = tbl.childNodes[0],
 		rows = [], i, lastDomElement;
 
-	for(i = tbody.childNodes.length-1; i &gt;= 0; i--) {
+	for(i = tbody.childNodes.length-1; i >= 0; i--) {
 		rows[rows.length] = tbody.childNodes[i];
 	}
 
 	lastDomElement = tbody.childNodes[0];
-	for(i = 0; i &lt; rows.length; i++) {
+	for(i = 0; i < rows.length; i++) {
 		tbody.insertBefore(rows[i], lastDomElement);
 		lastDomElement = rows[i];
 	}
@@ -122,12 +125,12 @@ layout: default_post
 
 	tbl.removeChild(tbody);
 
-	for(i = tbody.childNodes.length-1; i &gt;= 0; i--) {
+	for(i = tbody.childNodes.length-1; i >= 0; i--) {
 		rows[rows.length] = tbody.childNodes[i];
 	}
 
 	lastDomElement = tbody.childNodes[0];
-	for(i = 0; i &lt; rows.length; i++) {
+	for(i = 0; i < rows.length; i++) {
 		tbody.insertBefore(rows[i], lastDomElement);
 		lastDomElement = rows[i];
 	}

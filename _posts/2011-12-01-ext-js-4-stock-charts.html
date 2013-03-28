@@ -1,13 +1,16 @@
 ---
 id: 136508
 author: Mark Rhodes
+title: "Ext JS 4 Stock Charts"
+permalink: /2011/12/ext-js-4-stock-charts.html
 tags: 
 - Javascript
 - charts
 - Ext JS
 categories: 
-- Blog
+- blog
 layout: default_post
+source: site
 ---
 <p><em>I've been working with Ext JS 4's pure Javascript charting package for a while now and due to the lack of decent real-world examples (i.e. those that don't just use almost all default settings) and a few undue omissions in the documentation, it's not always been plain sailing.  In an attempt to rectify this situation, in this post I'll show some of the tricks that can be used to customise an Ext JS chart.  The result is a daily stock chart with tracking behavior and customised styling.  All the source code for this example can be downloaded here: <a href='http://www.scottlogic.co.uk/wp-content/uploads/2011/12/extjs4-chart-blog-mr.zip'>extjs4-chart-blog-mr.zip</a>.</em></p>
 <p>The stock chart I'll run though is given below and is similar to those a lot of financial companies use on their websites to show stock or index data (the <a href="/">ScottLogic homepage</a> has one).  It even uses the "industry standard blue" colour for the series!</p>
@@ -17,9 +20,9 @@ layout: default_post
 {% highlight javascript %}
 Ext.onReady(function(){        
     //format of the data given to the chart..
-    var dataDateFormat = &quot;H:i&quot;;
+    var dataDateFormat = "H:i";
 
-    //Converts times in the &quot;dataDateFormat&quot; to values..
+    //Converts times in the "dataDateFormat" to values..
     function convertTimeToValue(timeStr){
         var time = Ext.Date.parse(timeStr, dataDateFormat);
         time.setFullYear(1970,0,1); //prevents problems with large numbers..
@@ -52,7 +55,7 @@ Ext.onReady(function(){
 		minorTickSteps: 0,
 		grid: true
             }],
-	    theme: &quot;DailyStockChart&quot;,
+	    theme: "DailyStockChart",
 	    series: [{
 	        type: 'line',
 	        axis: ['left', 'bottom'],
@@ -76,13 +79,13 @@ Ext.onReady(function(){
 <p>The chart is backed by a JSONStore which expects an JSON object in the form:</p>
 {% highlight javascript %}
 {
-    &quot;fields&quot;: [&quot;time&quot;, &quot;value&quot;],
-    &quot;data&quot;: [
-        { &quot;time&quot;: &quot;08:02&quot;, &quot;value&quot;: -0.45 },
-        { &quot;time&quot;: &quot;08:03&quot;, &quot;value&quot;: -0.451 },
+    "fields": ["time", "value"],
+    "data": [
+        { "time": "08:02", "value": -0.45 },
+        { "time": "08:03", "value": -0.451 },
         ...
     ],
-    &quot;stockName&quot;: &quot;Mock Mega Corp.&quot;
+    "stockName": "Mock Mega Corp."
 }
 {% endhighlight %}
 <p>This is representative of something that could be generated server side from a data feed, however, in this case it's just created by the <code>generateMockData</code> function which is defined in the <a href="http://www.scottlogic.co.uk/wp-content/uploads/2011/11/mockStockData.js">mockStockData.js</a> file.  The <code>fields</code> and <code>data</code> properties are mandatory, the <code>stockName</code> is a custom value which isn't used yet - in general there's nothing stopping you adding any properties to the object that is passed to the data store.</p>
@@ -96,7 +99,7 @@ Ext.onReady(function(){
 Ext.onReady(function(){
     ...
 
-    //Returns a &quot;stepsCalc&quot; object which describes the minimum, maximum
+    //Returns a "stepsCalc" object which describes the minimum, maximum
     //and steps to use for the value axis based on the data points given..
     function getValueAxisStepsCalc(points){
         //get the real max and min values from the data..
@@ -106,9 +109,9 @@ Ext.onReady(function(){
         //get the correct max/min values and converts dates to numbers..
         Ext.each(points, function(point, i){
 	    var value = point.value;
-	    if(value &lt; minValue)
+	    if(value < minValue)
 	        minValue = value;
-	    if(value &gt; maxValue)
+	    if(value > maxValue)
 	        maxValue = value;
         });
         
@@ -118,7 +121,7 @@ Ext.onReady(function(){
         //get a sensible step between major ticks on axis - bit of a black art!
         var step = 0.01;
         var i = 1;
-        while(range &gt; step * 10)
+        while(range > step * 10)
             step *= ++i % 3 ? 2 : 2.5;
 
         //ensure 10% clearance then round to step value..
@@ -136,8 +139,8 @@ Ext.onReady(function(){
 
     function getTimeAxisStepsCalc(){
         var stepsCalc = {
-	    from: convertTimeToValue(&quot;08:00&quot;),
-	    to: convertTimeToValue(&quot;16:30&quot;),
+	    from: convertTimeToValue("08:00"),
+	    to: convertTimeToValue("16:30"),
 	    step: 1800000 // 1800000 = 30*60*1000
         };
         stepsCalc.steps = (stepsCalc.to - stepsCalc.from)/stepsCalc.step;
@@ -145,10 +148,10 @@ Ext.onReady(function(){
     }
 	
     var timeFormatter = function(timeVal){
-        return Ext.Date.format(new Date(timeVal), &quot;g:iA&quot;);
+        return Ext.Date.format(new Date(timeVal), "g:iA");
     };
     var valueFormatter = function(value){
-        return value.toFixed(2)*1 + &quot;%&quot;;
+        return value.toFixed(2)*1 + "%";
     };
 
     Ext.each(Ext.query('div.chartHolder'), function(rootDiv){
@@ -186,7 +189,7 @@ Ext.onReady(function(){
 	    	    renderer: function(val){
                                   // 7200000 = 2 *60 * 60 * 1000
 		        return val % 7200000 ?
-                                    &quot;&lt;span style='visibility: hidden;'&gt;&lt;/span&gt;&quot; :
+                                    "<span style='visibility: hidden;'></span>" :
                                     timeFormatter(val);
 		    }
 	    }
@@ -205,14 +208,14 @@ Ext.onReady(function(){
 <p>Although it might appear that there is only a single series on the chart in fact there are three.  One for the line of the stock series, one for the fill and one for the red dashed line at zero.  The reason there are two separate series for the stock is simply a hack to get round a couple of rendering bugs - firstly that the <code>opacity</code> value is used for both the line and the fill - therefore there's no way to get a solid line and a see-through fill in a single series and secondly (although it's not important in this case) the fill overlaps part of the series line (try setting the <code>stroke-width</code> high and changing the fill colour to see the effect!).  To get the red "zero-line" series in, I add an extra <code>previousClose</code> property to the JSON object backing the chart, and add points at 8am and 4.30pm with a value of zero for this property prior to creating the chart object.  The code you need to add to do this is:</p>
 {% highlight javascript %}
 ...
-mockRawData.fields.push(&quot;previousClose&quot;);
+mockRawData.fields.push("previousClose");
 mockRawData.data.unshift({
 	previousClose: 0,
-	time: convertTimeToValue(&quot;08:00&quot;)
+	time: convertTimeToValue("08:00")
 });
 mockRawData.data.push({
 	previousClose: 0,
-	time: convertTimeToValue(&quot;16:30&quot;)
+	time: convertTimeToValue("16:30")
 });
 
 //define the Ext chart...
@@ -265,14 +268,14 @@ series: [{
 {% highlight javascript %}
 ...
 var miniLegendTemplate = new Ext.XTemplate(
-    '&lt;div class=&quot;miniLegend&quot;&gt;' +
-    '  &lt;div class=&quot;time&quot;&gt;{defaultTime}&lt;/div&gt;' +
-    '  &lt;div class=&quot;marker&quot; style=&quot;background-color: #5555FF;&quot;&gt;&lt;/div&gt;' +
-    '  &lt;div style=&quot;color: #3333FF;&quot;&gt;' +
-    '    &lt;span class=&quot;stockName&quot;&gt;{stockName}&lt;/span&gt;' +
-    '    &lt;span class=&quot;value&quot;&gt;{defaultValue}&lt;/span&gt;' +
-    '  &lt;/div&gt;' +
-    '&lt;/div&gt;'
+    '<div class="miniLegend">' +
+    '  <div class="time">{defaultTime}</div>' +
+    '  <div class="marker" style="background-color: #5555FF;"></div>' +
+    '  <div style="color: #3333FF;">' +
+    '    <span class="stockName">{stockName}</span>' +
+    '    <span class="value">{defaultValue}</span>' +
+    '  </div>' +
+    '</div>'
 );
     
 //Create charts and add them to the page..
@@ -341,19 +344,19 @@ Ext.each(Ext.query('div.chartHolder'), function(rootDiv){
 		
 		//do binary search to find item with the nearest x point..
 		var lowIndex = 0, highIndex = items.length - 1, currentIndex;
-		while (lowIndex &lt;= highIndex) {
+		while (lowIndex <= highIndex) {
 		    currentIndex = Math.floor((lowIndex + highIndex) / 2);
 		    var item = items[currentIndex];
 					
 		    var diff = item.point[0] - x;
 		    var absDiff = Math.abs(diff);
-		    if(absDiff &lt; smallestDiff){
+		    if(absDiff < smallestDiff){
 		        nearestItem = item;
 		        smallestDiff = absDiff;
 		    }
 		    //update bounds of search..
-		    if(diff &lt; 0) lowIndex = currentIndex+1;
-		    else if(diff &gt; 0) highIndex = currentIndex-1;
+		    if(diff < 0) lowIndex = currentIndex+1;
+		    else if(diff > 0) highIndex = currentIndex-1;
 		    else break; //equal case..
 		}
 		return nearestItem;
@@ -375,9 +378,9 @@ Ext.each(Ext.query('div.chartHolder'), function(rootDiv){
 		var items = this.items;
 		if(!items)
 		    return;
-		for(var i = 0, len = items.length; i &lt; len; i++){
+		for(var i = 0, len = items.length; i < len; i++){
 		    var sprite = items[i].sprite;
-		    if(sprite &amp;&amp; sprite._highlighted){
+		    if(sprite && sprite._highlighted){
 		        sprite.setAttributes({
 			    radius: 0
 			}, true);

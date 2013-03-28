@@ -1,18 +1,21 @@
 ---
 id: 73642
 author: Luke Page
+title: "Implementing eqeq in JavaScript using eqeqeq"
+permalink: /2010/10/implementing-eqeq-in-javascript-using-eqeqeq.html
 tags: 
 - Javascript
 - eqeqeq
 categories: 
-- Blog
+- blog
 layout: default_post
+source: site
 ---
 <h3>Introduction</h3>
 <p>So, in a previous post I pointed out some == coercing that was far from obvious. But despite gradually picking up edge cases, I've never had a true understanding of the various cases where x == y. So, prompted by Jonathan's link to <a href="http://www.mozilla.org/js/language/E262-3.pdf">the specification</a> explanation and figuring that code is going to be easier to understand than a series of steps.</p>
 <h3>Delving Into the Spec</h3>
 <p>So first off, here is how the specification says to do a == comparison.</p>
-{% highlight csharp %}
+<pre>
 1. If Type(x) is different from Type(y), go to step 14.
 2. If Type(x) is Undefined, return true.
 3. If Type(x) is Null, return true.
@@ -41,20 +44,20 @@ return the result of the comparison x == ToPrimitive(y).
 21. If Type(x) is Object and Type(y) is either String or Number,
 return the result of the comparison ToPrimitive(x) == y.
 22. Return false.
-{% endhighlight %}
+</pre>
 <p>First - The second part of step 13 talks of detecting joined up of functions. However it is just an implementation detail that can even be used or unused. It isn't necessary to implement detection because === also finds two joined functions to be equivalent. </p>
 <p>Second, looking at the implementation of === we can also determine that steps 2 to 13 are already implemeted, so we don't have to detect +0 and -0 or make NaN !== NaN.</p>
 <p>Third I'm going to assume that ToNumber is equivalent to doing using Number(x).</p>
 <p>Next we'll deal with primitive values of objects. The text relating to this is below.</p>
-{% highlight csharp %}
+<pre>
 Return a default value for the Object. The default value of an object is
 retrieved by calling the internal [[DefaultValue]] method of the object,
 passing the optional hint PreferredType. The behaviour of the
 [[DefaultValue]] method is defined by this specification for all native
 ECMAScript objects (section 8.6.2.6).
-{% endhighlight %}
+</pre>
 <p>For everything apart from Object we return the value, then for objects we retrieve the DefaultValue. This text relating to this is below.</p>
-{% highlight csharp %}
+<pre>
 8.6.2.6 [[DefaultValue]] (hint)
 
 When the [[DefaultValue]] method of O is called with hint String, the following steps are taken:
@@ -85,7 +88,7 @@ a Date object (section 15.9), in which case it behaves as if the hint were Strin
 The above specification of [[DefaultValue]] for native objects can return only primitive values. If a host object
 implements its own [[DefaultValue]] method, it must ensure that its [[DefaultValue]] method can return only primitive
 values.
-{% endhighlight %}
+</pre>
 <h3>Implementing the JavaScript</h3>
 <p>So lets implement our own ToPrimitive() (which is mostly an implementation of DefaultValue).</p>
 {% highlight javascript %}

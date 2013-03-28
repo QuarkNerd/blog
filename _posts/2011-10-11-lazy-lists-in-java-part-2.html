@@ -1,19 +1,22 @@
 ---
 id: 131101
 author: Mark Rhodes
+title: "Lazy Lists In Java - Part 2"
+permalink: /2011/10/lazy-lists-in-java-part-2.html
 tags: 
 - Data Structures
 - Java
 categories: 
-- Blog
+- blog
 layout: default_post
+source: site
 ---
 <p><em>In my <a href="/2011/06/lazy-lists-in-java/">last post</a> back in June, I introduced a new data structure, the <a href="http://www.scottlogic.co.uk/2011/06/lazy-lists-in-java/"><code>PatchWorkArray</code></a>, which performs insertions and deletions lazily in an attempt to improve performance over the lifetime of the list.  In this post, I'll detail a simple extension to this class which makes it more practically usable and show how it compares with other list implementations over a number of performance tests.  A zip file containing all the source code, unit test code, javadoc and a distributable jar file for the classes mentioned in this post are available at: <a href='/wp-content/uploads/2011/10/scottlogic-utils-mr-1.5.zip'>scottlogic-utils-mr.zip</a></em>.</p>
 <p><strong>Making the PatchWorkArray More Practical</strong>As I mentioned in my <a href="/2011/06/lazy-lists-in-java/">previous post,</a> the <code>PatchWorkArray</code> works by maintaining a store of the alterations that have been made to an underlying backing list.  In general, the larger the number of alterations, the worse the <code>PatchWorkArray</code>'s performance.  Although the implementation performs some local optimization, which attempts to minimise the number of alterations, there may be times when it is faster to ensure the list has no alterations prior to performing some operation.  For this the <code>fix</code> method is supplied.  For example, if you are given a list of indices and you need to return the elements in the list at those indices, as opposed to writing:</p>
 {% highlight java %}
-public static &lt;T&gt; List&lt;T&gt; getElementsAtIndices(
-               PatchWorkArray&lt;T&gt; list, List&lt;Integer&gt; indices){
-   List&lt;T&gt; selectedElements = new LinkedList&lt;T&gt;();
+public static <T> List<T> getElementsAtIndices(
+               PatchWorkArray<T> list, List<Integer> indices){
+   List<T> selectedElements = new LinkedList<T>();
    for(int index : indices){
         selectedElements.add(list.get(index));
     }
@@ -22,10 +25,10 @@ public static &lt;T&gt; List&lt;T&gt; getElementsAtIndices(
 {% endhighlight %}
 <p>It is likely to be more efficient to write:</p>
 {% highlight java %}
-public static &lt;T&gt; List&lt;T&gt; getElementsAtIndices(
-               PatchWorkArray&lt;T&gt; list, List&lt;Integer&gt; indices){
-    List&lt;T&gt; selectedElements = new LinkedList&lt;T&gt;();   
-    if(list.getPerformanceHit() &gt; 10 &amp;&amp; indices.size() &gt; 10)
+public static <T> List<T> getElementsAtIndices(
+               PatchWorkArray<T> list, List<Integer> indices){
+    List<T> selectedElements = new LinkedList<T>();   
+    if(list.getPerformanceHit() > 10 && indices.size() > 10)
        list.fix();
     for(int index : indices){
         selectedElements.add(list.get(index));
@@ -35,13 +38,13 @@ public static &lt;T&gt; List&lt;T&gt; getElementsAtIndices(
 {% endhighlight %}
 <p>Line 4 performs a quick check to see if making a call to <code>fix</code> is likely to have any positive effect on the performance - although it must be said that I picked the values of 10 arbitrarily!  The clear problem with this approach however is that making an explicit call to <code>fix</code> is not always possible or indeed desirable.  Since it's generally better to write methods so that they are not tied to a concrete implementation of an interface, the above method should really be re-written to have the signature:</p>
 {% highlight java %}
-public static &lt;T&gt; List&lt;T&gt; getElementsAtIndices(
-               List&lt;T&gt; list, List&lt;Integer&gt; indices)
+public static <T> List<T> getElementsAtIndices(
+               List<T> list, List<Integer> indices)
 {% endhighlight %}
 <p>so without adding some form of type checking hack, you won't be able to call the <code>fix</code> method on the list anyway.  To get around this problem, I've written a new simple sub-class of the <code>PatchWorkArray</code>, the <code>AutoFixingPatchWorkArray</code>, which as the name suggests, automatically fixes itself if the number of alterations to its backing list breaches some set limits.</p>
 <p><strong>AutoFixingPatchWorkArray</strong>This class is probably a lot simpler and shorter than you might think since there are only two points within the <code>PatchWorkArray</code> code where the number of alterations to the backing list can increase; in the <code>add</code> and <code>remove</code> methods which take an index as a parameter.  So by overriding just these two  methods so that they make a call to <code>fix</code> before returning, we are pretty much done.  The <code>AutoFixingPatchWorkArray</code> determines whether <code>fix</code> needs to be run by calling its aptly named <code>isFixRequired</code> method - which is non-final and protected and so can be overridden if required.  The provided implementation of this method checks whether the list's performance hit (which is essentially the number of alterations to the backing list, and the important metric when it comes to the performance, see the <a href="/2011/06/lazy-lists-in-java/">previous post</a> for more details), is more than both a set fixed limit and a set fraction of the total size of the list.  The core elements of the source code are given below.</p>
 {% highlight java %}
-public class AutoFixingPatchWorkArray&lt;T&gt; extends PatchWorkArray&lt;T&gt; {
+public class AutoFixingPatchWorkArray<T> extends PatchWorkArray<T> {
 
     protected final float maxPerformanceHitFactor;      
     protected final int minPerformanceHitBeforeFix;
@@ -51,9 +54,9 @@ public class AutoFixingPatchWorkArray&lt;T&gt; extends PatchWorkArray&lt;T&gt; {
         super(initialCapacity);
         this.minPerformanceHitBeforeFix = minPerformanceHitBeforeFix;
           
-        if(maxPerformanceHitFactor &lt; 0 || maxPerformanceHitFactor &gt; 1.0){
+        if(maxPerformanceHitFactor < 0 || maxPerformanceHitFactor > 1.0){
     	    throw new IllegalArgumentException(
-                    &quot;The maxPerformanceHitFactor must be between 0 and 1 inclusive.&quot;);
+                    "The maxPerformanceHitFactor must be between 0 and 1 inclusive.");
     	}
         this.maxPerformanceHitFactor = maxPerformanceHitFactor;
     }
@@ -75,8 +78,8 @@ public class AutoFixingPatchWorkArray&lt;T&gt; extends PatchWorkArray&lt;T&gt; {
 
     protected boolean isFixRequired(){
         int performanceHit = getPerformanceHit();
-        return (performanceHit &gt;= minPerformanceHitBeforeFix &amp;&amp;
-                size() * maxPerformanceHitFactor &lt; performanceHit);
+        return (performanceHit >= minPerformanceHitBeforeFix &&
+                size() * maxPerformanceHitFactor < performanceHit);
     }
 }
 {% endhighlight %}
@@ -85,21 +88,21 @@ public class AutoFixingPatchWorkArray&lt;T&gt; extends PatchWorkArray&lt;T&gt; {
 <p>The "by index" test method looks like this:</p>
 {% highlight java %}
 private long addRemoveAndGetByIndexPerformanceTest(
-	  List&lt;Integer&gt; listToTest, int numOperations,
+	  List<Integer> listToTest, int numOperations,
           int initialSize, double chanceOfAlteration, Random rand){
 
     //initially populate the list..
     populateList(initialSize, listToTest);
 
     long startTime = System.currentTimeMillis();
-    for(int i=0; i &lt; numOperations; i++){
+    for(int i=0; i < numOperations; i++){
         int listSize = listToTest.size();
         int nextIndex = ((int) Math.round(rand.nextDouble()*listSize)) % listSize;
 
         double makeAlteration = rand.nextDouble();
-        if(makeAlteration &lt;= chanceOfAlteration){
+        if(makeAlteration <= chanceOfAlteration){
             double addOrRemove = rand.nextDouble();
-            if(addOrRemove &lt; 0.5){
+            if(addOrRemove < 0.5){
                 listToTest.add(nextIndex, i);
             } else {
                 listToTest.remove(nextIndex);
@@ -114,22 +117,22 @@ private long addRemoveAndGetByIndexPerformanceTest(
 <p>This code randomly performs <code>get</code>, <code>remove</code> or <code>add</code> operations on the given list; the probability that <code>add</code> or <code>remove</code> is called is controlled by the given <code>chanceOfAlteration</code>.  The iterator based test method is similar, except that operations are performed on the elements of the list as they are presented by the iterator rather than by randomly jumping to a position in the list.</p>
 {% highlight java %}
 private long iterateThroughAlteratingPerformanceTest(
-        List&lt;Integer&gt; list, int numIterations,
+        List<Integer> list, int numIterations,
         int initialSize, double chanceOfAlteration, Random random){
 
     //initially populate the list..
     populateList(initialSize, list);
 
     long startTime = System.currentTimeMillis();
-    for(int i=0; i &lt; numIterations; i++){
-        ListIterator&lt;Integer&gt; itr = list.listIterator();
+    for(int i=0; i < numIterations; i++){
+        ListIterator<Integer> itr = list.listIterator();
         while(itr.hasNext()){
-            @SuppressWarnings(&quot;unused&quot;)
+            @SuppressWarnings("unused")
             int next = itr.next(); //take the next element out auto-unboxing..
             double makeAlteration = random.nextDouble();
-            if(makeAlteration &lt;= chanceOfAlteration){
+            if(makeAlteration <= chanceOfAlteration){
 	        double addOrRemove = random.nextDouble();
-	        if(addOrRemove &lt; 0.5){
+	        if(addOrRemove < 0.5){
 	            itr.add(i); //add any old value..
 	        } else {
 	            itr.remove();

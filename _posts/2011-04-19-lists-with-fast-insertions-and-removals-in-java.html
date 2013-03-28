@@ -1,12 +1,15 @@
 ---
 id: 114761
 author: Mark Rhodes
+title: "Lists with Fast Insertions and Removals in Java"
+permalink: /2011/04/lists-with-fast-insertions-and-removals-in-java.html
 tags: 
 - Data Structures
 - Java
 categories: 
-- Blog
+- blog
 layout: default_post
+source: site
 ---
 <p><em>This post describes the implementation of a List in Java which allows log time removals and insertions.</em></p>
 <p>Lists are probably the most useful data structures in programming.  Java provides a number of ways of creating a list out of the box with regular arrays, and the <code>ArrayList</code>, <code>LinkedList</code> and <code>Vector</code> classes in the java.util package.  However, none of these structures allow elements to be removed or added to the middle of the list in sub-linear time*, which for some applications can be useful.  <em>(* - the LinkedList allows elements to be removed (inserted) via a <a href="http://download.oracle.com/javase/6/docs/api/java/util/ListIterator.html"><code>ListIterator</code></a> in constant time, but requires that the element (position) is located first, which takes linear time).</em></p>
@@ -14,10 +17,10 @@ layout: default_post
 <p>In this post I'll go through the implementation of an "unsorted" balanced search tree (<code>UnsortedList</code>), which allows the elements to be located, added and removed by index in logarithmic time, but function exactly like an <code>ArrayList</code>.  The trick is that the list compares the elements in it on their index in the list itself.  The <code>UnsortedList</code> extends the <code>SortedList</code> class I wrote for a <a href="http://www.scottlogic.co.uk/2010/12/sorted_lists_in_java/">previous post</a>, which provides a relatively efficient implementation of an <a href="http://en.wikipedia.org/wiki/AVL_tree">AVL tree</a> that allows elements to quickly found by their index.  I had to make a few tweaks to that code so that the required inner class and methods are exposed to overriding classes; the latest version, together with all the source code described in this blog is available here: <a href='http://www.scottlogic.co.uk/wp-content/uploads/2011/04/mr-scottlogic-utils-1.01.zip'>data structures source</a>.</p>
 <p>The signature of the <code>UnsortedList</code> class and it's constructor are a bit odd and look like this:</p>
 {% highlight java %}
-public class UnsortedList&lt;T&gt; extends SortedList&lt;T&gt; {
+public class UnsortedList<T> extends SortedList<T> {
 
     //a dummy comparator which works on any object and simply returns 0..
-   private static Comparator&lt;Object&gt; DUMMY_COMPARATOR = new Comparator&lt;Object&gt;(){
+   private static Comparator<Object> DUMMY_COMPARATOR = new Comparator<Object>(){
         @Override
         public int compare(Object a, Object b){
             return 0;
@@ -51,9 +54,9 @@ private class UnsortedNode extends Node {
 {% highlight java %}
 private int getIndexInList(){
     //go up the tree till we find a fresh parent or get to the root and store the path on a stack..
-    LinkedList&lt;UnsortedNode&gt; path = new LinkedList&lt;UnsortedNode&gt;();
+    LinkedList<UnsortedNode> path = new LinkedList<UnsortedNode>();
     UnsortedNode current = this;
-    while(current != null &amp;&amp; current.modCountWhenIndexSet != modCount){
+    while(current != null && current.modCountWhenIndexSet != modCount){
         path.push(current);
         current = (UnsortedNode) current.getParent();
     }

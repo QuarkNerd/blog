@@ -1,13 +1,16 @@
 ---
 id: 77518
 author: Luke Page
+title: "Css Performance - Part 1"
+permalink: /2010/11/css-performance-part-1.html
 tags: 
 - CSS
 - Javascript
 - performance
 categories: 
-- Blog
+- blog
 layout: default_post
+source: site
 ---
 <h3>Introduction</h3>
 <p>Over the last month or so, I've been interested in website performance. There are a lot of useful tools that exist to help you get the most out the HTML/JavaScript/CSS Technologies - One resource in particular I've used is <a href="http://code.google.com/speed/page-speed/">Google Page Speed</a>. Among the recommendation is one to <a href="http://code.google.com/speed/page-speed/docs/rendering.html#UseEfficientCSSSelectors">optimise the use of css selectors</a>, however when I looked for evidence to support this rule, every link eventually went back to <a href="https://developer.mozilla.org/en/Writing_Efficient_CSS">a Mozilla page</a> written to help people write UI elements in Firefox using the XUL extensions.</p>
@@ -22,39 +25,39 @@ layout: default_post
 <h3>A Test Harness</h3>
 <p>The first thing I want is to measure not just the time to run the JavaScript but the time it takes for the browser to render - to achieve this I'm using a setTimeout(...,0) in order to measure the time it would take between making a DOM change and the next time that some JavaScript can run. This isn't totally accurate, but it has seemed good enough to get some indications - I'm not concerned with an exact time for each operation, just an idea of the scale of time that different techniques and CSS make to the render and run time.</p>
 <p>So, first I need an HTML page with a percentage bar, a start button and a results table.</p>
-{% highlight html %}&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
- "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;meta http-equiv="X-UA-Compatible" content="IE=8" /&gt;
-&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
-&lt;title&gt;Dom Changing Test&lt;/title&gt;
-&lt;style type="text/css"&gt;
+{% highlight html %}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Dom Changing Test</title>
+<style type="text/css">
 .tb { border-collapse: collapse; table-layout: fixed; width: 600px; height: 570px; padding: 0px; border: 0px; margin: 0px;}
 .tb td { padding: 0px; border: 0px; margin: 0px; overflow: hidden;}
 .percbar { width: 400px; height: 1.1em; border: black solid 1px;}
 #percentage { width: 0px; height: 1.1em; color: white; background-color: green;}
-&lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
- &lt;a onClick="document.getElementById('starttest').style.display = 'none';StartTest();return false;" id="starttest" href="#"&gt;Start Tests&lt;/a&gt;
- &lt;div&gt;
- &lt;div id="percentage"&gt;&lt;/div&gt;
- &lt;/div&gt;
+</style>
+</head>
+<body>
+ <a onClick="document.getElementById('starttest').style.display = 'none';StartTest();return false;" id="starttest" href="#">Start Tests</a>
+ <div>
+ <div id="percentage"></div>
+ </div>
 
- &lt;table&gt;
- &lt;thead&gt;
- &lt;tr&gt;&lt;th&gt;No.&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;th&gt;Selector Count&lt;/th&gt;&lt;th&gt;Selector&lt;/th&gt;
- &lt;th&gt;Setup Time&lt;/th&gt;&lt;th&gt;Test Time&lt;/th&gt;&lt;th&gt;Render Time&lt;/th&gt;&lt;th&gt;Render+Test Time&lt;/th&gt;&lt;/tr&gt;
- &lt;/thead&gt;
- &lt;tbody id="testresults"&gt;
- &lt;/tbody&gt;
- &lt;/table&gt;
+ <table>
+ <thead>
+ <tr><th>No.</th><th>Description</th><th>Selector Count</th><th>Selector</th>
+ <th>Setup Time</th><th>Test Time</th><th>Render Time</th><th>Render+Test Time</th></tr>
+ </thead>
+ <tbody id="testresults">
+ </tbody>
+ </table>
 
- &lt;div id="testcontainer"&gt;&amp;nbsp;
- &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;{% endhighlight %}
+ <div id="testcontainer">&nbsp;
+ </div>
+</body>
+</html>{% endhighlight %}
 <p>Next I need a test function that will run a setup funcion, the actual test, clean up and give me a measurement of the time into my results table.</p>
 {% highlight javascript %}var runTest = function(setupFunc, testFunc, testDescription, returnFunc) {
 
@@ -73,7 +76,7 @@ layout: default_post
 
 				var tr = document.createElement("tr"), td;
 
-				for(var i = 0; i &lt; testDescription.length; i++) {
+				for(var i = 0; i < testDescription.length; i++) {
 					td = document.createElement("td");
 					td.innerHTML = testDescription[i];
 					tr.appendChild(td);
@@ -146,14 +149,14 @@ var create100Rows = function () {
 	testcontainer.appendChild(tbl);
 	tbl.appendChild(tbody);
  
-	for(i = 0; i &lt; 100; i++) {
+	for(i = 0; i < 100; i++) {
 		tr = document.createElement("tr");
 		tbody.appendChild(tr);
-		for(j = 0; j &lt; 100; j++) {
+		for(j = 0; j < 100; j++) {
 			td = document.createElement("td");
 			tr.appendChild(td);
  
-			td.innerHTML = "&lt;span class="unm"&gt;_&lt;/span&gt;";
+			td.innerHTML = "<span class="unm">_</span>";
 			gs = td.childNodes[0];        
 			td.className = usedClasses[Math.floor(Math.random()*usedClasses.length)];
 			if  (j === 3 || j === 8 || j === 10) {
@@ -177,10 +180,10 @@ var create100RowsNoIH = function() {
 	testcontainer.appendChild(tbl);
 	tbl.appendChild(tbody);
 
-	for(i = 0; i &lt; 100; i++) {
+	for(i = 0; i < 100; i++) {
 		tr = document.createElement("tr");
 		tbody.appendChild(tr);
-		for(j = 0; j &lt; 100; j++) {
+		for(j = 0; j < 100; j++) {
 			td = document.createElement("td");
 			tr.appendChild(td);
 			span = document.createElement("span");
@@ -211,17 +214,17 @@ var create100RowsUIH = function () {
 	testcontainer.appendChild(tbl);
 	tbl.appendChild(tbody);
 
-	for(i = 0; i &lt; 100; i++) {
-		tr = "&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;";
-		for(j = 0; j &lt; 100; j++) {
-			td = "&lt;td class=""+usedClasses[Math.floor(Math.random()*usedClasses.length)]+""&gt;&lt;span class="unm"&gt;_&lt;/span&gt;&lt;/td&gt;";
+	for(i = 0; i < 100; i++) {
+		tr = "<table><tbody><tr>";
+		for(j = 0; j < 100; j++) {
+			td = "<td class=""+usedClasses[Math.floor(Math.random()*usedClasses.length)]+""><span class="unm">_</span></td>";
 			tr = tr+td;
 		}
-		tr = tr+"&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;";
+		tr = tr+"</tr></tbody></table>";
 		dcTb.innerHTML = tr;
 		tr = dcTb.childNodes[0].childNodes[0].childNodes[0];
 
-		for(j = 0; j &lt; 100; j++) {
+		for(j = 0; j < 100; j++) {
 			td = tr.childNodes[j];
 			if  (j === 3 || j === 8 || j === 10) {
 				addEvent(td, "Click", onClick);
@@ -243,11 +246,11 @@ var create100RowsDc = function () {
 	tbl.id = "mytb";
 	testcontainer.appendChild(tbl);
 
-	for(i = 0; i &lt; 100; i++) {
+	for(i = 0; i < 100; i++) {
 		tr = document.createElement("tr");
-		for(j = 0; j &lt; 100; j++) {
+		for(j = 0; j < 100; j++) {
 			td = document.createElement("td");
-			td.innerHTML = "&lt;span class="unm"&gt;_&lt;/span&gt;";
+			td.innerHTML = "<span class="unm">_</span>";
 			td.className = usedClasses[Math.floor(Math.random()*usedClasses.length)];
 			if  (j === 3 || j === 8 || j === 10) {
 				addEvent(td, "Click", onClick);
@@ -273,9 +276,9 @@ var create100RowsNoIHDc = function() {
 	testcontainer.appendChild(tbl);
 	tbl.appendChild(tbody);
 
-	for(i = 0; i &lt; 100; i++) {
+	for(i = 0; i < 100; i++) {
 		tr = document.createElement("tr");
-		for(j = 0; j &lt; 100; j++) {
+		for(j = 0; j < 100; j++) {
 			td = document.createElement("td");
 			span = document.createElement("span");
 			span.innerHTML = "_";

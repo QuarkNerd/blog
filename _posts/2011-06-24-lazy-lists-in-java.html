@@ -1,12 +1,15 @@
 ---
 id: 118536
 author: Mark Rhodes
+title: "Lazy Lists in Java"
+permalink: /2011/06/lazy-lists-in-java.html
 tags: 
 - Data Structures
 - Java
 categories: 
-- Blog
+- blog
 layout: default_post
+source: site
 ---
 <p><em>This post outlines a general purpose alternative to <code>ArrayList</code>s which provide lazy insertions and deletions to speed up those operations. </em> The Java source code, unit tests, javadoc and jar file for all the classes mentioned in this blog is available here:<a href="http://www.scottlogic.co.uk/wp-content/uploads/2011/10/scottlogic-utils-mr-1.5.zip">scottlogic-utils-mr.zip</a>.</p>
 <p><code>ArrayLists</code> are perfect when you want to get elements by their indices but not so brilliant when you want to insert or remove elements.  In a <a href="http://www.scottlogic.co.uk/2011/04/lists-with-fast-insertions-and-removals-in-java/">previous post</a>, I showed how a <a href="http://en.wikipedia.org/wiki/Self-balancing_binary_search_tree">balanced binary search tree</a> can be designed to work as if it's an extendable array, this approach offers faster removals and insertions at the cost of more time to get elements.  In this post, I'll go through an implementation of a new list (at least I don't know what the name for it is, if it has one already!) which attempts to marry up these two approaches, offering improved speed on all operations over the binary tree based list by being lazy.</p>
@@ -76,22 +79,22 @@ ArrayLocation getLocationOf(final int index){
         int adjustedIndex = mainIndex + leftSideDiff;
 
         //this alteration occurs at an index too big to affect us..
-        if(adjustedIndex &lt; alt.index){
+        if(adjustedIndex < alt.index){
             current = leftChild;
 
         } else { //case that this index will affect the index we want to find..
-            if(alt.indexDiff &lt; 0){ //it's an Addition so may be we need to return a sub index..
+            if(alt.indexDiff < 0){ //it's an Addition so may be we need to return a sub index..
                 //smallest and largest indices of elements that being stored in sub list...
                 int smallestIndexInSubArray = alt.index - leftSideDiff;
                 int largestIndexInSubArray = smallestIndexInSubArray + Math.abs(alt.indexDiff);
 
                 //case that we want an element in this location..
-                if(mainIndex &lt;= largestIndexInSubArray){
+                if(mainIndex <= largestIndexInSubArray){
                     subIndex = mainIndex-smallestIndexInSubArray;
                     mainIndex = alt.index;    
                     break;
            
-                } else { //(mainIndex &gt; largestIndexInSubArray)
+                } else { //(mainIndex > largestIndexInSubArray)
                     current = (AlterationNode) current.getRightChild();
                     mainIndex = adjustedIndex + alt.indexDiff;
                 }
@@ -109,7 +112,7 @@ ArrayLocation getLocationOf(final int index){
 <p>With the <code>getLocationOf</code> method in place, the <code>PatchWorkArray</code>'s code is greatly simplified, for example, the <code>get</code> method of the <code>PatchWorkArray</code> is fairly straight forward and looks like this:</p>
 {% highlight java %}
 public T get(int index) {
-    if(index &lt; 0 || index &gt;= size()){
+    if(index < 0 || index >= size()){
         throw new IllegalArgumentException(index + " is not valid index.");
     }
     ArrayLocation loc = alterations.getLocationOf(index);
@@ -248,24 +251,24 @@ public T get(int index) {
 {% highlight java %}
 public void fix(){
     //the new backing list and the next index to add to..
-    List&lt;Object&gt; fixedList = new ArrayList&lt;Object&gt;(size());
+    List<Object> fixedList = new ArrayList<Object>(size());
 
-    Iterator&lt;Alteration&gt; itr = alterations.iterator();
+    Iterator<Alteration> itr = alterations.iterator();
     int blIndex = 0; //index into backing list..
     while(itr.hasNext()){
         Alteration alt = itr.next();
         int altIndex = alt.index;
 
 	//copy the elements from blIndex to altIndex-1..
-	for(; blIndex &lt; altIndex; blIndex++){
+	for(; blIndex < altIndex; blIndex++){
             fixedList.add(backingList.get(blIndex));
 	}
 
-        if(alt.indexDiff &gt; 0){  //alt instanceof Removal..
+        if(alt.indexDiff > 0){  //alt instanceof Removal..
             blIndex += alt.size();
         } else { //alt instanceof Addition..
-            @SuppressWarnings(&quot;unchecked&quot;)
-            Iterator&lt;Object&gt; subListItr = ((List&lt;Object&gt;) backingList.get(altIndex)).iterator();
+            @SuppressWarnings("unchecked")
+            Iterator<Object> subListItr = ((List<Object>) backingList.get(altIndex)).iterator();
             while(subListItr.hasNext()){
                 fixedList.add(subListItr.next());
             }
@@ -273,7 +276,7 @@ public void fix(){
         }
     }
     //copy in the final elements..
-    for(int size=backingList.size(); blIndex &lt; size; blIndex++){
+    for(int size=backingList.size(); blIndex < size; blIndex++){
         fixedList.add(backingList.get(blIndex));
     }
 

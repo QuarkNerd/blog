@@ -1,19 +1,22 @@
 ---
 id: 135685
 author: Colin Eberhardt
+title: "Suppressing Zoom and Scroll interactions in the Windows Phone 7 WebBrowser Control"
+permalink: /blog/colin/2011/11/suppressing-zoom-and-scroll-interactions-in-the-windows-phone-7-webbrowser-control.html
 tags: 
 - HTML5
 - Windows Phone 7
 categories: 
-- Blog
+- blog
 layout: ceberhardt_post
+source: site
 ---
 
 <p><i>This blog post describes a simple helper class that can be used to supress scrolling and pinch zoom of the Windows Phone 7 WebBrowser control.</i></p>
 <p>Developers of Windows Phone 7 application have the full power of IE9 at their disposal in the shape of the <code>WebBrowser </code>control. This control allows you to render both local and remote HTML and JavaScript content within your Silverlight applications. You will find this control used to great effect in RSS readers and Twitter applications such as <a href="http://hiddenpineapple.com/rowi">Rowi</a>, where websites are viewed from within the application rather than by launching the full-blown IE. The WebBrowser control is also used as the host / container for HTML5 based applications, such as <a href="http://www.scottlogic.co.uk/blog/colin/2011/09/developing-windows-phone-7-html5-apps-with-phonegap/">Property Finder, the PhoneGap-based application I developed recently</a>.</p>
 <p>One problem them people frequently hit against with the <code>WebBrowser </code>control is managing the manipulation events. For example, if you place a WebBrowser control within a Pivot control, how can you pass the horizontal swipe gesture form the WebBrowser to the <a href="http://stackoverflow.com/questions/5417293/wp7-pivot-control-and-a-webbrowser-control">Pivot</a>?</p>
 <p>With HTML5 applications you have a certain amount of control over the browser's pan and zoom behaviour via the viewport metadata HTML element:</p>
-<div class="wp_syntax"><div class="code">{% highlight xml %}<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;meta</span> <span style="color: #000066;">name</span>=<span style="color: #ff0000;">&quot;viewport&quot;</span> <span style="color: #000066;">content</span>=<span style="color: #ff0000;">&quot;user-scalable=no&quot;</span> <span style="color: #000000; font-weight: bold;">/&gt;</span></span>{% endhighlight %}
+<div class="wp_syntax"><div class="code"><pre class="xml" style="font-family:monospace;"><span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;meta</span> <span style="color: #000066;">name</span>=<span style="color: #ff0000;">&quot;viewport&quot;</span> <span style="color: #000066;">content</span>=<span style="color: #ff0000;">&quot;user-scalable=no&quot;</span> <span style="color: #000000; font-weight: bold;">/&gt;</span></span></pre>
 </div>
 </div>
 <p>Adding the above meta-tag to a HTML page will prohibit the user from zooming via the pinch gesture. However, it does this in a rather clumsy way - the user can still pinch the page, but when they release, it snaps back to its original scale. </p>
@@ -21,7 +24,7 @@ layout: ceberhardt_post
 <h2>The Solution</h2>
 <p>I initially thought that there would be no way for me to control the behaviour of the <code>WebBrowser </code>control, it is after-all a very thin .NET wrapper around a native control. However, I stumbled across some StackOveflow answers from <a href="http://stackoverflow.com/users/717732/quetzalcoatl">quetzalcoatl</a> who had done some digging around in the .NET wrapper and had identified an interesting control called the <code>PanZoomContainer</code>.</p>
 <p>If you inspect the visual tree of the <code>WebBrowser </code>control you will find that it is assembled as follows:</p>
-{% highlight csharp %}
+<pre>
 \-WebBrowser
   \-Border
     \-Border
@@ -30,13 +33,13 @@ layout: ceberhardt_post
           \-Border (*)
             \-ContentPresenter
               \-TileHost
-{% endhighlight %}
+</pre>
 <p>(visual tree dump generated via the oh-so-useful <a href="http://www.scottlogic.co.uk/blog/colin/2010/03/linq-to-visual-tree/">Linq to VisualTree</a> utility!)</p>
 <p>The visual tree is quite simple, composed of a few grids and borders. The significant parts are the <code>TileHost</code>, which is the native IE9 component, and the <code>PanZoomContainer</code>. The TileHost does not handle the mouse manipulation events, these are instead handled by the <code>PanZoomContainer</code>, where they are then translated into gestures (i.e. pinch-zoom) with the result fed back to the <code>TileHost</code>.</p>
 <p>What this means is that we can intercept the manipulation events as they bubble up to the <code>PanZoomContainer</code>, cancelling them before they are turned into gestures.</p>
 <p>The utility class which I have written handles the events on the <code>Border </code>indicated above. When events are received various conditions are checked to identify pan or scroll interactions, with the events being cancelled accordingly.</p>
 <p>The complete class is given below:</p>
-<div class="wp_syntax"><div class="code">{% highlight csharp %}<span style="color: #0600FF; font-weight: bold;">using</span> <span style="color: #008080;">System.Linq</span><span style="color: #008000;">;</span>
+<div class="wp_syntax"><div class="code"><pre class="csharp" style="font-family:monospace;"><span style="color: #0600FF; font-weight: bold;">using</span> <span style="color: #008080;">System.Linq</span><span style="color: #008000;">;</span>
 <span style="color: #0600FF; font-weight: bold;">using</span> <span style="color: #008080;">System.Windows</span><span style="color: #008000;">;</span>
 <span style="color: #0600FF; font-weight: bold;">using</span> <span style="color: #008080;">System.Windows.Controls</span><span style="color: #008000;">;</span>
 <span style="color: #0600FF; font-weight: bold;">using</span> <span style="color: #008080;">System.Windows.Input</span><span style="color: #008000;">;</span>
@@ -95,7 +98,7 @@ layout: ceberhardt_post
         e<span style="color: #008000;">.</span><span style="color: #0000FF;">Handled</span> <span style="color: #008000;">=</span> <span style="color: #0600FF; font-weight: bold;">true</span><span style="color: #008000;">;</span>
     <span style="color: #008000;">&#125;</span>
   <span style="color: #008000;">&#125;</span>
-<span style="color: #008000;">&#125;</span>{% endhighlight %}
+<span style="color: #008000;">&#125;</span></pre>
 </div>
 </div>
 <p>Within Property Finder, my HTML5 application, as the user navigates from one page to the next, the JavaScript code notifies the Silverlight container whether the current page should have scrolling disabled, setting the <code>ScrollDisabled </code>property of the above helper class accordingly.</p>

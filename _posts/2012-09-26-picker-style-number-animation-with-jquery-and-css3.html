@@ -1,12 +1,15 @@
 ---
 id: 158963
 author: Mark Rhodes
+title: "Picker Style Number Animation with jQuery and CSS3"
+permalink: /2012/09/picker-style-number-animation-with-jquery-and-css3.html
 tags: 
 - CSS
 - JQuery
 categories: 
-- Blog
+- blog
 layout: default_post
+source: site
 ---
 <p><em>This post describes a jQuery plugin which performs "picker style" animations between numbers using CSS3 transitions and transforms.  The plugin was originally designed with iOS Safari in mind but works on the latest versions of Opera, Chrome and Firefox too (it should work on IE10 too but I've been unable to test it).  For IE9 and older browsers, it fails gracefully; although it doesn't animate the transition, you can still use it in the same manner as if it did.  The plugin code is hosted on <a href="https://github.com/MarkRhodes/number-animation/blob/gh-pages/numberAnimate.js">github</a> and available here: <a href="https://raw.github.com/MarkRhodes/number-animation/master/numberAnimate.js">numberAnimate.js</a></em>.</p>
 <p><strong>Simple Example</strong><iframe style="border: 0px; width: 100%; height: 90px;" src="http://markrhodes.github.com/number-animation/simpleExample.html"></iframe></p>
@@ -44,18 +47,18 @@ $('my selector').numberAnimate('destory');
 <p><strong>How It Works</strong>The plugin works by altering the mark up of the selected elements so that each character in them is replaced with two divs elements - a "holding div" which has a single child div containing all the possible characters that can be shown by the animation.</p>
 <p>For example if you start with the element:</p>
 {% highlight html %}
-&lt;span id=&quot;someId&quot;&gt;12&lt;/span&gt;
+<span id="someId">12</span>
 {% endhighlight %}
 <p>Then run <code>$('#someId').numberAnimate();</code> then the resulting mark up looks a bit like this:</p>
 {% highlight html %}
-&lt;span id=&quot;someId&quot;&gt;
-  &lt;div style=&quot;width=..; height=..; overflow: hidden; ...&quot;&gt;
-    &lt;div style=&quot;transformY=..&quot;&gt;, . - + 0 1 2 3 4 5 6 7 8 9&lt;/div&gt;
-   &lt;/div&gt;
-   &lt;div style=&quot;width=..; height=..; overflow: hidden; ...&quot;&gt;
-    &lt;div style=&quot;transformY=..&quot;&gt;, . - + 0 1 2 3 4 5 6 7 8 9&lt;/div&gt;
-   &lt;/div&gt;
-&lt;/span&gt;
+<span id="someId">
+  <div style="width=..; height=..; overflow: hidden; ...">
+    <div style="transformY=..">, . - + 0 1 2 3 4 5 6 7 8 9</div>
+   </div>
+   <div style="width=..; height=..; overflow: hidden; ...">
+    <div style="transformY=..">, . - + 0 1 2 3 4 5 6 7 8 9</div>
+   </div>
+</span>
 {% endhighlight %}
 <p>The idea is that the width and height of the holding divs is set to be the same as a single character (which is why the font must be monospaced), and acts as a window for it's inner child, which is transformed on it's Y axis to move it up and down, so that the expected character is visible.  The image below shows visually what's going on.  The blue boxes represent the holding divs and the black boxes the child divs containing the text.  CSS3 transforms are applied to the child divs to ensure that the correct numbers appear inline with the holding divs.  As these holding divs have the style <code>overflow: hidden;</code> applied to them, you don't see the additional numbers, only what is in the blue box.</p>
 <p><img src="http://www.scottlogic.co.uk/wp-content/uploads/2012/09/numberAnimatePluginExplanation.png" alt="" title="numberAnimatePluginExplanation" width="139" height="227" class="aligncenter size-full wp-image-159589" style="margin: 0 auto; display: block;" /></p>

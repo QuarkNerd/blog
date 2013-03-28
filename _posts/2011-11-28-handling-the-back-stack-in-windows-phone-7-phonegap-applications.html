@@ -1,134 +1,138 @@
 ---
-id: 136396
+id: 1850
 author: Colin Eberhardt
+title: "Handling the back-stack in Windows Phone 7 PhoneGap applications"
+permalink: /blog/colin/2011/11/handling-the-back-stack-in-windows-phone-7-phonegap-applications.html
 tags: 
 - Windows Phone 7
+- PhoneGap
+- knockoutJS
 categories: 
-- Blog
+- blog
 layout: ceberhardt_post
+source: wordpress
 ---
-
 <p>Recently I have been researching the use of PhoneGap for creating HTML5 Windows Phone 7 applications. I have written an <a href="http://www.scottlogic.co.uk/blog/colin/2011/09/developing-windows-phone-7-html5-apps-with-phonegap/" title="Developing Windows Phone 7 HTML5 apps with PhoneGap">introductory post</a> on the subject and also managed to have a <a href="http://www.scottlogic.co.uk/blog/colin/2011/11/property-finder-the-first-html5-based-windows-phone-7-application/" title="Property Finder - the first HTML5-based Windows Phone 7 Application">HTML5-based application accepted into the marketplace</a>.</p>
 <p>The Windows Phone 7 execution model has a few unique features (when compared to Android and iOS) that need to be considered when developing HTML5 applications. The first one, <a href="http://www.scottlogic.co.uk/blog/colin/2011/10/tombstoning-with-phonegap-for-windows-phone-7-and-knockoutjs/" title="Tombstoning with PhoneGap for Windows Phone 7 (and KnockoutJS)">tombstoning</a>, is something I dealt with in an earlier blogpost. In this post I want to look at how to handle the back-button and the application back-stack.</p>
 <p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/11/BackStack.png" alt="" title="BackStack" width="600" height="279" class="aligncenter size-full wp-image-1853" /></p>
 <p>With Windows Phone 7, as the user navigates from one page to the next, the latest page is added to the top of a stack (the back-stack). The back-button is used to navigate back through the pages within your application by pulling them from the top of this stack. When the back stack holds a single page, i.e. the initial entry point into your application, pressing the back-button should exit the application.</p>
-<p>So, how do you support this with a HTML5 / PhoneGap application? The PhoneGap APIs expose the <a href="http://docs.phonegap.com/en/1.0.0/phonegap_events_events.md.html#backbutton">back-button as a JavaScript event</a>. If you subscribe to this event, your JavaScript code is notified each time the user hits the back button. Also, if the JavaScript event is subscribed to, the &#8216;native&#8217; (C#) event is cancelled, which means application back-stack remains unchanged and your PhoneGap application does not exit.</p>
+<p>So, how do you support this with a HTML5 / PhoneGap application? The PhoneGap APIs expose the <a href="http://docs.phonegap.com/en/1.0.0/phonegap_events_events.md.html#backbutton">back-button as a JavaScript event</a>. If you subscribe to this event, your JavaScript code is notified each time the user hits the back button. Also, if the JavaScript event is subscribed to, the 'native' (C#) event is cancelled, which means application back-stack remains unchanged and your PhoneGap application does not exit.</p>
 <p>In order to emulate the back-stack functionality in a PhoneGap application you need to subscribe to the PhoneGap backbutton when back-navigation is possible within your application, and unsubscribe when it is not. This means that when the user hits the back-button at the entry-point of your application, the application is terminated as expected.</p>
 <h2>A JavaScript Back-Stack</h2>
 <p>In order to handle the PhoenGap backbutton event, I felt the easiest approach would be to structure my JavaScript application so that it more closely resembles a Windows Phone 7 application. I have already discussed in my blog post on <a href="http://www.scottlogic.co.uk/blog/colin/2011/10/tombstoning-with-phonegap-for-windows-phone-7-and-knockoutjs/" title="Tombstoning with PhoneGap for Windows Phone 7 (and KnockoutJS)">tombstoning how this task was made easier by using KnockoutJS</a> to structure my code using the Model-View-ViewModel (MVVM) pattern.</p>
-<p>In this blog I&#8217;ll add further structure to the code, starting with an <code>ApplicationViewModel</code>. This view model contains a stack of view-models, with the one that is at the top of the stack, exposed via the <code>currentViewModel</code> observable property, being the one which is rendered on screen. The ApplicationViewModel also exposes functions for adding to and removing items from this stack:</p>
-<div class="wp_syntax"><div class="code">{% highlight javascript %}<span style="color: #003366; font-weight: bold;">function</span> ApplicationViewModel<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-&nbsp;
-  <span style="color: #003366; font-weight: bold;">var</span> that <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">this</span><span style="color: #339933;">;</span>
-&nbsp;
-  <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">viewModelBackStack</span> <span style="color: #339933;">=</span> ko.<span style="color: #660066;">observableArray</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-  <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">backButtonRequired</span> <span style="color: #339933;">=</span> ko.<span style="color: #660066;">dependentObservable</span><span style="color: #009900;">&#40;</span><span style="color: #003366; font-weight: bold;">function</span> <span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>    
-    <span style="color: #000066; font-weight: bold;">return</span> <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">viewModelBackStack</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">length</span> <span style="color: #339933;">&gt;</span> <span style="color: #CC0000;">1</span><span style="color: #339933;">;</span>
-  <span style="color: #009900;">&#125;</span><span style="color: #339933;">,</span> <span style="color: #000066; font-weight: bold;">this</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-  <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">currentViewModel</span> <span style="color: #339933;">=</span> ko.<span style="color: #660066;">dependentObservable</span><span style="color: #009900;">&#40;</span><span style="color: #003366; font-weight: bold;">function</span> <span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-    <span style="color: #000066; font-weight: bold;">return</span> <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">viewModelBackStack</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#91;</span><span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">viewModelBackStack</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">length</span><span style="color: #339933;">-</span><span style="color: #CC0000;">1</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span>
-  <span style="color: #009900;">&#125;</span><span style="color: #339933;">,</span> <span style="color: #000066; font-weight: bold;">this</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-  <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">navigateTo</span> <span style="color: #339933;">=</span> <span style="color: #003366; font-weight: bold;">function</span> <span style="color: #009900;">&#40;</span>viewModel<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-    <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">viewModelBackStack</span>.<span style="color: #660066;">push</span><span style="color: #009900;">&#40;</span>viewModel<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-  <span style="color: #009900;">&#125;</span>
-&nbsp;
-  <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #000066;">back</span> <span style="color: #339933;">=</span> <span style="color: #003366; font-weight: bold;">function</span> <span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-    <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">viewModelBackStack</span>.<span style="color: #660066;">pop</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-   <span style="color: #009900;">&#125;</span>
-<span style="color: #009900;">&#125;</span>{% endhighlight %}
-</div>
-</div>
-<p>The <code>currentViewModel</code> is implemented as a <a href="http://knockoutjs.com/documentation/dependentObservables.html">dependent-observable</a>, a really neat KnockoutJS feature where you create a new observable property based on one or more observable properties of a view model. In this case, KnockoutJS does some magic behind the scenes to deduce that<br /><code>currentViewModel</code> depends upon the <code>viewModelBackStack</code> observable array. Each time the array is modified, bindings that depend on <code>currentViewModel</code> are also updated. That&#8217;s pretty neat!</p>
+<p>In this blog I'll add further structure to the code, starting with an <code>ApplicationViewModel</code>. This view model contains a stack of view-models, with the one that is at the top of the stack, exposed via the <code>currentViewModel</code> observable property, being the one which is rendered on screen. The ApplicationViewModel also exposes functions for adding to and removing items from this stack:</p>
+{% highlight javascript %}
+function ApplicationViewModel() {
+
+  var that = this;
+
+  this.viewModelBackStack = ko.observableArray();
+
+  this.backButtonRequired = ko.dependentObservable(function () {    
+    return this.viewModelBackStack().length > 1;
+  }, this);
+
+  this.currentViewModel = ko.dependentObservable(function () {
+    return this.viewModelBackStack()[this.viewModelBackStack().length-1];
+  }, this);
+
+  this.navigateTo = function (viewModel) {
+    this.viewModelBackStack.push(viewModel);
+  }
+
+  this.back = function () {
+    this.viewModelBackStack.pop();
+   }
+}
+{% endhighlight %}
+<p>The <code>currentViewModel</code> is implemented as a <a href="http://knockoutjs.com/documentation/dependentObservables.html">dependent-observable</a>, a really neat KnockoutJS feature where you create a new observable property based on one or more observable properties of a view model. In this case, KnockoutJS does some magic behind the scenes to deduce that <code>currentViewModel</code> depends upon the <code>viewModelBackStack</code> observable array. Each time the array is modified, bindings that depend on <code>currentViewModel</code> are also updated. That's pretty neat!</p>
 <p>The UI code needs to be modified so that the view relating to the <code>currentViewModel</code> is rendered and bound to its respective view model. This is simply a matter of subscribing to changes in this observable property in our code:</p>
-<div class="wp_syntax"><div class="code">{% highlight javascript %}<span style="color: #006600; font-style: italic;">// create the view model</span>
-application <span style="color: #339933;">=</span> <span style="color: #003366; font-weight: bold;">new</span> ApplicationViewModel<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-application.<span style="color: #660066;">currentViewModel</span>.<span style="color: #660066;">subscribe</span><span style="color: #009900;">&#40;</span><span style="color: #003366; font-weight: bold;">function</span> <span style="color: #009900;">&#40;</span>viewModel<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-  <span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">&#40;</span>viewModel <span style="color: #339933;">!==</span> undefined<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-    $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#app&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">empty</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-    $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#&quot;</span> <span style="color: #339933;">+</span> viewModel.<span style="color: #660066;">template</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">tmpl</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">appendTo</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#app&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-    ko.<span style="color: #660066;">applyBindings</span><span style="color: #009900;">&#40;</span>viewModel<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-  <span style="color: #009900;">&#125;</span>
-<span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-application.<span style="color: #660066;">navigateTo</span><span style="color: #009900;">&#40;</span><span style="color: #003366; font-weight: bold;">new</span> TwitterSearchViewModel<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>{% endhighlight %}
-</div>
-</div>
+{% highlight javascript %}
+// create the view model
+application = new ApplicationViewModel();
+
+application.currentViewModel.subscribe(function (viewModel) {
+  if (viewModel !== undefined) {
+    $("#app").empty();
+    $("#" + viewModel.template).tmpl("").appendTo("#app");
+    ko.applyBindings(viewModel);
+  }
+});
+
+application.navigateTo(new TwitterSearchViewModel());
+{% endhighlight %}
 <p>For the above code to work, each view model must expose a <code>template</code> property which identified the HTML template which is their corresponding view. The above code creates a view instance and appends it to the <code>#app</code> element.</p>
 <p>The templates for the two view-models within this application are shown below:</p>
-<div class="wp_syntax"><div class="code">{% highlight html %}&lt;script type=text/x-jquery-tmpl&quot; charset=&quot;utf-8&quot; id=&quot;twitterSearchView&quot;&gt;
-  &lt;div&gt;
-    &lt;form data-bind=&quot;submit: search&quot;&gt;
-        &lt;input data-bind=&quot;value: searchTerm, valueUpdate: 'afterkeydown'&quot; /&gt;
-        &lt;button type=&quot;submit&quot; data-bind=&quot;enable: searchTerm().length &gt; 0 &amp;&amp; isSearching() == false&quot;&gt;Go&lt;/button&gt;  
-    &lt;/form&gt;
-    &lt;ul data-bind=&quot;template: {name: 'tweetView', foreach: tweets}&quot;&gt; &lt;/ul&gt;
-  &lt;/div&gt;
-&lt;/script&gt;
-&nbsp;
-&lt;script type=&quot;text/x-jquery-tmpl&quot; charset=&quot;utf-8&quot; id=&quot;tweetView&quot;&gt;
-  &lt;li class=&quot;tweet&quot;
-    data-bind=&quot;click: select&quot;&gt;
-    &lt;div class=&quot;thumbnailColumn&quot;&gt;
-      &lt;img data-bind=&quot;attr: { src: thumbnail }&quot; class=&quot;thumbnail&quot;/&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;detailsColumn&quot;&gt;
-      &lt;div class=&quot;author&quot; data-bind=&quot;text: author&quot;/&gt; 
-      &lt;div class=&quot;text&quot; data-bind=&quot;text: text&quot;/&gt; 
-      &lt;div class=&quot;time&quot; data-bind=&quot;text: time&quot;/&gt; 
-    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/script&gt;
-&nbsp;
-&lt;script type=&quot;text/x-jquery-tmpl&quot; charset=&quot;utf-8&quot; id=&quot;tweetDetailView&quot;&gt;
-  &lt;div class=&quot;tweet&quot;&gt;
-    &lt;div class=&quot;thumbnailColumn&quot;&gt;
-      &lt;img data-bind=&quot;attr: { src: thumbnail }&quot; class=&quot;thumbnail&quot;/&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;detailsColumn&quot;&gt;
-      &lt;div class=&quot;author&quot; data-bind=&quot;text: author&quot;/&gt; 
-      &lt;div class=&quot;text&quot; data-bind=&quot;text: text&quot;/&gt; 
-      &lt;div class=&quot;time&quot; data-bind=&quot;text: time&quot;/&gt; 
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/script&gt;
-&nbsp;
-&lt;h1 id=&quot;welcomeMsg&quot;&gt;Twitter Search&lt;/h1&gt;   
-&lt;div id=&quot;app&quot; /&gt;{% endhighlight %}
-</div>
-</div>
+{% highlight html %}
+<script type=text/x-jquery-tmpl" charset="utf-8" id="twitterSearchView">
+  <div>
+    <form data-bind="submit: search">
+        <input data-bind="value: searchTerm, valueUpdate: 'afterkeydown'" />
+        <button type="submit" data-bind="enable: searchTerm().length > 0 && isSearching() == false">Go</button>  
+    </form>
+    <ul data-bind="template: {name: 'tweetView', foreach: tweets}"> </ul>
+  </div>
+</script>
+
+<script type="text/x-jquery-tmpl" charset="utf-8" id="tweetView">
+  <li class="tweet"
+    data-bind="click: select">
+    <div class="thumbnailColumn">
+      <img data-bind="attr: { src: thumbnail }" class="thumbnail"/>
+    </div>
+    <div class="detailsColumn">
+      <div class="author" data-bind="text: author"/> 
+      <div class="text" data-bind="text: text"/> 
+      <div class="time" data-bind="text: time"/> 
+    </div>
+  </li>
+</script>
+
+<script type="text/x-jquery-tmpl" charset="utf-8" id="tweetDetailView">
+  <div class="tweet">
+    <div class="thumbnailColumn">
+      <img data-bind="attr: { src: thumbnail }" class="thumbnail"/>
+    </div>
+    <div class="detailsColumn">
+      <div class="author" data-bind="text: author"/> 
+      <div class="text" data-bind="text: text"/> 
+      <div class="time" data-bind="text: time"/> 
+    </div>
+  </div>
+</script>
+
+<h1 id="welcomeMsg">Twitter Search</h1>   
+<div id="app" />
+{% endhighlight %}
 <p>When a tweet is clicked on, the <code>select </code>function is invoked via the Knockout binding. This simply pushes a <code>TweetViewModel</code> instance onto the application stack:</p>
-<div class="wp_syntax"><div class="code">{% highlight javascript %}<span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">select</span> <span style="color: #339933;">=</span> <span style="color: #003366; font-weight: bold;">function</span> <span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-  application.<span style="color: #660066;">navigateTo</span><span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">this</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span><span style="color: #339933;">;</span>{% endhighlight %}
-</div>
-</div>
+{% highlight javascript %}
+this.select = function () {
+  application.navigateTo(this);
+};
+{% endhighlight %}
 <h2>Handling the Back-Button</h2>
 <p>The above code navigates to the given view model, this will cause the <code>currentViewModel</code> dependent observable to notify that a change has occurred and the view that relates to this view model will be rendered. The next step is to wire up the back-button.</p>
 <p>The <code>ApplicationViewModel</code> has a boolean <code>backButtonRequired</code> dependent observable that indicates whether the JavaScript code needs to handle the back-button. This is true whenever there is more than one item in the back-stack:</p>
-<div class="wp_syntax"><div class="code">{% highlight javascript %}<span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">backButtonRequired</span> <span style="color: #339933;">=</span> ko.<span style="color: #660066;">dependentObservable</span><span style="color: #009900;">&#40;</span><span style="color: #003366; font-weight: bold;">function</span> <span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>    
-  <span style="color: #000066; font-weight: bold;">return</span> <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">viewModelBackStack</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">length</span> <span style="color: #339933;">&gt;</span> <span style="color: #CC0000;">1</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span><span style="color: #339933;">,</span> <span style="color: #000066; font-weight: bold;">this</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>{% endhighlight %}
-</div>
-</div>
+{% highlight javascript %}
+this.backButtonRequired = ko.dependentObservable(function () {    
+  return this.viewModelBackStack().length > 1;
+}, this); 
+{% endhighlight %}
 <p>When the application is initially created, we handle changes to the observable as follows:</p>
-<div class="wp_syntax"><div class="code">{% highlight javascript %}application.<span style="color: #660066;">backButtonRequired</span>.<span style="color: #660066;">subscribe</span><span style="color: #009900;">&#40;</span><span style="color: #003366; font-weight: bold;">function</span> <span style="color: #009900;">&#40;</span>backButtonRequired<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-  <span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">&#40;</span>backButtonRequired<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-    document.<span style="color: #660066;">addEventListener</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;backbutton&quot;</span><span style="color: #339933;">,</span> onBackButton<span style="color: #339933;">,</span> <span style="color: #003366; font-weight: bold;">false</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-  <span style="color: #009900;">&#125;</span> <span style="color: #000066; font-weight: bold;">else</span> <span style="color: #009900;">&#123;</span>
-    document.<span style="color: #660066;">removeEventListener</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;backbutton&quot;</span><span style="color: #339933;">,</span> onBackButton<span style="color: #339933;">,</span> <span style="color: #003366; font-weight: bold;">false</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-  <span style="color: #009900;">&#125;</span>
-<span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-<span style="color: #003366; font-weight: bold;">function</span> onBackButton<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-  application.<span style="color: #000066;">back</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span>{% endhighlight %}
-</div>
-</div>
-<p>And that&#8217;s it! When the JavaScript back-stack has more than one item, the PhoneGap <code>backbutton</code> event is handled and the <code>back</code> function invoked on our application, popping the top item from the stack, with the view updating accordingly. When our JavaScript back-stack has a single item, we no longer handle the PhoneGap <code>backbutton</code> event, this results in the Silverlight container handling the back-button. The Silverlight application back-stack always has a single page, so our application will exit.</p>
+{% highlight javascript %}
+application.backButtonRequired.subscribe(function (backButtonRequired) {
+  if (backButtonRequired) {
+    document.addEventListener("backbutton", onBackButton, false);
+  } else {
+    document.removeEventListener("backbutton", onBackButton, false);
+  }
+});
+
+function onBackButton() {
+  application.back();
+}
+{% endhighlight %}
+<p>And that's it! When the JavaScript back-stack has more than one item, the PhoneGap <code>backbutton</code> event is handled and the <code>back</code> function invoked on our application, popping the top item from the stack, with the view updating accordingly. When our JavaScript back-stack has a single item, we no longer handle the PhoneGap <code>backbutton</code> event, this results in the Silverlight container handling the back-button. The Silverlight application back-stack always has a single page, so our application will exit.</p>
 <p>This technique for handling the back-stack is simple and elegant, this example has just two simple pages, however this same pattern should scale well for more complex HTML5 applications.</p>
 <p>You can download the full sourcecode here: <a href='http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/11/PhoneGapBackStack.zip'>PhoneGapBackStack.zip</a></p>
 <p>Regards, Colin E.</p>
