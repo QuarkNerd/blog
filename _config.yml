@@ -2,7 +2,7 @@ auto: false
 server: false
 lsi: false
 baseurl:
-url: /Blog/
+url: /blog
 permalink: /:year/:month/:day/:title.html
 destination: _site-safe
 paginate: 10
@@ -35,7 +35,7 @@ authors:
       display_name:       Chris Price
       site_page:        chris.html
     - name:               Luke Page
-      display_name:       Luke Alexander Page
+      display_name:       Luke Page
       site_page:        luke-page.html
     - name:               Andrew Aylett
       display_name:       Andrew Aylett
@@ -73,6 +73,3 @@ authors:
     - name:               Nicholas Wolverson
       display_name:       Nicholas Wolverson
       site_page:        nicholas-wolverson.html
-    - name:               James Farrier
-      display_name:       James Farrier
-      site_page:        james-farrier.html
