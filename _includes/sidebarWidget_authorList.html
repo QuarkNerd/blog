@@ -11,9 +11,9 @@
     <div class="bd">
       <div class="textwidget">
 	  <ul>
-		<li><a href="{{ site.url }}index.html">Main Blog</a></li>
+		<li><a href="{{ site.url }}">Main Blog</a></li>
 		{% for author in site.authors %}				
-		<li><a href="{{ site.url }}{{author.site_page}}">{{ author.display_name }}</a></li>
+		<li><a href="{{ site.url }}/{{author.site_page}}">{{ author.display_name }}</a></li>
 		{% endfor %}		
 	  </ul>
       </div>
