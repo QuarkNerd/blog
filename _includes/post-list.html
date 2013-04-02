@@ -22,13 +22,13 @@
     {% endfor %}
     <p class="pager">
       {% if paginator.previous_page %}
-      <a href="{{ site.url }}{% if paginator.previous_page != 1 %}page{{ paginator.previous_page }}{% endif %}">&laquo; Previous Page</a>
+      <a href="{{ site.url }}/{% if paginator.previous_page != 1 %}page{{ paginator.previous_page }}{% endif %}">&laquo; Previous Page</a>
       {% endif %}
       {% if paginator.next_page %}{% if paginator.previous_page %}
         -
       {% endif %}{% endif %}
       {% if paginator.next_page %}
-      <a href="{{ site.url }}page{{ paginator.next_page }}">Next Page &raquo;</a>
+      <a href="{{ site.url }}/page{{ paginator.next_page }}">Next Page &raquo;</a>
       {% endif %}
     </p>
   
