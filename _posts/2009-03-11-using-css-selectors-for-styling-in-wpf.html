@@ -2,7 +2,7 @@
 id: 193
 author: Colin Eberhardt
 title: "Using CSS Selectors for Styling in WPF"
-permalink: /2009/03/using-css-selectors-for-styling-in-wpf.html
+oldlink: /blog/colin/2009/03/using-css-selectors-for-styling-in-wpf/
 tags: 
 - WPF
 - styling
@@ -130,7 +130,7 @@ public class StyleDeclaration
 </Grid>
 {% endhighlight %}
 <p>The resulting UI looks like this:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2009/03/no-style.png" alt="no-style" title="no-style" width="299" height="199" class="alignnone size-full wp-image-197" /></p>
+<p><img src="{{ site.url }}/archive/2009/03/no-style.png" alt="no-style" title="no-style" width="299" height="199" class="alignnone size-full wp-image-197" /></p>
 <p>Now we apply our stylesheet to the root element in our XAML:</p>
 {% highlight xml %}
 <css:StyleSheet x:Key="cssStyles">
@@ -185,13 +185,13 @@ public class StyleDeclaration
 <Grid css:Css.StyleSheet="{StaticResource cssStyles}">
 {% endhighlight %}
 <p>Which styles our WPF application as follows:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2009/03/styled.png" alt="styled" title="styled" width="299" height="299" class="alignnone size-full wp-image-199" /></p>
+<p><img src="{{ site.url }}/archive/2009/03/styled.png" alt="styled" title="styled" width="299" height="299" class="alignnone size-full wp-image-199" /></p>
 <p>Let's look at those selector in a little more detail. The first one, <code>&lt;css:StyleRule Selector=".form Grid *" SelectorType="LogicalTree"&gt;</code> is quite interesting. Here we are selecting everything within the Grid within our form and applying a margin. Note that here we are using a selector on the logical tree, otherwise we will also match elements within the control template of our TextBoxes and Buttons and will hence apply the margin internally within these elements also. However, in other contexts the ability to be able to apply styles within a controls template is a powerful concept.</p>
 <p>The next selector  <code>&lt;css:StyleRule Selector=".form TextBlock.mandatory"&gt;</code> styles our mandatory fields, the others styling the form title and borders.</p>
 <p>The above is a pretty simple demonstration. The Fizzler CSS engine implements most of the CSS2.1 selectors and also some CSS3, so much more complex selector logic is possible. You can also include multiple comma-separated selectors on a rule.</p>
 <p>Currently this code is not what I would call production-ready. It is just an idea that has been bugging me for a while that I wanted to get out of my head and share. I think this approach has a number of merits and it overcomes some of the restrictions in WPF styling. It provides a much more flexible mechanism for styling your UI, WPF gives you explicit styles and implicit styles, neither of which match the power of the CSS selector. This approach also adds the ability to merge styles, so if an element is matched by multiple rules these styles are merged. Furthermore, this approach does not impose the restriction that styles must have a TargetType, if the matching element does not have a corresponding dependency property, it simply does not pick up that piece of style information.</p>
 <p>However, this implementation is not quite complete. I have not considered how to apply styles to dynamically generated content, ItemsControls for example. </p>
 <p>I would be very interested to hear peoples opinions on this idea. Do you thin kit has potential? Perhaps if it was ported to Silverlight - it could even include mapping rules form 'real' CSS documents so that your Silverlight application could share style information with the rest of the web page which hosts it. But that is a job for another day ...</p>
-<p>You can download the code for this blog post here: <a href="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2009/03/wpfcssstyling.zip">wpfcssstyling.zip</a></p>
+<p>You can download the code for this blog post here: <a href="{{ site.url }}/archive/2009/03/wpfcssstyling.zip">wpfcssstyling.zip</a></p>
 <p><span style="color:red">UPDATE</span> - the concept of using CSS to style WPF and Silvelight applications has been discussed on the <a href="http://groups.google.com/group/wpf-disciples/t/251c90f31f603a8">WPF Discisples Group</a>.</p>
 <p>Regards, Colin E.</p>

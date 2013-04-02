@@ -2,7 +2,7 @@
 id: 1735
 author: Colin Eberhardt
 title: "WinRT Transitions - Creating Fast and Fluid Metro UIs"
-permalink: /2011/10/winrt-transitions-creating-fast-and-fluid-metro-uis.html
+oldlink: /blog/colin/2011/10/winrt-transitions-creating-fast-and-fluid-metro-uis/
 tags: 
 - codeproject
 - WinRT
@@ -30,7 +30,7 @@ source: wordpress
 {% endhighlight %}
 <p>Each transitions is an animation that the WinRT framework plays in response to certain 'events'. We'll take a look at the various transitions in turn...</p>
 <h2>EntranceThemeTransition</h2>
-<p>When elements are added to the UI they appear instantly (as you might expect), however, with the <code>EntranceThemeTransition </code>elements gracefully fade and slide into location. <img class="aligncenter size-full wp-image-1738" title="EntranceTheme" src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/10/EntranceTheme.png" alt="" width="134" height="274" />This animation will fire whenever your element is added to the UI, this could be as a result of:</p>
+<p>When elements are added to the UI they appear instantly (as you might expect), however, with the <code>EntranceThemeTransition </code>elements gracefully fade and slide into location. <img class="aligncenter size-full wp-image-1738" title="EntranceTheme" src="{{ site.url }}/archive/2011/10/EntranceTheme.png" alt="" width="134" height="274" />This animation will fire whenever your element is added to the UI, this could be as a result of:</p>
 <ul>
 <li>The application first loading, any element with this transitions specified will animate when the application starts.</li>
 <li>The element being added programatically or as a result of binding (e.g. within a bound list)</li>
@@ -49,11 +49,11 @@ source: wordpress
 </WrapGrid>
 {% endhighlight %}
 <p>Here we can see nine rectangles being animated as they slide into location:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/10/ChildTransitions.png" alt="" title="ChildTransitions" width="500" height="231" class="aligncenter size-full wp-image-1743" /></p>
+<p><img src="{{ site.url }}/archive/2011/10/ChildTransitions.png" alt="" title="ChildTransitions" width="500" height="231" class="aligncenter size-full wp-image-1743" /></p>
 <p>The animations are fired in sequence, no matter how the elements are added to the panel. For example, if you add a couple of elements in code-behind, they will appear in sequence.</p>
 <p>(As an aside, this is really quite cool, I can imagine how I might implement the animations on individual elements in WPF / Silverlight, however, the child-transitions concept would be vary hard to implement!)</p>
 <p>One thing to note is that the framework fires the animations in the order that elements appear in the <code>Panel.Children</code> collection, this is not necissarily the order they appear in the UI. For example, the following example shows elements added in a Grid, where the elements are defined in a random order within XAML:</p>
-<p><img class="aligncenter size-full wp-image-1737" title="ChildTransitions2" src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/10/ChildTransitions2.png" alt="" width="373" height="336" /></p>
+<p><img class="aligncenter size-full wp-image-1737" title="ChildTransitions2" src="{{ site.url }}/archive/2011/10/ChildTransitions2.png" alt="" width="373" height="336" /></p>
 <p>This doesn't look quite so good!</p>
 <h2>RepositionThemeTransition</h2>
 <p>When you change the positions of an element, either directly or as a result of its parent layout changing, it will move into its new location instantly. By adding a <code>RepositionsThemeTransition</code>, the WinRT framework will animate the element as its moves location.</p>
@@ -64,7 +64,7 @@ source: wordpress
 <li>This transition, and none of the others discussed in this blog post, work when the elements are hosted within a <code>FlipView </code>(not sure why, this feels like a bug)</li>
 </ul>
 <p>Again, if you add a <code>RepositionThemeTransition </code>to the children of a panel via <code>ChildrenTransitions</code>, the animations are fired in sequence. In the below image an element has been removed from the top of a <code>WrapGrid</code>:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/10/Grid.png" alt="" title="Grid" width="500" height="305" class="aligncenter size-full wp-image-1740" /></p>
+<p><img src="{{ site.url }}/archive/2011/10/Grid.png" alt="" title="Grid" width="500" height="305" class="aligncenter size-full wp-image-1740" /></p>
 <p>(Trust me - this looks much better in action! try running the sample code with this blog-post)</p>
 <p>One point of interest, you can simplify the XAML for adding <code>ChildrenTransitions </code>when using an <code>ItemsControl </code>(Or <code>ListBox</code>, <code>GridView </code>or other subclasses) from the following:</p>
 {% highlight xml %}
@@ -103,7 +103,7 @@ source: wordpress
 <h2>AddDeleteThemeTransition</h2>
 <p>This transitions is intended for use with panels, it animates the process of adding / removing elements. This transitions is added to the <code>ChildrenTransitions </code>(or <code>ItemContainerTransitions</code>) just like the others. As items are added, they fade into place, and as they are removed they slide out and the other elements reposition themselves. One thing that is really cool about this transitions is that it 'understand' the layout of the panel. </p>
 <p>Here you can see elements being repositioned within a <code>WrapGrid</code> when the first element is being removed. You can see that the elements are moved in batches based on their row / column:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/10/WrapGrid.png" alt="" title="WrapGrid" width="613" height="270" class="aligncenter size-full wp-image-1739" /></p>
+<p><img src="{{ site.url }}/archive/2011/10/WrapGrid.png" alt="" title="WrapGrid" width="613" height="270" class="aligncenter size-full wp-image-1739" /></p>
 <p>Very cool!</p>
 <h2>ContentThemeTransition</h2>
 <p>The final transition I want to look at is the <code>ContentThemeTransition</code>. For those of you who have worked with Silverlight or WP7, this provides the same functionality as the popular <code>TransitioningContentControl</code> from the Slverlight toolkit - now this feature is delivered by the framework itself (at last!)</p>
@@ -121,5 +121,5 @@ source: wordpress
 <h2>Conclusions</h2>
 <p>Whilst WinRT borrows much from Silverlight and WPF, it brings some great new controls and features and transitions are probably one of my favourite new features. They really help you create fluid applications with minimum effort.</p>
 <p>I have covered all the theme-transitions except one, ReorderThemeTransition, I have not yet found out how to use this transition, I think this might be because of <a href="http://social.msdn.microsoft.com/Forums/en-AU/winappswithcsharp/thread/fc3705c1-ae0c-483e-a209-8c3aeefd02c8">a lack of sorting / filtering of collections in WinRT</a>. This is probably functionality that will be added at a later date.</p>
-<p>You can download the full sourcecode for this blog post: <a href='http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/10/WinRTTransitions.zip'>WinRTTransitions.zip</a></p>
+<p>You can download the full sourcecode for this blog post: <a href='{{ site.url }}/archive/2011/10/WinRTTransitions.zip'>WinRTTransitions.zip</a></p>
 <p>Regards, Colin E</p>

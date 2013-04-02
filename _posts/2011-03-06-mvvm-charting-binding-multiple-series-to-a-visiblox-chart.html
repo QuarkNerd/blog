@@ -2,7 +2,7 @@
 id: 1243
 author: Colin Eberhardt
 title: "MVVM Charting - Binding Multiple Series to a Visiblox Chart"
-permalink: /2011/03/mvvm-charting-binding-multiple-series-to-a-visiblox-chart.html
+oldlink: /blog/colin/2011/03/mvvm-charting-binding-multiple-series-to-a-visiblox-chart/
 tags: 
 - codeproject
 - mvvm
@@ -14,7 +14,7 @@ layout: ceberhardt_post
 source: wordpress
 ---
 <p><em>This post describes a method of using attached properties to bind a ViewModel which contains multiple data series to a Visiblox chart without any code-behind.</em></p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/03/harmonic.png" alt="" title="harmonic" width="389" height="253" class="aligncenter size-full wp-image-1247" /><br/>The <a href="http://www.visiblox.com">Visiblox chart</a> supports databinding in both WPF and Silverlight, where the X and Y values for each datapoint are bound to properties on an underlying model. However, there is no interface for binding a varying number of series (i.e a collection of collections). The solution provided here is similar to the one which Jeremiah Morrill published for <a href="http://jmorrill.hjtcentral.com/Home/tabid/428/EntryId/351/Silverlight-Charts-Binding-multiple-Series.aspx">binding multiple series to the Silverlight Toolkit charts</a>, but with a few added extras, like series title binding and series type selection.</p>
+<p><img src="{{ site.url }}/archive/2011/03/harmonic.png" alt="" title="harmonic" width="389" height="253" class="aligncenter size-full wp-image-1247" /><br/>The <a href="http://www.visiblox.com">Visiblox chart</a> supports databinding in both WPF and Silverlight, where the X and Y values for each datapoint are bound to properties on an underlying model. However, there is no interface for binding a varying number of series (i.e a collection of collections). The solution provided here is similar to the one which Jeremiah Morrill published for <a href="http://jmorrill.hjtcentral.com/Home/tabid/428/EntryId/351/Silverlight-Charts-Binding-multiple-Series.aspx">binding multiple series to the Silverlight Toolkit charts</a>, but with a few added extras, like series title binding and series type selection.</p>
 <p>The solution is surprisingly simple, so I am going to dive straight into the code (note, I have collapsed the verbose attached property definitions so that just the interesting bits are shown below!)</p>
 {% highlight csharp %}
 public static class MultiSeries
@@ -246,10 +246,10 @@ public class StringToChartTypeProvider : TypeConverter
 {% endhighlight %}
 <p>Whilst the <code>MultiSeries</code> class allows you to specify the chart type via <code>ChartTypeProvider</code>, it does not provide a mechanism for styling the various series which it produces based on the supplied <code>Source</code>. However, styling can be achieved using the chart's <code>Palette</code>, which is a collection of <code>Style</code> instances which are applied to the series in order.</p>
 <p>The resulting chart is shown below:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/03/harmonic.png" alt="" title="harmonic" width="389" height="253" class="aligncenter size-full wp-image-1247" /></p>
+<p><img src="{{ site.url }}/archive/2011/03/harmonic.png" alt="" title="harmonic" width="389" height="253" class="aligncenter size-full wp-image-1247" /></p>
 <h2>A More Complex MVVM Example</h2>
 <p>In this example, rather than binding a collection of collections, the following model is bound:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/03/MultiBindingExample.png" alt="" title="MultiBindingExample" width="600" height="208" class="aligncenter size-full wp-image-1254" /></p>
+<p><img src="{{ site.url }}/archive/2011/03/MultiBindingExample.png" alt="" title="MultiBindingExample" width="600" height="208" class="aligncenter size-full wp-image-1254" /></p>
 <p><code>CompanySalesViewModel</code> has a collection of <code>SalesTeamViewModel</code> instances, each of these has a name, <code>TeamName</code>, and a collection of <code>SalesInRegionViewModel</code> instances. Note, <code>SalesTeamViewModel</code> also has a string indexer property which will be used to bind this model to a <code>DataGrid</code>.</p>
 <p>A custom <code>ChartTypeProvider</code> is used so that we can select chart types based on the bound <code>SalesTeamViewModel</code>:</p>
 {% highlight csharp %}
@@ -342,6 +342,6 @@ public class SalesTypeProvider : IChartTypeProvider
 </Grid>
 {% endhighlight %}
 <p>The result is show below, note that updating the data in the grid causes the chart to update accordingly:</p>
-<div style="text-align: center;"><object width="400" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/03/VisibloxMultiSeriesBinding.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
-<p>You can download the full sourcecode for this example: <a href='http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/03/VisibloxMultiSeriesBinding2.zip'>VisibloxMultiSeriesBinding.zip</a></p>
+<div style="text-align: center;"><object width="400" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.url }}/archive/2011/03/VisibloxMultiSeriesBinding.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>You can download the full sourcecode for this example: <a href='{{ site.url }}/archive/2011/03/VisibloxMultiSeriesBinding2.zip'>VisibloxMultiSeriesBinding.zip</a></p>
 <p>Regards, Colin E.</p>

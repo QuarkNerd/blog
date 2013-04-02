@@ -2,7 +2,7 @@
 id: 2318
 author: Colin Eberhardt
 title: "A Multicast Delegate Pattern for iOS Controls"
-permalink: /2012/11/a-multicast-delegate-pattern-for-ios-controls.html
+oldlink: /blog/colin/2012/11/a-multicast-delegate-pattern-for-ios-controls/
 tags: 
 - objective-c
 - delegate
@@ -13,10 +13,10 @@ layout: ceberhardt_post
 source: wordpress
 ---
 <p><em>This blog post introduces a simple pattern for adding multicasting capabilities to existing iOS controls. Adding multicasting allows for improved clarity and code re-use.</em></p>
-<div style="float:right; width:160px; margin:10px; padding:10px; border: solid 1px #aaa; font-size:0.8em;"><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2012/07/me.jpg" style="float:left; margin:5px;">Colin Eberhardt is CIO at <a href="http://www.shinobicontrols.com">ShinobiControls</a>, suppliers of highly interactive and fun charts, grid and UI controls for iOS developers.<br/><a href="http://www.shinobicontrols.com"><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2012/07/shinobicontrols.png" /></a></div>
+<div style="float:right; width:160px; margin:10px; padding:10px; border: solid 1px #aaa; font-size:0.8em;"><img src="{{ site.url }}/archive/2012/07/me.jpg" style="float:left; margin:5px;">Colin Eberhardt is CIO at <a href="http://www.shinobicontrols.com">ShinobiControls</a>, suppliers of highly interactive and fun charts, grid and UI controls for iOS developers.<br/><a href="http://www.shinobicontrols.com"><img src="{{ site.url }}/archive/2012/07/shinobicontrols.png" /></a></div>
 <p>Most iOS controls have a concept of a <em>'delegate'</em> - a protocol which is used to handle various user interactions and control state changes. If, for example, you want to detect when a <code>UIWebView</code> starts to load a web page, you set the <code>delegate</code> property to a class which adopts the <code>UIWebViewDelegate</code> protocol, and implement the <code>webViewDidStartLoad:</code> method. This works well in practice for simple cases, the fact that each control has a single associated delegate is quite limiting. There are various reasons why you might want to handle delegate messages, and naturally you might want to handle these in different parts of your code in order to promote code re-use. For this reason, a multicasting delegate would be a much better option.</p>
 <p>The runtime behaviour of Objective-C is based on message passing between object instances. In most cases message passing is equivalent to invoking a method directly n the target object, however, it gives us the opportunity to re-route messages to one or more targets.</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2012/11/FibreOptic.jpg" alt="" title="FibreOptic" width="500" height="381" class="aligncenter size-full wp-image-2319" /></p>
+<p><img src="{{ site.url }}/archive/2012/11/FibreOptic.jpg" alt="" title="FibreOptic" width="500" height="381" class="aligncenter size-full wp-image-2319" /></p>
 <p><small>Image courtesy of <a href="http://www.flickr.com/photos/kainet/112885753/sizes/m/in/photostream/">kainet</a>, used under Creative Commons ShareAlike license</small></p>
 <p>In <a href="http://www.raywenderlich.com/22174/how-to-make-a-gesture-driven-to-do-list-app-part-33">a recent article for Ray Wenrderlich's site</a>, I demonstrated how <code>forwardingTargetForSelector:</code> could be used to forward messages from one object to another. The code below shows how a class can handle <code>UIScrollViewDelegate</code> messages, whilst forwarding these messages to a 'chained' delegate:</p>
 {% highlight objective-c %}
@@ -246,8 +246,8 @@ NSString* const UITextViewMulticastDelegateKey = @"multicastDelegate";
 @end
 {% endhighlight %}
 <p>Nice :-)</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2012/11/Multicast.png" alt="" title="Multicast" width="300" height="564" class="aligncenter size-full wp-image-2320" /></p>
+<p><img src="{{ site.url }}/archive/2012/11/Multicast.png" alt="" title="Multicast" width="300" height="564" class="aligncenter size-full wp-image-2320" /></p>
 <p>The above example was deliberately selected because the implementation of this 'behaviour' is quite simple. For a more complex example, take a look at the <a href="https://github.com/ColinEberhardt/iOS-ClearStyle">'Clear Style'</a> project I have over on github. Here I use multicasting in order to add multiple pull-to-add-new behaviours to a list, where each behaviour handles the same delegate methods. </p>
 <p>Finally, you might have noticed that the <code>UITextViewHideKeyboardOnEnterBehaviour</code> implementation above handles a delegate method with a non-void signature. Despite the fact that we are multicasting these messages return values are still possible! I must admit I could not find any information about how the runtime handles return values when <code>invokeWithTarget:</code> is used to invoke multiple targets. Through testing I have discovered that the value returned by the last invocation is the one that is ultimately returned. I would certainly recommend caution if you plan to use this feature!</p>
-<p>You can download the code for the simple example here: <a href='http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2012/11/MulticastDelegates.zip'>MulticastDelegates.zip</a></p>
+<p>You can download the code for the simple example here: <a href='{{ site.url }}/archive/2012/11/MulticastDelegates.zip'>MulticastDelegates.zip</a></p>
 <p>Regards, Colin E.</p>

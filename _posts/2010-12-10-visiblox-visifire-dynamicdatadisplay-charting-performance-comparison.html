@@ -2,7 +2,7 @@
 id: 979
 author: Colin Eberhardt
 title: "Visiblox, Visifire, DynamicDataDisplay - Charting Performance Comparison"
-permalink: /2010/12/visiblox-visifire-dynamicdatadisplay-charting-performance-comparison.html
+oldlink: /blog/colin/2010/12/visiblox-visifire-dynamicdatadisplay-charting-performance-comparison/
 tags: 
 - charts
 - visiblox
@@ -20,7 +20,7 @@ source: wordpress
 <p>I have been asked by a few people to extend the performance test to include a few other Silverlight charts to see how they compare. I have refactored the test code so that different charts can be plugged in more easily. This not only makes it easier to test the performance of other charting components, but has also allowed me to compare the different charting APIs more easily. </p>
 <p>This blog post compares the performance of <a href="http://www.visiblox.com/">Visiblox</a>, <a href="http://www.visifire.com/">Visifire</a>, <a href="http://silverlight.codeplex.com/">Silverlight Toolkit</a> and <a href="http://dynamicdatadisplay.codeplex.com/">Dynamic Data Display</a> (D<sub>3</sub>) charts. I also compared a few other charting components, however the terms of their trial license prohibit me from publishing the results.</p>
 <p>A summary of the performance measurement is given below, where each chart is used to plot rapidly changing data, with the framerate being used as a measure of performance.</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2010/12/performance.png" alt="" title="performance" width="520" height="313" class="aligncenter size-full wp-image-1026" /></p>
+<p><img src="{{ site.url }}/archive/2010/12/performance.png" alt="" title="performance" width="520" height="313" class="aligncenter size-full wp-image-1026" /></p>
 <p>The test clients running with each of the different charts are shown below:</p>
 <table>
 <tr>
@@ -29,10 +29,10 @@ source: wordpress
 </tr>
 <tr>
 <td>
-<div style="text-align: center;margin: 0 0 40px 0 "><object width="300" height="430" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2010/12/HistogramVisiblox.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div style="text-align: center;margin: 0 0 40px 0 "><object width="300" height="430" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.url }}/archive/2010/12/HistogramVisiblox.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 </td>
 <td>
-<div style="text-align: center;margin: 0 0 40px 0 "><object width="300" height="430" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2010/12/HistogramVisifire.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div style="text-align: center;margin: 0 0 40px 0 "><object width="300" height="430" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.url }}/archive/2010/12/HistogramVisifire.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 </td>
 </tr>
 <tr>
@@ -41,10 +41,10 @@ source: wordpress
 </tr>
 <tr>
 <td>
-<div style="text-align: center; margin: 0 0 20px 0 "><object width="300" height="430" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2010/12/HistogramToolkit.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div style="text-align: center; margin: 0 0 20px 0 "><object width="300" height="430" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.url }}/archive/2010/12/HistogramToolkit.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 </td>
 <td>
-<div style="text-align: center; margin: 0 0 20px 0 "><object width="300" height="430" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2010/12/HistogramDDD.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div style="text-align: center; margin: 0 0 20px 0 "><object width="300" height="430" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.url }}/archive/2010/12/HistogramDDD.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 </td>
 </tr>
 </table>
@@ -341,7 +341,7 @@ private void RenderDataToGraph(LineGraph graph, List<DataPoint> histogram)
 {% endhighlight %}
 <h2>Conclusions</h2>
 <p>In summary, the Visiblox and Visifire charts seem to have the cleanest API, with concise XAML markup to define the charts and little code-behind required to update the series. The Silverlight Toolkit charts XAML markup is a bit verbose, mostly due to performance optimisation. Finally, the D<sub>3</sub> charts have a complex and difficult to follow API. In terms of performance, the Visiblox and D<sub>3</sub> charts give similar results, the Visifire charts are a little behind with, with a frame rate that is approximately 1/3 of the leading charts, and the Silverlight Toolkit charts come last.</p>
-<p>You can download the full sourcecode of this comparison here: <a href='http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2010/12/ChartPerformance.zip'>ChartPerformance.zip</a></p>
+<p>You can download the full sourcecode of this comparison here: <a href='{{ site.url }}/archive/2010/12/ChartPerformance.zip'>ChartPerformance.zip</a></p>
 <p>NOTE: To build the examples you need to download the charting components from their respective web pages:</p>
 <ul>
 <li><a href="http://www.visiblox.com/">Visiblox</a></li>

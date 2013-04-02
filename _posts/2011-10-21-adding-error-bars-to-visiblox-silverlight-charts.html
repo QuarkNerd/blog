@@ -2,7 +2,7 @@
 id: 1766
 author: Colin Eberhardt
 title: "Adding Error Bars to Visiblox Silverlight Charts"
-permalink: /2011/10/adding-error-bars-to-visiblox-silverlight-charts.html
+oldlink: /blog/colin/2011/10/adding-error-bars-to-visiblox-silverlight-charts/
 tags: 
 - charts
 - visiblox
@@ -14,7 +14,7 @@ source: wordpress
 ---
 <p>Having spent a number of years studying Physics at university, I have had the importance of error bars well and truly drummed into me! Within physics, or any experimental science, there are always going to be errors in the measurements you make. The more repeat measurements you make, the more confident you can be in the mean value, however you cannot remove the errors altogether. Error bars provide a way to represent the spread of experimental observations graphically, without them, it is hard to have any confidence in the conclusions drawn from the observations!</p>
 <p>In this blog post I will show how to implement a custom <a href="http://www.visiblox.com/">Visiblox</a> chart series to render error bars:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/10/VisibloxErrorBars.png" alt="" title="VisibloxErrorBars" width="499" height="240" class="aligncenter size-full wp-image-1767" /></p>
+<p><img src="{{ site.url }}/archive/2011/10/VisibloxErrorBars.png" alt="" title="VisibloxErrorBars" width="499" height="240" class="aligncenter size-full wp-image-1767" /></p>
 <p>(The data in the above chart is from a page which details how to calculate the <a href="http://www.ncsu.edu/labwrite/res/gt/gt-stat-home.html">standard error from experimental results</a>).</p>
 <h2>Creating a Custom Series</h2>
 <p>As described in my previous blog post on <a href="http://www.scottlogic.co.uk/blog/colin/2010/11/adding-a-smoothed-line-series-bezier-curve-to-a-visiblox-chart/" title="Adding a Smoothed Line Series (B&eacute;zier curve) to a Visiblox Chart">creating a spline series</a>, to create a new series type, you sub-class one of the Visiblox base-classes, in this case <code>MultiValueSeriesBase </code>is a suitable starting point:</p>
@@ -178,7 +178,7 @@ private MultiValuedDataPoint<double, double> CreatePoint(double x, double y, dou
 }
 {% endhighlight %}
 <p>This results in the following chart:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/10/VisibloxErrorBars2.png" alt="" title="VisibloxErrorBars2" width="476" height="293" class="aligncenter size-full wp-image-1772" /></p>
+<p><img src="{{ site.url }}/archive/2011/10/VisibloxErrorBars2.png" alt="" title="VisibloxErrorBars2" width="476" height="293" class="aligncenter size-full wp-image-1772" /></p>
 <h2>Binding to a Multi-valued Series</h2>
 <p>In the previous example we created instances of <code>MultiValuedDataPoint</code>, a Visiblox type for representing multi-valued points. As an alternative, we can create model objects to represent each point, rendering them in the chart via databinding.</p>
 <p>We first modify the code to create a collection of <code>Measurement</code> instances (a simple model object that implements <code>INotifyPropertyChanged</code>):</p>
@@ -228,7 +228,7 @@ private Measurement CreateMeasurement(double x, double y, double error)
               ItemsSource="{Binding}"/>
 {% endhighlight %}
 <p>This gives us the following application:</p>
-<div style="text-align: center;"><object width="500" height="400" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/10/VisibloxErrorBarSeries.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div style="text-align: center;"><object width="500" height="400" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.url }}/archive/2011/10/VisibloxErrorBarSeries.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <p>You can edit the values, with the changes reflected immediately in the chart above.</p>
-<p>You can download the sourcecode for the above example here:  <a href='http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/10/VisibloxErrorBarSeries.zip'>VisibloxErrorBarSeries.zip</a></p>
+<p>You can download the sourcecode for the above example here:  <a href='{{ site.url }}/archive/2011/10/VisibloxErrorBarSeries.zip'>VisibloxErrorBarSeries.zip</a></p>
 <p>Regards, Colin E.</p>

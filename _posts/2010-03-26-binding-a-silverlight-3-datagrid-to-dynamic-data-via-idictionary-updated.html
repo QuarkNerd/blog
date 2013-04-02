@@ -2,7 +2,7 @@
 id: 611
 author: Colin Eberhardt
 title: "Binding a Silverlight 3 DataGrid to dynamic data via IDictionary (Updated)"
-permalink: /2010/03/binding-a-silverlight-3-datagrid-to-dynamic-data-via-idictionary-updated.html
+oldlink: /blog/colin/2010/03/binding-a-silverlight-3-datagrid-to-dynamic-data-via-idictionary-updated/
 tags: 
 - DataGrid
 - silverlight
@@ -55,10 +55,10 @@ public class SortableCollectionView : ObservableCollection<Row>, ICollectionView
 <p>That solves the sorting issue :-)</p>
 <p>The lack of editing issue was a but odd, someone on the Silverlight forums indicated that they think this is an <a href="http://forums.silverlight.net/forums/p/113143/254948.aspx">undocumented breaking change</a>. With a SL3 DataGrid if you bind to a property of type object, the column becomes read-only, even if the DataGrid itself is not read-only. The solution is simply to set the IsReadOnly of each column to false.</p>
 <p>With these few changes we now how a fully functioning DataGrid bound to our dynamic data:</p>
-<div id="slPluginHost1" > <object id="SilverlightPlugin1" width="300" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2010/03/SilverlightTable.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div id="slPluginHost1" > <object id="SilverlightPlugin1" width="300" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.url }}/archive/2010/03/SilverlightTable.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <p>The final recurring question to my previous blog posts is how to create the bound DataGrid columns in code-behind. To illustrate how this is done I will create an example where the DataGrid is bound to some XML that sits in a TextBox underneath the grid.</p>
 <p>The example looks like this:</p>
-<div id="slPluginHost2" > <object id="SilverlightPlugin2" width="300" height="470" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2010/03/SilverlightTable2.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div id="slPluginHost2" > <object id="SilverlightPlugin2" width="300" height="470" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.url }}/archive/2010/03/SilverlightTable2.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <p>The two buttons in the centre allow you to synchronise the DataGrid and the XML, one formats the current grid contents in XML, the other takes the XML and dynamically binds the contents to the grid. You can try editing the data, then updating the XML and vice-versa. You can even add new columns to the XML data (hopefully the XML structure is pretty self explanatory - there is no error checking so take care ;-)). The DataGrid is of course editable and sortable.</p>
 <p>The interesting part of the code is the method that takes the XML contents and binds it to the grid. It is as follows:</p>
 {% highlight csharp %}
@@ -128,5 +128,5 @@ private DataGridColumn CreateColumn(string property)
 {% endhighlight %}
 <p>This is really no different to the technique that you use when creating the column definitions in XAML. There is nothing special about XAML, it is essentially just an XML markup for creating objects.</p>
 <p>Hopefully this blog post will help answer the recurring questions, and reduce the number of "it doesn't work in SL3" mails I get. Perhaps I will just get 84 "Thank you" comments instead :-)</p>
-<p>You can download the full sourcecode for this blog post: <a href='http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2010/03/SilverlightTable.zip'>SilverlightTable.zip</a></p>
+<p>You can download the full sourcecode for this blog post: <a href='{{ site.url }}/archive/2010/03/SilverlightTable.zip'>SilverlightTable.zip</a></p>
 <p>Regards, Colin E.</p>

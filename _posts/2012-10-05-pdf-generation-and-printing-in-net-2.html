@@ -2,7 +2,7 @@
 id: 160187
 author: Rolf Baxter
 title: "PDF Generation and Printing in .NET"
-permalink: /2012/10/pdf-generation-and-printing-in-net-2.html
+oldlink: /2012/10/pdf-generation-and-printing-in-net-2/
 tags: 
 - C#
 - pdf
@@ -78,7 +78,7 @@ Process.Start("TestDocument.pdf");{% endhighlight %}
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>The output of this document looks as follows:</p>
-<p><a href="http://www.scottlogic.co.uk/wp-content/uploads/2012/10/PdfSharpCapture2.png"><img class="size-full wp-image-160303 aligncenter" title="Pdf Sharp Sample Document" src="http://www.scottlogic.co.uk/wp-content/uploads/2012/10/PdfSharpCapture2.png" alt="Pdf Sharp Sample Document" width="239" height="334" /></a></p>
+<p><a href="{{ site.url }}/archive/2012/10/PdfSharpCapture2.png"><img class="size-full wp-image-160303 aligncenter" title="Pdf Sharp Sample Document" src="{{ site.url }}/archive/2012/10/PdfSharpCapture2.png" alt="Pdf Sharp Sample Document" width="239" height="334" /></a></p>
 <p style="text-align: justify;">As can be seen, one of the drawbacks of PdfSharp is that features such as text-wrapping are not implemented.  To achieve text wrapping one must manually measure the lengths of strings and wrap the text accordingly.  Furthermore, the current document y position must also be tracked as rendering is performed.  In this simple example tracking the y position is trivial, although rendering does become slightly more challenging when more complex rendering is performed (e.g. drawing a custom table of data).</p>
 <h4><em>Migradoc</em></h4>
 <p style="text-align: justify;">Re-generating the above document in Migradoc is useful for demonstrating both the pros and cons of each library.  Unlike PdfSharp, Migradoc uses a Document object to which document elements (e.g. paragraphs) are added. The document is rendered using a PdfDocumentRenderer.  However, complications arise when one tries to do anything out of the ordinary.  For example, individual lines cannot be drawn in MigraDoc so the only way to re-produce the example above is to use a table containing a single column and enabling/disabling different cell borders.  Similarly, there is no way to position the table in a specific location (i.e. half way down the page), and thus one can only achieve this by applying a large 'top' margin to the section. However, Migradoc does perform text-wrapping for us, which is clearly beneficial when rendering large amounts of text.</p>
@@ -151,7 +151,7 @@ pdfRenderer.PdfDocument.Save
 ("TestDocument.pdf");
 Process.Start("TestDocument.pdf");{% endhighlight %}
 <p>This produces the following output:</p>
-<p><a href="http://www.scottlogic.co.uk/wp-content/uploads/2012/10/MigradocCapture2.png"><img class="size-full wp-image-160307 aligncenter" title="Migradoc example document" src="http://www.scottlogic.co.uk/wp-content/uploads/2012/10/MigradocCapture2.png" alt="" width="238" height="329" /></a></p>
+<p><a href="{{ site.url }}/archive/2012/10/MigradocCapture2.png"><img class="size-full wp-image-160307 aligncenter" title="Migradoc example document" src="{{ site.url }}/archive/2012/10/MigradocCapture2.png" alt="" width="238" height="329" /></a></p>
 <p style="text-align: justify;">One can clearly see that the best library to use will depend on the output you wish to produce. However, do keep in mind that mixing both libraries is also possible (see the PdfSharp Samples project or <a href="http://www.pdfsharp.com/PDFsharp/index.php?option=com_content&amp;task=view&amp;id=34&amp;Itemid=45">here</a> for an example).</p>
 <h3>Document Printing</h3>
 <p style="text-align: justify;">As mentioned previously, my interest in PdfSharp stemmed from a desire to export a DataGridView via both PDF and printing.  Correspondingly, part of my investigation focused on the printing aspects of PdfSharp, for which I identified two options.  The first approach I considered was the PdfFilePrinter component of the PdfSharp library, which uses the Adobe Acrobat reader to print a document.  This approach is particularly neat and simple, as demonstrated by the following example:</p>

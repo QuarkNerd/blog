@@ -2,7 +2,7 @@
 id: 151392
 author: Chris Grant
 title: "Creating an Earthquake Monitoring Application with Visiblox"
-permalink: /2012/06/creating-an-earthquake-monitoring-application-with-visiblox.html
+oldlink: /2012/06/creating-an-earthquake-monitoring-application-with-visiblox/
 tags: 
 categories: 
 - blog
@@ -10,7 +10,7 @@ layout: default_post
 source: site
 ---
 <p>The following post describes how to develop an Earthquake Monitor application based on live data from the USGS, using Silverlight, the MVVM Pattern, Visiblox and the Silverlight Bing Maps Interactive SDK. <a href="#" onclick="open_win();return false;">Click here</a> to see the live application.<!--more--></p>
-<p><a href="#" onclick="open_win();return false;"><img src="http://www.scottlogic.co.uk/wp-content/uploads/2012/05/earthquakeScreenshot.png" alt="Earthquake Monitor Screenshot" title="Earthquake Monitor Screenshot" width="690" height="412" class="aligncenter size-full wp-image-151394" /></a></p>
+<p><a href="#" onclick="open_win();return false;"><img src="{{ site.url }}/archive/2012/05/earthquakeScreenshot.png" alt="Earthquake Monitor Screenshot" title="Earthquake Monitor Screenshot" width="690" height="412" class="aligncenter size-full wp-image-151394" /></a></p>
 <h2>Project Structure</h2>
 <p>When developing applications for Silverlight, the <a href="http://www.codeproject.com/KB/silverlight/mvvm-explained.aspx" title="MVVM pattern" target="_blank">MVVM pattern</a> provides an ideal architecture. MVVM makes code much more manageable and allows the use of data binding with limited code behind for the different views of the application.</p>
 <p>The view should contain the xaml files and components that are visible to the users of the application. In this case, this will be the map view, the charts and the various configuration and comparison windows. In this project, we have model objects representing Earthquakes, Feeds and Feed Categories. The ViewModel sits between these two layers. The logic to load, parse and filter the data received from the USGS will is contained within the ViewModel, and it presents this data to the View. If you want to find out more information about the MVVM pattern, Jeremy Likness has a great introductory article over <a href="http://www.codeproject.com/KB/silverlight/mvvm-explained.aspx" title="MVVM pattern" target="_blank">CodeProject</a>. </p>
@@ -138,7 +138,7 @@ private void ViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
 </visiblox:LineSeries>
 {% endhighlight %}
 <p>We use the exact same BindableDataSeries structure, but this time for a LineSeries. We also create another two way binding to the SelectedQuake property, meaning selected earthquakes will be represented by the selected style on this chart too. For the other charts in the analysis, we don't do any binding - instead choosing to calculate them using code behind in the MainPage.xaml.cs file. To see how this is done, look at the CalculateTrends() method. We set up as much of the charts as possible, but calculate the trends using the DataBinner helper class.</p>
-<p><a href="#" onclick="open_win();return false;"><img src="http://www.scottlogic.co.uk/wp-content/uploads/2012/06/trends.png" alt="Earthquake Trends Panel" title="Trends" width="690" height="414" class="aligncenter size-full wp-image-152292" /></a></p>
+<p><a href="#" onclick="open_win();return false;"><img src="{{ site.url }}/archive/2012/06/trends.png" alt="Earthquake Trends Panel" title="Trends" width="690" height="414" class="aligncenter size-full wp-image-152292" /></a></p>
 <h3>Styling the Charts with a Visiblox Theme</h3>
 <p>In order to give the charts in the application a custom style, we can use a <a href="http://www.visiblox.com/visibloxcharts/examples/developer-features/customised-look-and-feel/themes/" title="Visiblox Theme">Visiblox Theme</a>.  Themes allow you to define styles for the Visiblox chart types, and then they are automatically applied to every component contained in the theme. In order to implement a theme, we surround our "LayoutRoot" element in MainPage.xaml with a "visiblox:theme" tag as follows:</p>
 {% highlight xml %}
@@ -177,6 +177,6 @@ else
 <p>Please send any questions to cgrant@scottlogic.co.uk, and I'd love to hear your comments below!</p>
 <h2>Source Files & Downloads</h2>
 <p>You can download the source code for Earthquake monitor below. Please note that this download will not work out of the box. First, you will have to download Visiblox from the <a href="http://visiblox.com/" title="Visiblox">Visiblox website</a> and add the Silverlight .dll file to the project. Then, download the Bing Maps Silverlight Control SDK from the <a href="http://www.microsoft.com/en-us/download/details.aspx?id=2949">Microsoft Download Center</a>, and add the Microsoft.Maps.MapControl.Common.dll and Microsoft.Maps.MapControl.dll files into the project libraries. Finally, you'll have to replace the <em>YOUR CREDENTIALS HERE</em> text on line 132 of MainPage.xaml with a Credentials Provider string. For more information on installing the Bing Maps Silverlight Control SDK, please refer to the <a href="http://msdn.microsoft.com/en-us/library/ee681890.aspx">getting started guide</a>.</p>
-<p><a href='http://www.scottlogic.co.uk/wp-content/uploads/2012/06/EarthquakeMonitorRELEASE.zip'>Download Earthquake Monitor Source</a>.</p>
+<p><a href='{{ site.url }}/archive/2012/06/EarthquakeMonitorRELEASE.zip'>Download Earthquake Monitor Source</a>.</p>
 <p><script type="text/javascript">function open_win(){var strVar="";strVar += "<object data=\"data:application\/x-silverlight-2,\" type=\"application\/x-silverlight-2\" width=\"1000\" height=\"700\">";strVar += "<param name=\"source\" value=\"http:\/\/www.scottlogic.co.uk\/wp-content\/uploads\/2012\/06\/EarthquakeMonitor.xap\"\/>";strVar += "<param name=\"onError\" value=\"onSilverlightError\" \/>";strVar += "<param name=\"background\" value=\"white\" \/>";strVar += "<param name=\"minRuntimeVersion\" value=\"4.0.50826.0\" \/>";strVar += "<param name=\"autoUpgrade\" value=\"true\" \/>";strVar += "		  <a href=\"http:\/\/go.microsoft.com\/fwlink\/?LinkID=149156&v=4.0.50826.0\" style=\"text-decoration:none\">";strVar += " 			  <img src=\"http:\/\/go.microsoft.com\/fwlink\/?LinkId=161376\" alt=\"Get Microsoft Silverlight\" style=\"border-style:none\"\/>";strVar += "		  <\/a>";strVar += "	    <\/object>";myWindow=window.open('','','width=1100,height=800');myWindow.document.write(strVar);myWindow.focus();}</script></p>
 <p><a href="#" onclick="open_win();return false;">Open Earthquake Monitor</a></p>

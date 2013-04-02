@@ -2,7 +2,7 @@
 id: 317
 author: Colin Eberhardt
 title: "Dependency Property Performance and Lissajous Figures"
-permalink: /2009/06/dependency-property-performance-and-lissajous-figures.html
+oldlink: /blog/colin/2009/06/dependency-property-performance-and-lissajous-figures/
 tags: 
 - silverlight
 - binding
@@ -12,10 +12,10 @@ categories:
 layout: ceberhardt_post
 source: wordpress
 ---
-<div id="slPluginHost" > <object id="SilverlightPlugin" width="400" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2009/06/silverlightdpperformance.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div id="slPluginHost" > <object id="SilverlightPlugin" width="400" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.url }}/archive/2009/06/silverlightdpperformance.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <p>A few night ago I was working on a Siverlight control which renders some quite complex Paths, the geometry of which is determined from a number of dependency properties. In order to gain UI coolness points I wanted to animate the dependency properties in order to see a smooth transition of the Path geometry between the old and new values. The animation itself was easy to implement, but the resultant animation was distinctly choppy.</p>
 <p>Now, I cannot share the code of the Silverlight control I was working on, so I have decided to illustrate the point via a <a href="http://en.wikipedia.org/wiki/Lissajous_curve">Lissajous Figure</a>. These curves are plotted using the following simple formula:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2009/06/e42779229cd3e650bf8122e0cef4e09f.png" width="288" height="20" class="aligncenter size-full wp-image-318" /></p>
+<p><img src="{{ site.url }}/archive/2009/06/e42779229cd3e650bf8122e0cef4e09f.png" width="288" height="20" class="aligncenter size-full wp-image-318" /></p>
 <p>A simple Lissajous Figure can be constructed by creating a UserControl which dependency properties for the various parameters in the above equations. The control contains a single path whose Data property will be set to a suitable geometry in code behind, and a 'container' element for our path which we use to determine the width / height of our curve.</p>
 {% highlight xml %}
 <UserControl ...>
@@ -87,6 +87,6 @@ private void AnimateProperty(string propertyName, double targetValue, int millis
 }
 {% endhighlight %}
 <p>This means that even though the slider controls bound to the DPs move in discrete steps, the above animation gives the illusion of the steps being continuous.</p>
-<p>You can download the full project source here: <a href='http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2009/06/silverlightdpperformance.zip'>silverlightdpperformance.zip</a>.</p>
+<p>You can download the full project source here: <a href='{{ site.url }}/archive/2009/06/silverlightdpperformance.zip'>silverlightdpperformance.zip</a>.</p>
 <p>[Oscilloscope image reproduced from <a href="http://en.wikipedia.org/wiki/File:Tektronix_465_Oscilloscope.jpg">Wikipedia</a> under Creative Commons Licence]</p>
 <p>Regards, Colin E.</p>

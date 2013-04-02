@@ -2,7 +2,7 @@
 id: 1899
 author: Colin Eberhardt
 title: "A Festive and Fun Windows Phone 7 Maze Game"
-permalink: /2011/12/a-festive-and-fun-windows-phone-7-maze-game.html
+oldlink: /blog/colin/2011/12/a-festive-and-fun-windows-phone-7-maze-game/
 tags: 
 - Windows Phone 7
 categories: 
@@ -13,7 +13,7 @@ source: wordpress
 <p>Last night, with my Christmas presents all wrapped and a lack of any decent programmes (festive or otherwise) on television, I had a few hours to kill, so decided to create a festive-themed WP7 game ...</p>
 <p>Ever since I first started writing code for Windows Phone 7 I have wanted to do something involving physics and the accelerometer. I finally found a few hours to spare to give it a go. This blog post doesn't go into too much detail about <a href="http://farseerphysics.codeplex.com/">Farseer</a>, the Physics Engine that I used, I didn't really have time to learn it in any great detail. This post is more about how quickly you can put together something really quite cool in quite a short space of time using libraries and code grabbed from the internet.</p>
 <p>The simple app I created renders a maze that you 'roll' a small ball around by tilting your phone:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/12/MazeGame.png" alt="" title="MazeGame" width="200" height="363" class="aligncenter size-full wp-image-1900" /></p>
+<p><img src="{{ site.url }}/archive/2011/12/MazeGame.png" alt="" title="MazeGame" width="200" height="363" class="aligncenter size-full wp-image-1900" /></p>
 <p>This works well in the new 7.1 emulator where you can tilt the emulator via the extended controls. However, it works best on a real device, where you can control tilt far more easily. See the video below:</p>
 <p><iframe width="480" height="360" src="http://www.youtube.com/embed/Xkhh9P-Y45k" frameborder="0" allowfullscreen></iframe></p>
 <h2>Farseer Physics Engine</h2>
@@ -44,7 +44,7 @@ source: wordpress
   </Rectangle>
 </Canvas>
 {% endhighlight %}
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/12/SimpleExample.png" alt="" title="SimpleExample" width="600" height="256" class="aligncenter size-full wp-image-1901" /></p>
+<p><img src="{{ site.url }}/archive/2011/12/SimpleExample.png" alt="" title="SimpleExample" width="600" height="256" class="aligncenter size-full wp-image-1901" /></p>
 <p>I find this pretty amazing! </p>
 <p>Physics Helper will do much more, it can handle complex paths and geometries, explosions and collisions with minimal effort. For a greater insight into just how much is possible, I would recommend <a href="http://channel9.msdn.com/coding4fun/articles/Creating-a-Pinball-Game-in-Silverlight-Using-the-Physics-Helper-Library--Farseer-Physics">Andy Beaulieu's Channel 9 article</a>. Andy is the creator of Farseer, so really knows his stuff!</p>
 <p>My maze is generated in C# code, so despite the elegance of using Physics Helper via behaviours, I need to add elements to my canvas programmatically. This means that I have to make the physics engine aware of their existence in code also. To achieve this, I add the behaviour in code as follows:</p>
@@ -134,7 +134,7 @@ private void DrawLine(double x1, double y1, double x2, double y2)
 {% endhighlight %}
 <p>A bit messy, but gets the job done!</p>
 <p>The above code creates a maze comprised of static physics objects, where the<code> _mazeSize</code> field dictates the scale of the maze:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/12/Mazes.png" alt="" title="Mazes" width="500" height="454" class="aligncenter size-full wp-image-1902" /></p>
+<p><img src="{{ site.url }}/archive/2011/12/Mazes.png" alt="" title="Mazes" width="500" height="454" class="aligncenter size-full wp-image-1902" /></p>
 <h2>Adding a Rolling Ball</h2>
 <p>Adding a ball to the maze is simply a matter of creating an ellipse and adding it at the maze entrance. Note, this physics-body is not static, so will move under the influence of gravity:</p>
 {% highlight csharp %}
@@ -186,7 +186,7 @@ FrameworkDispatcher.Update();
 _physicsController.Collision += (s,e) => _effect.Play(); 
 {% endhighlight %}
 <p>And there we have it, a simple maze game powered by the Farseer Physics engine. The whole thing only took about an hour to create, with code grabbed from the internet - a bit rough and ready, but I was impressed with how easy it was to create this game. There is much more that could be done, for example detecting when the ball reaches the end of the maze, advancing to a more difficult level, however, my time has run out on this bit of fun ... Also, if I were to take this idea further, I would probably use XNA rather than Silverlight. The Physics Helper is great for simple XAML-only physics models, but I feel that it wasn't really built for programmatic creation of bodies.</p>
-<p>You can download the code here: <a href='http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/12/WP7MazeGame.zip'>WP7MazeGame.zip</a></p>
+<p>You can download the code here: <a href='{{ site.url }}/archive/2011/12/WP7MazeGame.zip'>WP7MazeGame.zip</a></p>
 <p>Note, you will have to download and install Physics Helper to run this code.</p>
 <p>On another note, Farseer is clearly the result of hundreds of hours of development effort, which makes it easy to create realistic physics-based applications and games. Farseer is free to use under the MS-PL licence. However, I would urge anyone who has used this great library to create a WP7 game to donate via the <a href="http://farseerphysics.codeplex.com/">Farseer codeplex site</a> (scroll to the bottom).</p>
 <p>Regards, Colin E.</p>

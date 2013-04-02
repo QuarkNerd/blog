@@ -2,7 +2,7 @@
 id: 1428
 author: Colin Eberhardt
 title: "Metro In Motion Part #4 - Tilt Effect"
-permalink: /2011/05/metro-in-motion-part-4-tilt-effect.html
+oldlink: /blog/colin/2011/05/metro-in-motion-part-4-tilt-effect/
 tags: 
 - codeproject
 - WP7
@@ -111,9 +111,9 @@ private static DoubleAnimation CreateAnimation(double? from, double? to, double 
 }
 {% endhighlight %}
 <p>The magnitude of the <code>ScaleTransform</code> and <code>PlaneProjection</code> depends on the click location, with clicks to the centre of the element resulting in a scaling, but no rotation, and clicks at the edge causing rotation but no scaling. The net result can be observed below where the effect of clicking at various locations of an element is shown:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/05/tilt.png" alt="" title="tilt" width="305" height="554" class="aligncenter size-full wp-image-1431" /></p>
+<p><img src="{{ site.url }}/archive/2011/05/tilt.png" alt="" title="tilt" width="305" height="554" class="aligncenter size-full wp-image-1431" /></p>
 <p>You can also see the effect of clicking a square element below:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/05/tilt2.png" alt="" title="tilt2" width="305" height="554" class="aligncenter size-full wp-image-1432" /></p>
+<p><img src="{{ site.url }}/archive/2011/05/tilt2.png" alt="" title="tilt2" width="305" height="554" class="aligncenter size-full wp-image-1432" /></p>
 <p>Finally, native phone applications have another subtle effect where elements that are tilted at the bottom of the screen appear to be viewed from above, whilst ones at the top are viewed from below. This can be achieved by applying a local offset to the <code>PlaneProjection</code> and an equal and opposite vertical <code>TranslateTransform</code>. The following code is added ...</p>
 {% highlight csharp %}
 targetElement.MouseLeftButtonDown += (s, e) =>
@@ -142,8 +142,8 @@ targetElement.ManipulationCompleted += (s, e) =>
   };
 {% endhighlight %}
 <p>Which results in the following effect:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/05/tilt3.png" alt="" title="tilt3" width="305" height="554" class="aligncenter size-full wp-image-1433" /></p>
+<p><img src="{{ site.url }}/archive/2011/05/tilt3.png" alt="" title="tilt3" width="305" height="554" class="aligncenter size-full wp-image-1433" /></p>
 <p>With that, the effect is complete!</p>
 <p>Please note, the images in this blog post use a <code>Tilt</code> 'factor' of 6 in order to make the effect easier to see in these static images. I would urge you to use a much lower factor, perhaps 2, to make this effect much more subtle. I think it works best if the user almost doesn't notice the effect, rather they 'feel' it.</p>
-<p>You can download the full sourcecode for this blog post here: <a href="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/05/MetroInMotion4.zip">MetroInMotion4.zip</a></p>
+<p>You can download the full sourcecode for this blog post here: <a href="{{ site.url }}/archive/2011/05/MetroInMotion4.zip">MetroInMotion4.zip</a></p>
 <p>Regards,Colin E.</p>

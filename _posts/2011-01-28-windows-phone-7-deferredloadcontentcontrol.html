@@ -2,7 +2,7 @@
 id: 1160
 author: Colin Eberhardt
 title: "Windows Phone 7 DeferredLoadContentControl"
-permalink: /2011/01/windows-phone-7-deferredloadcontentcontrol.html
+oldlink: /blog/colin/2011/01/windows-phone-7-deferredloadcontentcontrol/
 tags: 
 - codeproject
 - Windows Phone 7
@@ -19,8 +19,8 @@ source: wordpress
 <h2>DeferredLoadContentControl</h2>
 <p>The <code>DeferredLoadContentControl</code> provides a simple solution to this problem, the content that is placed within this control is initially hidden by setting its <code>Visibility</code> to <code>Collapsed</code>. Elements that are collapsed do not occupy any layout space, and hence if an element with a long 'render' time is collapsed, this time is no longer consumed. When the <code>DeferredLoadContentControl</code> is initially loaded, it displays a 'loading...' indicator, then sets the visibility of its contents to Visible. When the content is rendered, the loading indicator is hidden.</p>
 <p>The images below compare the user experience with and without the <code>DeferredLoadContentControl</code>:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/01/LoadTime.png" alt="" title="LoadTime" width="700" height="292" class="aligncenter size-full wp-image-1162" /></p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/01/DeferredLoad.png" alt="" title="DeferredLoad" width="700" height="292" class="aligncenter size-full wp-image-1161" /></p>
+<p><img src="{{ site.url }}/archive/2011/01/LoadTime.png" alt="" title="LoadTime" width="700" height="292" class="aligncenter size-full wp-image-1162" /></p>
+<p><img src="{{ site.url }}/archive/2011/01/DeferredLoad.png" alt="" title="DeferredLoad" width="700" height="292" class="aligncenter size-full wp-image-1161" /></p>
 <p>Whilst this control does not make the page load any quicker, and the phone cannot be interacted with whilst the content is loading, it does mean that the page itself loads much more quickly and hence gives the user the impression that the phone is more responsive.</p>
 <p>The code for the <code>DeferredLoadContentControl</code> is a very simple extension of <code>ContentControl</code>. The template for this control is shown below:</p>
 {% highlight xml %}
@@ -107,6 +107,6 @@ public class DeferredLoadContentControl : ContentControl
 </local:DeferredLoadContentControl>
 {% endhighlight %}
 <p>One nice feature of this control is that when used within the designer, the content contained within the <code>DeferredLoadContentControl</code> is not hidden, instead it is rendered with a 50% and the loading indicator is shown:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/01/DesignTime.png" alt="" title="DesignTime" width="250" height="445" class="aligncenter size-full wp-image-1165" /></p>
-<p>You can download the full sourcecode for this control: <a href='http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/01/DeferredLoadContentControl.zip'>DeferredLoadContentControl.zip</a></p>
+<p><img src="{{ site.url }}/archive/2011/01/DesignTime.png" alt="" title="DesignTime" width="250" height="445" class="aligncenter size-full wp-image-1165" /></p>
+<p>You can download the full sourcecode for this control: <a href='{{ site.url }}/archive/2011/01/DeferredLoadContentControl.zip'>DeferredLoadContentControl.zip</a></p>
 <p>Regards,Colin E.</p>

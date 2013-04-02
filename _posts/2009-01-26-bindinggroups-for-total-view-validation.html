@@ -2,7 +2,7 @@
 id: 91
 author: Colin Eberhardt
 title: "BindingGroups for Total View Validation"
-permalink: /2009/01/bindinggroups-for-total-view-validation.html
+oldlink: /blog/colin/2009/01/bindinggroups-for-total-view-validation/
 tags: 
 - validation
 - WPF
@@ -17,7 +17,7 @@ source: wordpress
 <p>This blog post describes how BindingGroups can be used to address the problem of applying validation rules to multiple objects.</p>
 <p>BindingGroups were introduced as part of .NET 3.5 SP1, Vincent Sibal provides a good introduction to this new features <a href="http://blogs.msdn.com/vinsibal/archive/2008/08/11/wpf-3-5-sp1-feature-bindinggroups-with-item-level-validation.aspx">on his blog</a>. I have previously blogged on the subject of BindingGroups, where I demonstrated how they can be used to provide <a href="http://www.scottlogic.co.uk/blog/colin/2008/11/using-bindinggroups-for-greater-control-over-input-validation/"> improved error messages when type conversion fails during the binding process</a>.</p>
 <p>In this post I will take the application from Sacha's article and modify it to use BindingGroups. The following is a screenshot of the application:</p>
-<p><img class="alignnone size-full wp-image-93" title="form" src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2009/01/form.png" alt="form" width="302" height="415" /></p>
+<p><img class="alignnone size-full wp-image-93" title="form" src="{{ site.url }}/archive/2009/01/form.png" alt="form" width="302" height="415" /></p>
 <p>The form displays the details of two People (two instances of the Person class). The user inputs data using the above controls then clicks the Validate button to run all the Form's validation rules. Most of the validation rules relate to a single property of the bound object, e.g. FullName cannot be empty. However there is one trick validation rule:</p>
 <p><strong>"If Person 1's age is less than 18, Person 2's age cannot be zero"</strong></p>
 <p>This rule cannot be evaluated by assocaiting it with the Age property of either person. It requires access to both Person instances, hence it really belongs at the scope of the form itself. This is where BindingGroups come in ...</p>
@@ -128,10 +128,10 @@ public class PersonValidationRule : ValidationRule
 </ItemsControl>
 {% endhighlight %}
 <p>The following screenshot shows the form where multiple validation errors are present:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2009/01/errors.png" alt="errors" title="errors" width="292" height="484" class="alignnone size-full wp-image-95" /></p>
+<p><img src="{{ site.url }}/archive/2009/01/errors.png" alt="errors" title="errors" width="292" height="484" class="alignnone size-full wp-image-95" /></p>
 <p><b>Conclusions</b></p>
 <p>So ... which approach is better? BindingGroups or Sacha's ViewModel technique?</p>
 <p>Personally, I don't think there is one best approach - and this blog post is certainly not an attack on Sacha's article, which presents an elegant solution. My intention is to simply show that it is possible to perform validation on multiple objects at a 'wider' scope with the standard WPF framework. </p>
 <p>To quote Mike Hillberg, the <a href="http://blogs.msdn.com/mikehillberg/archive/2008/05/21/Model-see_2C00_-model-do.aspx">Poo is Optional</a>.</p>
-<p>A sample project with the code from this post is available for download: <a href="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2009/01/bindinggroupsglobalvalidation.zip">bindinggroupsglobalvalidation.zip</a>.</p>
+<p>A sample project with the code from this post is available for download: <a href="{{ site.url }}/archive/2009/01/bindinggroupsglobalvalidation.zip">bindinggroupsglobalvalidation.zip</a>.</p>
 <p>Regards, Colin E.</p>

@@ -2,7 +2,7 @@
 id: 1840
 author: Colin Eberhardt
 title: "Suppressing Zoom and Scroll interactions in the Windows Phone 7 WebBrowser Control"
-permalink: /2011/11/suppressing-zoom-and-scroll-interactions-in-the-windows-phone-7-browser-control.html
+oldlink: /blog/colin/2011/11/suppressing-zoom-and-scroll-interactions-in-the-windows-phone-7-browser-control/
 tags: 
 - Windows Phone 7
 - HTML5
@@ -14,7 +14,7 @@ layout: ceberhardt_post
 source: wordpress
 ---
 <p><i>This blog post describes a simple helper class that can be used to supress scrolling and pinch zoom of the Windows Phone 7 WebBrowser control.</i></p>
-<div style="float:right; width:130px; margin:10px; padding:10px; border: solid 1px #aaa; font-size:0.8em;"><img src="http://0.gravatar.com/avatar/458f2e0d08d4114f8b323798cfea141d?s=64&d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&r=G" style="float:left; margin:5px;">Colin Eberhardt is a Scott Logic technical Evangelist and a Technical Architect for Visiblox, suppliers of <a href="http://www.visiblox.com">high-performance WPF and Silverlight charts</a>.<a href="http://www.visiblox.com"><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2012/04/visiblox-white.png"/></a></div>
+<div style="float:right; width:130px; margin:10px; padding:10px; border: solid 1px #aaa; font-size:0.8em;"><img src="http://0.gravatar.com/avatar/458f2e0d08d4114f8b323798cfea141d?s=64&d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&r=G" style="float:left; margin:5px;">Colin Eberhardt is a Scott Logic technical Evangelist and a Technical Architect for Visiblox, suppliers of <a href="http://www.visiblox.com">high-performance WPF and Silverlight charts</a>.<a href="http://www.visiblox.com"><img src="{{ site.url }}/archive/2012/04/visiblox-white.png"/></a></div>
 <p>Developers of Windows Phone 7 application have the full power of IE9 at their disposal in the shape of the <code>WebBrowser </code>control. This control allows you to render both local and remote HTML and JavaScript content within your Silverlight applications. You will find this control used to great effect in RSS readers and Twitter applications such as <a href="(http://hiddenpineapple.com/rowi">Rowi</a>, where websites are viewed from within the application rather than by launching the full-blown IE. The WebBrowser control is also used as the host / container for HTML5 based applications, such as <a href="http://www.scottlogic.co.uk/blog/colin/2011/09/developing-windows-phone-7-html5-apps-with-phonegap/">Property Finder, the PhoneGap-based application I developed recently</a>.</p>
 <p>One problem them people frequently hit against with the <code>WebBrowser </code>control is managing the manipulation events. For example, if you place a WebBrowser control within a Pivot control, how can you pass the horizontal swipe gesture form the WebBrowser to the <a href="(http://stackoverflow.com/questions/5417293/wp7-pivot-control-and-a-webbrowser-control">Pivot</a>?</p>
 <p>With HTML5 applications you have a certain amount of control over the browser's pan and zoom behaviour via the viewport metadata HTML element:</p>

@@ -2,7 +2,7 @@
 id: 568
 author: Colin Eberhardt
 title: "Forcing Event Consumer Cleanup without Weak Events"
-permalink: /2010/02/forcing-event-consumer-cleanup-without-weak-events.html
+oldlink: /blog/colin/2010/02/forcing-event-consumer-cleanup-without-weak-events/
 tags: 
 - memory leaks
 categories: 
@@ -26,7 +26,7 @@ textBox.TextChanged -= TextBox_TextChanged;
 {% endhighlight %}
 <p>Note the second examples use the shortened syntax where the delegate instance, <a href="http://msdn.microsoft.com/en-us/library/system.eventhandler.aspx">EventHandler</a>, is not explicitly constructed but added by the compiler, there is <a href="http://stackoverflow.com/questions/550703/c-difference-between-anevent-and-new-eventhandleranevent/550711">no difference semantically</a>.</p>
 <p>By subscribing to an event the following relationships are constructed, with the direction of reference as indicated:</p>
-<p><a href="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2010/02/NormalEvent.png"><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2010/02/NormalEvent.png" alt="" title="NormalEvent" width="294" height="54" class="aligncenter size-full wp-image-581" /></a></p>
+<p><a href="{{ site.url }}/archive/2010/02/NormalEvent.png"><img src="{{ site.url }}/archive/2010/02/NormalEvent.png" alt="" title="NormalEvent" width="294" height="54" class="aligncenter size-full wp-image-581" /></a></p>
 <p>As you can see from the above, adding an handler to an event creates a strong reference from <strong>source</strong> to <strong>listener</strong>. This does not cause significant problems if the listener has a shorter or the same lifecycle that the source, as is the case where you add event handlers for controls in a Windows Form for example. However, if the source has a longer lifecycle than the listener, and the listener fails to remove its event subscription, a memory leak will occur.</p>
 <p>In practice this kind of problem often occurs in modular applications where there exists some sort of Shell or Environment that raises events or acts as a <a href="http://en.wikipedia.org/wiki/Mediator_pattern">mediator</a>. Within this hosting environment their exists numerous loosely coupled modules which by necessity have a shorter lifecycle than their container. If a module subscribes to events from the Shell but fails to unsubscribe at the end of its life a memory leak occurs. In complex systems this happens surprisingly often!</p>
 <p>A common solution to this problem is to use Weak Events. These are events where either the reference between source and listener is <a href="http://en.wikipedia.org/wiki/Weak_reference">weak</a>, meaning that listener can be garbage collected if it is only referenced via this event handler.  An early implementation of this pattern was developed for WPF and is provided by <a href="http://blogs.msdn.com/greg_schechter/archive/2004/05/27/143605.aspx">Greg Schechter on his blog</a>. There is also an excellent <a href="http://www.codeproject.com/KB/cs/WeakEvents.aspx">codeproject article by Daniel Grunwald</a> which details many different approaches to creating weak event listeners and sources.</p>
@@ -80,6 +80,6 @@ MemoryLeakExamples.StockPriceViewer, Text: StockPriceViewer]
 </pre>
 <p>This message tells us how many classes still have referenced event handlers, and their type. This should make it very easy to pinpoint the memory leak.</p>
 <p>The sourcecode for this blog post includes a very simple WinForms application where a Stock Price service raises events that are handled by simple UI modules that can be created and destroyed by the user. Run it in DEBUG mode to see the memory leaks! Look in StockPriceViewer to see how to fix the problem.</p>
-<p><a href="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2010/02/leak.png"><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2010/02/leak-300x178.png" alt="" title="leak" width="300" height="178" class="aligncenter size-medium wp-image-583" /></a></p>
-<p>Download the sourcecode: <a href='http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2010/02/MemoryLeakExample.zip'>MemoryLeakExample.zip</a></p>
+<p><a href="{{ site.url }}/archive/2010/02/leak.png"><img src="{{ site.url }}/archive/2010/02/leak-300x178.png" alt="" title="leak" width="300" height="178" class="aligncenter size-medium wp-image-583" /></a></p>
+<p>Download the sourcecode: <a href='{{ site.url }}/archive/2010/02/MemoryLeakExample.zip'>MemoryLeakExample.zip</a></p>
 <p>Regards, Colin E.</p>

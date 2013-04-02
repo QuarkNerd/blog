@@ -2,7 +2,7 @@
 id: 764
 author: Colin Eberhardt
 title: "Developing a (very) Lookless Silverlight Radial Gauge Control"
-permalink: /2010/08/developing-a-very-lookless-silverlight-radial-gauge-control.html
+oldlink: /blog/colin/2010/08/developing-a-very-lookless-silverlight-radial-gauge-control/
 tags: 
 - attached behaviour
 - multibinding
@@ -16,7 +16,7 @@ source: wordpress
 <p>Today I had to get up far too early in order to catch an early morning flight to Copenhagen with a connection in Amsterdam. What to do for the six hours I would be travelling? Armed with a netbook and Visual Studio 2010 Express I thought it would be fun to have a go at developing a Silverlight gauge control. I know that there are already one or two free ones out there, with <a href="http://www.codeproject.com/KB/silverlight/circulargaugecontrol.aspx">a decent looking one available on codeproject</a>, however, it still felt like a good way to pass the time!</p>
 <p>In order to make things a little more challenging I wanted to create a control that was truly lookless. So, what do I mean by this? Firstly a gauge control in its simplest sense displays the location of some indicator between a maximum and minimum value. There is nothing inherently circular about a gauge, thermometers are a good example of a linear gauge. So, I don't want any 'circular' logic in the control itself. Secondly, custom controls often have certain expectations about the presence of named elements within their template. By this I mean that the template must contain, for example, a Path element called 'needle' which the control code will manipulate (The gauge published in the codeproject article above requires the presence of four named elements in the template). This forces certain constraints regarding how the control can be templated, this isn't really lookless is it?</p>
 <p>The following example shows the gauge control which I created, and the rest of this post describes the implementation:</p>
-<div><object width="300" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2010/08/GaugeControlOne.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div><object width="300" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.url }}/archive/2010/08/GaugeControlOne.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 {% highlight xml %}
 <local:GaugeControl Value="65" Width="200" Height="200"  
                     Maximum="100" Minimum="50"
@@ -60,7 +60,7 @@ public override void OnApplyTemplate()
   </Ellipse.Stroke>
 </Ellipse>
 {% endhighlight %}
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2010/08/face.jpg" alt="" title="face" width="222" height="207" class="aligncenter size-full wp-image-765" /></p>
+<p><img src="{{ site.url }}/archive/2010/08/face.jpg" alt="" title="face" width="222" height="207" class="aligncenter size-full wp-image-765" /></p>
 <h2>Adding the Needle</h2>
 <p>The next thing I added to the control was a needle. This is rendered using a simple Path with a LinearGradient in order to give it some sense of depth. I want the needle to have a length of approximately 70% of the gauge's radius, a simple way to achieve this is to construct it within a Grid that uses 'star' widths / heights to provide a proportional layout and configure the Path to stretch to fill the cell it occupies:</p>
 {% highlight xml %}
@@ -93,7 +93,7 @@ public override void OnApplyTemplate()
 </Grid>
 {% endhighlight %}
 <p>Here you can see how the needle is scaled by its parent Grid:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2010/08/needle.jpg" alt="" title="needle" width="237" height="232" class="aligncenter size-full wp-image-768" /></p>
+<p><img src="{{ site.url }}/archive/2010/08/needle.jpg" alt="" title="needle" width="237" height="232" class="aligncenter size-full wp-image-768" /></p>
 <p>Rotating the needle to reflect the current Gauge Value is achieved quite simply via RotateTransform. However, this needs to be converted into a rotation angle which depends on the Gauge Maximum /Minimum values together with the overall angle of sweep on the gauge. I initially approach this problem by applying bindings via value converters and <a href="http://www.scottlogic.co.uk/blog/colin/2010/08/silverlight-multibinding-updated-adding-support-for-elementname-and-twoway-binding/">multibindings</a>, however I found myself repeating the same conversion logic in numerous places within the template in order to render the ticks etc... Ideally the angle of rotation would be something that the template could bind to. The template DataContext is bound to the Gauge control itself, however as stated earlier I do not want 'circular' concepts to leak into the control.</p>
 <h2>An attached View Model</h2>
 <p>The solution I came up with for this problem was to create a view model that lives entirely within the control template that acts as an adapter for the Gauge, supplementing its properties with the needed 'circular' concepts. In keeping with my aims I could not instantiate this view model within the Gauge control itself, so instead it is created via an attached behaviour within the control template:</p>
@@ -224,7 +224,7 @@ private double ValueToAngle(double value)
   </Path.Effect>
 </Path>
 {% endhighlight %}
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2010/08/rotatedNeedle.jpg" alt="" title="rotatedNeedle" width="212" height="210" class="aligncenter size-full wp-image-769" /></p>
+<p><img src="{{ site.url }}/archive/2010/08/rotatedNeedle.jpg" alt="" title="rotatedNeedle" width="212" height="210" class="aligncenter size-full wp-image-769" /></p>
 <h2>Adding a Scale</h2>
 <p>The gauge control needs to have tick marks and labels render around the dial face at regularly spaced intervals between the Maximum and Minimum values. Here the view model comes into its own by providing a list of 'Tick' value objects, each of which provide the view with the required information to render tick marks and their labels:</p>
 {% highlight csharp %}
@@ -316,15 +316,15 @@ public double GridHeight
 }
 {% endhighlight %}
 <p>Adding tick labels and minor tick marks both use a simple variation on the above described approach:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2010/08/scale.jpg" alt="" title="scale" width="212" height="209" class="aligncenter size-full wp-image-770" /></p>
+<p><img src="{{ site.url }}/archive/2010/08/scale.jpg" alt="" title="scale" width="212" height="209" class="aligncenter size-full wp-image-770" /></p>
 <p>I also added a 'qualitative value' range which renders a colour coded band beneath the needle. Again, this uses variations on the same approach, with the view model adapting the properties of the Gauge control and the template binding to these properties, together with the Grid size information in order to provide any required scaling.</p>
 <p>The last flourish was to add a 'glass' effect to the Gauge. This was 'borrowed' directly from this fantastic codeproject article on creating '<a href="http://www.codeproject.com/KB/WPF/glassbuttons.aspx">round glassy buttons</a>'.</p>
 <p>The finished Gauge is shown below, where its value is bound to a Slider control:</p>
-<div><object width="300" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2010/08/GaugeControlTwo.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div><object width="300" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.url }}/archive/2010/08/GaugeControlTwo.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <h2>Conclusions</h2>
 <p>I am pretty happy with how this Gauge control turned out, visually I think it looks pretty good. I am also happy that I have succeeded in my initial aim of making it completely lookless. The attached view model within the control template is an interesting approach that moves view specific concepts (in this case angular properties) into the view, which is where the belong.</p>
 <p>This radial Gauge control could certainly be improved to allow a more flexible scale calculation. Also, the RadialGaugeControlViewModel could also expose some of the view specific properties such as the radial sweep angle (currently hard-coded to 300 degrees) allowing them to be set in the template. For now, I think I will leave this control as it is.</p>
 <p>Tomorrow I am on another early flight, this time heading back home. I might take this as an opportunity to provide a view for this control making use of a different attached view model. </p>
-<p>You can download the full source for this article: <a href='http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2010/08/GaugeControl.zip'>GaugeControl.zip</a></p>
+<p>You can download the full source for this article: <a href='{{ site.url }}/archive/2010/08/GaugeControl.zip'>GaugeControl.zip</a></p>
 <p>(Apologies for the lack of project structure, this code was written using VS 2010 Express).</p>
 <p>Regards, Colin E.</p>

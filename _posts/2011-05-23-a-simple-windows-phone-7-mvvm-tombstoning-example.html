@@ -2,7 +2,7 @@
 id: 1449
 author: Colin Eberhardt
 title: "A Simple Windows Phone 7 MVVM Tombstoning Example"
-permalink: /2011/05/a-simple-windows-phone-7-mvvm-tombstoning-example.html
+oldlink: /blog/colin/2011/05/a-simple-windows-phone-7-mvvm-tombstoning-example/
 tags: 
 - codeproject
 - mvvm
@@ -15,7 +15,7 @@ source: wordpress
 ---
 <p><em>This blog post shows how to implement tombstoning within a Windows Phone 7 application that following the Model-View-ViewModel pattern.</em></p>
 <p><b>UPDATE:</b> I have published a <a href="http://www.scottlogic.co.uk/blog/colin/2011/10/a-windows-phone-7-1-mango-mvvm-tombstoning-example/" title="A Windows Phone 7.1 (Mango) MVVM Tombstoning Example">update to this blog post to handle the new dormant state in Windows Phone 7.1 (Mango)</a>.</p>
-<div style="float:right; width:130px; margin:10px; padding:10px; border: solid 1px #aaa; font-size:0.8em;"><img src="http://0.gravatar.com/avatar/458f2e0d08d4114f8b323798cfea141d?s=64&d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&r=G" style="float:left; margin:5px;">Colin Eberhardt is a Scott Logic technical Evangelist and a Technical Architect for Visiblox, suppliers of <a href="http://www.visiblox.com">high-performance WPF and Silverlight charts</a>.<a href="http://www.visiblox.com"><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2012/04/visiblox-white.png"/></a></div>
+<div style="float:right; width:130px; margin:10px; padding:10px; border: solid 1px #aaa; font-size:0.8em;"><img src="http://0.gravatar.com/avatar/458f2e0d08d4114f8b323798cfea141d?s=64&d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&r=G" style="float:left; margin:5px;">Colin Eberhardt is a Scott Logic technical Evangelist and a Technical Architect for Visiblox, suppliers of <a href="http://www.visiblox.com">high-performance WPF and Silverlight charts</a>.<a href="http://www.visiblox.com"><img src="{{ site.url }}/archive/2012/04/visiblox-white.png"/></a></div>
 <p>I have to admit Windows Phone 7 tombstoning had me in a bit of a muddle for a while, so many places to store state, a confusing lifecycle and navigation model. Most of the blog posts I read either detailed tombstoning for non-MVVM applications, or described how to use or adapt an existing MVVM framework for the purposes of tombstoning. I only really understood the ins-and-outs of tombstoning after writing my own simple MVVM application. I thought I would share this application here in this blog in the hope that it might help other similarly confused developers!</p>
 <h2>What is tombstoning?</h2>
 <p>Mobile phones have limited resources compared to desktop computers, for that reason most smartphones OSs limit the number of applications that are currently loaded into memory and executing. For Windows Phone 7 this limit is one!</p>
@@ -24,7 +24,7 @@ source: wordpress
 <p>This probably sounds like a lot of work, and to be honest, it is. You might be wondering if the new multi-tasking capabilities that the Mango update will bring (demoed at the<a href="http://channel9.msdn.com/Events/MIX/MIX11/KEY02"> MIX11 day 2 keynote</a> and to be released probably late 2012) will mean the that tombstoning will disappear. I have not seen any official confirmation one way or the other, however, personally I think you will still need to tombstone in Mango. It is most likely that the number of concurrent applications will be limited and applications will still need to tombstone as a result.</p>
 <h2>The Example Application</h2>
 <p>The example application I am using for this blog post is illustrated below. The application displays a list of tweets, clicking on a tweet displays it full screen. Twitter applications are the new Hello World!</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/05/MVVMExampleApplication.png" alt="" title="MVVMExampleApplication" width="600" height="456" class="aligncenter size-full wp-image-1453" /></p>
+<p><img src="{{ site.url }}/archive/2011/05/MVVMExampleApplication.png" alt="" title="MVVMExampleApplication" width="600" height="456" class="aligncenter size-full wp-image-1453" /></p>
 <h2>The ViewModel</h2>
 <p>The view model is pretty trivial, each tweet is represented by a FeedItemViewModel:</p>
 {% highlight csharp %}
@@ -210,7 +210,7 @@ public partial class FeedItemView : PhoneApplicationPage
 {% endhighlight %}
 <h2>Tombstoning</h2>
 <p>With the above code our simple application works just fine, you can navigate the list of tweets, click on one to see it in the <code>FeedItemView</code> page, then use the back button to return to the original list of tweets. It would be great if our job was complete at this point, however, the application fails miserably if it is tombstoned. To test this, load the application, then hit the start button, followed by the back button to return to the application. This is what you are met with:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/05/TombstoningFail.png" alt="" title="TombstoningFail" width="700" height="343" class="aligncenter size-full wp-image-1465" /></p>
+<p><img src="{{ site.url }}/archive/2011/05/TombstoningFail.png" alt="" title="TombstoningFail" width="700" height="343" class="aligncenter size-full wp-image-1465" /></p>
 <p>Tombstoning terminates the application, therefore the ViewModel and all the state it contains is lost. Hence we return to an empty list.</p>
 <p>So how do we fix this?</p>
 <p>When your application gets tombstoned a <code>Deactivated</code> event is fired before your application terminates, and when the user navigates back to your application, a new instance is created an the <code>Activated</code> event is fired. The Visual Studio WP7 application template helpfully adds event handlers for these events on your <code>App</code> class.</p>
@@ -234,7 +234,7 @@ private void Application_Activated(object sender, ActivatedEventArgs e)
 }
 {% endhighlight %}
 <p>With this simple change the application now returns to its previous state when the user hits the back button. Note that this also works when the application is tombstoned on the <code>FeedItemView</code> page:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/05/TombstoningWin.png" alt="" title="TombstoningWin" width="700" height="340" class="aligncenter size-full wp-image-1468" /></p>
+<p><img src="{{ site.url }}/archive/2011/05/TombstoningWin.png" alt="" title="TombstoningWin" width="700" height="340" class="aligncenter size-full wp-image-1468" /></p>
 <p>This is because when the application is re-activated, the <code>NavigationService</code> Journal which records the pages that have been visited is also restored. The 'back stack' contains the URI of each page which in our case contains the querystring which holds the Id of the tweet which is currently being viewed.</p>
 <h2>Persisting State Between Sessions</h2>
 <p>In the above example, the application state was saved as tomstoned state. But what if the user simply hits the back button until they navigate back out of our application? In this context your application is closed, rather than tombstoned. The <code>PhoneApplicationService.Current.State</code> dictionary which we used to store our view model is not persisted in this context. For long-term persistence you should save your data to the phones isolated storage. </p>
@@ -290,7 +290,7 @@ private void Application_Launching(object sender, LaunchingEventArgs e)
 <p>So, now our application saves state during tomstoning and to isolated storage when it exits. Surely we're all done now?</p>
 <p>Well ... almost.</p>
 <p>If you start the application and scroll down the list of tweets, then hit the start button, tomstoning the application, then hit the back button to re-activate it our tweets are all there, but our list is scrolled back to the top again:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/05/ScrollFail.png" alt="" title="ScrollFail" width="600" height="264" class="aligncenter size-full wp-image-1473" /></p>
+<p><img src="{{ site.url }}/archive/2011/05/ScrollFail.png" alt="" title="ScrollFail" width="600" height="264" class="aligncenter size-full wp-image-1473" /></p>
 <p>Why is this? Well, when you simply navigate back to from one page within your application to another, the original page is still present in memory and as a result, any state held by the controls within the application UI is maintained. </p>
 <p>However, as we have seen already, when an application is tomstoned it is terminated. The only state that remains is that which you manually place into the <code>State</code> dictionary. Therefore, in order to maintain the scroll location, which we should do, we need to determine its location and store it in the tombstone state.</p>
 <p>A while back I blogged about <a href="http://www.scottlogic.co.uk/blog/colin/2010/07/exposing-and-binding-to-a-silverlight-scrollviewer%E2%80%99s-scrollbars/">exposing a <code>ScrollViewers</code> scroll location as an attached property</a> in order to permit databinding. This approach could be used here to bind the scroll location to a property on the view model. However, in this case I think something a bit more lightweight is more appropriate.</p>
@@ -349,5 +349,5 @@ protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventA
 <h2>Conclusions</h2>
 <p>This blog post feels like it has turned into something of an epic! as I mentioned in the introduction tomstoning within WP7 applications is complex and it is easy to get confused with all the various places where state can be stored (It even seems to have <a href="http://jesseliberty.com/2011/04/08/tombstoning-and-mvvm/">Silverlight guru Jesse Liberty in a bit of a muddle!</a>).</p>
 <p>It is worth noting that this example tombstones the entire ViewModel state, and in more complex applications it might be more appropriate to tombstone an abstraction of the ViewModel, especially if it is not serializable. However, I think the simple example that this blog presents is still a useful starting point for understanding the tombstoning process.</p>
-<p>You can download the sourcecode for this example application: <a href='http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/05/WP7MVVMTombstone.zip'>WP7MVVMTombstone.zip</a></p>
+<p>You can download the sourcecode for this example application: <a href='{{ site.url }}/archive/2011/05/WP7MVVMTombstone.zip'>WP7MVVMTombstone.zip</a></p>
 <p>Regards, Colin E.</p>

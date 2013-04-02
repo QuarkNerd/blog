@@ -2,7 +2,7 @@
 id: 1662
 author: Colin Eberhardt
 title: "Windows 8 - An OS of two halves."
-permalink: /2011/09/windows-8-an-os-of-two-halves.html
+oldlink: /blog/colin/2011/09/windows-8-an-os-of-two-halves/
 tags: 
 - News
 - WPF
@@ -21,22 +21,22 @@ source: wordpress
 <p>To take the Windows OS to a tablet it needs to be stripped-down, made faster and support multi-touch (or touch-first - a new Microsoft buzzword) and with Windows 8 Microsoft have done just that. With the requirements of a tablet interface being so different to a desktop, how have Microsoft reconciled these differences? The answer is a little surprising ... <em> they haven't</em>! They could have launched a dedicated Tablet Windows OS, just as they have done on the mobile with Windows Phone 7, but instead they have launched a single OS that works for both tablet and desktop. As a result it has something of a split personality. You can choose to run either the Metro or the 'classic' desktop UI on your tablet computer and you have exactly the same choice on your desktop.</p>
 <h2>An end-user perspective</h2>
 <p>The Windows 8 user interface uses the same Metro style that Microsoft introduced with Windows Phone 7, bright colours, clean edges, a lack of drop-shadows and other adornments. The style is heavily influenced by fonts and designs used for road and street-signs. The same concepts of clarity-at-a-distance translates very well to a small smartphone screen and should be equally at home on the tablet.</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/09/windows8.jpg" alt="" title="windows8" width="560" height="315" class="aligncenter size-full wp-image-1663" /></p>
+<p><img src="{{ site.url }}/archive/2011/09/windows8.jpg" alt="" title="windows8" width="560" height="315" class="aligncenter size-full wp-image-1663" /></p>
 <p>When applications are launched they run full-screen, with a similar multi-tasking model to Windows Phone 7 where  hidden applications are suspended. These features, combined with the fast shutdown / restart times make sense for tablet users where limiting the work that the processor does will significantly enhance battery life.</p>
 <p>You can run multiple applications side-by-side in a split-screen mode:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/09/windows-8-split-screen.jpg" alt="" title="windows-8-split-screen" width="560" height="335" class="aligncenter size-full wp-image-1664" /></p>
+<p><img src="{{ site.url }}/archive/2011/09/windows-8-split-screen.jpg" alt="" title="windows-8-split-screen" width="560" height="335" class="aligncenter size-full wp-image-1664" /></p>
 <p>The current preview of Windows 8 has a few of the familiar applications available in the new Metro-desktop, these include IE which is now chromeless, i.e. it is permanently in full-screen mode. Gestures are used to reveal the open tabs or URL. Notably the Metro IE does not support any plugins, i.e. Flash, Silverlight - more on this later!</p>
 <p>Metro applications for Windows 8 are distributed via the Windows Marketplace in much the same way as they are for Windows Phone (and iPad, Android etc...). </p>
 <p>The Windows 8 UI clearly has tablets in mind and recent reviews by <a href="http://www.engadget.com/2011/09/13/windows-8-for-tablets-hands-on-preview/">Engadget</a> and <a href="http://gizmodo.com/5839665/windows-8-slate-hands-on-its-fantastic-but-dont-sell-your-ipad">Gizmodo</a> seem to indicate that the experience is very good and agree that when released it could be a serious competitor to the iPad.</p>
 <p>However, hidden behind the glossy Windows 8 UI sits the more traditional Windows 7 style desktop. Simply click (or touch) the desktop button and the old-familiar Windows desktop appears. It almost feels like the desktop is an app running within the new Metro UI - you can also run a split screen which combines the Metro and desktop UIs:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/09/MetroDesktop.jpg" alt="" title="MetroDesktop" width="560" height="315" class="aligncenter size-full wp-image-1666" /></p>
+<p><img src="{{ site.url }}/archive/2011/09/MetroDesktop.jpg" alt="" title="MetroDesktop" width="560" height="315" class="aligncenter size-full wp-image-1666" /></p>
 <p>Interestingly if you <em>want </em>to run IE with plugins, there is a fully-featured version of IE present on the desktop. Try explaining these differences to your grandmother!</p>
 <p>For a tablet, Windows 8 gives you the best of both worlds, an immersive and tactile Metro interface, plus the old-familiar Windows desktop.</p>
 <p>On the desktop, Windows 8 does feel a bit strange. Metro applications are designed to work with the mouse and the keyboard, so it functions just fine, however, on a desktop monitor the Metro UI feels like a bit large and a touch gimmicky. The Metro concepts work well for small screens, but in my opinion are less effective on a large desktop monitor, especially in the absence of touch. I doubt it will make a big impact for desktop users, but at least they have the choice! When used on a PC with multiple monitors the new Metro UI is confined to a single screen, again further illustrating its tablet focus.</p>
 <h2>A developer perspective</h2>
 <p>Windows 8 marks a radical change from the outside, but what about on the inside? What is the developer story?</p>
 <p>One of the most important diagrams revealed in the keynote is the Windows 8 architecture diagram:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/09/Windows8Architecture.jpg" alt="" title="Windows8Architecture" width="550" height="309" class="aligncenter size-full wp-image-1667" /></p>
+<p><img src="{{ site.url }}/archive/2011/09/Windows8Architecture.jpg" alt="" title="Windows8Architecture" width="550" height="309" class="aligncenter size-full wp-image-1667" /></p>
 <p>It is clear that the split personality of Windows 8 runs very deep. In this diagram you can see that Metro style apps and desktop apps share the kernel, but nothing else. This is a pretty significant change in Windows architecture; Metro apps are finally free of the Win32 APIs which .NET has been built upon.</p>
 <p>The APIs for developing Metro apps reside within the WinRT. A few keys things to know about this new architecture are:</p>
 <ul>
@@ -63,7 +63,7 @@ source: wordpress
 <p>One other point worth considering is 'reach'. It will take a long time before everyone is running a Windows 8 PC, so if you choose to deliver your application as a Metro app, you are restricting yourself just to the Windows 8 user-base. However, if you are targeting the Windows tablet, you can of course guarantee that they will run Windows 8.</p>
 <h2>Conclusions</h2>
 <p>Windows 8 presents a significant change in the way we develop Windows applications.  The split personality of the Windows 8 user interface and architecture is going to cause confusion on many levels.</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/09/TwoHeaded.jpg" alt="" title="TwoHeaded" width="461" height="318" class="aligncenter size-full wp-image-1668" /></p>
+<p><img src="{{ site.url }}/archive/2011/09/TwoHeaded.jpg" alt="" title="TwoHeaded" width="461" height="318" class="aligncenter size-full wp-image-1668" /></p>
 <p>The technical implications of WinRT and how it relates to .NET are slowly starting to become clear, thanks to great blog posts like <a href="http://tirania.org/blog/archive/2011/Sep-15.html">"WinRT Demystified"</a>.</p>
 <p>Personally what I think will take a little bit longer to understand is how we design applications for Windows 8, as we start to discover what works well in Metro, what should remain on the desktop and what we deliver to both.</p>
 <p>Regards, Colin E.</p>

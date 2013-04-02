@@ -2,7 +2,7 @@
 id: 117518
 author: Nicholas Wolverson
 title: "Mathematical-style plots: Retemplating Visiblox Charts"
-permalink: /2011/06/mathematical-style-plots-retemplating-visiblox-charts.html
+oldlink: /2011/06/mathematical-style-plots-retemplating-visiblox-charts/
 tags: 
 categories: 
 - blog
@@ -12,7 +12,7 @@ source: site
 <p>This post demonstrates how to re-template a Visiblox Chart to render data with mathematical-style "on-chart" axes.<!--more--></p>
 <p>Mathematical charts are usually drawn around the zero point, with the X and Y axes crossing at 0,0, and the plot drawn on top of the axes. In other fields, quantities which are never negative are plotted, and this means the zero point (or origin) may be the bottom left of the chart. Otherwise 0 may not be plotted, or horizontal axis may be time or some discrete scale. In each case the axes are fixed at the outside of the chart.</p>
 <p>Visiblox Charts supports this latter type of chart out of the box. What about the mathematical axes-crossing style? At the moment that's not supported, but here I'll show you how simple it is to achieve this effect by re-templating the chart.</p>
-<div style="text-align: center;"><img src="http://www.scottlogic.co.uk/wp-content/uploads/2011/06/MidAxis-Sin.png" alt="Sin chart" title="Visiblox graph of y=sin(x) with on-chart axes" /></div>
+<div style="text-align: center;"><img src="{{ site.url }}/archive/2011/06/MidAxis-Sin.png" alt="Sin chart" title="Visiblox graph of y=sin(x) with on-chart axes" /></div>
 <h4>Templating a Visiblox Chart</h4>
 <p>An Visiblox chart is an instance of the Chart control. As with any WPF/Silverlight custom control, this can be retemplated to alter its visual appearence. Of course as the control has all the rendering logic to draw complex charts, there is a limit to what you can achive, but it's surprising how much can be done to alter the layout of the  chart. (Other examples might include embedding some custom data display within the chart.)</p>
 <p>Firstly, consult the <a href="http://www.visiblox.com/docs/">API documentation</a> to see the default template of the chart (the Visiblox API documentation reproduces default or sample templates for most templatable controls, but in general you can find this out for yourself using a tool such as <a href="http://blog.wpfwonderland.com/2007/01/02/wpf-tools-stylesnooper/">StyleSnooper</a> or Reflector). You'll see that there is some complexity to support axes on all four sides of the chart, and other nice default behaviour - but here we'll cut back to basics.</p>
@@ -99,4 +99,4 @@ private void RepositionAxesEvent(object sender, EventArgs e)
 {% endhighlight %}
 <h4>Conclusion</h4>
 <p>In this article I showed how to re-template a Visiblox chart to render its axes within the main plot area. I didn't consider many features Visiblox provides, such as a legend or multiple axes, but for those that need it, a custom template can provide flexibility to meet your particular situation.</p>
-<p>You can download source for this example <a href="http://www.scottlogic.co.uk/wp-content/uploads/2011/05/MidAxis.zip">in this project</a>.</p>
+<p>You can download source for this example <a href="{{ site.url }}/archive/2011/05/MidAxis.zip">in this project</a>.</p>

@@ -2,7 +2,7 @@
 id: 726
 author: Colin Eberhardt
 title: "A Universal Value Converter for WPF"
-permalink: /2010/07/a-universal-value-converter-for-wpf.html
+oldlink: /blog/colin/2010/07/a-universal-value-converter-for-wpf/
 tags: 
 - WPF
 - valueconverter
@@ -49,7 +49,7 @@ public class ColorToBrushConverter : IValueConverter
 {% endhighlight %}
 <p>If you search google for <a href="http://www.google.co.uk/search?q=colortobrushconverter">ColorToBrushConverter</a>, you can see that there are a great many people who have implemented this simple little converter. But what happens if you want to bind to a string representation of color? or you want to bind to a stroke dash property or path geometry? Whilst value converters are simple to implement, it is a shame that you have to create so many of them!</p>
 <h2>A Universal Value Converter</h2>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2010/07/816000_pocket_knife.jpg" alt="" title="816000_pocket_knife" width="300" height="199" class="aligncenter size-full wp-image-728" /></p>
+<p><img src="{{ site.url }}/archive/2010/07/816000_pocket_knife.jpg" alt="" title="816000_pocket_knife" width="300" height="199" class="aligncenter size-full wp-image-728" /></p>
 <p>Wouldn't it be great to have a single value converter that has the same flexibility as the XAML parser? It is actually very simple to create such as converter (and after creating probably my 5th ColorToBrushConverter I have no idea why it took so long before I realised this!). The .NET framework has had an API for conversion between different types via <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.typeconverter.aspx">TypeConverters</a> for a long time. They used extensively in .NET technologies for databinding and designer support, and much more.</p>
 <p>A value converter can obtain a suitable TypeConverter for the target property then perform the required conversion:</p>
 {% highlight csharp %}
@@ -105,7 +105,7 @@ public class UniversalValueConverter : IValueConverter
 <TextBox x:Name="dashText"                  
             Text="2 2 4 5"/>
 {% endhighlight %}
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2010/07/universal.png" alt="" title="universal" width="395" height="345" class="aligncenter size-full wp-image-735" /></p>
+<p><img src="{{ site.url }}/archive/2010/07/universal.png" alt="" title="universal" width="395" height="345" class="aligncenter size-full wp-image-735" /></p>
 <p>For the first conversion, string to brush, you can use named colors, and the hex notation in its range of abbreviated forms (#AF7, #AAFF77, #FFAAFF77 ...). You can also use this converter to convert from string to their corresponding enum values, for example binding the string "Collapsed" to the Visbility property.</p>
 <h2>Value conversion in code behind</h2>
 <p>The above converter really is swiss army knife for bindings, but what about code-behind? You are still constrained by the type requirements of the property being set:</p>
@@ -136,5 +136,5 @@ rect4.SetValueEx(Rectangle.FillProperty, new SolidColorBrush(Colors.Orange));
 {% endhighlight %}
 <h2>... and Silverlight?</h2>
 <p>Unfortunately Silverlight lacks the TypeDescriptor class which is used to obtain TypeConveters. I am guessing that type conversion within Silverlight is 'baked-in' to the XAML parser, which means that it is not possible to re-use this logic :-(</p>
-<p>You can download the full source for this blog post: <a href='http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2010/07/UniversalValueConverter.zip'>UniversalValueConverter.zip</a></p>
+<p>You can download the full source for this blog post: <a href='{{ site.url }}/archive/2010/07/UniversalValueConverter.zip'>UniversalValueConverter.zip</a></p>
 <p>Regards,Colin E.</p>

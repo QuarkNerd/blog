@@ -2,7 +2,7 @@
 id: 162749
 author: Nicholas Wolverson
 title: "Async, where can I use it?"
-permalink: /2012/11/async-where-can-i-use-it.html
+oldlink: /2012/11/async-where-can-i-use-it/
 tags: 
 categories: 
 - blog
@@ -31,7 +31,7 @@ return page.Length;
 <p>(The <a href="http://msdn.microsoft.com/en-us/library/system.net.http.httpclient.aspx"><code>HttpClient</code></a> class is also added in .NET 4.5, as per the WinRT version above).</p>
 <p>The new WP8 SDK also supports async/await, but doesn't come with the library updates to add Task-based asynchronous methods to existing classes like WebClient. You can wrap them up in an extension method yourself (an example is <a href="http://stackoverflow.com/a/13174270/513410">here</a>), or it has been done for you in <a href="https://nuget.org/packages/Microsoft.Bcl.Async/1.0.12-beta">this library</a> (but more on this below).</p>
 <h3>Portable Library: WinRT, .NET 4.5, and WP8</h3>
-<p><a href="http://www.scottlogic.co.uk/wp-content/uploads/2012/11/PCL-async.png"><img src="http://www.scottlogic.co.uk/wp-content/uploads/2012/11/PCL-async-281x300.png" alt="" title="PCL-async" width="281" height="300" class="alignright size-medium wp-image-162773" /></a>Another feature added with VS2012 is the portable class library. This allows creation of an assembly targeting multiple .NET platforms, making use of the subset of functionality common to both (with some fancy type forwarding mapping features that are present in different guises).</p>
+<p><a href="{{ site.url }}/archive/2012/11/PCL-async.png"><img src="{{ site.url }}/archive/2012/11/PCL-async-281x300.png" alt="" title="PCL-async" width="281" height="300" class="alignright size-medium wp-image-162773" /></a>Another feature added with VS2012 is the portable class library. This allows creation of an assembly targeting multiple .NET platforms, making use of the subset of functionality common to both (with some fancy type forwarding mapping features that are present in different guises).</p>
 <p>In this case, if the portable library is configured to only target those platforms that natively support await/async, then the compiler will recognise this, and allow the use of those keywords (and the associated classes/methods which are common to both).</p>
 <p>For WinRT+.NET 4.5, the previous example still works:</p>
 {% highlight csharp %}
@@ -42,7 +42,7 @@ return page.Length;
 <h3>.NET 4, Silverlight 4-5, WP7.5</h3>
 <p>Async/await requires two things, compiler support, and API support in the target platform. This API support is of course not available in versions released before the feature existed - so Microsoft released the <a href="http://www.microsoft.com/en-us/download/details.aspx?id=29576">Async Targetting Pack</a> to allow targeting .NET 4.0 and Silverlight 5. I started writing this blog post with the understanding that there were some problems with this - in particular, the lack of support for using async within portable libraries was very disappointing, a real shame that the two new exciting features didn't work together convincingly.</p>
 <p>Fortunately the ATP is being updated as <a href="https://nuget.org/packages/Microsoft.Bcl.Async">Microsoft.Bcl.Async</a>, currently in pre-release and available from NuGet. Not only does this support .NET 4.0 and Silverlight 5 as per the previous ATP, it extends support to SL4, and WP7.5 too. When this required API support is present, Visual Studio will recognise that the await/async keywords are valid, and the compiler will generate the appropriate output.</p>
-<p><a href="http://www.scottlogic.co.uk/wp-content/uploads/2012/11/PCL-target-async.png"><img src="http://www.scottlogic.co.uk/wp-content/uploads/2012/11/PCL-target-async-300x292.png" alt="" title="PCL-target-async" width="300" height="292" class="alignright size-medium wp-image-162774" /></a></p>
+<p><a href="{{ site.url }}/archive/2012/11/PCL-target-async.png"><img src="{{ site.url }}/archive/2012/11/PCL-target-async-300x292.png" alt="" title="PCL-target-async" width="300" height="292" class="alignright size-medium wp-image-162774" /></a></p>
 <p>The killer feature is that this support extends to portable class libraries targeting those platforms. Just install this with NuGet and Visual Studio will recognise the async/await keywords in your portable library. What's more, as well as adding the Task type to those platforms where it was not already present, extension methods are added to existing types to provide Task-based versions of existing methods (eg when targeting WP or .NET 4.0, the WebClient method mentioned above). The TaskEx class is also provided to add the various utilities present on Task on the new platforms, for example:</p>
 {% highlight csharp %}
 public async Task<int> Test()

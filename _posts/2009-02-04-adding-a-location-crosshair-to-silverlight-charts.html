@@ -2,7 +2,7 @@
 id: 99
 author: Colin Eberhardt
 title: "Adding a Location Crosshair to Silverlight Charts"
-permalink: /2009/02/adding-a-location-crosshair-to-silverlight-charts.html
+oldlink: /blog/colin/2009/02/adding-a-location-crosshair-to-silverlight-charts/
 tags: 
 - charts
 - silverlight
@@ -14,7 +14,7 @@ source: wordpress
 ---
 <div style="background-color:#fdd; margin:5px; padding:5px; border: solid 2px red;"><b>UPDATE</b> - The March09 update of the Silverlight toolkit is incompatible with the code detailed below. For an up-to-date version see the <a href="http://www.scottlogic.co.uk/blog/colin/2009/03/adding-a-location-crosshair-to-silverlight-charts-again/">following blog post</a>.</div>
 <p>This blog post describes how to add a location crosshair to your Silverlight charts as shown below:</p>
-<div id="slPluginHost"> <object id="SilverlightPlugin" width="400" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2009/02/sllinechartcrosshair1.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div id="slPluginHost"> <object id="SilverlightPlugin" width="400" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.url }}/archive/2009/02/sllinechartcrosshair1.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <p>The chart itself is rendered using the charting component of the recently release <a href="http://www.codeplex.com/Silverlight">Silverlight Toolkit</a>. Creating and displaying a simple line chart is as simple as referencing the correct silverlight toolkit namespaces and placing a chart with an associated lineseries into the XAML for your page:</p>
 {% highlight xml %}
 <charting:Chart Name="Chart" PlotAreaStyle="{StaticResource PlotAreaStyle}">
@@ -61,7 +61,7 @@ public Page()
 }
 {% endhighlight %}
 <p>This results in the following (rather ugly!) chart:</p>
-<p><a href="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2009/02/ftse100.png"><img class="alignnone size-full wp-image-107" title="ftse100" src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2009/02/ftse100.png" alt="ftse100" width="400" height="167" /></a></p>
+<p><a href="{{ site.url }}/archive/2009/02/ftse100.png"><img class="alignnone size-full wp-image-107" title="ftse100" src="{{ site.url }}/archive/2009/02/ftse100.png" alt="ftse100" width="400" height="167" /></a></p>
 <p>Whilst the background fade effect and line series datapoints can be modified by styling the chart, the removal of unwanted elements such as the legend require us to delve into the the Chart's control template. The modified control template is given below:</p>
 {% highlight xml %}
 <charting:Chart.Template>
@@ -146,5 +146,5 @@ private KeyValuePair<DateTime, double> GetPlotAreaCoordinates(Point position)
 {% endhighlight %}
 <p>The silverlight chart axes actually provides methods which can be used to translate from screen coordinates to chart coordinates via the IRangeAxis interface, however they are hidden by <a href="http://msdn.microsoft.com/en-us/library/aa288461(VS.71).aspx">explicit interface implementation</a> of these interface methods by the concrete axis classes. It is a shame that such useful methods are hidden! I have never really seen the value of explicit interface implementation.</p>
 <p>In conclusion, this blog post has shown how simple it is to add a crosshair to your silverlight linecharts. What I personally find interesting is the way in which you can not only customise the appearance of Silverlight (and WPF) controls, but also add behaviour without the need to subclass the controls themselves. I think that this makes life easier for the users of Silverlight/WPF controls, in that they can use the same techniques to extend any control rather than relying on the control having built in extension points (it is often a source of frustration when developing with Windows Forms (or similar technologies) when you wish to customise some aspect of an existing control, however the control author has not provided events, or virtual methods for this purpose). It also of course makes life easier for the control developer in that they do not have to spend so much time thinking about how their control might be extended and adapted by its users. </p>
-<p>You can download a visual studio project with the code from this blog post, <a href='http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2009/02/sllinechartcrosshair.zip'>sllinechartcrosshair.zip</a>.</p>
+<p>You can download a visual studio project with the code from this blog post, <a href='{{ site.url }}/archive/2009/02/sllinechartcrosshair.zip'>sllinechartcrosshair.zip</a>.</p>
 <p>Regards, Colin E.</p>

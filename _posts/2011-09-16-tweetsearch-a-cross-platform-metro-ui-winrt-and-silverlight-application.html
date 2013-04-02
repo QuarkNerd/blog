@@ -2,7 +2,7 @@
 id: 1674
 author: Colin Eberhardt
 title: "TweetSearch - A Cross platform Metro UI WinRT and Silverlight Application"
-permalink: /2011/09/tweetsearch-a-cross-platform-metro-ui-winrt-and-silverlight-application.html
+oldlink: /blog/colin/2011/09/tweetsearch-a-cross-platform-metro-ui-winrt-and-silverlight-application/
 tags: 
 - silverlight
 - cross-platform
@@ -20,9 +20,9 @@ source: wordpress
 <p>This introduces a problem, how can we share code between our Silverlight Desktop and WinRT Metro applications?</p>
 <p>I have previously <a href="http://www.scottlogic.co.uk/blog/colin/2011/07/silverlight-uk-user-group-presentation-on-cross-platform-xaml/" title="Silverlight UK User Group Presentation on Cross Platform XAML">presented talks</a> and <a href="http://www.scottlogic.co.uk/blog/colin/2010/10/white-paper-silverlight-wpf-and-windows-phone-7-cross-platform-development/" title="White Paper: Silverlight, WPF and Windows Phone 7 cross platform development">written articles</a> on cross-platform application development. So I thought I would grab myself a copy of the Win8 preview release and see how easy it is to code-share between a Silverlight and WinRT Metro application.</p>
 <p>This blog post describes a simple TwitterSearch application, the Silverlight version is shown below. Simply type in a search string to see the results retrieved from twitter:</p>
-<div style="text-align: center;"><object width="400" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/09/SilverlightTwitterApp.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div style="text-align: center;"><object width="400" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.url }}/archive/2011/09/SilverlightTwitterApp.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <p>A screenshot of the TwitterSearch application built for WinRT Metro is shown below:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/09/MetroTwitter.png" alt="" title="MetroTwitter" width="513" height="566" class="aligncenter size-full wp-image-1678" /></p>
+<p><img src="{{ site.url }}/archive/2011/09/MetroTwitter.png" alt="" title="MetroTwitter" width="513" height="566" class="aligncenter size-full wp-image-1678" /></p>
 <p>When code-sharing between WPF, Silverlight and WP7 applications separation of concerns and solid design patterns are essential in order to navigate the framework differences. For that reason I use the Model-View-ViewModel pattern, this makes it easy to specialise the view for each platform, where they typically differ the most. I will use this same approach for WinRT.</p>
 <p>The code is shared between the Silverlight and Win8 Metro application by having two separate solutions which both share files via the Visual Studio file linking feature.</p>
 <p>The <code>TwitterSearchViewModel</code> which backs this application simply exposes a search string property and a list of tweets:</p>
@@ -347,5 +347,5 @@ public sealed partial class TwitterSearchView : UserControl
 {% endhighlight %}
 <h2>Conclusions</h2>
 <p>Creating a cross-platform WinRT / Silverlight application is entirely possible, using the same techniques that we currently employ for cross-platform Silverlight / WPF / WP7 applications. There are further complications relating to classes living in different namespaces and there will of course be other detail-level differences that this simple example does not touch upon. However, I think this presents a feasible and promising route for re-using existing Silverlight/ WPF code, and for developing applications that target the Win8 tablet, WP7 phone and Silverlight (or WPF) desktop with a single code-base.</p>
-<p>You can download the full sourcecode: <a href='http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/09/CrossPlatformTwitter.zip'>CrossPlatformTwitter.zip</a></p>
+<p>You can download the full sourcecode: <a href='{{ site.url }}/archive/2011/09/CrossPlatformTwitter.zip'>CrossPlatformTwitter.zip</a></p>
 <p>Regards, Colin E.</p>

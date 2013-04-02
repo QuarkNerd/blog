@@ -2,7 +2,7 @@
 id: 152464
 author: Chris Grant
 title: "Creating a Telemetry Application using Silverlight, Visiblox and Custom Controls"
-permalink: /2012/06/creating-a-telemetry-application-using-silverlight-visiblox-and-custom-controls.html
+oldlink: /2012/06/creating-a-telemetry-application-using-silverlight-visiblox-and-custom-controls/
 tags: 
 categories: 
 - blog
@@ -12,7 +12,7 @@ source: site
 <h2>Introduction</h2>
 <p>About a month ago, I was using the <a href="http://www.motec.com.au/i2/i2overview/">MoTeC i2 Data Analysis</a> software to look through some telemetry data that I had exported from a popular racing simulator game. Although MoTeC is feature rich and a great tool for motor racing professionals and enthusiasts, I had the idea to create a simplified, styled version using Silverlight. I had been looking for an interesting idea to test out my newfound Silverlight skills for a while, and this seemed like the perfect opportunity. </p>
 <p>Before reading the rest of the article, you may like to view the sample application, located at the <a href="#application">bottom of this post</a>.</p>
-<p><a href="http://www.scottlogic.co.uk/wp-content/uploads/2012/06/silvertrack.png"><img src="http://www.scottlogic.co.uk/wp-content/uploads/2012/06/silvertrack.png" alt="" title="silvertrack" width="500" height="458" class="aligncenter size-full wp-image-152490" /></a></p>
+<p><a href="{{ site.url }}/archive/2012/06/silvertrack.png"><img src="{{ site.url }}/archive/2012/06/silvertrack.png" alt="" title="silvertrack" width="500" height="458" class="aligncenter size-full wp-image-152490" /></a></p>
 <h2>Using the Code</h2>
 <h3>Architecture</h3>
 <p>The application as it is presented here is not the first version that I created. I had worked on an initial version before this which did not use the MVVM pattern. As a result of this, making changes were difficult, duplicate strings representing the same series name were littered throughout the application, the code behind was duplicated for each of the three chart components, and performance was far less than optimal. In my defense, the application I first envisioned was a single, simple chart with one series and no further information. But when I started to expand the application, all of these issues arose and started to get progressively worse.</p>
@@ -60,18 +60,18 @@ Storyboard.SetTargetProperty(b2, new PropertyPath("(Offset)"));
 <p>When the charts were added to the application, I still felt like it was missing something. I had the idea to add widget-style custom controls below the chart to add more interest and interactivity. Each of the controls is defined in its own class in the <code>TelemetryPrototype.controls</code> namespace within the <em>controls</em> folder. They all have at least one dependency property and subscribe to <code>onPropertyChanged</code> events, which allows the controls to automatically update whenever one of their dependency properties is modified. The layout and elements of all the controls are defined in the <em>Generic.xaml</em> file.</p>
 <h3>ThrottleBrakeControl.cs</h3>
 <p>Dependency Properties:Throttle, Brake</p>
-<p><a href="http://www.scottlogic.co.uk/wp-content/uploads/2012/06/throttlebrake.png"><img src="http://www.scottlogic.co.uk/wp-content/uploads/2012/06/throttlebrake.png" alt="" title="throttlebrake" width="143" height="160" class="aligncenter size-full wp-image-152492" /></a></p>
+<p><a href="{{ site.url }}/archive/2012/06/throttlebrake.png"><img src="{{ site.url }}/archive/2012/06/throttlebrake.png" alt="" title="throttlebrake" width="143" height="160" class="aligncenter size-full wp-image-152492" /></a></p>
 <p>The throttle Control is a three column grid, with a throttle indicator on the left, a brake indicator on the right and labels in the centre. The indicators are created by displaying a rectangle inside of a border. The rectangles are styled appropriately (green for throttle and red for brake) and their height is bound to their respective dependency property.</p>
 <h3>CarLocationControl.cs</h3>
 <p><em>Dependency Properties:Position</em></p>
 <p>The car location control shows where the car currently is on the track.The track itself was created in Microsoft Expression Blend 4 using a path. The <code>Microsoft.Expression.Controls</code> and <code>Microsoft.Expression.Drawing</code> <em>.dll</em> files are therefore included in the references of this project. A <code>PathListBox</code> then binds its <code>LayoutPath SourceElement</code> to this path. The car itself is simply an ellipse inside of this <code>PathListBox</code>. By binding the <code>Start</code> property of the <code>LayoutPath</code> to the <code>Position</code> dependency property, the ellipse will move around the path. <code>Position</code> must therefore be a percentage value. To calculate the percentage completion of a lap, it is necessary to have the start and end distance, which are calculated in the <em>TelemetryDataProvider.cs</em> when the data is first read into the application.</p>
 <h3>GForceControl.cs</h3>
 <p><em>Dependency Properties:Lateral, Long</em></p>
-<p><a href="http://www.scottlogic.co.uk/wp-content/uploads/2012/06/gchart.png"><img src="http://www.scottlogic.co.uk/wp-content/uploads/2012/06/gchart.png" alt="" title="gchart" width="184" height="157" class="aligncenter size-full wp-image-152489" /></a></p>
+<p><a href="{{ site.url }}/archive/2012/06/gchart.png"><img src="{{ site.url }}/archive/2012/06/gchart.png" alt="" title="gchart" width="184" height="157" class="aligncenter size-full wp-image-152489" /></a></p>
 <p>There is slightly more code for the G-Force control and no bindings for the values on the chart, as these are set manually whenever a property changes in the <code>OnLateralPropertyChanged</code> and <code>OnLongPropertyChanged</code> methods. Within the <code>OnApplyTemplate()</code> method of the control, a <code>DataPoint </code>is created and added to a line series. This line series is then added to the chart.</p>
 <p>The G-Force chart has also been retemplated to remove the border and to hide any axis values. The template is contained in <em>App.xaml</em>, with a target type of Chart. It has a key value of Gchart, which is referenced in the control's layout in the <em>Generic.xaml</em> by <code>"Template="{StaticResource Gchart}"</code>.</p>
 <h3>SpeedometerControl.cs</h3>
-<p><a href="http://www.scottlogic.co.uk/wp-content/uploads/2012/06/speedo.png"><img src="http://www.scottlogic.co.uk/wp-content/uploads/2012/06/speedo.png" alt="" title="speedo" width="143" height="158" class="aligncenter size-full wp-image-152491" /></a></p>
+<p><a href="{{ site.url }}/archive/2012/06/speedo.png"><img src="{{ site.url }}/archive/2012/06/speedo.png" alt="" title="speedo" width="143" height="158" class="aligncenter size-full wp-image-152491" /></a></p>
 <p>The speedometer control is a modified version of the gauge control developed by Colin Eberhardt as part of a blog post entitled "<a href="http://www.codeproject.com/Articles/103035/Developing-a-very-Lookless-Silverlight-Radial-Gaug.aspx">Developing a (very) Lookless Silverlight Radial Gauge Control</a>". The only modifications from the original source code from the article are the styles, layout and namespace declarations. The style is defined at the bottom of the <em>generic.xaml</em> file in the <em>Themes</em> folder of the <code>SilverTrack </code>project.</p>
 <h3>Util/Other Classes</h3>
 <h4>Data Context Changed Handler</h4>
@@ -93,9 +93,9 @@ Storyboard.SetTargetProperty(b2, new PropertyPath("(Offset)"));
 </ul>
 <p><strong>NOTE</strong>: The car location control will only operate correctly if you load data from the <a href="http://en.wikipedia.org/wiki/Calder_Park_Raceway">Calder Road Course</a>.</p>
 <p><a name="application"></a></p>
-<div id="silverlightControlHost" style="width: 940px; position: relative; position: absolute;"><object data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="940px" height="700px"><param name="source" value="http://www.scottlogic.co.uk/wp-content/uploads/2012/06/SilverTrack.xap"/><param name="onError" value="onSilverlightError" /><param name="background" value="white" /><param name="minRuntimeVersion" value="4.0.50826.0" /><param name="autoUpgrade" value="true" /><a href="http://go.microsoft.com/fwlink/?LinkID=149156&v=4.0.50826.0" style="text-decoration:none"><img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight" style="border-style:none"/></a></object><iframe id="_sl_historyFrame" style="visibility:hidden;height:0px;width:0px;border:0px"></iframe></div>
+<div id="silverlightControlHost" style="width: 940px; position: relative; position: absolute;"><object data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="940px" height="700px"><param name="source" value="{{ site.url }}/archive/2012/06/SilverTrack.xap"/><param name="onError" value="onSilverlightError" /><param name="background" value="white" /><param name="minRuntimeVersion" value="4.0.50826.0" /><param name="autoUpgrade" value="true" /><a href="http://go.microsoft.com/fwlink/?LinkID=149156&v=4.0.50826.0" style="text-decoration:none"><img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight" style="border-style:none"/></a></object><iframe id="_sl_historyFrame" style="visibility:hidden;height:0px;width:0px;border:0px"></iframe></div>
 <div style="height:730px;"> Silverlight </div>
 <h3>Download</h3>
 <ul>
-<li><a href="http://www.scottlogic.co.uk/wp-content/uploads/2012/06/SilverTrack.zip">Download source code for SilverTrack - 474.34 K</a></li>
+<li><a href="{{ site.url }}/archive/2012/06/SilverTrack.zip">Download source code for SilverTrack - 474.34 K</a></li>
 </ul>

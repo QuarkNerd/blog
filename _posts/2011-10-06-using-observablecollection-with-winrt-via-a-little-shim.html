@@ -2,7 +2,7 @@
 id: 1725
 author: Colin Eberhardt
 title: "Using ObservableCollection with WinRT (via a little shim!)"
-permalink: /2011/10/using-observablecollection-with-winrt-via-a-little-shim.html
+oldlink: /blog/colin/2011/10/using-observablecollection-with-winrt-via-a-little-shim/
 tags: 
 - cross-platform
 - WinRT
@@ -145,5 +145,5 @@ public class ObservableCollectionAdapter : IValueConverter
 {% endhighlight %}
 <p>A nice side-effect of this approach is that if we replace the <code>ObservableCollection </code>within our view-model with a new instance, the binding framework will take care of creating a new 'shim' via the value converter.</p>
 <p>This technique allows us to write cross-platform view-models using <code>ObservableCollection</code> for our collections of objects.</p>
-<p>You can download the sourcecode with a simple example here: <a href='http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/10/ObservableCollectionShim.zip'>ObservableCollectionShim.zip</a></p>
+<p>You can download the sourcecode with a simple example here: <a href='{{ site.url }}/archive/2011/10/ObservableCollectionShim.zip'>ObservableCollectionShim.zip</a></p>
 <p>Regards, Colin E.</p>

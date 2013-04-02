@@ -2,7 +2,7 @@
 id: 663
 author: Colin Eberhardt
 title: "Throttling Silverlight Mouse Events to Keep the UI Responsive"
-permalink: /2010/06/throttling-silverlight-mouse-events-to-keep-the-ui-responsive.html
+oldlink: /blog/colin/2010/06/throttling-silverlight-mouse-events-to-keep-the-ui-responsive/
 tags: 
 categories: 
 - codeproject
@@ -14,7 +14,7 @@ source: wordpress
 <p>The visual tree of a Silverlight / WPF uses the <a href="http://en.wikipedia.org/wiki/Retained_mode">retained mode</a> graphics  rendering style, where the tree forms a model of the graphics which are rendered to the screen. Any changes that are made to the visual tree by adding / removing objects or changing the properties of an object within the tree, are automatically rendered to your computer screen at some point in the future.</p>
 <p>This graphics style makes the development of complex graphics far easier than with the <a href="http://en.wikipedia.org/wiki/Immediate_mode">immediate mode</a> counterpart. You add objects, make changes to them, and these changes are reflect on the screen by some background magic. This works just fine most of the time, however, if you continually make changes to the visual tree, without yielding, the 'process' which updates the UI does not have the opportunity to run, and your UI is starved.</p>
 <p>I have found that this problem occurs most often when handling mouse events, particularly <code>MouseMove</code> and <code>MouseWheel</code>. Both of these events have the opportunity to fire very rapidly. If, when handling one of these events you make some change to the visual tree, there is the possibility that the event may be raised again before these changes are reflected on the screen. For a demonstration of this, have a play with the following simple example:</p>
-<div id="slPluginHost1" > <object id="SilverlightPlugin1" width="500" height="250" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2010/06/SilverlightEventNoThrottling.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div id="slPluginHost1" > <object id="SilverlightPlugin1" width="500" height="250" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.url }}/archive/2010/06/SilverlightEventNoThrottling.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <p>The application above creates funky patterns that track the current mouse position:</p>
 {% highlight csharp %}
 private void MainPage_MouseMove(object sender, MouseEventArgs e)
@@ -64,7 +64,7 @@ private void AddNewLine(Point position)
 <p>Interestingly the background animation (which is performed on the <code>Tick</code> of a <code>DispatcherTimer</code>) does not starve the UI.</p>
 <p><b>Throttling - the solution!</b></p>
 <p>So, what to do? The answer is to throttle the event.</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2010/06/throttle.png" alt="" title="throttle" width="249" height="161" class="aligncenter size-full wp-image-664" /></p>
+<p><img src="{{ site.url }}/archive/2010/06/throttle.png" alt="" title="throttle" width="249" height="161" class="aligncenter size-full wp-image-664" /></p>
 <p>No, I don't mean that kind of throttle, I mean throttle as in "to suppress or regulate the flow of".</p>
 <p>What we need to do is ensure that the changes we make to the visual tree within our <code>MouseMove</code> event are reflected in the UI before we make a subsequent change. Fortunately the Silverlight / WPF frameworks expose a static <a href="http://msdn.microsoft.com/en-us/library/system.windows.media.compositiontarget.rendering%28VS.95%29.aspx"><code>CompositionTarget.Rendering</code></a> event which can be used for this purpose. This event is fired just before a frame is rendered. Therefore, to throttle the effect of the mouse event, we set a flag to indicate that we are waiting for a change to be rendered, then reset this flag just before rendering occurs.</p>
 <p>I have wrapped this concept up in a simple class that provides a <code>ThrottledMouseMove</code> event:</p>
@@ -131,7 +131,7 @@ var throttledEvent = new ThrottledMouseMoveEvent(MouseHandler);
 throttledEvent.ThrottledMouseMove += new MouseEventHandler(ThrottledEvent_ThrottledMouseMove);
 {% endhighlight %}
 <p>As a result, the UI remains responsive:</p>
-<div id="slPluginHost2" > <object id="SilverlightPlugin2" width="500" height="250" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2010/06/SilverlightEventThrottling.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div id="slPluginHost2" > <object id="SilverlightPlugin2" width="500" height="250" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.url }}/archive/2010/06/SilverlightEventThrottling.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <p><b>Throttling the Mouse Wheel event</b></p>
 <p>The <code>MouseWheel</code> event is another mouse event that fires very rapidly and can result in the UI becoming frozen. Again, the same technique can be used to throttle this event. However, with the <code>MouseMove</code> event, the event arguments carry the current mouse position, the <code>MouseWheel</code> event carries just the mouse wheel position delta. If we simply suppress events that occur before render, the UI will not respond correctly, with a smaller delta being applied than is required. </p>
 <p>The code shown below is a slightly more complex class for throttling the <code>MouseWheel</code> event. This class aggregates all the <code>MouseWheel</code> events that occur before the UI is rendered, supplying a total delta:</p>
@@ -248,7 +248,7 @@ public class ThrottledMouseWheelEventArgs : EventArgs
 }
 {% endhighlight %}
 <p>The following application combines both of these throttled mouse event handlers:</p>
-<div id="slPluginHost3" > <object id="SilverlightPlugin3" width="500" height="250" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2010/06/SilverlightEventThrottling2.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div id="slPluginHost3" > <object id="SilverlightPlugin3" width="500" height="250" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.url }}/archive/2010/06/SilverlightEventThrottling2.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <p><script type="text/javascript">function hookEvent(element, eventName, callback){  if(typeof(element) == "string")    element = document.getElementById(element);  if(element == null)    return;  if(element.addEventListener)  {    if(eventName == 'mousewheel')      element.addEventListener('DOMMouseScroll', callback, false);      element.addEventListener(eventName, callback, false);  }  else if(element.attachEvent)    element.attachEvent("on" + eventName, callback);}function cancel(e){    e.preventDefault();}hookEvent('slPluginHost3', 'mousewheel', cancel);</script></p>
-<p>You can download the full source for this blog post: <a href='http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2010/06/SilverlightEventThrottling.zip'>SilverlightEventThrottling.zip</a></p>
+<p>You can download the full source for this blog post: <a href='{{ site.url }}/archive/2010/06/SilverlightEventThrottling.zip'>SilverlightEventThrottling.zip</a></p>
 <p>Regards, Colin E.</p>

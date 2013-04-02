@@ -2,7 +2,7 @@
 id: 1539
 author: Colin Eberhardt
 title: "Metro In Motion Part #7 - Panorama Prettiness and Opacity"
-permalink: /2011/06/metro-in-motion-part-7-panorama-prettiness-and-opacity.html
+oldlink: /blog/colin/2011/06/metro-in-motion-part-7-panorama-prettiness-and-opacity/
 tags: 
 - codeproject
 - metro
@@ -25,7 +25,7 @@ source: wordpress
 
 </controls:Panorama>
 {% endhighlight %}
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/06/Panorama.jpg" alt="" title="Panorama" width="220" height="400" class="aligncenter size-full wp-image-1542" /></p>
+<p><img src="{{ site.url }}/archive/2011/06/Panorama.jpg" alt="" title="Panorama" width="220" height="400" class="aligncenter size-full wp-image-1542" /></p>
 <p>Note, in the example above, the opacity of the image is reduced to 0.5 in order that it is not too bold and overpowering.</p>
 <p>Unfortunately, our beautiful background graphic is almost entirely obscured by the panorama contents. The native applications, such as the pictures and games hubs, use a cunning little trick to allow the user to enjoy the background, whilst the user is sliding the Panorama, the contents become opaque, making the background visible behind the various tiles. That is the effect I will re-create in this blog post.</p>
 <p>The code to achieve this effect is very simple. It is a basic Blend Behaviour, which handles the <code>Panorama</code> <code>ManipulationDelta</code> event in order to set the item's <code>Opacity</code>, with the <code>ManipulationCompleted</code> event handler resetting the <code>Opacity</code> to 1.0.</p>
@@ -118,9 +118,9 @@ public class PanoramaOpacityBehaviour : Behavior<Panorama>
 </controls:Panorama>
 {% endhighlight %}
 <p>Or applied by drag and drop within Expression Blend:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/06/PanoramaBehaviour.jpg" alt="" title="PanoramaBehaviour" width="367" height="450" class="aligncenter size-full wp-image-1546" /></p>
+<p><img src="{{ site.url }}/archive/2011/06/PanoramaBehaviour.jpg" alt="" title="PanoramaBehaviour" width="367" height="450" class="aligncenter size-full wp-image-1546" /></p>
 <p>With this behaviour applied, the user can now fully appreciate your Panorama control's beautiful background graphic:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/06/Panorama2.jpg" alt="" title="Panorama2" width="220" height="400" class="aligncenter size-full wp-image-1547" /></p>
-<p>You can download the sourcecode for this behaviour and an example project here: <a href='http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/06/MetroInMotionSeven.zip'>MetroInMotionSeven.zip</a></p>
+<p><img src="{{ site.url }}/archive/2011/06/Panorama2.jpg" alt="" title="Panorama2" width="220" height="400" class="aligncenter size-full wp-image-1547" /></p>
+<p>You can download the sourcecode for this behaviour and an example project here: <a href='{{ site.url }}/archive/2011/06/MetroInMotionSeven.zip'>MetroInMotionSeven.zip</a></p>
 <p>I have also added this behaviour to the <a href="http://wp7contrib.codeplex.com/">WP7Contrib project on codeplex</a>. I would recommend that anyone doing WP7 development should download the WP7Contrib code, it is packed full of useful utilities.</p>
 <p>Regards, Colin E.</p>

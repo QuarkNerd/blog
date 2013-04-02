@@ -2,7 +2,7 @@
 id: 56
 author: Chris Price
 title: "HTML5 Charts vs Flex Charts vs Silverlight Charts - a Test of Performance"
-permalink: /2010/11/html5-charts-vs-flex-charts-vs-silverlight-charts-a-test-of-performance.html
+oldlink: /2010/11/html5-charts-vs-flex-charts-vs-silverlight-charts-a-test-of-performance/
 tags: 
 - Closure
 - Javascript
@@ -41,13 +41,13 @@ source: site
 </tr>
 <tr>
 <td style="text-align: center;" id="html5example"></td>
-<td style="text-align:center;">[kml_flashembed movie="http://www.scottlogic.co.uk/blog/graham/wp-content/uploads/2010/11/FlexChartsPerformance.swf" height="380" width="280" /]</td>
-<td style="text-align:center;"> <object height="400" width="300" type="application/x-silverlight-2" data="data:application/x-silverlight,"><param value="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2010/11/HistogramVisiblox.xap" name="source"><a style="text-decoration: none;" href="http://go.microsoft.com/fwlink/?LinkID=124807"><br /> <img style="border-style: none;" alt="Get Microsoft Silverlight" src="http://go.microsoft.com/fwlink/?LinkId=108181"><br /> </a><br /> </object> </td>
+<td style="text-align:center;">[kml_flashembed movie="{{ site.url }}/archive/2010/11/FlexChartsPerformance.swf" height="380" width="280" /]</td>
+<td style="text-align:center;"> <object height="400" width="300" type="application/x-silverlight-2" data="data:application/x-silverlight,"><param value="{{ site.url }}/archive/2010/11/HistogramVisiblox.xap" name="source"><a style="text-decoration: none;" href="http://go.microsoft.com/fwlink/?LinkID=124807"><br /> <img style="border-style: none;" alt="Get Microsoft Silverlight" src="http://go.microsoft.com/fwlink/?LinkId=108181"><br /> </a><br /> </object> </td>
 </tr>
 </table>
 <p><small>Image credit to<a href="http://www.flickr.com/photos/clevergrrl/218312595/sizes/s/in/photostream/">Clevergrrl</a></small></p>
 <style>	#imageDataComponentRootElement {		width: 280px;padding: 10px;	}	#chartcanvas {		height: 180px;		border: 1px solid #ededed;	}</style>
-<p><script type="text/javascript" src="http://www.scottlogic.co.uk/blog/wp-content/uploads/2010/11/compiled.js"></script><script type="text/javascript">bootstrap('html5example');</script></p>
+<p><script type="text/javascript" src="http://www.scottlogic.co.uk/blog{{ site.url }}/archive/2010/11/compiled.js"></script><script type="text/javascript">bootstrap('html5example');</script></p>
 <p>The example is implemented as a Closure Component, an interesting snippet is the mouse move code which is very similar to the Flex example -</p>
 {% highlight javascript %}
 if (this.startPos) {

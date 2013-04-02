@@ -2,7 +2,7 @@
 id: 3
 author: Graham Odds
 title: "Save Flex chart as image"
-permalink: /2009/03/save-flex-chart-as-image.html
+oldlink: /blog/graham/2009/03/save-flex-chart-as-image/
 tags: 
 - Flex
 - Charts
@@ -30,13 +30,13 @@ private function saveChart():void
     file.save(image.data, "chart.png");
 }{% endhighlight %}
 <p>The application below shows this code in action.  The values in the data grid can be changed,with the changes reflected in the chart (just to show that I'm not cheating).<br /><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="savechartobj" width="600" height="500" align="center">
-<param name="movie" value="http://www.scottlogic.co.uk/blog/graham/wp-content/uploads/2009/03/savechartimage.swf" />
+<param name="movie" value="{{ site.url }}/archive/2009/03/savechartimage.swf" />
 <!--[if !IE]>-->
-<object type="application/x-shockwave-flash" data="http://www.scottlogic.co.uk/blog/graham/wp-content/uploads/2009/03/savechartimage.swf" width="600" height="500" align="center">
+<object type="application/x-shockwave-flash" data="{{ site.url }}/archive/2009/03/savechartimage.swf" width="600" height="500" align="center">
 <!--<![endif]-->
 <!--[if !IE]>-->
 </object>
 <!--<![endif]-->
 </object>
 <br /></p>
-<p>The <a href='http://www.scottlogic.co.uk/blog/graham/wp-content/uploads/2009/03/SaveChartImage.zip'>source code</a> is now available.</p>
+<p>The <a href='{{ site.url }}/archive/2009/03/SaveChartImage.zip'>source code</a> is now available.</p>

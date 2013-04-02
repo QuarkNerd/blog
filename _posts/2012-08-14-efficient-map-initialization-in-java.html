@@ -2,7 +2,7 @@
 id: 152898
 author: Mark Rhodes
 title: "Efficient Map Initialization in Java"
-permalink: /2012/08/efficient-map-initialization-in-java.html
+oldlink: /2012/08/efficient-map-initialization-in-java/
 tags: 
 categories: 
 - blog
@@ -34,7 +34,7 @@ Map<String, CustomObj> objectById = new HashMap<String, CustomObj>(initSize);
 int initSize = (int) Math.ceil(100 / 0.75); 
 Set<String> someStrings = new HashSet<String>(initSize);
 {% endhighlight %}
-<p><strong>Testing it Works</strong>In order to verify that initializing hash maps in this way works as expected, I wrote some <a href="http://www.junit.org/">JUnit</a> tests, the source for which is available here: <a href="/wp-content/uploads/2012/08/initialisingHashMapUnitTestSource.zip">JUnit test source</a>.  Since we are interested in the state of the underlying backing arrays, which are private in both the <code>HashMap</code> and <code>Hashtable</code> classes, these tests need to use <a href="http://java.sun.com/developer/technicalArticles/ALT/Reflection/">reflection</a> to see what's going on.  In order to reduce the amount of duplicate code, I made use of the <a href="http://en.wikipedia.org/wiki/Abstract_factory_pattern">abstract factory pattern</a>, so that the main bulk of the testing code doesn't need to know the specifics of how the map instances it's testing are constructed.</p>
+<p><strong>Testing it Works</strong>In order to verify that initializing hash maps in this way works as expected, I wrote some <a href="http://www.junit.org/">JUnit</a> tests, the source for which is available here: <a href="{{ site.url }}/archive/2012/08/initialisingHashMapUnitTestSource.zip">JUnit test source</a>.  Since we are interested in the state of the underlying backing arrays, which are private in both the <code>HashMap</code> and <code>Hashtable</code> classes, these tests need to use <a href="http://java.sun.com/developer/technicalArticles/ALT/Reflection/">reflection</a> to see what's going on.  In order to reduce the amount of duplicate code, I made use of the <a href="http://en.wikipedia.org/wiki/Abstract_factory_pattern">abstract factory pattern</a>, so that the main bulk of the testing code doesn't need to know the specifics of how the map instances it's testing are constructed.</p>
 <p>The interface for the factory which provides instances to verify is as follows:</p>
 {% highlight java %}
 interface TestInstanceFactory {

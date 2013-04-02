@@ -2,7 +2,7 @@
 id: 165676
 author: Luke Page
 title: "Headless testing in less.js with PhantomJS"
-permalink: /2012/12/headless-testing-in-less-js-with-phantomjs.html
+oldlink: /2012/12/headless-testing-in-less-js-with-phantomjs/
 tags: 
 - testing
 - less.js
@@ -27,11 +27,11 @@ source: site
 <p>I went for PhantomJS - it is difficult enough to get people to run unit tests before submitting patches, so I wanted the path to entry to be as simple as possible.</p>
 <h3>How would it work?</h3>
 <p>The node version of less.js has a folder full of less files and a folder full of css files, sub-folders are ignored and contain imported files. A custom node tester iterates through every file in the less directory, compiles it and then compares it to a file of the same name in the css folder. If it's different then it uses <a href="https://github.com/kpdecker/jsdiff">js diff (through node)</a> to output a diff of the files. A similar process is employed for errors, except the error produced is compared to a file of the same name ending in .txt.</p>
-<p><img src="http://www.scottlogic.co.uk/wp-content/uploads/2012/12/node-tests.png" alt="" title="node tests" class="alignnone size-medium wp-image-165716" /></p>
+<p><img src="{{ site.url }}/archive/2012/12/node-tests.png" alt="" title="node tests" class="alignnone size-medium wp-image-165716" /></p>
 <p>My first job was to get the existing tests running in the headless browser - I didn't think it would detect any errors, but it was a good proof that the browser tests were going to work.</p>
 <p>I didn't want to mantain two copies for the tests, so a testing framework should load all of the css files, get all of the converted css and then compare them. I went for jasmine as I thought in the future we may have more 'normal' unit tests and it would mean I could use the PhantomJS jasmine examples in order to get PhantomJS to run the tests. We can always switch Jasmine out if we find ourselves not using it.</p>
 <p>My initial idea runs along these lines...</p>
-<p><img src="http://www.scottlogic.co.uk/wp-content/uploads/2012/12/less-test-23.png" alt="" title="less test 2" width="703" height="265" class="alignnone size-full wp-image-165732" /></p>
+<p><img src="{{ site.url }}/archive/2012/12/less-test-23.png" alt="" title="less test 2" width="703" height="265" class="alignnone size-full wp-image-165732" /></p>
 <p>All communication would be over the file system and it would just work.</p>
 <h3>XHR requests on the file system</h3>
 <p>I started by making up a test page and running it locally. Immediately I hit the problem that for security reasons you cannot do an XHR request on the filesystem. In <a href="https://github.com/cloudhead/less.js/issues/357">IE you have to use a different mechanism which less.js doesn't yet support</a> and <a href="http://peter.sh/experiments/chromium-command-line-switches/">in chrome you have to pass a command line parameter</a> (--allow-file-access-from-files) to enable it. So, probably, not too many people are using less.js this way and I found <a href="https://groups.google.com/forum/?fromgroups=#!topic/phantomjs/EG5XEl7Fcdo">some problems with enabling it in PhantomJS</a>.</p>
@@ -168,4 +168,4 @@ var testSheet = function(sheet) {
 };
 {% endhighlight %}
 <h3>Conclusion</h3>
-<p>It wasn't much work and now we have the huge benefit of basic, automated browser testing without having to loading one. This work was added in <a href="https://github.com/cloudhead/less.js/commit/6554117643cfdf87f159a8a5a3d3dd42f953c5fe">two</a> <a href="https://github.com/cloudhead/less.js/commit/c35b6d733e048a3344ce95f5f225ee815a12f014">commits</a> and you can run "make browser-test" which runs the PhantomJS tests (it builds the browser distributable, builds the test pages and then runs PhantomJS). If you want to debug the tests "make browser-test-server" starts the PhantomJS web server without running any tests, so you can navigate to the test causing the problem and see it in your browser.<img src="http://www.scottlogic.co.uk/wp-content/uploads/2012/12/less-test-3.png" alt="" title="less test 3" width="309" height="182" class="alignnone size-full wp-image-165741" /></p>
+<p>It wasn't much work and now we have the huge benefit of basic, automated browser testing without having to loading one. This work was added in <a href="https://github.com/cloudhead/less.js/commit/6554117643cfdf87f159a8a5a3d3dd42f953c5fe">two</a> <a href="https://github.com/cloudhead/less.js/commit/c35b6d733e048a3344ce95f5f225ee815a12f014">commits</a> and you can run "make browser-test" which runs the PhantomJS tests (it builds the browser distributable, builds the test pages and then runs PhantomJS). If you want to debug the tests "make browser-test-server" starts the PhantomJS web server without running any tests, so you can navigate to the test causing the problem and see it in your browser.<img src="{{ site.url }}/archive/2012/12/less-test-3.png" alt="" title="less test 3" width="309" height="182" class="alignnone size-full wp-image-165741" /></p>

@@ -2,7 +2,7 @@
 id: 1296
 author: Colin Eberhardt
 title: "A Silverlight Resizable TextBlock (and other resizable things)"
-permalink: /2011/03/a-silverlight-resizable-textblock-and-other-resizable-things.html
+oldlink: /blog/colin/2011/03/a-silverlight-resizable-textblock-and-other-resizable-things/
 tags: 
 categories: 
 - blog
@@ -11,7 +11,7 @@ source: wordpress
 ---
 <p><em>In this blog post I present a simple attached behaviour that uses a Thumb control within a Popup to adorn any UI element so that the user can re-size it.</em></p>
 <p>A simple feature that has become quite popular on the web is to attache a small handle to text areas so that the user can resize them, this is useful if a user wants to add a large piece of text to a small comment form for example. Interestingly the Google Chrome browser makes all text areas resizeable by default, which leads to web developers wondering <a href="http://stackoverflow.com/questions/2096113/chrome-make-textareas-which-are-not-resizable">how to turn this feature off for their website</a>. I thought that this was a pretty useful feature, so decided to implement a little attached behaviour that would do the same think for Silverlight:</p>
-<div style="text-align: center;"><object width="300" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/03/ResizableTextBox.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div style="text-align: center;"><object width="300" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.url }}/archive/2011/03/ResizableTextBox.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <p>You can make any element resizable by setting the following attached property:</p>
 {% highlight xml %}
 <TextBox Text="This is a re-sizeable textbox"
@@ -132,5 +132,5 @@ private static void Thumb_DragDelta(object sender, DragDeltaEventArgs e)
 }
 {% endhighlight %}
 <p>And that's it! Nice and simple.</p>
-<p>You can download the sourcecode here: <a href='http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/03/Resizable.zip'>Resizable.zip</a></p>
+<p>You can download the sourcecode here: <a href='{{ site.url }}/archive/2011/03/Resizable.zip'>Resizable.zip</a></p>
 <p>Regards,Colin E.</p>

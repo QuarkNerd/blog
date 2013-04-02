@@ -2,7 +2,7 @@
 id: 460
 author: Colin Eberhardt
 title: "The mini-ViewModel pattern"
-permalink: /2009/08/the-mini-viewmodel-pattern.html
+oldlink: /blog/colin/2009/08/the-mini-viewmodel-pattern/
 tags: 
 - WPF
 - silverlight
@@ -74,7 +74,7 @@ public Page()
 </Grid>
 {% endhighlight %}
 <p>And we get a lovely looking business card:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2009/07/card.png" alt="card" title="card" width="196" height="129" class="aligncenter size-full wp-image-462" /></p>
+<p><img src="{{ site.url }}/archive/2009/07/card.png" alt="card" title="card" width="196" height="129" class="aligncenter size-full wp-image-462" /></p>
 <p>One problem with the above example is the phone number, outputting the raw number '4408452241930' is not terribly readable, besides phone numbers have a standard format, in this case, the phone number would be represented as '+44 (0)845 2241930'. Also, let's make the problem more interesting; you might want to highlight the international dialing code in a different colour, or, if the application is being used by a UK client, display the number in a local format without the international code '0845 2241930'. So just how do we achieve this?</p>
 <p>In order to break the number up into different blocks of text, with different colours (i.e. styles), we need to modify our view to have multiple TextBlocks mapped to the PhoneNumber property of our business object. The part of our view which renders the phone number is modified as follows:</p>
 {% highlight xml %}
@@ -197,8 +197,8 @@ public PhoneNumberControl()
 {% endhighlight %}
 <p>The subtle difference being that the ViewModel is now bound to the StackPanel which is the root of our visual tree within the control. This means that the <code>PhoneNumberControl</code> DataContext is still inherited from the business card and is our business object instance, the DataContext switch to the ViewModel is now neatly tucked just within the <code>PhoneNumberControl</code>s visual tree, and it is this DataContext which our TextBlocks will inherit and bind to.</p>
 <p>The result is that we can now use our mini-ViewModel embedded within the <code>PhoneNumberControl</code> to expose properties which are more amenable to binding to our View:</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2009/08/card2.png" alt="card2" title="card2" width="210" height="143" class="aligncenter size-full wp-image-485" /></p>
+<p><img src="{{ site.url }}/archive/2009/08/card2.png" alt="card2" title="card2" width="210" height="143" class="aligncenter size-full wp-image-485" /></p>
 <p>Whilst this is a quite trivial example, in real-world applications, more complex examples where the data representation within the View is dependant on a number of properties are quite common. The source code accompanying this article extends the example a little further by making the formatting dependant on a second property of the business object. This is the sort of problem that would either push you towards multi-binding and numerous fragmented value converters, or a ViewModel.</p>
 <p><strong>In conclusion</strong>, the use of a mini-ViewModel which is embedded within a <code>UserControl</code> allows you to solve tricky binding problems without being weighed down by rolling out the MVVM pattern across your entire View. I am not against the MVVM pattern in itself, however I do firmly believe that it should only be used to solve the problems which it is was specifically designed for, i.e. supporting the designer-developer workflow and unit testing.</p>
-<p>You can download the source-code for this article: <a href='http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2009/08/SLMiniViewModel.zip'>SLMiniViewModel.zip</a> - this project contains both MVVM and mini-MVVM implementations (count the number of lines in the ViewModel and contrast it with the mini-ViewModel).</p>
+<p>You can download the source-code for this article: <a href='{{ site.url }}/archive/2009/08/SLMiniViewModel.zip'>SLMiniViewModel.zip</a> - this project contains both MVVM and mini-MVVM implementations (count the number of lines in the ViewModel and contrast it with the mini-ViewModel).</p>
 <p>Regards, Colin E.</p>

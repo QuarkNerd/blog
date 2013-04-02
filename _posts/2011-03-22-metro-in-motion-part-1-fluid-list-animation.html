@@ -2,7 +2,7 @@
 id: 114798
 author: Colin Eberhardt
 title: "Metro In Motion Part #1 - Fluid List Animation"
-permalink: /2011/03/metro-in-motion-part-1-%e2%80%93-fluid-list-animation.html
+oldlink: /blog/colin/2011/03/metro-in-motion-part-1-%e2%80%93-fluid-list-animation/
 tags: 
 - codeproject
 - Windows Phone 7
@@ -14,7 +14,7 @@ source: site
 
 <p><em>This blog post presents an attached behaviour that gracefully slides the contents of a list into view when used in conjunction with a Pivot control, emulating the Windows Phone 7 email application.</em></p>
 <p>The Windows Phone 7 user interface is based on the <a href="http://en.wikipedia.org/wiki/Metro_Design_Language">Metro Design Language</a>, which favours clear typography, content over chrome and simplicity. If you want to see practical applications of the Metro approach to design, I would highly recommend visiting Scott Barnes&#8217; blog over at <a href="http://www.riagenic.com/">riagenic</a>. </p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/03/metro.jpg" alt="" title="metro" width="500" height="357" class="aligncenter size-full wp-image-1316" /></p>
+<p><img src="{{ site.url }}/archive/2011/03/metro.jpg" alt="" title="metro" width="500" height="357" class="aligncenter size-full wp-image-1316" /></p>
 <p>Silverlight for Windows Phone 7 provides a basic Metro styling for elements such as Buttons and Checkboxes, it also has a few phone specific controls such as Pivot and Panorama. These controls make it easy to create a basic Metro interface, although again, I refer you to Scott Barnes&#8217; blog, Metro is not all about black and white! However, when using a WP7 phone you will probably notice that the native applications, email, maps and settings, have a bit more &#8216;flair&#8217;, lists gracefully slide into view, or &#8216;peel&#8217; off the screen when an item is selected. Metro is not just about static style, it is &#8220;alive in motion&#8221;. </p>
 <p>The code in this blog post replicates the graceful slide effect seen in WP7 native applications when a moves from one list to another within a pivot as seen below. The code has been tested on real phone hardware to ensure that it performs well.</p>
 <p><iframe title="YouTube video player" width="480" height="390"  class="margin-left: auto; margin-right: auto;" src="http://www.youtube.com/embed/Ib4ijoYaTZo?rel=0" frameborder="0" allowfullscreen></iframe></p>
@@ -143,5 +143,5 @@ source: site
 </div>
 </div>
 <p>Interestingly I tried using the <a href="http://artefactanimator.codeplex.com/">Artefact Animator</a>, which has a nice concise API for creating animations in code-behind. However, because it animates elements by setting properties directly, it does not perform well on Windows Phone 7, which can execute storyboards on the <a href="http://msdn.microsoft.com/en-us/library/ff967560(VS.92).aspx">composition thread</a> in order to improve performance.</p>
-<p>You can download the full sourcecode here: <a href='http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/03/ListAnimation.zip'>ListAnimation.zip</a></p>
+<p>You can download the full sourcecode here: <a href='{{ site.url }}/archive/2011/03/ListAnimation.zip'>ListAnimation.zip</a></p>
 <p>Regards,<br />Colin E.</p>

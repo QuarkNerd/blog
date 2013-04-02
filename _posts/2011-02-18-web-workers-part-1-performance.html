@@ -2,7 +2,7 @@
 id: 106980
 author: Jonathan Cardy
 title: "Web Workers Part 1: Performance"
-permalink: /2011/02/web-workers-part-1-performance.html
+oldlink: /2011/02/web-workers-part-1-performance/
 tags: 
 - Javascript
 - Web Workers
@@ -67,7 +67,7 @@ worker.postMessage({from:1, to:100}); //Start the worker with args
 var time = new Date().getTime();
 {% endhighlight %}
 <p>I also ran the same algorithm without the use of any workers.  The parameters in both cases were from 1 to 100000. Everything was repeated in Chrome, Firefox, Opera and IE.</p>
-<p><img src="http://www.scottlogic.co.uk/wp-content/uploads/2011/02/worker_perf.png" alt="" title="worker_perf" width="701" height="260" class="alignnone size-full wp-image-106995" /></p>
+<p><img src="{{ site.url }}/archive/2011/02/worker_perf.png" alt="" title="worker_perf" width="701" height="260" class="alignnone size-full wp-image-106995" /></p>
 <p>In Chrome, the Worker execution time is a little longer than the UI thread, and the setup time is bigger than the other browsers.  Since this is a constant, it will become less significant as the Worker does more work, or is reused.</p>
 <p>In Opera, execution also takes a little longer in the worker, but again the setup time is a bigger factor as with Chrome.  </p>
 <p>In Firefox, the Worker is more than twice as fast! I don't know why this is.  My only guess is that the UI thread is busy doing other things.  The setup time is minimal.  Firefox seems to like workers, but in saying that, it's still slower than Chrome and Opera.</p>

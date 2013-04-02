@@ -2,7 +2,7 @@
 id: 1850
 author: Colin Eberhardt
 title: "Handling the back-stack in Windows Phone 7 PhoneGap applications"
-permalink: /2011/11/handling-the-back-stack-in-windows-phone-7-phonegap-applications.html
+oldlink: /blog/colin/2011/11/handling-the-back-stack-in-windows-phone-7-phonegap-applications/
 tags: 
 - Windows Phone 7
 - PhoneGap
@@ -14,7 +14,7 @@ source: wordpress
 ---
 <p>Recently I have been researching the use of PhoneGap for creating HTML5 Windows Phone 7 applications. I have written an <a href="http://www.scottlogic.co.uk/blog/colin/2011/09/developing-windows-phone-7-html5-apps-with-phonegap/" title="Developing Windows Phone 7 HTML5 apps with PhoneGap">introductory post</a> on the subject and also managed to have a <a href="http://www.scottlogic.co.uk/blog/colin/2011/11/property-finder-the-first-html5-based-windows-phone-7-application/" title="Property Finder - the first HTML5-based Windows Phone 7 Application">HTML5-based application accepted into the marketplace</a>.</p>
 <p>The Windows Phone 7 execution model has a few unique features (when compared to Android and iOS) that need to be considered when developing HTML5 applications. The first one, <a href="http://www.scottlogic.co.uk/blog/colin/2011/10/tombstoning-with-phonegap-for-windows-phone-7-and-knockoutjs/" title="Tombstoning with PhoneGap for Windows Phone 7 (and KnockoutJS)">tombstoning</a>, is something I dealt with in an earlier blogpost. In this post I want to look at how to handle the back-button and the application back-stack.</p>
-<p><img src="http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/11/BackStack.png" alt="" title="BackStack" width="600" height="279" class="aligncenter size-full wp-image-1853" /></p>
+<p><img src="{{ site.url }}/archive/2011/11/BackStack.png" alt="" title="BackStack" width="600" height="279" class="aligncenter size-full wp-image-1853" /></p>
 <p>With Windows Phone 7, as the user navigates from one page to the next, the latest page is added to the top of a stack (the back-stack). The back-button is used to navigate back through the pages within your application by pulling them from the top of this stack. When the back stack holds a single page, i.e. the initial entry point into your application, pressing the back-button should exit the application.</p>
 <p>So, how do you support this with a HTML5 / PhoneGap application? The PhoneGap APIs expose the <a href="http://docs.phonegap.com/en/1.0.0/phonegap_events_events.md.html#backbutton">back-button as a JavaScript event</a>. If you subscribe to this event, your JavaScript code is notified each time the user hits the back button. Also, if the JavaScript event is subscribed to, the 'native' (C#) event is cancelled, which means application back-stack remains unchanged and your PhoneGap application does not exit.</p>
 <p>In order to emulate the back-stack functionality in a PhoneGap application you need to subscribe to the PhoneGap backbutton when back-navigation is possible within your application, and unsubscribe when it is not. This means that when the user hits the back-button at the entry-point of your application, the application is terminated as expected.</p>
@@ -134,5 +134,5 @@ function onBackButton() {
 {% endhighlight %}
 <p>And that's it! When the JavaScript back-stack has more than one item, the PhoneGap <code>backbutton</code> event is handled and the <code>back</code> function invoked on our application, popping the top item from the stack, with the view updating accordingly. When our JavaScript back-stack has a single item, we no longer handle the PhoneGap <code>backbutton</code> event, this results in the Silverlight container handling the back-button. The Silverlight application back-stack always has a single page, so our application will exit.</p>
 <p>This technique for handling the back-stack is simple and elegant, this example has just two simple pages, however this same pattern should scale well for more complex HTML5 applications.</p>
-<p>You can download the full sourcecode here: <a href='http://www.scottlogic.co.uk/blog/colin/wp-content/uploads/2011/11/PhoneGapBackStack.zip'>PhoneGapBackStack.zip</a></p>
+<p>You can download the full sourcecode here: <a href='{{ site.url }}/archive/2011/11/PhoneGapBackStack.zip'>PhoneGapBackStack.zip</a></p>
 <p>Regards, Colin E.</p>
