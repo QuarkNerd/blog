@@ -19,9 +19,9 @@ source: wordpress
 <li>Any of the <a href="http://www.odata.org/producers">OData producers</a></li>
 </ul>
 <p>With paging being a common application requirement, Silverlight has the functionality to deal with this scenario built-in. The System.Windows.Data assembly contains the <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.ipagedcollectionview%28VS.95%29.aspx">IPagedCollectionView</a> interface, which defines the following methods, properties and events, allowing navigation of paged data:</p>
-<p><img src="{{ site.url }}/archive/2011/10/PagedCollectionView.png" alt="" title="PagedCollectionView" width="154" height="211" class="aligncenter size-full wp-image-1756" /></p>
+<p><img src="{{ site.baseurl }}/archive/2011/10/PagedCollectionView.png" alt="" title="PagedCollectionView" width="154" height="211" class="aligncenter size-full wp-image-1756" /></p>
 <p>The <code>System.Windows.Controls</code> assembly contains a <a href="http://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datapager.aspx">DataPager</a> control, that collaborates with this interface to provide a UI for paging the dataset. Simply set the Source property of this control to an instance of <code>IPagedCollectionView</code> and your user can page through the data:</p>
-<p><img src="{{ site.url }}/archive/2011/10/DataPager.png" alt="" title="DataPager" width="312" height="33" class="aligncenter size-full wp-image-1755" /></p>
+<p><img src="{{ site.baseurl }}/archive/2011/10/DataPager.png" alt="" title="DataPager" width="312" height="33" class="aligncenter size-full wp-image-1755" /></p>
 <p>NOTE: The <code>Source</code> property of <code>DataPager</code> is of type <code>IEnumerable</code>, which is a little odd, because it doesn't really need to enumerate the collection of items being displayed. Internally it probes the object you supply as the Source to see if it implements <code>IPagedCollectionView</code>, and if it does, the control becomes 'active'.</p>
 <p>This control gives you quite a bit of functionality for free, the buttons become enabled / disabled based on whether navigation forwards / backwards is possible. It respects the CanChangePage property, computes the total number of pages etc ...</p>
 <p>So, how do you make use of this interface and control?</p>
@@ -255,7 +255,7 @@ public ICommand ExecuteSearchCommand
 {% endhighlight %}
 <p>The DataPager simply binds to the <code>SearchResults</code> as does the ItemsControl. I have also added a <code>Rectangle</code> element which grays-out the current search results when a new page is being fetched.</p>
 <p>You can see the application in action below:</p>
-<div style="text-align: center;"><object width="500" height="400" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.url }}/archive/2011/10/PagedCollectionViewExample.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div style="text-align: center;"><object width="500" height="400" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2011/10/PagedCollectionViewExample.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <p>So in summary, by implementing <code>IPagedCollectionView</code> with a pluggable datasource, <code>IPagedDataSource</code>, it is possible to very quickly and easily create an application that pages data from the server.</p>
-<p>You can download the full sourcecode here: <a href='{{ site.url }}/archive/2011/10/PagedCollectionViewExample.zip'>PagedCollectionViewExample.zip</a></p>
+<p>You can download the full sourcecode here: <a href='{{ site.baseurl }}/archive/2011/10/PagedCollectionViewExample.zip'>PagedCollectionViewExample.zip</a></p>
 <p>Regards, Colin E.</p>

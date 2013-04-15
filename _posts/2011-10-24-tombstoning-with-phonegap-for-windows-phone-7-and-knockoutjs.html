@@ -18,7 +18,7 @@ source: wordpress
 <p>However, in order to pass the various Marketplace requirements and gain certification, your application must correctly handle the application lifecycle. With the recent Mango release, the lifecycle has become a little more complicated (although better! in that it adds multi-tasking / fast-app switching). I have also covered the lifecycle in a previous blog post and demonstrated how you can  <a href="http://www.scottlogic.co.uk/blog/colin/2011/10/a-windows-phone-7-1-mango-mvvm-tombstoning-example/" title="A Windows Phone 7.1 (Mango) MVVM Tombstoning Example">handle the various lifecycle events within an MVVM application</a>. </p>
 <p>The most tricky part of the application lifecycle that as a developer you need to handle is the tombstoned state, where your application is terminated (i.e. stopped and removed from memory). It is your responsibility to save enough state in order that when your tombstoned application is restarted, it looks to the user as if your application never stopped running, i.e. you restore your application UI to its original state. </p>
 <p>The Mango application lifecycle is illustrated below:</p>
-<p><img src="{{ site.url }}/archive/2011/10/WP7Lifecycle1.png" alt="" title="WP7Lifecycle" width="600" height="475" class="aligncenter size-full wp-image-1785" /></p>
+<p><img src="{{ site.baseurl }}/archive/2011/10/WP7Lifecycle1.png" alt="" title="WP7Lifecycle" width="600" height="475" class="aligncenter size-full wp-image-1785" /></p>
 <p>The <a href="http://docs.phonegap.com/en/1.0.0/phonegap_events_events.md.html">PhoneGap events</a> API includes pause and resume events, which can be used to detect when the application transitions to and from the dormant state, however, for WP7 these events do not give us enough information. When resuming, we need to know whether it has resumed from a dormant or a tombstoned state. Considering that the tombstoned state is peculiar to WP7 (Android, and iPhone simply have a suspend / resume model), I don't think it makes sense for the PhoneGap APIs to change in order to accommodate this. In this blog post I will show how the WP7 PhoneGap application host can be modified in order to support tombstoning.</p>
 <p>But before we get there, I want to digress a while and look at using the MVVM pattern with JavaScript ...</p>
 <h2>Using the MVVM pattern in JavaScript</h2>
@@ -164,7 +164,7 @@ function onDeviceReady() {
 <p>Originally I wanted to have the HTML for each view within a separate file, loading them via jQuery as <a href="http://www.knockmeout.net/2011/03/using-external-jquery-template-files.html">described in this blog post</a>. However, I just couldn't get this to work within the embedded WP7 browser.</p>
 <p>The <code>tweetView</code> tempate is used via the <code>template </code>/ <code>foreach</code> Knockout binding, mimicking the Silverlight / WPF <code>ItemsControl.ItemTemplate</code> concept.</p>
 <p>The application, after a bit of styling, looks like this:</p>
-<p><img src="{{ site.url }}/archive/2011/10/PhoneGapTwitterSearch.png" alt="" title="PhoneGapTwitterSearch" width="300" height="546" class="aligncenter size-full wp-image-1793" /></p>
+<p><img src="{{ site.baseurl }}/archive/2011/10/PhoneGapTwitterSearch.png" alt="" title="PhoneGapTwitterSearch" width="300" height="546" class="aligncenter size-full wp-image-1793" /></p>
 <h2>Tombstoning</h2>
 <p>Now that the application has a decent structure, we can tackle the application-lifecycle. We need a way to store the view model state when the application transitions into a dormant state. Fortunately Knockout makes this very easy by supplying a <code>toJSON</code> function, which can create a JSON representation of your view-model graph (minus the observables). I have added a <code>getState</code> function to the <code>TwitterSearchViewModel</code> as follows:</p>
 {% highlight javascript %}
@@ -265,5 +265,5 @@ this.setState = function (stateString) {
 <li>I have fund that the WebBrowser on the emulator does not tombstone correctly, when your application resumes the WebBrowser control fails to execute <strong>any</strong> JavaScript! Fortunately on  a real device it works just fine.</li>
 </ol>
 <p>Now that I can tombstone a PhoneGap application, I feel that it is one step closer to be a viable solution for application development. The final thing that I still haven't quite worked out yet is navigation and back-button support. Fortunately Knockout has a lot to offer in this area as well, but more on that later ...</p>
-<p>You can download the full sourcecode (including PhoneGap library mods) here: <a href='{{ site.url }}/archive/2011/10/PhoneGapExample.zip'>PhoneGapExample.zip</a></p>
+<p>You can download the full sourcecode (including PhoneGap library mods) here: <a href='{{ site.baseurl }}/archive/2011/10/PhoneGapExample.zip'>PhoneGapExample.zip</a></p>
 <p>Regards, Colin E.</p>

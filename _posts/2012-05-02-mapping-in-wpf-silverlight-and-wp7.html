@@ -159,7 +159,7 @@ public IEnumerable<Location> PushPins { get; set; } // Really add property chang
     </bing:MapItemsControl>
 </bing:Map>
 {% endhighlight %}
-<p>And the end result:<object data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="400" height="400"><param name="source" value="{{ site.url }}/archive/2012/03/MapsDemo.Bing_.SL_.xap"/><param name="background" value="white" /><param name="minRuntimeVersion" value="4.0.60310.0" /><param name="autoUpgrade" value="true" /><a href="http://go.microsoft.com/fwlink/?LinkID=149156&v=4.0.50826.0" style="text-decoration:none">        <img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight" style="border-style:none"/>    </a></object></p>
+<p>And the end result:<object data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="400" height="400"><param name="source" value="{{ site.baseurl }}/archive/2012/03/MapsDemo.Bing_.SL_.xap"/><param name="background" value="white" /><param name="minRuntimeVersion" value="4.0.60310.0" /><param name="autoUpgrade" value="true" /><a href="http://go.microsoft.com/fwlink/?LinkID=149156&v=4.0.50826.0" style="text-decoration:none">        <img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight" style="border-style:none"/>    </a></object></p>
 <h3>Bing - WPF</h3>
 <p>The WPF Bing control follows the Silverlight control API very closely, and other than the namespace there's little difference. Some options are different for the surrounding UI, but the main API is the same. It literally is as simple as using the same code files with:</p>
 {% highlight csharp %}
@@ -170,7 +170,7 @@ using Microsoft.Maps.MapControl.WPF;
 #endif
 {% endhighlight %}
 <p>The XAML is very similar - see the project at the end of the post for other details.</p>
-<p><a href="{{ site.url }}/archive/2012/02/WPF-Bing.png"><img src="{{ site.url }}/archive/2012/02/WPF-Bing.png" alt="" title="WPF-Bing" width="436" height="352" class="alignright size-full wp-image-145167" /></a></p>
+<p><a href="{{ site.baseurl }}/archive/2012/02/WPF-Bing.png"><img src="{{ site.baseurl }}/archive/2012/02/WPF-Bing.png" alt="" title="WPF-Bing" width="436" height="352" class="alignright size-full wp-image-145167" /></a></p>
 <h3>Bing - WP7</h3>
 <p>Again the WP7 API is similar, although in this case there are some differences. An obvious one is the Location class is supplemented with the Geolocation class - for example LocationCollection is now an ObservableCollection&lt;Geolocation&gt;. In fact there are implicit conversions between Location and Geolocation, so in most cases we can again get away with the same C# code with some careful use of types - other than some conditional includes:</p>
 {% highlight csharp %}
@@ -183,7 +183,7 @@ using Microsoft.Maps.MapControl;
 using Microsoft.Maps.MapControl.WPF;
 #endif
 {% endhighlight %}
-<p>Of course the end result looks somewhat different:<a href="{{ site.url }}/archive/2012/02/WP7-Bing.png"><img src="{{ site.url }}/archive/2012/02/WP7-Bing-158x300.png" alt="" title="WP7-Bing" width="158" height="300" class="alignright size-medium wp-image-145438" /></a></p>
+<p>Of course the end result looks somewhat different:<a href="{{ site.baseurl }}/archive/2012/02/WP7-Bing.png"><img src="{{ site.baseurl }}/archive/2012/02/WP7-Bing-158x300.png" alt="" title="WP7-Bing" width="158" height="300" class="alignright size-medium wp-image-145438" /></a></p>
 <h3>And finally</h3>
-<p>The various projects with the above code can be <a href="{{ site.url }}/archive/2012/03/MapsDemo.Bing_.zip">downloaded here</a>. If I was going to create the same thing again I'd keep references to Bing namespaces entirely out of the common code with some more aggressive use of converters, rather than dancing around the differences, but as an exploration of the APIs I found it interesting to see how little had to change.</p>
+<p>The various projects with the above code can be <a href="{{ site.baseurl }}/archive/2012/03/MapsDemo.Bing_.zip">downloaded here</a>. If I was going to create the same thing again I'd keep references to Bing namespaces entirely out of the common code with some more aggressive use of converters, rather than dancing around the differences, but as an exploration of the APIs I found it interesting to see how little had to change.</p>
 <p>I'm going to pause for there and show the Google Maps version in another installment. There there will be some more interesting issues to consider.</p>

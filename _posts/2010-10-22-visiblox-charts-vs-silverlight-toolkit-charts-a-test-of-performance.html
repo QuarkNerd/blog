@@ -20,10 +20,10 @@ source: wordpress
 </tr>
 <tr>
 <td>
-<div style="text-align: center; "><object width="300" height="450" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.url }}/archive/2010/10/Visiblox.Charts.Examples.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div style="text-align: center; "><object width="300" height="450" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/10/Visiblox.Charts.Examples.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 </td>
 <td>
-<div style="text-align: center; "><object width="300" height="450" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.url }}/archive/2010/10/HistogramToolkit.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div style="text-align: center; "><object width="300" height="450" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/10/HistogramToolkit.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 </td>
 </tr>
 </table>
@@ -270,6 +270,6 @@ public class DataPoint
 <li><strong>Databinding as an option</strong> - with Visiblox it is possible to present the data directly to the chart using the DataSeries class, whilst with the Toolkit charts you have to use databinding which brings with it a performance overhead. Again, with Visiblox you can use databinding to business objects if you wish. With the above Visiblox example application the performance is approximately halved by using databinding, this is still 25-50 times faster than the toolkit charts! (The sourcecode download includes the databinding Visiblox vesion).</li>
 <li><strong>Optimised handling of changes</strong> - the Visiblox charts are optimised in such a way as to minimise the impact of changes in the data or other properties of the chart. You can update datapoints, entire series, or change the various properties of an axis and be guaranteed that the chart will only re-computed its layout once.</li>
 </ol>
-<p>You can download the full sourcecode for the example applications given in this blog post here: <a href='{{ site.url }}/archive/2010/10/ChartPerformance.zip'>ChartPerformance.zip</a></p>
+<p>You can download the full sourcecode for the example applications given in this blog post here: <a href='{{ site.baseurl }}/archive/2010/10/ChartPerformance.zip'>ChartPerformance.zip</a></p>
 <p>For the Visiblox examples you will need to visit <a href="http://www.visiblox.co.uk/">www.visiblox.co.uk</a> to download their chart component, and for the Toolkit examples you will need to download and install the <a href="http://silverlight.codeplex.com/">Silverlight Toolkit</a>.</p>
 <p>Regards, Colin E.</p>

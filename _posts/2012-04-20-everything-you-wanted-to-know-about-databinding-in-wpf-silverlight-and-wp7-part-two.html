@@ -40,7 +40,7 @@ public class EventModel : INotifyPropertyChanged
 }
 {% endhighlight %}
 <p>And render it with the following UI:</p>
-<p><img src="{{ site.url }}/archive/2012/04/figOne.png" alt="" title="figOne" width="250" height="155" class="aligncenter size-full wp-image-2073" /></p>
+<p><img src="{{ site.baseurl }}/archive/2012/04/figOne.png" alt="" title="figOne" width="250" height="155" class="aligncenter size-full wp-image-2073" /></p>
 <p>The XAML for the UI is as follows:</p>
 {% highlight xml %}
 <Grid>
@@ -122,9 +122,9 @@ public MainPage()
 <p>Compiling and running this modified version of our code yields exactly the same result. The UI displays the initial values of the event, and the bindings take care of updating the UI if the model changes and updating the model based on user interactions with the controls. So let's take a closer look at how these binding work.</p>
 <p>Within XAML, any attribute value that is surrounded in curly braces <code>{...}</code> is a markup extension. Whilst most of your XAML markup is simply used to construct controls and panels in order to assemble the visual tree of your application, markup extension inject extra functionality into the XAML parser. The <a href="http://msdn.microsoft.com/en-us/library/ms750413.aspx">Binding Markup Extension</a> constructs a binding and associates it with the <code>UIElement</code> or <code>FrameworkElement </code>that the property belongs to.</p>
 <p>As you might recall from the previous blog post, all bindings have a source object, source property, target object and target property:</p>
-<p><img src="{{ site.url }}/archive/2012/04/binding.png" alt="" title="binding" width="600" height="111" class="aligncenter size-full wp-image-2075" /></p>
+<p><img src="{{ site.baseurl }}/archive/2012/04/binding.png" alt="" title="binding" width="600" height="111" class="aligncenter size-full wp-image-2075" /></p>
 <p>How do these map to our XAML binding? Let's look at the various components of our markup:</p>
-<p><img src="{{ site.url }}/archive/2012/04/BindingMarkup.png" alt="" title="BindingMarkup" width="500" height="183" class="aligncenter size-full wp-image-2086" /></p>
+<p><img src="{{ site.baseurl }}/archive/2012/04/BindingMarkup.png" alt="" title="BindingMarkup" width="500" height="183" class="aligncenter size-full wp-image-2086" /></p>
 <p>The <strong>target object</strong> is the object that owns the property which we are binding to, i.e. the UI control rendering our data. The <strong>target property</strong> is the property that has been set via the markup extension, and the <strong>source property</strong> is the path of the binding.</p>
 <p>However, there is something missing? Where is the <strong>source object</strong>? In our example above, where is the object that owns this <code>Title </code>property we are binding to the UI? If you recall earlier we set the <code>DataContext </code>property of our <code>MainPage</code> to the event class which is being edited ... <em>this </em>is our <strong>source object</strong>. The <code>DataContext </code>is a rather special property for a couple of reasons:</p>
 <ol><li><strong>Inheritence </strong>- The <code>DataContext </code>value is inherited down the visual tree from one control to the next. Even though we set the <code>DataContext </code>of <code>MainPage </code>to our model object, if you set a breakpoint in the code and inspect the <code>DataContext </code>of the above <code>TextBox </code>you will also find that it is set to the same event object.</li>
@@ -177,7 +177,7 @@ this.DataContext = _model;
 <TextBox Text="{Binding Path=WorkAddress.City, Mode=TwoWay}" ... />
 {% endhighlight %}
 <p>Which yields the following UI:</p>
-<p><img src="{{ site.url }}/archive/2012/04/PersonUI.png" alt="" title="PersonUI" width="300" height="228" class="aligncenter size-full wp-image-2087" /></p>
+<p><img src="{{ site.baseurl }}/archive/2012/04/PersonUI.png" alt="" title="PersonUI" width="300" height="228" class="aligncenter size-full wp-image-2087" /></p>
 <p>Now because Address implements <code>INotifyPropertyChanged</code>, if we change the <code>Street</code> or <code>City </code>of the object bound to the UI, the binding framework will take care of pushing this change to the binding targets (i.e. the TextBox instances). But, what if we replace the <code>Address</code> instance entirely? For example ...</p>
 {% highlight csharp %}
 private void Button_Click(object sender, RoutedEventArgs e)
@@ -218,7 +218,7 @@ private void Button_Click(object sender, RoutedEventArgs e)
 </Border>
 {% endhighlight %}
 <p>In the above XAML we are binding the <code>DataContext </code>of the <code>Border</code> element to the <code>WorkAddress </code>property of the Person instance (which was set as the <code>DataContext</code> of our UI in code-behind). As a result, all the children of the <code>Border</code> have the <code>Address </code>instance as their <code>DataContext</code>, so we can bind to the properties directly. This creates an 'island' within our UI that is bound to <code>Address </code>as shown graphically below:</p>
-<p><img src="{{ site.url }}/archive/2012/04/BindingIslands.png" alt="" title="BindingIslands" width="550" height="210" class="aligncenter size-full wp-image-2088" /></p>
+<p><img src="{{ site.baseurl }}/archive/2012/04/BindingIslands.png" alt="" title="BindingIslands" width="550" height="210" class="aligncenter size-full wp-image-2088" /></p>
 <h2>Binding Shorthand and Longhand</h2>
 <p>We'll wrap up part two of the series on databinding by looking at a couple of variations in the binding syntax, the first is a 'longhand' version of the binding. Instead of using the binding markup extension, it is possible to create the binding instance in XAML, for example, the simple binding to <code>Forename</code>:</p>
 {% highlight xml %}
@@ -249,5 +249,5 @@ private void Button_Click(object sender, RoutedEventArgs e)
 <h2>Summary</h2>
 <p>In this blog post we have looked at the binding markup extension and how this provides a concise mechanism for creating bindings. We have also seen how the <code>DataContext</code>, which is the default source for our bindings, plays a pivotal role in the Silverlight and WPF binding frameworks. Finally, we have seen how we can use bindings to 'switch' the <code>DataContext </code>in order to create binding 'islands' within out UI.</p>
 <p>In the next instalment we'll look at some of the other ways we can specify the binding source and when you might use them, but now we'll take a well-earned break ... see you next time.</p>
-<p>You can download the sourcecode for the examples described in this blogpost: <a href='{{ site.url }}/archive/2012/04/DatabindingExamplesPartTwo.zip'>DatabindingExamplesPartTwo.zip</a></p>
+<p>You can download the sourcecode for the examples described in this blogpost: <a href='{{ site.baseurl }}/archive/2012/04/DatabindingExamplesPartTwo.zip'>DatabindingExamplesPartTwo.zip</a></p>
 <p>Regards, Colin E.</p>

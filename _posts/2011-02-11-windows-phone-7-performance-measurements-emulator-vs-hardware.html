@@ -27,9 +27,9 @@ source: wordpress
 <li>And finally, an empty page!</li>
 </ol>
 <p>Each test was performed 5 times, with an average result taken. Here are my findings, where the tests are being executed on a Samsung Omnia WP7 device:</p>
-<p><img src="{{ site.url }}/archive/2011/02/performance.png" alt="" title="performance" width="612" height="335" class="aligncenter size-full wp-image-1220" /></p>
+<p><img src="{{ site.baseurl }}/archive/2011/02/performance.png" alt="" title="performance" width="612" height="335" class="aligncenter size-full wp-image-1220" /></p>
 <p>I also ran the tests for populating the UI with 100 buttons on the emulator:</p>
-<p><img src="{{ site.url }}/archive/2011/02/performance2.png" alt="" title="performance2" width="561" height="339" class="aligncenter size-full wp-image-1221" /></p>
+<p><img src="{{ site.baseurl }}/archive/2011/02/performance2.png" alt="" title="performance2" width="561" height="339" class="aligncenter size-full wp-image-1221" /></p>
 <p>My conclusions are as follows:</p>
 <ul>
 <li>Constructing the UI in code-behind or via XAML takes the same amount of time. Use whichever works best for you.</li>
@@ -44,5 +44,5 @@ source: wordpress
 <p>Firstly, because the <code>ItemsControl</code>  (when virtualizing) is faster than the <code>ListBox</code>, don't use a <code>ListBox</code> for navigation ... I have seen a number of examples where a <code>ListBox</code> is used to render items such as email messages, with the <code>SelectionChanged</code> event being used to initiate navigation. Use an <code>ItemsControl</code>, and handled the bubbled events instead!</p>
 <p>Secondly, use techniques such as the <a href="http://www.scottlogic.co.uk/blog/colin/2011/01/windows-phone-7-deferredloadcontentcontrol/">DeferredLoadContentControl</a>, or the <a href="http://blogs.msdn.com/b/delay/archive/2010/09/08/never-do-today-what-you-can-put-off-till-tomorrow-deferredloadlistbox-and-stackpanel-help-windows-phone-7-lists-scroll-smoothly-and-consistently.aspx">DeferredLoadListBox</a> to reduce the amount of UI elements added to the screen before its initial render.</p>
 <p>Finally, test on real hardware!</p>
-<p>You can download the code I used to make these measurements here: <a href='{{ site.url }}/archive/2011/02/WindowsPhonePerformanceTests.zip'>WindowsPhonePerformanceTests.zip</a></p>
+<p>You can download the code I used to make these measurements here: <a href='{{ site.baseurl }}/archive/2011/02/WindowsPhonePerformanceTests.zip'>WindowsPhonePerformanceTests.zip</a></p>
 <p>Regards,Colin E.</p>

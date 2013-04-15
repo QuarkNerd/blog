@@ -13,7 +13,7 @@ source: wordpress
 ---
 <p>The Windows Phone 7 Panorama control is widely used in applications and to many has come to symbolise the Metro Design Language. Search for <a href="http://www.google.co.uk/search?tbm=isch&q=windows+phone+7+panorama">panorama images</a> and you will find numerous promo-shots of Windows Phone 7 applications which display the panoramic contents of the application hub, with an image of a phone above it illustrating how the panorama slides through your viewport.</p>
 <p>The image below shows a promo-shot for XAMLFinance, an application I have been working on:</p>
-<p><img src="{{ site.url }}/archive/2011/07/XAMLFinancePanoramaSmall.png" alt="" title="XAMLFinancePanoramaSmall" width="650" height="338" class="aligncenter size-full wp-image-1610" /> </p>
+<p><img src="{{ site.baseurl }}/archive/2011/07/XAMLFinancePanoramaSmall.png" alt="" title="XAMLFinancePanoramaSmall" width="650" height="338" class="aligncenter size-full wp-image-1610" /> </p>
 <p>Creating images like the one above takes a bit of work, fortunately you can turn off the parallax scrolling effect of the control (as described in <a href="http://www.cjcraft.com/blog/2011/01/19/WP7Tip002HowDoYouCreateWindowsPhone7PanoramaApplicationScreenshots.aspx">this blog post</a>), allowing for easier image stitching, however the process is still quite manual.</p>
 <p>For a bit of fun I thought it would be nice to template the <code>Panorama</code> control itself in order to display the full panorama contents on the emulator within a single screen, so that I can create my promo-shot with a single screengrab.</p>
 <p>Unfortunately, the <code>Panorama</code> control is a little too tightly coupled to its template to allow this kind of radical re-design, so the next best options is to create a new page that hosts my <code>PanoramaItems</code> within an <code>ItemsControl</code> and style that.</p>
@@ -135,7 +135,7 @@ source: wordpress
 </Style>
 {% endhighlight %}
 <p>The end result is that we can see the entire panorama contents in a screen-shot ready state:</p>
-<p><a href="{{ site.url }}/archive/2011/07/Panorama.png"><img src="{{ site.url }}/archive/2011/07/PanoramaSmall.png" alt="" title="PanoramaSmall" width="600" height="330" class="aligncenter size-full wp-image-1612" /></a></p>
+<p><a href="{{ site.baseurl }}/archive/2011/07/Panorama.png"><img src="{{ site.baseurl }}/archive/2011/07/PanoramaSmall.png" alt="" title="PanoramaSmall" width="600" height="330" class="aligncenter size-full wp-image-1612" /></a></p>
 <p>The big advantage of this approach is that any changes to the application can be reflected in the promo-shot very swiftly. It is also quite good fun having a fully functioning version of your panoramic hub in miniature!</p>
-<p>You can download the sourcecode here: <a href='{{ site.url }}/archive/2011/07/PanoramaShot.zip'>PanoramaShot.zip</a></p>
+<p>You can download the sourcecode here: <a href='{{ site.baseurl }}/archive/2011/07/PanoramaShot.zip'>PanoramaShot.zip</a></p>
 <p>Regards, Colin E.</p>

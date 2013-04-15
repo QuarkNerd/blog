@@ -13,7 +13,7 @@ categories:
 layout: ceberhardt_post
 source: wordpress
 ---
-<p><a href="{{ site.url }}/archive/2009/06/card.png"><img src="{{ site.url }}/archive/2009/06/card.png" alt="card" title="card" width="228" height="128" class="aligncenter size-full wp-image-336" /></a></p>
+<p><a href="{{ site.baseurl }}/archive/2009/06/card.png"><img src="{{ site.baseurl }}/archive/2009/06/card.png" alt="card" title="card" width="228" height="128" class="aligncenter size-full wp-image-336" /></a></p>
 <p>I must admit that the title of this post is not entirely clear, however I couldn't find a way to sum up the content in one short sentence, so we'll dive straight into an example. Let's say for example you have developed a funky little business-card as illustrated above, using the simple XAML below:</p>
 {% highlight xml %}
 <Border BorderBrush="LightGray" Background="White"  BorderThickness="1.5" CornerRadius="20"
@@ -100,7 +100,7 @@ public partial class ContactDetailsControl : UserControl
     EmailBinding="{Binding Email}"/>
 {% endhighlight %}
 <p>Now for another example and a bit more fun ...</p>
-<div id="slPluginHost" > <object id="SilverlightPlugin" width="200" height="200" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.url }}/archive/2009/06/slbindingproperties.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div id="slPluginHost" > <object id="SilverlightPlugin" width="200" height="200" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2009/06/slbindingproperties.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <p>The above Silverlight application shows a number of particles exhibiting <a href="http://en.wikipedia.org/wiki/Brownian_motion">Brownian motion</a>. </p>
 <p>This application creates 50 instances of a Particle object within an ObservableCollection:</p>
 {% highlight csharp %}
@@ -155,5 +155,5 @@ private void Ellipse_Loaded(object sender, RoutedEventArgs e)
 }
 {% endhighlight %}
 <p>Again, by exposing Bindings as properties this user control is just as flexible as if its markup was included in the page directly. This example also illustrates another interesting point, the Bindings that the client provided have been re-used for each Ellipse that was created by the ItemsControl. This is made possible because when SetBinding is invoked on our Ellipse, the Binding is not associated with the Ellipse, rather, it is used to create an instance of a <a href="http://msdn.microsoft.com/en-us/library/system.windows.data.bindingexpression(VS.85).aspx">BindingExpression</a>. Binding is used to declare a binding, whereas BindingExpression is the implementation, i.e. it does the heavy-lifting of copying data to-and-from from source to target (and vice-versa).</p>
-<p>You can download the full source for both examples: <a href='{{ site.url }}/archive/2009/06/bindingproperties.zip'>bindingproperties.zip</a></p>
+<p>You can download the full source for both examples: <a href='{{ site.baseurl }}/archive/2009/06/bindingproperties.zip'>bindingproperties.zip</a></p>
 <p>Regards, Colin E.</p>

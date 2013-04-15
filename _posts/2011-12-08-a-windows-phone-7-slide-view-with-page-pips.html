@@ -12,7 +12,7 @@ source: wordpress
 ---
 <p>A popular user-interface in the iOS world is the <a href="http://developer.apple.com/library/ios/#documentation/uikit/reference/UIPageControl_Class/Reference/Reference.html">UIPageControl</a> which renders a small set of dots to indicate the number of pages, with the current page highlighted in some way. This is often used in conjunction with a <code>UIScrollView</code> to navigate between pages in a multi-page layout.</p>
 <p>Windows Phone 7 has a Pivot control which allows you to swipe in order to navigate content across multiple screens. However, the Pivot control is most often used when each 'page' has some logic header - in some ways it is analogous to a desktop tab control. I decided to use this control, without specifying headers for each PivotItem, then add my own control to render the 'pips'.</p>
-<p><img src="{{ site.url }}/archive/2011/12/SlideView.png" alt="" title="SlideView" width="630" height="222" class="aligncenter size-full wp-image-1868" /></p>
+<p><img src="{{ site.baseurl }}/archive/2011/12/SlideView.png" alt="" title="SlideView" width="630" height="222" class="aligncenter size-full wp-image-1868" /></p>
 <p>The control that displays the location pips is defined in XAML, with the relationship between this control and the Pivot created via an <code>ElementName</code> binding:</p>
 {% highlight xml %}
 <local:PivotLocationView Source="{Binding ElementName=pivot}"
@@ -166,7 +166,7 @@ public class PivotItemViewModel : INotifyPropertyChanged
 </PivotLocationViewModel>
 {% endhighlight %}
 <p>This makes creating the above user control much easier, because it can be visualised in the designer:</p>
-<p><img src="{{ site.url }}/archive/2011/12/DesignTime.jpg" alt="" title="DesignTime" width="550" height="365" class="aligncenter size-full wp-image-1867" /></p>
+<p><img src="{{ site.baseurl }}/archive/2011/12/DesignTime.jpg" alt="" title="DesignTime" width="550" height="365" class="aligncenter size-full wp-image-1867" /></p>
 <p>And there you have it, a simple user-control, which when used in conjunction with a <code>Pivot</code>, provides an interface where the user can swipe between pages.</p>
-<p>You can download the full sourcecode: <a href='{{ site.url }}/archive/2011/12/SlideView.zip'>SlideView.zip</a></p>
+<p>You can download the full sourcecode: <a href='{{ site.baseurl }}/archive/2011/12/SlideView.zip'>SlideView.zip</a></p>
 <p>Regards, Colin E. </p>

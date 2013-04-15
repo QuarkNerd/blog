@@ -46,9 +46,9 @@ source: site
 <p>The programmatic access also allows you to manually trigger an up-to-date check and also control when the new cache is switched in place of the old one, <a href="http://www.html5rocks.com/tutorials/appcache/beginner/#toc-updating-cache">HTML5 Rocks</a> have a good tutorial covering this.</p>
 <p><strong>Debugging using developer tools</strong></p>
 <p>Unfortunately as it's such a new feature the browser debug tools aren't up to much yet either e.g. in Chrome 11.0.696.71 there are buttons for refreshing and deleting the appcache - they just <a href="http://code.google.com/p/chromium/issues/detail?id=65714">don't work</a>. At least the development tools do have support for viewing the content of the appcache (Ctrl+Shift+J-&gt;Resources-&gt;Application Cache) which is a step in the right direction!</p>
-<p><img src="http://www.scottlogic.co.uk/blog/chris{{ site.url }}/archive/2011/06/appcache-developer-tools.png" alt="" width="627px;" height="254px;" /></p>
+<p><img src="http://www.scottlogic.co.uk/blog/chris{{ site.baseurl }}/archive/2011/06/appcache-developer-tools.png" alt="" width="627px;" height="254px;" /></p>
 <p>When trying to dig out the bug report for the above issue I stumbled across an appcache debug page <a href="chrome://appcache-internals/">chrome://appcache-internals/</a> which does make it possible to clear the cache.</p>
-<p><img src="http://www.scottlogic.co.uk/blog/chris{{ site.url }}/archive/2011/06/appcache-internals.png" alt="" width="468px;" height="296px;" /></p>
+<p><img src="http://www.scottlogic.co.uk/blog/chris{{ site.baseurl }}/archive/2011/06/appcache-internals.png" alt="" width="468px;" height="296px;" /></p>
 <p><strong>Wrapping up</strong></p>
 <p>I started out stating that I was going to create a wrapped (web)app. In part 1, I've covered the basics of getting your webapp offline in the browser but so far I haven't touched on anything mobile. I'm going to follow this post up with another couple covering my experiences getting the appcache working in native apps as that turns out to be a lot more tricky than should be...</p>
 <p><a href="http://www.scottlogic.co.uk/blog/chris/2011/06/a-webapp-by-another-name-ii-the-many-pitfalls-of-using-the-application-cache-on-mobile-platforms/">Part II</a></p>

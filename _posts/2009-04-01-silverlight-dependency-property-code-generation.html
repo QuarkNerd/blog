@@ -42,7 +42,7 @@ private void OnMaximumPropertyChanged(DependencyPropertyChangedEventArgs e)
 <p>Before I describe my approach, I want to briefly explain why dependency properties (DP) have to be this way. An obvious beginner question is, why can't CLR properties behave like DPs? The difference is that CLR properties are understood by the compiler, they are part of the language. Whereas DPs are purely implementation, an implementation which is restricted by the .NET language.</p>
 <p>So, if we can't change the language itself, what can we do? I toyed with the idea of Aspect Oriented Programming, enhancing the compiled bytecode in order to add DPs for CLRs marked with attributes, however whichever way I looked at the problem I could not find a solution that fits. This lead me onto code generation, the basic idea being that my DPs would be generated from a concise description of my Dependency Objects. This investigation lead me to one of Visual Studios best kept secrets, <a href="http://msdn.microsoft.com/en-us/library/bb126445.aspx">T4 templates</a> (T4 = Text Template Transformation Toolkit!).</p>
 <p>T4 template are available in Visual Studio 2008, however they are not listed when you select 'Add => New Item' on you project. To add a new template, simply create a new file with an extension of 'tt'. You will then see something that looks like the following:</p>
-<p><a href="{{ site.url }}/archive/2009/04/t4template.png"><img src="{{ site.url }}/archive/2009/04/t4template.png" alt="t4template" title="t4template" width="171" height="61" class="alignnone size-full wp-image-231" /></a></p>
+<p><a href="{{ site.baseurl }}/archive/2009/04/t4template.png"><img src="{{ site.baseurl }}/archive/2009/04/t4template.png" alt="t4template" title="t4template" width="171" height="61" class="alignnone size-full wp-image-231" /></a></p>
 <p>Your template file is visible within the solution explorer along with the file that it generates. The templates themselves are executed before Visual Studio compiles your project, so in the example above HelloWorld.cs, our generated file, is compiled just like any other 'cs' file. Here's a simple example, the following template (which has a ASP.NET-like syntax) creates a .cs file, whilst the template language itself is C#.</p>
 <pre>
 <span style="background: #ddf"/>&lt;#@ output extension="cs" #&gt;
@@ -205,7 +205,7 @@ namespace SilverlightTemplates
 }
 {% endhighlight %}
 <p>So much code, from such a small XML file!</p>
-<p>I have created a simple example project with a user control which contains a pair of DPs, which you can download: <a href='{{ site.url }}/archive/2009/04/silverlighttemplate.zip'>silverlighttemplate.zip</a>.</p>
+<p>I have created a simple example project with a user control which contains a pair of DPs, which you can download: <a href='{{ site.baseurl }}/archive/2009/04/silverlighttemplate.zip'>silverlighttemplate.zip</a>.</p>
 <p>If you find this template useful, please let me know. Also if you find any mistakes or think of a clever way to extend it further, give me a shout.</p>
 <p>Regards, Colin E.</p>
 <p><b>APPENDIX</b></p>

@@ -15,9 +15,9 @@ source: wordpress
 ---
 <p><em>In a previous blog post I described the process of creating a lookless gauge control. I introduced the concept of an attached view model which separates view specific concepts from the control. In this post I demonstrate how this allows for great flexibility when re-templating the control.</em></p>
 <p>In <a href="http://www.scottlogic.co.uk/blog/colin/2010/08/developing-a-very-lookless-silverlight-radial-gauge-control/">my previous post</a> I described the development of a radial gauge control where I removed any view-specific logic and properties from the control by introducing an attached view model into the control's template. My reasons for doing this were to create a completely lookless control in the order that this would permit greater flexibility when re-templating or themeing. The control I created was a gauge control, which in my previous blog post I rendered as a radial gauge. The 'radial concepts' of angle, and other derived properties are contained within the attached view model, with the Gauge control itself only containing concepts that are common across all gauges (radial or otherwise). The control is shown below:</p>
-<div style="text-align: center; "><object width="300" height="240" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.url }}/archive/2010/10/GaugeControlTwo.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div style="text-align: center; "><object width="300" height="240" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/10/GaugeControlTwo.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <p>In this post I will create two different templates for this control. The first is a small variation on the radial gauge which is rendered as a semi-circle. The second is very different, a bullet graph, where the gauge is rendered as a linear indicator. With each, an attached view model is introduced into the controls template in order to compute properties that aid in the rendering of the control.</p>
-<p><img src="{{ site.url }}/archive/2010/10/BulletAndSemiGauge.jpg" alt="" title="BulletAndSemiGauge" width="400" height="126" class="aligncenter size-full wp-image-869" /></p>
+<p><img src="{{ site.baseurl }}/archive/2010/10/BulletAndSemiGauge.jpg" alt="" title="BulletAndSemiGauge" width="400" height="126" class="aligncenter size-full wp-image-869" /></p>
 <h2>A Semi-circular Gauge</h2>
 <p>The original attached view model I created was hard-coded to create a radial control where the needle has a sweep angle of 300 degrees. To support a semi-circular gauge we need to be able to configure this parameter. I achieved this by simply making SweepAngle a public property of the attached view model. This property is used wherever the view model needs to convert a gauge value to a radial location (i.e. when computing the tick mark rotation angles):</p>
 {% highlight csharp %}
@@ -142,7 +142,7 @@ public class RadialGaugeControlViewModel : AttachedViewModelBase
 </Grid>
 {% endhighlight %}
 <p>You can see the various gridlines below:</p>
-<p><img src="{{ site.url }}/archive/2010/10/semicircle.jpg" alt="" title="semicircle" width="251" height="123" class="aligncenter size-full wp-image-870" /></p>
+<p><img src="{{ site.baseurl }}/archive/2010/10/semicircle.jpg" alt="" title="semicircle" width="251" height="123" class="aligncenter size-full wp-image-870" /></p>
 <p>The code for creating the major / minor ticks and qualitative ranges are much the same as before. However, for a bit of variation I did not want the labels on this gauge to be rotated. In order to achieve this I used the same technique as before where each label is initially constructed at the same location, then a translate / rotate transform is used to move it to the correct location on the dial. In this control, the text label is rotated a second time in the opposite direction in order to bring it back to its original orientation: </p>
 {% highlight xml %}
 <ItemsControl.ItemTemplate>
@@ -170,13 +170,13 @@ public class RadialGaugeControlViewModel : AttachedViewModelBase
 </ItemsControl.ItemTemplate>
 {% endhighlight %}
 <p>The finished semi-circular gauge can be seen here next to my original radial gauge control:</p>
-<div style="text-align: center; "><object width="400" height="240" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.url }}/archive/2010/10/GaugeAndSemiGauge.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div style="text-align: center; "><object width="400" height="240" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/10/GaugeAndSemiGauge.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <p>So, the original control has proven to be pretty versatile in that it can be re-templated to look quite different. To allow this, the attached view model was modified to expose a few view-centric properties that could be set when it is created and attached within the template.</p>
 <p>However, the example above is still a radial gauge. A much bigger challenge would be to re-template the control to look completely different. That was my next challenge!</p>
 <h2>A Bullet Graph Template</h2>
 <p>Radial gauge controls look very pretty; however they eat up a lot of screen real-estate, and are not the best way of visualising a one-dimensional metric. A much clearer visualisation can be achieved by using a linear gauge, a <a href="http://en.wikipedia.org/wiki/Bullet_graph">bullet-graph</a> for example. This section describes how a new attached view model can be applied to the gauge control, to support a template which produces a bullet graph.</p>
 <p>Using the same process as in the above example, the basic structure of the control is defined using a Grid:</p>
-<p><img src="{{ site.url }}/archive/2010/10/bulletLayout.png" alt="" title="bulletLayout" width="235" height="99" class="aligncenter size-full wp-image-872" /></p>
+<p><img src="{{ site.baseurl }}/archive/2010/10/bulletLayout.png" alt="" title="bulletLayout" width="235" height="99" class="aligncenter size-full wp-image-872" /></p>
 {% highlight xml %}
 <Style TargetType="local:GaugeControl" x:Key="bulletGraphGauge">
   <Setter Property="FontSize" Value="8"/>
@@ -248,7 +248,7 @@ public class BulletGraphGaugeViewModel : AttachedViewModelBase
 }
 {% endhighlight %}
 <p>Next we'll add the 'qualitative range' scale:</p>
-<p><img src="{{ site.url }}/archive/2010/10/bulletRanges.png" alt="" title="bulletRanges" width="229" height="98" class="aligncenter size-full wp-image-874" /></p>
+<p><img src="{{ site.baseurl }}/archive/2010/10/bulletRanges.png" alt="" title="bulletRanges" width="229" height="98" class="aligncenter size-full wp-image-874" /></p>
 {% highlight xml %}
 <!-- Qualitative ranges -->
 <ItemsControl ItemsSource="{Binding Path=Ranges}"
@@ -314,7 +314,7 @@ public class RangeItem
 }
 {% endhighlight %}
 <p>Finally, the scales are added:</p>
-<p><img src="{{ site.url }}/archive/2010/10/bulletscale.png" alt="" title="bulletscale" width="237" height="99" class="aligncenter size-full wp-image-875" /></p>
+<p><img src="{{ site.baseurl }}/archive/2010/10/bulletscale.png" alt="" title="bulletscale" width="237" height="99" class="aligncenter size-full wp-image-875" /></p>
 {% highlight xml %}
 <!-- upper scale -->
 <ItemsControl ItemsSource="{Binding Path=MajorTicks}"
@@ -367,7 +367,7 @@ public class RangeItem
 {% endhighlight %}
 <p>Again, exactly the same pattern is employed, with the MajorTicks and MinorTicks properties exposed by the attached view model, each providing an enumeration of simple value objects with a Position and Label properties, which are bound to the three ItemsControls above to create the required UI.</p>
 <p>The complete bullet graph template is shown below next to the original radial gauge:</p>
-<div style="text-align: center; "><object width="400" height="240" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.url }}/archive/2010/10/GaugeAndBullet.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div style="text-align: center; "><object width="400" height="240" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/10/GaugeAndBullet.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <p>In conclusion, the use of an attached view model provides a mechanism for exposing view-specific properties to the view logic within the XAML template. This enables the construction of a control which really is entirely lookless.</p>
-<p>You can download the sourcecode for this project:  <a href='{{ site.url }}/archive/2010/10/GaugeControl.zip'>GaugeControl.zip</a></p>
+<p>You can download the sourcecode for this project:  <a href='{{ site.baseurl }}/archive/2010/10/GaugeControl.zip'>GaugeControl.zip</a></p>
 <p>Regards, Colin E.</p>

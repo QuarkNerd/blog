@@ -16,8 +16,8 @@ source: wordpress
 <p>The Windows Phone 7 camera gives you the option to record the location where a picture was taken (under Settings => applications => pictures+camera). With this feature turned on, each application has their latitude, longitude and altitude stored as part of the standard <a href="http://en.wikipedia.org/wiki/Exchangeable_image_file_format">EXIF data</a>. I thought it would be fun to combine the previous blog post I wrote on <a href="http://www.scottlogic.co.uk/blog/colin/2011/11/pushpin-clustering-with-the-windows-phone-7-bing-map-control/" title="Pushpin Clustering with the Windows Phone 7 Bing Map control">pushpin clustering</a> with the photos on my camera, to allow me to explore them via a Bing Maps control. With not much more than 100 lines of code I came up with an application which I think is a lot of fun to use. </p>
 <table>
 <tr>
-<td width="300" ><img style="margin:5px" src="{{ site.url }}/archive/2012/01/screenshot.jpg" alt="" title="screenshot4" width="300" height="188" class="aligncenter size-full wp-image-1931" /></td>
-<td width="300"><img style="margin:5px" src="{{ site.url }}/archive/2012/01/screenshot2.jpg" alt="" title="screenshot4" width="300" height="188" class="aligncenter size-full wp-image-1931" /></td>
+<td width="300" ><img style="margin:5px" src="{{ site.baseurl }}/archive/2012/01/screenshot.jpg" alt="" title="screenshot4" width="300" height="188" class="aligncenter size-full wp-image-1931" /></td>
+<td width="300"><img style="margin:5px" src="{{ site.baseurl }}/archive/2012/01/screenshot2.jpg" alt="" title="screenshot4" width="300" height="188" class="aligncenter size-full wp-image-1931" /></td>
 </tr>
 <tr>
 <td><p  style="margin:5px">Here are all the photos on my phone, note the way the pushpins are clustered.</p>
@@ -27,8 +27,8 @@ source: wordpress
 </td>
 </tr>
 <tr>
-<td><img style="margin:5px" src="{{ site.url }}/archive/2012/01/screenshot3.jpg" alt="" title="screenshot4" width="300" height="188" class="aligncenter size-full wp-image-1931" /></td>
-<td><img style="margin:5px" src="{{ site.url }}/archive/2012/01/screenshot4.jpg" alt="" title="screenshot4" width="300" height="188" class="aligncenter size-full wp-image-1931" /></td>
+<td><img style="margin:5px" src="{{ site.baseurl }}/archive/2012/01/screenshot3.jpg" alt="" title="screenshot4" width="300" height="188" class="aligncenter size-full wp-image-1931" /></td>
+<td><img style="margin:5px" src="{{ site.baseurl }}/archive/2012/01/screenshot4.jpg" alt="" title="screenshot4" width="300" height="188" class="aligncenter size-full wp-image-1931" /></td>
 </tr>
 <tr>
 <td>
@@ -227,7 +227,7 @@ public class LastConverter : IValueConverter
 {% endhighlight %}
 <p>This feels quite neat to me :-)</p>
 <p>The clustered pins look like the following, which is a cluster of 5 images around Paris, with the stunning <a href="http://en.wikipedia.org/wiki/Grande_Arche">La Grande Arche de la D&eacute;fense</a> as the image at the top of the cluster:</p>
-<p><img src="{{ site.url }}/archive/2012/01/cluster.jpg" alt="" title="cluster" width="229" height="157" class="aligncenter size-full wp-image-1943" /></p>
+<p><img src="{{ site.baseurl }}/archive/2012/01/cluster.jpg" alt="" title="cluster" width="229" height="157" class="aligncenter size-full wp-image-1943" /></p>
 <p>Despite its simplicity, I have had a lot of fun playing with this application. It has certainly encouraged me to take as many photos as possible whenever I go travelling.</p>
-<p>You can download the full sourcecode here: <a href='{{ site.url }}/archive/2012/01/PhotoBrowser.zip'>PhotoBrowser.zip</a></p>
+<p>You can download the full sourcecode here: <a href='{{ site.baseurl }}/archive/2012/01/PhotoBrowser.zip'>PhotoBrowser.zip</a></p>
 <p>Regards, Colin E.</p>
