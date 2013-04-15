@@ -1,16 +1,16 @@
 ---
 id: 76695
-author: Mark Rhodes
-title: "Sorted Lists in Java"
+author: mrhodes
+title: Sorted Lists in Java
 oldlink: /2010/12/sorted_lists_in_java/
 tags: 
-- Algorithms
-- Data Structures
-- Java
+  - Algorithms
+  - Data Structures
+  - Java
+  - blog
 categories: 
-- blog
+  - mrhodes
 layout: default_post
-source: site
 ---
 <p><em>This post goes through an implementation a SortedList in Java which ensures its elements are kept in order and guarantees O(log(n)) run time for all the basic operations: get, contains, remove and add.</em>  The source code, javadoc, unit tests and class files for this post are available here: <a href="{{ site.baseurl }}/archive/2011/06/scottlogic-utils-mr-1.4.zip"><strong>scottlogic-utils-mr-1.4.zip</strong></a>.</p>
 <p>Sorting is one of the most common operations applied to lists and as such Java has built in mechanisms for doing it, like the <code>Comparable</code> and <code>Comparator</code> interfaces and the <code>Collections.sort</code> methods.  These are great when you have a static list that needs to be ordered, but sometimes you want the list to remain sorted after some altering operations have been applied to it (e.g. if you add an element to an ArrayList which you've sorted, chances are that it's no longer in the right order).  For some reason, the <code>java.util</code> package is lacking a proper <code>SortedList</code>, and since they're quite handy, I thought I write my own.</p>

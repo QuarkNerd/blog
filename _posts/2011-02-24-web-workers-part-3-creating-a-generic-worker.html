@@ -1,16 +1,16 @@
 ---
 id: 108201
-author: Jonathan Cardy
+author: jcardy
 title: "Web Workers Part 3: Creating a Generic Worker"
-oldlink: /2011/02/web-workers-part-3-creating-a-generic-worker/
+oldlink: "/2011/02/web-workers-part-3-creating-a-generic-worker/"
 tags: 
-- Algorithms
-- Javascript
-- Web Workers
+  - Algorithms
+  - Javascript
+  - Web Workers
+  - blog
 categories: 
-- blog
+  - jcardy
 layout: default_post
-source: site
 ---
 <p>In the previous post we set up a Web Worker helper function that allowed us to create a worker file, and call it using code like this:</p>
 {% highlight javascript %}$.work({file: 'primes.js', args: { from: 1, to: 100000 }}).then(function(data) {

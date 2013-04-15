@@ -1,17 +1,17 @@
 ---
 id: 68666
-author: Steven Hall
-title: "Integrating Closure Tools with Maven"
-oldlink: /2010/09/integrating-closure-tools-with-maven/
+author: shall
+title: Integrating Closure Tools with Maven
+oldlink: "/2010/09/integrating-closure-tools-with-maven/"
 tags: 
-- Closure
-- Google
-- Javascript
-- closure-compiler
+  - Closure
+  - Google
+  - Javascript
+  - "closure-compiler"
+  - blog
 categories: 
-- blog
+  - shall
 layout: default_post
-source: site
 ---
 <p>Apache Maven is a popular build management tool that we use at Scott Logic to handle our internal projects. When I began using the Closure Tools, integrating the Compiler into the Maven build process became an important task.</p>
 <p>Having the compilation of code in the build process assures that the code will be built correctly both at development and release time, as well as ensuring repeatability in the build. We also chose to integrate Closure Linter into the build process to ensure adherence to style. This blog article will aim to show you one technique for including Closure compilation and style checking into your Maven project.</p>

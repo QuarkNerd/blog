@@ -1,17 +1,17 @@
 ---
 id: 193
-author: Colin Eberhardt
-title: "Using CSS Selectors for Styling in WPF"
-oldlink: /blog/colin/2009/03/using-css-selectors-for-styling-in-wpf/
+author: ceberhardt
+title: Using CSS Selectors for Styling in WPF
+oldlink: "/blog/colin/2009/03/using-css-selectors-for-styling-in-wpf/"
 tags: 
-- WPF
-- styling
-- attached behaviour
+  - WPF
+  - styling
+  - attached behaviour
+  - blog
+  - codeproject
 categories: 
-- blog
-- codeproject
+  - ceberhardt
 layout: ceberhardt_post
-source: wordpress
 ---
 <p>When I first encountered WPF I was really impressed by its styling and templating features which are more powerful than anything else I had previously seen for desktop software development. The property-value pairing within styles instantly reminded me of CSS, however the WPF styles lack the most powerful feature of CSS - the selector. This blog post describes an attached behaviour for styling WPF application using CSS selectors.</p>
 <p>Let's first look at the anatomy of CSS. A CSS stylesheet is composed of a number of <em>rules</em>, each rule is composed of a <em>selector</em> which provides a pattern which the CSS selector engine matches against the target HTML document to locate nodes which to apply the style to. The styling information itself is defined within a <em>declaration block</em>, which consists of a number of comma-separated <em>declarations</em> enclosed within braces. The declaration block looks quite similar to a style within WPF ...</p>

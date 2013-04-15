@@ -1,13 +1,13 @@
 ---
 id: 152898
-author: Mark Rhodes
-title: "Efficient Map Initialization in Java"
-oldlink: /2012/08/efficient-map-initialization-in-java/
+author: mrhodes
+title: Efficient Map Initialization in Java
+oldlink: "/2012/08/efficient-map-initialization-in-java/"
 tags: 
+  - blog
 categories: 
-- blog
+  - mrhodes
 layout: default_post
-source: site
 ---
 <p><em>This post looks at how to construct Java's built-in hash based <code>Map</code> implementations to ensure they have sufficient, but not excessive capacity.</em></p>
 <p>Hash based maps are one of the most commonly used data structures in programming and Java provides two different implementations of these - the commonly used <a href="http://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html"><code>HashMap</code></a> and the older synchronized <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Hashtable.html"><code>Hashtable</code></a>.</p>
