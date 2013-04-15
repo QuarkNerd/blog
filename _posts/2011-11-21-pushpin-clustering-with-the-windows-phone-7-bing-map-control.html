@@ -1,15 +1,15 @@
 ---
 id: 1845
-author: ceberhardt
-title: Pushpin Clustering with the Windows Phone 7 Bing Map control
-oldlink: "/blog/colin/2011/11/pushpin-clustering-with-the-windows-phone-7-bing-map-control/"
+author: Colin Eberhardt
+title: "Pushpin Clustering with the Windows Phone 7 Bing Map control"
+oldlink: /blog/colin/2011/11/pushpin-clustering-with-the-windows-phone-7-bing-map-control/
 tags: 
-  - Windows Phone 7
-  - bing maps
-  - blog
+- Windows Phone 7
+- bing maps
 categories: 
-  - ceberhardt
+- blog
 layout: ceberhardt_post
+source: wordpress
 ---
 <p><em>This blog post provides a simple utility class that will cluster pushpins on a Bing Map control. This utility provides a way to achieve great performance with 1000s of pushpins.</em></p>
 <p>The Bing Map control for Windows Phone 7 is a versatile control, allowing you to provide your users with an interactive map. The control has some very useful features such as <code>Pushpins</code>, which you can anchor to a map coordinate so that they move automatically as the user pans / zooms the map. However, I have found that in practice, if you have more than ~30 pushpins visible on a map, the pan / zoom performance starts to degrade (on a real device). Therefore, in order to provide the best user-experience, it is advisable to only render a handful of pushpins on the map at any one time. </p>

@@ -1,15 +1,15 @@
 ---
 id: 106980
-author: jcardy
+author: Jonathan Cardy
 title: "Web Workers Part 1: Performance"
-oldlink: "/2011/02/web-workers-part-1-performance/"
+oldlink: /2011/02/web-workers-part-1-performance/
 tags: 
-  - Javascript
-  - Web Workers
-  - blog
+- Javascript
+- Web Workers
 categories: 
-  - jcardy
+- blog
 layout: default_post
+source: site
 ---
 <p>The Web Workers API is currently a draft HTML5 specification which defines an API for running JavaScript in a background thread.   In this series of blog posts I am going to investigate the practical use of Web Workers.</p>
 <p>In this first blog post I want to look at the performance of HTML 5 Web Workers in different browsers.  I don't just mean the performance increase that we're going to see by multi-threading our JavaScript, I also mean the difference in performance between executing the same code in a Worker vs. the UI thread, and the set-up cost of creating workers and the associated messaging involved.</p>

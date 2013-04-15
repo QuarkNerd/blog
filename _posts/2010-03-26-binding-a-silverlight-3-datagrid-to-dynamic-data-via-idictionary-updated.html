@@ -1,16 +1,16 @@
 ---
 id: 611
-author: ceberhardt
-title: Binding a Silverlight 3 DataGrid to dynamic data via IDictionary (Updated)
-oldlink: "/blog/colin/2010/03/binding-a-silverlight-3-datagrid-to-dynamic-data-via-idictionary-updated/"
+author: Colin Eberhardt
+title: "Binding a Silverlight 3 DataGrid to dynamic data via IDictionary (Updated)"
+oldlink: /blog/colin/2010/03/binding-a-silverlight-3-datagrid-to-dynamic-data-via-idictionary-updated/
 tags: 
-  - DataGrid
-  - silverlight
-  - binding
-  - codeproject
+- DataGrid
+- silverlight
+- binding
 categories: 
-  - ceberhardt
+- codeproject
 layout: ceberhardt_post
+source: wordpress
 ---
 <p><em>In this post I demonstrate a method for binding a Silverlight 3 DataGrid to dynamic data, i.e. data which does not have properties that are known at design time. This technique results in a bound grid which is sortable and editable. This blog post is a bug fix (due to differences between SL2 and SL3) and expansion on my previous posts on this subject.</em></p>
 <p>WinForms, WPF and ASP.NET are all perfectly capable of binding to dynamic data via a DataGrid, or custom <a href="http://msdn.microsoft.com/en-us/library/ms171819.aspx">TypeDescriptors</a>. However Silverlight has neither of these features. Around one year ago I published a pair of articles that demonstrated a technique that could be used to bind a DataGrid to dynamic data presented as a list of dictionaries. The <a href="http://www.scottlogic.co.uk/blog/colin/2009/04/binding-a-silverlight-datagrid-to-dynamic-data-via-idictionary/">first article</a> detailed how to use a ValueConverter to access the cell values within a dictionary and how a custom CollectionView could be created to permit sorting. The <a href="http://www.scottlogic.co.uk/blog/colin/2009/04/binding-a-silverlight-datagrid-to-dynamic-data-part-2-editable-data-and-inotifypropertychanged/">second article</a> showed how to extend this solution to enable editing within the grid.</p>

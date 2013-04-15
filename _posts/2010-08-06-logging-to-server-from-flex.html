@@ -1,14 +1,14 @@
 ---
 id: 343
-author: godds
-title: Logging to Server from Flex
-oldlink: "/blog/graham/2010/08/logging-to-server-from-flex/"
+author: Graham Odds
+title: "Logging to Server from Flex"
+oldlink: /blog/graham/2010/08/logging-to-server-from-flex/
 tags: 
-  - Flex
-  - flex
+- Flex
 categories: 
-  - godds
+- flex
 layout: godds_post
+source: wordpress
 ---
 <p>An issue that can crop up with Flex applications is the lack of any log information to match up against users' bug reports.  It is possible to <a href="http://livedocs.adobe.com/flex/3/html/help.html?content=logging_07.html" target="_blank">configure</a> the debug version of Flash Player to record <a href="http://livedocs.adobe.com/flex/3/langref/package.html#trace%28%29" target="_blank">trace()</a> output, but most users do not have this setup.  Additionally, it is much more desirable to maintain this kind of information server-side, where the development team have control, rather than relying on users' whilst also clogging up their machines.  A general approach to this problem is relatively obvious - send the information back to the server - but there are all sorts of ways this could be implemented.  Of course, sending lots of logging information to the server creates an overhead in the application, so this should very much be considered on a case by case basis.</p>
 <p>A solution that we use takes advantage of Flex's native <a href="http://livedocs.adobe.com/flex/3/html/help.html?content=logging_09.html" target="_blank">logging API</a>, allowing it to be transparently added or removed from an application while providing us with the benefits of a decent logging framework, for example logging levels.  Flex provides the <a href="http://livedocs.adobe.com/flex/3/langref/mx/logging/ILogger.html" target="_blank">ILogger</a> class, instances of which are obtained using <a href="http://livedocs.adobe.com/flex/3/langref/mx/logging/Log.html" target="_blank">Log</a>'s <a href="http://livedocs.adobe.com/flex/3/langref/mx/logging/Log.html#getLogger%28%29" target="_blank">getLogger()</a> method, to log messages.  In turn, these messages are sent to one or more <a href="http://livedocs.adobe.com/flex/3/langref/mx/logging/ILoggingTarget.html" target="_blank">ILoggingTargets</a>, the most common of which, <a href="http://livedocs.adobe.com/flex/3/langref/mx/logging/targets/TraceTarget.html" target="_blank">TraceTarget</a> outputs the logging information using the <a href="http://livedocs.adobe.com/flex/3/langref/package.html#trace%28%29" target="_blank">trace()</a> method.  The <a href="http://livedocs.adobe.com/flex/3/html/help.html?content=logging_09.html">logging API documentation</a> provides details and examples for how to get started with this basic logging setup.</p>

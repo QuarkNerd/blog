@@ -1,15 +1,15 @@
 ---
 id: 118536
-author: mrhodes
-title: Lazy Lists in Java
-oldlink: "/2011/06/lazy-lists-in-java/"
+author: Mark Rhodes
+title: "Lazy Lists in Java"
+oldlink: /2011/06/lazy-lists-in-java/
 tags: 
-  - Data Structures
-  - Java
-  - blog
+- Data Structures
+- Java
 categories: 
-  - mrhodes
+- blog
 layout: default_post
+source: site
 ---
 <p><em>This post outlines a general purpose alternative to <code>ArrayList</code>s which provide lazy insertions and deletions to speed up those operations. </em> The Java source code, unit tests, javadoc and jar file for all the classes mentioned in this blog is available here:<a href="{{ site.baseurl }}/archive/2011/10/scottlogic-utils-mr-1.5.zip">scottlogic-utils-mr.zip</a>.</p>
 <p><code>ArrayLists</code> are perfect when you want to get elements by their indices but not so brilliant when you want to insert or remove elements.  In a <a href="http://www.scottlogic.co.uk/2011/04/lists-with-fast-insertions-and-removals-in-java/">previous post</a>, I showed how a <a href="http://en.wikipedia.org/wiki/Self-balancing_binary_search_tree">balanced binary search tree</a> can be designed to work as if it's an extendable array, this approach offers faster removals and insertions at the cost of more time to get elements.  In this post, I'll go through an implementation of a new list (at least I don't know what the name for it is, if it has one already!) which attempts to marry up these two approaches, offering improved speed on all operations over the binary tree based list by being lazy.</p>

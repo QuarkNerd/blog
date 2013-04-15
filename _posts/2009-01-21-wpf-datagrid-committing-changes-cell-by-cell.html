@@ -1,17 +1,17 @@
 ---
 id: 38
-author: ceberhardt
+author: Colin Eberhardt
 title: "WPF DataGrid - Committing changes cell-by-cell"
-oldlink: "/blog/colin/2009/01/wpf-datagrid-committing-changes-cell-by-cell/"
+oldlink: /blog/colin/2009/01/wpf-datagrid-committing-changes-cell-by-cell/
 tags: 
-  - DataGrid
-  - IEditableObject
-  - WPF
-  - blog
-  - wpf
+- DataGrid
+- IEditableObject
+- WPF
 categories: 
-  - ceberhardt
+- blog
+- wpf
 layout: ceberhardt_post
+source: wordpress
 ---
 <p>In my recent <a href="http://www.codeproject.com/KB/WPF/WPFDataGridExamples.aspx">codeproject article on the DataGrid</a> I described a number of techniques for handling the updates to DataTables which are bound to the grid. These examples all worked on the assumption that you want to keep your database synchronised with the DataGrid, with changes being committed on a row-by-row basis, i.e. when the user finishes editing a row the changes are written to the database. The WPF DataGrid operates in a row-oriented manner making this a relatively straightforward scenario to implement.</p>
 <p>However, what if you want to commit changes on a cell-by-cell basis? Firstly, lets have a look at the problem in a bit more detail. The following code displays a DataGrid, together with a 'details' view. Note that IsSynchronizedWithCurrentItem is set to true so that the details view and currently selected item within the grid will remain synchronised:</p>

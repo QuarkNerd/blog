@@ -1,17 +1,17 @@
 ---
 id: 1243
-author: ceberhardt
+author: Colin Eberhardt
 title: "MVVM Charting - Binding Multiple Series to a Visiblox Chart"
-oldlink: "/blog/colin/2011/03/mvvm-charting-binding-multiple-series-to-a-visiblox-chart/"
+oldlink: /blog/colin/2011/03/mvvm-charting-binding-multiple-series-to-a-visiblox-chart/
 tags: 
-  - codeproject
-  - mvvm
-  - visiblox
-  - blog
-  - codeproject
+- codeproject
+- mvvm
+- visiblox
 categories: 
-  - ceberhardt
+- blog
+- codeproject
 layout: ceberhardt_post
+source: wordpress
 ---
 <p><em>This post describes a method of using attached properties to bind a ViewModel which contains multiple data series to a Visiblox chart without any code-behind.</em></p>
 <p><img src="{{ site.baseurl }}/archive/2011/03/harmonic.png" alt="" title="harmonic" width="389" height="253" class="aligncenter size-full wp-image-1247" /><br/>The <a href="http://www.visiblox.com">Visiblox chart</a> supports databinding in both WPF and Silverlight, where the X and Y values for each datapoint are bound to properties on an underlying model. However, there is no interface for binding a varying number of series (i.e a collection of collections). The solution provided here is similar to the one which Jeremiah Morrill published for <a href="http://jmorrill.hjtcentral.com/Home/tabid/428/EntryId/351/Silverlight-Charts-Binding-multiple-Series.aspx">binding multiple series to the Silverlight Toolkit charts</a>, but with a few added extras, like series title binding and series type selection.</p>
