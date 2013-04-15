@@ -1,9 +1,0 @@
-<!-- Begin Logic for either using the page title, if this does not exist then use the author -->
-{% if page.title %}
-  {{ page.title }}
-{% elsif author.display_name %}
-  {{ author.display_name }}
-{% elsif page.author %}
-  {{ page.author }}
-{% endif %}
-<!-- End Logic for getting the title or author -->

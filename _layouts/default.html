@@ -1,27 +1,46 @@
-{% include head.html %}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Scott Logic {% if page.title %} &raquo; {{ page.title }}{% endif %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script src="{{ site.baseurl }}/scripts/html5shiv.js"></script>
+    <![endif]-->
+
+    {% if site.debug %}
+    <link rel="stylesheet/less" href="{{ site.baseurl }}/less/main.less" type="text/css">
+    <script type="text/javascript">var less = { env:'development' };</script>
+    <script src="{{ site.baseurl }}/less/less.js" type="text/javascript"></script>
+    {% else %}
+    <link rel="stylesheet" href="{{ site.baseurl }}/style.css" type="text/css">
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-262131-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+    {% endif %}
+</head>
 <body>
-{% include pagehead.html %}
-{% include logic_getAuthor.html %}
-<div class="page">
-  <div class="head"><h1>
-    <div class="breadcrumb">
-      <p class="small">
-        <a href="http://www.scottlogic.co.uk/">Home</a>
-        &gt; <a href="{{ site.url }}">Blog</a>
-        {% if page.author %}
-        &gt; <a href="{{ site.url }}/{{ author.site_page }}">{{ page.author }}</a>
-        {% endif %}
-      </p>
-    </div>
-    {% include logic_useTitleOrAuthor.html %}</h1>
-  </div>
-  <div class="body">
+<div class="container">
     {{ content }}
-  </div>
-  {% include footer.html %}
+
+    <footer>
+
+    </footer>
 </div>
-<script type='text/javascript' src='http://www.scottlogic.co.uk/wp-content/plugins/contact-form-7/jquery.form.js?ver=2.52'></script>
-<script type='text/javascript' src='http://www.scottlogic.co.uk/wp-content/plugins/contact-form-7/scripts.js?ver=3.0'></script>
-{% include ga.html %}
+<script type="text/javascript">// <![CDATA[
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+// ]]></script>
+<script type="text/javascript">// <![CDATA[
+(function() {     var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true; po.src = 'https://apis.google.com/js/plusone.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s); })();
+// ]]></script>
 </body>
 </html>

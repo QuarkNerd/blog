@@ -1,10 +1,12 @@
 ---
 layout: default
-title: Bloggy Woggy
+title: Blog
 ---
-<div class="sidebar leftCol"></div>
-<div class="sidebar rightCol">  
-  {% include sidebarWidget_authorList.html %}
-</div>
-{% include post-list.html %}
 
+{% for post in site.posts %}
+<div class="span3">
+    <a href="{{ site.baseurl }}{{ post.url }}">
+        <img src="{{ site.baseurl }}/framework-icons/{{ post.framework }}-complete.png"/>{{ post.title }}
+    </a>
+</div>
+{% endfor %}
