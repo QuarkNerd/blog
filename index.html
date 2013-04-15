@@ -3,10 +3,145 @@ layout: default
 title: Blog
 ---
 
-{% for post in site.posts %}
-<div class="span3">
-    <a href="{{ site.baseurl }}{{ post.url }}">
-        {{ post.title }}
-    </a>
-</div>
-{% endfor %}
+<section id="home">
+  <h1 class="container">Blog</h1>
+  <div class="hero">
+    <!--some funky shenanigans-->
+  </div>
+</section>
+
+<section id="articles" class="container">
+  <h2>Articles</h2>
+  {% for post in site.posts %}
+  <article>
+    <header>
+      <img src="#" />
+      <h3>
+        <a href="{{ site.baseurl }}{{ post.url }}">
+          {{ post.title }}
+        </a>
+      </h3>
+      <p>by <a href="{{ site.baseurl }}{{ post.author }}">{{ site.author[post.author].name }}</a>, on {{ post.date | date: "%a %d %b %Y" }}</p>
+    </header>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit pharetra risus, et euismod magna dignissim at. Fusce aliquam dictum dictum. Aenean vel nulla sit amet purus lobortis consectetur posuere in urna. Curabitur eu felis quis nibh varius ultrices. Curabitur malesuada felis nulla. Aliquam erat volutpat.</p>
+    <footer>
+      <a href="">twitter</a>
+      <a href="">comments</a>
+    </footer>
+  </article>
+  {% endfor %}
+</section>
+
+<section id="authors">
+  <h2 class="container">Authors</h2>
+  <ul>
+    <!--
+    {% for author in site.author %}
+    <li>
+      <a href="{{ site.baseurl }}{{ author }}">
+        <figure>
+          <img src="images/{{ author }}.jpg" alt="{{ author.name }}" />
+          <figcaption>{{ author.name }}</figcaption>
+        </figure>
+      </a>
+    </li>
+    {% endfor %}-->
+
+    <li>
+      <a href="#">
+        <figure>
+          <img src="images/cprice.jpg" alt="Colin Eberhardt" />
+          <figcaption>Colin Eberhardt</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <figure>
+          <img src="images/cprice.jpg" alt="Chris Price" />
+          <figcaption>Chris Price</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <figure>
+          <img src="images/cprice.jpg" alt="Graham Odds" />
+          <figcaption>Graham Odds</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <figure>
+          <img src="images/cprice.jpg" alt="Luke Page" />
+          <figcaption>Luke Page</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <figure>
+          <img src="images/cprice.jpg" alt="Mark Rhodes" />
+          <figcaption>Mark Rhodes</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <figure>
+          <img src="images/cprice.jpg" alt="Sam Hogarth" />
+          <figcaption>Sam Hogarth</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <figure>
+          <img src="images/cprice.jpg" alt="Steven Hall" />
+          <figcaption>Steven Hall</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <figure>
+          <img src="images/cprice.jpg" alt="Chris Grant" />
+          <figcaption>Chris Grant</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <figure>
+          <img src="images/cprice.jpg" alt="Nicholas Wolverson" />
+          <figcaption>Nicholas Wolverson</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <figure>
+          <img src="images/cprice.jpg" alt="Rolf Baxter" />
+          <figcaption>Rolf Baxter</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <figure>
+          <img src="images/cprice.jpg" alt="Andrew Aylett" />
+          <figcaption>Andrew Aylett</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <figure>
+          <img src="images/cprice.jpg" alt="Nicholas Hemley" />
+          <figcaption>Nicholas Hemley</figcaption>
+        </figure>
+      </a>
+    </li>
+  </ul>
+</section>
