@@ -2,19 +2,11 @@ var yaml = require('js-yaml');
 var fs = require('fs'), path = require('path');
 
 
-var posts = enumerateDirectory('../_posts').map(parse).filter(function(post) { return post.header; });
+var posts = enumerateDirectory('../_posts').map(parse).filter(function(post) { return post.header.layout; });
 
 posts.forEach(function (post) {
-    if (post.header && post.header.categories) {
-        post.header.categories.forEach(function (c) {
-            if (!post.header.tags) {
-                post.header.tags = [];
-            }
-            post.header.tags.push(c);
-        });
-        var author = post.header.author.toLowerCase().split(' ');
-        post.header.author = author[0][0] + author[1];
-        post.header.categories = [post.header.author]
+    if (post.header.layout) {
+        post.header.layout = 'default_post'
     }
 })
 posts.forEach(dump);
