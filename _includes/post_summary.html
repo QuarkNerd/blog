@@ -1,0 +1,26 @@
+<article>
+    <header>
+        <a href="{{ site.baseurl }}/authors/{{ post.author }}.html">
+            <img src="http://www.gravatar.com/avatar/{{ site.authors[post.author].gravatar }}"/>
+        </a>
+        <h3>
+            <a href="{{ site.baseurl }}{{ post.url }}">
+                {{ post.title }}
+            </a>
+        </h3>
+        <p>by <a href="{{ site.baseurl }}/authors/{{ post.author }}.html">{{ site.authors[post.author].name }}</a>, on {{ post.date | date: "%a %d %b %Y" }}</p>
+    </header>
+    <p>
+        {% if post.summary %}
+        {{ post.summary }}
+        {% else %}
+        {{ post.content | truncatewords:50 | strip_html }}
+        {% endif %}
+    </p>
+    <!-- TODO twitter and comments counts
+    <footer>
+      <a href="">twitter</a>
+      <a href="">comments</a>
+    </footer>
+    -->
+</article>

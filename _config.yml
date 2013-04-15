@@ -13,11 +13,13 @@ include: [.htaccess]
 exclude: [_migration]
 paginate: 10
 
-author:
+authors:
     ceberhardt:
         name: Colin Eberhardt
+        gravatar: 458f2e0d08d4114f8b323798cfea141d
     cprice:
         name: Chris Price
+        gravatar: b6fe36176ec7c9475374a5cd3b7bef1a
     lpage:
         name: Luke Page
     aaylett:
@@ -34,6 +36,7 @@ author:
         name: Nicholas Hemley
     godds:
         name: Graham Odds
+        gravatar: 3f5e6c753071c6a41f7f1dbb89daeb3b
     gorosz:
         name: Gergely Orosz
     mperrin:
@@ -42,5 +45,6 @@ author:
         name: Mark Rhodes
     shogarth:
         name: Sam Hogarth
+        gravatar: d4534a4d64ddf89c318221d9f0e766da
     nwolverson:
         name: Nicholas Wolverson

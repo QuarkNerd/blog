@@ -13,37 +13,18 @@ title: Blog
 <section id="articles" class="container">
   <h2>Articles</h2>
   {% for post in site.posts %}
-  <article>
-    <header>
-      <!-- TODO optional accompanying image
-      <img src="#" />
-      -->
-      <h3>
-        <a href="{{ site.baseurl }}{{ post.url }}">
-          {{ post.title }}
-        </a>
-      </h3>
-      <p>by <a href="{{ site.baseurl }}/{{ post.author }}">{{ site.author[post.author].name }}</a>, on {{ post.date | date: "%a %d %b %Y" }}</p>
-    </header>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit pharetra risus, et euismod magna dignissim at. Fusce aliquam dictum dictum. Aenean vel nulla sit amet purus lobortis consectetur posuere in urna. Curabitur eu felis quis nibh varius ultrices. Curabitur malesuada felis nulla. Aliquam erat volutpat.</p>
-    <!-- TODO twitter and comments counts
-    <footer>
-      <a href="">twitter</a>
-      <a href="">comments</a>
-    </footer>
-    -->
-  </article>
+    {% include post_summary.html %}
   {% endfor %}
 </section>
 
 <section id="authors">
   <h2 class="container">Authors</h2>
   <ul>
-    {% for author in site.author %}
+    {% for author in site.authors %}
     <li>
-      <a href="{{ site.baseurl }}/{{ author[0] }}">
+      <a href="{{ site.baseurl }}/authors/{{ author[0] }}.html">
         <figure>
-          <img src="images/cprice.jpg" alt="{{ author[1].name }}" />
+          <img src="http://www.gravatar.com/avatar/{{ author[1].gravatar }}" alt="{{ author[1].name }}" />
           <figcaption>{{ author[1].name }}</figcaption>
         </figure>
       </a>

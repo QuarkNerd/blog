@@ -8,26 +8,7 @@ layout: default
 <section id="articles" class="container">
   <h2>Articles</h2>
   {% for post in site.categories[page.author] %}
-  <article>
-    <header>
-      <!-- TODO optional accompanying image
-      <img src="#" />
-      -->
-      <h3>
-        <a href="{{ site.baseurl }}{{ post.url }}">
-          {{ post.title }}
-        </a>
-      </h3>
-      <p>by <a href="{{ site.baseurl }}{{ post.author }}">{{ site.author[post.author].name }}</a>, on {{ post.date | date: "%a %d %b %Y" }}</p>
-    </header>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit pharetra risus, et euismod magna dignissim at. Fusce aliquam dictum dictum. Aenean vel nulla sit amet purus lobortis consectetur posuere in urna. Curabitur eu felis quis nibh varius ultrices. Curabitur malesuada felis nulla. Aliquam erat volutpat.</p>
-    <!-- TODO twitter and comments counts
-    <footer>
-      <a href="">twitter</a>
-      <a href="">comments</a>
-    </footer>
-    -->
-  </article>
+    {% include post_summary.html %}
   {% endfor %}
 </section>
 
