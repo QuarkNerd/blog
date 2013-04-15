@@ -29,18 +29,159 @@
     {% endif %}
 </head>
 <body>
-<div class="container">
-    {{ content }}
 
-    <footer>
+<header id="header" class="container large">
+  <a href="#"><img src="images/logo.png" alt="Scott Logic - Altogether Smarter"/></a>
+  <nav>
+    <ul>
+      <li><a href="#">Services</a> /</li>
+      <li><a href="#">Sectors</a> /</li>
+      <li><a href="{{ site.baseurl }}" class="selected">Blog</a> /</li>
+      <li><a href="#">Careers</a> /</li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-    </footer>
-</div>
+<section id="home">
+  <h1 class="container">Blog</h1>
+  <div class="hero">
+    <!--some funky shenanigans-->
+  </div>
+</section>
+
+<section id="articles" class="container">
+  <h2>Articles</h2>
+  {{ content }}
+</section>
+
+<section id="authors">
+  <h2 class="container">Authors</h2>
+  <ul>
+    <!--
+    {% for author in site.author %}
+    <li>
+      <a href="{{ site.baseurl }}{{ author }}">
+        <figure>
+          <img src="images/{{ author }}.jpg" alt="{{ author.name }}" />
+          <figcaption>{{ author.name }}</figcaption>
+        </figure>
+      </a>
+    </li>
+    {% endfor %}-->
+
+    <li>
+      <a href="#">
+        <figure>
+          <img src="images/cprice.jpg" alt="Colin Eberhardt" />
+          <figcaption>Colin Eberhardt</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <figure>
+          <img src="images/cprice.jpg" alt="Chris Price" />
+          <figcaption>Chris Price</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <figure>
+          <img src="images/cprice.jpg" alt="Graham Odds" />
+          <figcaption>Graham Odds</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <figure>
+          <img src="images/cprice.jpg" alt="Luke Page" />
+          <figcaption>Luke Page</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <figure>
+          <img src="images/cprice.jpg" alt="Mark Rhodes" />
+          <figcaption>Mark Rhodes</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <figure>
+          <img src="images/cprice.jpg" alt="Sam Hogarth" />
+          <figcaption>Sam Hogarth</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <figure>
+          <img src="images/cprice.jpg" alt="Steven Hall" />
+          <figcaption>Steven Hall</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <figure>
+          <img src="images/cprice.jpg" alt="Chris Grant" />
+          <figcaption>Chris Grant</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <figure>
+          <img src="images/cprice.jpg" alt="Nicholas Wolverson" />
+          <figcaption>Nicholas Wolverson</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <figure>
+          <img src="images/cprice.jpg" alt="Rolf Baxter" />
+          <figcaption>Rolf Baxter</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <figure>
+          <img src="images/cprice.jpg" alt="Andrew Aylett" />
+          <figcaption>Andrew Aylett</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <figure>
+          <img src="images/cprice.jpg" alt="Nicholas Hemley" />
+          <figcaption>Nicholas Hemley</figcaption>
+        </figure>
+      </a>
+    </li>-->
+  </ul>
+</section>
+
+<footer id="footer">
+  <div class="container large">
+    <a class="top" href="#"></a>
+    <p>Copyright &copy; 2013 Scott Logic Ltd. All Rights Reserved. <a href="#">Terms and Conditions</a></p>
+  </div>
+</footer>
+
 <script type="text/javascript">// <![CDATA[
 !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 // ]]></script>
 <script type="text/javascript">// <![CDATA[
 (function() {     var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true; po.src = 'https://apis.google.com/js/plusone.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s); })();
 // ]]></script>
+
 </body>
 </html>

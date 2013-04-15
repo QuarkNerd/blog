@@ -4,9 +4,20 @@ title: Blog
 ---
 
 {% for post in site.posts %}
-<div class="span3">
-    <a href="{{ site.baseurl }}{{ post.url }}">
+<article>
+  <header>
+    <img src="#" />
+    <h3>
+      <a href="{{ site.baseurl }}{{ post.url }}">
         {{ post.title }}
-    </a>
-</div>
+      </a>
+    </h3>
+    <p>by <a href="{{ site.baseurl }}{{ post.author }}">{{ site.author[post.author].name }}</a>, on {{ post.date | date: "%a %d %b %Y" }}</p>
+  </header>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit pharetra risus, et euismod magna dignissim at. Fusce aliquam dictum dictum. Aenean vel nulla sit amet purus lobortis consectetur posuere in urna. Curabitur eu felis quis nibh varius ultrices. Curabitur malesuada felis nulla. Aliquam erat volutpat.</p>
+  <footer>
+    <a href="">twitter</a>
+    <a href="">comments</a>
+  </footer>
+</article>
 {% endfor %}
