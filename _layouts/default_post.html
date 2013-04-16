@@ -6,11 +6,11 @@ layout: default
         <h1>{{ page.title }}</h1>
         <h3 class="author">
             {% if site.authors[page.author].gravatar %}
-            <a href="{{ site.baseurl }}/authors/{{ page.author }}.html" class="author">
+            <a href="{{ site.baseurl }}/{{ page.author }}" class="author">
                 <img src="http://www.gravatar.com/avatar/{{ site.authors[page.author].gravatar }}" alt="{{ site.authors[page.author].name }}" class="avatar" />
             </a>
             {% endif %}
-            by <a href="{{ site.baseurl }}/authors/{{ page.author }}.html">{{ site.authors[page.author].name }}</a>, on {{ page.date | date: "%d %b %Y" }}
+            by <a href="{{ site.baseurl }}/{{ page.author }}">{{ site.authors[page.author].name }}</a>, on {{ page.date | date: "%d %b %Y" }}
         </h3>
     </header>
     {{ content }}
