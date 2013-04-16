@@ -33,9 +33,14 @@ article {
   }
 
   header {
-    p {
+    position: relative;
+
+    .author {
       color: @grey;
       font-style: italic;
+      font-size: @baseFontSize;
+      text-transform: none;
+      position: relative;
 
       a {
         color: @grey;
@@ -45,9 +50,21 @@ article {
           color: @black;
           text-decoration: underline;
         }
+        &.author{
+          position: absolute;
+          top: -30px;
+          left: -100px;
+        }
       }
     }
   }
+}
+
+img.avatar {
+  -o-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
 }
 
 .container {
@@ -55,14 +72,5 @@ article {
 
   &.large {
     width: 1000px;
-  }
-}
-
-article>header {
-  position: relative;
-  >a {
-    position: absolute;
-    top: 5px;
-    left: -100px;
   }
 }

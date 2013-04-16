@@ -1,14 +1,15 @@
 <article>
     <header>
+        <!--
         <a href="{{ site.baseurl }}/authors/{{ post.author }}.html">
             <img src="http://www.gravatar.com/avatar/{{ site.authors[post.author].gravatar }}"/>
-        </a>
+        </a>-->
         <h3>
             <a href="{{ site.baseurl }}{{ post.url }}">
                 {{ post.title }}
             </a>
         </h3>
-        <p>by <a href="{{ site.baseurl }}/authors/{{ post.author }}.html">{{ site.authors[post.author].name }}</a>, on {{ post.date | date: "%a %d %b %Y" }}</p>
+        <p class="author">by <a href="{{ site.baseurl }}/authors/{{ post.author }}.html">{{ site.authors[post.author].name }}</a>, on {{ post.date | date: "%d %b %Y" }}</p>
     </header>
     <p>
         {% if post.summary %}

@@ -24,7 +24,11 @@ title: Blog
     <li>
       <a href="{{ site.baseurl }}/authors/{{ author[0] }}.html">
         <figure>
-          <img src="http://www.gravatar.com/avatar/{{ author[1].gravatar }}" alt="{{ author[1].name }}" />
+          {% if author[1].gravatar %}
+          <img src="http://www.gravatar.com/avatar/{{ author[1].gravatar }}" alt="{{ author[1].name }}" class="avatar" />
+          {% else %}
+          <img src="{{ site.baseurl }}/images/avatar.png" alt="{{ author[1].name }}" class="avatar" />
+          {% endif %}
           <figcaption>{{ author[1].name }}</figcaption>
         </figure>
       </a>
