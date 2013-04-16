@@ -4,35 +4,64 @@ title: Blog
 ---
 
 <section id="home">
-  <h1 class="container">Blog</h1>
-  <div class="hero">
-    <!--some funky shenanigans-->
+  <div class="row">
+    <h1 class="offset2 span10">Blog</h1>
+  </div>
+  <div id="hero" class="row">
+    <div class="span3">
+      <img class="featured-small" src="bob4.jpg">
+      <img class="featured-small" src="bob4.jpg">
+    </div>
+    <div class="span6">
+      <img class="featured" src="bob4.jpg">
+    </div>
+    <div class="span3">
+      <img class="featured-small" src="bob4.jpg">
+      <img class="featured-small" src="bob4.jpg">
+    </div>
   </div>
 </section>
 
-<section id="articles" class="container">
-  <h2>Articles</h2>
-  {% for post in site.posts %}
-    {% include post_summary.html %}
-  {% endfor %}
-</section>
+<div class="row">
+  <section id="articles" class="offset2 span7">
+    <h2>Articles</h2>
+    {% for post in site.posts %}
+      {% include post_summary.html %}
+    {% endfor %}
+  </section>
+</div>
 
 <section id="authors">
-  <h2 class="container">Authors</h2>
-  <ul>
-    {% for author in site.authors %}
-    <li>
-      <a href="{{ site.baseurl }}/authors/{{ author[0] }}.html">
-        <figure>
-          {% if author[1].gravatar %}
-          <img src="http://www.gravatar.com/avatar/{{ author[1].gravatar }}" alt="{{ author[1].name }}" class="avatar" />
-          {% else %}
-          <img src="{{ site.baseurl }}/images/avatar.png" alt="{{ author[1].name }}" class="avatar" />
-          {% endif %}
-          <figcaption>{{ author[1].name }}</figcaption>
-        </figure>
-      </a>
-    </li>
-    {% endfor %}
-  </ul>
+  <div class="row">
+    <h2 class="offset2 span10">Authors</h2>
+  </div>
+  <div id="authorCarousel" class="carousel slide">
+    <ol class="carousel-indicators">
+      <li data-target="#authorCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#authorCarousel" data-slide-to="1"></li>
+      <li data-target="#authorCarousel" data-slide-to="2"></li>
+    </ol>
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+      <div class="active item">
+        <ul class="thumbnails">
+          {% for author in site.authors | limit:6 %}
+            <li class="span2">
+              <div class="thumbnail">
+                {% if author[1].gravatar %}
+                <img src="http://www.gravatar.com/avatar/{{ author[1].gravatar }}" alt="{{ author[1].name }}" class="img-circle" />
+                {% else %}
+                <img src="{{ site.baseurl }}/images/avatar.png" alt="{{ author[1].name }}" class="img-circle" />
+                {% endif %}
+                <p class="text-center">{{ author[1].name }}</p>
+              </div>
+            </li>
+          {% endfor %}
+         </ul>
+      </div>
+    </div>
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#authorCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#authorCarousel" data-slide="next">&rsaquo;</a>
+  </div>
 </section>

@@ -5,10 +5,14 @@ layout: default
 {{ content }}
 </section>
 
-<section id="articles" class="container">
-  <h2>Articles</h2>
-  {% for post in site.categories[page.author] %}
-    {% include post_summary.html %}
-  {% endfor %}
+<section id="articles" class="row">
+  <div class="offset2 span8">
+    <h2>Articles</h2>
+  </div>
+  <div class="offset2 span8">
+    {% for post in site.categories[page.author] %}
+      {% include post_summary.html %}
+    {% endfor %}
+  </div>
 </section>
 

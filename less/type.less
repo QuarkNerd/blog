@@ -1,0 +1,24 @@
+h1, h2, h3, h4, h5 {
+  line-height: @baseLineHeight;
+  text-transform: uppercase;
+  margin: (@baseLineHeight * 0.5) 0 0 0;
+
+  a {
+    color: @headingsColor;
+  }
+
+  &.sub {
+    color: @grey;
+    font-style: italic;
+    text-transform: none;
+    margin-top: 0;
+  }
+}
+
+h1 { line-height: @baseLineHeight * 2.25; }
+h2 { line-height: @baseLineHeight * 1.75; }
+h3 { line-height: @baseLineHeight * 1.5;  }
+
+article, section {
+  margin: (@baseLineHeight * 2) 0;
+}
