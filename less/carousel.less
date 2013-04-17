@@ -1,0 +1,53 @@
+#authorCarousel {
+  .carousel-inner {
+    height: 120px;
+  }
+  .carousel-indicators {
+    li {
+      background-color: #000;
+      background-color: rgba(0,0,0,.25);
+    }
+    .active {
+      background-color: #000;
+    }
+  }
+  .thumbnail {
+    border: none;
+    .box-shadow(none);
+  }
+}
+
+#featuredCarousel {
+  .carousel-indicators {
+    li {
+      background-color: #000;
+      background-color: rgba(0,0,0,.25);
+    }
+    .active {
+      background-color: #000;
+    }
+  }
+
+  .row {
+    >div {
+      margin-top: -@gridGutterWidth;
+      >img {
+        margin-top: @gridGutterWidth;
+        .height (@columns) {
+          height: (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns - 1));
+        }
+        .width (@columns) {
+          width: (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns - 1));
+        }
+        &.featured {
+          .height(4);
+          .width(6);
+        }
+        &.featured-small {
+          .height(2);
+          .width(3);
+        }
+      }
+    }
+  }
+}
