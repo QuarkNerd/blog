@@ -13,15 +13,15 @@
         {% assign offset = i | times: 6 %}
         {% for id in site.active-authors limit: 6 offset: offset %}
         {% assign author = site.authors[id] %}
-        <li class="span2">
-          <div class="thumbnail">
+        <li class="span2 text-center">
+          <a href="{{ site.baseurl }}/{{ author.name }}" class="thumbnail">
             {% if author.gravatar %}
             <img src="http://www.gravatar.com/avatar/{{ author.gravatar }}" alt="{{ author.name }}" class="img-circle" />
             {% else %}
             <img src="{{ site.baseurl }}/images/avatar.png" alt="{{ author.name }}" class="img-circle" />
             {% endif %}
-            <p class="text-center">{{ author.name }}</p>
-          </div>
+            {{ author.name }}
+          </a>
         </li>
         {% endfor %}
       </ul>
