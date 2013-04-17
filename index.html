@@ -11,9 +11,9 @@ title: Blog
 </section>
 
 <div class="row">
-  <section id="articles" class="offset2 span7">
+  <section id="articles" class="offset2 span8">
     <h2>Articles</h2>
-    {% for post in site.posts %}
+    {% for post in site.posts limit: 10 %}
       {% include post_summary.html %}
     {% endfor %}
   </section>
