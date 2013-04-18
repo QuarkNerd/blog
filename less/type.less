@@ -14,7 +14,7 @@ h1, h2, h3, h4, h5 {
   text-transform: uppercase;
   margin: (@baseLineHeight * 0.5) 0 0 0;
 
-  a {
+  a, a:hover {
     color: @headingsColor;
   }
 
@@ -53,4 +53,8 @@ section {
 }
 article {
   margin: (@baseLineHeight * 2) 0;
+
+  &:first-child {
+    margin: @baseLineHeight 0;
+  }
 }
