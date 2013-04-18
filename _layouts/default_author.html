@@ -1,18 +1,21 @@
 ---
 layout: default
 ---
+<section class="row">
+  <h1 class="offset2 span8">{{ site.authors[page.author].name }}</h1>
+</section>
+
+{% if content and content.length > 0 %}
 <section class="container">
 {{ content }}
 </section>
+{% endif %}
 
-<section id="articles" class="row">
-  <div class="offset2 span8">
+<div class="row">
+  <section class="offset2 span8">
     <h2>Articles</h2>
-  </div>
-  <div class="offset2 span8">
     {% for post in site.categories[page.author] %}
       {% include post_summary.html %}
     {% endfor %}
-  </div>
-</section>
-
+  </section>
+</div>
