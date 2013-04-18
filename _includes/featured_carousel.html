@@ -2,12 +2,6 @@
   {% comment %} Render the carousel panels but only FULL panels (there's probably a nicer way...) {% endcomment %}
   {% assign modulo = site.tags.featured | size | modulo: 5 %}
   {% assign count = site.tags.featured | size | minus: modulo | divided_by: 5 | minus: 1%}
-  <ol class="carousel-indicators">
-    {% for i in (0..count) %}
-    <li data-target="#featuredCarousel" data-slide-to="{{ i }}" class="{% if forloop.first %}active{% endif %}"></li>
-    {% endfor %}
-  </ol>
-  <!-- Carousel items -->
   <div class="carousel-inner">
     {% for i in (0..count) %}
     <div class="item {% if forloop.first %} active{% endif %}">
@@ -83,6 +77,6 @@
     </div>
     {% endfor %}
   </div>
-  <a class="left carousel-control" href="#featuredCarousel" data-slide="prev">&lsaquo;</a>
-  <a class="right carousel-control" href="#featuredCarousel" data-slide="next">&rsaquo;</a>
+  <a class="left carousel-control" href="#featuredCarousel" data-slide="prev"><div class="arrow left"></div></a>
+  <a class="right carousel-control" href="#featuredCarousel" data-slide="next"><div class="arrow right"></div></a>
 </div>

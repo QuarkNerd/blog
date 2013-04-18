@@ -1,11 +1,5 @@
 <div id="authorCarousel" class="carousel slide">
   {% assign count = site.active-authors | size | divided_by: 6 %}
-  <ol class="carousel-indicators">
-    {% for i in (0..count) %}
-    <li data-target="#authorCarousel" data-slide-to="{{ i }}" class="{% if forloop.first %}active{% endif %}"></li>
-    {% endfor %}
-  </ol>
-  <!-- Carousel items -->
   <div class="carousel-inner">
     {% for i in (0..count) %}
     <div class="item {% if forloop.first %} active{% endif %}">
@@ -14,7 +8,7 @@
         {% for id in site.active-authors limit: 6 offset: offset %}
         {% assign author = site.authors[id] %}
         <li class="span2 text-center">
-          <a href="{{ site.baseurl }}/{{ author.name }}" class="thumbnail">
+          <a href="{{ site.baseurl }}/{{ id }}" class="thumbnail">
             {% if author.gravatar %}
             <img src="http://www.gravatar.com/avatar/{{ author.gravatar }}" alt="{{ author.name }}" class="img-circle" />
             {% else %}
@@ -28,6 +22,6 @@
     </div>
     {% endfor %}
   </div>
-  <a class="left carousel-control" href="#authorCarousel" data-slide="prev">&lsaquo;</a>
-  <a class="right carousel-control" href="#authorCarousel" data-slide="next">&rsaquo;</a>
+  <a class="left carousel-control" href="#authorCarousel" data-slide="prev"><div class="arrow left"></div></a>
+  <a class="right carousel-control" href="#authorCarousel" data-slide="next"><div class="arrow right"></div></a>
 </div>
