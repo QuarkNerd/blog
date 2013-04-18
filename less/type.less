@@ -1,3 +1,14 @@
+p {
+  margin: 0 0 (@baseLineHeight * 0.5);
+
+  header + & {
+    margin-top: @baseLineHeight * 0.25;
+  }
+  &:first-child {
+    margin-top: @baseLineHeight * 0.5;
+  }
+}
+
 h1, h2, h3, h4, h5 {
   line-height: @baseLineHeight;
   text-transform: uppercase;
@@ -13,12 +24,33 @@ h1, h2, h3, h4, h5 {
     text-transform: none;
     margin-top: 0;
   }
+
+  & + article {
+    margin: @baseLineHeight 0;
+  }
+  p + & {
+    margin-top: @baseLineHeight * 1.5;
+  }
 }
 
-h1 { line-height: @baseLineHeight * 2.25; }
-h2 { line-height: @baseLineHeight * 1.75; }
-h3 { line-height: @baseLineHeight * 1.5;  }
+h1 {
+  font-size: @baseFontSize * 3;
+  line-height: @baseLineHeight * 2.25;
+  margin: (@baseLineHeight * 0.5) 0;
+}
+h2 {
+  font-size: @baseFontSize * 2;
+  line-height: @baseLineHeight * 1.75;
+  margin: (@baseLineHeight * 0.5) 0;
+}
+h3 {
+  font-size: @baseFontSize * 1.5;
+  line-height: @baseLineHeight * 1.5;
+}
 
-article, section {
+section {
+  margin: @baseLineHeight 0;
+}
+article {
   margin: (@baseLineHeight * 2) 0;
 }
