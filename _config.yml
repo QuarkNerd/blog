@@ -1,4 +1,4 @@
-baseurl: http://sl-ws-069.scottlogic.co.uk/website/scottlogic-website-blogs/_site-safe
+baseurl: http://sl-ws-74/scottlogic-website-blogs/_site-safe
 permalink: /:year/:month/:day/:title.html
 safe: true
 lsi: false
@@ -12,7 +12,7 @@ destination: _site-safe
 include: [.htaccess]
 exclude: [_migration]
 
-active-authors: [aaylett, ceberhardt, cgrant, cprice, lpage, mrhodes, nhemley, nwolverson, rbaxter, shall, shogarth]
+active-authors: [aaylett, ceberhardt, cgrant, cprice, godds, lpage, mrhodes, nhemley, nwolverson, rbaxter, shall, shogarth]
 authors:
     ceberhardt:
         name: Colin Eberhardt
