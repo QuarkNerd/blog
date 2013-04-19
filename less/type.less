@@ -34,7 +34,7 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-  font-size: @baseFontSize * 3;
+  font-size: @baseFontSize * 3.125;
   line-height: @baseLineHeight * 2.25;
   margin: (@baseLineHeight * 0.5) 0;
 }
@@ -44,8 +44,15 @@ h2 {
   margin: (@baseLineHeight * 0.5) 0;
 }
 h3 {
+  font-family: @headingsSmallFontFamily;
   font-size: @baseFontSize * 1.5;
   line-height: @baseLineHeight * 1.5;
+}
+h4 {
+  font-family: @headingsSmallFontFamily;
+}
+h5 {
+  font-family: @sansFontFamily;
 }
 
 section {
