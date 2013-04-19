@@ -3,7 +3,7 @@ permalink: /:year/:month/:day/:title.html
 safe: true
 lsi: false
 
-debug: true
+debug: false
 
 pygments: true
 markdown: maruku
