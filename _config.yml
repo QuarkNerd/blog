@@ -1,4 +1,4 @@
-baseurl: http://sl-ws-74/scottlogic-website-blogs/_site-safe
+baseurl:http://www.dev.scottlogic.co.uk/blog 
 permalink: /:year/:month/:day/:title.html
 safe: true
 lsi: false
