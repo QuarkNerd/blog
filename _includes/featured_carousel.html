@@ -12,16 +12,16 @@
           <div>
             <a href="{{ site.baseurl }}{{ post.url }}">
               <img src="{{ post.image }}">
+              <div class="carousel-caption">
+                <h4>
+                    {% if post.title-short %}
+                    {{ post.title-short }}
+                    {% else %}
+                    {{ post.title | truncatewords: 6 }}
+                    {% endif %}
+                </h4>
+              </div>
             </a>
-            <div class="carousel-caption">
-              <h4>
-                  {% if post.title-short %}
-                  {{ post.title-short }}
-                  {% else %}
-                  {{ post.title | truncatewords: 6 }}
-                  {% endif %}
-              </h4>
-            </div>
             <cite>{{ post.image-attribution }}</cite>
           </div>
           {% endfor %}
@@ -32,23 +32,23 @@
           <div>
             <a href="{{ site.baseurl }}{{ post.url }}">
               <img src="{{ post.image }}">
+              <div class="carousel-caption">
+                <h4>
+                    {% if post.title-short %}
+                    {{ post.title-short }}
+                    {% else %}
+                    {{ post.title | truncatewords: 10 }}
+                    {% endif %}
+                </h4>
+                <p>
+                    {% if post.summary-short %}
+                    {{ post.summary-short }}
+                    {% else %}
+                    {{ post.summary | truncatewords: 50 }}
+                    {% endif %}
+                </p>
+              </div>
             </a>
-            <div class="carousel-caption">
-              <h4>
-                  {% if post.title-short %}
-                  {{ post.title-short }}
-                  {% else %}
-                  {{ post.title | truncatewords: 10 }}
-                  {% endif %}
-              </h4>
-              <p>
-                  {% if post.summary-short %}
-                  {{ post.summary-short }}
-                  {% else %}
-                  {{ post.summary | truncatewords: 50 }}
-                  {% endif %}
-              </p>
-            </div>
             <cite>{{ post.image-attribution }}</cite>
           </div>
           {% endfor %}
@@ -59,16 +59,16 @@
           <div>
             <a href="{{ site.baseurl }}{{ post.url }}">
               <img src="{{ post.image }}">
+              <div class="carousel-caption">
+                <h4>
+                    {% if post.title-short %}
+                    {{ post.title-short }}
+                    {% else %}
+                    {{ post.title | truncatewords: 6 }}
+                    {% endif %}
+                </h4>
+              </div>
             </a>
-            <div class="carousel-caption">
-              <h4>
-                  {% if post.title-short %}
-                  {{ post.title-short }}
-                  {% else %}
-                  {{ post.title | truncatewords: 6 }}
-                  {% endif %}
-              </h4>
-            </div>
             <cite>{{ post.image-attribution }}</cite>
           </div>
           {% endfor %}
