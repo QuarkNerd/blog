@@ -40,23 +40,27 @@ h1, h2, h3, h4, h5 {
 h1 {
   font-size: @baseFontSize * 3.125;
   line-height: @baseLineHeight * 2.25;
-  margin: (@baseLineHeight * 0.5) 0;
+  margin: (@baseLineHeight * 0.5) 0 (@baseLineHeight * 0.5) -3px;
 }
 h2 {
   font-size: @baseFontSize * 2;
   line-height: @baseLineHeight * 1.75;
-  margin: (@baseLineHeight * 0.5) 0;
+  margin: (@baseLineHeight * 0.5) 0 (@baseLineHeight * 0.5) -2px;
 }
 h3 {
   font-family: @headingsSmallFontFamily;
   font-size: @baseFontSize * 1.5;
   line-height: @baseLineHeight * 1.5;
+  margin: (@baseLineHeight * 0.5) 0 0 -2px;
 }
 h4 {
   font-family: @headingsSmallFontFamily;
 }
 h5 {
   font-family: @sansFontFamily;
+  &.sub {
+    margin-left: -1px;
+  }
 }
 
 section {
