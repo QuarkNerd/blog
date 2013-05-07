@@ -1,17 +1,17 @@
 (function ($) {
 	charts = [];
 	var chartdata = [
-	{name: "Index Summary", series: [{id: "ftse100", name: "FTSE 100", url: "/wp-content/uploads/2010/04/ftse100.xml", colour: "#895B18", onPositionChange: setTableValues},
-		{id: "ftse250", name: "FTSE 250", url: "/wp-content/uploads/2010/04/ftse250.xml", colour: "#265E89", onPositionChange: setTableValues},
-		{id: "ftseall", name: "FTSE ALL-SHARE", url: "/wp-content/uploads/2010/04/ftseall.xml", colour: "#669900", onPositionChange: setTableValues}]},
-	{name: "Aviva", series: [{id: "av", name: "Aviva", url: "/wp-content/uploads/2010/04/av.xml", colour: "#265E89"}]},
-	{name: "HBOS", series: [{id: "hbos", name: "HBOS", url: "/wp-content/uploads/2010/04/hbos.xml", colour: "#895B18"}]},
-	{name: "Old Mutual", series: [{id: "oml", name: "Old Mutual", url: "/wp-content/uploads/2010/04/oml.xml", colour: "#265E89"}]},
-	{name: "Legal & General", series: [{id: "lgen", name: "Legal & General", url: "/wp-content/uploads/2010/04/lgen.xml", colour: "#669900"}]},
-	{name: "Lloyds TSB", series: [{id: "lloy", name: "Lloyds TSB", url: "/wp-content/uploads/2010/04/lloy.xml", colour: "#895B18"}]},
-	{name: "Barclays", series: [{id: "barc", name: "Barclays", url: "/wp-content/uploads/2010/04/barc.xml", colour: "#265E89"}]},
-	{name: "HSBC", series: [{id: "hsba", name: "HSBC", url: "/wp-content/uploads/2010/04/hsba.xml", colour: "#669900"}]},
-	{name: "Prudential", series: [{id: "pru", name: "PRU", url: "/wp-content/uploads/2010/04/pru.xml", colour: "#265E89"}]}
+	{name: "Index Summary", series: [{id: "ftse100", name: "FTSE 100", url: "/blog/archive/2010/04/ftse100.xml", colour: "#895B18", onPositionChange: setTableValues},
+		{id: "ftse250", name: "FTSE 250", url: "/blog/archive/2010/04/ftse250.xml", colour: "#265E89", onPositionChange: setTableValues},
+		{id: "ftseall", name: "FTSE ALL-SHARE", url: "/blog/archive/2010/04/ftseall.xml", colour: "#669900", onPositionChange: setTableValues}]},
+	{name: "Aviva", series: [{id: "av", name: "Aviva", url: "/blog/archive/2010/04/av.xml", colour: "#265E89"}]},
+	{name: "HBOS", series: [{id: "hbos", name: "HBOS", url: "/blog/archive/2010/04/hbos.xml", colour: "#895B18"}]},
+	{name: "Old Mutual", series: [{id: "oml", name: "Old Mutual", url: "/blog/archive/2010/04/oml.xml", colour: "#265E89"}]},
+	{name: "Legal & General", series: [{id: "lgen", name: "Legal & General", url: "/blog/archive/2010/04/lgen.xml", colour: "#669900"}]},
+	{name: "Lloyds TSB", series: [{id: "lloy", name: "Lloyds TSB", url: "/blog/archive/2010/04/lloy.xml", colour: "#895B18"}]},
+	{name: "Barclays", series: [{id: "barc", name: "Barclays", url: "/blog/archive/2010/04/barc.xml", colour: "#265E89"}]},
+	{name: "HSBC", series: [{id: "hsba", name: "HSBC", url: "/blog/archive/2010/04/hsba.xml", colour: "#669900"}]},
+	{name: "Prudential", series: [{id: "pru", name: "PRU", url: "/blog/archive/2010/04/pru.xml", colour: "#265E89"}]}
 	];
 	$(function() {
 		var startDate = new Date();
@@ -749,7 +749,7 @@
 			return [ e.pageX - canvasOffset.left, e.pageY - canvasOffset.top ];
 		}
 		var start;
-		var jDiv = $('<img src="/wp-content/uploads/2010/04/transparent.gif" alt="" />').height(jCanvas.height()).width(jCanvas.width());
+		var jDiv = $('<img src="/blog/archive/2010/04/transparent.gif" alt="" />').height(jCanvas.height()).width(jCanvas.width());
 		jDiv.css('position', 'absolute').css('z-index', 2);
 		jCanvas.before(jDiv);
 		jDiv.dblclick(function(e) {
