@@ -7,6 +7,7 @@
         </h3>
         <h5 class="sub">by <a href="{{ site.baseurl }}/{{ post.author }}">{{ site.authors[post.author].name }}</a>, on {{ post.date | date: "%d %b %Y" }}</h5>
     </header>
+{% if showPostSummary %}
     <p>
         {% if post.summary %}
         {{ post.summary }}
@@ -14,6 +15,7 @@
         {{ post.content | truncatewords:50 | strip_html }}
         {% endif %}
     </p>
+{% endif %}
     <!-- TODO twitter and comments counts
     <footer>
       <a href="">twitter</a>
