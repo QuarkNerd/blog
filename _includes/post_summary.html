@@ -20,7 +20,7 @@
     <!-- TODO twitter count
       <a href="">twitter</a>
     -->
-        <div class="dq-comment-count" data-disqus-identifier="{% if post.oldlink %}{{ post.oldlink }}{% else %}{{ site.baseurl }}{{ post.url }}{% endif %}"></div>
+        <div class="dq-comment-count" data-disqus-identifier="{% if post.oldlink %}{{ post.oldlink }}{% else %}{{ post.url }}{% endif %}"></div>
         <a href="{{ site.baseurl }}{{ post.url }}#disqus_thread"></a>
     </footer>
 </article>

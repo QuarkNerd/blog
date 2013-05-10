@@ -20,6 +20,8 @@
                     {{ post.title | truncatewords: 6 }}
                     {% endif %}
                 </h4>
+                <div class="dq-comment-count" data-disqus-identifier="{% if post.oldlink %}{{ post.oldlink }}{% else %}{{ post.url }}{% endif %}"></div>
+                <a href="{{ site.baseurl }}{{ post.url }}#disqus_thread"></a>
               </div>
             </a>
             <cite>{{ post.image-attribution }}</cite>
@@ -47,6 +49,8 @@
                     {{ post.summary | truncatewords: 50 }}
                     {% endif %}
                 </p>
+                <div class="dq-comment-count" data-disqus-identifier="{% if post.oldlink %}{{ post.oldlink }}{% else %}{{ post.url }}{% endif %}"></div>
+                <a href="{{ site.baseurl }}{{ post.url }}#disqus_thread"></a>
               </div>
             </a>
             <cite>{{ post.image-attribution }}</cite>
@@ -67,6 +71,8 @@
                     {{ post.title | truncatewords: 6 }}
                     {% endif %}
                 </h4>
+                <div class="dq-comment-count" data-disqus-identifier="{% if post.oldlink %}{{ post.oldlink }}{% else %}{{ post.url }}{% endif %}"></div>
+                <a href="{{ site.baseurl }}{{ post.url }}#disqus_thread"></a>
               </div>
             </a>
             <cite>{{ post.image-attribution }}</cite>
