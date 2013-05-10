@@ -1,0 +1,19 @@
+---
+
+---
+<script src="{{ site.baseurl }}/scripts/jquery-1.9.1.js"></script>
+<script type="text/javascript">
+    $(function() {
+        var redirects = "";
+        {% for post in site.posts %}
+            {% if post.oldlink %}
+            redirects += '<location path="{{ post.oldlink }}">\r\n' +
+                '\t<system.webServer>\r\n' +
+                    '\t\t<httpRedirect enabled="true" destination="{{ post.url }}" httpResponseStatus="Permanent" />\r\n' +
+                '\t</system.webServer>\r\n' +
+            '</location>\r\n';
+            {% endif %}
+        {% endfor %}
+        $('body').append('<textarea style="width:100%; height: 100%">' + redirects + '</textarea>');
+    });
+</script>
