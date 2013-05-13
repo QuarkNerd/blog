@@ -7,9 +7,9 @@
         var redirects = "";
         {% for post in site.posts %}
             {% if post.oldlink %}
-            redirects += '<location path="{{ post.oldlink }}">\r\n' +
+            redirects += '<location path="~{{ post.oldlink }}">\r\n' +
                 '\t<system.webServer>\r\n' +
-                    '\t\t<httpRedirect enabled="true" destination="{{ post.url }}" httpResponseStatus="Permanent" />\r\n' +
+                    '\t\t<httpRedirect enabled="true" destination="~{{ post.url }}" httpResponseStatus="Permanent" />\r\n' +
                 '\t</system.webServer>\r\n' +
             '</location>\r\n';
             {% endif %}

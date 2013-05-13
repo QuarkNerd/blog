@@ -1,4 +1,4 @@
-baseurl: http://www.dev.scottlogic.co.uk/blog 
+baseurl: http://www.dev.scottlogic.co.uk/blog
 permalink: /:year/:month/:day/:title.html
 safe: true
 lsi: false
