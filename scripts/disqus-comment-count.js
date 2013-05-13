@@ -9,21 +9,23 @@ var dq_ids = [];
     jQuery(this).html('0 comments');
   });
 
-  jQuery.ajax({
-    type: 'GET',
-    url: 'https://disqus.com/api/3.0/threads/set.jsonp',
-    data: { api_key: dq_publickey, forum: disqus_shortname, thread: dq_ids },
-    cache: false,
-    dataType: 'jsonp',
-    success: function(result) {
-      for(var i in result.response) {
-        var num = result.response[i].posts;
-        var txt = (num == 1) ? ' comment' : ' comments';
+  while(dq_ids.length > 0) {
+    jQuery.ajax({
+      type: 'GET',
+      url: 'https://disqus.com/api/3.0/threads/set.jsonp',
+      data: { api_key: dq_publickey, forum: disqus_shortname, thread: dq_ids.splice(0, 20) },
+      cache: false,
+      dataType: 'jsonp',
+      success: function(result) {
+        for(var i in result.response) {
+          var num = result.response[i].posts;
+          var txt = (num == 1) ? ' comment' : ' comments';
 
-        for(var j in result.response[i].identifiers) {
-          jQuery('div[data-disqus-identifier="' + result.response[i].identifiers[j] + '"]').html(num + txt);
+          for(var j in result.response[i].identifiers) {
+            jQuery('div[data-disqus-identifier="' + result.response[i].identifiers[j] + '"]').html(num + txt);
+          }
         }
       }
-    }
-  });
+    });
+  }
 }());
