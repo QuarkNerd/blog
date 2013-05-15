@@ -29,7 +29,7 @@
 
         for(var i in authors) {
             redirects += redirectMarkup(authors[i].oldlink, authors[i].url);
-            //redirects += redirectMarkup(authors[i].oldlink + 'feed/', authors[i].url + 'rss/');
+            redirects += redirectMarkup(authors[i].oldlink + 'feed/', authors[i].url + 'feed/');
         }
 
         {% for post in site.posts %}
@@ -39,7 +39,7 @@
         {% endfor %}
 
         redirects += "</redirects>";
-gi
+
         $('body').append('<textarea style="width:100%; height: 100%">' + redirects + '</textarea>');
     });
 </script>

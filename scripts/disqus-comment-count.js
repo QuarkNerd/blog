@@ -1,6 +1,8 @@
 var disqus_shortname = 'scottlogic';
 
-var dq_publickey = "Aj9eMiGDAUD3UtxJyfrldMc9nhkIvzk5CmQ7eNK3iSdseO9seaatoLdn4SghoTlZ";
+// TODO(morchard): I'm not sure if this is secure or not. It's the Disqus public key for public-facing JavaScript use,
+// but I haven't been able to confirm that it can't be used maliciously.
+var dq_publickey = "Aj9eMiGDAUD3UtxJyfrldMc9nhkIvzk5CmQ7eNK3iSdseO9seaatoLdn4SghoTlZ"; //
 var dq_ids = [];
 
 (function() {
