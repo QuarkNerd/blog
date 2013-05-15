@@ -1,13 +1,11 @@
 var disqus_shortname = 'scottlogic';
 
-// TODO(morchard): I'm not sure if this is secure or not. It's the Disqus public key for public-facing JavaScript use,
-// but I haven't been able to confirm that it can't be used maliciously.
-var dq_publickey = "Aj9eMiGDAUD3UtxJyfrldMc9nhkIvzk5CmQ7eNK3iSdseO9seaatoLdn4SghoTlZ"; //
-var dq_ids = [];
+var disqus_publickey = "Aj9eMiGDAUD3UtxJyfrldMc9nhkIvzk5CmQ7eNK3iSdseO9seaatoLdn4SghoTlZ";
+var disqus_ids = [];
 
 (function() {
   jQuery('.dq-comment-count').each(function () {
-    dq_ids.push('ident:' + jQuery(this).attr('data-disqus-identifier'));
+    disqus_ids.push('ident:' + jQuery(this).attr('data-disqus-identifier'));
     jQuery(this).html('0 comments');
   });
 
@@ -15,7 +13,7 @@ var dq_ids = [];
     jQuery.ajax({
       type: 'GET',
       url: 'https://disqus.com/api/3.0/threads/set.jsonp',
-      data: { api_key: dq_publickey, forum: disqus_shortname, thread: dq_ids.splice(0, 20) },
+      data: { api_key: disqus_publickey, forum: disqus_shortname, thread: disqus_ids.splice(0, 20) },
       cache: false,
       dataType: 'jsonp',
       success: function(result) {
