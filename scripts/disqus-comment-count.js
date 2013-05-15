@@ -1,6 +1,8 @@
 var disqus_shortname = 'scottlogic';
+// var disqus_shortname = 'scottlogic-test'; // test site
+var disqus_publickey = 'Aj9eMiGDAUD3UtxJyfrldMc9nhkIvzk5CmQ7eNK3iSdseO9seaatoLdn4SghoTlZ';
+// var disqus_publickey = '0LVuaQhbrEBUVLxOfxdr9dF1zOluNGZibYOYsyPVhGadrOTtb1AEmTtcpUvJm7ED'; // test site
 
-var disqus_publickey = "Aj9eMiGDAUD3UtxJyfrldMc9nhkIvzk5CmQ7eNK3iSdseO9seaatoLdn4SghoTlZ";
 var disqus_ids = [];
 
 (function() {
@@ -13,7 +15,7 @@ var disqus_ids = [];
     jQuery.ajax({
       type: 'GET',
       url: 'https://disqus.com/api/3.0/threads/set.jsonp',
-      data: { api_key: disqus_publickey, forum: disqus_shortname, thread: disqus_ids.splice(0, 20) },
+      data: { forum: disqus_shortname, api_key: disqus_publickey, thread: disqus_ids.splice(0, 20) },
       cache: false,
       dataType: 'jsonp',
       success: function(result) {
