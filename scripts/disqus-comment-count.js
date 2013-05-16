@@ -11,7 +11,7 @@ var disqus_ids = [];
     jQuery(this).html('0 comments');
   });
 
-  while(dq_ids.length > 0) {
+  while(disqus_ids.length > 0) {
     jQuery.ajax({
       type: 'GET',
       url: 'https://disqus.com/api/3.0/threads/set.jsonp',
