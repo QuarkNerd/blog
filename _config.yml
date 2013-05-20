@@ -24,6 +24,7 @@ authors:
         name: Luke Page
     aaylett:
         name: Andrew Aylett
+        gravatar: 279455275f7e4f69b0759fec26130c01
     rbaxter:
         name: Rolf Baxter
     jcardy:
@@ -32,6 +33,7 @@ authors:
         name: Chris Grant
     shall:
         name: Steven Hall
+        gravatar: 30187520d3181c674d7b7ecbcbbf48b1
     nhemley:
         name: Nicholas Hemley
     godds:
@@ -39,12 +41,15 @@ authors:
         gravatar: 3f5e6c753071c6a41f7f1dbb89daeb3b
     gorosz:
         name: Gergely Orosz
+        gravatar: 4de0bd0d87ade9cac3a76609a80c9af3
     mperrin:
         name: Mike Perrin
     mrhodes:
         name: Mark Rhodes
+        gravatar: fd23036b365ac4d5492207da6dbe0248
     shogarth:
         name: Sam Hogarth
         gravatar: d4534a4d64ddf89c318221d9f0e766da
     nwolverson:
         name: Nicholas Wolverson
+        gravatar: c2fa082fa1ffbab1293262c599d459fb
