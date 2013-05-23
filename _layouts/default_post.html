@@ -10,6 +10,14 @@ layout: default
         <div class="dq-comment-count" data-disqus-identifier="{% if page.oldlink %}{{ page.oldlink }}{% else %}{{ page.url }}{% endif %}"></div>
     </header>
     <div class="offset2 span8">
+	<p>
+	<a class="twitter-share-button" href="https://twitter.com/share" data-url="http://www.scottlogic.co.uk{% if page.oldlink %}{{ page.oldlink }}{% else %}{{ page.url }}{% endif %}" data-via="scottlogic">Tweet</a>
+	<br />
+	<script type="text/javascript">// <![CDATA[
+		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+		// ]]&gt;
+	</script>
+	</p>
         {{ content }}
     </div>
 </article>
