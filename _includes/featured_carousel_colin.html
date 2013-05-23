@@ -11,7 +11,7 @@
           {% for post in site.tags.featuredcolin limit:2 offset: offset %}
           <div>
             <a href="{{ site.baseurl }}{{ post.url }}">
-              <img src="{{ post.image }}">
+              <img src="../{{ post.image }}">
               <div class="carousel-caption">
                 <h4>
                     {% if post.title-short %}
@@ -32,7 +32,7 @@
           {% for post in site.tags.featuredcolin limit:1 offset:offset %}
           <div>
             <a href="{{ site.baseurl }}{{ post.url }}">
-              <img src="{{ post.image }}">
+              <img src="../{{ post.image }}">
               <div class="carousel-caption">
                 <h4>
                     {% if post.title-short %}
@@ -60,7 +60,7 @@
           {% for post in site.tags.featuredcolin limit:2 offset:offset %}
           <div>
             <a href="{{ site.baseurl }}{{ post.url }}">
-              <img src="{{ post.image }}">
+              <img src="../{{ post.image }}">
               <div class="carousel-caption">
                 <h4>
                     {% if post.title-short %}
@@ -80,6 +80,4 @@
     </div>
     {% endfor %}
   </div>
-  <a class="left carousel-control" href="#featuredCarousel" data-slide="prev"><div class="arrow left"></div></a>
-  <a class="right carousel-control" href="#featuredCarousel" data-slide="next"><div class="arrow right"></div></a>
 </div>
