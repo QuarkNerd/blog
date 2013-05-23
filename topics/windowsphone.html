@@ -1,0 +1,15 @@
+---
+layout: default
+title: Windows Phone
+---
+
+<div class="row">
+  <section class="offset2 span8">
+    <h2>Windows Phone Articles</h2>
+    {% assign showPostSummary = true %}
+    {% for post in site.tags.windowsphone %}
+      {% include post_summary.html %}
+    {% endfor %}
+  </section>
+</div>
+
