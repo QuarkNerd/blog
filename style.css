@@ -617,8 +617,8 @@ h4,
 h5,
 h6 {
   margin: 12px 0;
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: normal;
+  font-family: "futura-pt", Helvetica, Arial, sans-serif;
+  font-weight: 400;
   line-height: 24px;
   color: inherit;
   text-rendering: optimizelegibility;
@@ -5599,13 +5599,9 @@ h2 {
   margin: 12px 0 12px -2px;
 }
 h3 {
-  font-family: Steagal-Re, Helvetica, Arial, sans-serif;
   font-size: 24px;
   line-height: 36px;
   margin: 12px 0 0 -2px;
-}
-h4 {
-  font-family: Steagal-Re, Helvetica, Arial, sans-serif;
 }
 h5 {
   font-family: Helvetica, Arial, sans-serif;
