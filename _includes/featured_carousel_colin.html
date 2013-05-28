@@ -12,6 +12,9 @@
           <div>
             <a href="{{ site.baseurl }}{{ post.url }}">
               <img src="../{{ post.image }}">
+              {% assign url = post.url %}{% if post.oldlink %}{% assign url = post.oldlink %}{% endif %}
+              {% assign inverted = post.featured-overlay-inverted %}
+              {% include social.html %}
               <div class="carousel-caption">
                 <h4>
                     {% if post.title-short %}
@@ -20,7 +23,6 @@
                     {{ post.title | truncatewords: 6 }}
                     {% endif %}
                 </h4>
-                <div class="dq-comment-count" data-disqus-identifier="{% if post.oldlink %}{{ post.oldlink }}{% else %}{{ post.url }}{% endif %}"></div>
               </div>
             </a>
             <cite>{{ post.image-attribution }}</cite>
@@ -33,6 +35,9 @@
           <div>
             <a href="{{ site.baseurl }}{{ post.url }}">
               <img src="../{{ post.image }}">
+              {% assign url = post.url %}{% if post.oldlink %}{% assign url = post.oldlink %}{% endif %}
+              {% assign inverted = post.featured-overlay-inverted %}
+              {% include social.html %}
               <div class="carousel-caption">
                 <h4>
                     {% if post.title-short %}
@@ -48,7 +53,6 @@
                     {{ post.summary | truncatewords: 50 }}
                     {% endif %}
                 </p>
-                <div class="dq-comment-count" data-disqus-identifier="{% if post.oldlink %}{{ post.oldlink }}{% else %}{{ post.url }}{% endif %}"></div>
               </div>
             </a>
             <cite>{{ post.image-attribution }}</cite>
@@ -61,6 +65,9 @@
           <div>
             <a href="{{ site.baseurl }}{{ post.url }}">
               <img src="../{{ post.image }}">
+              {% assign url = post.url %}{% if post.oldlink %}{% assign url = post.oldlink %}{% endif %}
+              {% assign inverted = post.featured-overlay-inverted %}
+              {% include social.html %}
               <div class="carousel-caption">
                 <h4>
                     {% if post.title-short %}
@@ -69,7 +76,6 @@
                     {{ post.title | truncatewords: 6 }}
                     {% endif %}
                 </h4>
-                <div class="dq-comment-count" data-disqus-identifier="{% if post.oldlink %}{{ post.oldlink }}{% else %}{{ post.url }}{% endif %}"></div>
               </div>
             </a>
             <cite>{{ post.image-attribution }}</cite>

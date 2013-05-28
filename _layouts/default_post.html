@@ -2,24 +2,19 @@
 layout: default
 ---
 <article class="row">
-    <header class="offset2 span8">
-        <h1>
-          {{ page.title }}
-        </h1>
-        <h5 class="sub">by <a href="{{ site.baseurl }}/{{ page.author }}">{{ site.authors[page.author].name }}</a>, on {{ page.date | date: "%d %b %Y" }}</h5>
-        <div class="dq-comment-count" data-disqus-identifier="{% if page.oldlink %}{{ page.oldlink }}{% else %}{{ page.url }}{% endif %}"></div>
-    </header>
-    <div class="offset2 span8">
-	<p>
-	<a class="twitter-share-button" href="https://twitter.com/share" data-url="http://www.scottlogic.co.uk{% if page.oldlink %}{{ page.oldlink }}{% else %}{{ page.url }}{% endif %}" data-via="scottlogic">Tweet</a>
-	<br />
-	<script type="text/javascript">// <![CDATA[
-		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-		// ]]&gt;
-	</script>
-	</p>
-        {{ content }}
-    </div>
+  <header class="offset2 span8">
+    <h1>
+      {{ page.title }}
+    </h1>
+    <h5 class="sub">by <a href="{{ site.baseurl }}/{{ page.author }}">{{ site.authors[page.author].name }}</a>, on {{ page.date | date: "%d %b %Y" }}</h5>
+
+    {% assign url = page.url %}{% if page.oldlink %}{% assign url = page.oldlink %}{% endif %}
+    {% include social.html %}
+
+  </header>
+  <div class="offset2 span8">
+    {{ content }}
+  </div>
 </article>
 
 <div id="disqus_thread" class="offset2 span8"></div>

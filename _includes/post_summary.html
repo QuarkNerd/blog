@@ -1,12 +1,12 @@
 <article>
-    <header>
-        <h3>
-            <a href="{{ site.baseurl }}{{ post.url }}">
-                {{ post.title }}
-            </a>
-        </h3>
-        <h5 class="sub">by <a href="{{ site.baseurl }}/{{ post.author }}">{{ site.authors[post.author].name }}</a>, on {{ post.date | date: "%d %b %Y" }}</h5>
-    </header>
+  <header>
+    <h3>
+      <a href="{{ site.baseurl }}{{ post.url }}">
+          {{ post.title }}
+      </a>
+    </h3>
+    <h5 class="sub">by <a href="{{ site.baseurl }}/{{ post.author }}">{{ site.authors[post.author].name }}</a>, on {{ post.date | date: "%d %b %Y" }}</h5>
+  </header>
 {% if showPostSummary %}
     <p>
         {% if post.summary %}
@@ -16,15 +16,8 @@
         {% endif %}
     </p>
 {% endif %}
-    <footer>
-	<p>
-		<a class="twitter-share-button" href="https://twitter.com/share" data-url="http://www.scottlogic.co.uk{% if post.oldlink %}{{ post.oldlink }}{% else %}{{ post.url }}{% endif %}" data-via="scottlogic">Tweet</a>
-		<br />
-		<script type="text/javascript">// <![CDATA[
-			!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-			// ]]&gt;
-		</script>
-	</p>
-        <div class="dq-comment-count" data-disqus-identifier="{% if post.oldlink %}{{ post.oldlink }}{% else %}{{ post.url }}{% endif %}"></div>
-    </footer>
+
+  {% assign url = post.url %}{% if post.oldlink %}{% assign url = post.oldlink %}{% endif %}
+  {% include social.html %}
+
 </article>

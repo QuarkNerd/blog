@@ -1,14 +1,14 @@
-// var disqus_shortname = 'scottlogic';
-var disqus_shortname = 'scottlogicdevsite'; // test site
-// var disqus_publickey = 'Aj9eMiGDAUD3UtxJyfrldMc9nhkIvzk5CmQ7eNK3iSdseO9seaatoLdn4SghoTlZ';
-var disqus_publickey = 'w2n4banI0YleDwvJppgaIp3Kpm0ZDfpDFfqJbxxL6KAZKcBL0wvlwbCbsCDCtbZm'; // test site
-
-var disqus_ids = [];
-
 (function() {
+// var disqus_shortname = 'scottlogic';
+    var disqus_shortname = 'scottlogicdevsite'; // test site
+// var disqus_publickey = 'Aj9eMiGDAUD3UtxJyfrldMc9nhkIvzk5CmQ7eNK3iSdseO9seaatoLdn4SghoTlZ';
+    var disqus_publickey = 'w2n4banI0YleDwvJppgaIp3Kpm0ZDfpDFfqJbxxL6KAZKcBL0wvlwbCbsCDCtbZm'; // test site
+
+  var disqus_ids = [];
+
   jQuery('.dq-comment-count').each(function () {
     disqus_ids.push('ident:' + jQuery(this).attr('data-disqus-identifier'));
-    jQuery(this).html('0 comments');
+    jQuery(this).html('0');
   });
 
   while(disqus_ids.length > 0) {
@@ -21,10 +21,8 @@ var disqus_ids = [];
       success: function(result) {
         for(var i in result.response) {
           var num = result.response[i].posts;
-          var txt = (num == 1) ? ' comment' : ' comments';
-
           for(var j in result.response[i].identifiers) {
-            jQuery('div[data-disqus-identifier="' + result.response[i].identifiers[j] + '"]').html(num + txt);
+            jQuery('div[data-disqus-identifier="' + result.response[i].identifiers[j] + '"]').find(".count").html(num);
           }
         }
       }
