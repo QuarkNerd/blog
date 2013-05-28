@@ -1,7 +1,7 @@
-var disqus_shortname = 'scottlogic';
-// var disqus_shortname = 'scottlogic-test'; // test site
-var disqus_publickey = 'Aj9eMiGDAUD3UtxJyfrldMc9nhkIvzk5CmQ7eNK3iSdseO9seaatoLdn4SghoTlZ';
-// var disqus_publickey = '0LVuaQhbrEBUVLxOfxdr9dF1zOluNGZibYOYsyPVhGadrOTtb1AEmTtcpUvJm7ED'; // test site
+// var disqus_shortname = 'scottlogic';
+var disqus_shortname = 'scottlogicfinaltest'; // test site
+// var disqus_publickey = 'Aj9eMiGDAUD3UtxJyfrldMc9nhkIvzk5CmQ7eNK3iSdseO9seaatoLdn4SghoTlZ';
+var disqus_publickey = 'rKRhwC4PWCJWmc6EvZsE7v6JRFlAlPtoqZFYclFaenVqWvW3TNmIxYMEZsF6p11c'; // test site
 
 var disqus_ids = [];
 
