@@ -1,8 +1,8 @@
 (function() {
 // var disqus_shortname = 'scottlogic';
-    var disqus_shortname = 'scottlogicdevsite'; // test site
+    var disqus_shortname = 'scottlogicfinaltest'; // test site
 // var disqus_publickey = 'Aj9eMiGDAUD3UtxJyfrldMc9nhkIvzk5CmQ7eNK3iSdseO9seaatoLdn4SghoTlZ';
-    var disqus_publickey = 'w2n4banI0YleDwvJppgaIp3Kpm0ZDfpDFfqJbxxL6KAZKcBL0wvlwbCbsCDCtbZm'; // test site
+    var disqus_publickey = 'fMWrc3eKhqcWi6E9v3AdOz6IQe3dg8KwFSs2nQ0ExiLf8jwmZXqFbJsQPtLVXlWc'; // test site
 
   var disqus_ids = [];
 
