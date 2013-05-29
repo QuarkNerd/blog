@@ -8,7 +8,7 @@
 
   jQuery('.dq-comment-count').each(function () {
     disqus_ids.push('ident:' + jQuery(this).attr('data-disqus-identifier'));
-    jQuery(this).html('0');
+    jQuery(this).find('.count').html('0');
   });
 
   while(disqus_ids.length > 0) {
@@ -22,7 +22,7 @@
         for(var i in result.response) {
           var num = result.response[i].posts;
           for(var j in result.response[i].identifiers) {
-            jQuery('div[data-disqus-identifier="' + result.response[i].identifiers[j] + '"]').find(".count").html(num);
+            jQuery('div[data-disqus-identifier="' + result.response[i].identifiers[j] + '"]').find('.count').html(num);
           }
         }
       }
