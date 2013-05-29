@@ -1,5 +1,5 @@
 // var disqus_shortname = 'scottlogic';
-var disqus_shortname = 'tempdisabled'; // test site
+var disqus_shortname = 'scottlogicfinaltest'; // test site
 
 (function() {
   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
