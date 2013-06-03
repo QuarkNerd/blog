@@ -3,7 +3,6 @@ permalink: /:year/:month/:day/:title.html
 safe: true
 lsi: false
 
-
 debug: false
 
 pygments: true
