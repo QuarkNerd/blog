@@ -12,7 +12,6 @@ destination: _site-safe
 include: [.htaccess]
 exclude: [_migration]
 
-
 active-authors: [aaylett, ceberhardt, cgrant, cprice, godds, lpage, mrhodes, nhemley, nwolverson, rbaxter, shall, shogarth]
 authors:
     ceberhardt:
