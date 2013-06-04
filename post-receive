@@ -1,0 +1,80 @@
+#!/bin/sh
+#
+# An example hook script for the "post-receive" event.
+#
+# The "post-receive" script is run after receive-pack has accepted a pack
+# and the repository has been updated.  It is passed arguments in through
+# stdin in the form
+#  <oldrev> <newrev> <refname>
+# For example:
+#  aa453216d1b3e49e7f6f98441fa56946ddcd6a20 68f7abf4e6f922807889f52bc043ecd31b79f814 refs/heads/master
+#
+# see contrib/hooks/ for a sample, or uncomment the next line and
+# rename the file to "post-receive".
+
+#. /usr/share/git-core/contrib/hooks/post-receive-email
+
+timestamp=`date +%FT%H:%M%z`
+logfile=/opt/blogbuild/blog-build-$timestamp.log
+read oldrev newrev refname
+
+publish=0
+if [ $refname -eq 'refs/heads/master' ]; then
+    instancename="dev"
+    publishhostname="vb-app-c.scottlogic.co.uk"
+    publish=1
+elif [ $refname -eq 'refs/heads/content' ]; then
+    instancename="content"
+    publishhostname="vb-app-b.visiblox.com"
+    publish=1
+elif [ $refname -eq 'refs/heads/live' ]; then
+    instancename="live"
+    publishhostname="vb-app-a.visiblox.com"
+    publish=1
+fi
+
+if [ publish -eq 1]; then
+
+    echo "$newrev $instancename" >> /opt/blogbuild/blog-last-received
+
+    /usr/bin/git clone --depth 1 /opt/gerrit/git/scottlogic-website-blogs.git /opt/blogbuild/scottlogic-website-blogs-temp
+    cd /opt/blogbuild/scottlogic-website-blogs-temp
+
+    echo "[INFO] $timestamp" > $logfile
+    echo "[INFO] Building for $newrev $refname" >> $logfile
+    /usr/bin/jekyll build >> $logfile
+    rc=$?
+
+    if [[ $rc -eq 0 ]]; then
+        echo "[INFO] Jekyll build ok" >> $logfile
+        /usr/bin/rsync --rsh='ssh -p2202' -avz --delete \
+            /opt/blogbuild/scottlogic-website-blogs-temp/_site-safe/ \
+            continuum@$publishhostname:/cygdrive/c/inetpub/wwwroot-scottweb-blog/incoming \
+            >> $logfile 2>&1 \
+        && /usr/bin/ssh -p2202 continuum@$publishhostname "current=\`cat /cygdrive/c/inetpub/wwwroot-scottweb-blog/current.txt\` \
+            && /bin/rsync -a /cygdrive/c/inetpub/wwwroot-scottweb-blog/incoming/ /cygdrive/c/inetpub/wwwroot-scottweb-blog/$timestamp \
+            && echo \"Replacing \$current with $timestamp\" \
+            && mv /cygdrive/c/inetpub/wwwroot-scottweb-blog/current    /cygdrive/c/inetpub/wwwroot-scottweb-blog/\$current   \
+            && mv /cygdrive/c/inetpub/wwwroot-scottweb-blog/$timestamp /cygdrive/c/inetpub/wwwroot-scottweb-blog/current \
+            && echo $timestamp > /cygdrive/c/inetpub/wwwroot-scottweb-blog/current.txt" \
+            >> $logfile 2>&1 \
+        rcrs=$?
+        if [[ $rcrs -eq 0 ]]; then
+            echo "[INFO] rsync ok" >> $logfile
+            echo "$newrev $instancename" >> /opt/blogbuild/blog-last-received-successful
+            buildresult="SUCCESS"
+        else
+            echo "[ERROR] rsync error" >> $logfile
+            buildresult="ERROR - rsync error"
+        fi
+    else
+        echo "[ERROR] jekyll build error" >> $logfile
+        buildresult="ERROR - jekyll error"
+    fi
+
+    /bin/mail -s "Website $instancename Blog Build - $buildresult" bloggers@scottlogic.co.uk < $logfile > /dev/null 2>&1
+    rm -Rf /opt/blogbuild/scottlogic-website-blogs-temp
+
+fi
+
+exit
