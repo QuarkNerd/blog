@@ -1,0 +1,16 @@
+---
+layout: default
+title: Awards and Prizes
+---
+
+<div class="row">
+  <section class="offset2 span8">
+    <h2>Awards and Prizes</h2>
+    {% assign showPostSummary = true %}
+    {% for post in site.tags.awards %}
+      {% include post_summary.html %}
+    {% endfor %}
+  </section>
+</div>
+
+
