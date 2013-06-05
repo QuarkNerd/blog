@@ -1,0 +1,4 @@
+---
+author: cprice
+---
+{% assign feed_author = author %}{% include rss_feed.xml %}

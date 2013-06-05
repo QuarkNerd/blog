@@ -1,4 +1,4 @@
 ---
-layout: none
+author: shogarth
 ---
 {% include rss_feed.xml %}

@@ -1,4 +1,4 @@
 ---
-layout: none
+author: nwolverson
 ---
 {% include rss_feed.xml %}

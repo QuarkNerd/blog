@@ -1,5 +1,5 @@
 name: Scott Logic
-description:
+description: This is the Scott Logic RSS feed's temporary description!
 baseurl: http://www.dev.scottlogic.co.uk/blog
 permalink: /:year/:month/:day/:title.html
 safe: true
@@ -20,6 +20,7 @@ authors:
         name: Colin Eberhardt
         email: ceberhardt@scottlogic.co.uk
         gravatar: 458f2e0d08d4114f8b323798cfea141d
+        description: A placeholder description for Colin's feed
     cprice:
         name: Chris Price
         email: cprice@scottlogic.co.uk

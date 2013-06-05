@@ -1,4 +1,4 @@
 ---
-layout: none
+author: mperrin
 ---
 {% include rss_feed.xml %}

@@ -1,4 +1,4 @@
 ---
-layout: none
+author: godds
 ---
 {% include rss_feed.xml %}

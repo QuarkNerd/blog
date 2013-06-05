@@ -1,4 +1,4 @@
 ---
-layout: none
+author: nhemley
 ---
 {% include rss_feed.xml %}

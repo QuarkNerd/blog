@@ -1,4 +1,4 @@
 ---
-layout: none
+author: lpage
 ---
 {% include rss_feed.xml %}

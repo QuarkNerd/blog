@@ -1,4 +1,4 @@
 ---
-layout: none
+author: aaylett
 ---
 {% include rss_feed.xml %}
