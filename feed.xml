@@ -1,0 +1,41 @@
+---
+layout: none
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+     xmlns:sl="scott-logic">
+    <channel>
+        <title><![CDATA[{{ site.name }}]]></title>
+        <description><![CDATA[{{ site.description }}]]></description>
+        <link>{{ site.baseurl }}</link>
+        <atom:link href="{{ site.baseurl }}/feed" rel="self" type="application/rss+xml" />
+        <language>en-US</language>
+
+        <sy:updatePeriod>hourly</sy:updatePeriod>
+        <sy:updateFrequency>1</sy:updateFrequency>
+
+        {% for post in site.posts %}
+        <item>
+            <title><![CDATA[{{ post.title }}]]></title>
+            <sl:title-short><![CDATA[{% if post.title-short %}{{ post.title-short }}{% else %}{{ post.title | truncatewords: 6 }}{% endif %}]]></sl:title-short>
+
+            {% assign author = site.authors[post.author] %}
+            <author>{% if author.email %}{{ author.email }} ({{ author.name }}){% else %}{{ author.name }}{% endif %}</author>
+
+            <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+
+            <description><![CDATA[{% if post.summary %}{{ post.summary }}{% else %}{{ post.content | truncatewords:50 | strip_html }}{% endif %}]]></description>
+
+            <link>{{ site.baseurl }}{{ post.url }}</link>
+            <guid isPermaLink="false">{{ post.url }}</guid>
+
+            {% for category in post.categories %}
+            <category><![CDATA[{{ category }}]]></category>
+            {% endfor %}
+
+            <comments>{{ site.baseurl }}{{ post.url }}#comments</comments>
+        </item>
+        {% endfor %}
+    </channel>
+</rss>

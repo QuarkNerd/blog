@@ -1,3 +1,5 @@
+name: Scott Logic
+description:
 baseurl: http://www.dev.scottlogic.co.uk/blog
 permalink: /:year/:month/:day/:title.html
 safe: true
@@ -16,28 +18,37 @@ active-authors: [aaylett, ceberhardt, cgrant, cprice, godds, lpage, mrhodes, nhe
 authors:
     ceberhardt:
         name: Colin Eberhardt
+        email: ceberhardt@scottlogic.co.uk
         gravatar: 458f2e0d08d4114f8b323798cfea141d
     cprice:
         name: Chris Price
+        email: cprice@scottlogic.co.uk
         gravatar: b6fe36176ec7c9475374a5cd3b7bef1a
     lpage:
         name: Luke Page
+        email: lpage@scottlogic.co.uk
     aaylett:
         name: Andrew Aylett
+        email: aaylett@scottlogic.co.uk
         gravatar: 279455275f7e4f69b0759fec26130c01
     rbaxter:
         name: Rolf Baxter
+        email: rbaxter@scottlogic.co.uk
     jcardy:
         name: Jonathan Cardy
     cgrant:
         name: Chris Grant
+        email: cgrant@scottlogic.co.uk
     shall:
         name: Steven Hall
+        email: stevenhall@scottlogic.co.uk
         gravatar: 30187520d3181c674d7b7ecbcbbf48b1
     nhemley:
         name: Nicholas Hemley
+        email: nhemley@scottlogic.co.uk
     godds:
         name: Graham Odds
+        email: godds@scottlogic.co.uk
         gravatar: 3f5e6c753071c6a41f7f1dbb89daeb3b
     gorosz:
         name: Gergely Orosz
@@ -46,10 +57,13 @@ authors:
         name: Mike Perrin
     mrhodes:
         name: Mark Rhodes
+        email: mrhodes@scottlogic.co.uk
         gravatar: fd23036b365ac4d5492207da6dbe0248
     shogarth:
         name: Sam Hogarth
+        email: shogarth@scottlogic.co.uk
         gravatar: d4534a4d64ddf89c318221d9f0e766da
     nwolverson:
         name: Nicholas Wolverson
+        email: nwolverson@scottlogic.co.uk
         gravatar: c2fa082fa1ffbab1293262c599d459fb
