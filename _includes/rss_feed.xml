@@ -13,7 +13,7 @@
         <description><![CDATA[{{ description }}]]></description>
 
         <link>{{ site.baseurl }}{% if page.author %}/{{ page.author }}{% endif %}</link>
-        <atom:link href="{{ site.baseurl }}{% if page.author %}/{{ page.author }}{% endif %}/feed" rel="self" type="application/rss+xml" />
+        <atom:link href="{{ site.baseurl }}{% if page.author %}/{{ page.author }}{% endif %}/feed/" rel="self" type="application/rss+xml" />
         <language>en-US</language>
 
         <sy:updatePeriod>hourly</sy:updatePeriod>
