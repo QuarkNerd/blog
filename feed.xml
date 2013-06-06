@@ -1,4 +1,3 @@
 ---
-layout: none
+layout: rss_feed
 ---
-{% include rss_feed.xml %}

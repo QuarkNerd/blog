@@ -1,4 +1,4 @@
 ---
 author: shall
+layout: rss_feed
 ---
-{% include rss_feed.xml %}

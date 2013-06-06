@@ -1,4 +1,4 @@
 ---
 author: cprice
+layout: rss_feed
 ---
-{% assign feed_author = author %}{% include rss_feed.xml %}
