@@ -12,7 +12,7 @@ source: site
 summary: Diving in head first into Scala Macros, generating code using the language's abstract syntax tree.
 ---
 <em>This article was originally posted on <a href="http://garbage-collection.potes.org.uk/2013/03/adventures-with-scala-macros-part-1.html">my own blog</a> but is cross posted here, where
-the next articles in the series will appear.</em><br />
+the subsequent articles in the series will appear.</em><br />
 <br />
 With the arrival of Scala 2.10 came two interesting new features: the <a href="http://docs.scala-lang.org/overviews/reflection/overview.html">reflection API</a> and <a href="http://docs.scala-lang.org/overviews/macros/overview.html">macros</a>. The possibilities for macros are many, and one that I want to explore is how you can use a macro to create a Play Framework REST API from a data model represented as a set of case classes. In this and subsequent articles I'll be using a simple book store type application with case classes for <tt>Book</tt>, <tt>Author</tt> and <tt>Category</tt> in the <tt>model</tt> package.<br />
 <br />
@@ -32,7 +32,7 @@ Our macro will need to generate the same function by iterating over all the foun
 <br />
 <script src="https://gist.github.com/mrpotes/678c1918e1c637da1f7a.js?file=macro-signature.scala"></script>
 <br />
-What we've done here is declare a macro as described on the documentation linked above. The macro context's universe is imported - it is important to make sure you import the universe exactly as above, as if you use a import like <tt>c.{universe =&gt; u}</tt> then for some reason erasure stops them working properly. We've then used the universe's <tt>reify</tt> function to return an expression for <tt>Some("TODO")</tt> - the <tt>reify</tt> function basically turns the enclosed scala into an AST tree expression.<br />
+What we've done here is declare a macro as described on the documentation linked above. The macro context's universe is imported - it is important to make sure you import the universe exactly as above, as if you use an import like <tt>c.{universe =&gt; u}</tt> then for some reason erasure stops them working properly. We've then used the universe's <tt>reify</tt> function to return an expression for <tt>Some("TODO")</tt> - the <tt>reify</tt> function basically turns the enclosed scala into an AST tree expression.<br />
 <br />
 Finally, we need a unit test to check we've implemented the method correctly:<br />
 <br />
