@@ -17,7 +17,7 @@
             /*href: TWEET_URL + "?hashtags=" + hashtags + "&original_referer=" +
                 encodeURIComponent(document.location.href) + "&related=" + related +
                 "&source=tweetbutton&text=" + text + "&url=" + url + "&via=" + via,*/
-            href: TWEET_URL + "?source=tweetbutton&text=" + text + "&url" + url,
+            href: TWEET_URL + "?source=tweetbutton&text=" + text + "&url=" + url,
             target: "_blank"
         });
 
