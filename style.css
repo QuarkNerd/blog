@@ -5637,6 +5637,10 @@ blockquote cite {
   font-style: italic;
   margin: 7.199999999999999px 14.399999999999999px 0 0;
 }
+.gist-file {
+  font-size: 12px;
+  line-height: 18px;
+}
 img.aligncenter {
   display: block;
   margin: 0 auto;
