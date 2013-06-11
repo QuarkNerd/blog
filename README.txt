@@ -29,7 +29,12 @@ As above, but check the code out to your Windows machine, install jekyll on Wind
 
 #### Windows-y
 
-As above but set up IIS locally and specify a local folder as the output folder.
+1. You need to install jekyll. Follow the instructions here: http://www.madhur.co.in/blog/2011/09/01/runningjekyllwindows.html. Up to step 5 should be enough.
+2. Edit _config.yml, set 'pygments' to false (unless you followed all the steps of previous instruction). 
+3. In _config.yml, set 'base_url' to a local url. If you've followed the instructions here: S:\Projects\Website2013\dev\readme.txt, you should already have a website url (something like http://localhost:39492/). In this case, set the 'base_url' to http://localhost:39492/blog.
+4. Build the website using jekyll and set the destination where appropriate. If you're using WebMatrix, the destination should be [path/to/localdev]\umbraco\blog. The build command is:
+jekyll build --destination [path/to/localdev]\umbraco\blog
+5. You should be able to access the blog by going to the base_url specified. In the example case, this is http://localhost:39492/blog.
 
 ### Dev
 
