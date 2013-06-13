@@ -1,5 +1,11 @@
 # Scott Logic Blogs
 
+## Setup
+
+After cloning the repository, run the following commands to ensure the submodules are set up apppropriately:
+* git submodule init
+* git submodule update
+
 ## How to build
 
 ### Local
