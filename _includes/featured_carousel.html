@@ -1,4 +1,4 @@
-<div id="featuredCarousel" class="carousel slide">
+<div id="featuredCarousel" class="carousel slide hidden-phone">
   {% comment %} Render the carousel panels but only FULL panels (there's probably a nicer way...) {% endcomment %}
   {% comment %} Rounding hack of -1, patches welcome! {% endcomment %}
   {% assign modulo = site.tags.featured | size | minus: 1 | modulo: 5 %}

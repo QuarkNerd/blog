@@ -6067,6 +6067,30 @@ img.aligncenter {
     min-height: 253px;
   }
 }
+@media (min-width: 1074px) and (max-width: 1124px) {
+  .carousel-control {
+    left: -38px;
+  }
+  .carousel-control.right {
+    right: -38px;
+  }
+}
+@media (min-width: 1001px) and (max-width: 1073px) {
+  .carousel-control {
+    left: 0;
+  }
+  .carousel-control.right {
+    right: 0;
+  }
+}
+@media (max-width: 849px) {
+  .carousel-control {
+    left: -38px;
+  }
+  .carousel-control.right {
+    right: -38px;
+  }
+}
 @media (max-width: 1140px) {
   .container.wide {
     width: 100%;
