@@ -18,6 +18,7 @@
 {% endif %}
 
   {% assign url = post.url %}{% if post.oldlink %}{% assign url = post.oldlink %}{% endif %}
+  {% assign title = post.title %}
   {% include social.html %}
 
 </article>

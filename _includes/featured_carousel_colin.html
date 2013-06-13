@@ -13,6 +13,7 @@
             <a href="{{ site.baseurl }}{{ post.url }}">
               <img src="../{{ post.image }}">
               {% assign url = post.url %}{% if post.oldlink %}{% assign url = post.oldlink %}{% endif %}
+              {% assign title = post.title %}
               {% assign inverted = post.featured-overlay-inverted %}
               {% include social.html %}
               <div class="carousel-caption">
@@ -36,6 +37,7 @@
             <a href="{{ site.baseurl }}{{ post.url }}">
               <img src="../{{ post.image }}">
               {% assign url = post.url %}{% if post.oldlink %}{% assign url = post.oldlink %}{% endif %}
+              {% assign title = post.title %}
               {% assign inverted = post.featured-overlay-inverted %}
               {% include social.html %}
               <div class="carousel-caption">
@@ -66,6 +68,7 @@
             <a href="{{ site.baseurl }}{{ post.url }}">
               <img src="../{{ post.image }}">
               {% assign url = post.url %}{% if post.oldlink %}{% assign url = post.oldlink %}{% endif %}
+              {% assign title = post.title %}
               {% assign inverted = post.featured-overlay-inverted %}
               {% include social.html %}
               <div class="carousel-caption">
