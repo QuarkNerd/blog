@@ -1,4 +1,11 @@
 @import "twitter-bootstrap/less/responsive-utilities";
+@import "header-responsive";
+
+@media (max-width: 1140px) {
+  .container.wide {
+    width: 100%;
+  }
+}
 
 @media (min-width: 800px) and (max-width: 1000px) {
 
@@ -18,7 +25,7 @@
 @media (max-width: 799px) {
 
 // Padding to set content in a bit
-  body {
+  body > div.container {
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -54,6 +61,9 @@
 // Remove width from containers
   .container {
     width: auto;
+    &.wide {
+      width: 100%;
+    }
   }
 // Fluid rows
   .row-fluid {
