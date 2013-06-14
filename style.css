@@ -5641,6 +5641,13 @@ blockquote cite {
   font-size: 12px;
   line-height: 18px;
 }
+pre {
+  overflow-x: auto;
+}
+pre code {
+  overflow-wrap: normal;
+  white-space: pre;
+}
 img.aligncenter {
   display: block;
   margin: 0 auto;
