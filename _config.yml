@@ -1,5 +1,5 @@
 name: Scott Logic
-description: This is the Scott Logic RSS feed's temporary description!
+description: This RSS feed is brought to you by Scott Logic's team of technical authors and bloggers, covering topics including HTML5, iOS, C#, process, UX and practically anything else relating to software development.
 baseurl: http://www.dev.scottlogic.co.uk/blog
 permalink: /:year/:month/:day/:title.html
 safe: true
