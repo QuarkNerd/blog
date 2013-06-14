@@ -1,4 +1,4 @@
-<div id="featuredCarousel" class="carousel slide hidden-phone">
+<div class="featuredCarousel carousel slide hidden-small">
   {% comment %} Render the carousel panels but only FULL panels (there's probably a nicer way...) {% endcomment %}
   {% comment %} Rounding hack of -1, patches welcome! {% endcomment %}
   {% assign modulo = site.tags.featured | size | minus: 1 | modulo: 5 %}
@@ -92,4 +92,14 @@
   </div>
   <a class="left carousel-control" href="#featuredCarousel" data-slide="prev"><div class="arrow left"></div></a>
   <a class="right carousel-control" href="#featuredCarousel" data-slide="next"><div class="arrow right"></div></a>
+</div>
+
+<div class="row visible-small">
+  <section class="offset2 span8">
+    <h2>Featured Articles</h2>
+    {% assign showPostSummary = true %}
+    {% for post in site.tags.featured %}
+    {% include post_summary.html %}
+    {% endfor %}
+  </section>
 </div>

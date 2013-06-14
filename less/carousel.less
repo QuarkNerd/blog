@@ -26,7 +26,7 @@
   }
 }
 
-#authorCarousel {
+.authorCarousel {
   .carousel-inner {
     height: 110px;
   }
@@ -43,9 +43,22 @@
       text-decoration: underline;
     }
   }
+
+  &.visible-small {
+
+    > ul {
+      list-style: none;
+      text-align: center;
+
+      > li {
+        display: inline-block;
+        width: 150px;
+      }
+    }
+  }
 }
 
-#featuredCarousel {
+.featuredCarousel {
   .row {
     >div {
       margin-top: -@gridGutterWidth;

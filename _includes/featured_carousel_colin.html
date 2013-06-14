@@ -1,4 +1,4 @@
-<div id="featuredCarousel" class="carousel slide">
+<div class="featuredCarousel carousel slide hidden-small">
   {% comment %} Render the carousel panels but only FULL panels (there's probably a nicer way...) {% endcomment %}
   {% assign modulo = site.tags.featuredcolin | size | modulo: 5 %}
   {% assign count = site.tags.featuredcolin | size | minus: modulo | divided_by: 5 | minus: 1%}
@@ -89,4 +89,14 @@
     </div>
     {% endfor %}
   </div>
+</div>
+
+<div class="row visible-small">
+  <section class="offset2 span8">
+    <h2>Featured Articles</h2>
+    {% assign showPostSummary = true %}
+    {% for post in site.tags.featuredcolin %}
+    {% include post_summary.html %}
+    {% endfor %}
+  </section>
 </div>
