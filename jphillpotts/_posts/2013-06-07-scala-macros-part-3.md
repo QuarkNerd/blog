@@ -1,10 +1,12 @@
 ---
 author: jphillpotts
-title: Adventures with Scala Macros - Part 3
+title: Adventures with Scala Macros
+image: "jphillpotts/assets/featured/keyboard.jpg"
 tags:
   - Scala
   - Web Services
   - blog
+  - featured
 categories:
   - jphillpotts
 layout: default_post
