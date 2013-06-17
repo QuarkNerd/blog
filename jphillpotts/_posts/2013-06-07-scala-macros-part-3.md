@@ -14,10 +14,10 @@ summary: Taking a macro that can extract path elements from a query string and t
 
 ## A RESTful<a id="footnotebody1" href="#footnote1"><sup>1</sup></a> API
 
-In parts <a href="{% post_url 2013-06-05-scala-macros-part-1 %}">1</a> and
-<a href="{% post_url 2013-06-06-scala-macros-part-2 %}">2</a> we used a macro to generate 
-some regular expressions and match them against a path to extract IDs. Now we're going to
-use that pattern matching to call an API.
+In parts <a href="{{site.baseurl}}{% post_url 2013-06-05-scala-macros-part-1 %}">1</a> and
+<a href="{{site.baseurl}}{% post_url 2013-06-06-scala-macros-part-2 %}">2</a> we used a 
+macro to generate some regular expressions and match them against a path to extract IDs. 
+Now we're going to use that pattern matching to call an API.
 
 First, we'll define some traits for the RESTful actions that the client code can 
 add to the companion object of the case class that is the entity being manipulated:
