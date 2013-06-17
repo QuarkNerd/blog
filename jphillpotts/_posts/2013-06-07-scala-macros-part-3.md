@@ -1,7 +1,6 @@
 ---
 author: jphillpotts
 title: Adventures with Scala Macros - Part 3
-image: "jphillpotts/assets/featured/keyboard.jpg"
 tags:
   - Scala
   - Web Services
