@@ -117,6 +117,7 @@ with:
 <script src="https://gist.github.com/mrpotes/1b8b2b2f2d898bd89394.js?file=case-macro.scala">
 </script>
 
-So now we've got our pattern matching working well, in the next article we can
+So now we've got our pattern matching working well, in 
+<a href="{% post_url 2013-06-07-scala-macros-part-3 %}">the next article</a> we can
 start calling an API to produce our endpoints.
  
