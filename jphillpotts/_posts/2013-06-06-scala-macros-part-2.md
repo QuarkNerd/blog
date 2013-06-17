@@ -9,7 +9,7 @@ categories:
   - jphillpotts
 layout: default_post
 source: site
-summary: Generating objects from function macros.
+summary: In this article we'll look at ways to overcome one of the main restrictions of def macros - the ability to only generate functions.
 ---
 
 ## Where next?

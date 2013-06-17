@@ -11,7 +11,7 @@ categories:
   - jphillpotts
 layout: default_post
 source: site
-summary: Creating the RESTful API
+summary: Taking a macro that can extract path elements from a query string and turning it into a fully fledged RESTful API, backed by an in-memory database.
 ---
 
 ## A RESTful<a id="footnotebody1" href="#footnote1"><sup>1</sup></a> API
@@ -196,7 +196,7 @@ implementing a MongoDB data accessor.
 
 ---
 
-Footnote <a id="footnote1" href="#footnotebody1">[1]</a> The term RESTful often leads to
+Footnote <a id="footnote1" href="#footnotebody1">[1]</a>: The term RESTful often leads to
 animated discussion about whether or not that which is being described properly 
 implements the principles of REST. To be clear, by 'RESTful' I mean in-the-style-of-REST,
 and not necessarily strictly conforming to the principles of REST. Please let me know if
