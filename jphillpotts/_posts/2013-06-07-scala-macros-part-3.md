@@ -6,7 +6,6 @@ tags:
   - Scala
   - Web Services
   - blog
-  - featured
 categories:
   - jphillpotts
 layout: default_post
