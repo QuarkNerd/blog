@@ -9,7 +9,7 @@ categories:
   - jphillpotts
 layout: default_post
 source: site
-summary: Using MongoDB for persistence
+summary: In the final article in the series, we take the RESTful API we've created and integrate it with MongoDB for persistence using the Salat library.
 ---
 
 In <a href="{{site.baseurl}}{% post_url 2013-06-05-scala-macros-part-1 %}">the</a>
@@ -125,7 +125,10 @@ for each case class:
 
 <script src="https://gist.github.com/mrpotes/9bc896e985ae0744524a.js?file=Book.scala"> </script>
 
-So that's it - a RESTful API backed by MongoDB
+So that's it - a RESTful API backed by MongoDB with the minimum of code using Scala 
+def macros. I hope you've found this introduction interesting, and if you would like
+to browse the source code, please head over to 
+[Github](https://github.com/mrpotes/playful-rest).
 
 
 
