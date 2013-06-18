@@ -189,7 +189,8 @@ generation, so we end up with:
 <script src="https://gist.github.com/mrpotes/93ffc44db30e32ae5cf6.js?file=model.scala"> </script>
 
 And there we have it - run the Play application, and you've got a working REST service.
-In the next article we'll try using something a bit more useful than an in-memory map by
+In the <a href="{{site.baseurl}}{% post_url 2013-06-17-scala-macros-part-4 %}">next 
+article</a> we'll try using something a bit more useful than an in-memory map by
 implementing a MongoDB data accessor.
 
 ---
