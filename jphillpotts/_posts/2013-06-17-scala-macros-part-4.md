@@ -17,7 +17,7 @@ In <a href="{{site.baseurl}}{% post_url 2013-06-05-scala-macros-part-1 %}">the</
 <a href="{{site.baseurl}}{% post_url 2013-06-07-scala-macros-part-3 %}">articles</a> I 
 built up a macro that generates a RESTful API from a case class model in a Play 
 application. We now want to add a database to this API - in 
-<a href="{% post_url 2013-06-06-scala-macros-part-3 %}">part 3</a> we used a simple 
+<a href="{% post_url 2013-06-07-scala-macros-part-3 %}">part 3</a> we used a simple
 map-based in memory data store, which wouldn't really be that useful in the real world.
 
 Step up [MongoDB](http://www.mongodb.org/), a Scala library for interacting with it, 
