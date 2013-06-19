@@ -12,7 +12,7 @@ markdown: maruku
 
 destination: _site-safe
 include: [.htaccess]
-exclude: [_migration,checkdups,post-receive,README.txt,redirect_list.html]
+exclude: [_migration, checkdups, post-receive, README.txt, redirect_list.html]
 
 active-authors: [aaylett, ceberhardt, cgrant, cprice, godds, jphillpotts, lpage, mrhodes, nhemley, nwolverson, rbaxter, shall, shogarth]
 authors:
