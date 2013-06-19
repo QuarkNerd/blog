@@ -1,6 +1,6 @@
 name: Scott Logic
-description: This is the Scott Logic RSS feed's temporary description!
-baseurl: http://www.dev.scottlogic.co.uk/blog
+description: This RSS feed is brought to you by Scott Logic's team of technical authors and bloggers, covering topics including HTML5, iOS, C#, process, UX and practically anything else relating to software development.
+baseurl: /blog
 permalink: /:year/:month/:day/:title.html
 safe: true
 lsi: false
@@ -12,15 +12,17 @@ markdown: maruku
 
 destination: _site-safe
 include: [.htaccess]
-exclude: [_migration]
+exclude: [_migration, checkdups, post-receive, README.txt, redirect_list.html]
 
 active-authors: [aaylett, ceberhardt, cgrant, cprice, godds, jphillpotts, lpage, mrhodes, nhemley, nwolverson, rbaxter, shall, shogarth]
 authors:
+    labs:
+        name: Scott Logic Labs
     ceberhardt:
         name: Colin Eberhardt
         email: ceberhardt@scottlogic.co.uk
         gravatar: 458f2e0d08d4114f8b323798cfea141d
-        description: A placeholder description for Colin's feed
+        feed-description: Colin Eberhardt's Technology Adventures
     cprice:
         name: Chris Price
         email: cprice@scottlogic.co.uk
@@ -35,11 +37,13 @@ authors:
     rbaxter:
         name: Rolf Baxter
         email: rbaxter@scottlogic.co.uk
+        gravatar: b75269f75824889e8569f35d73ddd32b
     jcardy:
         name: Jonathan Cardy
     cgrant:
         name: Chris Grant
         email: cgrant@scottlogic.co.uk
+        gravatar: 7ed1a4b5f686f58db97862a26d38d30f
     shall:
         name: Steven Hall
         email: stevenhall@scottlogic.co.uk
@@ -51,9 +55,7 @@ authors:
         name: Graham Odds
         email: godds@scottlogic.co.uk
         gravatar: 3f5e6c753071c6a41f7f1dbb89daeb3b
-    gorosz:
-        name: Gergely Orosz
-        gravatar: 4de0bd0d87ade9cac3a76609a80c9af3
+        feed-description: Graham Odds is a designer and developer working across desktop, web and mobile, with a particular taste for data visualisation.  He likes to educate coders about the concept of users and artists about the reality of technology, or just rant and rave at whoever will read his blog.
     mperrin:
         name: Mike Perrin
     mrhodes:

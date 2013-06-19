@@ -16,25 +16,27 @@
 
 read oldrev newrev refname
 timestamp=`date +%FT%H%M`
-logfile=/opt/blogbuild/blog-build-$timestamp.log
+logfile=/opt/blogbuild/build-$timestamp.log
+
+echo "$timestamp $oldrev $newrev $refname" >> /opt/blogbuild/debug.log
 
 publish=0
 instancename="unknown"
-if [ $refname='refs/heads/master' ]; then
+if [ "$refname" = "refs/heads/master" ]; then
     instancename="dev"
     publishhostname="vb-app-c.scottlogic.co.uk"
     publish=1
-elif [ $refname='refs/heads/content' ]; then
+elif [ "$refname" = "refs/heads/content" ]; then
     instancename="content"
     publishhostname="vb-app-b.visiblox.com"
     publish=1
-elif [ $refname='refs/heads/live' ]; then
+elif [ "$refname" = "refs/heads/live" ]; then
     instancename="live"
     publishhostname="vb-app-a.visiblox.com"
     publish=1
 fi
 
-echo "$newrev $instancename" >> /opt/blogbuild/blog-last-received
+echo "$newrev $instancename" >> /opt/blogbuild/last-received
 
 if [[ publish -eq 1 ]]; then
 
@@ -42,8 +44,13 @@ if [[ publish -eq 1 ]]; then
     cd /opt/blogbuild/scottlogic-website-blog-$instancename-$timestamp
 
     echo "[INFO] $timestamp" > $logfile
+    echo "" >> $logfile
+    /usr/bin/git log -n 1 >> $logfile 2>&1
+    echo "" >> $logfile
     echo "[INFO] Building for $newrev $instancename" >> $logfile
+    echo "" >> $logfile
     /usr/bin/jekyll build >> $logfile
+    echo "" >> $logfile
     rc=$?
 
     if [[ $rc -eq 0 ]]; then
@@ -52,17 +59,19 @@ if [[ publish -eq 1 ]]; then
             /opt/blogbuild/scottlogic-website-blog-$instancename-$timestamp/_site-safe/ \
             continuum@$publishhostname:/cygdrive/c/inetpub/wwwroot-scottweb-blog/incoming \
             >> $logfile 2>&1 \
-        && /usr/bin/ssh -p2202 continuum@$publishhostname "current=\`cat /cygdrive/c/inetpub/wwwroot-scottweb-blog/current.txt\` \
-            && /bin/rsync -a /cygdrive/c/inetpub/wwwroot-scottweb-blog/incoming/ /cygdrive/c/inetpub/wwwroot-scottweb-blog/$timestamp \
-            && echo \"Replacing \$current with $timestamp\" \
-            && mv -b /cygdrive/c/inetpub/wwwroot-scottweb-blog/current /cygdrive/c/inetpub/wwwroot-scottweb-blog/\$current \
-            && mv /cygdrive/c/inetpub/wwwroot-scottweb-blog/$timestamp /cygdrive/c/inetpub/wwwroot-scottweb-blog/current \
-            && echo -n $timestamp > /cygdrive/c/inetpub/wwwroot-scottweb-blog/current.txt" \
+        && /usr/bin/ssh -p2202 continuum@$publishhostname " \
+               echo \"[INFO] Previous version was \`cat /cygdrive/c/inetpub/wwwroot-scottweb-blog/current.txt\`\" \
+            && echo \"[INFO] New version is $timestamp\" \
+            && echo \"[INFO] Copying incoming to backups/$timestamp\" \
+            && /bin/rsync -az --delete /cygdrive/c/inetpub/wwwroot-scottweb-blog/incoming/ /cygdrive/c/inetpub/wwwroot-scottweb-blog/backups/$timestamp \
+            && echo \"[INFO] Syncing incoming to current\" \
+            && /bin/rsync -az --delete /cygdrive/c/inetpub/wwwroot-scottweb-blog/incoming/ /cygdrive/c/inetpub/wwwroot-scottweb-blog/current \
+            && echo -n \"Current is $timestamp\" > /cygdrive/c/inetpub/wwwroot-scottweb-blog/current.txt" \
             >> $logfile 2>&1
         rcrs=$?
         if [[ $rcrs -eq 0 ]]; then
             echo "[INFO] rsync ok" >> $logfile
-            echo "$newrev $instancename" >> /opt/blogbuild/blog-last-received-successful
+            echo "$newrev $instancename" >> /opt/blogbuild/last-received-successful
             buildresult="SUCCESS"
         else
             echo "[ERROR] rsync error" >> $logfile
@@ -72,6 +81,8 @@ if [[ publish -eq 1 ]]; then
         echo "[ERROR] jekyll build error" >> $logfile
         buildresult="ERROR - jekyll error"
     fi
+
+    echo "[INFO] Finished: $buildresult" >> $logfile
 
     /bin/mail -s "Website $instancename Blog Build - $buildresult" bloggers@scottlogic.co.uk < $logfile > /dev/null 2>&1
     rm -Rf /opt/blogbuild/scottlogic-website-blog-$instancename-$timestamp

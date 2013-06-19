@@ -1,5 +1,12 @@
 <article>
   <header>
+    {% if showTechs %}
+      <div style="float: right;margin-top: 5px;">
+      {% for tech in post.techs %}
+        <img src="{{ site.baseurl }}/labs/assets/labs_{{ tech }}.png"/>
+      {% endfor %}
+      </div>
+    {% endif %}
     <h3>
       <a href="{{ site.baseurl }}{{ post.url }}">
           {{ post.title }}
@@ -18,6 +25,11 @@
 {% endif %}
 
   {% assign url = post.url %}{% if post.oldlink %}{% assign url = post.oldlink %}{% endif %}
+  {% assign title = post.title %}
+  
+  {% if suppressSocialLinks %}
+  {% else %}
   {% include social.html %}
-
+  {% endif %}
+  
 </article>

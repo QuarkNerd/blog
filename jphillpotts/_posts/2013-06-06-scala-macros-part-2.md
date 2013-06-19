@@ -9,13 +9,13 @@ categories:
   - jphillpotts
 layout: default_post
 source: site
-summary: Generating objects from function macros.
+summary: In this article we'll look at ways to overcome one of the main restrictions of def macros - the ability to only generate functions.
 ---
 
 ## Where next?
 
 In 
-<a href="{% post_url 2013-06-05-scala-macros-part-1 %}">part 1</a>
+<a href="{{site.baseurl}}{% post_url 2013-06-05-scala-macros-part-1 %}">part 1</a>
 we used a macro to generate some regular expressions and a case statement that used them:
 
 <script src="https://gist.github.com/mrpotes/678c1918e1c637da1f7a.js?file=generated-code.scala">
@@ -117,6 +117,7 @@ with:
 <script src="https://gist.github.com/mrpotes/1b8b2b2f2d898bd89394.js?file=case-macro.scala">
 </script>
 
-So now we've got our pattern matching working well, in the next article we can
-start calling an API to produce our endpoints.
+So now we've got our pattern matching working well, in 
+<a href="{{site.baseurl}}{% post_url 2013-06-07-scala-macros-part-3 %}">the next article</a> 
+we can start calling an API to produce our endpoints.
  

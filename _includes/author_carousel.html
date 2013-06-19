@@ -1,4 +1,4 @@
-<div id="authorCarousel" class="carousel slide">
+<div class="authorCarousel carousel slide hidden-small">
   {% comment %} Rounding hack of -1, patches welcome! {% endcomment %}
   {% assign count = site.active-authors | size | minus: 1 | divided_by: 6 %}
   <div class="carousel-inner">
@@ -23,6 +23,23 @@
     </div>
     {% endfor %}
   </div>
-  <a class="left carousel-control" href="#authorCarousel" data-slide="prev"><div class="arrow left"></div></a>
-  <a class="right carousel-control" href="#authorCarousel" data-slide="next"><div class="arrow right"></div></a>
+  <a class="left carousel-control" href="div.authorCarousel" data-slide="prev"><div class="arrow left"></div></a>
+  <a class="right carousel-control" href="div.authorCarousel" data-slide="next"><div class="arrow right"></div></a>
+</div>
+<div class="authorCarousel visible-small">
+  <ul class="row">
+    {% for authorID in site.active-authors %}
+    {% assign author = site.authors[authorID] %}
+    <li>
+      <a href="{{ site.baseurl }}/{{ authorID }}" class="thumbnail">
+        {% if author.gravatar %}
+        <img src="http://www.gravatar.com/avatar/{{ author.gravatar }}" alt="{{ author.name }}" class="img-circle" />
+        {% else %}
+        <img src="{{ site.baseurl }}/images/avatar.png" alt="{{ author.name }}" class="img-circle" />
+        {% endif %}
+        {{ author.name }}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
 </div>

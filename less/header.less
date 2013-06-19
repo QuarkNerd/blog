@@ -1,8 +1,10 @@
 #header {
-  border-bottom: 1px solid #ddd;
+  font-family: @headingsFontFamily;
+  font-weight: @headingsFontWeight;
 
   .bar {
-    padding: 12px 80px 8px 80px;
+    padding: 12px 82px 4px 82px;
+    height: 31px;
     background-color: @black;
     margin-bottom: 14px;
   }
@@ -13,41 +15,76 @@
     height: 24px;
     background-image: url("/media/logo_secondary.svg");
     display: inline-block;
-    text-indent: -100%;
+    text-indent: -500%;
     overflow: hidden;
     background-repeat: no-repeat;
     -webkit-background-size: contain;
     -moz-background-size: contain;
     -o-background-size: contain;
     background-size: contain;
+    margin-top: 3px;
+  }
+
+  #cse-search-box {
+    margin: 0 1px 0 0;
+
+    .searchbox {
+      padding: 0 0.3em;
+      border-left-style: none;
+      border-right-style: none;
+      border-top-style: none;
+      border-bottom-style: solid;
+      height: 24px;
+      font-size: 12px;
+      margin: 0 1px 0 0;
+      vertical-align: top;
+      width: 12em;
+      display: inline-block;
+      box-sizing: border-box;
+      font-family: @headingsFontFamily;
+      font-weight: @headingsFontWeight;
+      .border-radius(2px);
+      .box-shadow(inset 0 1px 2px rgba(0,0,0,0.1));
+      .transition(all 0.15s linear);
+      opacity: 0;
+    }
+
+    .searchbtn {
+      cursor: pointer;
+      opacity: 0.8;
+    }
   }
 
   nav {
-    float: right;
-    margin: 0 80px;
+    border-bottom: 1px solid #ddd;
+    padding: 0 2px 0 3px;
 
     > ul {
       list-style: none;
       display: inline;
-      height: 43px;
-      line-height: 43px;
-      margin: 0;
+      height: 46px;
+      line-height: 45px;
+      margin: 0 3px 0 0;
+      float: right;
 
       > li {
-        color: #ddd;
-        font-size: 12px;
+        font-size: 14pt;
+        color: @black;
         font-weight: normal;
         text-transform: uppercase;
-        line-height: 43px;
+        letter-spacing: 1px;
+        height: 46px;
+        line-height: 45px;
         float: left;
 
-        > a {
-          font-size: 18px;
+        > a,
+        > span.nonlink {
+          font-size: 14pt;
           color: @black;
           text-decoration: none;
-          margin: 0;
+          margin: 0 17px 0 16px;
           display: block;
-          height: 43px;
+          height: 46px;
           float: left;
 
           &.selected {
@@ -57,8 +94,10 @@
         }
 
         > .divider {
+          color: #ddd;
+          font-size: 12px;
           float: left;
-          margin: 0 1.5em;
+          margin: 0;
         }
 
         &.dropdown {
@@ -68,9 +107,10 @@
           }
 
           ul.dropdown-menu {
-            background-color: fadeout(@black, 20%);
+            font-family: @sansFontFamily;
+            letter-spacing: 0;
             border: none;
-            padding: 10px 0;
+            padding: 14px 0 5px 0;
             margin: 0;
             -webkit-border-radius: 0;
             -moz-border-radius: 0;
@@ -78,6 +118,7 @@
             -webkit-box-shadow: none;
             -moz-box-shadow: none;
             box-shadow: none;
+            min-width: 135px;
 
             li {
               line-height: 1;
@@ -85,14 +126,31 @@
               padding-bottom: 5px;
 
               a {
-                color: @white;
                 line-height: 1;
-                font-weight: bold;
                 font-size: 12px;
+                font-weight: bold;
                 white-space: nowrap;
                 padding: 5px 17px 5px 15px;
                 text-transform: none;
               }
+
+              &:first-child {
+                margin-top: 10px;
+              }
+              &:last-child {
+                margin-bottom: 10px;
+              }
+            }
+
+            .nav-arrow-up {
+              width: 0;
+              height: 0;
+              border-left: 7px solid transparent;
+              border-right: 7px solid transparent;
+              border-bottom: 7px solid @dropdownBackground;
+              position: relative;
+              top: -21px;
+              left: 20px;
             }
           }
         }

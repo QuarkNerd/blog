@@ -5,8 +5,8 @@
     <channel>
         <title><![CDATA[{% if page.author %}{{ site.authors[page.author].name }} at {% endif %}{{ site.name }}]]></title>
 
-        {% if page.author and site.authors[page.author].description %}
-        {% assign description = site.authors[page.author].description %}
+        {% if page.author and site.authors[page.author].feed-description %}
+        {% assign description = site.authors[page.author].feed-description %}
         {% else %}
         {% assign description = site.description %}
         {% endif %}
