@@ -1,6 +1,6 @@
 name: Scott Logic
 description: This is the Scott Logic RSS feed's temporary description!
-baseurl: http://www.dev.scottlogic.co.uk/blog
+baseurl: /blog
 permalink: /:year/:month/:day/:title.html
 safe: true
 lsi: false
@@ -12,7 +12,7 @@ markdown: maruku
 
 destination: _site-safe
 include: [.htaccess]
-exclude: [_migration]
+exclude: [_migration,checkdups,post-receive,README.txt,redirect_list.html]
 
 active-authors: [aaylett, ceberhardt, cgrant, cprice, godds, jphillpotts, lpage, mrhodes, nhemley, nwolverson, rbaxter, shall, shogarth]
 authors:
