@@ -16,6 +16,7 @@ layout: default
     {% assign showTechs = true %}
     {% assign suppressSocialLinks = true %}
     {% assign showPostSummary = true %}
+    {% assign showAuthorInfo = false %}
     {% for post in site.categories[page.author] %}
       {% if  forloop.index > 20 %}
          {% assign showPostSummary = false %}

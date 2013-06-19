@@ -5992,6 +5992,32 @@ img.aligncenter {
 .featuredCarousel .carousel-control {
   top: 49%;
 }
+aside.author {
+  text-align: right;
+}
+aside.author .authorName {
+  display: block;
+}
+aside.author a {
+  color: #231f20;
+  text-decoration: none;
+}
+aside.author a:hover {
+  color: #231f20;
+  text-decoration: underline;
+}
+aside.author h5.sub {
+  font-style: normal;
+  margin: 12px 0 24px 0;
+}
+.summary .author {
+  position: relative;
+}
+.summary .author > img {
+  position: absolute;
+  left: -100px;
+  top: -30px;
+}
 @-ms-viewport {
   width: device-width;
 }

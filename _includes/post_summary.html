@@ -1,4 +1,4 @@
-<article>
+<article class="summary">
   <header>
     {% if showTechs %}
       <div style="float: right;margin-top: 5px;">
@@ -12,7 +12,20 @@
           {{ post.title }}
       </a>
     </h3>
-    <h5 class="sub">by <a href="{{ site.baseurl }}/{{ post.author }}">{{ site.authors[post.author].name }}</a>, on {{ post.date | date: "%d %b %Y" }}</h5>
+    <h5 class="sub author">
+      {% assign author = site.authors[post.author] %}
+    {% if showAuthorInfo %}
+      by <a href="{{ site.baseurl }}/{{ post.author }}">{{ author.name }}</a>,
+    {% endif %}
+      on {{ post.date | date: "%d %b %Y" }}
+    {% if showAuthorInfo %}
+      {% if author.gravatar %}
+      <img src="http://www.gravatar.com/avatar/{{ author.gravatar }}" alt="{{ author.name }}" class="img-circle hidden-small" />
+      {% else %}
+      <img src="{{ site.baseurl }}/images/avatar.png" alt="{{ author.name }}" class="img-circle hidden-small" />
+      {% endif %}
+    {% endif %}
+    </h5>
   </header>
 {% if showPostSummary %}
     <p>

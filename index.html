@@ -13,6 +13,7 @@ title: Scott Logic Blog
   <section class="offset2 span8">
     <h2>Latest Articles</h2>
     {% assign showPostSummary = true %}
+    {% assign showAuthorInfo = true %}
     {% for post in site.posts limit: 10 %}
       {% include post_summary.html %}
     {% endfor %}
