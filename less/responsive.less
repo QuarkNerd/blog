@@ -1,4 +1,12 @@
 @import "twitter-bootstrap/less/responsive-utilities";
+@import "header-responsive";
+@import "carousel-responsive";
+
+@media (max-width: 1140px) {
+  .container.wide {
+    width: 100%;
+  }
+}
 
 @media (min-width: 800px) and (max-width: 1000px) {
 
@@ -18,7 +26,7 @@
 @media (max-width: 799px) {
 
 // Padding to set content in a bit
-  body {
+  body > div.container {
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -54,6 +62,9 @@
 // Remove width from containers
   .container {
     width: auto;
+    &.wide {
+      width: 100%;
+    }
   }
 // Fluid rows
   .row-fluid {
@@ -201,4 +212,28 @@
   .carousel-caption {
     position: static;
   }
+}
+
+
+// UTILITIES
+
+.visible-small    { display: none !important; }
+.visible-medium   { display: none !important; }
+.visible-large    { display: inherit !important; }
+.hidden-small     { }
+.hidden-medium    { }
+.hidden-large     { display: none !important; }
+
+@media (min-width: 800px) and (max-width: 1000px) {
+  .visible-medium { display: inherit !important; }
+  .visible-large  { display: none !important; }
+  .hidden-medium  { display: none !important; }
+  .hidden-large   { display: inherit !important; }
+}
+
+@media (max-width: 799px) {
+  .visible-small  { display: inherit !important; }
+  .visible-large  { display: none !important; }
+  .hidden-small   { display: none !important; }
+  .hidden-large   { display: inherit !important; }
 }

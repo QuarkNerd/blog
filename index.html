@@ -1,8 +1,7 @@
 ---
 layout: default
-title: Blog
+title: Scott Logic Blog
 ---
-
 <section id="home">
   <div class="row">
     <h1 class="offset2 span10">Blog</h1>
@@ -12,7 +11,7 @@ title: Blog
 
 <div class="row">
   <section class="offset2 span8">
-    <h2>Articles</h2>
+    <h2>Latest Articles</h2>
     {% assign showPostSummary = true %}
     {% for post in site.posts limit: 10 %}
       {% include post_summary.html %}

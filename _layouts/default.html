@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
-    <title>Scott Logic {% if page.title %} &raquo; {{ page.title }}{% endif %}</title>
+    <title>{% if page.title %}{{ page.title }}{% else %}Scott Logic{% endif %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--[if lt IE 9]>
     <script src="{{ site.baseurl }}/scripts/html5shiv.js"></script>
@@ -36,28 +36,29 @@
 <header id="header" class="container wide">
   <div class="bar">
     <a href="/" class="logo">Scott Logic</a>
-    <form id="cse-search-box" action="/search/" class="pull-right">
+    <form id="cse-search-box" action="/search/" class="pull-right hidden-phone">
       <input type="text" name="q" placeholder="SEARCH" class="searchbox" />
       <img src="/media/searchicon.svg" alt="Search" class="searchbtn" />
     </form>
   </div>
-  <nav class="container">
+  <nav class="container hidden-phone">
     <ul>
       <li class="dropdown">
         <a href="/services/">Services</a>
-        <span class="hidden-phone divider">/</span>
         <ul class="dropdown-menu" role="menu">
+          <div class="nav-arrow-up"></div>
           <li><a href="/services/">Services Home</a></li>
           <li><a href="/services/managed-delivery/">Managed Delivery</a></li>
-          <li><a href="/services/skills-augmentation/">Software Development Services</a></li>
           <li><a href="/services/technical-strategy/">Technical Strategy</a></li>
           <li><a href="/services/user-experience/">User Experience Design</a></li>
+          <li><a href="/services/skills-augmentation/">Software Development Services</a></li>
         </ul>
       </li>
       <li class="dropdown">
-        <a href="/sectors/">Sectors</a>
-        <span class="hidden-phone divider">/</span>
+        <span class="divider">/</span>
+        <span class="nonlink">Sectors</span>
         <ul class="dropdown-menu" role="menu">
+          <div class="nav-arrow-up"></div>
           <li><a href="/sectors/capital-markets/">Capital Markets</a></li>
           <li><a href="/sectors/energy-trading/">Energy Trading</a></li>
           <li><a href="/sectors/e-trade/">E Trading</a></li>
@@ -68,20 +69,25 @@
         </ul>
       </li>
       <li>
+        <span class="divider">/</span>
         <a href="{{ site.baseurl }}" class="selected">Blog</a>
-        <span class="hidden-phone divider">/</span>
       </li>
       <li class="dropdown">
+        <span class="divider">/</span>
         <a href="/careers/">Careers</a>
-        <span class="hidden-phone divider">/</span>
         <ul class="dropdown-menu" role="menu">
+          <div class="nav-arrow-up"></div>
           <li><a href="/careers/">Careers Home</a></li>
           <li><a href="/careers/vacancies/">Vacancies</a></li>
           <li><a href="/careers/careersprogrammes/experienced-professionals/">Experienced Professionals</a></li>
-          <li><a href="/careers/careersprogrammes/graduates-and-interns/">Intern & Graduate Programmes</a></li>
+          <li><a href="/careers/careersprogrammes/graduates/">Graduate Programme</a></li>
+          <li><a href="/careers/careersprogrammes/interns/">Intern Programme</a></li>
         </ul>
       </li>
-      <li><a href="/contact/">Contact</a></li>
+      <li>
+        <span class="divider">/</span>
+        <a href="/contact/">Contact</a>
+      </li>
     </ul>
   </nav>
 </header>

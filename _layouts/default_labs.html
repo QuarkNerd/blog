@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<section class="row">
+  <h1 class="offset2 span8">{{ site.authors[page.author].name }}</h1>
+</section>
+
+{% if content %}
+<section class="container">
+{{ content }}
+</section>
+{% endif %}
+
+<div class="row">
+  <section class="offset2 span8">
+    {% assign showTechs = true %}
+    {% assign suppressSocialLinks = true %}
+    {% assign showPostSummary = true %}
+    {% for post in site.categories[page.author] %}
+      {% if  forloop.index > 20 %}
+         {% assign showPostSummary = false %}
+      {% endif %}
+      {% include post_summary.html %}
+    {% endfor %}
+  </section>
+</div>
