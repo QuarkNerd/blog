@@ -19,6 +19,10 @@
 
   {% assign url = post.url %}{% if post.oldlink %}{% assign url = post.oldlink %}{% endif %}
   {% assign title = post.title %}
+  
+  {% if suppressSocialLinks %}
+  {% else %}
   {% include social.html %}
-
+  {% endif %}
+  
 </article>
