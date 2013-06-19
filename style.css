@@ -5812,6 +5812,7 @@ img.aligncenter {
   -moz-background-size: contain;
   -o-background-size: contain;
   background-size: contain;
+  line-height: 19px;
 }
 #footer p {
   margin: 1.5em 0 0;
