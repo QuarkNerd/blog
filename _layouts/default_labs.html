@@ -13,6 +13,7 @@ layout: default
 
 <div class="row">
   <section class="offset2 span8">
+    {% assign showTechs = true %}
     {% assign suppressSocialLinks = true %}
     {% assign showPostSummary = true %}
     {% for post in site.categories[page.author] %}
