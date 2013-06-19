@@ -31,7 +31,7 @@
     {% for authorID in site.active-authors %}
     {% assign author = site.authors[authorID] %}
     <li>
-      <a href="{{ site.baseurl }}/{{ id }}" class="thumbnail">
+      <a href="{{ site.baseurl }}/{{ authorID }}" class="thumbnail">
         {% if author.gravatar %}
         <img src="http://www.gravatar.com/avatar/{{ author.gravatar }}" alt="{{ author.name }}" class="img-circle" />
         {% else %}
