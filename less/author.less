@@ -1,22 +1,27 @@
 aside.author {
   text-align: right;
+  font-size: @smallFontSize;
+  
+  .asideContainer {
+    margin-right: 20px;
+  }
+  
+  img {
+    margin-bottom: (@baseLineHeight * 0.5)
+  }
 
   .authorName {
     display: block;
+    font-weight: bold;
+    white-space: nowrap;
   }
 
-  a {
-    color: @black;
-    text-decoration: none;
-
-    &:hover {
-      color: @black;
-      text-decoration: underline;
-    }
+  .authorSummary {
+    line-height: @tightLineHeight;
   }
 
-  h5.sub {
-    font-style: normal;
+  div.sub {
+    line-height: @tightLineHeight;
     margin: (@baseLineHeight * 0.5) 0 @baseLineHeight 0;
   }
 }
