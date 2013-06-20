@@ -16,6 +16,7 @@ layout: default
     <h2>Articles</h2>
     {% assign showPostSummary = true %}
     {% assign includeSocialLinks = true %}
+    {% assign showAuthorInfo = false %}
     {% for post in site.categories[page.author] %}
       {% if  forloop.index > 20 %}
          {% assign showPostSummary = false %}

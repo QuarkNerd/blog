@@ -1,0 +1,39 @@
+aside.author {
+  text-align: right;
+  font-size: @smallFontSize;
+  
+  .asideContainer {
+    margin-right: 20px;
+  }
+  
+  img {
+    margin-bottom: (@baseLineHeight * 0.5)
+  }
+
+  .authorName {
+    display: block;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+
+  .authorSummary {
+    line-height: @tightLineHeight;
+  }
+
+  div.sub {
+    line-height: @tightLineHeight;
+    margin: (@baseLineHeight * 0.5) 0 @baseLineHeight 0;
+  }
+}
+
+.summary {
+  .author {
+    position: relative;
+
+    > img {
+      position: absolute;
+      left: -100px;
+      top: -30px;
+    }
+  }
+}

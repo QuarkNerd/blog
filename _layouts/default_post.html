@@ -1,19 +1,34 @@
 ---
 layout: default
 ---
+{% assign author = site.authors[page.author] %}
 <article class="row">
   <header class="offset2 span8">
     <h1>
       {{ page.title }}
     </h1>
-    <h5 class="sub">by <a href="{{ site.baseurl }}/{{ page.author }}">{{ site.authors[page.author].name }}</a>, on {{ page.date | date: "%d %b %Y" }}</h5>
-
-    {% assign url = page.url %}{% if page.oldlink %}{% assign url = page.oldlink %}{% endif %}
-    {% assign title = page.title %}
-    {% include social.html %}
-
   </header>
-  <div class="offset2 span8">
+  <aside class="span2 author">
+    <div class="asideContainer">
+      {% if author.gravatar %}
+      <img src="http://www.gravatar.com/avatar/{{ author.gravatar }}" alt="{{ author.name }}" class="img-circle hidden-small" />
+      {% else %}
+      <img src="{{ site.baseurl }}/images/avatar.png" alt="{{ author.name }}" class="img-circle hidden-small" />
+      {% endif %}
+      <a class="authorName" href="{{ site.baseurl }}/{{ page.author }}"><span><span class="visible-small">by </span>{{ author.name }}</span></a>
+      {% if author.author-summary %}
+      <div class="authorSummary hidden-small">{{ author.author-summary }}</div>
+      {% endif %}
+      <div class="sub  hidden-small">
+        <strong>Published</strong>
+        <div>{{ page.date | date: "%d %b %Y" }}</div>
+      </div>
+      {% assign url = page.url %}{% if page.oldlink %}{% assign url = page.oldlink %}{% endif %}
+      {% assign title = page.title %}
+      {% include social.html %}
+    </div>
+  </aside>
+  <div class="span8">
     {{ content }}
   </div>
 </article>

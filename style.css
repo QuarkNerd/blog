@@ -5992,6 +5992,36 @@ img.aligncenter {
 .featuredCarousel .carousel-control {
   top: 49%;
 }
+aside.author {
+  text-align: right;
+  font-size: 12px;
+}
+aside.author .asideContainer {
+  margin-right: 20px;
+}
+aside.author img {
+  margin-bottom: 12px;
+}
+aside.author .authorName {
+  display: block;
+  font-weight: bold;
+  white-space: nowrap;
+}
+aside.author .authorSummary {
+  line-height: 18px;
+}
+aside.author div.sub {
+  line-height: 18px;
+  margin: 12px 0 24px 0;
+}
+.summary .author {
+  position: relative;
+}
+.summary .author > img {
+  position: absolute;
+  left: -100px;
+  top: -30px;
+}
 @-ms-viewport {
   width: device-width;
 }
@@ -6442,6 +6472,9 @@ img.aligncenter {
   }
 }
 @media (max-width: 799px) {
+  aside.author {
+    text-align: left;
+  }
   body > div.container {
     padding-left: 20px;
     padding-right: 20px;
