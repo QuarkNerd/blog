@@ -9,7 +9,7 @@
         };
 
         var redirects = "<rewriteMap name=\"BlogRedirects\">\r\n";
-
+	var oldlink = "";
         var authors = [
             { oldlink: '/blog/andrew-aylett/', url: '/aaylett/' },
             { oldlink: '/blog/rolf-baxter/', url: '/rbaxter/' },
@@ -19,12 +19,26 @@
             { oldlink: '/blog/steven-hall/', url: '/shall/' },
             { oldlink: '/blog/nicholas-hemley/', url: '/nhemley/' },
             { oldlink: '/blog/graham/', url: '/godds/' },
-            { oldlink: '/blog/luke-page/', url: ' /lpage/' },
+            { oldlink: '/blog/luke-page/', url: '/lpage/' },
             { oldlink: '/blog/mike-perrin/', url: '/mperrin/' },
             { oldlink: '/blog/chris/', url: '/cprice/' },
             { oldlink: '/blog/mark-rhodes/', url: '/mrhodes/' },
             { oldlink: '/blog/sam-hogarth/', url: '/shogarth/' },
-            { oldlink: '/blog/nicholas-wolverson/', url: '/nwolverson/' }
+            { oldlink: '/blog/nicholas-wolverson/', url: '/nwolverson/' },
+	    { oldlink: '/blog/andrew-aylett', url: '/aaylett/' },
+            { oldlink: '/blog/rolf-baxter', url: '/rbaxter/' },
+            { oldlink: '/blog/jonathan-cardy', url: '/jcardy/' },
+            { oldlink: '/blog/colin', url: '/ceberhardt/' },
+            { oldlink: '/blog/chris-grant', url: '/cgrant/' },
+            { oldlink: '/blog/steven-hall', url: '/shall/' },
+            { oldlink: '/blog/nicholas-hemley', url: '/nhemley/' },
+            { oldlink: '/blog/graham', url: '/godds/' },
+            { oldlink: '/blog/luke-page', url: '/lpage/' },
+            { oldlink: '/blog/mike-perrin', url: '/mperrin/' },
+            { oldlink: '/blog/chris', url: '/cprice/' },
+            { oldlink: '/blog/mark-rhodes', url: '/mrhodes/' },
+            { oldlink: '/blog/sam-hogarth', url: '/shogarth/' },
+            { oldlink: '/blog/nicholas-wolverson', url: '/nwolverson/' }
         ];
 
         for(var i in authors) {
@@ -34,7 +48,9 @@
 
         {% for post in site.posts %}
         {% if post.oldlink %}
-            redirects += redirectMarkup("{{ post.oldlink }}", "{{ post.url }}");
+	    oldlink = "{{ post.oldlink }}";
+            redirects += redirectMarkup(oldlink, "{{ post.url }}");
+	    redirects += redirectMarkup(oldlink.substring(0, oldlink.length-1), "{{ post.url }}");
         {% endif %}
         {% endfor %}
 
