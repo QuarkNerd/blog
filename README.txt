@@ -45,3 +45,4 @@ jekyll build --destination [path/to/localdev]\umbraco\blog
 ### Dev
 
 The dev instance of the website, at http://www.dev.scottlogic.co.uk/ has the blog system configured to build automatically from SCM.  Every five minutes the system will pull from git (master) and rebuild the blog content, serving it up from http://www.dev.scottlogic.co.uk/blog/.
+
