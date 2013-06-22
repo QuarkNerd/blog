@@ -13,11 +13,17 @@
       </a>
     </h3>
     <h5 class="sub author">
-      {% assign author = site.authors[post.author] %}
+    {% assign author = site.authors[post.author] %}
+    
     {% if showAuthorInfo %}
       by <a href="{{ site.baseurl }}/{{ post.author }}">{{ author.name }}</a>,
     {% endif %}
+    
+    {% if suppressPostDate %}
+    {% else %}
       on {{ post.date | date: "%d %b %Y" }}
+    {% endif %}
+    
     {% if showAuthorInfo %}
       {% if author.gravatar %}
       <img src="http://www.gravatar.com/avatar/{{ author.gravatar }}" alt="{{ author.name }}" class="img-circle hidden-small" />

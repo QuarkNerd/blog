@@ -7,8 +7,10 @@ layout: default
     <h1>
       {{ page.title }}
     </h1>
-  </header>
+  </header> 
   <aside class="span2 author">
+    {% if page.author == "labs" %}
+    {% else %}
     <div class="asideContainer">
       {% if author.gravatar %}
       <img src="http://www.gravatar.com/avatar/{{ author.gravatar }}" alt="{{ author.name }}" class="img-circle hidden-small" />
@@ -27,6 +29,7 @@ layout: default
       {% assign title = page.title %}
       {% include social.html %}
     </div>
+    {% endif %}
   </aside>
   <div class="span8">
     {{ content }}
