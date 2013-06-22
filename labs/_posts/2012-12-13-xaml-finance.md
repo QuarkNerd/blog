@@ -16,7 +16,7 @@ It is becoming increasingly common for investment banks to deliver their researc
 
 XAML Finance was developed as a demonstration project in code-sharing with Microsoft technologies. The end result was an application which shared 75% of its code across the desktop, web and mobile.
 
-You can view the [web-based Silverlight version](http://www.scottlogic.co.uk/blog/colin/xaml-finance/) of XAML Finance, watch a [video of the Windows Phone 7 version](http://www.youtube.com/watch?v=ISWu2VOKIyc) and read the (more technical) [accompanying CodeProject article](http://www.codeproject.com/KB/windows-phone-7/XAMLFinance.aspx).
+You can watch a [video of the Windows Phone 7 version](http://www.youtube.com/watch?v=ISWu2VOKIyc) and read the (more technical) [accompanying CodeProject article](http://www.codeproject.com/KB/windows-phone-7/XAMLFinance.aspx).
 
 ##Overview
 
@@ -24,7 +24,7 @@ XAML Finance is a .NET cross-platform application that provides access to FTSE 1
 
 The application presents a Price List for the entire FTSE 100 from which individual entries can be selected to open a corresponding Company Overview that provides more detailed information for a specific stock with an accompanying interactive chart. The Heatmap is a combined [treemap](http://en.wikipedia.org/wiki/Treemapping) and [heatmap](http://en.wikipedia.org/wiki/Heatmap), based on the concept implemented in our Market Map project, from which Company Overviews can also be opened.
 
-The web-based version of XAML Finance uses the Microsoft Silverlight plug-in technology. The price list, company overviews and heatmap are presented as a tabbed user interface, allowing the user to switch rapidly between the pages of interest. A live deployment of this version is available [here](http://www.scottlogic.co.uk/blog/colin/xaml-finance/).
+The web-based version of XAML Finance uses the Microsoft Silverlight plug-in technology. The price list, company overviews and heatmap are presented as a tabbed user interface, allowing the user to switch rapidly between the pages of interest.
 
 ![XAML Finance]({{ site.baseurl }}/labs/assets/xaml3.jpg)
 

@@ -21,7 +21,7 @@ Hindsight is a time-series charting application for research into historical equ
 
 ![Hindsight]({{ site.baseurl }}/labs/assets/hindsight.png)
 
-Equity time series can be added to the chart through two different mechanisms. The auto-completing search box allows users to add series for companies by name, while the selector, located in the pullout tab on the right-hand side supports more general searching and filtering to find the desired series (see [Graham's blog post](http://www.scottlogic.co.uk/blog/graham/2010/05/contextual-cues-in-ui-design/) for a detailed UX analysis).
+Equity time series can be added to the chart through two different mechanisms. The auto-completing search box allows users to add series for companies by name, while the selector, located in the pullout tab on the right-hand side supports more general searching and filtering to find the desired series (see [Graham's blog post]({{ site.baseurl }}/2010/05/19/contextual-cues-in-ui-design.html) for a detailed UX analysis).
 
 ![Add Series Controls]({{ site.baseurl }}/labs/assets/hindsight2.png)
 
