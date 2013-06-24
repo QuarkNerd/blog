@@ -72,7 +72,7 @@ response, that we could customise with a body if we wanted to.
 This is the inverse of the reading JSON - we use the `play.api.libs.json.Json.toJson`
 function to convert an object of type `T` into a `JsValue`:
 
-<script src="https://gist.github.com/mrpotes/93ffc44db30e32ae5cf6.js?file=entity-to-scala.scala"> </script>
+<script src="https://gist.github.com/mrpotes/93ffc44db30e32ae5cf6.js?file=entity-to-json.scala"> </script>
 
 This time we're returning either a 200 response with the entity rendered as JSON, or
 we're returning a `NotFound` result - a 404 response.
