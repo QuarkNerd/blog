@@ -52,7 +52,7 @@ if [[ publish -eq 1 ]]; then
     echo "" >> $logfile
     echo "[INFO] Building for $newrev $instancename" >> $logfile
     echo "" >> $logfile
-    /usr/bin/jekyll build >> $logfile
+    /usr/bin/jekyll build --config _config.yml,_$branchname.yml >> $logfile
     echo "" >> $logfile
     rc=$?
 
