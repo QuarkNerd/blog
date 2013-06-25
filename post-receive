@@ -23,14 +23,17 @@ echo "$timestamp $oldrev $newrev $refname" >> /opt/blogbuild/debug.log
 publish=0
 instancename="unknown"
 if [ "$refname" = "refs/heads/master" ]; then
+    branchname="master"
     instancename="dev"
     publishhostname="vb-app-c.scottlogic.co.uk"
     publish=1
 elif [ "$refname" = "refs/heads/content" ]; then
+    branchname="content"
     instancename="content"
     publishhostname="vb-app-b.visiblox.com"
     publish=1
 elif [ "$refname" = "refs/heads/live" ]; then
+    branchname="live"
     instancename="live"
     publishhostname="vb-app-a.visiblox.com"
     publish=1
@@ -40,12 +43,12 @@ echo "$newrev $instancename" >> /opt/blogbuild/last-received
 
 if [[ publish -eq 1 ]]; then
 
-    /usr/bin/git clone --depth 1 /opt/gerrit/git/scottlogic-website-blogs.git /opt/blogbuild/scottlogic-website-blog-$instancename-$timestamp
+    /usr/bin/git archive --format=tar --remote=/opt/gerrit/git/scottlogic-website-blogs.git $branchname | /bin/tar -x -C /opt/blogbuild/scottlogic-website-blog-$instancename-$timestamp
     cd /opt/blogbuild/scottlogic-website-blog-$instancename-$timestamp
 
     echo "[INFO] $timestamp" > $logfile
-    echo "" >> $logfile
-    /usr/bin/git log -n 1 >> $logfile 2>&1
+    #echo "" >> $logfile
+    #/usr/bin/git log -n 1 >> $logfile 2>&1
     echo "" >> $logfile
     echo "[INFO] Building for $newrev $instancename" >> $logfile
     echo "" >> $logfile
