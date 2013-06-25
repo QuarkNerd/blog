@@ -43,7 +43,7 @@ echo "$newrev $instancename" >> /opt/blogbuild/last-received
 
 if [[ publish -eq 1 ]]; then
 
-    mkdir /opt/blogbuild/scottlogic-website-blog-$instancename-$timestamp
+    /bin/mkdir /opt/blogbuild/scottlogic-website-blog-$instancename-$timestamp
     /usr/bin/git archive --format=tar --remote=/opt/gerrit/git/scottlogic-website-blogs.git $branchname | /bin/tar -x -C /opt/blogbuild/scottlogic-website-blog-$instancename-$timestamp
     cd /opt/blogbuild/scottlogic-website-blog-$instancename-$timestamp
 
