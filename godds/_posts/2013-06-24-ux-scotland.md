@@ -22,7 +22,7 @@ epitomised the two recurring themes of the conference: cross-functional collabor
 
 [Jeff Gothelf](https://twitter.com/jboogie)'s talk, [Better Product Definition with Lean UX & Design Thinking](http://lanyrd.com/2013/uxscot/schcrc/),
 focused on how to get waste out of your product and its development.  He proposed that we should state traditional
-requirements as assumptions instead, that is, "we know" should become "we beleive".  This opens the requirements up for
+requirements as assumptions instead, that is, "we know" should become "we believe".  This opens the requirements up for
 consideration and discussion in a way the traditional approach does not, thereby reducing (and possibly eliminating)
 time spent on features or functionality that turns out to be unwanted, unused or ineffective.  To further help reduce
 waste, he suggested we should write success criteria into these assumptions, so that "let's build it" becomes "let's
@@ -30,7 +30,7 @@ test it" &ndash; a sort of test-driven approach to design, with much the same re
  key shift in thinking these changes introduce is that your team focuses on outcomes rather than outputs, e.g. better
  user retention rather than adding feature X, thereby aligning design and development much more closely with business.
  The ideas Jeff presented and the techniques for achieving them, mainly cross-functional collaboration, rang very true
- with me and I highly recommend get hold of a copy of his book, [Lean UX](http://www.amazon.co.uk/Lean-UX-Applying-Principles-Experience/dp/1449311652/).
+ with me and I highly recommend getting hold of a copy of his book, [Lean UX](http://www.amazon.co.uk/Lean-UX-Applying-Principles-Experience/dp/1449311652/).
 
 As the title of his talk, [Out of Context](http://lanyrd.com/2013/uxscot/schctk/), suggests, [Giles Colborne](https://twitter.com/gilescolborne)
 discussed the potential pitfalls of our increasingly common attempts at designing context-aware apps.  For example, we
