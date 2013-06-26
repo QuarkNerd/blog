@@ -5736,8 +5736,7 @@ img.aligncenter {
   line-height: 45px;
   float: left;
 }
-#header nav > ul > li > a,
-#header nav > ul > li > span.nonlink {
+#header nav > ul > li > a {
   font-size: 14pt;
   color: #231f20;
   text-decoration: none;
@@ -5746,8 +5745,7 @@ img.aligncenter {
   height: 46px;
   float: left;
 }
-#header nav > ul > li > a.selected,
-#header nav > ul > li > span.nonlink.selected {
+#header nav > ul > li > a.selected {
   margin-bottom: -1px;
   border-bottom: 1px solid black;
 }
