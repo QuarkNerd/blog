@@ -23,6 +23,10 @@
     -o-background-size: contain;
     background-size: contain;
     margin-top: 3px;
+
+    .no-svg & {
+      background-image: url("/media/SL_Secondary_AW_01B_REV_bold_light.png");
+    }
   }
 
   #cse-search-box {
@@ -118,6 +122,15 @@
             -moz-box-shadow: none;
             box-shadow: none;
             min-width: 135px;
+
+            /*
+             * HACK
+             * Modernizr doesn't add a no-rgba class to IE8, but for some reason IE8 barfs on rgba in this case
+             * so the horrible assumption that no-svg roughly means IE8 will have to do.
+             */
+            .no-svg & {
+              background-color: @black;
+            }
 
             li {
               line-height: 1;
