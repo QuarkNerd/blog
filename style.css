@@ -5680,6 +5680,9 @@ img.aligncenter {
   background-size: contain;
   margin-top: 3px;
 }
+.no-svg #header .logo {
+  background-image: url("/media/SL_Secondary_AW_01B_REV_bold_light.png");
+}
 #header #cse-search-box {
   margin: 0 1px 0 0;
 }
@@ -5771,6 +5774,15 @@ img.aligncenter {
   -moz-box-shadow: none;
   box-shadow: none;
   min-width: 135px;
+  /*
+             * HACK
+             * Modernizr doesn't add a no-rgba class to IE8, but for some reason IE8 barfs on rgba in this case
+             * so the horrible assumption that no-svg roughly means IE8 will have to do.
+             */
+
+}
+.no-svg #header nav > ul > li.dropdown ul.dropdown-menu {
+  background-color: #231f20;
 }
 #header nav > ul > li.dropdown ul.dropdown-menu li {
   line-height: 1;
@@ -5812,6 +5824,9 @@ img.aligncenter {
   -o-background-size: contain;
   background-size: contain;
   line-height: 19px;
+}
+.no-svg #footer {
+  background-image: url("/media/SL_primary_AW_01B_REV_bold_light.png");
 }
 #footer p {
   margin: 1.5em 0 0;
