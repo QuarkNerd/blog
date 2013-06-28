@@ -14,8 +14,10 @@
             <a href="{{ site.baseurl }}{{ post.url }}">
               <img src="{{ post.image }}">
               {% capture url %}{{ site.siteurl }}{{ site.baseurl }}{{ post.url }}{% endcapture %}
+              {% assign disqusID = post.url %}
               {% if post.oldlink %}
                 {% capture url %}http://www.scottlogic.co.uk{{ post.oldlink }}{% endcapture %}
+                {% assign disqusID = post.oldlink %}
               {% endif %}
               {% assign title = post.title %}
               {% assign inverted = post.featured-overlay-inverted %}
@@ -41,8 +43,10 @@
             <a href="{{ site.baseurl }}{{ post.url }}">
               <img src="{{ post.image }}">
               {% capture url %}{{ site.siteurl }}{{ site.baseurl }}{{ post.url }}{% endcapture %}
+              {% assign disqusID = post.url %}
               {% if post.oldlink %}
                 {% capture url %}http://www.scottlogic.co.uk{{ post.oldlink }}{% endcapture %}
+                {% assign disqusID = post.oldlink %}
               {% endif %}
               {% assign title = post.title %}
               {% assign inverted = post.featured-overlay-inverted %}
@@ -75,8 +79,10 @@
             <a href="{{ site.baseurl }}{{ post.url }}">
               <img src="{{ post.image }}">
               {% capture url %}{{ site.siteurl }}{{ site.baseurl }}{{ post.url }}{% endcapture %}
+              {% assign disqusID = post.url %}
               {% if post.oldlink %}
                 {% capture url %}http://www.scottlogic.co.uk{{ post.oldlink }}{% endcapture %}
+                {% assign disqusID = post.oldlink %}
               {% endif %}
               {% assign title = post.title %}
               {% assign inverted = post.featured-overlay-inverted %}

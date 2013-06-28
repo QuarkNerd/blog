@@ -26,8 +26,10 @@ layout: default
         <div>{{ page.date | date: "%d %b %Y" }}</div>
       </div>
       {% capture url %}{{ site.siteurl }}{{ site.baseurl }}{{ page.url }}{% endcapture %}
+      {% assign disqusID = page.url %}
       {% if page.oldlink %}
         {% capture url %}http://www.scottlogic.co.uk{{ page.oldlink }}{% endcapture %}
+        {% assign disqusID = page.oldlink %}
       {% endif %}
       {% assign title = page.title %}
       {% include social.html %}
