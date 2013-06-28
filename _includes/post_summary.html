@@ -43,7 +43,10 @@
     </p>
 {% endif %}
 
-  {% assign url = post.url %}{% if post.oldlink %}{% assign url = post.oldlink %}{% endif %}
+  {% capture url %}{{ site.siteurl }}{{ site.baseurl }}{{ page.url }}{% endcapture %}
+  {% if page.oldlink %}
+    {% capture url %}http://www.scottlogic.co.uk{{ page.oldlink }}{% endcapture %}
+  {% endif %}
   {% assign title = post.title %}
   
   {% if suppressSocialLinks %}

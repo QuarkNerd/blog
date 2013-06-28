@@ -25,7 +25,10 @@ layout: default
         <strong>Published</strong>
         <div>{{ page.date | date: "%d %b %Y" }}</div>
       </div>
-      {% assign url = page.url %}{% if page.oldlink %}{% assign url = page.oldlink %}{% endif %}
+      {% capture url %}{{ site.siteurl }}{{ site.baseurl }}{{ page.url }}{% endcapture %}
+      {% if page.oldlink %}
+        {% capture url %}http://www.scottlogic.co.uk{{ page.oldlink }}{% endcapture %}
+      {% endif %}
       {% assign title = page.title %}
       {% include social.html %}
     </div>
@@ -41,13 +44,11 @@ layout: default
 <script type="text/javascript">
     {% if page.oldlink %}
         var disqus_identifier = '{{ page.oldlink }}';
-        var disqus_url = 'http://www.scottlogic.co.uk{{ page.oldlink }}';    
+        var disqus_url = '{{ url }}';
     {% else %}
         var disqus_identifier = '{{ page.url }}';
-        var disqus_url = 'http://www.scottlogic.co.uk{{ page.url }}';
+        var disqus_url = '{{ url }}';
     {% endif %}
-
-
 </script>
 <script src="{{ site.baseurl }}/scripts/disqus-comment-thread.js"></script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
