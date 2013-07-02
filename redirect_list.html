@@ -24,8 +24,22 @@
             { oldlink: '/blog/chris', url: '/cprice/' },
             { oldlink: '/blog/mark-rhodes', url: '/mrhodes/' },
             { oldlink: '/blog/sam-hogarth', url: '/shogarth/' },
-            { oldlink: '/blog/nicholas-wolverson', url: '/nwolverson/' }
+            { oldlink: '/blog/nicholas-wolverson', url: '/nwolverson/' },
+	    { oldlink: '/blog/tom-baker', url: '/tbaker/' }
         ];
+
+	    redirects += redirectMarkup('/feed/', '/feed.xml');           
+	    redirects += redirectMarkup('/feed', '/feed.xml');
+	    redirects += redirectMarkup('/rss/', '/feed.xml');           
+	    redirects += redirectMarkup('/rss', '/feed.xml');
+            redirects += redirectMarkup('/feed/atom/', '/atom.xml');           
+	    redirects += redirectMarkup('/feed/atom', '/atom.xml');
+	    redirects += redirectMarkup('/blog/feed/', '/feed.xml');           
+	    redirects += redirectMarkup('/blog/feed', '/feed.xml');
+	    redirects += redirectMarkup('/blog/rss/', '/feed.xml');           
+	    redirects += redirectMarkup('/blog/rss', '/feed.xml');
+            redirects += redirectMarkup('/blog/feed/atom/', '/atom.xml');           
+	    redirects += redirectMarkup('/blog/feed/atom', '/atom.xml');
 
         for(var i in authors) {
             redirects += redirectMarkup(authors[i].oldlink, authors[i].url);
@@ -39,6 +53,8 @@
 	    redirects += redirectMarkup(authors[i].oldlink + '/rss/', authors[i].url + 'feed.xml');
 	    redirects += redirectMarkup(authors[i].oldlink + '/rss', authors[i].url + 'feed.xml');
 	    }
+	    
+
 
         {% for post in site.posts %}
         {% if post.oldlink %}

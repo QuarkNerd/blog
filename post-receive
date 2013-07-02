@@ -54,8 +54,8 @@ if [[ publish -eq 1 ]]; then
     echo "[INFO] Building for $newrev $instancename" >> $logfile
     echo "" >> $logfile
     /usr/bin/jekyll build --config _config.yml,_$branchname.yml >> $logfile
-    echo "" >> $logfile
     rc=$?
+    echo "" >> $logfile
 
     if [[ $rc -eq 0 ]]; then
         echo "[INFO] Jekyll build ok" >> $logfile
