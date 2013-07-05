@@ -16,11 +16,9 @@ It is becoming increasingly common for investment banks to deliver their researc
 
 XAML Finance was developed as a demonstration project in code-sharing with Microsoft technologies. The end result was an application which shared 75% of its code across the desktop, web and mobile.
 
-<<<<<<< HEAD
 You can view the [web-based Silverlight version](http://www.scottlogic.co.uk/blog/colin/xaml-finance/) of XAML Finance, watch a [video of the Windows Phone 7 version](http://www.youtube.com/watch?v=ISWu2VOKIyc) and read the (more technical) [accompanying CodeProject article](http://www.codeproject.com/KB/windows-phone-7/XAMLFinance.aspx).
-=======
+
 You can watch a [video of the Windows Phone 7 version](http://www.youtube.com/watch?v=ISWu2VOKIyc) and read the (more technical) [accompanying CodeProject article](http://www.codeproject.com/KB/windows-phone-7/XAMLFinance.aspx).
->>>>>>> master
 
 ##Overview
 
