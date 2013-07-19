@@ -156,11 +156,51 @@ readability.
 If you'd like the full source code that I worked on, it's available 
 [on GitHub](https://github.com/mrpotes/betamax-scala).
 
+# Update
 
+I just couldn't leave the ScalaTest example like that - it just wasn't readable
+enough for me. You'll remember that my ideal usage would look like this:
 
+{% gist 6029082 scalatest-ideal.scala %}
 
+The first problem with this is that the `with` keyword is reserved in Scala - it's
+how you add extra traits beyond the one that's being extended - so instead let's
+use the word `using`.
 
+The next problem is that we need to insert our code between the first and second
+parameter list to the `test` method. We can do this using a partially applied
+function, by adding `_` after the first parameter list, so our test declaration
+now needs to look something like:
 
+{% gist 6029082 improved-scalatest-decl.scala %}
+
+Now the problem we have is that there's no such method as `using` on a function.
+We need to transform it into an object that *does* have a using function - a trait
+with an implicit conversion should do the trick:
+
+{% gist 6029082 Wrapped.scala %}
+
+We've now created the ability to insert any extra function we like between the
+`test` function's two parameter lists - indeed this trait could be used to add all
+sorts of different resources around a ScalaTest suite, and should work equally well
+with **Should-In** and **Given-When-Then** ScalaTest language.
+
+All that remains to do now is to implement the `Betamax` trait to allow us to use
+the `betamax` "keyword":
+
+{% gist 6029082 ImprovedScalaTestBetamax.scala %}
+
+Simple! And finally, our test looks like:
+
+{% gist 6029082 ImprovedWeatherSuite.scala %}
+
+Ah, that's better. I'm happy now :)
+
+Implicit functions are very useful little things - if you look at the Specs2 source,
+you'll find them being used liberally all over the place to turn string test names
+into rich test fragments, and so on. In this example you could of course also get
+rid of the `Some` from the `TapeMode`, by declaring a function with signature 
+`implicit def optionalTapeMode(t: TapeMode): Option[TapeMode]`.
 
 
 
