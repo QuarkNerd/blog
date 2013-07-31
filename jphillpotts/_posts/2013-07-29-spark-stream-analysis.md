@@ -61,7 +61,7 @@ define our own.
 
 The real work is done by the Receiver implementation, so we'll start there.
 
-I planned to use the `[scalawebsocket](https://github.com/pbuda/scalawebsocket)`
+I planned to use the [scalawebsocket](https://github.com/pbuda/scalawebsocket)
 library to access the WebSocket, but unfortunately it's only available for Scala
 2.10, and Spark is only available for Scala 2.9 - it's when this happens that
 you have to swallow down your annoyance at the lack of binary compatibility
