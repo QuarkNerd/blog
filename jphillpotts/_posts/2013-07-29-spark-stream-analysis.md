@@ -74,13 +74,13 @@ uses the `Listings` object, which just produces a list of all the available
 stock listings for which the sector is known, and a map of sector id to name
 for later):
 
-{% gist GISTID PriceWebSocketClient.scala %}
+{% gist 6121580 PriceWebSocketClient.scala %}
 
 This is useful because to start off with, we just want to check that we're
 receiving messages from the WebSocket correctly. We can write a simple 
 extension of this trait:
 
-{% gist GISTID PriceEcho.scala %}
+{% gist 6121580 PriceEcho.scala %}
 
 So once we've got our Scala application hooked up to the WebSocket correctly, 
 we can implement a `Receiver` to consume messages using Spark. Seeing as 
@@ -88,14 +88,14 @@ we're receiving our stream over a generic network protocol, we're going to
 extend the `NetworkReceiver`. All we need to do then is create a block 
 generator and append our messages onto it:
 
-{% gist GISTID basic-receiver.scala %}
+{% gist 6121580 basic-receiver.scala %}
 
 That was pretty simple, but all we've got here is a text string containing
 JSON data - we can extract the salient bits of data into a case class that is
 then going to be easier to manipulate. Let's create a `PriceUpdate` case 
 class:
 
-{% gist GISTID PriceUpdate.scala %}
+{% gist 6121580 PriceUpdate.scala %}
 
 Unfortunately I couldn't find the financial listing attribute to give me the
 previous price for a listing. We'll just close our eyes and pretend there
@@ -105,13 +105,13 @@ wouldn't be able to use this hack.
 
 Now our receiver can look like this:
 
-{% gist GISTID PriceReceiver.scala %}
+{% gist 6121580 PriceReceiver.scala %}
 
 Much better. Now we need a corresponding `InputDStream`. Seeing as we're only
 ever going to be returning new `PriceReceiver` objects whenever the 
 `getReceiver` function is called, we can just create our stream as an object:
 
-{% gist GISTID stream.scala %}
+{% gist 6121580 stream.scala %}
 
 Right, let's plug it into a Spark Streaming application and fire it up. If we 
 follow the Spark 
@@ -120,7 +120,7 @@ and then the guide for
 [using Spark Streaming](http://spark-project.org/docs/latest/streaming-programming-guide.html),
 we need to wrap up the following basic outline into an application:
 
-{% gist GISTID streaming-outline.scala %}
+{% gist 6121580 streaming-outline.scala %}
 
 This code is initialising the streaming context, providing the cluster 
 details (I'm just using a local single node), the name of the application,
@@ -135,7 +135,7 @@ Then we just register our input stream, do some processing on it, and start
 the streaming context. We can start off by just using the print function,
 which will just print the first 10 items off the stream:
 
-{% gist GISTID echo-stream.scala %}
+{% gist 6121580 echo-stream.scala %}
 
 Which gives us output like this:
 
@@ -190,7 +190,7 @@ I want to know whether the number of changes were more in a positive
 direction than negative, so if the price change was positive, I'm going to
 increase my count, but if negative, I'm going to decrease it:
 
-{% gist GISTID reduce-invreduce.scala %}
+{% gist 6121580 reduce-invreduce.scala %}
 
 Now we've got a reduced stream of net price change and movement trend. We
 only want to display the biggest positive movers, so we can filter the
@@ -201,7 +201,7 @@ by net price change and the positive movement trend, so I'm just going to
 multiply the two values together. Finally we can sort the data and print
 out the top 5. Put it all together and we've got our streaming application:
 
-{% gist GISTID DataStream.scala %}
+{% gist 6121580 DataStream.scala %}
 
 Note that we've had to add a location for Spark to checkpoint the `DStream`
 that is created when we use `reduceByKeyAndWindow` with an inverse function
