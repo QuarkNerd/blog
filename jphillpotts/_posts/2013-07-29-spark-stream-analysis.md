@@ -174,9 +174,9 @@ function and an inverse reduce function - then for each iteration within the
 frame, Spark will reduce the new data and "un-reduce" the old. Here's a 
 picture to try and illustrate this:
 
-<div class="text-center">
+<p class="text-center">
   <img title="reduceByKeyAndWindow" src="{{ site.baseurl }}/jphillpotts/assets/reduceByKeyAndWindow.png">
-</div>
+</p>
 
 Here we're looking at a sliding window in its old state (red) and new state 
 (blue), with the Spark iterations marked by the dashed lines. As each 
@@ -240,7 +240,7 @@ run), we then get the trending sectors being printed:
     Precious metals & precious stones
 
 It looks like __Agriculture & fishery__ or __Environmental services & 
-recycling__are worth investing in right now, but don't take my word for it!
+recycling__ are worth investing in right now, but don't take my word for it!
 
 In this blog we've looked at how stream processing can be achieved using 
 Spark - obviously if we were developing a real application we'd use much
