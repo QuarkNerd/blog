@@ -1,6 +1,6 @@
 ---
 author: jphillpotts
-title: WebSocket stream realtime analysis using Spark
+title: Real-time data analysis using Spark
 tags:
   - Scala
   - Big Data
@@ -16,6 +16,11 @@ summary: |
     processing streams of data in near-real time. Here we're going to look at
     using Big Data-style techniques in Scala on a stream of data from a WebSocket.
 ---
+
+Big Data is a hot topic these days, and one aspect of that problem space is
+processing streams of data in near-real time. One of the applications that can
+help you do this is [Spark](http://spark-project.org), which is produced at [UC
+Berkeley's AMP (Algorithms, Machines and People) Lab](https://amplab.cs.berkeley.edu/).
 
 The first thing you need when you're looking at data stream analysis techniques
 is a stream of data to analyse. I'm using a JSON/WebSocket representation of
@@ -42,21 +47,21 @@ If you're interested in finding out more about Spark, they offer a free online
 [introductory course](http://ampcamp.berkeley.edu/big-data-mini-course/) (that 
 will set you back about $10 in Amazon EC2 fees). However, at the time of 
 writing, the streaming exercise doesn't work as the EC2 image is based on an
-old version of Spark that uses a decomissioned Twitter API.
+old version of Spark that uses a decommissioned Twitter API.
 
 ## Spark Streaming
 
 To consume a stream of data in Spark you need to have a `StreamingContext` in 
 which you register an `InputDStream` that in turn can produce a `Receiver` 
 object. Spark provides a number of default implementations of these (e.g. 
-Twitter, Akka Actor, ZeroMQ, etc) that are accessible from the context. As
+Twitter, Akka Actor, ZeroMQ, etc.) that are accessible from the context. As
 there is no default implementation for a WebSocket, so we're going to have to
 define our own.
 
 The real work is done by the Receiver implementation, so we'll start there.
 
 I planned to use the `[scalawebsocket](https://github.com/pbuda/scalawebsocket)`
-library to access the WebSocket, but unfortuately it's only available for Scala
+library to access the WebSocket, but unfortunately it's only available for Scala
 2.10, and Spark is only available for Scala 2.9 - it's when this happens that
 you have to swallow down your annoyance at the lack of binary compatibility
 between Scala versions - fortunately all I had to do was strip out the logging
@@ -76,16 +81,16 @@ extension of this trait:
 
 {% gist GISTID PriceEcho.scala %}
 
-So once we've got our Scala application hooked up to the WebSocket ok, we can
-implement a `Receiver` to consume messages using Spark. Seeing as we're 
-receiving our stream over a generic network protocol, we're going to extend
-the `NetworkReceiver`. All we need to do then is create a block generator and
-append our messages onto it:
+So once we've got our Scala application hooked up to the WebSocket correctly, 
+we can implement a `Receiver` to consume messages using Spark. Seeing as 
+we're receiving our stream over a generic network protocol, we're going to 
+extend the `NetworkReceiver`. All we need to do then is create a block 
+generator and append our messages onto it:
 
 {% gist GISTID basic-receiver.scala %}
 
 That was pretty simple, but all we've got here is a text string containing
-JSON data - we can extract the saliant bits of data into a case class that is
+JSON data - we can extract the salient bits of data into a case class that is
 then going to be easier to manipulate. Let's create a `PriceUpdate` case 
 class:
 
@@ -116,7 +121,7 @@ we need to wrap up the following basic outline into an application:
 
 {% gist GISTID streaming-outline.scala %}
 
-This code is initialialising the streaming context, providing the cluster 
+This code is initialising the streaming context, providing the cluster 
 details (I'm just using a local single node), the name of the application,
 how much time to gather data from the stream before processing it, the
 location of the installed Spark software, and the jar file to run the
