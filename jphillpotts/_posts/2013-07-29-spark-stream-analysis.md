@@ -13,8 +13,9 @@ layout: default_post
 source: site
 summary: |
     Big Data is a hot topic these days, and one aspect of that problem space is
-    processing streams of data in near-real time. Here we're going to look at
-    using Big Data-style techniques in Scala on a stream of data from a WebSocket.
+    processing streams of high velocity data in near-real time. Here we're going 
+    to look at using Big Data-style techniques in Scala on a stream of data from 
+    a WebSocket.
 ---
 
 Big Data is a hot topic these days, and one aspect of that problem space is
