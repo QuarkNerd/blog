@@ -49,6 +49,9 @@
     {% capture url %}http://www.scottlogic.co.uk{{ post.oldlink }}{% endcapture %}
     {% assign disqusID = post.oldlink %}
   {% endif %}
+  {% if post.originalArticleLink %}
+    {% assign url = post.originalArticleLink %}
+  {% endif %}
   {% assign title = post.title %}
   
   {% if suppressSocialLinks %}

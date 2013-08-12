@@ -18,6 +18,9 @@
                 {% capture url %}http://www.scottlogic.co.uk{{ post.oldlink }}{% endcapture %}
                 {% assign disqusID = post.oldlink %}
               {% endif %}
+              {% if post.originalArticleLink %}
+                {% assign url = post.originalArticleLink %}
+              {% endif %}
               {% assign title = post.title %}
               {% assign inverted = post.featured-overlay-inverted %}
               {% include social.html %}
@@ -46,6 +49,9 @@
               {% if post.oldlink %}
                 {% capture url %}http://www.scottlogic.co.uk{{ post.oldlink }}{% endcapture %}
                 {% assign disqusID = post.oldlink %}
+              {% endif %}
+              {% if post.originalArticleLink %}
+                {% assign url = post.originalArticleLink %}
               {% endif %}
               {% assign title = post.title %}
               {% assign inverted = post.featured-overlay-inverted %}
@@ -82,6 +88,9 @@
               {% if post.oldlink %}
                 {% capture url %}http://www.scottlogic.co.uk{{ post.oldlink }}{% endcapture %}
                 {% assign disqusID = post.oldlink %}
+              {% endif %}
+              {% if post.originalArticleLink %}
+                {% assign url = post.originalArticleLink %}
               {% endif %}
               {% assign title = post.title %}
               {% assign inverted = post.featured-overlay-inverted %}

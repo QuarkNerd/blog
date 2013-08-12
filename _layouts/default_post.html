@@ -31,6 +31,9 @@ layout: default
         {% capture url %}http://www.scottlogic.co.uk{{ page.oldlink }}{% endcapture %}
         {% assign disqusID = page.oldlink %}
       {% endif %}
+      {% if post.originalArticleLink %}
+        {% assign url = post.originalArticleLink %}
+      {% endif %}
       {% assign title = page.title %}
       {% include social.html %}
     </div>
