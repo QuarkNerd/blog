@@ -1,10 +1,14 @@
 ---
 author: godds
 title: The Science behind Data Visualisation
+image: "godds/assets/featured/science-behind-visualisation.jpg"
+summary: "Principles that will help you to design more compelling data visualisations."
+summary-short: "How to improve your data visualisations."
 tags:
   - UX design
   - visualisation
   - infographics
+  - featured
 categories:
   - godds
 layout: default_post
