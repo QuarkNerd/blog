@@ -16,7 +16,7 @@ collected source of the examples in this post/series is
 C#
 --
 
-Sadly the C# environment shipped with Visual Studio 2012 does not come with an interactive enviroment. Here are
+Sadly the C# environment shipped with Visual Studio 2012 does not come with an interactive environment. Here are
 some solutions, and hopefully a glimpse of the future.
 
 ### Interactive window
