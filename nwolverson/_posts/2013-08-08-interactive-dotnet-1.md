@@ -7,6 +7,7 @@ categories:
   - nwolverson
 layout: default_post
 source: site
+summary: In the first part of a series on running an interactive environment (REPL) on .NET, I talk a little about why you might want one, and cover the non-C# options.
 ---
 If you ever programmed in a functional language, a dynamic language like Python
 or Perl, or even BASIC, you'll likely be familiar with an interactive
@@ -14,7 +15,8 @@ programming interface - the Read Eval Print Loop. In this series of articles
 I'm going to talk about options for running a REPL on .NET, and a little
 about why you might want one.
 
-I'll start with an overview of the non-C# options, and finally get around to C#. The
+I'll start with an overview of the non-C# options in this post, and finally get around to C#
+<a href="{{site.baseurl}}/2013/08/15/interactive-dotnet-2.html">in part 2</a>. The
 collected source of the examples in this post/series is 
 [available here](https://github.com/nwolverson/blog-interactivenet).
 
