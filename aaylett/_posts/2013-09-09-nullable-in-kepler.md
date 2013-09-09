@@ -31,13 +31,15 @@ this post, which are `@Nonnull` and `@Nullable`.
 You can apply `@Nonnull` (and `@Nullable`) to methods, to document their
 return value, and to parameters:
 
-    @Nonnull
-    String doubleString(@Nullable String input) {
-        if (input == null) {
-            return "Null Input!";
-        }
-        return input + input;
-    }
+{% highlight java %}
+@Nonnull
+String doubleString(@Nullable String input) {
+  if (input == null) {
+    return "Null Input!";
+  }
+  return input + input;
+}
+{% endhighlight %}
 
 That's a bit of a pointless function, especially its behaviour on `null`
 input, but it serves as an example.
@@ -70,20 +72,22 @@ Another interesting oddity is that the compiler doesn't yet have enough
 intelligence to perform dataflow analysis on objects visible outside the local
 scope, so this code will fail to compile:
 
-    class Thing {
-      @Nullable
-      private String thingString = "value";
+{% highlight java %}
+class Thing {
+  @Nullable
+  private String thingString = "value";
 
-      ...
+  ...
 
-      @Nonnull
-      String getThingString() {
-        if (thingString != null) {
-          return thingString;
-        }
-        return "Thing String is null";
-      }
+  @Nonnull
+  String getThingString() {
+    if (thingString != null) {
+      return thingString;
     }
+    return "Thing String is null";
+  }
+}
+{% endhighlight %}
 
 Even if we did fix the compiler to recognise this pattern, there may still be
 issues around race conditions, and recognising locking patterns is almost
