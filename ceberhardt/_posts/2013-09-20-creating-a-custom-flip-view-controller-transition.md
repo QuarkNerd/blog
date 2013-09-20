@@ -14,6 +14,10 @@ In this blog post I'll look at how to implement a custom 'flip' animation which 
 
 You can find the full sourcecode for this custom animation on github, in a project called [VCTransitionsLibrary](https://github.com/ColinEberhardt/VCTransitionsLibrary), which is a collection of different animations and interaction controllers.
 
+I've also made a short video of this transition in action:
+
+<iframe width="420" height="315" src="http://www.youtube.com/embed/7pTziPeQV04" frameborder="0"> </iframe>
+
 ## A brief introduction to custom transitions
 
 The following provides a very brief introduction to the concepts, for more detailed coverage I would thoroughly recommend reading Chapter 3 of [iOS 7 By Tutorials](http://www.raywenderlich.com/store/ios-7-by-tutorials?source=ceberhardt) - which I wrote! (I've heard the other 15 chapters are pretty good too ;-)
