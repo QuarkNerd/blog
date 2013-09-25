@@ -2,13 +2,15 @@
 id: 161553
 author: aaylett
 title: "Eclipse Kepler and @Nullable"
+image: "aaylett/assets/featured/eclipse.jpg"
+featured-overlay-inverted: true
 tags: 
+  - featured
   - Eclipse
   - blog
 categories: 
   - aaylett
 layout: default_post
-source: site
 ---
 When Eclipse Juno came out last year, I was excited to see some support for
 `@Nullable` annotations.  I didn't get very far with them at the time, though,

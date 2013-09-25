@@ -1,12 +1,14 @@
 ---
 author: nwolverson
 title: "Typescript 0.9: Any improvement"
+image: "nwolverson/assets/featured/typescript.jpg"
+featured-overlay-inverted: true
 tags: 
   - blog
+  - featured
 categories: 
   - nwolverson
 layout: default_post
-source: site
 summary: Version 0.9 of Typescript was recently released with support for generic types. In this post I discuss the features of 0.9 and 0.9.1, particularly generics and the "no implicit any" option.
 ---
 I've been "noodling around" with [Typescript](http://www.typescriptlang.org/) for a while, and enjoying the various improvements over standard Javascript. 

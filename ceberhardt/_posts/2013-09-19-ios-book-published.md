@@ -1,7 +1,11 @@
 ---
 author: ceberhardt
 title: iOS 7 by Tutorials - the first iOS 7 book - is published
+title-short: iOS 7 by Tutorials
+image: "ceberhardt/assets/featured/ios7-by-tutorials.png"
 tags: 
+  - featured
+  - featuredcolin
 categories: 
 summary: For the past four months I have been hard at work writing four chapters for a book, iOS 7 by tutorials. Just yesterday, as the iOS 7 NDA was lifted, the book went on sale. 
 layout: default_post
