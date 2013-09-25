@@ -21,7 +21,7 @@ As soon as the developer preview SDK and documentation was released I started ex
 
 The game built is a top down WWII fighter plane game set over the English Channel. Enemy planes are launched from the top of the screen and it is your job, as the hero, to destroy these planes before they reach the bottom! You win points by destroying enemy planes, but lose health if an enemy plane hits you with a bullet or crashes into you!
 
-![screenshots](screenshots.png)
+![screenshots](https://raw.github.com/ChrisGrant/FirstSquadron/master/blog/screenshots.png)
 
 *Screenshots from the game*
 
@@ -48,7 +48,7 @@ However, we don't want the nodes to be removed as soon as they collide with the 
 
 The illustration below gives an idea of how this effects the scene. The planes will continue to animate until they reach the very bottom of the physics body, rather than vanishing as soon as they reach the edge. The same applies for missiles.
 
-![The visible and whole scene](bounding.png)
+![The visible and whole scene](https://raw.github.com/ChrisGrant/FirstSquadron/master/blog/bounding.png)
 
 *An illustration of the physics body from the game. The red box indicates the visible area, and the region outside indicates the full size of the physics body.*
 
@@ -96,7 +96,7 @@ The enemy fighters are launched every 5 seconds using an NSTimer.
     
 This calls the `launchEnemyFighters` method, which instantiates and five `EnemyFighter` instances, rotates them 180 degrees, places them in different locations and then applies an impluse to all of them so they move downwards towards the bottom of the scene.
 
-![An Enemy Exploding](enemyPlanes.png)
+![An Enemy Exploding](https://raw.github.com/ChrisGrant/FirstSquadron/master/blog/enemyPlanes.png)
 
 *5 enemy planes flying in formation*
 
@@ -151,7 +151,7 @@ To add an explosion we use the following code:
 
 This just adds an explosion particle emitter where the collision occurred, fades it out over the course of 0.3 seconds and then removes it from the parent.
 
-![An Enemy Exploding](exploding.png)
+![An Enemy Exploding](https://raw.github.com/ChrisGrant/FirstSquadron/master/blog/exploding.png)
 
 *An enemy plane exploding*
 
