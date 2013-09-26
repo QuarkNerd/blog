@@ -6,11 +6,10 @@ categories:
 summary: Explaining the very basics of getting a simple 2D fighter plane game up and running with SpriteKit
 layout: default_post
 ---
-#2D Game Development with SpriteKit
 
-When Apple announced iOS 7 back in June at WWDC, they also announced a number of exciting new APIs for developers. The API that caught my attention the most was SpriteKit. This is a new 2D rendering engine built primarily for game development. It allows you to compile the same code for iOS and OSX, meaning with just a few tweaks you can build a game that is available on Mac, iPad, iPod and iPhone! Combine this with the new GameController API, the rumours of a new Apple TV and the predicted, rapid high level of iOS 7 adoption and you have something pretty exciting!
+When Apple announced iOS 7 back in June at WWDC, they also announced a number of exciting new APIs for developers. The API that caught my attention the most was SpriteKit. This is a new 2D rendering engine built primarily for game development. It allows you to compile the same code for iOS and OSX, meaning with just a few tweaks you can build a game that is available on Mac, iPad, iPod and iPhone! Combine this with the new GameController API, the rumours of a new Apple TV and the rapid level of iOS 7 adoption and you have something pretty exciting!
 
-As soon as the developer preview SDK and documentation was released I started exploring the new API. I found the API very easy to get to grips with, especially after watching the WWDC videos and reading through the documentation. I’d never done any game development before, so this blog explains the very basics of getting a simple game up and running with SpriteKit.
+As soon as the developer preview SDK and documentation were released I started exploring the new API. I found the API very easy to get to grips with, especially after watching the WWDC videos and reading through the documentation. I’d never done any game development before, so this blog explains the very basics of getting a simple game up and running with SpriteKit.
 
 
 ##1st Squadron
@@ -19,7 +18,7 @@ As soon as the developer preview SDK and documentation was released I started ex
 
 *1st Squadron Logo*
 
-The game built is a top down WWII fighter plane game set over the English Channel. Enemy planes are launched from the top of the screen and it is your job, as the hero, to destroy these planes before they reach the bottom! You win points by destroying enemy planes, but lose health if an enemy plane hits you with a bullet or crashes into you!
+The game built is a top down WWII fighter plane game, set over the English Channel. Enemy planes are launched from the top of the screen and it is your job, as the hero, to destroy these planes before they reach the bottom! You win points by destroying enemy planes, but lose health if an enemy plane hits you with a bullet or crashes into you!
 
 ![screenshots](https://raw.github.com/ChrisGrant/FirstSquadron/master/blog/screenshots.png)
 
@@ -68,10 +67,10 @@ This will give us the "red box" shown in the illustration above.
 To add some depth the scene there are multiple SKSpriteNodes in the scene's heirarchy. The ground represents the sea - it's just a blue SKSpriteNode. The first Cloud layer is placed on top of the ground layer. The next layer added to the scene is the Fighter layer. This is where all of the fighters will be placed and will interact with each other. Finally, we add another Cloud layer to the scene. This results in the following heirarchy:
 
 - FighterGameScene
-	- Ground
-		- Clouds
-	- Fighters
-	- Clouds
+- Ground
+- Clouds
+- Fighters
+- Clouds
 
 By having two cloud layers, we add some depth to the scene as the fighter appears to fly through the clouds. Sometimes it will appear above clouds, sometimes below clouds, and sometimes both. The cloud layers are `SKEmitterNode` instances, and they are configured in .sks files. 
 
@@ -120,7 +119,7 @@ This simple block of code gives the user the ability to move the hero around the
 
 ###Collision Handling
 
-By setting the `contactDelegate` of the `physicsBody` to self, this allows us to detect collisions. Implementing the following method will give us access to these collisions.
+By setting the `contactDelegate` of the `physicsBody` to `self`, this allows us to detect collisions. Implementing the following method will give us access to these collisions.
 
 	-(void)didBeginContact:(SKPhysicsContact*)contact
 
@@ -170,4 +169,4 @@ If a missle collides with anything, we want to remove it, regardless of what it 
 	One of the most time consuming things when creating the game was debugging collisions between `SKPhysicsBody` objects. The first step is ensuring you have set the correct `categoryBitMask` on the objects when you create them, and that they have the correct `contactTestBitMask` too. A `SKPhysicsBody` won't collide with any object that isn't specified in it's `contactTestBitMask`. Also be sure to check *both* bodies of a `SKPhysicsContact`. They aren't guaranteed to be in any particular order. 
 	
 	
-If you have noticed any issues with the app or want to help develop it further, please raise an issue or create a pull request over at [GitHub](https://github.com/ChrisGrant/FirstSquadron, "GitHub").
+If you have noticed any issues with the app or want to help develop it further, please raise an issue or create a pull request over at [GitHub](https://github.com/ChrisGrant/FirstSquadron "GitHub First Squadron Repository").
