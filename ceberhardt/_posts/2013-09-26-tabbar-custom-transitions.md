@@ -258,6 +258,8 @@ You can obtain the source code for this interactive transition form the [VCTrans
 
 Regards, Colin E.
 
+<a href="shinobicontrols.com"><img src="{{ site.baseurl }}/ceberhardt/assets/shinobiad.jpg"/></a>
+
 
 
 
