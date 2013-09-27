@@ -84,7 +84,7 @@ The fighters themselves are simply sprite images:
 
 ![Enemy Plane](https://raw.github.com/ChrisGrant/FirstSquadron/master/FirstSquadron/enemy@2x.png) ![Hero Plane](https://raw.github.com/ChrisGrant/FirstSquadron/master/FirstSquadron/spitfire@2x.png)
 
-These were created in photoshop and based on blueprints of the *Messerschmitt Bf 109* and the *Submarine Spitfire*. 
+These were created in photoshop and based on blueprints of the *Messerschmitt Bf 109* and the *Supermarine Spitfire*.
 
 ####Launching Enemy Fighters
 
