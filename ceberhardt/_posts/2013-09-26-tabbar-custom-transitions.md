@@ -7,7 +7,7 @@ categories:
 summary: This blog post looks at creating an interactive tab bar controller transition, where you can swipe left and right to navigate between the tabs. The transition itself is a 'paperfold' effect - very pretty!
 layout: default_post
 ---
-In my previous blog post of view controller transitions I demonstrated how to create a page-fold animation controller. In this blog post, Ill take the concepts a step further by showing how to create interactive TabBar controller transitions.
+In my previous blog post on <a href="{{ site.baseurl }}/2013/09/20/creating-a-custom-flip-view-controller-transition.html">view controller transitions</a> I demonstrated how to create a page-fold animation controller. In this blog post, I'll take the concepts a step further by showing how to create interactive tab bar controller transitions.
 
 If you watched the [WWDC video #228](https://developer.apple.com/wwdc/videos/) "Custom Transitions Using View Controllers" you will have seen a demonstration that showed a tabbed interface where you can swipe left and right to navigate, with the view controllers folding like paper:
 
