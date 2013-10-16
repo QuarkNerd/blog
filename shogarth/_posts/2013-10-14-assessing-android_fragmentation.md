@@ -69,4 +69,4 @@ Fragmentation is a feature with bugs. There is a wealth of support available to 
 When fragmentation issues do pop up, a tailored cost-benefit analysis approach must be taken to ensure that the right decision is taken. Factor into analyses the time involved to fix an issue, versus the amount of affected devices and the impact of the fix.
 
 Android embraces fragmentation. You should too! A more open operating system results in more innovation and a wide uptake of devices. Embracing fragmentation means your application is ready to handle whatever device the market produces, and works to a high degree of quality. Maximising the amount of devices your application is compatible with ensures you are well-placed in an increasingly lucrative marketplace.
-<a href="shinobicontrols.com/android"><img src="{{ site.baseurl }}/shogarth/assets/shinobi_android_ad.jpg"/></a>
+<a href="http://www.shinobicontrols.com/android"><img src="{{ site.baseurl }}/shogarth/assets/shinobi_android_ad.jpg"/></a>
