@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # A script to create a blog post template
-# Creates a template post in <author>/_posts/YY-mm-dd-<title>.html
+# Creates a template post in <author>/_posts/YY-mm-dd-<title>.md
 # Created by Sam Hogarth
 
 set -e
@@ -53,7 +53,7 @@ author=$1
 date=$(date -I)
 separator="-"
 title=${2// /$separator}
-format=".html"
+format=".md"
 filename=$date$separator$title$format
 
 # Go to target directory
