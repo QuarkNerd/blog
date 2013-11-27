@@ -1,6 +1,11 @@
 ---
 author: shogarth
 title: Assessing Android Fragmentation
+featured-overlay-inverted: true
+image: "shogarth/assets/featured/fragmentation.png"
+image-attribution: "image courtesy of YoLaGringo"
+tags: 
+  - featured
 layout: default_post
 categories:
  - android
