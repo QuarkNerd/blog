@@ -2,6 +2,9 @@
 author: shogarth
 title: On Running a Code Club
 layout: default_post
+image: "shogarth/assets/featured/code-club.jpg"
+tags: 
+  - featured
 summary-short: "My thoughts and experiences setting up and running a Code Club"
 summary: "Scott Logic have been helping out with a Code Club at a local primary school. As one of the developers involved, I'd like to share my experiences and tips for running your own Code Club!"
 ---
