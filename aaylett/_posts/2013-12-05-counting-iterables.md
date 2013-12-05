@@ -98,7 +98,7 @@ public interface Counted<T> {
 }
 {% endhighlight %}
 
-The only other user-visible code is the static function `counted()`, which returns our iterable:
+The only other user-visible code is the static function `counting()`, which returns our iterable:
 
 {% highlight java %}
     public static <T> Iterable<Counted<T>> counting(Iterable<T> iterable) {
