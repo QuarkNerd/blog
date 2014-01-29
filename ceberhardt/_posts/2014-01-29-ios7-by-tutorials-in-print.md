@@ -1,9 +1,6 @@
 ---
 author: ceberhardt
 title: iOS 7 By Tutorials In Print
-tags: 
-  - featured
-  - featuredcolin
 categories: 
 summary: The book, iOS 7 By Tutorials, which I contributed four chapters to, is now in print.
 layout: default_post
