@@ -1,6 +1,6 @@
 ---
 author: sduncan
-title: Intro to IxD: Affordance
+title: "Intro to IxD: Affordance"
 image: "sduncan/assets/featured/2014-02-04-intro-to-ixd.jpg"
 summary: "Well designed objects and interfaces do not require lists of instructions. Why not?"
 summary-short: "Well designed objects and interfaces do not require lists of instructions. Why not?"
