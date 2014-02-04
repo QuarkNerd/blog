@@ -16,7 +16,6 @@ layout: default_post
 source: site
 featured-overlay-inverted: true
 ---
-##Intro to IxD: Affordance
 
 Don Norman, of MIT and the University of Pennsylvania is something of an interaction design and user experience figurehead. In his seminal book, The Design of Everyday Things, Norman (henceforth affectionately referred to as ‘The Don’) defines and describes one of the most fundamental concepts in interaction design: affordance.
 
