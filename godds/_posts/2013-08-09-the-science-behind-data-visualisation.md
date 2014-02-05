@@ -9,6 +9,7 @@ tags:
   - visualisation
   - infographics
   - featured
+  - featuredgodds
 categories:
   - godds
 layout: default_post
