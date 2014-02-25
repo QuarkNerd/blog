@@ -17,7 +17,6 @@ include: [.htaccess]
 exclude: [_migration, checkdups, post-receive, README.txt, redirect_list.html,create-blog-post.sh]
 
 active-authors: [aaylett, ceberhardt, cgrant, cprice, dkerr, godds, jphillpotts, lpage, mrhodes, nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth]
-active-authors: [aaylett, ceberhardt, cgrant, cprice, dkerr, godds, jphillpotts, lpage, mrhodes, nhemley, nwolverson, rbaxter, sduncan, shall, shogarth]
 authors:
     labs:
         name: Scott Logic Labs
