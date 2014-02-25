@@ -138,7 +138,7 @@ define([
     'templateMapper',
     'text!views/templates.htm'
 ], function (templateMapper, templatesText) {
-	var ViewModel, mappedTemplates;
+    var ViewModel, mappedTemplates;
     
     mappedTemplates = templateMapper.map(templatesText);
     
@@ -177,7 +177,7 @@ var require = {
 
 This will work in all cases except when using the [noConflict map pattern](http://requirejs.org/docs/jquery.html#noconflictmap) to do a deep `noConflict` which will remove both `$` and `jQuery` from the `window` object.
 
-In [Knockout 3.1.0](https://github.com/knockout/knockout/releases/tag/v3.1.0beta) (currently in beta), the jQuery capturing is done when `ko.applyBindings` is called, rather than when the module defines itself. The above shim config will therefore no longer be necessary. It also allows for a less than ideal solution for the deep `noConflict` map pattern, by doing an invalid `ko.applyBindings` to force a capture:
+In [Knockout 3.1.0](https://github.com/knockout/knockout/releases/tag/v3.1.0beta) (currently in beta), the jQuery capturing is done when `ko.applyBindings` is called, rather than when the module defines itself. The above shim config will therefore no longer be necessary, as long as jQuery is loaded before the bindings are applied. It also allows for a less than ideal solution for the deep `noConflict` map pattern, by doing an invalid `ko.applyBindings` to force a capture:
 
 {% highlight javascript %}
 // require-config.js
@@ -253,7 +253,7 @@ define([
 });
 {% endhighlight %}
 
-In our extensions, we use `knockout-raw` as Knockout to avoid a circular dependency. For third party extensions that depend on `knockout`, we could add an entry into the RequireJS `map` config.
+In our extensions, we use `knockout-raw` as Knockout to avoid a circular dependency. For third party extensions that depend on `knockout`, we could add an entry into the RequireJS `map` config to point them to `knockout-raw`.
 {% highlight javascript %}
 // ko-extensions/ko.extenders.foo.js
 define([
@@ -278,11 +278,11 @@ Furthermore, until Knockout 3.0.0, descendant bindings will not yet have been ap
 
 
 ### Control dependencies in custom bindings
-When using a binding handler to initialise and update a component (e.g. a jQuery UI custom widget) that itself uses Knockout, it's easy to create unwanted dependencies that will cause the binding handler to run in response to things happening inside the component.
+When using a binding handler to initialise and update a component (e.g. a jQuery UI custom widget) that itself uses Knockout, it's easy to create unwanted dependencies that will cause the binding handler to run in response to things happening inside the component. In Knockout versions lower than 3.0, all binding handlers would run, as they are not independent.
 
-Consider this enhancement to the widget binding handler mentioned earlier, that allows updates on the widget to be updated when some observable options on our view model change. The widget runs some code internally in response to options changing, and that code evaluates some observables. Because binding handlers run within a computed observable, those observables that the component evaluated will become dependencies of the binding handler's computed observable. So when those observables are later set by actions inside the component, they'll cause the binding handler to run. This is undesirable and will likely have unwanted effects.
+Consider this enhancement to the widget binding handler mentioned earlier, that allows updates on the created widget to be updated when some observable options on our view model change. The widget may run some code internally in response to options changing, and that code could evaluate some observables. Because binding handlers run within a computed observable, those observables that the component evaluated will become dependencies of the binding handler's computed observable. So when those observables are later set by actions inside the component, they'll cause the binding handler to run. This is undesirable and will likely have unwanted effects.
 
-We can use a computed observable that we immediately dispose of in our binding handler to capture and discard those unwanted dependencies. All binding handler code that calls in to unknown code (the widget) is placed inside the evaluator function of the computed observable, so any dependencies are on that computed observable, rather than on that of the binding handler itself.
+We can use a computed observable that we immediately dispose of in our binding handler to capture and discard those unwanted dependencies. All binding handler code that calls in to unknown code (the widget) is placed inside the evaluator function of the computed observable, so that any dependencies created will be on that computed observable, rather than on that of the binding handler itself.
 
 {% highlight javascript %}
 ko.bindingHandlers.component = {
@@ -315,8 +315,8 @@ var name = ko.observable().extend({
 As property iteration order is not guaranteed, the order in which extenders will be applied isn't either. And as each extender is applied to the return value of the previous, what each extender is applied to is also not guaranteed. Applying multiple extenders in a single call is therefore only appropriate if all those extenders return the target that they're applied to.
 
 
-### The style and css bindings
-These bindings only control the style properties and CSS classes that are properties of the current object given to them. Those properties are fixed if the object is declared in the binding string, but for larger sets of styles and classes it can be useful to point the binding to a computed observable on the view model (`data-bind="css: css"`):
+### Element attribute bindings
+The `css`, `style` and `attr` bindings control attributes on elements based only on the properties of the current object given to them. Those properties are fixed if the object is declared in the binding string, but as we saw earlier for larger objects it can be useful to point the binding to a property or computed observable on the view model (`data-bind="css: css"`):
 
 {% highlight javascript %}
 this.css = ko.computed(function () {
@@ -327,7 +327,7 @@ this.css = ko.computed(function () {
 }, this);
 {% endhighlight %}
 
-When doing this however, it's important to keep the set of properties fixed - properties that disappear on the next evaluation won't cause styles/classes to be removed from the element.
+When doing this however, it's important to keep the set of properties fixed - properties that disappear on the next evaluation won't cause attributes/styles/classes to be removed from the element.
 
 
 ### Modifying binding strings
