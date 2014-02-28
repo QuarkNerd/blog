@@ -4,6 +4,8 @@ title: "Arrow functions in Knockout.js"
 categories:
 - cprice
 layout: default_post
+tags:
+- blog
 ---
 #Arrow functions in Knockout.js
 
