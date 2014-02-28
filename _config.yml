@@ -16,7 +16,7 @@ destination: _site-safe
 include: [.htaccess]
 exclude: [_migration, checkdups, post-receive, README.txt, redirect_list.html,create-blog-post.sh]
 
-active-authors: [aaylett, ceberhardt, cgrant, cprice, dkerr, godds, jphillpotts, lpage, mrhodes, nhemley, nwolverson, rbaxter, sduncan, shall, shogarth]
+active-authors: [aaylett, ceberhardt, cgrant, cprice, dkerr, godds, jphillpotts, lpage, mrhodes, nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth]
 authors:
     labs:
         name: Scott Logic Labs
@@ -94,3 +94,8 @@ authors:
         gravatar: 0f765c3e99ff8441cf0d0f60aed9634b
         author-summary: UX designer. Arduino & physical computing enthusiest. Likes hip hop and 30 minute drone pieces.<br/><br/><a href="https://twitter.com/simonduncan">@simonduncan</a>
         feed-description: Simon Duncan is a UX designer, particularly interested in interaction design and information architecture. These are some of his thoughts.
+    rwilliams:
+        name: Robat Williams
+        email: rwilliams@scottlogic.co.uk
+        gravatar: b2e17d98db06119a53fffd5666848871
+        author-summary: <a href="https://twitter.com/_rwms">@_rwms</a><br/><a href="https://plus.google.com/u/0/111956836520400525467" rel="author">Google+</a>
