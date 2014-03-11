@@ -16,7 +16,7 @@ destination: _site-safe
 include: [.htaccess]
 exclude: [_migration, checkdups, post-receive, README.txt, redirect_list.html,create-blog-post.sh]
 
-active-authors: [aaylett, ceberhardt, cgrant, cprice, dkerr, godds, jphillpotts, lpage, mrhodes, nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth]
+active-authors: [aaylett, amorgan, ceberhardt, cgrant, cprice, dkerr, godds, jphillpotts, lpage, mrhodes, nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth]
 authors:
     labs:
         name: Scott Logic Labs
@@ -99,3 +99,6 @@ authors:
         email: rwilliams@scottlogic.co.uk
         gravatar: b2e17d98db06119a53fffd5666848871
         author-summary: <a href="https://twitter.com/_rwms">@_rwms</a><br/><a href="https://plus.google.com/u/0/111956836520400525467" rel="author">Google+</a>
+    amorgan:
+        name: Adam Morgan
+        email: amorgan@scottlogic.co.uk
