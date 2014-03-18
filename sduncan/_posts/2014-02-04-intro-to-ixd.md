@@ -122,7 +122,7 @@ Because our seeing similarly coloured elements as being part of a group (see the
 
 <img src="{{ site.baseurl }}//sduncan/assets/2014-02-04-intro-to-ixd/cursor-pointer.png" alt="cursor-pointer" class="aligncenter" />
 
-The cursor changing from an arrow to a pointer shows a change in function, and one that we subconsciously look for when clicking on links*
+*The cursor changing from an arrow to a pointer shows a change in function, and one that we subconsciously look for when clicking on links*
 
 Our cursor changes from a regular arrow to a pointer-finger; simultaneously, an underline appears under the blue text.  These extra clues reinforce an understanding of what this blue text means.  The blue text initially drew us in.  The subsequent actions and reactions convinced us that there was some form of interactivity to this text.  Indeed, actually clicking on the text provides the anticipated result: linking to another page.  All of these forms of affordance work together to tell us that there’s something worth investigating about this underlined text, and, more realistically, that this text represents a hyperlink without explicitly stating: “this is a link - click on it”.
 
