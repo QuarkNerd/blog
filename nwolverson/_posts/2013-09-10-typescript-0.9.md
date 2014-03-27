@@ -5,7 +5,6 @@ image: "nwolverson/assets/featured/typescript.jpg"
 featured-overlay-inverted: true
 tags: 
   - blog
-  - featured
 categories: 
   - nwolverson
 layout: default_post

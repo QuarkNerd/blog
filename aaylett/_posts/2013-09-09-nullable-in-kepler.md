@@ -5,7 +5,6 @@ title: "Eclipse Kepler and @Nullable"
 image: "aaylett/assets/featured/eclipse.jpg"
 featured-overlay-inverted: true
 tags: 
-  - featured
   - Eclipse
   - blog
 categories: 

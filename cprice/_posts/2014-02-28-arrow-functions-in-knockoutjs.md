@@ -1,8 +1,13 @@
 ---
 author: cprice
 title: "Arrow functions in Knockout.js"
+image: "cprice/assets/featured/arrows.jpg"
+image-attribution: 'image courtesy of <a href="http://www.flickr.com/photos/byronj/12637612753/sizes/z/">Byron James</a>'
+featured-overlay-inverted: true
 categories:
-- cprice
+ - cprice
+tags: 
+ - featured
 layout: default_post
 ---
 

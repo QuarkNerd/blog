@@ -8,7 +8,6 @@ tags:
   - UX design
   - visualisation
   - infographics
-  - featured
   - featuredgodds
 categories:
   - godds
