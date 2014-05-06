@@ -16,7 +16,7 @@ destination: _site-safe
 include: [.htaccess]
 exclude: [_migration, checkdups, post-receive, README.txt, redirect_list.html,create-blog-post.sh]
 
-active-authors: [aaylett, amorgan, ceberhardt, cgrant, cprice, dkerr, godds, jphillpotts, lpage, mrhodes, nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth]
+active-authors: [aaylett, amorgan, ceberhardt, cgrant, cprice, dkerr, godds, jphillpotts, lpage, mrhodes, nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth, dmcnamee]
 authors:
     labs:
         name: Scott Logic Labs
@@ -106,3 +106,9 @@ authors:
         name: Ilya Lopatkin
         email: ilopatkin@scottlogic.co.uk
         gravatar: 8a4e1343172f9207ae1f73520e09d9c8
+    dmcnamee:
+        name: Daniel McNamee
+        email: dmcnamee@scottlogic.com
+        gravatar: a764bd37e5ba2ba9305fc4d0c8b67aa7
+        author-summary: Tester. Photographer. <br/><br/><a href="https://twitter.com/demcnamee>twitter</a><br/><a href="https://www.google.com/+DanielMcNamee">google+</a>
+        feed-description: Daniel is a senior test engineer and exponent of rapid software testing.
