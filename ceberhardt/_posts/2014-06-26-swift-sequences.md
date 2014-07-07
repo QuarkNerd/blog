@@ -59,7 +59,7 @@ Deferred execution means that the evaluation of some expression, or calculation,
 
 **Lazy Evaluation**
 
-Lazy evaluation is a topic that relates to deferred execution. In the context of Swft sequences, lazy evaluation can be implemented by ensuring that the work required to provide the next value via the generator is only performed when the next value is actually requested.
+Lazy evaluation is a topic that relates to deferred execution. In the context of Swift sequences, lazy evaluation can be implemented by ensuring that the work required to provide the next value via the generator is only performed when the next value is actually requested.
 
 Both of the above probably sound like quite abstract concepts, so let's see how they can be used in practice.
 
