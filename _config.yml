@@ -1,6 +1,6 @@
 name: Scott Logic
 description: This feed is brought to you by Scott Logic's team of technical authors and bloggers, covering topics including HTML5, iOS, C#, process, UX and practically anything else relating to software development.
-baseurl: /blog
+baseurl: file:///C:/projects/scottlogic-website-blogs/_site-safe/
 siteurl: http://www.scottlogic.com
 scottlogicdisqusurl: http://scottlogic.disqus.com
 permalink: /:year/:month/:day/:title.html
@@ -9,7 +9,7 @@ lsi: false
 
 debug: false
 
-pygments: true
+pygments: false
 markdown: maruku
 
 destination: _site-safe
