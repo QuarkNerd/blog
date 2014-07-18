@@ -77,6 +77,34 @@ newUserStream.onValue(function(results) {
 
 Finally, we're going to collate some stats about the rate at which Wikipedia is being updated. We shall keep a count of the number of update events we receive, and we shall calculate how many updates we see every 5 seconds. This will allow us to come the rate of updates which are being made per second.
 
+First we use the *scan* method provided by Bacon. This takes a seed value and an accumulator function, and results in a property. A property in Bacon is like an event stream, except that it also contains a current value, which is updated each time an event occurs. We shall use the *scan* method to keep a running count of the number of events we have received.
+
+{% highlight javascript %}
+var updateCount = updateStream.scan(0, function(value) {
+    return ++value;
+});
+{% endhighlight %}
+
+We shall sample this count every 5 seconds. Bacon provides a method, *sample*, which facilitates this.
+
+{% highlight javascript %}
+var sampledUpdates = updateCount.sample(5000);
+{% endhighlight %}
+
+Now that we are sampling the number of updates received every 5 seconds, we can calculate the number of updates received since the last sample, and hence the rate at which Wikipedia is being updated.
+
+{% highlight javascript %}
+var totalEditsBeforeLastSample = 0;
+var editsOverTime = [];
+sampledUpdates.onValue(function(value) {
+    editsOverTime.push((value - totalEditsBeforeLastSample) / 5.0);
+    console.log(editsOverTime);
+    totalEditsBeforeLastSample = value;
+    return value;
+});
+{% endhighlight %}
+
+
 {% highlight javascript %}
 {% endhighlight %}
 
