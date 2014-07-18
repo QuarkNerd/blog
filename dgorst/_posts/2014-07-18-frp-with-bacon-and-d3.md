@@ -94,12 +94,12 @@ var sampledUpdates = updateCount.sample(5000);
 Now that we are sampling the number of updates received every 5 seconds, we can calculate the number of updates received since the last sample, and hence the rate at which Wikipedia is being updated.
 
 {% highlight javascript %}
-var totalEditsBeforeLastSample = 0;
-var editsOverTime = [];
+var totalUpdatesBeforeLastSample = 0;
+var updatesOverTime = [];
 sampledUpdates.onValue(function(value) {
-    editsOverTime.push((value - totalEditsBeforeLastSample) / 5.0);
-    console.log(editsOverTime);
-    totalEditsBeforeLastSample = value;
+    updatesOverTime.push((value - totalUpdatesBeforeLastSample) / 5.0);
+    console.log(updatesOverTime);
+    totalUpdatesBeforeLastSample = value;
     return value;
 });
 {% endhighlight %}
