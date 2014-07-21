@@ -4,11 +4,11 @@ title: "Functional Reactive Programming with Bacon.js and D3"
 categories: 
 tags:
 
-summary: "One of my colleagues, Sam Davies, recently gave a presentaion on functional reactive programming in iOS. This blog post takes the concepts introduced in that presentation and translates them into the Javascript world."
+summary: "Reactive programming is a paradigm which allows you to better represent a work flow where changes in one part of your data model propagate down to other parts of the model. One of my colleagues, Sam Davies, recently gave a presentation on functional reactive programming in iOS. This blog post takes the concepts introduced in that presentation and translates them into the Javascript world."
 layout: default_post
 ---
 
-One of my colleagues, Sam Davies, recently gave a presentaion on functional reactive programming in iOS (For those of you who are interested, a recording of the talk is available from the BrisTech YouTube channel, [here](https://www.youtube.com/watch?v=1-YhrLIyRXs).). The concepts introduced in that talk were very interesting, so I was inspired to investigate how you might go about implementing them in the Javascript world. This blog post describes the results of that investigation.
+One of my colleagues, Sam Davies, recently gave a presentation on functional reactive programming in iOS (For those of you who are interested, a recording of the talk is available from the BrisTech YouTube channel, [here](https://www.youtube.com/watch?v=1-YhrLIyRXs).). The concepts introduced in that talk were very interesting, so I was inspired to investigate how you might go about implementing them in the Javascript world. This blog post describes the results of that investigation.
 
 So what is functional reactive programming (FRP)? Reactive programming has been described as a paradigm orientated around data flows and the propagation of change. The aim of this concept is to make it easier to express dynamic data flows. As one part of your data model changes, that change should automatically propagate through your model, potentially changing other parts of it.
 
