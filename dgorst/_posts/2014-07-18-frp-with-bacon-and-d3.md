@@ -14,7 +14,7 @@ So what is functional reactive programming (FRP)? Reactive programming has been 
 
 An example of this would be a modern spreadsheet program. Spreadsheet cells can contain both literal values, or formulas such as "=B1+C1" that are evaluated based on other cells. Whenever the value of the other cells change, the value of the formula is automatically updated.
 
-Functional programming is a paradigm where computation in a program is treated as the evaluation of mathematical functions, and where state and mutable data are avoided. The output value of a function depends only on the arguments which are input to the function, so calling a function f twice with the same arguments will produce the same result f(x, y) both times. Javascript is a language suited to functional programming as it treats functions as first-class objects within the language.
+Functional programming is a paradigm where computation in a program is treated as the evaluation of mathematical functions, and where state and mutable data are avoided. The output value of a function depends only on the arguments which are input to the function, so calling a function *f* twice with the same arguments will produce the same result *f(x, y)* both times. Javascript is a language suited to functional programming as it treats functions as first-class objects within the language.
 
 So, now that we've introduced some of the core concepts, let's write some code!
 
@@ -75,7 +75,7 @@ newUserStream.onValue(function(results) {
 });
 {% endhighlight %}
 
-Finally, we're going to collate some stats about the rate at which Wikipedia is being updated. We shall keep a count of the number of update events we receive, and we shall calculate how many updates we see every 5 seconds. This will allow us to come the rate of updates which are being made per second.
+Finally, we're going to collate some stats about the rate at which Wikipedia is being updated. We shall keep a count of the number of update events we receive, and we shall calculate how many updates we see every 2 seconds. This will allow us to come the rate of updates which are being made per second.
 
 First we use the *scan* method provided by Bacon. This takes a seed value and an accumulator function, and results in a property. A property in Bacon is like an event stream, except that it also contains a current value, which is updated each time an event occurs. We shall use the *scan* method to keep a running count of the number of events we have received.
 
@@ -85,32 +85,273 @@ var updateCount = updateStream.scan(0, function(value) {
 });
 {% endhighlight %}
 
-We shall sample this count every 5 seconds. Bacon provides a method, *sample*, which facilitates this.
+We shall sample this count every 2 seconds. Bacon provides a method, *sample*, which facilitates this.
 
 {% highlight javascript %}
-var sampledUpdates = updateCount.sample(5000);
+var sampledUpdates = updateCount.sample(2000);
 {% endhighlight %}
 
-Now that we are sampling the number of updates received every 5 seconds, we can calculate the number of updates received since the last sample, and hence the rate at which Wikipedia is being updated.
+Now that we are sampling the number of updates received every 2 seconds, we can calculate the number of updates received since the last sample, and hence the rate at which Wikipedia is being updated.
 
 {% highlight javascript %}
 var totalUpdatesBeforeLastSample = 0;
-var updatesOverTime = [];
 sampledUpdates.onValue(function(value) {
-    updatesOverTime.push((value - totalUpdatesBeforeLastSample) / 5.0);
-    console.log(updatesOverTime);
+    var updateRate = (value - totalUpdatesBeforeLastSample) / 2.0;
+    console.log(updateRate);
     totalUpdatesBeforeLastSample = value;
     return value;
 });
 {% endhighlight %}
 
+Now that we have defined our functional pipeline for events, it's time to do something more exciting with it than just logging to the console! For this, we shall use D3.
 
-{% highlight javascript %}
+## Visualising data with D3
+
+I imagine most of you will have heard of D3 already, but for those of you who haven't, D3 is a powerful javascript library for binding data sets to a Document Object Model (DOM). It makes it easier to create good-looking visualisations of your data, and facilitates advanced features such as interactivity or transitions.
+
+In this example, we shall display a line chart showing the rate of Wikipedia updates over time. We shall annotate the chart when new users are created, and we shall display text below the chart showing the subject of Wikipedia edits.
+
+First, we shall update our HTML page to contain a SVG element. We shall use this to display our chart and text.
+
+{% highlight html %}
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>FRP with Bacon</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="frp-with-bacon.css" rel="stylesheet">
+</head>
+<body>
+    <h1>Wikipedia Updates</h1>
+    <svg></svg>
+  
+    <script src="Bacon.js"></script>
+    <script src="d3.js"></script>
+    <script src="frp-with-bacon.js"></script>
+</body>
+</html>
 {% endhighlight %}
 
+As you can see, our HTML page is fairly minimal. It just contains the SVG element along with a header. We create references to the Javascript files we are using. Our work so far has been saved in *frp-with-bacon.js*. Now that we have an SVG element on our page, we shall update our Javascript to add a D3 chart to it.
+
+{% highlight javascript %}
+var updatesOverTime = [];
+var newUserTimes = [];
+
+var width = 960,
+    height = 600,
+    margins = {
+        top: 20,
+        bottom: 50,
+        left: 70,
+        right: 20
+    };
+
+var svg = d3.select("svg")
+    .attr("width", width)
+    .attr("height", height + 200);
+
+var xRange = d3.time.scale().range([margins.left, width - margins.right])
+    .domain([new Date(), new Date()]);
+var yRange = d3.scale.linear().range([height - margins.bottom, margins.top])
+    .domain([0, 0]);
+var xAxis = d3.svg.axis()
+    .scale(xRange)
+    .tickSize(5)
+    .tickSubdivide(true)
+    .tickFormat(d3.time.format("%X"));
+var yAxis = d3.svg.axis()
+    .scale(yRange)
+    .tickSize(5)
+    .orient("left")
+    .tickSubdivide(true);
+
+var xAxisElement = svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + (height - margins.bottom) + ")")
+    .call(xAxis);
+
+// Add a label to the middle of the x axis
+var xAxisWidth = ((width - margins.right) - margins.left) / 2;
+xAxisElement.append("text")
+    .attr("x", margins.left + xAxisWidth)
+    .attr("y", 0)
+    .attr("dy", "3em")
+    .style("text-anchor", "middle")
+    .text("Time");
+
+var yAxisElement = svg.append("g")
+    .attr("class", "y axis")
+    .attr("transform", "translate(" + margins.left + ",0)")
+    .call(yAxis);
+
+// Add a label to the middle of the y axis
+var yAxisHeight = ((height - margins.bottom) - margins.top) / 2;
+yAxisElement.append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 0)
+    .attr("x", -(margins.top + yAxisHeight))
+    .attr("dy", "-3.5em")
+    .style("text-anchor", "middle")
+    .text("Updates per second");
+
+// Define our line series
+var lineFunc = d3.svg.line()
+    .x(function(d) { return xRange(d.x); })
+    .y(function(d) { return yRange(d.y); })
+    .interpolate("linear");
+
+var line = svg.append("path")
+    .attr("stroke", "blue")
+    .attr("fill", "none");
+{% endhighlight %}
+
+There are a few things going on in that last code snippet, so let's go through it in a little more detail. First we define a couple of variables which will hold our data. We shall update these in response to events being handled in our functional pipeline. We then set the size of the SVG element on our HTML page, and add our chart to it. The chart contains an x axis and a y axis, and it displays its data in a line chart. We format the x axis to display date/time values. Initially both the x and y axes have zero ranges. We shall update these as data comes in. We set the attributes of our line series, but we don't actually bind it to a data set yet. We shall do that later on.
+
+Now that we have a line chart on our page, we need to define a function to update it when new data comes in.
+
+{% highlight javascript %}
+var updateTransitionDuration = 550;
+
+function update(updates, newUsers) {
+    // Update the ranges of the chart to reflect the new data
+    if (updates.length > 0)   {
+        xRange.domain(d3.extent(updates, function(d) { return d.x; }));
+        yRange.domain([d3.min(updates, function(d) { return d.y; }), d3.max(updates, function(d) { return d.y; })]);
+    }
+    
+    // If the first new user event is now off the chart, remove it
+    var firstNewUserTime = newUsers[0];
+    var xAxisMin = xRange.domain()[0];
+    if (firstNewUserTime < xAxisMin) {
+        newUsers.shift();
+    }
+    
+    // Update the line series on the chart
+    line.transition().duration(updateTransitionDuration).attr("d", lineFunc(updates));
+    
+    // Update the axes on the chart
+    svg.selectAll("g.x.axis").transition().duration(updateTransitionDuration).call(xAxis);
+    svg.selectAll("g.y.axis").transition().duration(updateTransitionDuration).call(yAxis);
+    
+    // Render the points in the line series
+    var points = svg.selectAll("circle").data(updates);
+    var pointsEnter = points.enter().append("circle")
+        .attr("r", 2)
+        .style("fill", "blue");
+    
+    var pointsUpdate = points.transition().duration(updateTransitionDuration)
+        .attr("cx", function(d) { return xRange(d.x); })
+        .attr("cy", function(d) { return yRange(d.y); });
+    
+    var pointsExit = points.exit()
+        .transition().duration(updateTransitionDuration)
+        .remove();
+    
+    // For any new user events, render a translucent red line on the chart
+    var newUserLines = svg.selectAll("rect").data(newUsers);
+    var newUsersEnter = newUserLines.enter().append("rect")
+        .attr("width", 5)
+        .attr("fill-opacity", 1e-6)
+        .attr("fill", "red");
+    
+    var newUsersUpdate = newUserLines.transition().duration(updateTransitionDuration)
+        .attr("x", function(d) { return xRange(d); })
+        .attr("y", margins.top)
+        .attr("height", height - margins.bottom - margins.top)
+        .attr("fill-opacity", 0.5);
+    
+    var newUsersExit = newUserLines.exit()
+        .transition().duration(updateTransitionDuration)    
+        .remove();
+}
+{% endhighlight %}
+
+In the update method, we refresh the ranges of our axes to reflect the ranges of the new data. When we receive any new user events, we annotate the chart with a vertical line fixed at the time point when the new user event occurred. We bind the new user annotations to the *newUsers* variable we pass in, and we bind the line series to the *updates* variable which we pass in.
+
+To make the chart look prettier, we've drawn circles to represent the points on the line series. These are also bound to the *updates* variable. To make chart updates look nicer, we've defined transitions for update events in the chart. Rather than just jerking to its new state, we have defined a transition on the line series and its points. This means that they will animate nicely to their new positions when data changes. We've also defined a transition on the new user annotations. The annotations start off translucent as they are added to the chart, and then fade in.
+
+Now that we have a function to update our chart when new data is received, let's make use of it in our functional pipeline. Let's the method we defined earlier which takes samples of update events, and update it to refresh our chart.
+
+{% highlight javascript %}
+sampledUpdates.onValue(function(value) {
+    updatesOverTime.push({
+        x: new Date(), 
+        y:(value - totalUpdatesBeforeLastSample) / 2.0
+    });
+    if (updatesOverTime.length > 20)  {
+        updatesOverTime.shift();
+    }
+    totalUpdatesBeforeLastSample = value;
+    update(updatesOverTime, newUserTimes);
+    return value;
+});
+{% endhighlight %}
+
+Great, so now our chart will update each time we take a new sample. We define each value in the *updatesOverTime* array as an object with an x and a y value. We set the x value to be the time at which the sample is taken. We are taking a moving window view of our data - we use the 20 most recent samples and throw older data away. Notice that we're passing the *newUserTimes* variable into our *update* function, but we haven't populated it yet. Let's look at doing that now.
+
+Earlier we defined an event stream to filter out new user events from the main stream. Let's update that to refresh our chart instead of logging to the console.
+
+{% highlight javascript %}
+newUserStream.onValue(function(results) {
+    newUserTimes.push(new Date());
+    update(updatesOverTime, newUserTimes);
+});
+{% endhighlight %}
+
+So now we refresh our chart in response to 2 types of events - either when we take a new sample of the rate of updates, or when a new user event is received.
+
+Finally, it would be interesting to see the subjects which are being edited in Wikipedia as well as seeing the rate of updates. To do this, we shall add a text element below our chart. In our Javascript, we can add a text element below the code where we create our line chart.
+
+{% highlight javascript %}
+// Add a text element below the chart, which will display the subject of new edits
+svg.append("text")
+    .attr("class", "edit-text")
+    .attr("transform", "translate(" + margins.left + "," + (height + 20)  + ")")
+    .attr("width", width - margins.left);
+{% endhighlight %}
+
+We set the text element to be displayed below the chart, lined up with the edge of the y axis. We can now add a function to update the text element in response to new data.
+
+{% highlight javascript %}
+var updateEditText = function(latestEdit)   {
+    var text = svg.selectAll("text.edit-text").data(latestEdit);
+
+    text.transition()
+        .duration(updateTransitionDuration)
+        .style("fill-opacity", 1e-6)
+        .transition()
+        .duration(updateTransitionDuration)
+        .style("fill-opacity", 1)
+        .text(function (d) { return d; });
+}
+{% endhighlight %}
+
+When we receive a new edit event, we update the text element to display it. To improve the look and feel of the change, we apply fade transitions to the text. It first of all fades out the old text, then fades in the new one.
+
+Earlier, we defined a stream to filter out edit events from the main stream. Let's update that to refresh our text element when new edit events are received.
+
+{% highlight javascript %}
+editStream.onValue(function(results) {
+    updateEditText([results.content]);
+});
+{% endhighlight %}
+
+So there you have it. We now have a chart and associated text which updates in response to updates in Wikipedia. The finished chart looks like this.
+
+<img src="{{ site.baseurl }}/dgorst/assets/frp-with-bacon/FinishedChart.png"/>
+
+The source code for this blog post is available on my GitHub page: [https://github.com/DanGorst/frp-with-bacon](https://github.com/DanGorst/frp-with-bacon)
+If you have any thoughts, ideas or comments, please let me know! 
+
 ## Acknowledgements
+
+The inspiration for this blog post came from Sam Davies' recent presentation at BrisTech. You can find the video of the talk on the BrisTech YouTube channel: [https://www.youtube.com/watch?v=1-YhrLIyRXs](https://www.youtube.com/watch?v=1-YhrLIyRXs)
 
 A lot of the concepts in this post were new to me before I started writing it, so I made heavy use of other blogs and tutorials online while I was learning. Thanks go to:
 
 - [Sean Voisen's introduction to FRP](http://sean.voisen.org/blog/2013/09/intro-to-functional-reactive-programming/)
 - [The excellent docs available on the Bacon.js GitHub page](https://github.com/baconjs/bacon.js#intro)
+- [The tutorials section on the D3 GitHub page](https://github.com/mbostock/d3/wiki/Tutorials)
