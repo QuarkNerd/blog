@@ -52,7 +52,8 @@ Let's look at the last part of that snippet more closely. First, we create an ev
 Now that we have a stream of update events from Wikipedia, let's look at pulling out the events which are of interest to us. The schema used for updates in Wikipedia isn't the clearest, but it seems that updates with type "unspecified" mainly refer to edits. Let's filter our event stream so that we just pull out edits.
 
 {% highlight javascript %}
-// Filter the update stream for unspecified events, which we're taking to mean edits in this case
+// Filter the update stream for unspecified events, which we're taking to 
+// mean edits in this case
 var editStream = updateStream.filter(function(update) {
     return update.type === "unspecified";
 });
@@ -153,9 +154,11 @@ var svg = d3.select("svg")
     .attr("width", width)
     .attr("height", height + 200);
 
-var xRange = d3.time.scale().range([margins.left, width - margins.right])
+var xRange = d3.time.scale()
+    .range([margins.left, width - margins.right])
     .domain([new Date(), new Date()]);
-var yRange = d3.scale.linear().range([height - margins.bottom, margins.top])
+var yRange = d3.scale.linear()
+    .range([height - margins.bottom, margins.top])
     .domain([0, 0]);
 var xAxis = d3.svg.axis()
     .scale(xRange)
@@ -219,7 +222,8 @@ function update(updates, newUsers) {
     // Update the ranges of the chart to reflect the new data
     if (updates.length > 0)   {
         xRange.domain(d3.extent(updates, function(d) { return d.x; }));
-        yRange.domain([d3.min(updates, function(d) { return d.y; }), d3.max(updates, function(d) { return d.y; })]);
+        yRange.domain([d3.min(updates, function(d) { return d.y; }), 
+                        d3.max(updates, function(d) { return d.y; })]);
     }
     
     // If the first new user event is now off the chart, remove it
@@ -230,11 +234,19 @@ function update(updates, newUsers) {
     }
     
     // Update the line series on the chart
-    line.transition().duration(updateTransitionDuration).attr("d", lineFunc(updates));
+    line.transition()
+        .duration(updateTransitionDuration)
+        .attr("d", lineFunc(updates));
     
     // Update the axes on the chart
-    svg.selectAll("g.x.axis").transition().duration(updateTransitionDuration).call(xAxis);
-    svg.selectAll("g.y.axis").transition().duration(updateTransitionDuration).call(yAxis);
+    svg.selectAll("g.x.axis")
+        .transition()
+        .duration(updateTransitionDuration)
+        .call(xAxis);
+    svg.selectAll("g.y.axis")
+        .transition()
+        .duration(updateTransitionDuration)
+        .call(yAxis);
     
     // Render the points in the line series
     var points = svg.selectAll("circle").data(updates);
@@ -242,12 +254,15 @@ function update(updates, newUsers) {
         .attr("r", 2)
         .style("fill", "blue");
     
-    var pointsUpdate = points.transition().duration(updateTransitionDuration)
+    var pointsUpdate = points
+        .transition()
+        .duration(updateTransitionDuration)
         .attr("cx", function(d) { return xRange(d.x); })
         .attr("cy", function(d) { return yRange(d.y); });
     
     var pointsExit = points.exit()
-        .transition().duration(updateTransitionDuration)
+        .transition()
+        .duration(updateTransitionDuration)
         .remove();
     
     // For any new user events, render a translucent red line on the chart
@@ -257,7 +272,9 @@ function update(updates, newUsers) {
         .attr("fill-opacity", 1e-6)
         .attr("fill", "red");
     
-    var newUsersUpdate = newUserLines.transition().duration(updateTransitionDuration)
+    var newUsersUpdate = newUserLines
+        .transition()
+        .duration(updateTransitionDuration)
         .attr("x", function(d) { return xRange(d); })
         .attr("y", margins.top)
         .attr("height", height - margins.bottom - margins.top)
@@ -343,7 +360,8 @@ So there you have it. We now have a chart and associated text which updates in r
 
 <img src="{{ site.baseurl }}/dgorst/assets/frp-with-bacon/FinishedChart.png"/>
 
-The source code for this blog post is available on my GitHub page: [https://github.com/DanGorst/frp-with-bacon](https://github.com/DanGorst/frp-with-bacon)
+The source code for this blog post is available on my GitHub page: [https://github.com/DanGorst/frp-with-bacon](https://github.com/DanGorst/frp-with-bacon).
+If you would like to see the code in action, I've published a GitHub page for the project: [http://dangorst.github.io/frp-with-bacon/](http://dangorst.github.io/frp-with-bacon/).
 If you have any thoughts, ideas or comments, please let me know! 
 
 ## Acknowledgements
