@@ -139,7 +139,6 @@ As you can see, our HTML page is fairly minimal. It just contains the SVG elemen
 
 {% highlight javascript %}
 var updatesOverTime = [];
-var newUserTimes = [];
 
 var width = 960,
     height = 600,
@@ -218,19 +217,12 @@ Now that we have a line chart on our page, we need to define a function to updat
 {% highlight javascript %}
 var updateTransitionDuration = 550;
 
-function update(updates, newUsers) {
+function update(updates, newUser) {
     // Update the ranges of the chart to reflect the new data
     if (updates.length > 0)   {
         xRange.domain(d3.extent(updates, function(d) { return d.x; }));
         yRange.domain([d3.min(updates, function(d) { return d.y; }), 
-                        d3.max(updates, function(d) { return d.y; })]);
-    }
-    
-    // If the first new user event is now off the chart, remove it
-    var firstNewUserTime = newUsers[0];
-    var xAxisMin = xRange.domain()[0];
-    if (firstNewUserTime < xAxisMin) {
-        newUsers.shift();
+                       d3.max(updates, function(d) { return d.y; })]);
     }
     
     // Update the line series on the chart
@@ -261,34 +253,34 @@ function update(updates, newUsers) {
         .attr("cy", function(d) { return yRange(d.y); });
     
     var pointsExit = points.exit()
-        .transition()
-        .duration(updateTransitionDuration)
+        .transition().duration(updateTransitionDuration)
         .remove();
     
-    // For any new user events, render a translucent red line on the chart
-    var newUserLines = svg.selectAll("rect").data(newUsers);
-    var newUsersEnter = newUserLines.enter().append("rect")
-        .attr("width", 5)
-        .attr("fill-opacity", 1e-6)
-        .attr("fill", "red");
-    
-    var newUsersUpdate = newUserLines
+    var newUserIndicator = svg.selectAll("circle.new-user").data(newUser);
+    newUserIndicator.enter().append("circle")
+        .attr("class", "new-user")
+        .attr("r", 40)
+        .attr("fill", "green")
+        .attr("cx", width - margins.right - margins.left)
+        .attr("cy", height + 20)
+        .attr("opacity", 1e-6)
         .transition()
         .duration(updateTransitionDuration)
-        .attr("x", function(d) { return xRange(d); })
-        .attr("y", margins.top)
-        .attr("height", height - margins.bottom - margins.top)
-        .attr("fill-opacity", 0.5);
+        .attr("opacity", 0.75);
     
-    var newUsersExit = newUserLines.exit()
-        .transition().duration(updateTransitionDuration)    
+    newUserIndicator.exit()
+        .transition()
+        .duration(updateTransitionDuration)
+        .attr("cx", width - margins.right - margins.left)
+        .attr("cy", height + 20)
+        .attr("opacity", 1e-6)
         .remove();
 }
 {% endhighlight %}
 
-In the update method, we refresh the ranges of our axes to reflect the ranges of the new data. When we receive any new user events, we annotate the chart with a vertical line fixed at the time point when the new user event occurred. We bind the new user annotations to the *newUsers* variable we pass in, and we bind the line series to the *updates* variable which we pass in.
+In the update method, we refresh the ranges of our axes to reflect the ranges of the new data. When we receive any new user events, we show a circular indicator below the chart on the right hand side. We bind the line series to the *updates* variable which we pass in, and we bind the new user indicator to the *newUser* variable.
 
-To make the chart look prettier, we've drawn circles to represent the points on the line series. These are also bound to the *updates* variable. To make chart updates look nicer, we've defined transitions for update events in the chart. Rather than just jerking to its new state, we have defined a transition on the line series and its points. This means that they will animate nicely to their new positions when data changes. We've also defined a transition on the new user annotations. The annotations start off translucent as they are added to the chart, and then fade in.
+To make the chart look prettier, we've drawn circles to represent the points on the line series. These are also bound to the *updates* variable. To make chart updates look nicer, we've defined transitions for update events in the chart. Rather than just jerking to its new state, we have defined a transition on the line series and its points. This means that they will animate nicely to their new positions when data changes. We also fade the new user indicator in and out rather than just making it appear and disappear.
 
 Now that we have a function to update our chart when new data is received, let's make use of it in our functional pipeline. Let's the method we defined earlier which takes samples of update events, and update it to refresh our chart.
 
@@ -302,23 +294,23 @@ sampledUpdates.onValue(function(value) {
         updatesOverTime.shift();
     }
     totalUpdatesBeforeLastSample = value;
-    update(updatesOverTime, newUserTimes);
+    update(updatesOverTime, []);
     return value;
 });
 {% endhighlight %}
 
-Great, so now our chart will update each time we take a new sample. We define each value in the *updatesOverTime* array as an object with an x and a y value. We set the x value to be the time at which the sample is taken. We are taking a moving window view of our data - we use the 20 most recent samples and throw older data away. Notice that we're passing the *newUserTimes* variable into our *update* function, but we haven't populated it yet. Let's look at doing that now.
+Great, so now our chart will update each time we take a new sample. We define each value in the *updatesOverTime* array as an object with an x and a y value. We set the x value to be the time at which the sample is taken. We are taking a moving window view of our data - we use the 20 most recent samples and throw older data away. Notice that we're passing an empty array as the second argument into our *update* function - we are doing this to tell the chart to hide the new user indicator if it is displaying. We should also tell the chart to display the indicator when a new user is recieved - let's look at doing that now.
 
 Earlier we defined an event stream to filter out new user events from the main stream. Let's update that to refresh our chart instead of logging to the console.
 
 {% highlight javascript %}
 newUserStream.onValue(function(results) {
     newUserTimes.push(new Date());
-    update(updatesOverTime, newUserTimes);
+    update(updatesOverTime, ["newuser"]);
 });
 {% endhighlight %}
 
-So now we refresh our chart in response to 2 types of events - either when we take a new sample of the rate of updates, or when a new user event is received.
+So now we refresh our chart in response to 2 types of events - either when we take a new sample of the rate of updates, or when a new user event is received. The data we're sending as the second argument to the chart when we receive a new user event is a little contrived, but it allows the chart to update and it gives the chart something to bind to. We don't receive any information on the new user which was created, so for now we just tell the chart that there was one.
 
 Finally, it would be interesting to see the subjects which are being edited in Wikipedia as well as seeing the rate of updates. To do this, we shall add a text element below our chart. In our Javascript, we can add a text element below the code where we create our line chart.
 
