@@ -210,7 +210,7 @@ var line = svg.append("path")
     .attr("fill", "none");
 {% endhighlight %}
 
-There are a few things going on in that last code snippet, so let's go through it in a little more detail. First we define a couple of variables which will hold our data. We shall update these in response to events being handled in our functional pipeline. We then set the size of the SVG element on our HTML page, and add our chart to it. The chart contains an x axis and a y axis, and it displays its data in a line chart. We format the x axis to display date/time values. Initially both the x and y axes have zero ranges. We shall update these as data comes in. We set the attributes of our line series, but we don't actually bind it to a data set yet. We shall do that later on.
+There are a few things going on in that last code snippet, so let's go through it in a little more detail. First we define a variable which will hold our update data. We shall update this in response to events being handled in our functional pipeline. We then set the size of the SVG element on our HTML page, and add our chart to it. The chart contains an x axis and a y axis, and it displays its data in a line chart. We format the x axis to display date/time values. Initially both the x and y axes have zero ranges. We shall update these as data comes in. We set the attributes of our line series, but we don't actually bind it to a data set yet. We shall do that later on.
 
 Now that we have a line chart on our page, we need to define a function to update it when new data comes in.
 
