@@ -10,7 +10,7 @@ layout: default_post
 
 One of my colleagues, Sam Davies, recently gave a presentation on functional reactive programming in iOS (For those of you who are interested, a recording of the talk is available from the BrisTech YouTube channel, [here](https://www.youtube.com/watch?v=1-YhrLIyRXs).). The concepts introduced in that talk were very interesting, so I was inspired to investigate how you might go about implementing them in the Javascript world. This blog post describes the results of that investigation.
 
-So what is functional reactive programming (FRP)? Reactive programming has been described as a paradigm orientated around data flows and the propagation of change. The aim of this concept is to make it easier to express dynamic data flows. As one part of your data model changes, that change should automatically propagate through your model, potentially changing other parts of it.
+So what is functional reactive programming (FRP)? Reactive programming can be described as a paradigm orientated around data flows and the propagation of change. The aim of this concept is to make it easier to express dynamic data flows. As one part of your data model changes, that change should automatically propagate through your model, potentially changing other parts of it.
 
 An example of this would be a modern spreadsheet program. Spreadsheet cells can contain both literal values, or formulas such as "=B1+C1" that are evaluated based on other cells. Whenever the value of the other cells change, the value of the formula is automatically updated.
 
@@ -75,7 +75,7 @@ newUserStream.onValue(function(results) {
 });
 {% endhighlight %}
 
-Finally, we're going to collate some stats about the rate at which Wikipedia is being updated. We shall keep a count of the number of update events we receive, and we shall calculate how many updates we see every 2 seconds. This will allow us to come the rate of updates which are being made per second.
+Finally, we're going to collate some stats about the rate at which Wikipedia is being updated. We shall keep a count of the number of update events we receive, and we shall calculate how many updates we see every 2 seconds. This will allow us to count the rate of updates which are being made per second.
 
 First we use the *scan* method provided by Bacon. This takes a seed value and an accumulator function, and results in a property. A property in Bacon is like an event stream, except that it also contains a current value, which is updated each time an event occurs. We shall use the *scan* method to keep a running count of the number of events we have received.
 
@@ -111,7 +111,7 @@ I imagine most of you will have heard of D3 already, but for those of you who ha
 
 In this example, we shall display a line chart showing the rate of Wikipedia updates over time. We shall annotate the chart when new users are created, and we shall display text below the chart showing the subject of Wikipedia edits.
 
-First, we shall update our HTML page to contain a SVG element. We shall use this to display our chart and text.
+First, we shall update our HTML page to contain an SVG element. We shall use this to display our chart and text.
 
 {% highlight html %}
 <!DOCTYPE html>
