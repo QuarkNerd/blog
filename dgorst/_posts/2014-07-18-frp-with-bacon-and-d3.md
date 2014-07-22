@@ -4,17 +4,21 @@ title: "Functional Reactive Programming with Bacon.js and D3"
 categories: 
 tags:
 
-summary: "Reactive programming is a paradigm which allows you to better represent a work flow where changes in one part of your data model propagate down to other parts of the model. One of my colleagues, Sam Davies, recently gave a presentation on functional reactive programming in iOS. This blog post takes the concepts introduced in that presentation and translates them into the Javascript world."
+summary: "Reactive programming is a paradigm which allows you to better represent a work flow where changes in one part of your data model propagate down to other parts of the model. This blog post demonstrates an example of this, by listening for updates to Wikipedia and reacting accordingly."
 layout: default_post
 ---
 
-One of my colleagues, Sam Davies, recently gave a presentation on functional reactive programming in iOS (For those of you who are interested, a recording of the talk is available from the BrisTech YouTube channel, [here](https://www.youtube.com/watch?v=1-YhrLIyRXs).). The concepts introduced in that talk were very interesting, so I was inspired to investigate how you might go about implementing them in the Javascript world. This blog post describes the results of that investigation.
+One of my colleagues, Sam Davies, recently gave a presentation on functional reactive programming in iOS (For those of you who are interested, a recording of the talk is available from the [BrisTech YouTube channel](https://www.youtube.com/watch?v=1-YhrLIyRXs)). The concepts introduced in that talk were very interesting, so I was inspired to investigate how you might go about implementing them in the Javascript world. This blog post describes the results of that investigation.
+
+As a quick taster, the results of the work done in this post will look something like this.
+
+<img src="{{ site.baseurl }}/dgorst/assets/frp-with-bacon/FinishedChart.png"/>
 
 So what is functional reactive programming (FRP)? Reactive programming can be described as a paradigm orientated around data flows and the propagation of change. The aim of this concept is to make it easier to express dynamic data flows. As one part of your data model changes, that change should automatically propagate through your model, potentially changing other parts of it.
 
 An example of this would be a modern spreadsheet program. Spreadsheet cells can contain both literal values, or formulas such as "=B1+C1" that are evaluated based on other cells. Whenever the value of the other cells change, the value of the formula is automatically updated.
 
-Functional programming is a paradigm where computation in a program is treated as the evaluation of mathematical functions, and where state and mutable data are avoided. The output value of a function depends only on the arguments which are input to the function, so calling a function *f* twice with the same arguments will produce the same result *f(x, y)* both times. Javascript is a language suited to functional programming as it treats functions as first-class objects within the language.
+Functional programming is a paradigm where computation in a program is treated as the evaluation of mathematical functions, and where state and mutable data are avoided. The output value of a function depends only on the arguments which are input to the function, so calling a function *f* twice with the same arguments will produce the same result *f(x, y)* both times. Javascript is a language suited to functional programming as it treats functions as first-class objects.
 
 So, now that we've introduced some of the core concepts, let's write some code!
 
@@ -26,7 +30,7 @@ I've worked with the [Bacon.js](http://baconjs.github.io/) library for this blog
 
 The first and probably the most important building block of FRP is the event stream. An event stream is a representation of a time-based series of discrete events. You could think of it as a channel that you subscribe to in order to be notified about events in your program. Events in the stream can happen at any time. Unlike traditional events (such as those provided by the browser or jQuery), the power of event streams is that they can be merged, filtered or transformed in any number of ways before you handle the events they convey.
 
-So let's create our first event stream. I'm going to shamelessly borrow the idea used by Sam in his presentation, of listening to update events in Wikipedia. Sam has very kindly deployed a web socket to the Heroku dev center which publishes Wikipedia update events. We shall connect to this web socket, then build an event stream on top of it.
+So let's create our first event stream. I'm going to shamelessly borrow the idea used by Sam in his presentation, of listening to update events in Wikipedia. Sam has very kindly deployed a web socket to the Heroku dev center which publishes Wikipedia update events. We'll connect to this web socket, then build an event stream on top of it.
 
 {% highlight javascript %}
 // Create our websocket to get wiki updates
@@ -45,7 +49,9 @@ var updateStream = Bacon.fromEventTarget(ws, "message").map(function(event) {
 });
 {% endhighlight %}
 
-Let's look at the last part of that snippet more closely. First, we create an event stream for any messages which are sent from the web socket. When we receive a message event, we take the data string it contains and parse that into a JSON object (the string is a valid JSON string, we just need to convert it into an object to more easily access its properties). We do this using the *map* function, which takes an event stream and returns a new event stream, containing the transformed events rather than the original ones. Bacon.js provides us with several methods to create event streams, I would recommend taking a look at the [docs](https://github.com/baconjs/bacon.js#intro) for more information on the kind of things you can do.
+Let's look at the last part of that snippet more closely. First, we create an event stream for any messages which are sent from the web socket. We do this using the *fromEventTarget* function which is provided by Bacon.js. This creates an event stream from events on a DOM EventTarget or Node.js EventEmitter object. Bacon.js also provides methods to create event streams from jQuery events, promise objects or functions which accept a callback. I would recommend taking a look at the [Bacon.js docs](https://github.com/baconjs/bacon.js#intro) for more information on this.
+
+When we receive a message event, we take the data string it contains and parse that into a JSON object. We do this using the *map* function, which takes an event stream and returns a new event stream, containing the transformed events rather than the original ones.
 
 ### Filtering and sampling event streams
 
@@ -62,7 +68,7 @@ editStream.onValue(function(results) {
 });
 {% endhighlight %}
 
-To do this, we've used the *filter* method provided by Bacon. This takes in an event stream, and returns a filtered one which only emits events when the given predicate is satisfied. We use the *onValue* method to subscribe a handler function to the filtered stream. Any time we receive an edit event, we log it to the console. Not very exciting, but we'll get onto visualisations later!
+To do this, we've used the *filter* method provided by Bacon. This takes in an event stream, and returns a filtered one which only emits events when the given predicate is satisfied. We use the *onValue* method to subscribe a handler function to the filtered stream. Any time we receive an edit event, we log it to the console. Not very exciting, but we'll get on to visualisations later!
 
 Another type of event we can subscribe to is new user events. These have the type "newuser" within the Wikipedia schema. We do that in a very similar way.
 
@@ -76,9 +82,9 @@ newUserStream.onValue(function(results) {
 });
 {% endhighlight %}
 
-Finally, we're going to collate some stats about the rate at which Wikipedia is being updated. We shall keep a count of the number of update events we receive, and we shall calculate how many updates we see every 2 seconds. This will allow us to count the rate of updates which are being made per second.
+Finally, we're going to collate some stats about the rate at which Wikipedia is being updated. We'll keep a count of the number of update events we receive, and calculate how many updates we see every 2 seconds. This will allow us to count the rate of updates which are being made per second.
 
-First we use the *scan* method provided by Bacon. This takes a seed value and an accumulator function, and results in a property. A property in Bacon is like an event stream, except that it also contains a current value, which is updated each time an event occurs. We shall use the *scan* method to keep a running count of the number of events we have received.
+First we use the *scan* method provided by Bacon. This takes a seed value and an accumulator function, and results in a property. A property in Bacon is like an event stream, except that it also contains a current value, which is updated each time an event occurs. We'll use the *scan* method to keep a running count of the number of events we have received.
 
 {% highlight javascript %}
 var updateCount = updateStream.scan(0, function(value) {
@@ -86,7 +92,7 @@ var updateCount = updateStream.scan(0, function(value) {
 });
 {% endhighlight %}
 
-We shall sample this count every 2 seconds. Bacon provides a method, *sample*, which facilitates this.
+We'll sample this count every 2 seconds. Bacon provides a method, *sample*, which facilitates this.
 
 {% highlight javascript %}
 var samplingTime = 2000;
@@ -106,15 +112,15 @@ sampledUpdates.onValue(function(value) {
 });
 {% endhighlight %}
 
-Now that we have defined our functional pipeline for events, it's time to do something more exciting with it than just logging to the console! For this, we shall use D3.
+Now that we have defined our functional pipeline for events, it's time to do something more exciting with it than just logging to the console! For this, we'll use D3.
 
 ## Visualising data with D3
 
-I imagine most of you will have heard of D3 already, but for those of you who haven't, D3 is a powerful javascript library for binding data sets to a Document Object Model (DOM). It makes it easier to create good-looking visualisations of your data, and facilitates advanced features such as interactivity or transitions.
+[D3](http://d3js.org/) is a powerful Javascript library for binding data sets to a Document Object Model (DOM). It makes it easier to create good-looking visualisations of your data, and facilitates advanced features such as interactivity or transitions.
 
-In this example, we shall display a line chart showing the rate of Wikipedia updates over time. We shall display some text below the chart showing when new users are created, and we shall display text below the chart showing the subject of the latest Wikipedia edits.
+In this example, we'll display a line chart showing the rate of Wikipedia updates over time. We'll display some text below the chart showing when new users are created and showing the subject of the latest Wikipedia edits.
 
-First, we shall update our HTML page to contain an SVG element. We shall use this to display our chart and text.
+First, let's update our HTML page to contain an SVG element. We'll use this to display our chart and text.
 
 {% highlight html %}
 <!DOCTYPE html>
@@ -137,7 +143,7 @@ First, we shall update our HTML page to contain an SVG element. We shall use thi
 </html>
 {% endhighlight %}
 
-As you can see, our HTML page is fairly minimal. It just contains the SVG element along with a header. We create references to the Javascript files we are using. Our work so far has been saved in *frp-with-bacon.js*. Now that we have an SVG element on our page, we shall update our Javascript to add a D3 chart to it.
+As you can see, our HTML page is fairly minimal. It just contains the SVG element along with a header. We create references to the Javascript files we are using. Our work so far has been saved in *frp-with-bacon.js*. Now that we have an SVG element on our page, we'll update our Javascript to add a D3 chart to it.
 
 {% highlight javascript %}
 var updatesOverTime = [];
@@ -220,7 +226,7 @@ var line = svg.append("g")
     .attr("fill", "none");
 {% endhighlight %}
 
-There are a few things going on in that last code snippet, so let's go through it in a little more detail. First we define a variable which will hold our update data. We shall update this in response to events being handled in our functional pipeline. We then set the size of the SVG element on our HTML page, and add our chart to it. The chart contains an x axis and a y axis, and it displays its data in a line chart. We format the x axis to display date/time values. Initially both the x and y axes have zero ranges. We shall update these as data comes in. We set the attributes of our line series, but we don't actually bind it to a data set yet. We shall do that later on. We also define a clipping area, which we apply to the line series. I'll explain the need for this in the next section.
+There are a few things going on in that last code snippet, so let's go through it in a little more detail. First we define a variable which will hold our update data. We'll update this in response to events being handled in our functional pipeline. We then set the size of the SVG element on our HTML page, and add our chart to it. The chart contains an x axis and a y axis, and it displays its data in a line chart. We format the x axis to display date/time values. Initially both the x and y axes have zero ranges. We'll update these as data comes in. We set the attributes of our line series, but we don't actually bind it to a data set yet. We'll do that later on. We also define a clipping area, which we apply to the line series. I'll explain the need for this in the next section.
 
 Now that we have a line chart on our page, we need to define a function to update it when new data comes in.
 
@@ -300,7 +306,7 @@ sampledUpdates.onValue(function(value) {
 
 Great, so now our chart will update each time we take a new sample. We define each value in the *updatesOverTime* array as an object with an x and a y value. We set the x value to be the time at which the sample is taken. We are taking a moving window view of our data - we use the 20 most recent samples and throw older data away.
 
-Earlier we defined an event stream to filter out new user events from the main stream. Let's update that to refresh our UI instead of logging to the console. First, let's add a text element below the chart. We configure it to be lined up with the right hand side of the chart. This will display the time at which the last new user was added. At the same time, we can add a function to update this element.
+Earlier we defined an event stream to filter out new user events from the main stream. Let's update that to refresh our UI instead of logging to the console. To do this, let's add a text element below the chart. We configure it to be lined up with the right hand side of the chart. This will display the time at which the last new user was added. At the same time, we can add a function to update this element.
 
 {% highlight javascript %}
 var newUserTextWidth = 150;
@@ -326,7 +332,7 @@ var updateNewUser = function(newUser)   {
 }
 {% endhighlight %}
 
-To improve the look and feel of the change, we apply fade transitions to the text. It first of all fades out the old text, then fades in the new one. Now we shall update our new user event stream to call this update method.
+To improve the look and feel of the change, we apply fade transitions to the text. It first of all fades out the old text, then fades in the new one. Now we'll update our new user event stream to call this update method.
 
 {% highlight javascript %}
 newUserStream.onValue(function(results) {
@@ -335,7 +341,7 @@ newUserStream.onValue(function(results) {
 });
 {% endhighlight %}
 
-Finally, it would be interesting to see the subjects which are being edited in Wikipedia as well as seeing the rate of updates. To do this, we shall add another text element below our chart.
+Finally, it would be interesting to see the subjects which are being edited in Wikipedia as well as seeing the rate of updates. To do this, we'll add another text element below our chart.
 
 {% highlight javascript %}
 // Add a text element below the chart, which will display the 
@@ -373,17 +379,18 @@ editStream.onValue(function(results) {
 });
 {% endhighlight %}
 
-So there you have it. We now have a chart and associated text which updates in response to updates in Wikipedia. The finished chart looks like this.
-
-<img src="{{ site.baseurl }}/dgorst/assets/frp-with-bacon/FinishedChart.png"/>
+So there you have it. We now have a chart and associated text which updates in response to updates in Wikipedia. The iframe below shows the GitHub page I've published for this project ([http://dangorst.github.io/frp-with-bacon/](http://dangorst.github.io/frp-with-bacon/)).
 
 The source code for this blog post is available on my GitHub page: [https://github.com/DanGorst/frp-with-bacon](https://github.com/DanGorst/frp-with-bacon).
-If you would like to see the code in action, I've published a GitHub page for the project: [http://dangorst.github.io/frp-with-bacon/](http://dangorst.github.io/frp-with-bacon/).
-If you have any thoughts, ideas or comments, please let me know! 
+If you have any thoughts, ideas or comments, please let me know!
+
+
+<iframe src="http://dangorst.github.io/frp-with-bacon/" width="1000" height="750" scrolling="no"> </iframe>
+
 
 ## Acknowledgements
 
-The inspiration for this blog post came from Sam Davies' recent presentation at BrisTech. You can find the video of the talk on the BrisTech YouTube channel: [https://www.youtube.com/watch?v=1-YhrLIyRXs](https://www.youtube.com/watch?v=1-YhrLIyRXs)
+The inspiration for this blog post came from Sam Davies' recent presentation at BrisTech. You can find the video of the talk on the [BrisTech YouTube channel](https://www.youtube.com/watch?v=1-YhrLIyRXs).
 
 A lot of the concepts in this post were new to me before I started writing it, so I made heavy use of other blogs and tutorials online while I was learning. Thanks go to:
 
