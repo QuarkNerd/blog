@@ -89,7 +89,8 @@ var updateCount = updateStream.scan(0, function(value) {
 We shall sample this count every 2 seconds. Bacon provides a method, *sample*, which facilitates this.
 
 {% highlight javascript %}
-var sampledUpdates = updateCount.sample(2000);
+var samplingTime = 2000;
+var sampledUpdates = updateCount.sample(samplingTime);
 {% endhighlight %}
 
 Now that we are sampling the number of updates received every 2 seconds, we can calculate the number of updates received since the last sample, and hence the rate at which Wikipedia is being updated.
@@ -97,7 +98,8 @@ Now that we are sampling the number of updates received every 2 seconds, we can 
 {% highlight javascript %}
 var totalUpdatesBeforeLastSample = 0;
 sampledUpdates.onValue(function(value) {
-    var updateRate = (value - totalUpdatesBeforeLastSample) / 2.0;
+    var updateRate = (value - totalUpdatesBeforeLastSample) / 
+                    (samplingTime / 1000));
     console.log(updateRate);
     totalUpdatesBeforeLastSample = value;
     return value;
@@ -110,7 +112,7 @@ Now that we have defined our functional pipeline for events, it's time to do som
 
 I imagine most of you will have heard of D3 already, but for those of you who haven't, D3 is a powerful javascript library for binding data sets to a Document Object Model (DOM). It makes it easier to create good-looking visualisations of your data, and facilitates advanced features such as interactivity or transitions.
 
-In this example, we shall display a line chart showing the rate of Wikipedia updates over time. We shall annotate the chart when new users are created, and we shall display text below the chart showing the subject of Wikipedia edits.
+In this example, we shall display a line chart showing the rate of Wikipedia updates over time. We shall display some text below the chart showing when new users are created, and we shall display text below the chart showing the subject of the latest Wikipedia edits.
 
 First, we shall update our HTML page to contain an SVG element. We shall use this to display our chart and text.
 
@@ -153,11 +155,9 @@ var svg = d3.select("svg")
     .attr("width", width)
     .attr("height", height + 200);
 
-var xRange = d3.time.scale()
-    .range([margins.left, width - margins.right])
+var xRange = d3.time.scale().range([margins.left, width - margins.right])
     .domain([new Date(), new Date()]);
-var yRange = d3.scale.linear()
-    .range([height - margins.bottom, margins.top])
+var yRange = d3.scale.linear().range([height - margins.bottom, margins.top])
     .domain([0, 0]);
 var xAxis = d3.svg.axis()
     .scale(xRange)
@@ -205,19 +205,29 @@ var lineFunc = d3.svg.line()
     .y(function(d) { return yRange(d.y); })
     .interpolate("linear");
 
-var line = svg.append("path")
+svg.append("defs").append("clipPath")
+    .attr("id", "clip")
+    .append("rect")
+    .attr("x", margins.left)
+    .attr("y", margins.top)
+    .attr("width", width)
+    .attr("height", height);
+
+var line = svg.append("g")
+    .attr("clip-path", "url(#clip)")
+    .append("path")
     .attr("stroke", "blue")
     .attr("fill", "none");
 {% endhighlight %}
 
-There are a few things going on in that last code snippet, so let's go through it in a little more detail. First we define a variable which will hold our update data. We shall update this in response to events being handled in our functional pipeline. We then set the size of the SVG element on our HTML page, and add our chart to it. The chart contains an x axis and a y axis, and it displays its data in a line chart. We format the x axis to display date/time values. Initially both the x and y axes have zero ranges. We shall update these as data comes in. We set the attributes of our line series, but we don't actually bind it to a data set yet. We shall do that later on.
+There are a few things going on in that last code snippet, so let's go through it in a little more detail. First we define a variable which will hold our update data. We shall update this in response to events being handled in our functional pipeline. We then set the size of the SVG element on our HTML page, and add our chart to it. The chart contains an x axis and a y axis, and it displays its data in a line chart. We format the x axis to display date/time values. Initially both the x and y axes have zero ranges. We shall update these as data comes in. We set the attributes of our line series, but we don't actually bind it to a data set yet. We shall do that later on. We also define a clipping area, which we apply to the line series. I'll explain the need for this in the next section.
 
 Now that we have a line chart on our page, we need to define a function to update it when new data comes in.
 
 {% highlight javascript %}
-var updateTransitionDuration = 550;
+var maxNumberOfDataPoints = 20;
 
-function update(updates, newUser) {
+function update(updates) {
     // Update the ranges of the chart to reflect the new data
     if (updates.length > 0)   {
         xRange.domain(d3.extent(updates, function(d) { return d.x; }));
@@ -225,99 +235,115 @@ function update(updates, newUser) {
                        d3.max(updates, function(d) { return d.y; })]);
     }
     
-    // Update the line series on the chart
-    line.transition()
-        .duration(updateTransitionDuration)
-        .attr("d", lineFunc(updates));
+    // Until we have filled up our data window, we just keep adding data
+    // points to the end of the chart.
+    if (updates.length < maxNumberOfDataPoints) {
+        line.transition()
+            .ease("linear")
+            .attr("d", lineFunc(updates));
+        
+        svg.selectAll("g.x.axis")
+            .transition()
+            .ease("linear")
+            .call(xAxis);
+    }
+    // Once we have filled up the window, we then remove points from the 
+    // start of the chart, and move the data over so the chart looks 
+    // like it is scrolling forwards in time
+    else    {
+        // Calculate the amount of translation on the x axis which equates 
+        // to the time between two samples
+        var xTranslation = xRange(updates[0].x) - xRange(updates[1].x);
+        
+        // Transform our line series immediately, then translate it from
+        // right to left. This gives the effect of our chart scrolling
+        // forwards in time
+        line
+            .attr("d", lineFunc(updates))
+            .attr("transform", null)
+            .transition()
+            .duration(samplingTime - 20)
+            .ease("linear")
+            .attr("transform", "translate(" + xTranslation + ", 0)");
+        
+        svg.selectAll("g.x.axis")
+            .transition()
+            .duration(samplingTime - 20)
+            .ease("linear")
+            .call(xAxis);
+    }
     
-    // Update the axes on the chart
-    svg.selectAll("g.x.axis")
-        .transition()
-        .duration(updateTransitionDuration)
-        .call(xAxis);
     svg.selectAll("g.y.axis")
         .transition()
-        .duration(updateTransitionDuration)
         .call(yAxis);
-    
-    // Render the points in the line series
-    var points = svg.selectAll("circle").data(updates);
-    var pointsEnter = points.enter().append("circle")
-        .attr("r", 2)
-        .style("fill", "blue");
-    
-    var pointsUpdate = points
-        .transition()
-        .duration(updateTransitionDuration)
-        .attr("cx", function(d) { return xRange(d.x); })
-        .attr("cy", function(d) { return yRange(d.y); });
-    
-    var pointsExit = points.exit()
-        .transition().duration(updateTransitionDuration)
-        .remove();
-    
-    var newUserIndicator = svg.selectAll("circle.new-user").data(newUser);
-    newUserIndicator.enter().append("circle")
-        .attr("class", "new-user")
-        .attr("r", 40)
-        .attr("fill", "green")
-        .attr("cx", width - margins.right - 20)
-        .attr("cy", height + 20)
-        .attr("opacity", 1e-6)
-        .transition()
-        .duration(updateTransitionDuration)
-        .attr("opacity", 0.75);
-    
-    newUserIndicator.exit()
-        .transition()
-        .duration(updateTransitionDuration)
-        .attr("cx", width - margins.right - 20)
-        .attr("cy", height + 20)
-        .attr("opacity", 1e-6)
-        .remove();
 }
 {% endhighlight %}
 
-In the update method, we refresh the ranges of our axes to reflect the ranges of the new data. When we receive any new user events, we show a circular indicator below the chart on the right hand side. We bind the line series to the *updates* variable which we pass in, and we bind the new user indicator to the *newUser* variable.
+In the update method, we refresh the ranges of our axes to reflect the ranges of the new data. We bind the line series to the *updates* variable which we pass into the function. Let's look at the transitions we apply to the line series and the x axis in more detail. Until we have a set number of data points in our charts, we add data points to the end of the chart. Once the chart contains that amount of data, we display a moving window on the data - as we add data to the end of the chart, we remove data from the start. In order to give the effect of the line series scrolling forwards in time, we apply a translation to the line series when we update it. This is why we needed to define the clipping area earlier, this ensures that any section of the line series which is translated to the left of the y axis is clipped. We set the duration of the transition to be slightly shorter than the sampling interval - this ensures that the translation is done by the time we update the chart again.
 
-To make the chart look prettier, we've drawn circles to represent the points on the line series. These are also bound to the *updates* variable. To make chart updates look nicer, we've defined transitions for update events in the chart. Rather than just jerking to its new state, we have defined a transition on the line series and its points. This means that they will animate nicely to their new positions when data changes. We also fade the new user indicator in and out rather than just making it appear and disappear.
-
-Now that we have a function to update our chart when new data is received, let's make use of it in our functional pipeline. Let's the method we defined earlier which takes samples of update events, and update it to refresh our chart.
+Now that we have a function to update our chart when new data is received, let's make use of it in our functional pipeline. Let's take the method we defined earlier which takes samples of update events, and update it to refresh our chart.
 
 {% highlight javascript %}
 sampledUpdates.onValue(function(value) {
     updatesOverTime.push({
         x: new Date(), 
-        y:(value - totalUpdatesBeforeLastSample) / 2.0
+        y:(value - totalUpdatesBeforeLastSample) / (samplingTime / 1000)
     });
-    if (updatesOverTime.length > 20)  {
+    if (updatesOverTime.length > maxNumberOfDataPoints)  {
         updatesOverTime.shift();
     }
     totalUpdatesBeforeLastSample = value;
-    update(updatesOverTime, []);
+    update(updatesOverTime);
     return value;
 });
 {% endhighlight %}
 
-Great, so now our chart will update each time we take a new sample. We define each value in the *updatesOverTime* array as an object with an x and a y value. We set the x value to be the time at which the sample is taken. We are taking a moving window view of our data - we use the 20 most recent samples and throw older data away. Notice that we're passing an empty array as the second argument into our *update* function - we are doing this to tell the chart to hide the new user indicator if it is displaying. We should also tell the chart to display the indicator when a new user is recieved - let's look at doing that now.
+Great, so now our chart will update each time we take a new sample. We define each value in the *updatesOverTime* array as an object with an x and a y value. We set the x value to be the time at which the sample is taken. We are taking a moving window view of our data - we use the 20 most recent samples and throw older data away.
 
-Earlier we defined an event stream to filter out new user events from the main stream. Let's update that to refresh our chart instead of logging to the console.
+Earlier we defined an event stream to filter out new user events from the main stream. Let's update that to refresh our UI instead of logging to the console. First, let's add a text element below the chart. We configure it to be lined up with the right hand side of the chart. This will display the time at which the last new user was added. At the same time, we can add a function to update this element.
+
+{% highlight javascript %}
+var newUserTextWidth = 150;
+svg.append("text")
+    .attr("class", "new-user-text")
+    .attr("fill", "green")
+    .attr("transform", "translate(" + 
+        (width - margins.right - newUserTextWidth) + "," + 
+        (height + 20)  + ")")
+    .attr("width", newUserTextWidth);
+
+var textUpdateTransitionDuration = 550;
+var updateNewUser = function(newUser)   {
+    var text = svg.selectAll("text.new-user-text").data(newUser);
+
+    text.transition()
+        .duration(textUpdateTransitionDuration)
+        .style("fill-opacity", 1e-6)
+        .transition()
+        .duration(textUpdateTransitionDuration)
+        .style("fill-opacity", 1)
+        .text(function (d) { return d; });
+}
+{% endhighlight %}
+
+To improve the look and feel of the change, we apply fade transitions to the text. It first of all fades out the old text, then fades in the new one. Now we shall update our new user event stream to call this update method.
 
 {% highlight javascript %}
 newUserStream.onValue(function(results) {
-    update(updatesOverTime, ["newuser"]);
+    var format = d3.time.format("%X");
+    updateNewUser(["New user at: " + format(new Date())]);
 });
 {% endhighlight %}
 
-So now we refresh our chart in response to 2 types of events - either when we take a new sample of the rate of updates, or when a new user event is received. The data we're sending as the second argument to the chart when we receive a new user event is a little contrived, but it allows the chart to update and it gives the chart something to bind to. We don't receive any information on the new user which was created, so for now we just tell the chart that there was one.
-
-Finally, it would be interesting to see the subjects which are being edited in Wikipedia as well as seeing the rate of updates. To do this, we shall add a text element below our chart. In our Javascript, we can add a text element below the code where we create our line chart.
+Finally, it would be interesting to see the subjects which are being edited in Wikipedia as well as seeing the rate of updates. To do this, we shall add another text element below our chart.
 
 {% highlight javascript %}
-// Add a text element below the chart, which will display the subject of new edits
+// Add a text element below the chart, which will display the 
+// subject of new edits
 svg.append("text")
     .attr("class", "edit-text")
-    .attr("transform", "translate(" + margins.left + "," + (height + 20)  + ")")
+    .attr("transform", "translate(" + margins.left + "," + 
+        (height + 20)  + ")")
     .attr("width", width - margins.left);
 {% endhighlight %}
 
@@ -328,22 +354,22 @@ var updateEditText = function(latestEdit)   {
     var text = svg.selectAll("text.edit-text").data(latestEdit);
 
     text.transition()
-        .duration(updateTransitionDuration)
+        .duration(textUpdateTransitionDuration)
         .style("fill-opacity", 1e-6)
         .transition()
-        .duration(updateTransitionDuration)
+        .duration(textUpdateTransitionDuration)
         .style("fill-opacity", 1)
         .text(function (d) { return d; });
 }
 {% endhighlight %}
 
-When we receive a new edit event, we update the text element to display it. To improve the look and feel of the change, we apply fade transitions to the text. It first of all fades out the old text, then fades in the new one.
+When we receive a new edit event, we update the text element to display it. We apply the same fade transitions as we did for the new user text element.
 
 Earlier, we defined a stream to filter out edit events from the main stream. Let's update that to refresh our text element when new edit events are received.
 
 {% highlight javascript %}
 editStream.onValue(function(results) {
-    updateEditText([results.content]);
+    updateEditText(["Last edit: " + results.content]);
 });
 {% endhighlight %}
 
