@@ -382,10 +382,11 @@ editStream.onValue(function(results) {
 So there you have it. We now have a chart and associated text which updates in response to updates in Wikipedia. The iframe below shows the GitHub page I've published for this project ([http://dangorst.github.io/frp-with-bacon/](http://dangorst.github.io/frp-with-bacon/)).
 
 The source code for this blog post is available on my GitHub page: [https://github.com/DanGorst/frp-with-bacon](https://github.com/DanGorst/frp-with-bacon).
+
 If you have any thoughts, ideas or comments, please let me know!
 
 
-<iframe src="http://dangorst.github.io/frp-with-bacon/" width="1000" height="750" scrolling="no"> </iframe>
+<iframe src="http://dangorst.github.io/frp-with-bacon/" width="1000" height="750" scrolling="no" frameborder="0"> </iframe>
 
 
 ## Acknowledgements
