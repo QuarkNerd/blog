@@ -44,7 +44,7 @@ With that out of the way, let's get onto the good stuff ...
 
 The block-based ReactiveCocoa API becomes a closure-based API when bridged to Swift. As a quick example, the following Objective-C example subscribes to the `rac_textSignal` on a text field, logging the current length:
 
-{% highlight csharp %}
+{% highlight objective-c %}
 [self.searchTextField.rac_textSignal subscribeNext:^(id x) {
   NSString *text = (NSString *)x;
   NSLog(text);
@@ -64,7 +64,7 @@ Which logs the following as you type:
 
 However, with Objective-C you can change the block signature from `id` to `NSString` removing the need to cast explicitly:
 
-{% highlight csharp %}
+{% highlight objective-c %}
 [self.searchTextField.rac_textSignal subscribeNext:^(NSString *text) {
   NSLog(text);
 }];
