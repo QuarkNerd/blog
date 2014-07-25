@@ -105,7 +105,7 @@ Now that we are sampling the number of updates received every 2 seconds, we can 
 var totalUpdatesBeforeLastSample = 0;
 sampledUpdates.onValue(function(value) {
     var updateRate = (value - totalUpdatesBeforeLastSample) / 
-                    (samplingTime / 1000));
+                    (samplingTime / 1000);
     console.log(updateRate);
     totalUpdatesBeforeLastSample = value;
     return value;
