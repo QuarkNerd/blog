@@ -79,21 +79,15 @@ class Fibonacci : Sequence {
 }
 
 class FibonacciGenerator : Generator {
-  var current = -1, last = 0
+  var current = 0, nextValue = 1
   
   typealias Element = Int
   
   func next() -> Int? {
-    if current == -1 {
-      current = 0
-    } else if current == 0 {
-      current = 1
-    } else {
-      var next = last + current
-      last = current
-      current = next
-    }
-    return current
+    let ret = current
+    current = nextValue
+    nextValue = nextValue + ret
+    return ret
   }
 }
 {% endhighlight %}
@@ -104,7 +98,7 @@ To see the result, simply iterate over the first few numbers in the sequence:
 
 {% highlight csharp %}
 let fib = Fibonacci().generate()
-for _ in 1..10 {
+for _ in 1..<10 {
   println(fib.next())
 }
 {% endhighlight %}
@@ -129,19 +123,13 @@ There is actually a slightly simpler way to implement a sequence, that removes t
 class Fibonacci : Sequence {
   
   func generate() -> GeneratorOf<Int> {
-    var current = -1, last = 0
+    var current = 0, next = 1
     
     return GeneratorOf<Int> {
-      if current == -1 {
-        current = 0
-      } else if current == 0 {
-        current = 1
-      } else {
-        var next = last + current
-        last = current
-        current = next
-      }
-      return current
+      var ret = current
+      current = next
+      next = next + ret
+      return ret
     }
   }
 }
@@ -149,7 +137,7 @@ class Fibonacci : Sequence {
 
 Which is pretty neat!
 
-In order order to aid understanding the next set of examples, the following adds a simple `println` statement to the Fibonacci sequence so that you can see when the next item is requested from the generator:
+In order to aid understanding the next set of examples, the following adds a simple `println` statement to the Fibonacci sequence so that you can see when the next item is requested from the generator:
 
 {% highlight csharp %}
 class Fibonacci : Sequence {
@@ -160,20 +148,14 @@ class Fibonacci : Sequence {
   }
   
   func generate() -> GeneratorOf<Int> {
-    var current = -1, last = 0
+    var current = 0, next = 1
     
     return GeneratorOf<Int> {
-      if current == -1 {
-        current = 0
-      } else if current == 0 {
-        current = 1
-      } else {
-        var next = last + current
-        last = current
-        current = next
-      }
-      println("\(self.id) - \(current)")
-      return current
+      var ret = current
+      current = next
+      next = next + ret      
+      println("\(self.id) - \(ret)")
+      return ret
     }
   }
 }
