@@ -324,8 +324,6 @@ Because I think sequences show a lot of potential, I plan to contribute a suite 
 
 Swift sequences are really cool and show a lot of potential. The examples in this blog post have been a little contrived, it is unlikely you will find yourself performing operations on the Fibonacci sequence! However, I could certainly see myself operating on sequences generated from streams, or perhaps paging network requests. 
 
-I hope you have enjoyed this blog post. If you are interested in learning more about Swift, I'd like to recommend the book I am currently co-authoring [Swift By Tutorials](http://www.raywenderlich.com/store/swift-tutorials-bundle?source=ceberhardt), with the wonderfully knowledgeable Matt Galloway.
-
 Regards, Colin E.
 
-
+{% include ads/swift_by_tutorials.html %}

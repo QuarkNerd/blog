@@ -20,8 +20,8 @@ Recently I have been doing quite a bit of iOS development. The UIKit frameworks 
 
 I'm looking forward to making this code even more lovely when I convert it over to Swift.
 
-(Did I mention [I'm writing a Swift book?](http://www.raywenderlich.com/store/swift-tutorials-bundle?source=ceberhardt))
-
 Regards, Colin E.
+
+{% include ads/swift_by_tutorials.html %}
 
 
