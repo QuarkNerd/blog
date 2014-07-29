@@ -47,7 +47,7 @@ We'll be receiving data every few seconds. In this blog post, we'll be running a
 
 Once you've installed MongoDB, you can get the server up and running by calling **mongod** from the command line. Once the database server is up, we're in a position to add data to it and make queries on it. In this post, I'll run two separate Node.js processes. One will insert new data into the database when it becomes available, and the other will make queries on the database. To use MongoDB directly from Javascript, rather than using the Mongo shell, it is helpful to install a 3rd party module to do the translation from your business logic to the database layer. I've used [Mongoose](http://mongoosejs.com/index.html) in this work, but alternatives are available such as the [Monk](https://github.com/LearnBoost/monk) module.
 
-Mongoose requires you to define a schema for your data. This is actually a departure from vanilla MongoDB, which doesn't require data in a collection to have a common schema. This will match my use case though, so it's no big deal in this case. I've created a module which defines the schema I'll be using and called it *telemetryDb.js*.
+Mongoose requires you to define a schema for your data. This is actually a departure from vanilla MongoDB, which doesn't require data in a collection to have a common schema. This will match my use case though, so it's no big deal here. I've created a module which defines the schema I'll be using and called it *telemetryDb.js*.
 
 {% highlight javascript %}
 'use strict';
@@ -163,5 +163,89 @@ TelemetryDbModel
 {% endhighlight %}
 
 Great, so now we have a system where we're saving telemetry information to the database when we receive it, and we're able to query it in order to display the information. I like the query interface that MongoDB offers, and the QueryBuilder interface which Mongoose builds on top of this also seems very powerful. Now that we have a working system with MongoDB, let's take a look at how to implement the same functionality in CouchDB.
+
+##CouchDB
+
+As with MongoDB, the first thing to do is to get a database server up and running. I'm running on a Mac and this is simple in that environment. I haven't tried this on a Windows machine, but I imagine it would be similar there. On a Mac, you just download a zipped version of the CouchDB app, then unzip it and copy it to the Applications folder on your machine. After doing that, you can launch the app using Launchpad, and it will start the database server and open up Futon, its web-based administration panel. Futon will look a little like the screenshot below.
+
+<img src="{{ site.baseurl }}/dgorst/assets/mongodb-vs-couchdb/futon.png"/>
+
+Futon gives you a button to create a new database. As you can see, I've used that to create a new database for our data, called *telemetry*. Now that we have a database, it's time to populate it when we receive new telemetry information. 
+
+###Writing to the database
+
+CouchDB uses HTTP requests to populate or query the database, so we could just write HTTP PUT requests to do this. I'm going to simplify things even further though by using a 3rd party module to help. There are a few available but I've gone for [Cradle](https://github.com/flatiron/cradle) in this example. In the Node app where we receive telemetry information, we'll add functionality to write any new data to CouchDB. At the top of the app, add a dependency on Cradle and create a connection to the database.
+
+{% highlight javascript %}
+var cradle = require('cradle');
+
+var db = new(cradle.Connection)().database('telemetry');
+{% endhighlight %}
+
+Now, whenever we receive new data, let's write it to the database.
+
+{% highlight javascript %}
+db.save(telemetryInfo, function(err, res) {
+    if (err) {
+        console.error(err);
+    }
+    console.log(res);
+});
+{% endhighlight %}
+
+Cool, that was easy to do. Now let's write some code to query the database once we've populated it. 
+
+###Querying the database
+
+To query the database in CouchDB you need to define a MapReduce function. These functions are declared as *views* within a *design* on the database. I've written some code below which will create views for the common types of queries which we will need. This code should be run once against the database to define the views. Once they are defined, we can query the database for the results of a particular view at any time.
+
+{% highlight javascript %}
+'use strict';
+
+var cradle = require('cradle');
+
+var db = new(cradle.Connection)().database('telemetry');
+
+db.save('_design/telemetryViews', {
+      all: {
+        map: function (doc) {
+            emit(doc.time, doc);
+        }
+      },
+      altitude: {
+        map: function (doc) {
+            emit(doc.time, doc.altitude);
+        }
+      }
+  });
+{% endhighlight %}
+
+As you can see, I've defined two views on the database - one which returns all data and one which just returns altitude data. The results of each map function are sorted by their keys, which in this case are the times of the data.
+
+Now that we've defined some views on our data, let's use them to query some of the data we've received. We make one query to get a snapshot of the latest data, and another to get the historical altitude data which has been received from the balloon.
+
+{% highlight javascript %}
+'use strict';
+
+var cradle = require('cradle');
+
+var db = new(cradle.Connection)().database('telemetry');
+
+db.view('telemetryViews/all', {descending: true, limit: 1}, 
+  function(err, res) {
+    console.log('Get latest:');
+    res.forEach(function(key, row, id) {
+        console.log('%s: %s %s %s', key, row.altitude, row.latitude, 
+          row.longitude);
+    });
+});
+
+db.view('telemetryViews/altitude', function(err, res) {
+    console.log('Altitude data:');
+    res.forEach(function(key, row, id) {
+        console.log('%s: %s', key, row);
+    });
+});
+{% endhighlight %}
 
 ## Acknowledgements
