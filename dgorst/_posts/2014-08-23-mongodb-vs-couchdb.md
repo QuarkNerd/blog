@@ -11,7 +11,9 @@ As part of a project I'm working on, I have a requirement for a NoSQL database. 
 
 First, a little more information about my use case. I am part of a team who will be sending a balloon up into near-space (If you're interested, you can find out about us on our [Wordpress page](http://projectlatex.wordpress.com/)). As it is in flight, the balloon will be sending telemetry information via radio back down to a ground station. Once we receive the data at the ground station, we shall store it in a database of some kind. The decoded data is not going to be particularly relational, hence why a NoSQL database seems like a good way of storing it. It will be handled as Javascript objects so either MongoDB or CouchDB would seem to be a fairly good fit, given that they work by storing JSON documents.
 
-A few years ago, Nathan Hurst wrote a [blog post giving a visual guide to NoSQL systems](http://blog.nahurst.com/visual-guide-to-nosql-systems). I've shown the image from that blog post below.
+##The CAP triangle
+
+A few years ago, Nathan Hurst wrote a [blog post giving a visual guide to NoSQL systems](http://blog.nahurst.com/visual-guide-to-nosql-systems). That post included the image below.
 
 <img src="{{ site.baseurl }}/dgorst/assets/mongodb-vs-couchdb/nosql-triangle.png"/>
 
@@ -20,9 +22,13 @@ As you can see, there are three primary concerns you must balance when choosing 
 * __Availability__ means that all clients can always read and write.
 * __Partition tolerance__ means that the system works well across physical network partitions.
 
-My use case is likely to only involve a single database node and I'm not expecting a particularly high rate of inserts or queries on the database. With these relatively flexible constraints, I would expect that either MongoDB or CouchDB would be able to meet my use case without any problems. In the rest of this post I'll look at how easy both systems were to use and I'll make my decision based on that. 
+As you can see in the diagram, MongoDB and CouchDB are built with slightly different priorities in mind. In the MongoDB replication model, a group of database nodes host the same data set and are defined as a *replica set*. One of the nodes in the set will act as primary and the others will be secondary nodes. The primary node is used for all write operations, and by default all read operations as well. This means that replica sets provide *strict consistency*. Replication is used to provide redundancy - to recover from hardware failure or service interruptions. For more information, I would look at the [Replication section of the MongoDB documentation](http://docs.mongodb.org/manual/core/replication-introduction/).
 
-In your project, you are likely to be storing a larger amount of data and dealing with higher database traffic, so the CAP triangle shown above will be more relevant to you.
+CouchDB uses a replication model called *Eventual Consistency*. In this system, clients can write data to one node of the database without waiting for other nodes to come into agreement. The system incrementally copies document changes between nodes, meaning that they will eventually be in sync. More information can be found on the [Eventual Consistency page of the CouchDB documentation](http://docs.couchdb.org/en/latest/intro/consistency.html).
+
+Which system you go for would normally be determined by the priorities of your project. If your app involves trading in financial data or online commerce, you might want to ensure that all clients have a consistent view of the data. In other applications, the high availablity offered by CouchDB might be more important, even if some clients are seeing data which is slightly out of date.
+
+My use case is likely to only involve a single database node and I'm not expecting particularly high database traffic. With these relatively flexible constraints, I would expect that either MongoDB or CouchDB would be able to meet my use case without any problems. In the rest of this post I'll look at how easy both systems were to use and I'll make my decision based on that. 
 
 ##The data to be stored
 
@@ -45,7 +51,9 @@ We'll be receiving data every few seconds. In this blog post, we'll be running a
 
 ##MongoDB
 
-Once you've installed MongoDB, you can get the server up and running by calling **mongod** from the command line. Once the database server is up, we're in a position to add data to it and make queries on it. In this post, I'll run two separate Node.js processes. One will insert new data into the database when it becomes available, and the other will make queries on the database. To use MongoDB directly from Javascript, rather than using the Mongo shell, it is helpful to install a 3rd party module to do the translation from your business logic to the database layer. I've used [Mongoose](http://mongoosejs.com/index.html) in this work, but alternatives are available such as the [Monk](https://github.com/LearnBoost/monk) module.
+Once you've installed MongoDB, you can get the server up and running by calling **mongod** from the command line. Once the database server is up, we're in a position to add data to it and make queries on it. In this post, I'll run two separate Node.js processes. One will insert new data into the database when it becomes available, and the other will make queries on the database. 
+
+To use MongoDB directly from Javascript rather than using the Mongo shell, you could either use the [official MongoDB Node.js driver](https://github.com/mongodb/node-mongodb-native) or you could use an Object Document Mapper (ODM). [Mongoose](http://mongoosejs.com/) is the officially supported ODM for Node.js, so it is what I have used for this work.
 
 Mongoose requires you to define a schema for your data. This is actually a departure from vanilla MongoDB, which doesn't require data in a collection to have a common schema. This will match my use case though, so it's no big deal here. I've created a module which defines the schema I'll be using and called it *telemetryDb.js*.
 
@@ -107,13 +115,13 @@ Now, every time we receive new telemetry information, we can write it to the dat
 // We create a Mongoose model object from it, then save that to 
 // the database
 var dbTelemetryInfo = new TelemetryDbModel(telemetryInfo);
-    dbTelemetryInfo.save(function(err, dbTelemetryInfo) {
-      if (err) {
-          return console.error(err);
-      }
-      // We log to the console, just to show what we've saved
-      console.log(dbTelemetryInfo);
-    });
+dbTelemetryInfo.save(function(err, dbTelemetryInfo) {
+  if (err) {
+      return console.error(err);
+  }
+  // We log to the console, just to show what we've saved
+  console.log(dbTelemetryInfo);
+});
 {% endhighlight %}
 
 ###Querying the database
@@ -222,7 +230,7 @@ db.save('_design/telemetryViews', {
 
 As you can see, I've defined two views on the database - one which returns all data and one which just returns altitude data. The results of each map function are sorted by their keys, which in this case are the times of the data.
 
-Now that we've defined some views on our data, let's use them to query some of the data we've received. We make one query to get a snapshot of the latest data, and another to get the historical altitude data which has been received from the balloon.
+Now that we've defined some views on our data, let's use them to query the data we've received. We make one query to get a snapshot of the latest data, and another to get the historical altitude data which has been received from the balloon.
 
 {% highlight javascript %}
 'use strict';
@@ -248,4 +256,14 @@ db.view('telemetryViews/altitude', function(err, res) {
 });
 {% endhighlight %}
 
-## Acknowledgements
+## Conclusions
+
+So, I hope you've found this blog post informative. Although my use case wasn't pushing the performance boundaries of either system, I found it interesting learning how to use both. I was impressed by how easy it was to implement the functionality I wanted.
+
+I found I slightly preferred using MongoDB due to its SQL-like querying syntax, but that could just be due to the fact that I'm more used to querying in that way rather than using MapReduce. I still found CouchDB a good system to work with. 
+
+If you need dynamic queries MongoDB will be the better option, as CouchDB requires you to define your views up front. Mongoose introduces the constraint that all the data in a collection must have the same schema. However this is a constraint introduced by Mongoose rather than MongoDB itself, and you could always use an alternative ODM or the MongoDB Node.js driver instead. I stuck with Mongoose as I liked the interface it offered for building queries.
+
+If you have any questions, thoughts or feedback on this post, let me know! The full source code is up on my GitHub page, as part of the Project Latex project: [https://github.com/DanGorst/project-latex](https://github.com/DanGorst/project-latex)
+
+Dan G
