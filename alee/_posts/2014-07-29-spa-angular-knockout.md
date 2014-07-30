@@ -218,7 +218,7 @@ The Knockout version does the same thing with a custom binding:
 
 When the search model changes (i.e. a user has typed in the search box), the other components need to make ajax requests for analysis based on the updated model.
 
-In Angular, we 'watch' a variable in the scope, giving it a callback function to do the analysis. Angular has a 'digest' process that checks the values of any watched variables in the scope object, and calls any registered callbacks when something has changed.
+In Angular, we 'watch' a variable in the scope, giving it a callback function to do the analysis. Angular has a 'digest' process that checks the values of watched variables in the scope object, and calls any registered callbacks when something has changed.
 
     {% highlight js %}
     $scope.$watch('search.name', function () {
@@ -245,7 +245,7 @@ Here's the corresponding HTML to display the data in a table:
         </tr>
     </tbody>
 
-In Knockout, the same sort of thing is done by subscribing to an observable. This is a wrapper around a value, with a method to register callbacks to call when the value changes. We also have to implement a 'dispose' function for the component to make sure the subscription gets disposed of properly, or else we'd have a memory leak:
+In Knockout, the same sort of thing is done by subscribing to an observable. This is a wrapper around a value, with a method to register functions to call when the value changes. We also have to implement a 'dispose' function for the component to make sure the subscription gets disposed of properly, or else we'd have a memory leak:
 
     {% highlight js %}
     var getInvestments = function () {
