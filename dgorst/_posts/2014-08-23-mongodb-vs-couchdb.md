@@ -9,7 +9,7 @@ layout: default_post
 ---
 As part of a project I'm working on, I have a requirement for a NoSQL database. There are numerous offerings out there, of which [MongoDB](http://www.mongodb.org/) and [CouchDB](http://couchdb.apache.org/) appear to be the most popular. So which system should I choose?
 
-First, a little more information about my use case. I am part of a team who will be sending a balloon up into near-space (If you're interested, you can find out about us on our [Wordpress page](http://projectlatex.wordpress.com/)). As it is in flight, the balloon will be sending telemetry information via radio back down to a ground station. Once we receive the data at the ground station, we shall store it in a database of some kind. The decoded data is not going to be particularly relational, hence why a NoSQL database seems like a good way of storing it. It will be handled as Javascript objects so either MongoDB or CouchDB would seem to be a fairly good fit, given that they work by storing JSON documents.
+First, a little more information about my use case. I am part of a team who will be sending a balloon up into near-space (if you're interested, you can find out about us on our [Wordpress page](http://projectlatex.wordpress.com/)). As it is in flight, the balloon will be sending telemetry information via radio back down to a ground station. Once we receive the data at the ground station, we shall store it in a database of some kind. The decoded data is not going to be particularly relational, hence why a NoSQL database seems like a good way of storing it. It will be handled as Javascript objects so either MongoDB or CouchDB would seem to be a fairly good fit, given that they work by storing JSON documents.
 
 ##The CAP triangle
 
@@ -22,7 +22,7 @@ As you can see, there are three primary concerns you must balance when choosing 
 * __Availability__ means that all clients can always read and write.
 * __Partition tolerance__ means that the system works well across physical network partitions.
 
-As you can see in the diagram, MongoDB and CouchDB are built with slightly different priorities in mind. In the MongoDB replication model, a group of database nodes host the same data set and are defined as a *replica set*. One of the nodes in the set will act as primary and the others will be secondary nodes. The primary node is used for all write operations, and by default all read operations as well. This means that replica sets provide *strict consistency*. Replication is used to provide redundancy - to recover from hardware failure or service interruptions. For more information, I would look at the [Replication section of the MongoDB documentation](http://docs.mongodb.org/manual/core/replication-introduction/).
+As you can see in the diagram, MongoDB and CouchDB are built with a slightly different focus. Both scale across multiple nodes easily, but MongoDB favours consistency while CouchDB favours availability. In the MongoDB replication model, a group of database nodes host the same data set and are defined as a *replica set*. One of the nodes in the set will act as primary and the others will be secondary nodes. The primary node is used for all write operations, and by default all read operations as well. This means that replica sets provide *strict consistency*. Replication is used to provide redundancy - to recover from hardware failure or service interruptions. For more information, I would look at the [Replication section of the MongoDB documentation](http://docs.mongodb.org/manual/core/replication-introduction/).
 
 CouchDB uses a replication model called *Eventual Consistency*. In this system, clients can write data to one node of the database without waiting for other nodes to come into agreement. The system incrementally copies document changes between nodes, meaning that they will eventually be in sync. More information can be found on the [Eventual Consistency page of the CouchDB documentation](http://docs.couchdb.org/en/latest/intro/consistency.html).
 
@@ -108,7 +108,7 @@ db.once('open', function() {
 var TelemetryDbModel = telemetryDb.telemetryModelClass();
 {% endhighlight %}
 
-Now, every time we receive new telemetry information, we can write it to the datbase.
+Now, every time we receive new telemetry information, we can write it to the database.
 
 {% highlight javascript %}
 // telemetryInfo is the Javascript object containing our new data.
@@ -182,7 +182,7 @@ Futon gives you a button to create a new database. As you can see, I've used tha
 
 ###Writing to the database
 
-CouchDB uses HTTP requests to populate or query the database, so we could just write HTTP PUT requests to do this. I'm going to simplify things even further though by using a 3rd party module to help. There are a few available but I've gone for [Cradle](https://github.com/flatiron/cradle) in this example. In the Node app where we receive telemetry information, we'll add functionality to write any new data to CouchDB. At the top of the app, add a dependency on Cradle and create a connection to the database.
+CouchDB uses HTTP requests to populate or query the database, so we could just write HTTP PUT requests to do this. I'm going to simplify things even further though by using a 3rd party module to help. There are a few available but I've gone for [Cradle](https://github.com/flatiron/cradle) in this example as it is widely used and offers an easy-to-use API. In the Node app where we receive telemetry information, we'll add functionality to write any new data to CouchDB. At the top of the app, add a dependency on Cradle and create a connection to the database.
 
 {% highlight javascript %}
 var cradle = require('cradle');
