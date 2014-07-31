@@ -182,7 +182,7 @@ Futon gives you a button to create a new database. As you can see, I've used tha
 
 ###Writing to the database
 
-CouchDB uses HTTP requests to populate or query the database, so we could just write HTTP PUT requests to do this. I'm going to simplify things even further though by using a 3rd party module to help. There are a few available but I've gone for [Cradle](https://github.com/flatiron/cradle) in this example as it is widely used and offers an easy-to-use API. In the Node app where we receive telemetry information, we'll add functionality to write any new data to CouchDB. At the top of the app, add a dependency on Cradle and create a connection to the database.
+CouchDB uses HTTP requests to populate or query the database, so we could just write HTTP PUT requests to do this. I'm going to simplify things even further though by using a 3rd party module to help. There are a few available but I've gone for [Cradle](https://github.com/flatiron/cradle) in this example as it seems to be popular and offers an easy-to-use API. In the Node app where we receive telemetry information, we'll add functionality to write any new data to CouchDB. At the top of the app, add a dependency on Cradle and create a connection to the database.
 
 {% highlight javascript %}
 var cradle = require('cradle');
