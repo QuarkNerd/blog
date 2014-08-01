@@ -1,12 +1,14 @@
 ---
 author: ceberhardt
 title: "MVVM with ReactiveCocoa"
+image: "ceberhardt/assets/featured/reactive-mvvm.jpg"
 categories: 
 tags:
-
+  - featuredcolin
 summary: "I've recently had a two-part tutorial published on Ray Wenderlich's website that details how ReactiveCocoa can be used to implement the MVVM pattern within iOS applications. "
 layout: default_post
 originalArticleLink: http://www.raywenderlich.com/74106/mvvm-tutorial-with-reactivecocoa-part-1
+featured-overlay-inverted: true
 ---
 
 I've always been very keen on the Model-View-ViewModel (MVVM) UI design pattern, ever since I first encountered it whilst developing WPF and Silverlight ([RIP](http://www.scottlogic.com/blog/2011/11/14/the-untimely-demise-of-the-plugin-and-how-lob-developments-will-suffer.html)) applications. As a result I've been quick to adopt frameworks in other languages / technologies that provide an implementation of the MVVM pattern, such as [KnockoutJS](http://www.codeproject.com/Articles/365120/KnockoutJS-vs-Silverlight).

@@ -4,7 +4,6 @@ title: Creating a custom flip view controller transition
 featured-overlay-inverted: true
 image: "ceberhardt/assets/featured/custom-flip.jpg"
 tags: 
-  - featuredcolin
 categories: 
 summary: With iOS 7 Apple introduced a new set of APIs for creating custom View Controller transitions. In this blog post I look at how to create a custom 'flip' transition, giving the impression of a turning page.
 layout: default_post

@@ -4,7 +4,6 @@ title: Understanding JavaScript Object Creation Patterns
 image: "ceberhardt/assets/featured/JavaScriptObjectCreation.png"
 image-attribution: "image courtesy of <a href='http://www.flickr.com/photos/byronj/12637612753/sizes/z/'>Byron James</a>"
 tags: 
-  - featured
   - featuredcolin
 categories: 
 summary: This article explores the various ways you can create objects with the JavaScript language, and through this exploration finds that there is much to learn about the language!
