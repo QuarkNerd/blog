@@ -7,7 +7,6 @@ featured-overlay-inverted: true
 categories:
  - cprice
 tags: 
- - featured
 layout: default_post
 ---
 

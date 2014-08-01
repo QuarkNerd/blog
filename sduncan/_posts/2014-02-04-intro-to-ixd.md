@@ -5,7 +5,6 @@ image: "sduncan/assets/featured/2014-02-04-intro-to-ixd.jpg"
 summary: "Well designed objects and interfaces do not require lists of instructions. Why not?"
 summary-short: "Well designed objects and interfaces do not require lists of instructions. Why not?"
 tags:
-  - featured
   - interaction design
   - affordance
   - interface
