@@ -9,7 +9,7 @@ layout: default_post
 ---
 As part of a project I'm working on, I have a requirement for a NoSQL database. There are numerous offerings out there, of which [MongoDB](http://www.mongodb.org/) and [CouchDB](http://couchdb.apache.org/) appear to be the most popular. So which system should I choose?
 
-First, a little more information about my use case. I am part of a team who will be sending a balloon up into near-space (if you're interested, you can find out about us on our [Wordpress page](http://projectlatex.wordpress.com/)). As it is in flight, the balloon will be sending telemetry information via radio back down to a ground station. Once we receive the data at the ground station, we shall store it in a database of some kind. The decoded data is not going to be particularly relational, hence why a NoSQL database seems like a good way of storing it. It will be handled as Javascript objects so either MongoDB or CouchDB would seem to be a fairly good fit, given that they work by storing JSON documents.
+First, a little more information about my use case. I am part of a team who will be sending a balloon up into near-space (if you're interested, you can find out about us on our [Wordpress page](http://projectlatex.wordpress.com/)). As it is in flight, the balloon will be sending telemetry information via radio back down to a ground station. Once we receive the data at the ground station, we store it in a database of some kind. The decoded data is not going to be particularly relational, hence a NoSQL database seems like a good storage method. The data will be handled as Javascript objects so either MongoDB or CouchDB seem to be a fairly good fit, given that they work by storing JSON documents.
 
 ##The CAP triangle
 
@@ -51,11 +51,11 @@ We'll be receiving data every few seconds. In this blog post, we'll be running a
 
 ##MongoDB
 
-Once you've installed MongoDB, you can get the server up and running by calling **mongod** from the command line. Once the database server is up, we're in a position to add data to it and make queries on it. In this post, I'll run two separate Node.js processes. One will insert new data into the database when it becomes available, and the other will make queries on the database. 
+With MongoDB installed, the server can be started by calling **mongod** from the command line. Once running, we’re in a position to add data and make queries. In this post, two separate Node.js processes are used; one to insert new data into the database when it becomes available, and the other to make queries on the database.
 
-To use MongoDB directly from Javascript rather than using the Mongo shell, you could either use the [official MongoDB Node.js driver](https://github.com/mongodb/node-mongodb-native) or you could use an Object Document Mapper (ODM). [Mongoose](http://mongoosejs.com/) is the officially supported ODM for Node.js, so it is what I have used for this work.
+To use MongoDB directly from Javascript rather than using the Mongo shell, we could either use the [official MongoDB Node.js driver](https://github.com/mongodb/node-mongodb-native) or we could use an Object Document Mapper (ODM). [Mongoose](http://mongoosejs.com/) is the officially supported ODM for Node.js, so it is what I have used for this work.
 
-Mongoose requires you to define a schema for your data. This is actually a departure from vanilla MongoDB, which doesn't require data in a collection to have a common schema. This will match my use case though, so it's no big deal here. I've created a module which defines the schema I'll be using and called it *telemetryDb.js*.
+Mongoose requires you to define a schema for your data. This is actually a departure from vanilla MongoDB, which doesn't require data in a collection to have a common schema. This will match our use case though, so it's no big deal here. I've created a module which defines the schema we'll be using and called it *telemetryDb.js*.
 
 {% highlight javascript %}
 'use strict';
