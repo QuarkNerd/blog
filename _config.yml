@@ -16,7 +16,7 @@ destination: _site-safe
 include: [.htaccess]
 exclude: [_migration, checkdups, post-receive, README.txt, redirect_list.html,create-blog-post.sh]
 
-active-authors: [aaylett, amorgan, ceberhardt, cgrant, cprice, dkerr, godds, jphillpotts, lpage, mrhodes, nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth, dmcnamee, dgorst, alee]
+active-authors: [aaylett, amorgan, ceberhardt, cgrant, cprice, dkerr, godds, jphillpotts, lpage, mrhodes, nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth, dmcnamee, dgorst, alee, dthomas]
 authors:
     labs:
         name: Scott Logic Labs
@@ -120,3 +120,7 @@ authors:
         name: Andy Lee
         email: alee@scottlogic.com
         gravatar: f585309d8acd3635c90a9298ea3d46e1
+    dthomas:
+        name: David Thomas
+        email: dthomas@scottlogic.co.uk
+        gravatar: cee30211dde61525a902ad9f05d8e56e
