@@ -22,7 +22,7 @@ In this post, we will explore three factors that should to be considered before 
 
 MongoDB contains a database server component that is responsible for persisting data and carrying out queries on that data.  With this component on a single machine there are operational concerns as this introduces a single point of failure.  MongoDB's replica set feature comes to the rescue, and allows 'secondary' machines to replicate the data on the 'primary' and be ready to take over on a failure.
 
-Whilst a replica set can alleviate some operational risks, and are typically found in all MongoDB production environments, they do not aim to split data or the workload across the machines.  This is where sharded clusters come in, as it enables a replica set (or single database instance) to become a shard.
+Whilst a replica set can alleviate some operational risks, and are typically found in all MongoDB production environments, they do not aim to split data or the workload across the machines.  This is where sharded clusters come in, as it enables a replica set (or a single database instance) to become a shard.
 
 Each shard in a sharded cluster exclusively holds onto a set of chunks. These chunks describe a subset of data stored and can be migrated from one shard to another, either to maintain an even distribution of data or to handle shards being added or removed from the cluster.  It is this distribution that provides all the power as data interactions can be routed to a single shard and so reduce the load on other shards.
 
@@ -55,21 +55,21 @@ Secondly, each read or write should only _target at an individual shard_.  For t
 
 Finally, the shard key value should be _distinct across the data_.  This is important to consider as chucks divides the data by using the shard key, and data with the same shard key value will always kept in the same chunk.
 
-Meeting all these criteria is not feasible in practice, when you are choosing a shard key, so you need to focus on the typical usage patterns of your data.  This may require a fair amount of initial experimentation.  When your system goes into production the performance of your shard key should be regularly monitored, as this should give you insight about your current usage patterns and help you be proactive when these patterns change.
+Meeting all these criteria tends to be infeasible in real world systems, so you need to base your decisions on the typical usage patterns of your data.  When your system goes into production the performance of your shard key should be regularly monitored, as this should give you insight about your current usage patterns and help you be proactive when these patterns change.
 
 
 ##Consider: What is the impact of maintenance tasks?
 
 As part of the sharded cluster feature of MongoDB, it employs a balancer to distribute chunks evenly between shards.  Whilst this helps keep the overall system scalable, there is an additional load placed across the sharded cluster when chunks are transferred.
 
-A side effect of this is that when machines are added or removed from a sharded cluster, the balancer is going to move chunks between shards.  This is another motivator for monitoring performance metrics, as it allows you to be proactive with adding machines rather than being reactive and adding a temporary additional load when the system is already under strain.
+A side effect of this is that when machines are added or removed from a sharded cluster, the balancer is going to move chunks between shards.  This is another motivator for monitoring performance metrics, as it allows you to be proactive rather than being reactive and introducing this additional load when the system has a performance bottleneck.
 
-When data is added to a sharded cluster, chunks are going to be split and distributed on the fly.  This means that when a large amount of data is being added, the balancer is adding data to chunks that are going to be split as more data comes in and then these new chunks will get transferred to another shard -- all of which introduces additional load.
+Chunks can also be split into two and distributed on the fly, when certain data storage thresholds are crossed.  This means that when a large amount of data is being added, the balancer is adding data to chunks that are going to be split as more data comes in and then these new chunks will get transferred to another shard -- all of which introduces additional load.
 
 If you can predict the amount of data you will be receiving and the range of values you shard key will have, it may be possible for you to manual split chunk beforehand. By doing so, the data will be written to a chunk that is unlikely to be automatically split to be transferred to another shard.
 
-##Where Next...
+##What have we discovered
 
-There are two main reason for me carrying out research regarding sharded clusters and documenting my findings.  First of all, there are companies who are using a whole variety of techniques to keep their own systems performing well under increasing loads.  From my perspective, the fact that they can do this greatly interests me and has encouraged me to build a sharded cluster in MongoDB for myself.  Maybe it will encourage you to build your own too.
+So far, we have looked at the key considerations you need to make before transitioning over to a sharded cluster.  What we have seen is that there is tremendous amount of value in collecting performance metrics as they allow you to evaluate your current resource usages, make forecasts and anticipate future performance bottlenecks.  We have also seen that the transition to a sharded cluster introduces an additional deployment and maintainability cost and that the addition or removal of a machine can add an additional load.  Finally, we have touched upon what a shard key is and how this one choice defines the types of performance benefits you can receive from a sharded cluster.
 
-The other motivating factor is that whilst there are blog posts and videos discussing how MongoDB can scale, I have not come across any data showing how performance metrics change as more machines are added or as the distribution of data changes across machines.  Whilst there is no expectation that I can generate performance metrics that will mimic every usage case of MongoDB, I am anticipating that there will be interesting and useful observations that can be drawn.
+However, there the one thing we have not seen. Up until this point I have been vague about how performance metrics are collected and how you can use them.  In the next post on "Sharded Clusters in MongoDB", I look to address this and walk you through the performance metrics I have gathered on when creating my own sharded clusters.
