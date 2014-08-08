@@ -28,7 +28,7 @@ Each shard in a sharded cluster exclusively holds onto a set of chunks. These ch
 
 ##Consider: Will the benefits outweigh the costs?
 
-If you are not currently using a shard clustered in MongoDB, you are forced to increase the specifications of your replica set machines to cope with additional load.  For some systems this approach works well, but there does come a point for some where this does not become worthwhile.
+If you are not currently using a sharded cluster in MongoDB, you are forced to increase the specifications of your replica set machines to cope with additional load.  For some systems this approach works well, but there does come a point for some where this does not become worthwhile.
 
 <img src="{{ site.baseurl }}/mdunsdon/assets/mongo-sharding-infrastructure.png"/>
 
