@@ -28,13 +28,13 @@ Each shard in a sharded cluster exclusively holds onto a set of chunks. These ch
 
 ##Consider: Will the benefits outweigh the costs?
 
-If you are not currently using a shard cluster in MongoDB, you are forced to increase the specifications of your replica set machines to cope with additional load.  For some systems this approach works well, but there does come a point for some where this does not become worthwhile.
+If you are not currently using a shard clustered in MongoDB, you are forced to increase the specifications of your replica set machines to cope with additional load.  For some systems this approach works well, but there does come a point for some where this does not become worthwhile.
 
 <img src="{{ site.baseurl }}/mdunsdon/assets/mongo-sharding-infrastructure.png"/>
 
 Before you can bring a production MongoDB system over to using a sharded cluster, there are additional costs that you need to bear. Not only do you need to duplicate your existing replica set, but you need to set up the following:
 
-- A _configuration server_ is essential for mapping data chunks to shards. A shared cluster cannot function without this, so you should set up three of these servers in production and have a data backup strategy.
+- A _configuration server_ is essential for mapping data chunks to shards. A sharded cluster cannot function without this, so you should set up three of these servers in production and have a data backup strategy.
 
 - A _router server_ routes actions triggered by your applications to the correct shard.  In a production environment it may be necessary to have multiple of these to handle fail-over.
 
@@ -74,4 +74,4 @@ If you can predict the amount of data you will be receiving and the range of val
 
 So far, we have looked at the key considerations you need to make before transitioning over to a sharded cluster.  What we have seen is that there is a tremendous amount of value in collecting performance metrics as they allow you to evaluate your current resource usage, make forecasts and anticipate future performance bottlenecks.  We have also seen that the transition to a sharded cluster introduces an additional deployment and maintainability cost and that the addition or removal of a machine can add an additional load.  Finally, we have touched upon what a shard key is and how this one choice defines the types of performance benefits you can receive from a sharded cluster.
 
-However, there is one thing we have not seen. Up until this point I have been vague about how performance metrics are collected and how you can use them, so in the next post on "Sharded Clusters in MongoDB" I look to address this. I will walk you through the performance metrics I have gathered when creating my own sharded clusters, what you can do to with these metrics to forecast hardware requirements and how you can proactively identify performance bottlenecks ahead of time.
+However, there is one thing we have not seen. Up until this point I have been vague about how performance metrics are collected and how you can use them, so in the next post on "Sharded Clusters in MongoDB" I look to address this. I will walk you through the performance metrics I have gathered when creating my own sharded clusters, what you can do with these metrics to forecast hardware requirements and how you can proactively identify performance bottlenecks ahead of time.
