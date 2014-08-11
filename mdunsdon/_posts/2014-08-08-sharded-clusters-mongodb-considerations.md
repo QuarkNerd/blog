@@ -4,7 +4,7 @@ title: "Sharded Clusters in MongoDB - The Key Considerations"
 categories:
 tags:
 
-summary: "Sharded clusters enable the data persistence layer in MongoDB to be shared across several machines.  In this post, we will look the key considerations you should make before you use sharded clusters."
+summary: "Sharded clusters enable the data persistence layer in MongoDB to be shared across several machines.  In this post, we will look at the key considerations you should make before you use sharded clusters."
 layout: default_post
 ---
 
