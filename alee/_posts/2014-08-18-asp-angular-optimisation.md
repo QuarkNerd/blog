@@ -7,7 +7,7 @@ summary: How to use Asp.Net's built-in bundling and optimisation feature to opti
 layout: default_post
 ---
 
-How to use Asp.Net's built-in bundling and optimisation feature to optimise AngularJS templates
+How to use Asp.Net's built-in bundling and optimisation feature to optimise AngularJS templates.
 
 A core feature of [AngularJS](https://angularjs.org/) is the ability to put HTML templates in partial template files, and have Angular load them on demand and add them to the DOM, as shown in the tutorial: [Routing & Multiple Views](https://docs.angularjs.org/tutorial/step_07).
 
