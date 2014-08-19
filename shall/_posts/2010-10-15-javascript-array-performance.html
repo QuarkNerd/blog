@@ -133,3 +133,5 @@ var j = b[b.length] = 'test'; // j is 'test'{% endhighlight %}
 <p>However, we could examine the case where the result of Array.push is not assigned to anything. In this scenario, the Compiler should be able to replace the push with an array.length index without side effects.</p>
 <p>The problem then lies in the fact that the performance varies between browser. Although, on the whole, indexing performs better than push, that is not the case in Google Chrome. Unlike GWT, where you can deploy a certain condition for a certain browser, Closure Compiler just generates one JavaScript file for every browser.</p>
 <p>Given the differences between Chrome's results, and the extremely poor performance in some other browsers, it may be worth sacrificing some performance in Chrome for much better performance in other browsers.</p>
+
+{% include ads/html5-white-paper.html %}
