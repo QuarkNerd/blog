@@ -16,7 +16,7 @@ destination: _site-safe
 include: [.htaccess]
 exclude: [_migration, checkdups, post-receive, README.txt, redirect_list.html,create-blog-post.sh]
 
-active-authors: [aaylett, amorgan, ceberhardt, cgrant, cprice, dkerr, godds, jphillpotts, lpage, mrhodes, nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth, dmcnamee, dgorst, alee, dthomas, mdunsdon]
+active-authors: [aaylett, amorgan, ceberhardt, cgrant, cprice, dkerr, godds, jphillpotts, lpage, mrhodes, nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth, dmcnamee, dgorst, alee, dthomas, mdunsdon, tsimmons]
 authors:
     labs:
         name: Scott Logic Labs
@@ -132,3 +132,6 @@ authors:
         name: Richard Doyle
         email: rdoyle@scottlogic.com
         gravatar: 1c9852e1b5e7d2847b21dba28e7a3efe
+    tsimmons:
+        name: Tom Simmons
+        email: tsimmons@scottlogic.co.uk
