@@ -1,13 +1,13 @@
 <div class="authorCarousel carousel slide hidden-small">
   {% comment %} Rounding hack of -1, patches welcome! {% endcomment %}
-  {% assign count = site.active-authors | size | minus: 1 | divided_by: 6 %}
+  {% assign count = site.data.authors.active-authors | size | minus: 1 | divided_by: 6 %}
   <div class="carousel-inner">
     {% for i in (0..count) %}
     <div class="item {% if forloop.first %} active{% endif %}">
       <ul class="thumbnails">
         {% assign offset = i | times: 6 %}
-        {% for id in site.active-authors limit: 6 offset: offset %}
-        {% assign author = site.authors[id] %}
+        {% for id in site.data.authors.active-authors limit: 6 offset: offset %}
+        {% assign author = site.data.authors.authors[id] %}
         <li class="span2 text-center">
           <a href="{{ site.baseurl }}/{{ id }}" class="thumbnail">
             {% if author.gravatar %}
@@ -28,8 +28,8 @@
 </div>
 <div class="authorCarousel visible-small">
   <ul class="row">
-    {% for authorID in site.active-authors %}
-    {% assign author = site.authors[authorID] %}
+    {% for authorID in site.data.authors.active-authors %}
+    {% assign author = site.data.authors.authors[authorID] %}
     <li>
       <a href="{{ site.baseurl }}/{{ authorID }}" class="thumbnail">
         {% if author.gravatar %}

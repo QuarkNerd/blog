@@ -13,7 +13,7 @@
       </a>
     </h3>
     <h5 class="sub author">
-    {% assign author = site.authors[post.author] %}
+    {% assign author = site.data.authors.authors[post.author] %}
     
     {% if showAuthorInfo %}
       by <a href="{{ site.baseurl }}/{{ post.author }}">{{ author.name }}</a>,

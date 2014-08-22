@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom"
   xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
   xmlns:sl="scott-logic">
-  <title><![CDATA[{% if page.author %}{{ site.authors[page.author].name }} at {% endif %}{{ site.name }}]]></title>
+  <title><![CDATA[{% if page.author %}{{ site.data.authors.authors[page.author].name }} at {% endif %}{{ site.name }}]]></title>
   <link href="{{ site.siteurl}}{{ site.baseurl }}{% if page.author %}/{{ page.author }}{% endif %}"/>
   <link type="application/atom+xml" rel="self" href="{{ site.siteurl}}{{ site.baseurl }}{% if page.author %}/{{ page.author }}{% endif %}/atom.xml"/>
-  {% if page.author and site.authors[page.author].feed-description %}
-  {% assign description = site.authors[page.author].feed-description %}
+  {% if page.author and site.data.authors.authors[page.author].feed-description %}
+  {% assign description = site.data.authors.authors[page.author].feed-description %}
   {% else %}
   {% assign description = site.description %}
   {% endif %}
@@ -30,7 +30,7 @@
     <published>{{ post.date | date_to_rfc822 }}</published>
     <updated>{{ post.date | date_to_rfc822 }}</updated>
     <summary><![CDATA[{% if post.summary %}{{ post.summary }}{% else %}{{ post.content | truncatewords:50 | strip_html | xml_escape }}{% endif %}]]></summary>
-    {% assign author = site.authors[post.author] %}
+    {% assign author = site.data.authors.authors[post.author] %}
     <author>
       <name>{% if author.email %}{{ author.email }} ({{ author.name }}){% else %}{{ author.name }}{% endif %}</name>
     </author>   
