@@ -10,8 +10,13 @@ tags:
   - Javascript
 title-short: Starting from Scratch
 ---
-### Introduction
-We're the Scott Logic interns for Newcastle in 2014, and our project was to make a mobile-compatible version of the Scratch HTML5 player that allows offline access, and app-like immersion.
+
+We're the Scott Logic interns for Newcastle in 2014, and our project was to make a mobile-compatible version of the Scratch HTML5 player that allows offline access, and app-like immersion. This blog post is an overview of what we managed to achieve ...
+
+And just to whet your appetite, here's a screenshot of the popular Doodle Jump game working on the HTML5 scratch player:
+
+<a href="http://sl-scratch-app.herokuapp.com/scratch-player/11342979"><img src="{{ site.baseurl }}/jhill/assets/DoodleJump.png"></img></a>
+
 
 ### What's Scatch?
 
@@ -23,7 +28,7 @@ A project is made up sprites, which contain scripts. These scripts are comprised
 
 We've created a web front-end using [Angular.js](https://angularjs.org/) for people to enter in their username and choose a project to play from their collection of their own projects and the projects belonging to users that they're following (via server-side scraping). There is a set of options that allow the user to customise their experience (ie. auto-start the project, start the project in fullscreen mode, and hide the flags that start/stop the project).
 
-For the player itself, we've allowed it to be scalable to fill the user's screen, so that it is easier to play on mobile devices. Through the creation of an application manifest, the projects themselves are able to be stored and played offline. However, because of difficulties with Safari, audio isn't available on the iOS platform (so you can't enjoy beauties such as [this](http://scratch.mit.edu/projects/23413051/) or [this](http://scratch.mit.edu/projects/11731917/)). We also allowed the user to save the webpage to their home screen (with the project's icon and name for the shortcut) so they can open it at their kown convenience.
+For the player itself, we've allowed it to be scalable to fill the user's screen, so that it is easier to play on mobile devices. Through the creation of an application manifest, the projects themselves are able to be stored and played offline. However, because of difficulties with Safari, audio isn't available on the iOS platform (so you can't enjoy beauties such as [this](http://scratch.mit.edu/projects/23413051/) or [this](http://scratch.mit.edu/projects/11731917/)). We also allowed the user to save the webpage to their home screen (with the project's icon and name for the shortcut) so they can open it at their own convenience.
 
 Many bugfixes have been applied on the player. Deprecated audio API calls have been updated to their newer equivalents, and many null pointers have been type-checked or their causes fixed. Alongside that, there have been fixes to sprite and colour collision detection to help ensure that they work as intended. Also, a basic fix was applied to GPU compositing to enable reporters to display their updated values, where the didn't previously.
 
@@ -37,7 +42,7 @@ This then meant that the playback rate of the player itself was out of sync with
 
 We've performed optimisations to the player itself. For example, when two sprites were colliding, an off-screen HTML5 canvas was created that was the size of the stage, and that whole canvas was sampled for collision detection. Now, the canvas is just the size of the intersection between the sprites' rectangles, and samples only that intersection for collisions, which reduced the time required for collision detection by 66%. Have a look at the before and after on the Galaxy Note 10.1 to see the rather hefty performance improvements we've been able to bring.
 
-A similar approach was performed to colour collision, with a few differences. Previously, all sprites were rendered to the whole stage canvas and the sprite checking for the collision (the target) was actually on a separate canvas, and the colour values were only checked when the corresponsing pixel in the separate canvas had an alpha value greater than 0. Have a look at the code below:
+A similar approach was performed to colour collision, with a few differences. Previously, all sprites were rendered to the whole stage canvas and the sprite checking for the collision (the target) was actually on a separate canvas, and the colour values were only checked when the corresponding pixel in the separate canvas had an alpha value greater than 0. Have a look at the code below:
 
 {% highlight javascript %}var stageColorHitTest = function(target, color) {
 	    var r, g, b;
@@ -128,7 +133,7 @@ We've also made a few of our own projects, like [Atari Breakout](http://scratch.
 
 ### What's left to do
 
-~making it work~~
+~making it work!~
 
 There's still a fair bit left to do with the Scratch HTML5 player. The main focus is bug fixing and optimisations, as a fair portion of CPU time is spent on collision detection. When the target platform is mobile, any optimisations would greatly improve the player experience.
 What would also be a good idea is implementation of a keyboard or some limited means of controls, like left, right, up and down arrow keys which the original HTML5 player had. This would allow the user to use other means of input other than just touch, which would in turn allow for larger variety of projects. Special effects like mosaic/whirl also don't exist (with no sign of being implemented).
@@ -145,10 +150,10 @@ We've accomplished a fair bit, allowing Scratch projects to be playable offline 
 
 * [Web front-end](http://sl-scratch-app.herokuapp.com/)
 * HTML5 Player:
-    * Our games: [Breakout](http://scratch.mit.edu/projects/24796179/), [Pong](http://sl-scratch-app.herokuapp.com/scratch-player/24824122), [Countdown Numbers Game](http://scratch.mit.edu/projects/25671398/), [Countdown Letters Game](http://scratch.mit.edu/projects/25665963/)
-    * [Super Waffle Galaxy](http://sl-scratch-app.herokuapp.com/scratch-player/23824657) ([Touch Version](http://sl-scratch-app.herokuapp.com/scratch-player/25165819)) by CANSLP
-    * [Super Hexagon](http://sl-scratch-app.herokuapp.com/scratch-player/10711405) ([Touch Version](http://sl-scratch-app.herokuapp.com/scratch-player/25505324/)) by lolwel21
-    * [Doodle Jump](http://sl-scratch-app.herokuapp.com/scratch-player/11342979) ([Touch Version](http://sl-scratch-app.herokuapp.com/scratch-player/25321688)) by TheSaint
+ * Our games: [Breakout](http://scratch.mit.edu/projects/24796179/), [Pong](http://sl-scratch-app.herokuapp.com/scratch-player/24824122), [Countdown Numbers Game](http://scratch.mit.edu/projects/25671398/), [Countdown Letters Game](http://scratch.mit.edu/projects/25665963/)
+ * [Super Waffle Galaxy](http://sl-scratch-app.herokuapp.com/scratch-player/23824657) ([Touch Version](http://sl-scratch-app.herokuapp.com/scratch-player/25165819)) by CANSLP
+ * [Super Hexagon](http://sl-scratch-app.herokuapp.com/scratch-player/10711405) ([Touch Version](http://sl-scratch-app.herokuapp.com/scratch-player/25505324/)) by lolwel21
+ * [Doodle Jump](http://sl-scratch-app.herokuapp.com/scratch-player/11342979) ([Touch Version](http://sl-scratch-app.herokuapp.com/scratch-player/25321688)) by TheSaint
 
 
 Our code (and struggles with Git) is available for all to see on [GitHub](http://www.github.com/). If you want to continue our work (without the app-specific features like manifest generation, player scaling, etc.), choose the Scott Logic fork of the Scratch HTML5 player below. The version with manifest generation and player scaling is on WPFerg.
