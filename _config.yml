@@ -16,7 +16,7 @@ destination: _site-safe
 include: [.htaccess]
 exclude: [_migration, checkdups, post-receive, README.txt, redirect_list.html,create-blog-post.sh]
 
-active-authors: [aaylett, amorgan, ceberhardt, cgrant, cprice, dkerr, godds, jphillpotts, lpage, mrhodes, nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth, dmcnamee, dgorst, alee, dthomas, mdunsdon, tsimmons]
+active-authors: [aaiken, aaylett, amorgan, ceberhardt, cgrant, cprice, dkerr, godds, jphillpotts, lpage, mrhodes, nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth, dmcnamee, dgorst, alee, dthomas, mdunsdon, tsimmons]
 authors:
     labs:
         name: Scott Logic Labs
@@ -138,3 +138,6 @@ authors:
     tsimmons:
         name: Tom Simmons
         email: tsimmons@scottlogic.co.uk
+    aaiken:
+        name: Andy Aiken
+        email: aaiken@scottlogic.com
