@@ -24,7 +24,7 @@ var line = sl.series.annotation()
 
 <img src="{{ site.baseurl }}/aaiken/assets/annotation.png"/>
 
-The second component will be a line which follows any field on the data model, and includes an optional [moving average](http://en.wikipedia.org/wiki/Moving_average_(finance)) calculation; adding it to the chart will take only 6 lines of code...
+The second component will be a line which follows any field on the data model, and includes an optional [moving average](http://en.wikipedia.org/wiki/Moving_average) calculation; adding it to the chart will take only 6 lines of code...
 
 {% highlight javascript %}
 var line = sl.series.tracker()
@@ -39,7 +39,7 @@ var line = sl.series.tracker()
 
 <img src="{{ site.baseurl }}/aaiken/assets/average.png"/>
 
-I'm not proposing to cover what D3 is in this post; Tom's done that admirably in his article creating [OHLC and candlestick components](http://www.scottlogic.com/blog/2014/08/19/an-ohlc-chart-component-for-d3.html), and in fact I'm going to build on the chart he developed there.
+I'm not proposing to cover what D3 is in this post; Tom's done that admirably in his article on [OHLC and candlestick components](http://www.scottlogic.com/blog/2014/08/19/an-ohlc-chart-component-for-d3.html), and in fact I'm going to be lazy and build on the chart he developed there.
 
 ## Line Annotation Component
 
