@@ -2,7 +2,10 @@
 author: dpizzi
 title: "Strong Typing With AngularJS"
 layout: default_post
-summary: "An example of integration of TypeScript with AngularJS framework"
+summary: "This article demonstrates a successful integration of TypeScript with AngularJS to provide a strongly-typed environment for development of HTML5 apps."
+tags:
+  - featured
+image: "dpizzi/assets/featured/Strong.png"
 ---
 
 A few weeks ago my colleague presented a detailed article about [strong typing for SignalR](http://www.scottlogic.com/blog/2014/08/08/signalr-typed.html). This article presents the integration of TypeScript with the AngularJS framework. Whilst both technologies are widely adopted, and thoroughly documented, their integration seems however to rather lack documentation.

@@ -1,8 +1,13 @@
 ---
 author: tsimmons
 title: An OHLC Chart Component for D3
+title-short: "An OHLC Chart with D3"
 summary: An open-high-low-close chart is a type of financial chart used to show price movements in a financial instrument over time. In this post, we'll make a reusable D3 component for an OHLC chart series.
 layout: default_post
+tags:
+  - featured
+image: "tsimmons/assets/featured/chart.png"
+featured-overlay-inverted: true
 ---
 
 An open-high-low-close (OHLC) chart is a type of financial chart used to show price movements and help identify trends in a financial instrument over time. For each unit of time, a vertical line is plotted showing the highest and lowest prices reached in that time. Horizontal tick marks are plotted on each side of the line - the opening price for that time period on the left, and the closing price on the right. Usually an OHLC line will be coloured green if on that day the closing price exceeded the opening price (an 'up day'), and coloured red if not (a 'down day').
