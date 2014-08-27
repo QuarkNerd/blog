@@ -1,7 +1,7 @@
 ---
 author: aaiken
-title: "Two Line Components for D3 Charts"
-summary: "In this article I'm going to create a simple, reusable D3 component for adding line annotations to charts."
+title: "Two Reusable Line Components for D3 Charts"
+summary: "In this article I'm going to create two simple, reusable D3 components for adding line annotations to charts."
 image: "aaiken/assets/featured/two-line-components.png"
 tags: 
   - d3
@@ -9,21 +9,47 @@ categories:
   - aaiken
 layout: default_post
 ---
-In this article I'm going to create two simple, reusable D3 components for adding line annotations to charts. I'm going to start off by considering the most basic case I can think of - a simple horizontal line.
+In this article I'm going to create two simple, reusable D3 components for adding line annotations to charts. One of the things I appreciate most about D3 components is that, regardless of the complexity of the component itself, adding one to a chart is typically a really simple process, and these components will illustrate that elegance.
 
-Although a horizontal line at a fixed Y-value is perhaps the simplest chart annotation you could imagine, it's not without its uses; from the consumer's point of view it's often useful to show a visual 'callout' for a particular value - consider, for example, a sales target on a chart containing retail data - and from a technical point of view we're going to use this code as the basis for a more programmatically interesting component later on.
+The first component will be a horizontal line at a fixed y-value; adding it to the chart will take only 4 lines of code...
 
-I'm not proposing to cover what D3 is in this post; Tom's done that admirably in his article [here](http://www.scottlogic.com/blog/2014/08/19/an-ohlc-chart-component-for-d3.html), and in fact I'm going to build on the chart he developed there.
+{% highlight javascript %}
+var line = sl.series.annotation()
+    .xScale(xScale)
+    .yScale(yScale)
+    .yValue(annotationValue);
+{% endhighlight %}
 
-## Line Annotation Component
-
-The component I'm going to create looks like this.
+... to create a chart that looks like this:
 
 <img src="{{ site.baseurl }}/aaiken/assets/annotation.png"/>
 
+The second component will be a line which follows any field on the data model, and includes an optional [moving average](http://en.wikipedia.org/wiki/Moving_average_(finance)) calculation; adding it to the chart will take only 6 lines of code...
+
+{% highlight javascript %}
+var line = sl.series.tracker()
+    .xScale(xScale)
+    .yScale(yScale)
+    .yValue('close')
+    .movingAverage(5)
+    .css('tracker-close-avg');
+{% endhighlight %}
+
+... to create a chart that looks like this:
+
+<img src="{{ site.baseurl }}/aaiken/assets/average.png"/>
+
+I'm not proposing to cover what D3 is in this post; Tom's done that admirably in his article creating [OHLC and candlestick components](http://www.scottlogic.com/blog/2014/08/19/an-ohlc-chart-component-for-d3.html), and in fact I'm going to build on the chart he developed there.
+
+## Line Annotation Component
+
+I'm going to start off by considering the most basic case I can think of - a simple horizontal line.
+
+Although a horizontal line at a fixed Y-value is perhaps the simplest chart annotation you could imagine, it's not without its uses; from the consumer's point of view it's often useful to show a visual 'callout' for a particular value - consider, for example, a sales target on a chart containing retail data - and from a technical point of view we're going to use this code as the basis for the second (more programmatically interesting) component later on.
+
 To add the annotation to the chart, we have three steps. First we build the annotation component, then we add it to the chart, then finally we style it appropriately - it's really as simple as that.
 
-I'm creating the annotation as a reusable component, following the convention that D3 creator Mike Bostock has described [here](http://bost.ocks.org/mike/chart/) - a closure with get/set accessors.
+I'm creating the annotation as a reusable component, following the convention that D3 creator Mike Bostock [has described](http://bost.ocks.org/mike/chart/) - a closure with get/set accessors.
 
 ### Annotation component
 
@@ -135,7 +161,9 @@ Obviously, one final step is to style the line - I've chosen to display it as a 
 }
 {% endhighlight %}
 
-This is all we need to display the chart as shown at the top of this article.
+This is all we need to display the chart.
+
+<img src="{{ site.baseurl }}/aaiken/assets/annotation.png"/>
 
 ### Enhancements
 
@@ -143,13 +171,9 @@ We can easily imagine how this simple component might be improved - perhaps it w
 
 ## Data Tracker Component
 
-So we currently have a simple horizontal line annotation component, which is all well and good - it might certainly be useful in some situations, but it's a bit simplistic. Let's see if we can use this code as a basis for creating a much more useful, flexible line series component.
+So we currently have a simple horizontal line annotation component, which is all well and good - certainly useful in some situations, but it's a bit simplistic. Let's see if we can use this code as a basis for creating a much more useful, flexible line series component.
 
 This new component I'm going to create will be able to show a horizontal line at a fixed Y-value, as before, but it'll also be able to follow any of the data fields in the model (open, high, low, close) with an optional moving average calculation thrown in for good measure.
-
-Here's an example showing our new component in action. Notice that the blue dashed line seems to lag behind the data; this is because of the moving average calculation.
-
-<img src="{{ site.baseurl }}/aaiken/assets/average.png"/>
 
 ### Tracker Component
 
@@ -309,7 +333,17 @@ Finally we style the line (I'm cheating slightly by using the same style as befo
 }
 {% endhighlight %}
 
+And here's the result:
+
+<img src="{{ site.baseurl }}/aaiken/assets/average.png"/>
+
+Notice that the blue dashed line seems to lag behind the data; this is because of the moving average calculation.
+
 That's all there is to it - a relatively small amount of code, but it gives us a number of different ways to display information on our chart.
+
+### Enhancements
+
+When I see a moving average on a financial chart, my mind immediately jumps to [Bollinger Bands](http://en.wikipedia.org/wiki/Bollinger_Bands) - so that's how I'd extend this component further. Alternatively, the particular moving average calculation we're using here is called 'simple moving average' - there are other moving averages we could add, and allow the user to specify the type of calculation they want.
 
 ## Conclusion
 
