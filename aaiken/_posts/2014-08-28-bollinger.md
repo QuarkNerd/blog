@@ -41,10 +41,10 @@ sl.series.bollinger = function () {
         movingAverage = 20,
         standardDeviations = 2;
 
-    var cssBandArea = '',
-        cssBandUpper = '',
-        cssBandLower = '',
-        cssAverage = '';
+    var cssBandArea = 'bollingerBandArea',
+        cssBandUpper = 'bollingerBandUpper',
+        cssBandLower = 'bollingerBandLower',
+        cssAverage = 'bollingerAverage';
 
     var bollinger = function (selection) {
 
@@ -88,19 +88,7 @@ sl.series.bollinger = function () {
             return Math.sqrt(variance);
         };
 
-        var bollingerData = null;
-
         selection.each(function (data) {
-
-            if (!bollingerData) {
-                bollingerData = {};
-                for (var index = 0; index < data.length; ++index) {
-                    var date = data[index].date;
-                    var avg = calculateMovingAverage(data, index);
-                    var sd = calculateMovingStandardDeviation(data, index, avg);
-                    bollingerData[date] = {avg: avg, sd: sd};
-                }
-            }
 
             if (!isNaN(parseFloat(yValue))) {
 
@@ -120,7 +108,18 @@ sl.series.bollinger = function () {
                 }
                 else {
 
-                    areaBands.y0(function (d, i) {
+                    var bollingerData = {};
+                    for (var index = 0; index < data.length; ++index) {
+
+                        var date = data[index].date;
+
+                        var avg = calculateMovingAverage(data, index);
+                        var sd = calculateMovingStandardDeviation(data, index, avg);
+
+                        bollingerData[date] = {avg: avg, sd: sd};
+                    }
+
+                    areaBands.y0(function (d) {
 
                         var avg = bollingerData[d.date].avg;
                         var sd = bollingerData[d.date].sd;
@@ -128,7 +127,7 @@ sl.series.bollinger = function () {
                         return yScale(avg + (sd * standardDeviations));
                     });
 
-                    areaBands.y1(function (d, i) {
+                    areaBands.y1(function (d) {
 
                         var avg = bollingerData[d.date].avg;
                         var sd = bollingerData[d.date].sd;
@@ -136,7 +135,7 @@ sl.series.bollinger = function () {
                         return yScale(avg - (sd * standardDeviations));
                     });
 
-                    lineUpper.y(function (d, i) {
+                    lineUpper.y(function (d) {
 
                         var avg = bollingerData[d.date].avg;
                         var sd = bollingerData[d.date].sd;
@@ -144,7 +143,7 @@ sl.series.bollinger = function () {
                         return yScale(avg + (sd * standardDeviations));
                     });
 
-                    lineLower.y(function (d, i) {
+                    lineLower.y(function (d) {
 
                         var avg = bollingerData[d.date].avg;
                         var sd = bollingerData[d.date].sd;
@@ -152,7 +151,7 @@ sl.series.bollinger = function () {
                         return yScale(avg - (sd * standardDeviations));
                     });
 
-                    lineAverage.y(function (d, i) {
+                    lineAverage.y(function (d) {
 
                         var avg = bollingerData[d.date].avg;
 
@@ -161,14 +160,19 @@ sl.series.bollinger = function () {
                 }
             }
 
+            var prunedData = [];
+            for (var index = movingAverage; index < data.length; ++index) {
+                prunedData.push(data[index]);
+            }
+
             var pathArea = d3.select(this).selectAll('.area')
-                .data([data]);
+                .data([prunedData]);
             var pathUpper = d3.select(this).selectAll('.upper')
-                .data([data]);
+                .data([prunedData]);
             var pathLower = d3.select(this).selectAll('.lower')
-                .data([data]);
+                .data([prunedData]);
             var pathAverage = d3.select(this).selectAll('.average')
-                .data([data]);
+                .data([prunedData]);
 
             pathArea.enter().append('path');
             pathUpper.enter().append('path');
@@ -195,93 +199,24 @@ sl.series.bollinger = function () {
         });
     };
 
-    bollinger.xScale = function (value) {
-        if (!arguments.length) {
-            return xScale;
-        }
-        xScale = value;
-        return bollinger;
-    };
-
-    bollinger.yScale = function (value) {
-        if (!arguments.length) {
-            return yScale;
-        }
-        yScale = value;
-        return bollinger;
-    };
-
-    bollinger.yValue = function (value) {
-        if (!arguments.length) {
-            return yValue;
-        }
-        yValue = value;
-        return bollinger;
-    };
-
-    bollinger.movingAverage = function (value) {
-        if (!arguments.length) {
-            return movingAverage;
-        }
-        movingAverage = value;
-        return bollinger;
-    };
-
-    bollinger.standardDeviations = function (value) {
-        if (!arguments.length) {
-            return standardDeviations;
-        }
-        standardDeviations = value;
-        return bollinger;
-    };
-
-    bollinger.cssBandUpper = function (value) {
-        if (!arguments.length) {
-            return cssBandUpper;
-        }
-        cssBandUpper = value;
-        return bollinger;
-    };
-
-    bollinger.cssBandLower = function (value) {
-        if (!arguments.length) {
-            return cssBandLower;
-        }
-        cssBandLower = value;
-        return bollinger;
-    };
-
-    bollinger.cssBandArea = function (value) {
-        if (!arguments.length) {
-            return cssBandArea;
-        }
-        cssBandArea = value;
-        return bollinger;
-    };
-
-    bollinger.cssAverage = function (value) {
-        if (!arguments.length) {
-            return cssAverage;
-        }
-        cssAverage = value;
-        return bollinger;
-    };
+    // NOTE: The various get / set accessors go here, but I've removed them to make the code block shorter
 
     return bollinger;
 };
+
 {% endhighlight %}
 
 That's a decent amount of code, so let's start at the top by looking at the properties I've defined on this component - you'll see that I've broken them down into sections so we don't have a monolithic block of declarations at the top of the file.
 
 * First we have the X and Y scales, which the component needs when it's working out where to draw things.
 * Next we have the fields we need to perform our calculations - the field to use on the data model, the moving average period, and the number of standard deviations to use. Note that we're defaulting the moving average period to 20 and the number of standard deviations to 2, the typical values for these fields.
-* Finally we have a number of properties which define CSS classes for the various parts of the component. This provides the user with a lot of customisability when it comes to styling.
+* Finally we have a number of properties which define CSS classes for the various parts of the component. This provides the user with a lot of customisability when it comes to styling, but we set default values so that the user doesn't have to specify these properties.
 
-We then create a `d3.svg.area` to represent the area between the upper and lower bands, and three `d3.svg.line` objects to represent the upper band, lower band, and moving average line, setting their X-values appropriately. I'm using the area element because that's a really nice, built-in way to show the area between two lines. The best part is, it's really simple to use - where a line element requires you to set its Y-value, an area element has two Y-values - and I'm very much in favour of making life easy for myself.
+In the component function we create a `d3.svg.area` to represent the area between the upper and lower bands, and three `d3.svg.line` objects to represent the upper band, lower band, and moving average line, setting their X-values appropriately. I'm using the area element because that's a really nice, built-in way to show the area between two lines. The best part is, it's really simple to use - where a line element requires you to set its Y-value, an area element has two Y-values - and I'm very much in favour of making life easy for myself.
 
-The next section is where we do our heavy lifting - we define two functions to calculate the moving average and the moving standard deviation, and we declare an empty variable, `bollingerData`, which will hold the result of these calculations. Inside the `selection.each` block we populate this variable with data - it's a map of date to `avg` (moving average) and `sd` (standard deviation) for each data item. We do this once, which is massively more efficient than it would be if we did all these calculations on the fly! The remainder of the `selection.each` block is lengthy but pretty simple - we're just setting the Y-values for our area and line elements based on the data in the `bollingerData` map.
+The next section is where we do our heavy lifting - we define two functions to calculate the moving average and the moving standard deviation. Inside the `selection.each` block we declare an empty variable, `bollingerData`, then we populate it with data - it's a map of date to `avg` (moving average) and `sd` (standard deviation) for each data item. We do this once, which is massively more efficient than it would be if we did all these calculations on the fly! On the other hand, this means we're doing these calculations every time the component is redrawn; if we wanted to be maximally efficient we'd cache this information, but that would also require us to check that the data hadn't changed every time we needed to redraw, which brings its own problems. The remainder of the `selection.each` block is lengthy but pretty simple - we're just setting the Y-values for our area and line elements based on the data in the `bollingerData` map.
 
-Finally we add the `areaBands`, `lineUpper`, `lineLower` and `lineAverage` SVG elements to the path.
+Finally we add the `areaBands`, `lineUpper`, `lineLower` and `lineAverage` SVG elements to the path. Note that we don't set the whole of the `data` array on these elements - Bollinger Bands typically aren't shown when there's not enough data to calculate the full moving average, so we start at index `movingAverage`, which has the desired effect.
 
 ## Adding the component to the chart
 
@@ -295,14 +230,10 @@ var bollinger = sl.series.bollinger()
     .yScale(yScale)
     .yValue('close')
     .movingAverage(20)
-    .standardDeviations(2)
-    .cssBandArea('bollingerBandArea')
-    .cssBandUpper('bollingerBandUpper')
-    .cssBandLower('bollingerBandLower')
-    .cssAverage('bollingerAverage');
+    .standardDeviations(2);
 {% endhighlight %}
 
-This looks like a lot, but really we're just telling the component about the X and Y scales, and telling it to use the 'close' property on the data model. The `movingAverage` and `standardDeviations` properties are optional (we're just setting them to their default values here, but you'd need to include them if you wanted anything non-standard), and the final four properties are just for styling purposes.
+Here we're just telling the component about the X and Y scales, and telling it to use the 'close' property on the data model. The `movingAverage` and `standardDeviations` properties are optional (especially since we're just setting them to their default values here, but you'd need to include them if you wanted anything non-standard). We could also set any of the four CSS properties that the component exposes, but I've chosen to omit them here and just leave them with their default values.
 
 With that done, we add the component to the chart:
 
@@ -355,7 +286,7 @@ Putting it all together, this is the result:
 
 ## Enhancements
 
-I'm pretty happy with this component - it works really well and it's quite efficient, programmatically. There are still a few enhancements we could do though. If you read through [the Wikipedia entry on Bollinger Bands](http://en.wikipedia.org/wiki/Bollinger_Bands) you'll see that we're using a simple moving average calculation, but that other types of calculation are sometimes used; we could extend our component to allow the user to choose by providing an additional property like `.movingAverageType('exponential')`.
+I'm pretty happy with this component - it works really well and it's reasonably efficient, programmatically. There are still a few enhancements we could do though. If you read through [the Wikipedia entry on Bollinger Bands](http://en.wikipedia.org/wiki/Bollinger_Bands) you'll see that we're using a simple moving average calculation, but that other types of calculation are sometimes used; we could extend our component to allow the user to choose by providing an additional property like `.movingAverageType('exponential')`.
 
 ## Conclusion
 
