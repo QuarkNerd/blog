@@ -187,7 +187,8 @@ sl.series.bollinger = function () {
         });
     };
 
-    // NOTE: The various get / set accessors would go here but I've removed them in the interest of readability
+    // NOTE: The various get / set accessors would go here
+    // but I've removed them in the interest of readability
 
     return bollinger;
 };
