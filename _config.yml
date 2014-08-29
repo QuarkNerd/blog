@@ -16,7 +16,7 @@ destination: _site-safe
 include: [.htaccess]
 exclude: [_migration, checkdups, post-receive, README.txt, redirect_list.html,create-blog-post.sh]
 
-active-authors: [aaiken, aaylett, amorgan, ceberhardt, cgrant, cprice, dkerr, godds, jphillpotts, lpage, mrhodes, nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth, dmcnamee, dgorst, alee, dthomas, mdunsdon, tsimmons]
+active-authors: [aaiken, aaylett,  alee, amorgan, ceberhardt, cgrant, cprice, dgorst, dmcnamee, dthomas, dkerr, godds, jphillpotts, lpage, mrhodes, mdunsdon,nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth, tsimmons]
 authors:
     labs:
         name: Scott Logic Labs
@@ -146,3 +146,6 @@ authors:
         name: David Pizzi
         email: dpizzi@scottlogic.com
         gravatar: 07afccb2207577da6d1590e6e053de1b
+    mkirova:
+        name: Mila Kirova
+        email: mkirova@scottlogic.co.uk
