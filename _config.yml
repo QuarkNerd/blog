@@ -16,7 +16,7 @@ destination: _site-safe
 include: [.htaccess]
 exclude: [_migration, checkdups, post-receive, README.txt, redirect_list.html,create-blog-post.sh]
 
-active-authors: [aaiken, aaylett,  alee, amorgan, ceberhardt, cgrant, cprice, dgorst, dmcnamee, dthomas, dkerr, godds, jphillpotts, lpage, mrhodes, mdunsdon,nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth, tsimmons]
+active-authors: [aaiken, aaylett,  alee, amorgan, ceberhardt, cgrant, cprice, dgorst, dmcnamee, dthomas, dkerr, godds, jphillpotts, lpage, mrhodes, mdunsdon, nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth, tsimmons]
 authors:
     labs:
         name: Scott Logic Labs
