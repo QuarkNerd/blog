@@ -5,15 +5,11 @@ siteurl: http://www.scottlogic.com
 scottlogicdisqusurl: http://scottlogic.disqus.com
 permalink: /:year/:month/:day/:title.html
 safe: true
-lsi: false
 
 debug: false
 
-highlighter: pygments
-markdown: kramdown
 excerpt_separator: ""
 
 destination: _site-safe
-include: [.htaccess]
 exclude: [_migration, checkdups, post-receive, README.txt, redirect_list.html,create-blog-post.sh]
 
