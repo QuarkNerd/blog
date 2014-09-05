@@ -11,13 +11,12 @@ tags:
   - CSS 3
 title-short: Foyer Screen
 ---
-### Introduction
 
-As an Intern in the Edinburgh office I have been involved in creating a slideshow that conveys interesting information about the company, something useful and entertaining to catch the attention of visitors in the waiting area. The project is essentially a web application built with JavaScript, HTML5 and CSS3.
+As an Intern in the Edinburgh office I have been involved in creating a slideshow that conveys interesting information about the company; something useful and entertaining to catch the attention of visitors in the waiting area. The project is essentially a web application built with JavaScript, HTML5 and CSS3.
 
 ### Back-end
 
-Having little experience in creating web applications I discovered [Node.js](http://nodejs.org/). Node provides a way to set up a web server with just a few lines of code and makes it possible to easily create fast, real-time network applications. It also serves as a library, providing a vast number of packaged modules for server-side use via the [Node Package Manager](https://www.npmjs.org/) (npm). One example that I personally found convenient was the [ejs Module](https://www.npmjs.org/package/ejs) which allowed me to split my html files into a number of small chunks (partials), providing better modularity and readability and making life much easier.
+Having little experience in creating web applications I discovered [Node.js](http://nodejs.org/). Node provides a way to set up a web server with just a few lines of code and makes it possible to easily create fast, real-time network applications. It also serves as a library, providing a vast number of packaged modules for server-side use via the [Node Package Manager](https://www.npmjs.org/) (npm). One example that I personally found convenient was the [ejs Module](https://www.npmjs.org/package/ejs) which allowed me to split my HTML files into a number of small chunks (partials), providing better modularity and readability and making life much easier.
 
 ### Front-end: "Impress with Impress"
 
@@ -67,7 +66,7 @@ Each group stage slide contains a dynamic ranking table for players with six col
 
 The development of Foyer Screen gave me the opportunity to familiarise myself with creating unit tests. I chose the [QUnit framework](http://qunitjs.com/), as it is straightforward, popular and easy to use. QUnit has a [Node Module](https://www.npmjs.org/package/qunit), so that tests could be run server-side using the command prompt.
 
-Building unit tests taught me that it is *always* a good idea to build code while relying on many smaller, simpler methods and high modularity. It is much easier to test one functionality at a time and when the code is split well, less refactoring is necessary at later stages.
+Building unit tests taught me that it is *always* a good idea to build code while relying on many smaller, simpler methods and high modularity. It is much easier to test one function at a time, also when the code is modular, less refactoring is necessary at later stages.
 
 ### What is next for Foyer Screen?
 
@@ -79,8 +78,8 @@ The initial version of Foyer Screen is already being used. There are several are
 
 ### First encounter with Agile
 
-This was my first exposure to building an applications of this size from scratch allowing me to discover the advantages of using Agile Methodologies and get an idea of what different aspects of Software Engineering are like. The Scrum framework used by Scott Logic consists of frequent iterations of development, providing a chance to do small bits of everything (design, implementation, testing) at all times. The stand-ups, planning and retrospective meetings  helped immensely in being organised and making sure the project is on the right track.
+This was my first exposure to building an applications of this size from scratch. It allowed me to discover the advantages of using Agile Methodologies and experience different aspects of Software Engineering. The Scrum framework used by Scott Logic consists of frequent iterations of development, providing a chance to do small bits of everything (design, implementation, testing) at all times. The stand-ups, planning and retrospective meetings  helped immensely in being organised and making sure the project is on the right track.
 
 ### Reflections
 
-Even though it was challenging, Foyer Screen has been extremely useful and has helped me gain a lot of insight into Web Development while being fun to work on at the same time. My time at the company provided me with the opportunity to be part of both dedicated and friendly team and enjoy the advantages of working in a real-world environment. It was an invaluable experience for a student and one that I would definitely repeat!
+Even though it was challenging, Foyer Screen has been extremely useful and has helped me gain a lot of insight into web development while being fun to work on at the same time. My time at the company provided me with the opportunity to be part of a both dedicated and friendly team and enjoy the advantages of working in a real-world environment. It was an invaluable experience for a student and one that I would definitely repeat!
