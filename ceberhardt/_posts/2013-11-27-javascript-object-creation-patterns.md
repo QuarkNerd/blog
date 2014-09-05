@@ -21,6 +21,6 @@ I certainly learnt a lot in writing this article and trying to explain the conce
 
 Regards, Colin E.
 
-
+{% include ads/html5-white-paper.html %}
 
 

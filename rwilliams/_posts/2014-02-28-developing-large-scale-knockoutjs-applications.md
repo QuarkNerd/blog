@@ -345,3 +345,5 @@ Needs to become:
 {% highlight html %}
 <input data-bind="enabled: isActive() && isEditable()" />
 {% endhighlight %}
+
+{% include ads/html5-white-paper.html %}
