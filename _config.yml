@@ -10,6 +10,5 @@ debug: false
 
 excerpt_separator: ""
 
-destination: _site-safe
 exclude: [_migration, checkdups, post-receive, README.txt, redirect_list.html,create-blog-post.sh]
 
