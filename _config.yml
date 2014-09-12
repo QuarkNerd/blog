@@ -16,7 +16,7 @@ destination: _site-safe
 include: [.htaccess]
 exclude: [_migration, checkdups, post-receive, README.txt, redirect_list.html,create-blog-post.sh]
 
-active-authors: [aaiken, aaylett,  alee, amorgan, ceberhardt, cgrant, cprice, dgorst, dmcnamee, dthomas, dkerr, godds, jphillpotts, lpage, mrhodes, mdunsdon, nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth, tsimmons]
+active-authors: [aaiken, aaylett,  alee, amorgan, ceberhardt, cgrant, cprice, dgorst, dmcnamee, dthomas, dkerr, godds, isullivan, jphillpotts, lpage, mrhodes, mdunsdon, nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth, tsimmons]
 authors:
     labs:
         name: Scott Logic Labs
@@ -62,6 +62,9 @@ authors:
         gravatar: 3f5e6c753071c6a41f7f1dbb89daeb3b
         author-summary: Designer and developer working across desktop, web and mobile, with a particular taste for data visualisation.<br/><a href="https://twitter.com/g_odds">@g_odds</a><br/><a href="https://plus.google.com/u/0/106838695703708413394" rel="author">Google+</a>
         feed-description: Graham Odds is a designer and developer working across desktop, web and mobile, with a particular taste for data visualisation.  He likes to educate coders about the concept of users and artists about the reality of technology, or just rant and rave at whoever will read his blog.
+    isullivan:
+        name: Ian Sullivan
+        email: isullivan@scottlogic.com
     mperrin:
         name: Mike Perrin
     mrhodes:
