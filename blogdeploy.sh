@@ -4,17 +4,20 @@
 
 cd /opt/blogbuild/blog-repo
 
+timestamp=`date +%FT%H%M`
+logfile=/opt/blogbuild/build-$timestamp.log
+
 # Check if branch has moved on
 tmpfile=$(mktemp)
-/usr/bin/git fetch &> tmpfile
+/usr/bin/git fetch &> $tmpfile
 
 rc=$?
 if [[ $rc -ne 0 ]]; then
-    # Failed to fetch from remote repo
+    echo "[ERROR] Failed to fetch from remote repository" >> $logfile
     exit $rc
 fi
 
-if [[ -s tmpfile ]]; then
+if [[ -s $tmpfile ]]; then
     oldrev=$(/usr/bin/git rev-parse HEAD)
     newrev=$(/usr/bin/git rev-parse origin/gh-pages)
   
@@ -24,11 +27,9 @@ else
     exit 0
 fi
 
-rm tmpfile
+rm $tmpfile
 
 # Modified from post-receive script
-timestamp=`date +%FT%H%M`
-logfile=/opt/blogbuild/build-$timestamp.log
 
 echo "$timestamp $oldrev $newrev" >> /opt/blogbuild/debug.log
 
@@ -84,7 +85,7 @@ if [[ publish -eq 1 ]]; then
     echo "[INFO] Building for $newrev" >> $logfile
     echo "" >> $logfile
     # TODO Change path!
-    /path/to/bundle exec jekyll build --config _config.yml >> $logfile
+    /path/to/bundle exec jekyll build --config _config.yml,_live.yml >> $logfile
     rc=$?
     echo "" >> $logfile
 
@@ -103,8 +104,7 @@ if [[ publish -eq 1 ]]; then
         echo "[INFO] Finished: $buildresult" >> $logfile
         /bin/mail -s "Website Blog Build - $buildresult" bloggers@scottlogic.co.uk < $logfile > /dev/null 2>&1
     fi
-    
-    rm -Rf /opt/blogbuild/scottlogic-website-blog-$timestamp
+
 fi
 
 exit
