@@ -9,7 +9,7 @@ lsi: false
 
 debug: false
 
-pygments: true
+pygments: false
 markdown: maruku
 
 destination: _site-safe
