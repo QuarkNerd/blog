@@ -170,7 +170,7 @@ Now that function that finds the neighbours for a cell is memoized, it's time to
 
 <img src="{{ site.baseurl }}/ceberhardt/assets/memoization/memoisedSlow.png"></img>
 
-0.145 secs, a big improvement on 1.93 secs, and enough to hit the target of 20 frames per second.
+This gives 0.145 secs, a big improvement on 1.93 secs, and enough to hit the target of 20 frames per second.
 
 ##Faster memoization
 
@@ -196,7 +196,7 @@ func memoize<T:Hashable, U>(fn : T -> U) -> T -> U {
 dyingCells.each { (cell: Cell) in cell.state = .Dead }
 {% endhighlight %}
 
-The above is slightly more verbose, but results in the teat execution dropping further to 0.101 seconds.
+The above is slightly more verbose, but results in the test execution dropping further to 0.101 seconds.
 
 ##Pre-computation
 
