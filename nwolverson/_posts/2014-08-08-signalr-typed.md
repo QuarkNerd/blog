@@ -162,6 +162,8 @@ You can see a working example project of this approach [here](https://github.com
 
 ## Calling client hubs
 
+*Edit: See update below, this is supported directly in SignalR 2.1*
+
 I said that the translation of a C# interface for a client hub to the corresponding TypeScript type was a killer feature, but it is not yet giving us
 any form of safety, or much convenience other than having our definitions in one place. This is because the client hubs are accessed via the use of
 `dynamic` method invocations:
@@ -200,7 +202,26 @@ from client to server or server to client is strongly typed, and nothing is decl
 is implemented, and a corresponding TypeScript interface will be generated for client to server calls; then an interface is defined in C# for the 
 client hub, which will be used on the server side (via Castle proxy) and will generate a TypeScript interface which must be implemented on the client side.
 
-There's no reason this approach can't be used via the SRTS tool also: currently the client interface has to be defined by hand, but this could also be extended along the lines of `Hubs.tt`.
+There's no reason this approach can't be used via the SRTS tool also: currently the client interface has to be defined by hand, but this could also be extended along the lines of `Hubs.tt` (example [updated in repository](https://github.com/nwolverson/blog-signalrtyped/tree/master/SRHubExampleHubsTT)).
+
+## Calling client hubs - New and Improved
+
+Since SignalR 2.1, strongly typed client hubs are [supported out of the box](http://www.asp.net/signalr/overview/signalr-20/hubs-api/hubs-api-guide-server#stronglytypedhubs) (thanks Damian for pointing this out in comments). Instead of `Hub` you can just use the `Hub<T>` type, where `T` is the interface type of your client hub. So the above looks like this:
+
+{% highlight csharp %}
+
+public class ChatHub : Hub<IChatHubClient>
+{
+    public void Send(string name, string message)
+    {
+        Clients.All.AddNewMessageToPage(name, message);
+    }
+}
+
+{% endhighlight %}
+
+Much better. This looks just the same as the `dynamic` version, but `Clients.All` genuinely does have the
+client hub type `IChatHubClient`. Sadly the SRTS tool doesn't currently recognise the `Hub<T>` type, but there would be no obstacle to doing so; this works well together with `Hubs.tt` as above.
 
 ## F# Type Provider
 
