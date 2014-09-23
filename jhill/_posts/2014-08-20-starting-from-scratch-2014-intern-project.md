@@ -18,7 +18,7 @@ And just to whet your appetite, here's a screenshot of the popular Doodle Jump g
 <a href="http://sl-scratch-app.herokuapp.com/scratch-player/11342979"><img src="{{ site.baseurl }}/jhill/assets/DoodleJump.png"></img></a>
 
 
-### What's Scatch?
+### What's Scratch?
 
 [Scratch](http://scratch.mit.edu/) is a visual programming language created by MIT and aimed at children intended for making games and anything visual. A program in Scratch is called a project, and can be [shared via their website](http://scratch.mit.edu/explore) for others to enjoy and build upon (remix). It's used for a wide variety of projects, from [animation](http://scratch.mit.edu/projects/24065498/) and [games](http://scratch.mit.edu/projects/25165819/) to [newspapers](http://scratch.mit.edu/projects/24141789/) and [art](http://scratch.mit.edu/projects/25023898/), and even a [2D implementation of Minecraft](http://scratch.mit.edu/projects/10128407/).
 
