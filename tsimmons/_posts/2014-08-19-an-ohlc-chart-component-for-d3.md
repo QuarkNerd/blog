@@ -1,8 +1,13 @@
 ---
 author: tsimmons
 title: An OHLC Chart Component for D3
+title-short: "An OHLC Chart with D3"
 summary: An open-high-low-close chart is a type of financial chart used to show price movements in a financial instrument over time. In this post, we'll make a reusable D3 component for an OHLC chart series.
 layout: default_post
+tags:
+  - featured
+image: "tsimmons/assets/featured/chart.png"
+featured-overlay-inverted: true
 ---
 
 An open-high-low-close (OHLC) chart is a type of financial chart used to show price movements and help identify trends in a financial instrument over time. For each unit of time, a vertical line is plotted showing the highest and lowest prices reached in that time. Horizontal tick marks are plotted on each side of the line - the opening price for that time period on the left, and the closing price on the right. Usually an OHLC line will be coloured green if on that day the closing price exceeded the opening price (an 'up day'), and coloured red if not (a 'down day').
@@ -303,7 +308,7 @@ We'll colour the up-day and down-day bars with css by styling the `stroke` prope
 
 Here's the end result:
 
-<iframe src="http://tlsim.github.io/sl-blog-d3/ohlcExample.html" width="680" height="430" scrolling="no" frameborder="0"> </iframe>
+<iframe src="http://tlsim.github.io/sl-blog-d3/ohlc.html" width="680" height="430" scrolling="no" frameborder="0"> </iframe>
 
 ## Candlestick Component
 Candlestick charts are very similar to ohlc charts, so with a small modification we can turn our ohlc component into a candlestick component. All that's needed is to draw a rectangle between the open and close price instead of the open close ticks. The rectangle create/update function looks like this:
@@ -340,9 +345,9 @@ The `sl.series.candlestick` component is identical to the `sl.series.ohlc` compo
 
 We can use the same code we used to create the ohlc chart. We just have to replace `sl.series.ohlc` with `sl.series.candlestick` when creating the series. Here's what our candlestick chart looks like:
 
-<iframe src="http://tlsim.github.io/sl-blog-d3/candlestickExample.html" width="680" height="430" scrolling="no" frameborder="0"> </iframe>
+<iframe src="http://tlsim.github.io/sl-blog-d3/candlestick.html" width="680" height="430" scrolling="no" frameborder="0"> </iframe>
 
 ## Conclusion
-We have made 2 reusable components for financial charts with D3. This is really just the beginning of what we would need for a fully featured financial chart. There are many components we could make using this pattern, including technical studies, comparison series and chart navigators. It would also be important to see how well these charts perform for large data sets. Ideally, we should be able to smoothly pan and zoom an ohlc chart which shows multiple years of prices. However, with these simple examples, we can already see the power of breaking chart features into reusable components.
+We have made 2 reusable components for financial charts with D3. This is really just the beginning of what we would need for a fully featured financial chart. There are many components we could make using this pattern, including technical studies, comparison series and chart navigators. However, with these simple examples, we can already see the power of breaking chart features into reusable components. It would also be important to see how well these charts perform for large data sets. Ideally, we should be able to smoothly pan and zoom an OHLC chart which shows multiple years of prices. We'll look at that <a href="{{site.baseurl}}{% post_url 2014-09-19-d3-svg-chart-performance %}">in another post</a>, where we'll improve our OHLC component so that it is optimised for panning and zooming.
 
 Code for these examples is available on [GitHub](https://github.com/tlsim/sl-blog-d3).

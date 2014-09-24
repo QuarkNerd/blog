@@ -7,7 +7,6 @@ categories:
 layout: default_post
 tags:
  - blog
- - featured
 summary: "An emerging recipe that can change the way we make rich web apps."
 ---
 Yep, it's WebGL and Native together. This is a short tutorial on using [Emscripten](https://github.com/kripken/emscripten) to integrate a C++/OpenGL code with JS environment. There are some other tutorials on the net you might want to have a look at if you want to simply convert an existing native app and not bother with web-specific input events or render loops ([gears](http://ehsanakhgari.org/blog/2012-01-25/porting-opengl-application-web),[simplegl](http://www.joshuagranick.com/blog/2013/04/21/deploying-cpp-to-javascript-using-emscripten/)). If you have some native code you want to use within a bigger webapp, e.g., write a JS API around your existing library, read on. Also there are some conclusions regarding performance and maturity of Emscripten+WebGL solutions closer to the end of this page.
@@ -356,3 +355,5 @@ All in all, we had almost no problems porting our C++ code to JS using the Emscr
 The only issue that might arise in a commercial project is the final size of the generated JS code. It is somewhat larger than the native binaries, and JS version needs to be loaded by a browser, so some measures need to be taken to not put off your customer while he/she waits for this to finish. This might be only necessary to do once and hope the browser would cache it, but again, deal with care. If you need to load a 20MB script and the user has only got a 1Mb connection, it would take him/her more than 2m 40s at best.
 
 The story of WebGL is not so bright though. Since it is a standard and not a particular implementation, browser vendors need to actually make efforts to support it and not all do. You can have a look to what extent different browsers support WebGL (e.g. [http://caniuse.com/webgl](http://caniuse.com/webgl)), but in our experience, recent Chrome and Opera (which is Chrome's clone feature-wise) are the only browsers capable of rendering whatever we render natively. Others either do not support WebGL at all or produce visual artefacts given the same sequence of GL commands that we feed to GLES 2.0 capable devices. The example given in this tutorial does produce artefacts in Firefox 27, and we had artefacts in IE 11 with some of our other examples when we used VBOs. So, unless you can "suggest" your customers to only use Chrome, WebGL is not there yet for commercial products (as of March 2014) but it as well may be there in a couple of years if Firefox, IE and Safari catch up.
+
+{% include ads/html5-white-paper.html %}

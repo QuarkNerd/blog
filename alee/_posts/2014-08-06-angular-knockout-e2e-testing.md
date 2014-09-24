@@ -346,3 +346,5 @@ With this in place, we now have a set of robust e2e tests (ok, middle-to-end tes
 I've shown how to implement e2e tests for an SPA created with either Angular or Knockout. The Angular version has a clear advantage thanks to the Angular-specific test tool Protractor, which makes tests easier to write. However, it's possible to do the same things in the Knockout version and it's not really that much harder.
 
 I promised to talk about the 'value' of e2e tests, and the 'cost' of creating and maintaining them, due to their often brittle nature. Of course, this boils down to the question of whether you should be writing e2e tests for your application. I won't presume to answer that for you, but I've tried to show how they can be made as robust as unit tests, and nearly as easy to write. Hopefully when you next ask yourself that question, you'll be more inclined to answer "yes".
+
+{% include ads/html5-white-paper.html %}

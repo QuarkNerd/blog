@@ -42,11 +42,4 @@ At PropertyCross we have our work cut out updating various implementations to ma
 
 If you are interested in contributing, why not take a look at the [list of framework requests](https://github.com/tastejs/PropertyCross/issues?labels=Framework+Request&page=1&state=open)?
 
-
-
-
- 
-
-
-
-
+{% include ads/html5-white-paper.html %}

@@ -11,4 +11,3 @@ debug: false
 excerpt_separator: ""
 
 exclude: [_migration, checkdups, blogdeploy.sh, README.txt, redirect_list.html,create-blog-post.sh]
-

@@ -152,3 +152,5 @@ Here are some summaries to help steer your thought process on which ones to try 
 The discussion above illustrates how there isn't a one-size-fits-all framework that is best for all scenarios. Each framework has its own advantages that make it suitable in different cases. You should try out each framework for a short while to get a feel for each one. 
 
 Finally, try to build some proof of concept prototypes in each framework and compare the implementations. This is similar to what the authors behind [TodoMVC](http://www.todomvc.com) started which highlights the differences between a huge number of MVC frameworks by implementing a simple TODO application in each one.
+
+{% include ads/html5-white-paper.html %}

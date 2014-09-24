@@ -456,3 +456,5 @@ There are a few differences between the two solutions, but they are fairly minor
 If you don't like having Knockout's observables all over your JavaScript code, then you'll probably lean towards Angular. Personally, I'm used to observables, so I don't mind them at all. I appreciate having direct control over when and where I'm changing something that will trigger updates to other objects and the view. I also like how RequireJS pulls in dependencies, and can build specific packages for different parts of the SPA. On the other hand, I like the MVC pattern used by Angular, and the dependency injection system, and the ability to easily create mocked dependencies in tests.
 
 While there are pros and cons to both solutions, I still don't have a clear preference for either Angular or Knockout. At least I can be confident that neither one would be the wrong choice.
+
+{% include ads/html5-white-paper.html %}

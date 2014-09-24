@@ -1,4 +1,4 @@
-active-authors: [aaylett, amorgan, ceberhardt, cgrant, cprice, dkerr, godds, jphillpotts, lpage, mrhodes, nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth, dmcnamee, dgorst, alee, dthomas, mdunsdon, tsimmons]
+active-authors: [aaiken, aaylett,  alee, amorgan, ceberhardt, cgrant, cprice, dgorst, dmcnamee, dthomas, dkerr, godds, isullivan, jphillpotts, lpage, mrhodes, mdunsdon, nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth, tsimmons]
 authors:
     labs:
         name: Scott Logic Labs
@@ -44,6 +44,9 @@ authors:
         gravatar: 3f5e6c753071c6a41f7f1dbb89daeb3b
         author-summary: Designer and developer working across desktop, web and mobile, with a particular taste for data visualisation.<br/><a href="https://twitter.com/g_odds">@g_odds</a><br/><a href="https://plus.google.com/u/0/106838695703708413394" rel="author">Google+</a>
         feed-description: Graham Odds is a designer and developer working across desktop, web and mobile, with a particular taste for data visualisation.  He likes to educate coders about the concept of users and artists about the reality of technology, or just rant and rave at whoever will read his blog.
+    isullivan:
+        name: Ian Sullivan
+        email: isullivan@scottlogic.com
     mperrin:
         name: Mike Perrin
     mrhodes:
@@ -120,3 +123,18 @@ authors:
     tsimmons:
         name: Tom Simmons
         email: tsimmons@scottlogic.co.uk
+    aaiken:
+        name: Andy Aiken
+        email: aaiken@scottlogic.com
+        gravatar: 0d37e841be3db547a408cf22fa2d1f03
+    dpizzi:
+        name: David Pizzi
+        email: dpizzi@scottlogic.com
+        gravatar: 07afccb2207577da6d1590e6e053de1b
+    mkirova:
+        name: Mila Kirova
+        email: mkirova@scottlogic.co.uk
+    sfoley:
+        name: Simon Foley
+        email: sfoley@scottlogic.com
+        gravatar: 6a107b16bc05aaa263cf1237eedda426

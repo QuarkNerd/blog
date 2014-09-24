@@ -400,3 +400,5 @@ A lot of the concepts in this post were new to me before I started writing it, s
 - [Sean Voisen's introduction to FRP](http://sean.voisen.org/blog/2013/09/intro-to-functional-reactive-programming/)
 - [The excellent docs available on the Bacon.js GitHub page](https://github.com/baconjs/bacon.js#intro)
 - [The tutorials section on the D3 GitHub page](https://github.com/mbostock/d3/wiki/Tutorials)
+
+{% include ads/html5-white-paper.html %}

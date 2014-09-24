@@ -148,3 +148,5 @@ this.initialize = _.chain.apply(this, this.initializeChain);{% endhighlight %}
 <p>This code is untested, and I'm not sure where and how you would define your initialization functions without completely changing the pattern of creating views. Currently, we keep our functional logic as low down the inheritance chain as possible to avoid a lot of overriding.</p>
 <h2>Conclusion</h2>
 <p>By inheriting from <code>Backbone.View</code> you improve the readability (i.e. views are less cluttered), promote code reuse and make future developments easy. Although how to inherit from views isn't obvious at first, and Backbone's way of handling events and attributes make things a little tricky, I think being able to perform classical inheritance with Backbone is an incredibly important concept for large-scale web applications.</p>
+
+{% include ads/html5-white-paper.html %}
