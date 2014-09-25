@@ -16,7 +16,7 @@ destination: _site-safe
 include: [.htaccess]
 exclude: [_migration, checkdups, post-receive, README.txt, redirect_list.html,create-blog-post.sh]
 
-active-authors: [aaiken, aaylett,  alee, amorgan, ceberhardt, cgrant, cprice, dgorst, dmcnamee, dthomas, dkerr, godds, isullivan, jphillpotts, lpage, mrhodes, mdunsdon, nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth, tsimmons]
+active-authors: [aaiken, aaylett,  alee, amorgan, ceberhardt, cgrant, cprice, dgorst, dmcnamee, dthomas, dkerr, godds, isullivan, jbandenburg, jphillpotts, lpage, mrhodes, mdunsdon, nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth, tsimmons]
 authors:
     labs:
         name: Scott Logic Labs
@@ -156,3 +156,8 @@ authors:
         name: Simon Foley
         email: sfoley@scottlogic.com
         gravatar: 6a107b16bc05aaa263cf1237eedda426
+    jbandenburg:
+        name: Joe Bandenburg
+        email: jbandenburg@scottlogic.co.uk
+        gravatar: 785c4b4fe07574c8350791f355195f36
+        author-summary: Software engineer. <a href="https://twitter.com/joebandenburg">@joebandenburg</a>
