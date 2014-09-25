@@ -1,7 +1,9 @@
 ---
 layout: default
 title: Scott Logic Blog
+paginated: true
 ---
+
 <section id="home">
   <div class="row">
     <h1 class="offset2 span10">Blog</h1>
@@ -12,41 +14,35 @@ title: Scott Logic Blog
 <div class="row">
   <section class="offset2 span8">
     <h2>Latest Articles</h2>
-    {% assign showPostSummary = true %}
-    {% assign showAuthorInfo = true %}
-    {% for post in paginator.posts %}
-      {% include post_summary.html %}
-    {% endfor %}
 
-    {% if paginator.total_pages > 1 %}
-    <div class="pagination">
-      {% if paginator.previous_page %}
-        {% if paginator.page == 2 %}
-          <a href="{{ site.siteurl }}{{ site.baseurl }}/">&laquo; Prev</a>
+    {% comment %} This container is used by jScroll. When the next page is fetched, the contents of this div are added to the bottom of the page {% endcomment %}
+    <div class="content">
+      {% assign showPostSummary = true %}
+      {% assign showAuthorInfo = true %}
+      {% for post in paginator.posts %}
+        {% include post_summary.html %}
+      {% endfor %}
+
+      {% if paginator.total_pages > 1 %}
+      <div class="pagination">
+        {% if paginator.previous_page %}
+          {% if paginator.page == 2 %}
+            <a href="{{ site.siteurl }}{{ site.baseurl }}/">&laquo; Prev</a>
+          {% else %}
+            <a href="{{ site.siteurl }}{{ site.baseurl }}/page{{ paginator.previous_page }}/">&laquo; Prev</a>
+          {% endif %}    
         {% else %}
-          <a href="{{ site.siteurl }}{{ site.baseurl }}/page{{ paginator.previous_page }}/">&laquo; Prev</a>
-        {% endif %}    
-      {% else %}
-        <span>&laquo; Prev</span>
-      {% endif %}
-
-      {% if paginator.next_page %}
-        <a href="{{ site.siteurl }}{{ site.baseurl }}/page{{ paginator.next_page }}/">Next &raquo;</a>
-      {% else %}
-        <a href="#">Next &raquo;</span>
+          <span>&laquo; Prev</span>
+        {% endif %}
+        {% if paginator.next_page %}
+          <a class="next" href="{{ site.siteurl }}{{ site.baseurl }}/page{{ paginator.next_page }}/">Next &raquo;</a>
+        {% else %}
+          <span class="next">Next &raquo;</span>
+        {% endif %}
+      </div>
       {% endif %}
     </div>
-    {% endif %}
-
-
   </section>
 </div>
 
 
-
-<section id="authors">
-  <div class="row">
-    <h2 class="offset2 span10">Authors</h2>
-  </div>
-  {% include author_carousel.html %}
-</section>
