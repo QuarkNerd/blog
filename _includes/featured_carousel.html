@@ -12,7 +12,7 @@
           {% for post in site.tags.featured limit:2 offset: offset %}
           <div>
             <a href="{{ site.baseurl }}{{ post.url }}">
-              <img src="{{ post.image }}">
+              <img src="{{ site.baseurl }}/{{ post.image }}">
               {% capture url %}{{ site.siteurl }}{{ site.baseurl }}{{ post.url }}{% endcapture %}
               {% assign disqusID = post.url %}
               {% if post.oldlink %}
@@ -44,7 +44,7 @@
           {% for post in site.tags.featured limit:1 offset:offset %}
           <div>
             <a href="{{ site.baseurl }}{{ post.url }}">
-              <img src="{{ post.image }}">
+              <img src="{{ site.baseurl }}/{{ post.image }}">
               {% capture url %}{{ site.siteurl }}{{ site.baseurl }}{{ post.url }}{% endcapture %}
               {% assign disqusID = post.url %}
               {% if post.oldlink %}
@@ -83,7 +83,7 @@
           {% for post in site.tags.featured limit:2 offset:offset %}
           <div>
             <a href="{{ site.baseurl }}{{ post.url }}">
-              <img src="{{ post.image }}">
+              <img src="{{ site.baseurl }}/{{ post.image }}">
               {% capture url %}{{ site.siteurl }}{{ site.baseurl }}{{ post.url }}{% endcapture %}
               {% assign disqusID = post.url %}
               {% if post.oldlink %}
