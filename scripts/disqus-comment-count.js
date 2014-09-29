@@ -1,4 +1,4 @@
-(function() {
+function loadCommentCount() {
   var disqus_shortname = 'scottlogic';
   var disqus_publickey = 'Aj9eMiGDAUD3UtxJyfrldMc9nhkIvzk5CmQ7eNK3iSdseO9seaatoLdn4SghoTlZ';
 
@@ -26,4 +26,5 @@
       }
     });
   }
-}());
+};
+loadCommentCount();
