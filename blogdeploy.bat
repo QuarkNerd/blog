@@ -2,6 +2,9 @@
 
 REM TODO Change path to the blog builds folder
 set blogBuildDir=C:\blah\blogbuild
+set backupDir=C:\blah\backups
+set currentlyDeployed=C:\blah\current
+
 set repo=%blogBuildDir%\blog
 cd %repo%
 
@@ -19,7 +22,7 @@ set DATE.SECOND=%X:~12,2%
 
 set timestamp=%DATE.YEAR%.%DATE.MONTH%.%DATE.DAY%.%DATE.HOUR%.%DATE.MINUTE%.%DATE.SECOND%
 
-set logfile="%blogBuildDir%\build_%timestamp%.log"
+set logfile="%blogBuildDir%\log\%timestamp%.log"
 
 REM Temporary file for checking fetch results
 set tempFetchResult="%blogBuildDir%\tempFetchResult"
@@ -64,17 +67,15 @@ call bundle exec jekyll build --config _config.yml,_live.yml >>%logfile% 2>&1
 if %ERRORLEVEL% EQU 0 (
   echo [INFO] Jekyll build ok>> %logfile%
 
-  echo [INFO] Backing up current version to %blogBuildDir%\backups\backup-%timestamp%\>>%logfile%
-  
-  REM Backup what is currently served from this location
-  xcopy /E path\to\live %blogBuildDir%\backups\backup-%timestamp%\
-  
-  REM Copy new build from \_site\ to location used to serve live site
-  REM TODO Change this to point to the correct location for live site
-  REM TODO Delete/clean the current live version first ?
-  echo [INFO] Copying new build to path\to\live >>%logfile%
-  xcopy /E /Y %repo%\_site path\to\live\
+  echo [INFO] Backing up current version to %backupDir%\%timestamp%>>%logfile%
 
+  REM Backup what is currently served from this location
+  move /Y "%currentlyDeployed%" "%backupDir%\%timestamp%"
+
+  REM Move new build from \_site to location used to serve live site
+  echo [INFO] Copying new build to %currentlyDeployed%>>%logfile%
+  move /Y %repo%\_site "%currentlyDeployed%"
+  
   echo %timestamp%>%blogBuildDir%\current.txt
 
   echo [INFO] Finished: SUCCESS>>%logfile%
