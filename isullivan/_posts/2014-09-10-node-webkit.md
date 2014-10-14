@@ -3,6 +3,10 @@ author: isullivan
 title: "Writing Desktop and Web-Based JavaScript Applications"
 layout: default_post
 summary: This post demonstrates how JavaScript and HTML5 related technologies can be used to create an application that can run in both a web browser and as a cross-platform desktop application using node-webkit.
+summary-short: "Creating desktop and web applications from a single codebase"
+image: isullivan/assets/featured/hybridApp.jpg
+tags: 
+  - featured
 ---
 This post demonstrates how JavaScript and HTML5 related technologies can be used to create an application that can run in both a web browser and as a cross-platform desktop application using [node-webkit](https://github.com/rogerwang/node-webkit). It describes the tools that were used in creating a simple contact list application.
 
