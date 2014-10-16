@@ -129,7 +129,7 @@ With the above, we can send location updates to a location manager's delegate as
 [locationManager simx_didUpdateLocation:location];
 {% endhighlight %}
 
-I'll look at where the simulated location data comes from shortly. In the meantime, the final thing I discovered was that the while I was able to simulate my own location 'events', the delegate was still being called with the 'real' locations.
+I'll look at where the simulated location data comes from shortly. In the meantime, the final thing I discovered was that while I was able to simulate my own location 'events', the delegate was still being called with the 'real' locations.
 
 Inspecting the stack trace I spotted that an internal method,  `onClientEventLocation` was being called just before the delegate method:
 
