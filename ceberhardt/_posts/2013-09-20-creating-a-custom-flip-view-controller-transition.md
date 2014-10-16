@@ -99,7 +99,7 @@ With the utility method implemented as follows:
 }
 {% endhighlight %}
 
-The above method simply uses the new `resizableSnapshotViewFromRect:...` method to snapshot each side of the provided view. Note that the `afterScreenUpdates` parameter is `YES` for the to- view and `NO` for the from- view. The reason for this s that he from- view is visible and rendered, whereas it is your responsibility to add the to- view to the container as part of the animation. Hence the snapshot needs to wait until this view is rendered.
+The above method simply uses the new `resizableSnapshotViewFromRect:...` method to snapshot each side of the provided view. Note that the `afterScreenUpdates` parameter is `YES` for the to- view and `NO` for the from- view. The reason for this is that the from- view is visible and rendered, whereas it is your responsibility to add the to- view to the container as part of the animation. Hence the snapshot needs to wait until this view is rendered.
 
 ## Rotating the snapshots
 
