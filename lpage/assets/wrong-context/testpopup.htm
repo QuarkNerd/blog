@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
  <head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <script type="text/javascript">
 	var state = "Loading...",
 		infoMessage = "";
@@ -46,6 +47,9 @@
 		try { throw new Error("Test"); }
 		catch (e) {
 			stack = e.stack;
+		}
+		if (!stack) {
+			return "no stack - not supported by browser";
 		}
 		return stack.split("\n").slice(2).join("\n");
 	}
