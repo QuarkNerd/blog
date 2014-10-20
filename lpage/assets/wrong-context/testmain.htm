@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <script type="text/javascript">
+	window.myApp = {
+		syncCall: function() {
+			this.sequence.push("Running Sync Call");
+			this.sequence.push(getStack());
+			return "Sync";
+		},
+		asyncCall: function(callback) {
+			var that = this;
+			this.sequence.push("Running ASync Call");
+			setTimeout(function timeoutOnMainPage() {
+				that.sequence.push("Running Timeout");
+				callback("async");
+				that.sequence.push("Finished Running Timeout");
+			}, 0);
+		},
+		sequence: []
+	};
+	function getStack() {
+		var stack;
+		try { throw new Error("Test"); }
+		catch (e) {
+			stack = e.stack;
+		}
+		return stack.split("\n").slice(2).join("\n");
+	}
+  </script>
+ </head>
+ <body>
+   Click the link and then you will see the result of the test in the opened popup.
+   <a href="javascript:popup = window.open('testpopup.htm');">Open Popup</a>
+ </body>
+</html>
