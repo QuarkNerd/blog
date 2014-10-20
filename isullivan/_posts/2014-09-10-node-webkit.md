@@ -5,6 +5,7 @@ layout: default_post
 summary: This post demonstrates how JavaScript and HTML5 related technologies can be used to create an application that can run in both a web browser and as a cross-platform desktop application using node-webkit.
 summary-short: "Creating desktop and web applications from a single codebase"
 image: isullivan/assets/featured/hybridApp.jpg
+featured-overlay-black: true
 tags: 
   - featured
 ---
