@@ -2,22 +2,24 @@
 author: hpowell
 title: A first foray into functional programming with Scala and Clojure
 layout: default_post
-summary: Some initial thoughts comparing and contrasting Scala and Clojure
+summary: Having recently dipped my toe into the world of functional programming with both Scala and Clojure I thought it'd be useful to do a quick compare and contrast of these two JVM based languages.
 ---
-
-# A first foray into functional programming with Scala and Clojure #
 
 Having recently dipped my toe into the world of functional programming with both Scala and Clojure I thought it'd be useful to do a quick compare and contrast of these two JVM based languages.  Firstly I'll define what a functional programming language is and then move on to discuss the major similarities and differences between Scala and Clojure.
 
 ## And so it begins ##
-![Missing jigsaw piece](//hpowell/assets/MissingPiece.jpg)
+
+![Missing jigsaw piece]({{ site.baseurl }}/hpowell/assets/MissingPiece.jpg)
+
 Having spent more man hours than I care to think about debugging multi-threaded programs that shared state I started looking for ways to reduce these problems and get back to developing code rather than debugging it.  I quickly discovered Clojure and was intrigued by its purported elegance and simplicity and have been dabbling in it for the last 6 months or so.  I've also recently joined a MOOC, along with some of the other developers in the Edinburgh office, on functional programming in Scala.  Now that I'm half way through the course I thought I'd do a quick compare and contrast of the major similarities and differences I've found between the languages.
 
 ## Just what is functional programming exactly? ##
 To start with I'm going to define a functional programming language simply as one that has first class functions.  So, "What are first class functions?" I hear you say.  [Wikipedia](http://en.wikipedia.org/wiki/First-class_function) describes them as follows as "... a programming language is said to have first-class functions if it treats functions as first-class citizens. Specifically, this means the language supports passing functions as arguments to other functions, returning them as the values from other functions, and assigning them to variables or storing them in data structures.".  As well as the languages most of us would recognise as functional (ML, Haskell, Scala, Clojure, etc.) this would also allow C and C++ to be included but not Java or C#.
 
 ## Some things are the same... ##
-![Four yachts in a line](//hpowell/assets/Yacht.jpg)
+
+![Four yachts in a line]({{ site.baseurl }}/hpowell/assets/Yacht.jpg)
+
 Firstly I'm going to take a look at what I've found to be the most important similarities between the two languages.  The first two points apply to (almost?) all modern functional programming languages with the final one not being just limited to Scala and Clojure.
 
 ### Immutable Collections ###
@@ -30,7 +32,9 @@ Both languages come with a Read-Eval-Print-Loop.  This allows the user to enter 
 Java has been around for the best part of 20 years, in which time it has become one of the most popular languages in use today.  With the JVM becoming increasingly speedy and efficient and continuously being deployed to new devices both projects decided this would be an excellent platform on which to run their new languages.  Running on top of the JVM also gives both languages full access to the huge array of standard and third party libraries that would be available to any regular Java program, so no need to reimplement all those web frameworks and http stacks we all rely on.  Programs written in both languages can, with a little work, also be exposed to any regular Java program.
 
 ## ... some not so much ##
-![Geese, one looking backwards](//hpowell/assets/Geese.jpg)
+
+![Geese, one looking backwards]({{ site.baseurl }}/hpowell/assets/Geese.jpg)
+
 Now that we've seen some of the similarities between the languages lets take a look at what distinguishes them from each other.
 
 ### Static vs dynamic typing ###
