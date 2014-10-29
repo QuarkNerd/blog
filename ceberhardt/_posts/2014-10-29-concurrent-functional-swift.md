@@ -5,7 +5,7 @@ layout: default_post
 summary: "This post show how the simple task of computing a Mandelbrot set can be split up across multiple threads (and processors) using functional techniques."
 ---
 
-In my previous blog posts on the [Game of Life](www.scottlogic.com/blog/2014/09/10/game-of-life-in-functional-swift.html) I explored how functional programming techniques can result in clear and concise code. However, the benefits of functional programming are more that just cosmetic. You've probably heard that functions and the use of constants make it easier to write applications that make use of concurrency. In this post I put this theory into practice!
+In my previous blog posts on the [Game of Life](www.scottlogic.com/blog/2014/09/10/game-of-life-in-functional-swift.html) I explored how functional programming techniques can result in clear and concise code. However, the benefits of functional programming are more than just cosmetic. You've probably heard that functions and the use of constants make it easier to write applications that make use of concurrency. In this post I put this theory into practice!
 
 This post show how the simple task of computing a Mandelbrot set can be split up across multiple threads (and processors) as follows:
 
@@ -30,11 +30,11 @@ The Mandelbrot set is described by a stunningly simple mathematical equation; it
 
 It is possible to implement this equation with just a few lines of code. However, despite its simplicity the Mandelbrot set exhibits tremendous complexity and beauty.
 
-While studying this equation Benoit Mandelbrot coined the term  'fractal' as a description of the complex and repeating shapes revealed at the boundaries of the set.
+While studying this equation Benoit Mandelbrot coined the term 'fractal' as a description of the complex and repeating shapes revealed at the boundaries of the set.
 
 > Clouds are not spheres, mountains are not cones, coastlines are not circles, and bark is not smooth, nor does lightning travel in a straight line. - Benoit Mandelbrot
 
-I can still remember many years ago using the freeware Fracint software to render fractals, pixel by pixel, on a 386 computer!
+I can still remember many years ago using the freeware [Fracint](http://en.wikipedia.org/wiki/Fractint) software to render fractals, pixel by pixel, on a 386 computer!
 
 Anyhow, back to Swift ...
 
@@ -63,7 +63,7 @@ func iterationsForLocation(cx: Double, cy: Double) -> Int? {
 }
 {% endhighlight %}
 
-The above code takes a point `c`, describes by its real and imaginary components, and determines how many iterations are required to 'escape' a given boundary.
+The above code takes a point `c`, described by its real and imaginary components, and determines how many iterations are required to 'escape' a given boundary.
 
 Considering the simplicity of the equation that describes the Mandelbrot set, the above code is rather complicated looking!
 
@@ -110,7 +110,7 @@ This is a much more succinct implementation where the Mandelbrot equation, `z = 
 
 ## A Functional Mandelbrot
 
-The 'standard' approach to rendering the Mandelbrot is to employ a couple of nested for-loops, one for x (imaginery) and one for y (real), computing the iterations at each location. However, this is not a terribly functional approach! Let's look at a different approach ...
+The 'standard' approach to rendering the Mandelbrot is to employ a couple of nested for-loops, one for x (imaginary) and one for y (real), computing the iterations at each location. However, this is not a terribly functional approach! Let's look at a different approach ...
 
 The following code expands the constants tuple to add the X & Y scale:
 
