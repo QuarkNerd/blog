@@ -5,7 +5,6 @@ summary: In this article I'm going to create an interactive Fibonacci fan D3 com
 image: aaiken/assets/featured/fibonacci.png
 tags: 
   - d3
-  - featured
 categories: 
   - aaiken
 layout: default_post
