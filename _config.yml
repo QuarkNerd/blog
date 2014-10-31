@@ -36,6 +36,10 @@ authors:
     lpage:
         name: Luke Page
         email: lpage@scottlogic.com
+    hpowell:
+        name: Hugh Powell
+        email: hpowell@scottlogic.com
+        gravatar: f5c828c7066872e06a59ba26bdf12b8c
     aaylett:
         name: Andrew Aylett
         email: aaylett@scottlogic.com
