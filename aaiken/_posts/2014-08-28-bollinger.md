@@ -2,7 +2,7 @@
 author: aaiken
 title: "A Bollinger Bands Component for D3 Charts"
 summary: "In my last article (on line annotation components for D3 charts), I created a D3 component which calculated and displayed a moving average. As promised, I'm now turning my attention to Bollinger Bands."
-image: "aaiken/assets/featured/bollinger.png"
+image: aaiken/assets/featured/bollinger.jpg
 tags: 
   - d3
 categories: 

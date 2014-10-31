@@ -2,7 +2,7 @@
 author: aaiken
 title: "Two Reusable Line Components for D3 Charts"
 summary: "In this article I'm going to create two simple, reusable D3 components for adding line annotations to charts."
-image: "aaiken/assets/featured/two-line-components.png"
+image: aaiken/assets/featured/annotation.jpg
 tags: 
   - d3
 categories: 

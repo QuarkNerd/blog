@@ -2,7 +2,7 @@
 author: aaiken
 title: Creating an interactive chart with D3
 summary: Recently I've been looking at various D3 components, which has been a fun project. I haven't yet had the chance to develop an interactive, dynamic component though, which has meant that the resulting charts have been sadly static. For this article I wanted to use what I've learned to build a fully interactive chart - something that wouldn't look out of place on a financial app.
-image: aaiken/assets/featured/interactive.png
+image: aaiken/assets/featured/none.jpg
 tags: 
   - d3
 categories: 
