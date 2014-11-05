@@ -1,10 +1,13 @@
 ---
 author: aaiken
 title: A Fibonacci fan component for D3
+title-short: "A D3 Fibonacci Fan"
 summary: In this article I'm going to create an interactive Fibonacci fan D3 component, and show you how to add it to a chart in just 6 lines of code.
 image: aaiken/assets/featured/fibonacci.png
+featured-overlay-black: true
 tags: 
   - d3
+  - featured
 categories: 
   - aaiken
 layout: default_post
