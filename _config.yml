@@ -18,7 +18,7 @@ destination: _site-safe
 include: [.htaccess]
 exclude: [_migration, checkdups, post-receive, README.txt, redirect_list.html,create-blog-post.sh]
 
-active-authors: [aaiken, aaylett,  alee, amorgan, ceberhardt, cgrant, cprice, dgorst, dmcnamee, dthomas, dkerr, godds, isullivan, jbandenburg, jphillpotts, lpage, mrhodes, mdunsdon, nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth, tsimmons]
+active-authors: [aaiken, aaylett,  alee, amorgan, ceberhardt, cgrant, cprice, dgorst, dmcnamee, dthomas, dkerr, godds, isullivan, jbandenburg, jphillpotts, lpage, mrhodes, mdunsdon, nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth, tsimmons, wreilly]
 authors:
     labs:
         name: Scott Logic Labs
@@ -168,3 +168,7 @@ authors:
         email: jbandenburg@scottlogic.co.uk
         gravatar: 785c4b4fe07574c8350791f355195f36
         author-summary: Software engineer. <a href="https://twitter.com/joebandenburg">@joebandenburg</a>
+    wreilly:
+        name: William Reilly
+        email: wreilly@scottlogic.com
+        gravatar: 8f0414d464cf565f74042a08c75e3309
