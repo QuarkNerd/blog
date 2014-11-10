@@ -32,7 +32,7 @@ To start, we must build an array that contains `AVAsset` objects.
     
 An `AVAsset` object is AVFoundation's 'model for timed audiovisual media'. Basically they just contain information about the three videos to be stitched together. In this sample, the array is hardcoded and just set to be three videos that are embedded in the application, but it could easily be an array of assets that have been loaded from an external source. To keep it simple, lets just use these three for now.
 
-In order to output video into an `AVPlayer`, an `AVComposition` is required. An AVComposition combines media data from multiple local file-based sources in a custom temporal arrangement, in order to present or process media data from multiple sources together. In order to add media to the composition, we must create an `AVMutableComposition`. A composition must also composition tracks. An `AVCompositionTrack` offers the low-level representation of tracks of AVCompositions, comprising a media type, a track identifier, and an array of `AVCompositionTrackSegment`s, each comprising a URL, and track identifier, and a time mapping. Again, we need mutable versions of these tracks so we can add to them. We need a track for audio and a track for video.
+In order to output video into an `AVPlayer`, an `AVComposition` is required. An `AVComposition` combines media data from multiple local file-based sources in a custom temporal arrangement, in order to present or process media data from multiple sources together. In order to add media to the composition, we must create an `AVMutableComposition`. A composition must also composition tracks. An `AVCompositionTrack` offers the low-level representation of tracks of `AVComposition`s, comprising a media type, a track identifier, and an array of `AVCompositionTrackSegment`s, each comprising a URL, and track identifier, and a time mapping. Again, we need mutable versions of these tracks so we can add to them. We need a track for audio and a track for video.
 
 	AVMutableComposition *mutableComposition = [AVMutableComposition composition];
     AVMutableCompositionTrack *videoCompositionTrack = [mutableComposition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
@@ -62,7 +62,7 @@ We add the video to our videoCompositionTrack first. We do this by asking the as
     
     AVAssetTrack *videoAssetTrack = [asset tracksWithMediaType:AVMediaTypeVideo].firstObject;
 
-This gives us an `AVAssetTrack`, which we can then add to the AVVideoComposition that we have previously defined.
+This gives us an `AVAssetTrack`, which we can then add to the `AVVideoComposition` that we have previously defined.
 
 	NSError *videoError;
 	[videoCompositionTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, videoAssetTrack.timeRange.duration)
@@ -88,14 +88,14 @@ The code to add the audio from the asset is exactly the same, apart from the med
         NSLog(@"Error - %@", audioError.debugDescription);
     }
 
-The next step is to create an AVVideoCompositionInstruction. The AVVideoCompositionInstruction represents an operation to be performed by a compositor, and we must set the timeRange property to the timeRange that the asset will be played back at. Note that this is different to the timeRange parameter discussed above when adding the asset track to the composition track. Here we must specify the time that the video starts, and then the duration that it lasts for. You can see how this is done below. 
+The next step is to create an `AVVideoCompositionInstruction`. The `AVVideoCompositionInstruction` represents an operation to be performed by a compositor, and we must set the timeRange property to the timeRange that the asset will be played back at. Note that this is different to the timeRange parameter discussed above when adding the asset track to the composition track. Here we must specify the time that the video starts, and then the duration that it lasts for. You can see how this is done below. 
 
     AVMutableVideoCompositionInstruction *videoCompositionInstruction = [AVMutableVideoCompositionInstruction videoCompositionInstruction];
     videoCompositionInstruction.timeRange = CMTimeRangeMake(time, assetTrack.timeRange.duration);
     videoCompositionInstruction.layerInstructions = @[[AVMutableVideoCompositionLayerInstruction videoCompositionLayerInstructionWithAssetTrack:videoCompositionTrack]];
     [instructions addObject:videoCompositionInstruction];
 
-We also instantiate an array containing a AVVideoCompositionLayerInstruction, created with the asset track, and set that to the composition instruction's layerInstructions property. This specifies how video frames from source tracks should be layered and composed.
+We also instantiate an array containing a `AVVideoCompositionLayerInstruction`, created with the asset track, and set that to the composition instruction's layerInstructions property. This specifies how video frames from source tracks should be layered and composed.
 
 The final step in the iteration is to increment the time, and check to see if size has been set, setting it to the video track's natural size not.
 
@@ -112,20 +112,20 @@ Before we can display our assets in a `AVPlayerView`, we have to create a couple
     mutableVideoComposition.frameDuration = CMTimeMake(1, 30);
     mutableVideoComposition.renderSize = size;
     
-The AVVideoComposition describes, for any time in the aggregate time range of its instructions, the number and IDs of video tracks that are to be used in order to produce a composed video frame corresponding to that time. This allows the compositor to display the video on the screen. We give the composition our instructions, set the frameDuration to 30 fps, and set the renderSize to be the size that we generated above from the first asset with a size.
+The `AVVideoComposition` describes, for any time in the aggregate time range of its instructions, the number and IDs of video tracks that are to be used in order to produce a composed video frame corresponding to that time. This allows the compositor to display the video on the screen. We give the composition our instructions, set the frameDuration to 30 fps, and set the renderSize to be the size that we generated above from the first asset with a size.
 
-Finally, we join all of this together by creating an AVPlayerItem with our mutableComposition and setting the videoComposition to our new mutableViewComposition we just created above.
+Finally, we join all of this together by creating an `AVPlayerItem` with our mutableComposition and setting the videoComposition to our new mutableViewComposition we just created above.
 
 	AVPlayerItem *pi = [AVPlayerItem playerItemWithAsset:mutableComposition];
     pi.videoComposition = mutableVideoComposition;
 
-Our video is finally ready to play now, and we create an AVPlayer to do so. We set this player to the player on our playerView, and then call play so that the video starts immediately.
+Our video is finally ready to play now, and we create an `AVPlayer` to do so. We set this player to the player on our playerView, and then call play so that the video starts immediately.
     
     AVPlayer *player = [AVPlayer playerWithPlayerItem:pi];
     self.playerView.player = player;
     [self.playerView.player play];
 
-And that's it! The API can seem a little complicated at first, and you have to be careful with times, ranges, and which tracks you are using where. Once you get the hang of it though it is a very powerful framework. I believe that this could should work fine on iOS too with a few minor tweaks.
+And that's it! The API can seem a little complicated at first, and you have to be careful with times, ranges, and which tracks you are using where. Once you get the hang of it though, it is a very powerful framework. I believe that this code should work fine on iOS too with a few minor tweaks.
 
 <img src="{{ site.baseurl }}/cgrant/assets/player.png"></img>
 
