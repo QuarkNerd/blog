@@ -2,9 +2,12 @@
 author: mjose
 title: An RSI component for D3 charts
 title-short: "An RSI component for D3 charts"
-summary: An RSI (Relative Strength Index) D3 component which can be added to a D3 chart and is based on Tom Simmons OHLC chart.
+summary: An RSI (Relative Strength Index) D3 component which can be added to a D3 chart. In the blog I've also tried to explain a little bit about RSI and it's uses in calculating risk when trading markets.
 tags: 
   - d3
+  - RSI
+  - charts
+  - risk
 categories: 
   - mjose
 layout: default_post
@@ -22,7 +25,7 @@ I suppose a good place to start is to give some background on RSI, but if you ar
 
 This has obvious meaning when it is used to compare two instruments (stocks, commodities, currency pairs etc.), but what about when we are only talking about one instrument? Well the norm is to compare the size of instrument gains with the size of instrument losses.
 
-<img src="{{ site.baseurl }}/mjose/assets/2014-11-11-d3_chartcomponents_rsi/header.jpg" />
+<img src="{{ site.baseurl }}/mjose/assets/2014-11-14-d3_chartcomponents_rsi/header.jpg" />
 
 ### Working it all out
 
@@ -40,23 +43,23 @@ RSI is defined as:
 
 ## What does it look like?
 
-<link rel="stylesheet" href="{{ site.baseurl }}/mjose/assets/2014-11-11-d3_chartcomponents_rsi/rsi.css" />
+<link rel="stylesheet" href="{{ site.baseurl }}/mjose/assets/2014-11-14-d3_chartcomponents_rsi/rsi.css" />
 
 <div id="rsi_indicator_chart"></div>
 
-<script src="{{ site.baseurl }}/mjose/assets/2014-11-11-d3_chartcomponents_rsi/js/jquery.js">
+<script src="{{ site.baseurl }}/mjose/assets/2014-11-14-d3_chartcomponents_rsi/js/jquery.js">
 </script>
-<script src="{{ site.baseurl }}/mjose/assets/2014-11-11-d3_chartcomponents_rsi/js/jstat.js">
+<script src="{{ site.baseurl }}/mjose/assets/2014-11-14-d3_chartcomponents_rsi/js/jstat.js">
 </script>
-<script src="{{ site.baseurl }}/mjose/assets/2014-11-11-d3_chartcomponents_rsi/js/moment.js">
+<script src="{{ site.baseurl }}/mjose/assets/2014-11-14-d3_chartcomponents_rsi/js/moment.js">
 </script>
-<script src="{{ site.baseurl }}/mjose/assets/2014-11-11-d3_chartcomponents_rsi/js/moment-range.js">
+<script src="{{ site.baseurl }}/mjose/assets/2014-11-14-d3_chartcomponents_rsi/js/moment-range.js">
 </script>
-<script src="{{ site.baseurl }}/mjose/assets/2014-11-11-d3_chartcomponents_rsi/js/d3.js">
+<script src="{{ site.baseurl }}/mjose/assets/2014-11-14-d3_chartcomponents_rsi/js/d3.js">
 </script>
-<script src="{{ site.baseurl }}/mjose/assets/2014-11-11-d3_chartcomponents_rsi/js/d3-financial-components.min.js">
+<script src="{{ site.baseurl }}/mjose/assets/2014-11-14-d3_chartcomponents_rsi/js/d3-financial-components.min.js">
 </script>
-<script src="{{ site.baseurl }}/mjose/assets/2014-11-11-d3_chartcomponents_rsi/js/rsi.js">
+<script src="{{ site.baseurl }}/mjose/assets/2014-11-14-d3_chartcomponents_rsi/js/rsi.js">
 </script>
 
 The image above shows how an RSI is normally represented. The indicator consists of the RSI data series and three horizontal markers showing the mid-point (50 or 0.5), the upper marker or over-buy level (normally 70 or 0.7) and the lower marker or over-sell level (normally 30 or 0.3). 
@@ -71,7 +74,7 @@ The RSI is primarily used to define risk boundaries and assess the state of a pa
 
 The code below does not create the dataset, so I've assumed that an array of data exists. In order for the RSI component to function, the data must be in a structure similar to that created by the `sl.utilities.dataGenerator` component. 
 
-[More information about the data generator can be found here](https://github.com/ScottLogic/d3-financial-components/tree/master/components/utilities#slutilitiesdatagenerator).
+More information about the data generator can be found in the README.md file on [Github](https://github.com/ScottLogic/d3-financial-components).
 
 The chart data is an array of objects with the following structure.
 
@@ -107,11 +110,11 @@ indicators.plotArea.append('g')
 
 And that's it, discounting the chart setup code, an RSI indicator in a few lines of code.
 
-The above code does not create the candle chart or any other data series but you can see a full example of this in the [examples](https://github.com/ScottLogic/d3-financial-components/tree/master/examples) on GitHub. The all singing, all dancing [AngularJS based example](https://github.com/ScottLogic/d3-financial-components/tree/master/examples/angular-example) and a [simple example](https://github.com/ScottLogic/d3-financial-components/tree/master/examples/simple-example).
+The above code does not create the candle chart or any other data series but you can see a full example of this in the examples folder of the project.
 
 ## Component code walkthrough
 
-While I've included relevant code snippets in this blog post, you might want to grab the full [Javascript file](https://github.com/ScottLogic/d3-financial-components/blob/master/components/indicators/relativeStrengthIndex.js) from GitHub.
+While I've included relevant code snippets in this blog post, you might want to grab the full [project from GitHub](https://github.com/ScottLogic/d3-financial-components).
 
 The component is encapsulated in a namespace as making all of the components global would get messy further down the line. The components all live under the `sl` namespace and this particular component lives in the `sl.indicators` namespace. The encapsulation code is shown below.
 
@@ -202,7 +205,7 @@ for( var offset = to; offset >= from; offset--) {
     down.push(dnow.close < dprev.close ? (dprev.close - dnow.close) * weight : 0);
 }
 {% endhighlight %}
-+ Note the `weight` variable to weight the moving average this is an exponential of the `lamba` property which can be set but is set to 1.0 by default.
++ Note the `weight` variable to weight the moving average this is an exponential of the `lambda` property which can be set but is set to 1.0 by default.
 + Then we use the arrays to calculate the RSI using the formula at the top of this post       
 {% highlight javascript %}
 var rsi = (up.length > 0 && down.length > 0 ) ?
@@ -226,4 +229,4 @@ I hope this gives a detailed overview of the RSI component and some insight in t
 
 ## The complete code
 
-All of the components are available on [GitHub](https://github.com/ScottLogic/d3-financial-components) with the RSI component beling located [here](https://github.com/ScottLogic/d3-financial-components/blob/master/components/indicators/relativeStrengthIndex.js).
+All of the components are available on [GitHub](https://github.com/ScottLogic/d3-financial-components) with the RSI component being located in the /components/indicators/ folder.
