@@ -10,8 +10,8 @@ var data = sl.utilities.dataGenerator()
     .toDate(toDate)
     .generate();
 
-// Setup the dimensions
-var dimensions = sl.utilities.dimensions()
+// Setup the chartLayout
+var chartLayout = sl.utilities.chartLayout()
     .height(200)
     .marginBottom(20)
     .marginLeft(0)
@@ -19,7 +19,7 @@ var dimensions = sl.utilities.dimensions()
 
 // The overall chart
 var setupArea = d3.select('#rsi_indicator_chart')
-    .call(dimensions);
+    .call(chartLayout);
 
 // Select the elements which we'll want to add other elements to
 var svg = setupArea.select('svg'),
@@ -28,12 +28,12 @@ var svg = setupArea.select('svg'),
 
 var dateScale = sl.scale.finance()
     .domain([fromDate, toDate])
-    .range([0, dimensions.innerWidth()]);
+    .range([0, chartLayout.innerWidth()]);
 
 var percentageScale = d3.scale.linear()
     .domain([0, 100])
     .nice()
-    .range([dimensions.innerHeight(), 0]);
+    .range([chartLayout.innerHeight(), 0]);
 
 // Create the axes
 var dateAxis = d3.svg.axis()
@@ -49,12 +49,12 @@ var percentageAxis = d3.svg.axis()
 // Add the axes to the chart
 chart.append('g')
     .attr('class', 'axis date')
-    .attr('transform', 'translate(0,' + dimensions.innerHeight() + ')')
+    .attr('transform', 'translate(0,' + chartLayout.innerHeight() + ')')
     .call(dateAxis);
 
 chart.append('g')
     .attr('class', 'axis percentage')
-    .attr('transform', 'translate(' + dimensions.innerWidth() + ',0)')
+    .attr('transform', 'translate(' + chartLayout.innerWidth() + ',0)')
     .call(percentageAxis);
 
 // Create RSI
