@@ -1,7 +1,7 @@
 ---
 author: soneill
 title: "Introducing the MEAN stack"
-summary: "Taking a look at a new fullstack Javascript web application framework. How to install and develop with MEAN.IO"
+summary: "Taking a look at a new fullstack Javascript web application framework."
 tags: 
   - mongo
   - express
