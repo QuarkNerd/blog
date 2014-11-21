@@ -18,7 +18,7 @@ destination: _site-safe
 include: [.htaccess]
 exclude: [_migration, checkdups, post-receive, README.txt, redirect_list.html,create-blog-post.sh]
 
-active-authors: [aaiken, aaylett, alee, amorgan, ceberhardt, cgrant, cprice, dgorst, dmcnamee, dthomas, dkerr, godds, isullivan, jbandenburg, jphillpotts, lpage, mrhodes, mdunsdon, mjose, nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth, tsimmons, wreilly]
+active-authors: [aaiken, aaylett, alee, amorgan, ceberhardt, cgrant, cprice, dgorst, dmcnamee, dthomas, dkerr, godds, isullivan, jbandenburg, jphillpotts, lpage, mrhodes, mdunsdon, mjose, nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth, soneill, tsimmons, wreilly]
 authors:
     labs:
         name: Scott Logic Labs
@@ -172,6 +172,10 @@ authors:
         name: William Reilly
         email: wreilly@scottlogic.com
         gravatar: 8f0414d464cf565f74042a08c75e3309
+    soneill:
+        name: Sean O'Neill
+        email: soneill@scottlogic.com
+        gravatar: 86d65c90b7cb711055066f12a5f8d0e2
     mjose:
         name: Mark Jose
         email: mjose@scottlogic.com
