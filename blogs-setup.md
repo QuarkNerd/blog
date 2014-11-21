@@ -37,26 +37,26 @@ Set up Blogs Repository
 
 Create directories for the blog build and clone the repo:
 
-> mkdir C:\blog\blogbuild
-> mkdir C:\blog\blogbuild\log
-> git clone https://github.com/ScottLogic/blog.git C:\blog\blogbuild\blog
+> mkdir C:\blog\blogbuild  
+> mkdir C:\blog\blogbuild\log  
+> git clone https://github.com/ScottLogic/blog.git C:\blog\blogbuild\blog  
 
 Install the git submodules:
 
-> cd C:\blog\blogbuild\blog
-> git submodule init
-> git submodule update
+> cd C:\blog\blogbuild\blog  
+> git submodule init  
+> git submodule update  
 
 Install and update gem dependencies:
 
-> bundle install
-> bundle update
+> bundle install  
+> bundle update  
 
 Modify the blogdeploy.bat file and correct the path on lines 4, 5 and 6 (do not include a trailing slash):
 
-> set blogBuildDir=C:\blog\blogbuild
-> set backupDir=C:\inetpub\wwwroot-scottweb-blog\backups
-> set currentlyDeployed=C:\inetpub\wwwroot-scottweb-blog\current
+> set blogBuildDir=C:\blog\blogbuild  
+> set backupDir=C:\inetpub\wwwroot-scottweb-blog\backups  
+> set currentlyDeployed=C:\inetpub\wwwroot-scottweb-blog\current  
 
 Create scheduled task
 =====================
@@ -74,9 +74,9 @@ Configure IIS
 
 Create the folders:
 
-> C:\inetpub\wwwroot-scottweb-blog\
-> C:\inetpub\wwwroot-scottweb-blog\current
-> C:\inetpub\wwwroot-scottweb-blog\current
+> C:\inetpub\wwwroot-scottweb-blog\  
+> C:\inetpub\wwwroot-scottweb-blog\current  
+> C:\inetpub\wwwroot-scottweb-blog\current  
 
 In IIS Manager create a virtual directory under the scottweb site pointing "/blog" to "C:\inetpub\wwwroot-scottweb-blog\current".
 
