@@ -12,7 +12,7 @@
           {% for post in site.tags.featured limit:2 offset: offset %}
           <div>
             <a href="{{ site.baseurl }}{{ post.url }}">
-              <img src="{{ post.image }}">
+              <img src="{{ site.baseurl }}/{{ post.image }}">
               {% capture url %}{{ site.siteurl }}{{ site.baseurl }}{{ post.url }}{% endcapture %}
               {% assign disqusID = post.url %}
               {% if post.oldlink %}
@@ -24,6 +24,7 @@
               {% endif %}
               {% assign title = post.title %}
               {% assign inverted = post.featured-overlay-inverted %}
+              {% assign black = post.featured-overlay-black %}
               {% include social.html %}
               <div class="carousel-caption">
                 <h4>
@@ -44,7 +45,7 @@
           {% for post in site.tags.featured limit:1 offset:offset %}
           <div>
             <a href="{{ site.baseurl }}{{ post.url }}">
-              <img src="{{ post.image }}">
+              <img src="{{ site.baseurl }}/{{ post.image }}">
               {% capture url %}{{ site.siteurl }}{{ site.baseurl }}{{ post.url }}{% endcapture %}
               {% assign disqusID = post.url %}
               {% if post.oldlink %}
@@ -56,6 +57,7 @@
               {% endif %}
               {% assign title = post.title %}
               {% assign inverted = post.featured-overlay-inverted %}
+              {% assign black = post.featured-overlay-black %}
               {% include social.html %}
               <div class="carousel-caption">
                 <h4>
@@ -83,7 +85,7 @@
           {% for post in site.tags.featured limit:2 offset:offset %}
           <div>
             <a href="{{ site.baseurl }}{{ post.url }}">
-              <img src="{{ post.image }}">
+              <img src="{{ site.baseurl }}/{{ post.image }}">
               {% capture url %}{{ site.siteurl }}{{ site.baseurl }}{{ post.url }}{% endcapture %}
               {% assign disqusID = post.url %}
               {% if post.oldlink %}
@@ -95,6 +97,7 @@
               {% endif %}
               {% assign title = post.title %}
               {% assign inverted = post.featured-overlay-inverted %}
+              {% assign black = post.featured-overlay-black %}
               {% include social.html %}
               <div class="carousel-caption">
                 <h4>

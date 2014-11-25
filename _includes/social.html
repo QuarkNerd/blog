@@ -1,13 +1,13 @@
 <aside class="social">
   <a href="#"
-     class="tweet{% if inverted %} inverted{% endif %}"
+     class="tweet{% if inverted %} inverted{% endif %}{% if black %} black{% endif %}"
      data-text="{{ title }}"
      data-url="{{ url }}"
   >
     <span class="count"></span>
   </a>
   <div
-     class="dq-comment-count{% if inverted %} inverted{% endif %}"
+     class="dq-comment-count{% if inverted %} inverted{% endif %}{% if black %} black {% endif %}"
      data-disqus-identifier="{{ disqusID }}"
   >
     <span class="count"></span>

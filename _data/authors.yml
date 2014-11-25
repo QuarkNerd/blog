@@ -1,4 +1,4 @@
-active-authors: [aaiken, aaylett,  alee, amorgan, ceberhardt, cgrant, cprice, dgorst, dmcnamee, dthomas, dkerr, godds, isullivan, jphillpotts, lpage, mrhodes, mdunsdon, nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth, tsimmons]
+active-authors: [aaiken, aaylett, alee, amorgan, ceberhardt, cgrant, cprice, dgorst, dmcnamee, dthomas, dkerr, godds, isullivan, jbandenburg, jphillpotts, lpage, mrhodes, mdunsdon, mjose, nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth, soneill, tsimmons, wreilly]
 authors:
     labs:
         name: Scott Logic Labs
@@ -16,6 +16,10 @@ authors:
     lpage:
         name: Luke Page
         email: lpage@scottlogic.com
+    hpowell:
+        name: Hugh Powell
+        email: hpowell@scottlogic.com
+        gravatar: f5c828c7066872e06a59ba26bdf12b8c
     aaylett:
         name: Andrew Aylett
         email: aaylett@scottlogic.com
@@ -123,6 +127,7 @@ authors:
     tsimmons:
         name: Tom Simmons
         email: tsimmons@scottlogic.co.uk
+        gravatar: d3b0a51363909dfbd44683577134c72c
     aaiken:
         name: Andy Aiken
         email: aaiken@scottlogic.com
@@ -138,3 +143,20 @@ authors:
         name: Simon Foley
         email: sfoley@scottlogic.com
         gravatar: 6a107b16bc05aaa263cf1237eedda426
+    jbandenburg:
+        name: Joe Bandenburg
+        email: jbandenburg@scottlogic.co.uk
+        gravatar: 785c4b4fe07574c8350791f355195f36
+        author-summary: Software engineer. <a href="https://twitter.com/joebandenburg">@joebandenburg</a>
+    wreilly:
+        name: William Reilly
+        email: wreilly@scottlogic.com
+        gravatar: 8f0414d464cf565f74042a08c75e3309
+    soneill:
+        name: Sean O'Neill
+        email: soneill@scottlogic.com
+        gravatar: 86d65c90b7cb711055066f12a5f8d0e2
+    mjose:
+        name: Mark Jose
+        email: mjose@scottlogic.com
+        gravatar: 6113027b6f67ad9f5f50a90f1481c0ed

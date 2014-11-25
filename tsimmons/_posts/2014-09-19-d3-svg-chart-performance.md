@@ -204,6 +204,12 @@ While this is very fast on most devices, there are some issues. Now when we zoom
 ## Conclusion
 We've looked at some of the performance issues of SVG charts, and how we might solve them. What's clear is that no approach is an obvious winner for optimal SVG chart performance. For our OHLC chart with a linear y-scale on desktop Chrome, a good approach is using 1 path per bar with geometric zooming. For other chart types on different devices using different browsers, it might make sense to use semantic zooming, hardware accelerated CSS3 transforms, filtered data or a combination of these approaches.
 
+### Links to the examples
+* [OHLC semantic zoom](http://tlsim.github.io/sl-blog-d3/ohlcSemanticZoom.html)
+* [Filtered data](http://tlsim.github.io/sl-blog-d3/filteredData.html)
+* [OHLC geometric Zoom](http://tlsim.github.io/sl-blog-d3/ohlcGeometricZoom.html)
+* [CSS3 transform](http://tlsim.github.io/sl-blog-d3/transformDiv.html)
+
 ### Further Reading
 * [https://www.mapbox.com/osmdev/2012/11/20/getting-serious-about-svg/](https://www.mapbox.com/osmdev/2012/11/20/getting-serious-about-svg/)
 * [http://stackoverflow.com/a/12335448](http://stackoverflow.com/a/12335448)

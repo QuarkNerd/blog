@@ -3,7 +3,6 @@ author: dgorst
 title: "Functional Reactive Programming with Bacon.js and D3"
 image: "dgorst/assets/featured/domino.jpg"
 tags:
-  - featured
 categories: 
 summary: "Reactive programming is a paradigm which allows you to better represent a work flow where changes in one part of your data model propagate down to other parts of the model. This blog post demonstrates an example of this, by listening for updates to Wikipedia and reacting accordingly."
 summary-short: ""

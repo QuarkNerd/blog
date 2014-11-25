@@ -6,8 +6,11 @@ scottlogicdisqusurl: http://scottlogic.disqus.com
 permalink: /:year/:month/:day/:title.html
 safe: true
 
+paginate: 5
+
 debug: false
 
 excerpt_separator: ""
 
-exclude: [_migration, checkdups, blogdeploy.sh, README.txt, redirect_list.html,create-blog-post.sh]
+include: [.htaccess]
+exclude: [_migration, checkdups, post-receive, blogdeploy.sh, README.txt, redirect_list.html,create-blog-post.sh]
