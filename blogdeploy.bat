@@ -1,11 +1,11 @@
 @echo off
 
 REM TODO Change path to the blog builds folder
-set blogBuildDir=C:\blah\blogbuild
-set backupDir=C:\blah\backups
-set currentlyDeployed=C:\blah\current
+set blogBuildDir=C:\blog\
+set backupDir=%blogBuildDir%\backup
+set currentlyDeployed=%blogBuildDir%\current
 
-set repo=%blogBuildDir%\blog
+set repo=%blogBuildDir%\build
 cd %repo%
 
 REM get the time using WMIC - as it provides a format we can work with
@@ -25,7 +25,7 @@ set timestamp=%DATE.YEAR%.%DATE.MONTH%.%DATE.DAY%.%DATE.HOUR%.%DATE.MINUTE%.%DAT
 set logfile="%blogBuildDir%\log\%timestamp%.log"
 
 REM Temporary file for checking fetch results
-set tempFetchResult="%blogBuildDir%\tempFetchResult"
+set tempFetchResult="%blogBuildDir%\log\tempFetchResult"
 
 REM Check for updates
 git fetch>%tempFetchResult% 2>&1
@@ -55,10 +55,10 @@ if %size% GTR 0 (
   exit 0
 )
 
-echo %newrev%>> %blogBuildDir%\last-received.log
+echo %newrev%>> %blogBuildDir%\log\last-received.log
 
 REM Get timestamp for current version and log it
-for /F "delims=" %%c in (%blogBuildDir%\current.txt) do echo [INFO] Previous version was %oldrev% on %%c>>%logfile%
+for /F "delims=" %%c in (%blogBuildDir%\log\current.txt) do echo [INFO] Previous version was %oldrev% on %%c>>%logfile%
 
 echo [INFO] Building for new version %newrev%>> %logfile%
 
@@ -76,7 +76,7 @@ if %ERRORLEVEL% EQU 0 (
   echo [INFO] Copying new build to %currentlyDeployed%>>%logfile%
   move /Y %repo%\_site "%currentlyDeployed%"
   
-  echo %timestamp%>%blogBuildDir%\current.txt
+  echo %timestamp%>%blogBuildDir%\log\current.txt
 
   echo [INFO] Finished: SUCCESS>>%logfile%
 ) else (

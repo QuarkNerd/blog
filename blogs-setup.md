@@ -37,16 +37,19 @@ Set up Blogs Repository
 
 Create directories for the blog build and clone the repo:
 
-> mkdir C:\blog\blogbuild  
-> mkdir C:\blog\blogbuild\log  
-> git clone https://github.com/ScottLogic/blog.git C:\blog\blogbuild\blog 
+> mkdir C:\blog\
+> mkdir C:\blog\backup
+> mkdir C:\blog\current
+> mkdir C:\blog\build
+> mkdir C:\blog\log
+> git clone https://github.com/ScottLogic/blog.git C:\blog\build
 
 Create an empty textfile named current.txt:
-> touch C:\blog\blogbuild\current.txt
+> touch C:\blog\log\current.txt
 
 Install the git submodules:
 
-> cd C:\blog\blogbuild\blog  
+> cd C:\blog\build
 > git submodule init  
 > git submodule update  
 
@@ -55,16 +58,15 @@ Install and update gem dependencies:
 > bundle install  
 > bundle update  
 
-Modify the blogdeploy.bat file and correct the path on lines 4, 5 and 6 (do not include a trailing slash):
+Copy the file "C:\blog\build\blogdeploy.bat" file to C:\blog\ and check the path on line 4:
 
-> set blogBuildDir=C:\blog\blogbuild  
-> set backupDir=C:\inetpub\wwwroot-scottweb-blog\backups  
-> set currentlyDeployed=C:\inetpub\wwwroot-scottweb-blog\current  
+> set blogBuildDir=C:\blog\
 
 Git credentials.  
 
 In order to be able to fetch from the repo, git needs to store username/pass info. 
 A user on the scottlogic github has been created already. From inside the blog directory, enter the following
+
 > git config credential.helper wincred  
 
 Now attempt to reach the repo (e.g. run git fetch --dry-run) and enter the username/password when prompted.
@@ -79,16 +81,10 @@ Call it "blogbuild", select "Run whether user is logged on or not", run as "SERV
 
 Under "Triggers" select "on a schedule", "one time", "repeat task every:" "6 minutes", "for a duation of "Indefinitely".
 
-Under "Actions" select "new" and enter "C:\blog\blogbuild\blog\blogdeploy.bat".
+Under "Actions" select "new" and enter "C:\blog\blogdeploy.bat".
 
 Configure IIS
 =============
 
-Create the folders:
-
-> C:\inetpub\wwwroot-scottweb-blog\  
-> C:\inetpub\wwwroot-scottweb-blog\backups  
-> C:\inetpub\wwwroot-scottweb-blog\current  
-
-In IIS Manager create a virtual directory under the scottweb site pointing "/blog" to "C:\inetpub\wwwroot-scottweb-blog\current".
+In IIS Manager create a virtual directory under the scottweb site pointing "/blog" to "C:\blog\current".
 
