@@ -32,6 +32,10 @@ Git
 
 Download and run the windows git installer from http://git-scm.com/.  Add the path to the git bin folder to the user PATH variable.
 
+Python
+======
+Install Python 2.7.2 from https://www.python.org/download/releases/2.7.2/ and ensure it is on the PATH.
+
 Set up Blogs Repository
 =======================
 
@@ -60,7 +64,7 @@ Install and update gem dependencies:
 
 Copy the file "C:\blog\build\blogdeploy.bat" file to C:\blog\ and check the path on line 4:
 
-> set blogBuildDir=C:\blog\  
+> set blogBuildDir=C:\blog  
 
 Git credentials.  
 
