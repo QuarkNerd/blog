@@ -1,7 +1,7 @@
 @echo off
 
 REM TODO Change path to the blog builds folder
-set blogBuildDir=C:\blog\
+set blogBuildDir=C:\blog
 set backupDir=%blogBuildDir%\backup
 set currentlyDeployed=%blogBuildDir%\current
 

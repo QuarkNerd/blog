@@ -37,19 +37,19 @@ Set up Blogs Repository
 
 Create directories for the blog build and clone the repo:
 
-> mkdir C:\blog\
-> mkdir C:\blog\backup
-> mkdir C:\blog\current
-> mkdir C:\blog\build
-> mkdir C:\blog\log
-> git clone https://github.com/ScottLogic/blog.git C:\blog\build
+> mkdir C:\blog\  
+> mkdir C:\blog\backup  
+> mkdir C:\blog\current  
+> mkdir C:\blog\build  
+> mkdir C:\blog\log  
+> git clone https://github.com/ScottLogic/blog.git C:\blog\build  
 
 Create an empty textfile named current.txt:
-> touch C:\blog\log\current.txt
+> touch C:\blog\log\current.txt  
 
 Install the git submodules:
 
-> cd C:\blog\build
+> cd C:\blog\build  
 > git submodule init  
 > git submodule update  
 
@@ -60,7 +60,7 @@ Install and update gem dependencies:
 
 Copy the file "C:\blog\build\blogdeploy.bat" file to C:\blog\ and check the path on line 4:
 
-> set blogBuildDir=C:\blog\
+> set blogBuildDir=C:\blog\  
 
 Git credentials.  
 
