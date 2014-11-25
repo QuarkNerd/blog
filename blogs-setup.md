@@ -39,7 +39,10 @@ Create directories for the blog build and clone the repo:
 
 > mkdir C:\blog\blogbuild  
 > mkdir C:\blog\blogbuild\log  
-> git clone https://github.com/ScottLogic/blog.git C:\blog\blogbuild\blog  
+> git clone https://github.com/ScottLogic/blog.git C:\blog\blogbuild\blog 
+
+Create an empty textfile named current.txt:
+> touch C:\blog\blogbuild\current.txt
 
 Install the git submodules:
 
@@ -58,10 +61,12 @@ Modify the blogdeploy.bat file and correct the path on lines 4, 5 and 6 (do not 
 > set backupDir=C:\inetpub\wwwroot-scottweb-blog\backups  
 > set currentlyDeployed=C:\inetpub\wwwroot-scottweb-blog\current  
 
-Git credentials.
+Git credentials.  
+
 In order to be able to fetch from the repo, git needs to store username/pass info. 
 A user on the scottlogic github has been created already. From inside the blog directory, enter the following
 > git config credential.helper wincred  
+
 Now attempt to reach the repo (e.g. run git fetch --dry-run) and enter the username/password when prompted.
 If done correctly, the username/pass will be stored and reused for all subsequent requests.
 

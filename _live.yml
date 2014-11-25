@@ -1,2 +1,2 @@
 siteurl: http://www.scottlogic.com
-exclude: [_migration, checkdups, blogdeploy.sh, README.txt, redirect_list.html,create-blog-post.sh,robots.txt]
+exclude: [_migration, checkdups, blogdeploy.sh, blogdeploy.bat, blogs-setup.md, README.txt, redirect_list.html,create-blog-post.sh,robots.txt]
