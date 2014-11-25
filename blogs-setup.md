@@ -87,7 +87,7 @@ Configure IIS
 Create the folders:
 
 > C:\inetpub\wwwroot-scottweb-blog\  
-> C:\inetpub\wwwroot-scottweb-blog\current  
+> C:\inetpub\wwwroot-scottweb-blog\backups  
 > C:\inetpub\wwwroot-scottweb-blog\current  
 
 In IIS Manager create a virtual directory under the scottweb site pointing "/blog" to "C:\inetpub\wwwroot-scottweb-blog\current".
