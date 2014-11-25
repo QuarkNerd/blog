@@ -1,7 +1,7 @@
 User
 ====
 
-Create a new normal user account called "blogbuild", set a good password, untick "user must change password at next logon" and ticket "password never expires".
+Create a new normal user account called "blogbuild", set a good password, untick "user must change password at next logon" and tick "password never expires".
 
 Temporarily add it to the local admin group.  Log in to the server as that user.
 
@@ -19,8 +19,8 @@ Unpack to C:\Ruby-Devkit\.
 
 Open a command prompt, navigate to C:\Ruby-Devkit\, run:
 
-> ruby dk.rb init
-> ruby dk.rb install".
+> ruby dk.rb init  
+> ruby dk.rb install  
 
 Bundler
 =======
