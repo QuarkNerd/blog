@@ -2,8 +2,6 @@
 author: alee
 title: Single Page Applications - Angular vs Knockout
 image: "alee/assets/featured/chess.jpg"
-tags:
-  - featured
 categories: 
 summary: A comparison of Angular and Knockout in an enterprise scale single page application, by building the same sample application with both tools.
 layout: default_post
