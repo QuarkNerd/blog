@@ -186,7 +186,7 @@ TLS.
 One side effect of the potential increase in encryption usage on the internet,
 is that it will make it impossible for ISPs to cache large common files more
 locally to users. Not only would this cause increased global network usage, but
-it could also causes increased load times for users, something the protocol was
+it could also cause increased load times for users, something the protocol was
 trying to reduce.
 
 To combat this, a new concept called '[Explicit Trusted Proxy][9]' was proposed,
