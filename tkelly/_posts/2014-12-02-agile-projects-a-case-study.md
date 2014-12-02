@@ -41,11 +41,11 @@ We introduced a formalised “Definition of Done”, where work was only conside
 
 The following burndown chart from before this shift shows how the burndown would have looked, had we been using story points. Because the in-review issue was not as apparent before the end of the sprint, we were unable to get everything through review in the last section of the sprint, and so didn’t get everything “Done”.
 
-<img width="400px" class="aligncenter" src="{{ site.baseurl }}/tkelly/assets/2014-12-03-agile-projects-a-case-study/burndown-before.png"/>
+<img width="400px" class="aligncenter" src="{{ site.baseurl }}/tkelly/assets/2014-12-02-agile-projects-a-case-study/burndown-before.png"/>
 
 After changing to plotting Story points, it became more apparent when reviews weren’t completed. A good burndown chart is one where the line follows a gradual downwards trend, following the guide line as closely as possible and reaching 0 by the end of the sprint. The chart below shows this much more than before, with issues being completed much earlier in the sprint and following the guideline more closely.
 
-<img width="400px" class="aligncenter" src="{{ site.baseurl }}/tkelly/assets/2014-12-03-agile-projects-a-case-study/burndown-after.png"/>
+<img width="400px" class="aligncenter" src="{{ site.baseurl }}/tkelly/assets/2014-12-02-agile-projects-a-case-study/burndown-after.png"/>
 
 The new view of our sprint-in-progress focused us on completing stories as opposed to getting them to review, cutting the churn dramatically.
 
@@ -65,7 +65,7 @@ As a result, we caught more of the minor issues that normally came up in code re
 
 Although we didn’t mandate it at the time, we could have further improved our pair programming by introducing “Testing Tennis”. This form of pair programming has one developer writing a failing test, then passing over the keyboard to have the other developer write the minimal implementation to pass the test, followed by a new failing test before passing the keyboard back.
 
-<img width="400px" title="Testing Tennis" class="aligncenter" src="{{ site.baseurl }}/tkelly/assets/2014-12-03-agile-projects-a-case-study/testing-tennis.png"/>
+<img width="400px" title="Testing Tennis" class="aligncenter" src="{{ site.baseurl }}/tkelly/assets/2014-12-02-agile-projects-a-case-study/testing-tennis.png"/>
 
 This keeps from having one developer “driving” for too long, as well as introducing some competitive fun. The tests tend to be more robust, as you actively try to poke holes in the code, instead of just treading the “happy path”.
 
