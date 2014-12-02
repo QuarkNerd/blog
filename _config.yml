@@ -18,7 +18,7 @@ destination: _site-safe
 include: [.htaccess]
 exclude: [_migration, checkdups, post-receive, README.txt, redirect_list.html,create-blog-post.sh]
 
-active-authors: [aaiken, aaylett, alee, amorgan, ceberhardt, cgrant, cprice, dgorst, dmcnamee, dthomas, dkerr, godds, isullivan, jbandenburg, jphillpotts, lpage, mrhodes, mdunsdon, mjose, nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth, soneill, tsimmons, wreilly]
+active-authors: [aaiken, aaylett, alee, amorgan, ceberhardt, cgrant, cprice, dgorst, dmcnamee, dthomas, dkerr, godds, isullivan, jbandenburg, jphillpotts, lpage, mrhodes, mdunsdon, mjose, nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth, soneill, tkelly, tsimmons, wreilly]
 authors:
     labs:
         name: Scott Logic Labs
@@ -181,3 +181,7 @@ authors:
         name: Mark Jose
         email: mjose@scottlogic.com
         gravatar: 6113027b6f67ad9f5f50a90f1481c0ed
+    tkelly:
+        name: Thomas Kelly
+        email: tkelly@scottlogic.com
+        gravatar: 26b51d42f5a82f0e7e21aa8fa92142b3
