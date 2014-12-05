@@ -13,18 +13,22 @@ My main contribution to the project was an Admin App for dynamic editing of pres
 
 
 ## Admin Panel:
-At the end of her internship, Mila identified a few next steps for the project which included admin functionality for dynamic updates to presentation content fetched from [Parse][Parse].  
-Initially, Facts and FIFA details were all that was stored on Parse, with other content stored on Dropbox.
-I separated further content from the presentation, including Web Banner details and Photos and also created classes to store configuration data for slides; specifying details such as sort order, timing, slide type, post limits etc.  
-Having slide data fetched after the slide is shown, rather than only on initialisation, removes the need to re-deploy code and restart application for changes as the presentation deployed on the foyer-screen can dynamically respond to changes.  
+At the end of her internship, Mila identified a few next steps for the project which included admin functionality for dynamic updates to presentation content fetched from [Parse][Parse].
+
+Initially, some string resources were all that was stored on Parse, with photo content stored on Dropbox.
+I separated further content from the presentation, including Web Banner details and Photos and also created classes to store configuration data for slides; specifying details such as sort order, timing, slide type, post limits etc.
+
+<img alt="Admin Parse Edit" src="{{ site.baseurl }}/rfarmer/assets/admin1.jpg"/>
+
+Having slide data fetched after the slide is shown, rather than only on initialisation, removes the need to re-deploy code and restart application for changes as the presentation deployed on the foyer-screen can dynamically respond to changes.
 
 Using Parse also allows resources and their meta-data to be organised more easily. And so instead of having a text file with a list of images to show, we could store photos in a class on Parse along with relevant attributes like photo captions, sort order and group. I used grouping attributes like 'Photo Set', 'Fact Set' etc. to split content of the same type so that a different set would be shown on each use of that slide.
 
-<img alt="Admin Parse Edit" src="{{ site.baseurl }}/rfarmer/assets/admin1.jpg"/>  
-To accommodate the editing and adding of content and configuration for the foyer-screen presentation, I created an HTML and JavaScript based application to alter data on Parse using the [REST API][Parse API].  
-This was an opportunity for me to develop something 'from scratch'. Initially I used JQuery approach as I had picked up some confidence with JQuery working on the Foyer Screen app. However, as I will discuss later in this post, this was a technology decision based on what I had experience of and not necessarily what was best for purpose, I later implemented additionaly functionality using the Angular framework.
+To accommodate the editing and adding of content and configuration for the foyer-screen presentation, I created an HTML and JavaScript based application to alter data on Parse using the [REST API][Parse API].
 
-For text-based Parse content, like the Facts, Banners and testimonials, you can edit, add new and delete entries.
+This was an opportunity for me to develop something 'from scratch'. Initially I inserted data from Parse to the DOM using JQuery as I had picked up some confidence with the library while working on the Foyer Screen app. However, as I will discuss later in this post, this was a technology decision based on what I had experience of and not necessarily what was best for purpose, I later implemented additional functionality using the Angular framework, which turned out to be a much more intuitive approach.
+
+For text-based Parse content, you can edit, add and delete entries.
 JQuery Sortable UI has been used to allow entries to be sorted, and this has been implemented across Facts, Photo sets, and Slides.
 
 <img alt="Admin slide Ordering" src="{{ site.baseurl }}/rfarmer/assets/admin2.jpg"/>  
@@ -39,7 +43,8 @@ In addition to specifying the order of photo sets, users can add new photos and 
 <img alt="Admin Organise Photos" src="{{ site.baseurl }}/rfarmer/assets/admin3.jpg"/>  
 
 ## Deployment:
-In the first few weeks of my placement, I created a two part script to simplify deployment of new versions of the foyer-screen application, which previously consisted of transfering the repository via USB stick.  
+In the first few weeks of my placement, I created a two part script to simplify deployment of new versions of the foyer-screen application. Deployment previously consisted of transfering the repository via USB stick as the foyer screen is not connected to the internal network, and so we cannot directly pull from the internal git repository.
+
 The first part of the deployment is a script to be run on the local machine, it requires Node and Git to be installed and should be run from Git Bash:
 
 1. Prompts you for username and clones the latest version from Git
@@ -59,7 +64,8 @@ As well as speeding up deployment, this was useful during development as it allo
 
 ## Unit Tests
 
-In the foyer-screen application the DOM is changed using JQuery; we want to test the logic of the application but it can then involve a lot of work mocking the necessary parts of the DOM.  
+In the foyer-screen application the DOM is changed using JQuery; we want to test the logic of the application but it can then involve a lot of work mocking the necessary parts of the DOM.
+
 Working on unit testing the application has encouraged me to be more modular in my coding style, separating out testable logic from DOM manipulation and API calls as far as possible.
 
 In developing the Admin Panel, a lot of the logic was tied into DOM manipulation and it became difficult to extract anything testable. To address this, and to add some fresh challenge to the project,
@@ -70,23 +76,26 @@ I began with a few online tutorials to familiarise myself with the framework:
 
 * CodeSchool's [Shaping Up With Angular.JS][CodeSchool Angular]  
 A free, 5 part course from CodeSchool covering the basics of Angular.js. Each part contains a few videos in which the tutor explains an angular concept and talks through an example of using it -
-Throughout all 5 levels we follow an example of creating a 'Gem Store'.  
+Throughout all 5 levels we follow an example of creating a 'Gem Store'.
+
 After each video the student (i.e. you), is required to complete a few exercises using the concepts they have just learned. These exercises are completed in an environment within the course, which assesses your answer dynamically.
 
 <img alt="Shaping Up With Angular" src="{{ site.baseurl }}/rfarmer/assets/shaping-up.jpg"/>  
-CodeSchool have other, more advanced, Angular resources but these require a paid account. This course is, however, very engaging and quickly brings you up to speed on the Angular basics. I would personally recommend it as a great starting point.
+This course is very engaging and quickly brings you up to speed on the Angular basics. CodeSchool have other, more advanced, Angular resources and I would personally recommend Shaping Up as a great starting point.
 
 * [Egghead.io][EggheadIO]
-For a deeper level of detail, I looked at the Egghead.io website.  
+For a deeper level of detail, I looked at the Egghead.io website.
+
 Their free content again covers the basics, however, there are ~60 free Angular JS videos available. These can be found on the website, or as a Youtube [playlist][EggheadPlaylist]. The videos each last anywhere between 2 - 10 minutes and are split into concepts. John Lindquist and team have done an excellent job in breaking down the creating a concise and informative course. The videos are great for beginners and I have also found that I use them as reference material almost as much as the Angular docs themselves.
 
 <img alt="Egghead Playlist" src="{{ site.baseurl }}/rfarmer/assets/egghead.jpg"/>  
-Like CodeSchool, Egghead.io also has further content available for paid subscribers. The free playlist is probably sufficient for most users and new videos are uploaded to the website on a regular basis.
+Egghead.io also has further content available for paid subscribers and new videos are uploaded to the website on a regular basis.
 
 To run unit tests I used [Karma][karma] with assertions in [Jasmine][jasmine]. Writing these tests was very simple due to the extensive resources of examples available on the Jasmine site, and within developer communities.
 Karma runs the tests each time a file is saved, allowing instant review of results.
 
-My first impressions of using Angular was that the approach just seemed so natural. Removing the DOM manipulation from my JavaScript made Unit Testing much simpler!  
+My first impressions of using Angular was that the approach just seemed so natural. Removing the DOM manipulation from my JavaScript made Unit Testing much simpler!
+
 It can take some time to put yourself in the 'Angular mind-set' when you're used to using JQuery but there is a very active community around Angular and so I found I could find advice on any issues I encountered on Stack Overflow or other similar resources. The docs and Developer guide on the [Angular website][Angular] itself are also very useful!
 
 Given more time I would have re-implemented the rest of the Admin App in Angular. I found the approach much neater and more intuitive than using JQuery to manipulate DOM elements, especially as much of the functionality of the Admin App was simply to insert Parse data into the page, or save page content back to Parse.
@@ -98,7 +107,8 @@ As well as various additional content ideas which would enhance the foyer-screen
 * Hosting for the admin app:  
 A user currently has to checkout the foyer-screen git repo and have node and npm installed in order to access the Admin Panel on localhost.  
 It would be good if the app was accessible via URL to anyone who needed to make changes.
-* Deployment via Github
+* Deployment via Github:
+As mentioned, the foyer screen is separate to the internal network and so we cannot deploy direct from the internal git repository. Hosting the repository on a private github account would allow us to remove the need to deploy via Dropbox.
 * 'Dev environment' - at the moment, all changes made to Parse affect the version deployed on the foyer-screen. For dev and testing purposes, it would be good to have a staging area of some description so that we can, for example, insert a test set of photos to test change in slide configuration before we change that config in the deployed version and without having the test set showing up on the foyer-screen. Having a separate data source for dev may be one solution, though synchronisation issues will need to be considered. Another solution would be to introduce a 'dev' type flag within the current Parse data core, so that the foyer-screen knows to avoid certain objects, but allow them to be accessed locally.
 
 ## Reflection
@@ -124,6 +134,8 @@ Picking up where Mila left off allowed me experience of getting to know an unfam
 <img alt="Testimonials" src="{{ site.baseurl }}/rfarmer/assets/TestimoniesShinobi.jpg"/>  
 
 <img alt="Testimonials - long string" src="{{ site.baseurl }}/rfarmer/assets/TestimoniesShinobi2.jpg"/>  
+
+<img alt="Testimonials - long string" src="{{ site.baseurl }}/rfarmer/assets/shinobi-showcase.jpg"/>  
 
 [MilaBlog]: http://www.scottlogic.com/blog/2014/08/29/foyer-screen.html
 [Parse]: https://www.parse.com/
