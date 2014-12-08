@@ -4,6 +4,7 @@ title: PropertyCross 1.3 Released
 categories: 
 summary: PropertyCross has just announced a v1.3 release, which includes two new frameworks, a number of updates and an improved build system.
 layout: default_post
+suppress-careers-add: true
 ---
 
 ![PropertyCross](http://i.imgur.com/boioGZn.png)
