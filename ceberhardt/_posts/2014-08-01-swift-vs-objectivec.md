@@ -6,6 +6,7 @@ tags:
 
 summary: "It was just two months ago that Apple took us by surprise in releasing the Swift programming language. This blog post reflects on the first few months of Swift adoption."
 layout: default_post
+suppress-careers-add: true
 ---
 
 It was just two months ago that Apple took developers by surprise in releasing the Swift programming language. Ever since I've been spending my evenings thoroughly immersed in the 'all new' Swift programming language. 

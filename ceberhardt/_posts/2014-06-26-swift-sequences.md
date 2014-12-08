@@ -9,6 +9,7 @@ summary: "In this blog post I want to take a quick look at the Swift Sequence pr
 summary-short: "An exploration of lazy evaluation via Swift generators"
 layout: default_post
 featured-overlay-inverted: true
+suppress-careers-add: true
 ---
 
 I've had a lot of fun poking around the Swift APIs over the past few weeks. The lack of documentation means that there are a some real gems hidden among the more mundane API and language features.
