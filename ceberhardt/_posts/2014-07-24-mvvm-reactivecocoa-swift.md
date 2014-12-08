@@ -212,7 +212,7 @@ Awesome!
 
 Migrating this app from Objective-C to Swift was basically a fun exercise that I wanted to share. There are a few areas that cause some friction, but in general I think Swift will make this style of programming so much easier in future.
 
-Keep your eye on [this branch](https://github.com/ReactiveCocoa/ReactiveCocoa/pull/1382) for the official re-implementation of ReactiveCocoa with Swift, this will no doubt tidy up some of the firction that necessarily exists when bridging Objective-C APIs into Swift.
+Keep your eye on [this branch](https://github.com/ReactiveCocoa/ReactiveCocoa/pull/1382) for the official re-implementation of ReactiveCocoa with Swift, this will no doubt tidy up some of the friction that necessarily exists when bridging Objective-C APIs into Swift.
 
 Regards, Colin E.
 
