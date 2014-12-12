@@ -82,7 +82,7 @@ However, a CSS transition should be smoother, because it can be handled natively
 
     // Animate to the new position
     element.css({
-        top: finalTop
+        transform: 'translate3d(0, ' + (finalTop - initialTop) + 'px, 0)'
       }).addClass('animating-end');
 
     // Remove the element after the transition finishes
