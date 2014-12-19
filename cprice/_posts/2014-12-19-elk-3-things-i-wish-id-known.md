@@ -87,6 +87,22 @@ However, there were a couple of things that weren’t obvious to me: where were 
 
 The patterns are defined in the patterns folder in your installation directory. There are a lot of useful patterns predefined and it’s obvious how to add your own. However, for one-off patterns there’s an inline syntax that you can also use -
 
+{% highlight ruby %}
+  (?<resource>\w+\d+)
+{% endhighlight %}
+
+And you can also mix and match -
+
+{% highlight ruby %}
+  (?<timestamp>%{DATESTAMP} %{ISO8601_TIMEZONE})
+{% endhighlight %}
+
+Also, if you need to perform any kind of statistical analysis any numbers you'll need to tell Logstash to create them as numeric fields in Elasticsearch -
+
+{% highlight ruby %}
+  %{INT:latency:int}
+{% endhighlight %}
+
 And finally don’t forget about [conditionals](http://logstash.net/docs/1.4.2/configuration#conditionals). A few times I found myself creating a monster of a regex when some simple conditional parsing would have made life much easier. However, if you are stuck with a monster regex, then [grokdebug](http://grokdebug.herokuapp.com) can be a lifesaver!
 
 ## What are these ```<field>.raw``` fields and where did they come from?
