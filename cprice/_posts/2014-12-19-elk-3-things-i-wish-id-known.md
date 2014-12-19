@@ -70,3 +70,46 @@ This is the sample snippet of a *working* configuration (with the above disclaim
   	}
   }
 {% endhighlight %}
+
+It isn’t all bad news though, [the sincedb bug](https://github.com/logstash-plugins/logstash-input-file/issues/2) is actively being worked on and [the file locking bug](https://logstash.jira.com/browse/LOGSTASH-986) is at least known but progress seems to be glacial.
+
+## Logstash grok is more powerful than I thought
+
+[The getting started guide](http://logstash.net/docs/1.4.2/tutorials/getting-started-with-logstash) gives some good basic examples of grok match patterns -
+
+{% highlight ruby %}
+  match => { "message" => "%{COMBINEDAPACHELOG}" }
+
+  match => { "message" => "%{SYSLOGTIMESTAMP:syslog_timestamp} %{SYSLOGHOST:syslog_hostname} %{DATA:syslog_program}(?:\[%{POSINT:syslog_pid}\])?: %{GREEDYDATA:syslog_message}" }
+{% endhighlight %}
+
+However, there were a couple of things that weren’t obvious to me: where were these patterns defined and do I need to create my own patterns? In reality I should have skipped straight to [the grok docs](http://logstash.net/docs/1.4.2/filters/grok), but here’s what I puzzled out on my own…
+
+The patterns are defined in the patterns folder in your installation directory. There are a lot of useful patterns predefined and it’s obvious how to add your own. However, for one-off patterns there’s an inline syntax that you can also use -
+
+And finally don’t forget about [conditionals](http://logstash.net/docs/1.4.2/configuration#conditionals). A few times I found myself creating a monster of a regex when some simple conditional parsing would have made life much easier. However, if you are stuck with a monster regex, then [grokdebug](http://grokdebug.herokuapp.com) can be a lifesaver!
+
+## What are these ```<field>.raw``` fields and where did they come from?
+
+The first time I saw the data loaded into Elasticsearch and visible in Kibana, aside from a great sense of relief, I spotted a bunch of fields I wasn’t expecting. All of the string fields I’d mapped in Logstash had equivalent ```<field-name>.raw``` fields. I guessed that Logstash must have created them but I wasn’t sure what they were for.
+
+Logstash did indeed create them by [defining a dynamic type mapping for all string fields](https://github.com/logstash-plugins/logstash-output-elasticsearch/blob/v0.1.5/lib/logstash/outputs/elasticsearch/elasticsearch-template.json#L10) in ```logstash-*``` indices -
+
+{% highlight ruby %}
+  "string_fields" : {
+    "match" : "*",
+    "match_mapping_type" : "string",
+    "mapping" : {
+      "type" : "string", "index" : "analyzed", "omit_norms" : true,
+      "fields" : {
+        "raw" : { "type": "string", "index" : "not_analyzed", "ignore_above" : 256 }
+      }
+    }
+  }
+{% endhighlight %}
+
+The above configuration defines the main field as an ```analyzed``` field and the ```raw``` sub-field as a ```not_analyzed``` field. An analyzed field is one in which elasticsearch has parsed out the tokens for effective searching. That means it’s not much cop for sorting or aggregating as [explained in the docs](http://www.elasticsearch.org/guide/en/elasticsearch/guide/current/aggregations-and-analysis.html).
+
+# You know, for logs
+
+The ELK stack is an incredibly powerful tool which really can revolutionise how logs are *viewed*. Awful puns aside, it's a powerful and versitile stack that can seriously optimise the workload of operations, and at the same time expose fresh insights to business.
