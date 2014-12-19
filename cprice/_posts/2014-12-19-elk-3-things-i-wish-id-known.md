@@ -57,18 +57,18 @@ One final sting in the tail is the file locking. If your log appender attempts t
 This is the sample snippet of a *working* configuration (with the above disclaimers) -
 
 {% highlight ruby %}
-  input {
-  	file {
-  		path => "c:/elk/logs/sample.log"
-  		start_position => beginning
-  		sincedb_path => "c:/elk/logs/sample.log.sincedb"
-  	}
-  	file {
-  		path => "c:/elk/logs/error.log"
-  		start_position => beginning
-  		sincedb_path => "c:/elk/logs/error.log.sincedb"
-  	}
-  }
+input {
+	file {
+		path => "c:/elk/logs/sample.log"
+		start_position => beginning
+		sincedb_path => "c:/elk/logs/sample.log.sincedb"
+	}
+	file {
+		path => "c:/elk/logs/error.log"
+		start_position => beginning
+		sincedb_path => "c:/elk/logs/error.log.sincedb"
+	}
+}
 {% endhighlight %}
 
 It isn’t all bad news though, [the sincedb bug](https://github.com/logstash-plugins/logstash-input-file/issues/2) is actively being worked on and [the file locking bug](https://logstash.jira.com/browse/LOGSTASH-986) is at least known but progress seems to be glacial.
@@ -78,9 +78,9 @@ It isn’t all bad news though, [the sincedb bug](https://github.com/logstash-pl
 [The getting started guide](http://logstash.net/docs/1.4.2/tutorials/getting-started-with-logstash) gives some good basic examples of grok match patterns -
 
 {% highlight ruby %}
-  match => { "message" => "%{COMBINEDAPACHELOG}" }
+match => { "message" => "%{COMBINEDAPACHELOG}" }
 
-  match => { "message" => "%{SYSLOGTIMESTAMP:syslog_timestamp} %{SYSLOGHOST:syslog_hostname} %{DATA:syslog_program}(?:\[%{POSINT:syslog_pid}\])?: %{GREEDYDATA:syslog_message}" }
+match => { "message" => "%{SYSLOGTIMESTAMP:syslog_timestamp} %{SYSLOGHOST:syslog_hostname} %{DATA:syslog_program}(?:\[%{POSINT:syslog_pid}\])?: %{GREEDYDATA:syslog_message}" }
 {% endhighlight %}
 
 However, there were a couple of things that weren’t obvious to me: where were these patterns defined and do I need to create my own patterns? In reality I should have skipped straight to [the grok docs](http://logstash.net/docs/1.4.2/filters/grok), but here’s what I puzzled out on my own…
@@ -88,19 +88,19 @@ However, there were a couple of things that weren’t obvious to me: where were 
 The patterns are defined in the patterns folder in your installation directory. There are a lot of useful patterns predefined and it’s obvious how to add your own. However, for one-off patterns there’s an inline syntax that you can also use -
 
 {% highlight ruby %}
-  (?<resource>\w+\d+)
+(?<resource>\w+\d+)
 {% endhighlight %}
 
 And you can also mix and match -
 
 {% highlight ruby %}
-  (?<timestamp>%{DATESTAMP} %{ISO8601_TIMEZONE})
+(?<timestamp>%{DATESTAMP} %{ISO8601_TIMEZONE})
 {% endhighlight %}
 
 Also, if you need to perform any kind of statistical analysis any numbers you'll need to tell Logstash to create them as numeric fields in Elasticsearch -
 
 {% highlight ruby %}
-  %{INT:latency:int}
+%{INT:latency:int}
 {% endhighlight %}
 
 And finally don’t forget about [conditionals](http://logstash.net/docs/1.4.2/configuration#conditionals). A few times I found myself creating a monster of a regex when some simple conditional parsing would have made life much easier. However, if you are stuck with a monster regex, then [grokdebug](http://grokdebug.herokuapp.com) can be a lifesaver!
@@ -112,16 +112,16 @@ The first time I saw the data loaded into Elasticsearch and visible in Kibana, a
 Logstash did indeed create them by [defining a dynamic type mapping for all string fields](https://github.com/logstash-plugins/logstash-output-elasticsearch/blob/v0.1.5/lib/logstash/outputs/elasticsearch/elasticsearch-template.json#L10) in ```logstash-*``` indices -
 
 {% highlight ruby %}
-  "string_fields" : {
-    "match" : "*",
-    "match_mapping_type" : "string",
-    "mapping" : {
-      "type" : "string", "index" : "analyzed", "omit_norms" : true,
-      "fields" : {
-        "raw" : { "type": "string", "index" : "not_analyzed", "ignore_above" : 256 }
-      }
+"string_fields" : {
+  "match" : "*",
+  "match_mapping_type" : "string",
+  "mapping" : {
+    "type" : "string", "index" : "analyzed", "omit_norms" : true,
+    "fields" : {
+      "raw" : { "type": "string", "index" : "not_analyzed", "ignore_above" : 256 }
     }
   }
+}
 {% endhighlight %}
 
 The above configuration defines the main field as an ```analyzed``` field and the ```raw``` sub-field as a ```not_analyzed``` field. An analyzed field is one in which elasticsearch has parsed out the tokens for effective searching. That means it’s not much cop for sorting or aggregating as [explained in the docs](http://www.elasticsearch.org/guide/en/elasticsearch/guide/current/aggregations-and-analysis.html).
