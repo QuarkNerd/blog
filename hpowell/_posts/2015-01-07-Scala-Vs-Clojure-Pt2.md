@@ -19,85 +19,89 @@ The first two assignments looked at recursive and higher order functions.  Prett
 
 The third assignment requires the creation of an immutable set of tweets using two data structures, a binary search tree and a linked list.  Skeletons are provided for the trait and abstract class along with skeletons for empty and non-empty concrete classes (or objects, essentially a Singleton of a class) for each.
 
-    abstract class TweetSet {
-      def filterAcc(...)
-      def filter(p: Tweet => Boolean): TweetSet =
-        filterAcc(p, new Empty)
-      def union(...)
-      def mostRetweeted(...)
-      def descendingByRetweet(...)
-      def incl(...)
-      def remove(...)
-      def contains(...)
-      def foreach(...)
-      ...
-    }
+{% highlight scala %}
+abstract class TweetSet {
+  def filterAcc(...)
+  def filter(p: Tweet => Boolean): TweetSet =
+    filterAcc(p, new Empty)
+  def union(...)
+  def mostRetweeted(...)
+  def descendingByRetweet(...)
+  def incl(...)
+  def remove(...)
+  def contains(...)
+  def foreach(...)
+  ...
+}
     
-    class Empty extends TweetSet {
-    ...8 functions...
-    }
+class Empty extends TweetSet {
+  ...8 functions...
+}
     
-    class NonEmpty(...) extends TweetSet {
-    ...8 functions...
-    }
+class NonEmpty(...) extends TweetSet {
+  ...8 functions...
+}
     
-    trait TweetList {
-      def head
-      def tail
-      def isEmpty
-      def foreach(f: Tweet => Unit): Unit =
-        if (!isEmpty) {
-          f(head)
-          tail.foreach(f)
-        }
+trait TweetList {
+  def head
+  def tail
+  def isEmpty
+  def foreach(f: Tweet => Unit): Unit =
+    if (!isEmpty) {
+      f(head)
+      tail.foreach(f)
     }
+}
     
-    object Nil extends TweetList {
-    ...3 functions...
-    }
+object Nil extends TweetList {
+  ...3 functions...
+}
     
-    class Cons(...) extents TweetList {
-    ...3 functions...
-    }
+class Cons(...) extents TweetList {
+  ...3 functions...
+}
+{% endhighlight %}
 
 This is where the idiomatic Clojure starts to diverge quite dramatically.  Clojure doesn't have an inheritance class system, but handles polymorphism through multi-methods and protocols (discussed later) and its approach to data structures can be boiled down to ["It is better to have 100 functions operate on one data structure than to have 10 functions operate on 10 data structures." - Alan J. Perlis](http://clojure.org/rationale).  Although it has somewhere around four (list, vector, map and set) concrete collections, with some having more than one implementation, all can be coerced into a seq.  There are also defrecords which are implemented under the hood as Java classes with additional methods to allow them to act as drop in replacement for maps.  This allows data structures to be created with their own type and comes with performance improvements compared to regular maps.  Finally there is the deftype construct that is used for the implementation of new data structures, something which is likely to be pretty rare, and provides the user with a blank object containing no implemented methods.  Into this dark hole is where we'll be heading.
 
 Most of the functions defined on TweetSet and TweetList have equivalent functions in Clojure that require an implementation of the ISeq interface.  union, however, requires an IPersistentSet, which leads us to implementing 4 new deftypes as follows:
 
-    (deftype NonEmpty
-      [...]
-      clojure.lang.ISequable
-      clojure.lang.ISeq
-      ...7 functions...
-      clojure.lang.Sequable
-      ...1 function...
-      clojure.lang.IPersistentSet
-      ...3 functions...)
+{% highlight clojure %}
+(deftype NonEmpty
+  [...]
+  clojure.lang.ISequable
+  clojure.lang.ISeq
+  ...7 functions...
+  clojure.lang.Sequable
+  ...1 function...
+  clojure.lang.IPersistentSet
+  ...3 functions...)
     
-    (deftype Empty
-      [...]
-      clojure.lang.ISequable
-      clojure.lang.ISeq
-      ...7 functions...
-      clojure.lang.Sequable
-      ...1 function...
-      clojure.lang.IPersistentSet
-      ...3 functions...)
+(deftype Empty
+  [...]
+  clojure.lang.ISequable
+  clojure.lang.ISeq
+  ...7 functions...
+  clojure.lang.Sequable
+  ...1 function...
+  clojure.lang.IPersistentSet
+  ...3 functions...)
     
-    (deftype Cons
-      [...]
-      clojure.lang.ISequable
-      clojure.lang.ISeq
-      ...7 functions...
-      clojure.lang.Sequable
-      ...1 function...)
-    
-    (deftype Nil []
-      clojure.lang.ISequable
-      clojure.lang.ISeq
-      ...7 functions...
-      clojure.lang.Sequable
-      ...1 function...)
+(deftype Cons
+  [...]
+  clojure.lang.ISequable
+  clojure.lang.ISeq
+  ...7 functions...
+  clojure.lang.Sequable
+  ...1 function...)
+
+(deftype Nil []
+  clojure.lang.ISequable
+  clojure.lang.ISeq
+  ...7 functions...
+  clojure.lang.Sequable
+  ...1 function...)
+{% endhighlight %}
 
 This is isn't something Clojurians would be expected to do on a regular basis, if ever.  The interfaces have almost no documentation (for instance, notice the ISequable interface, it requires the implementation of no functions and yet many of them will fail if it is not "implemented") and required a substantial amount of Google-fu and trial and error before I was able to hammer something together.
 
@@ -112,42 +116,46 @@ The fourth assignment looks at case classes and pattern matching.  Case classes 
 
 Here Scala uses two very simple case classes and then pattern matching when specific functionality is required:
 
-    abstract class CodeTree
-    case class Fork(left: CodeTree, right: CodeTree, chars: List[Char], weight: Int) extends CodeTree
-    case class Leaf(char: Char, weight: Int) extends CodeTree
+{% highlight scala %}
+abstract class CodeTree
+case class Fork(left: CodeTree, right: CodeTree, chars: List[Char], weight: Int) extends CodeTree
+case class Leaf(char: Char, weight: Int) extends CodeTree
 
-    def weight(tree: CodeTree): Int = tree match {
-      case Leaf(char, weight) => weight
-      case Fork(left, right, chars, weight) => this.weight(left) + this.weight(right)
-    }
+def weight(tree: CodeTree): Int = tree match {
+  case Leaf(char, weight) => weight
+  case Fork(left, right, chars, weight) => this.weight(left) + this.weight(right)
+}
 
-    def chars(tree: CodeTree): List[Char] = tree match {
-      case Leaf(char, weight) => List(char)
-      case Fork(left, right, chars, weight) => this.chars(left) ::: this.chars(right)
-    }
+def chars(tree: CodeTree): List[Char] = tree match {
+  case Leaf(char, weight) => List(char)
+  case Fork(left, right, chars, weight) => this.chars(left) ::: this.chars(right)
+}
+{% endhighlight %}
 
 This use of pattern matching seems to be very reminiscent of the use of conditionals instead of polymorphism I'm sure we all experienced when first learning object oriented programming.  Using polymorphism would certainly be possible in this situation by having the case classes inherit from a trait that contained the weight and chars functions.  This lead to the idiomatic Clojure to deviate quite quickly.  Extracting each of the functions that used pattern matching into a protocol gave the following:
 
-    (defprotocol HUFFMAN
-      (char-list [this])
-      (weight [this])
-      ...3 more functions...)
+{% highlight clojure %}
+(defprotocol HUFFMAN
+  (char-list [this])
+  (weight [this])
+  ...3 more functions...)
 
-    (defrecord Fork [left right]
-      HUFFMAN
-      (char-list [this]
-       (concat (char-list left) (char-list right)))
-      (weight [this]
-       (+ (weight left) (weight right)))
-      ...3 more functions...)
+(defrecord Fork [left right]
+  HUFFMAN
+  (char-list [this]
+   (concat (char-list left) (char-list right)))
+  (weight [this]
+   (+ (weight left) (weight right)))
+  ...3 more functions...)
 
-    (defrecord Leaf [character weight]
-      HUFFMAN
-      (char-list [this]
-       [character])
-      (weight [this]
-       weight)
-      ...3 more functions...)
+(defrecord Leaf [character weight]
+  HUFFMAN
+  (char-list [this]
+   [character])
+  (weight [this]
+   weight)
+  ...3 more functions...)
+{% endhighlight %}
 
 This is much more how we would expect polymorphic functions to be constructed and would allow the easy creation of additional defrecords to add additional functionality.
 
