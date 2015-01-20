@@ -7,6 +7,10 @@ tags:
 categories: 
   - nwolverson
 layout: default_post
+summary: >
+    TypeScript 1.4 was released last Friday, bringing union types, type aliases, and some ES6-related features. It also brought a
+    new compiler and language services API to facilitate better tool support. Here I'll give a brief introduction with some
+    pointers on places to get started.
 ---
 <script src="{{ site.baseurl }}/nwolverson/assets/tsc/highlight.pack.js"> </script>
 
@@ -35,7 +39,7 @@ layout: default_post
 </script>
 
 
-TypeScript 1.4 released last Friday, bringing us union types, type aliases, and some ES6 goodness. It also brought a new language services API to
+TypeScript 1.4 was released last Friday, bringing union types, type aliases, and some ES6-related features. It also brought a new compiler and language services API to
 facilitate better tool support. I spent some time playing with this new API in the last month or so, and found it somewhat hard to get started with
 the existing documentation but fairly straightforward once you get going. Here I'll give a brief introduction with  some pointers on places to get started.
 
@@ -75,7 +79,7 @@ The APIs described here are part of the TypeScript compiler 1.4 release, which y
 The TypeScript 1.4 compiler version is required for the runtime services and corresponding definition file,
 but in order to compile these examples the latest compiler is also required, as the definition files make use of TypeScript 1.4 features.
 
-    For reference, [TypeScript official API docs](https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API).
+For reference, [TypeScript official API docs](https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API).
 
 #### Language Service API
 
@@ -194,7 +198,7 @@ Or to get matching brace position:
     var braces = languageService.getBraceMatchingAtPosition("script.ts", text.indexOf("{"));
     var matchingPos = braces[1].start;
     
-Demo (Move cursor to show matching brackets):
+Demo (Move cursor to the left of brackets to show matching pairs):
 
 <div id="ex2">
 <pre><code class="nohighlight" id="highlightDiv"> </code></pre>
