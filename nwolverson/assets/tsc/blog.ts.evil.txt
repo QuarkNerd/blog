@@ -62,7 +62,7 @@ function init() {
         host.addFile("lib.d.ts", xhr.responseText);
         // Should only allow interaction after this point. But surely nobody would try to break it...
     };
-    xhr.open("GET", "/blog/nwolverson/assets/tsc/lib.d.ts");
+    xhr.open("GET", "/blog/nwolverson/assets/tsc/lib.d.ts.evil.txt");
     xhr.send();
 }
 
@@ -136,7 +136,6 @@ $(() => {
         var input: string = $("#ex2 textarea").text();
 
         var cursorPos = this.selectionStart;
-        console.log(cursorPos);
         var pos = getMatchingBracePosition(input, cursorPos);
         if (pos && pos.length == 2) {
             var sections = [input.substring(0, pos[0]),

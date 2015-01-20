@@ -70,7 +70,7 @@ function init() {
     xhr.onload = function (ev) {
         host.addFile("lib.d.ts", xhr.responseText);
     };
-    xhr.open("GET", "/blog/nwolverson/assets/tsc/lib.d.ts");
+    xhr.open("GET", "/blog/nwolverson/assets/tsc/lib.d.ts.evil.txt");
     xhr.send();
 }
 function getCompilerOutput(text) {
@@ -128,7 +128,6 @@ $(function () {
     function highlightTextArea() {
         var input = $("#ex2 textarea").text();
         var cursorPos = this.selectionStart;
-        console.log(cursorPos);
         var pos = getMatchingBracePosition(input, cursorPos);
         if (pos && pos.length == 2) {
             var sections = [input.substring(0, pos[0]), input.substring(pos[0], pos[0] + 1), input.substring(pos[0] + 1, pos[1]), input.substring(pos[1], pos[1] + 1), input.substring(pos[1] + 1)].map(function (t) { return $("<span>").text(t); });
