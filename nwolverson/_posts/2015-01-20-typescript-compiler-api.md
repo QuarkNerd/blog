@@ -44,7 +44,7 @@ facilitate better tool support. I spent some time playing with this new API in t
 the existing documentation but fairly straightforward once you get going. Here I'll give a brief introduction with  some pointers on places to get started.
 
 #### Goal
-At some point last year I wanted to write some TypeScript in a web page, so I looked for a way of generating some nice syntax-highlighted markup. As I was interested in the types involved, I wanted something a bit more than your regular syntax-highlighter, but actually to display the types involved (even when inferred). [FSSnip](http://www.fssnip.net/) gives a good example of this for `F#`:
+At some point last year I wanted to write some TypeScript in a web page, so I looked for a way of generating some nice syntax-highlighted markup. As I was interested in the types involved, I wanted something a bit more than your regular syntax-highlighter, but actually to display the types involved (even when inferred). [FSSnip](http://www.fssnip.net/) gives a good example of this for `F#` (live example, mouse over an identifier):
 
 <pre class="fssnip">
 <span class="l">1: </span><span class="c">//</span><span class="c"> </span><span class="c">calculates</span><span class="c"> </span><span class="c">the</span><span class="c"> </span><span class="c">factorial:</span>
@@ -59,10 +59,11 @@ At some point last year I wanted to write some TypeScript in a web page, so I lo
 <div class="tip" id="fst1">val factorial : int -&gt; int<br /><br />Full name: Test.factorial<br /></div>
 <div class="tip" id="fst2">val n : int<br /><br />&#160;&#160;type: int<br />&#160;&#160;implements: System.IComparable<br />&#160;&#160;implements: System.IFormattable<br />&#160;&#160;implements: System.IConvertible<br />&#160;&#160;implements: System.IComparable&lt;int&gt;<br />&#160;&#160;implements: System.IEquatable&lt;int&gt;<br />&#160;&#160;inherits: System.ValueType<br /></div>
 
+![Tooltip screenshot]({{site.baseurl}}/nwolverson/assets/tsc/fs-tooltip.png) Tooltip appearing on mouseover.
 
 A basic implementation of the tooltip type-display idea is available [on my github](https://github.com/nwolverson/tstooltip), but for the purpose of this blog we will simplify the goal to get a list of identifiers and types in a sample program. Another notable simplification is that that project makes use of web workers to perform the actual parsing - running the TypeScript compiler in the browser can be slow and will lock up the page.
 
-The end result is something like the following:
+The end result is something like the following (live example, mouse over an identifier):
 
 <pre><code class="nohighlight"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title"><span class="ts-typeinfo" title="factorial: (n: number) => number">factorial</span></span><span class="hljs-params">(<span class="ts-typeinfo" title="n: number">n</span>: number)</span> : <span class="hljs-title">number</span> </span>{
     <span class="hljs-keyword">switch</span> (<span class="ts-typeinfo" title="n: number">n</span>) {
@@ -73,6 +74,8 @@ The end result is something like the following:
             <span class="hljs-keyword">return</span> <span class="ts-typeinfo" title="n: number">n</span> * <span class="ts-typeinfo" title="factorial: (n: number) => number">factorial</span>(<span class="ts-typeinfo" title="n: number">n</span> - <span class="hljs-number">1</span>);
     }
 }</code></pre>
+
+![Tooltip screenshot]({{site.baseurl}}/nwolverson/assets/tsc/ts-tooltip.png) Tooltip appearing on mouseover.
 
 #### Getting Started
 The APIs described here are part of the TypeScript compiler 1.4 release, which you can grab from [npm](https://www.npmjs.com/package/typescript) or [with VS tools](https://visualstudiogallery.msdn.microsoft.com/2d42d8dc-e085-45eb-a30b-3f7d50d55304).
