@@ -41,6 +41,10 @@ layout: default
   </aside>
   <div class="span8">
     {{ content }}
+
+    {% unless page.suppress-careers-add %}
+    {% include ads/careers.html %}
+    {% endunless %}
   </div>
 </article>
 
