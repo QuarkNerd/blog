@@ -1,3 +1,8 @@
+Setup
+=====
+
+To set up the publication of the Scott Logic blogs follow these instructions on a Windows web server.
+
 User
 ====
 
@@ -39,7 +44,7 @@ Install Python 2.7.2 from https://www.python.org/download/releases/2.7.2/ and en
 Set up Blogs Repository
 =======================
 
-Create directories for the blog build and clone the repo:
+Create directories for the blog build and clone the repo, providing the "scottlogic-blog" username and password when prompted:
 
 > mkdir C:\blog\  
 > mkdir C:\blog\backup  
@@ -49,6 +54,7 @@ Create directories for the blog build and clone the repo:
 > git clone https://github.com/ScottLogic/blog.git C:\blog\build  
 
 Create an empty textfile named current.txt:
+
 > touch C:\blog\log\current.txt  
 
 Install the git submodules:
@@ -66,15 +72,15 @@ Copy the file "C:\blog\build\blogdeploy.bat" file to C:\blog\ and check the path
 
 > set blogBuildDir=C:\blog  
 
-Git credentials.  
+Git Credentials
+===============
 
 In order to be able to fetch from the repo, git needs to store username/pass info. 
 A user on the scottlogic github has been created already. From inside the blog directory, enter the following
 
 > git config credential.helper wincred  
 
-Now attempt to reach the repo (e.g. run git fetch --dry-run) and enter the username/password when prompted.
-If done correctly, the username/pass will be stored and reused for all subsequent requests.
+Now attempt to reach the repo (e.g. run git fetch --dry-run) and enter the username/password when prompted.  If done correctly, the username/pass will be stored and reused for all subsequent requests.
 
 Create scheduled task
 =====================
@@ -86,6 +92,11 @@ Call it "blogbuild", select "Run whether user is logged on or not", run as "SERV
 Under "Triggers" select "on a schedule", "one time", "repeat task every:" "6 minutes", "for a duation of "Indefinitely".
 
 Under "Actions" select "new" and enter "C:\blog\blogdeploy.bat".
+
+Trigger a build
+===============
+
+The blogdeploy.bat script only builds if there are changes in git.  For the initial build bypass that restriction by commenting out line43 and lines 53-56, then manually trigger the scheduled task.
 
 Configure IIS
 =============
