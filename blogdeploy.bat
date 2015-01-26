@@ -74,7 +74,7 @@ if %ERRORLEVEL% EQU 0 (
 
   REM Move new build from \_site to location used to serve live site
   echo [INFO] Copying new build to %currentlyDeployed%>>%logfile%
-  move /Y %repo%\_site "%currentlyDeployed%"
+  move /Y %repo%\_site\* "%currentlyDeployed%"
   
   echo %timestamp%>%blogBuildDir%\log\current.txt
 
