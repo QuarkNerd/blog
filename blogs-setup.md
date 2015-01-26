@@ -103,3 +103,7 @@ Configure IIS
 
 In IIS Manager create a virtual directory under the scottweb site pointing "/blog" to "C:\blog\current".
 
+Tidy up user rights
+===================
+
+Log out of the server as blogbuild and log in again as an Administrator.  Remove the blogbuild user from the Administrators group.  Open "Administrative Tools" > "Local Security Policy" and open "Local Policies" > "User Rights Assignment" > "Log on as a batch job" and add the "blogbuild" user to the list.  This allows the scheduled task to run as blogbuild without admin rights.
