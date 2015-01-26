@@ -18,14 +18,14 @@ Download and run the Ruby 1.9.3 p545 installer from http://rubyinstaller.org/dow
 Ruby DevKit
 ===========
 
-Download and run the Ruby DevKit installer from https://github.com/downloads/oneclick/rubyinstaller/DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe
+Download and run the Ruby DevKit installer from https://github.com/downloads/oneclick/rubyinstaller/DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe.
 
 Unpack to C:\Ruby-Devkit\.
 
 Open a command prompt, navigate to C:\Ruby-Devkit\, run:
 
-> ruby dk.rb init  
-> ruby dk.rb install  
+> ruby dk.rb init
+> ruby dk.rb install
 
 Bundler
 =======
@@ -46,31 +46,31 @@ Set up Blogs Repository
 
 Create directories for the blog build and clone the repo, providing the "scottlogic-blog" username and password when prompted:
 
-> mkdir C:\blog\  
-> mkdir C:\blog\backup  
-> mkdir C:\blog\current  
-> mkdir C:\blog\build  
-> mkdir C:\blog\log  
-> git clone https://github.com/ScottLogic/blog.git C:\blog\build  
+> mkdir C:\blog\
+> mkdir C:\blog\backup
+> mkdir C:\blog\current
+> mkdir C:\blog\build
+> mkdir C:\blog\log
+> git clone https://github.com/ScottLogic/blog.git C:\blog\build
 
 Create an empty textfile named current.txt:
 
-> touch C:\blog\log\current.txt  
+> touch C:\blog\log\current.txt
 
 Install the git submodules:
 
-> cd C:\blog\build  
-> git submodule init  
-> git submodule update  
+> cd C:\blog\build
+> git submodule init
+> git submodule update
 
 Install and update gem dependencies:
 
-> bundle install  
-> bundle update  
+> bundle install
+> bundle update
 
 Copy the file "C:\blog\build\blogdeploy.bat" file to C:\blog\ and check the path on line 4:
 
-> set blogBuildDir=C:\blog  
+> set blogBuildDir=C:\blog
 
 Git Credentials
 ===============
@@ -78,7 +78,7 @@ Git Credentials
 In order to be able to fetch from the repo, git needs to store username/pass info. 
 A user on the scottlogic github has been created already. From inside the blog directory, enter the following
 
-> git config credential.helper wincred  
+> git config credential.helper wincred
 
 Now attempt to reach the repo (e.g. run git fetch --dry-run) and enter the username/password when prompted.  If done correctly, the username/pass will be stored and reused for all subsequent requests.
 
