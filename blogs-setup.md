@@ -24,8 +24,8 @@ Unpack to C:\Ruby-Devkit\.
 
 Open a command prompt, navigate to C:\Ruby-Devkit\, run:
 
-> ruby dk.rb init
-> ruby dk.rb install
+> ruby dk.rb init  
+> ruby dk.rb install  
 
 Bundler
 =======
