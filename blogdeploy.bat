@@ -70,12 +70,22 @@ if %ERRORLEVEL% EQU 0 (
   echo [INFO] Backing up current version to %backupDir%\%timestamp%>>%logfile%
 
   REM Backup what is currently served from this location
-  move /Y "%currentlyDeployed%" "%backupDir%\%timestamp%"
+  move /Y "%currentlyDeployed%" "%backupDir%\%timestamp%" >>%logfile% 2>&1
+  
+  if %ERRORLEVEL% NEQ 0 (
+    echo [ERROR] Failed to backup current version to "%backupDir%\%timestamp%">>%logfile%
+    exit 1
+  )
 
   REM Move new build from \_site to location used to serve live site
   echo [INFO] Copying new build to %currentlyDeployed%>>%logfile%
-  move /Y %repo%\_site\* "%currentlyDeployed%"
+  move /Y %repo%\_site "%currentlyDeployed%" >>%logfile% 2>&1
   
+  if %ERRORLEVEL% NEQ 0 (
+    echo [ERROR] Failed to copy new build to "%currentlyDeployed%">>%logfile%
+    exit 1
+  )
+
   echo %timestamp%>%blogBuildDir%\log\current.txt
 
   echo [INFO] Finished: SUCCESS>>%logfile%
