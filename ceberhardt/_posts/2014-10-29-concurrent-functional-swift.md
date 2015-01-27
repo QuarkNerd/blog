@@ -142,7 +142,7 @@ let CONSTANTS = (
 )
 {% endhighlight %}
 
-I've found this to be quite a good used of tuples with named properties, as containers for constant values.
+I've found this to be quite a good use of tuples with named properties, as containers for constant values.
 
 The constants and `Scale` type can be used to generate an array of datapoints, one for each pixel in the Mandelbrot set that is being generated:
 
@@ -163,7 +163,7 @@ class func generateDatapoints() -> [ComplexNumber] {
 
 Notice that the above function creates an array that can contain the full 151,250 items (based on the constant definitions above) and updates via index, rather than starting with a zero-length array and appending each item. This is approximately x4 faster in this instance (measuring using Release build `-Os`).
 
-Once the datapoint have been generated, Mandelbrot construction becomes a simple map operation:
+Once the datapoints have been generated, Mandelbrot construction becomes a simple map operation:
 
 
 {% highlight csharp %}
@@ -234,7 +234,7 @@ extension Array {
 }
 {% endhighlight %}
 
-The above code iterates over the source array, using `dispatch_group_async` to execute the given closure expression. This closure performs the transform, then adds the result to the `results` array. Notice that Swift arrays are no thread safe, so synchronization is used to ensure that only a single thread writes to the array at any one time.
+The above code iterates over the source array, using `dispatch_group_async` to execute the given closure expression. This closure performs the transform, then adds the result to the `results` array. Notice that Swift arrays are not thread safe, so synchronization is used to ensure that only a single thread writes to the array at any one time.
 
 The closure passed to `dispatch_group_notify` is invoked when all the elements are transformed and the supplied callback is invoked.
 

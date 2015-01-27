@@ -35,6 +35,7 @@ authors:
         author-summary: <a href="https://twitter.com/100pxls">@100pxls</a><br/><a href="https://plus.google.com/u/0/114347034265773524402" rel="author">Google+</a>
     lpage:
         name: Luke Page
+        gravatar: f40e61d9f159e1fd0cc70f1e717f6a7b
         email: lpage@scottlogic.com
     hpowell:
         name: Hugh Powell
