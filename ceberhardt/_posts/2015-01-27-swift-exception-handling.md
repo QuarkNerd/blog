@@ -41,7 +41,7 @@ Various other KVC API methods throw exceptions also, for example `removeObserver
 
 So if you want to avoid the possibility of your application blowing up at runtime, what do you do?
 
-This had me scratching my head for a while, until thankfully a colleague of mine, Nicholas Wolverson, pointed out the seemingly obvious - you catch the exception with Objective-C!
+This had me scratching my head for a while, until thankfully a colleague of mine, [Nicholas Wolverson](http://www.scottlogic.com/blog/nwolverson/), pointed out the seemingly obvious - you catch the exception with Objective-C!
 
 ##Catching Exceptions in Swift
 
@@ -182,7 +182,7 @@ Most modern languages support exceptions - the lack of support in Swift does see
 
 As an example, the Google Objective-C style guide simply states "[Don't throw exceptions](http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml#Avoid_Throwing_Exceptions)".
 
-However, I personally feel that Swift would benefit from the introduction of exceptions. To see why, we'll return back the everyones favourite topic - optionals!
+However, I personally feel that Swift would benefit from the introduction of exceptions. To see why, we'll return back the everyone's favourite topic - optionals!
 
 This is the all-to-familiar problem of optional variables - if you have an algorithm that depends on a number of optionals, each must be explicitly unwrapped:
 
