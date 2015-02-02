@@ -13,6 +13,7 @@ window.fc = {
      * @namespace fc.indicators
      */
     indicators: {},
+    math: {},
     /**
      * Useful complex scales which add to the D3 scales in terms of render quality.
      * Also, complex financial scales that can be added to a chart
@@ -993,6 +994,7 @@ window.fc = {
 
     fc.utilities.fn = {
         identity: function(d) { return d; },
+        index: function(d, i) { return i; },
         noop: function(d) {  }
     };
 }(d3, fc));
@@ -1061,10 +1063,12 @@ window.fc = {
         function createNodes(el) {
             function getChildNodes() {
                 var children = [];
-                for (var i = 0; i < el.childElementCount; i++) {
-                    var child = el.children[i];
-                    if (child.getAttribute('layout-css')) {
-                        children.push(createNodes(child));
+                for (var i = 0; i < el.childNodes.length; i++) {
+                    var child = el.childNodes[i];
+                    if (child.nodeType === 1) {
+                        if (child.getAttribute('layout-css')) {
+                            children.push(createNodes(child));
+                        }
                     }
                 }
                 return children;
@@ -1236,278 +1240,109 @@ window.fc = {
 (function(d3, fc) {
     'use strict';
 
-    // This component provides a utility which allows other component to fail gracefully should a value
-    // be passed for a data fields which does not exist in the data set.
-    fc.utilities.valueAccessor = function(propertyName) {
-        return function(d) {
-            if (d.hasOwnProperty(propertyName)) {
-                return d[propertyName];
-            } else {
-                if (typeof console === 'object') {
-                    console.warn('The property with name ' + propertyName + ' was not found on the data object');
-                }
-                return 0;
-            }
-        };
-    };
-}(d3, fc));
-(function(d3, fc) {
-    'use strict';
-
-    /**
-    * This component calculates and draws Bollinger
-    *  bands on a data series, calculated using a moving average and a standard deviation value.
-    *
-    * @type {object}
-    * @memberof fc.indicators
-    * @class fc.indicators.bollingerBands
-    */
     fc.indicators.bollingerBands = function() {
 
-        var xScale = d3.time.scale(),
-            yScale = d3.scale.linear();
+        var algorithm = fc.math.bollingerBands();
 
-        var yValue = fc.utilities.valueAccessor('close'),
-            movingAverage = 20,
-            standardDeviations = 2;
+        var readCalculatedValue = function(d) {
+            return bollingerBands.readCalculatedValue.value(d) || {};
+        };
 
-        /**
-        * Constructs a new instance of the bollinger bands component.
-        *
-        * @memberof fc.indicators.bollingerBands
-        * @param {selection} selection a D3 selection
-        */
+        var area = fc.series.area()
+            .y0Value(function(d) {
+                return readCalculatedValue(d).upper;
+            })
+            .y1Value(function(d) {
+                return readCalculatedValue(d).lower;
+            });
+
+        var upperLine = fc.series.line()
+            .yValue(function(d) {
+                return readCalculatedValue(d).upper;
+            });
+
+        var averageLine = fc.series.line()
+            .yValue(function(d) {
+                return readCalculatedValue(d).average;
+            });
+
+        var lowerLine = fc.series.line()
+            .yValue(function(d) {
+                return readCalculatedValue(d).lower;
+            });
+
         var bollingerBands = function(selection) {
 
-            var areaBands = d3.svg.area(),
-                lineUpper = d3.svg.line(),
-                lineLower = d3.svg.line(),
-                lineAverage = d3.svg.line(),
-                cssBandArea = 'band-area',
-                cssBandUpper = 'band-upper',
-                cssBandLower = 'band-lower',
-                cssAverage = 'moving-average';
+            algorithm.inputValue(bollingerBands.yValue.value)
+                .outputValue(bollingerBands.writeCalculatedValue.value);
 
-            areaBands.x(function(d) { return xScale(d.date); });
-            lineUpper.x(function(d) { return xScale(d.date); });
-            lineLower.x(function(d) { return xScale(d.date); });
-            lineAverage.x(function(d) { return xScale(d.date); });
+            area.xScale(bollingerBands.xScale.value)
+                .yScale(bollingerBands.yScale.value)
+                .xValue(bollingerBands.xValue.value);
 
-            var calculateMovingAverage = function(data, i) {
+            upperLine.xScale(bollingerBands.xScale.value)
+                .yScale(bollingerBands.yScale.value)
+                .xValue(bollingerBands.xValue.value);
 
-                if (movingAverage === 0) {
-                    return yValue(data[i]);
-                }
+            averageLine.xScale(bollingerBands.xScale.value)
+                .yScale(bollingerBands.yScale.value)
+                .xValue(bollingerBands.xValue.value);
 
-                var count = Math.min(movingAverage, i + 1),
-                first = i + 1 - count;
-
-                var sum = 0;
-                for (var index = first; index <= i; ++index) {
-                    var x = yValue(data[index]);
-                    sum += x;
-                }
-
-                return sum / count;
-            };
-
-            var calculateMovingStandardDeviation = function(data, i, avg) {
-
-                if (movingAverage === 0) {
-                    return 0;
-                }
-
-                var count = Math.min(movingAverage, i + 1),
-                    first = i + 1 - count;
-
-                var sum = 0;
-                for (var index = first; index <= i; ++index) {
-                    var x = yValue(data[index]);
-                    var dx = x - avg;
-                    sum += (dx * dx);
-                }
-
-                var variance = sum / count;
-                return Math.sqrt(variance);
-            };
+            lowerLine.xScale(bollingerBands.xScale.value)
+                .yScale(bollingerBands.yScale.value)
+                .xValue(bollingerBands.xValue.value);
 
             selection.each(function(data) {
+                algorithm(data);
 
-                var bollingerData = {};
-                for (var index = 0; index < data.length; ++index) {
+                var container = d3.select(this);
 
-                    var date = data[index].date;
+                var areaContianer = container.selectAll('g.area')
+                    .data([data]);
 
-                    var avg = calculateMovingAverage(data, index);
-                    var sd = calculateMovingStandardDeviation(data, index, avg);
+                areaContianer.enter()
+                    .append('g')
+                    .attr('class', 'area');
 
-                    bollingerData[date] = {avg: avg, sd: sd};
-                }
+                areaContianer.call(area);
 
-                areaBands.y0(function(d) {
+                var upperLineContainer = container.selectAll('g.upper')
+                    .data([data]);
 
-                    var avg = bollingerData[d.date].avg;
-                    var sd = bollingerData[d.date].sd;
+                upperLineContainer.enter()
+                    .append('g')
+                    .attr('class', 'upper');
 
-                    return yScale(avg + (sd * standardDeviations));
-                });
+                upperLineContainer.call(upperLine);
 
-                areaBands.y1(function(d) {
+                var averageLineContainer = container.selectAll('g.average')
+                    .data([data]);
 
-                    var avg = bollingerData[d.date].avg;
-                    var sd = bollingerData[d.date].sd;
+                averageLineContainer.enter()
+                    .append('g')
+                    .attr('class', 'average');
 
-                    return yScale(avg - (sd * standardDeviations));
-                });
+                averageLineContainer.call(averageLine);
 
-                lineUpper.y(function(d) {
+                var lowerLineContainer = container.selectAll('g.lower')
+                    .data([data]);
 
-                    var avg = bollingerData[d.date].avg;
-                    var sd = bollingerData[d.date].sd;
+                lowerLineContainer.enter()
+                    .append('g')
+                    .attr('class', 'lower');
 
-                    return yScale(avg + (sd * standardDeviations));
-                });
-
-                lineLower.y(function(d) {
-
-                    var avg = bollingerData[d.date].avg;
-                    var sd = bollingerData[d.date].sd;
-
-                    return yScale(avg - (sd * standardDeviations));
-                });
-
-                lineAverage.y(function(d) {
-
-                    var avg = bollingerData[d.date].avg;
-
-                    return yScale(avg);
-                });
-
-                var prunedData = [];
-                for (var n = movingAverage; n < data.length; ++n) {
-                    prunedData.push(data[n]);
-                }
-
-                // add a 'root' g element on the first enter selection. This ensures
-                // that it is just added once
-                var container = d3.select(this).selectAll('g.bollinger-bands').data([data]);
-                container.enter().append('g')
-                    .attr('class', 'bollinger-bands');
-                container.exit().remove();
-
-                // create a data-join for each element of the band
-                var pathArea = container.selectAll('path.' + cssBandArea).data([prunedData]),
-                    pathUpper = container.selectAll('path.' + cssBandUpper).data([prunedData]),
-                    pathLower = container.selectAll('path.' + cssBandLower).data([prunedData]),
-                    pathAverage = container.selectAll('path.' + cssAverage).data([prunedData]);
-
-                // enter
-                pathArea.enter().append('path')
-                    .attr('class', cssBandArea);
-                pathUpper.enter().append('path')
-                    .attr('class', cssBandUpper);
-                pathLower.enter().append('path')
-                    .attr('class', cssBandLower);
-                pathAverage.enter().append('path')
-                    .attr('class', cssAverage);
-
-                // update
-                pathArea.attr('d', areaBands);
-                pathUpper.attr('d', lineUpper);
-                pathLower.attr('d', lineLower);
-                pathAverage.attr('d', lineAverage);
-
-                // exit
-                pathArea.exit().remove();
-                pathUpper.exit().remove();
-                pathLower.exit().remove();
-                pathAverage.exit().remove();
+                lowerLineContainer.call(lowerLine);
             });
         };
 
-        /**
-        * Specifies the X scale which the tracker uses to locate its SVG elements. If not specified, returns
-        * the current X scale, which defaults to an unmodified d3.time.scale
-        *
-        * @memberof fc.indicators.bollingerBands
-        * @method xScale
-        * @param {scale} scale a D3 scale
-        */
-        bollingerBands.xScale = function(scale) {
-            if (!arguments.length) {
-                return xScale;
-            }
-            xScale = scale;
-            return bollingerBands;
-        };
+        bollingerBands.xScale = fc.utilities.property(d3.time.scale());
+        bollingerBands.yScale = fc.utilities.property(d3.scale.linear());
+        bollingerBands.yValue = fc.utilities.property(function(d) { return d.close; });
+        bollingerBands.xValue = fc.utilities.property(function(d) { return d.date; });
+        bollingerBands.writeCalculatedValue = fc.utilities.property(function(d, value) { d.bollingerBands = value; });
+        bollingerBands.readCalculatedValue = fc.utilities.property(function(d) { return d.bollingerBands; });
 
-        /**
-        * Specifies the Y scale which the tracker uses to locate its SVG elements. If not specified, returns
-        * the current Y scale, which defaults to an unmodified d3.scale.linear.
-        *
-        * @memberof fc.indicators.bollingerBands
-        * @method yScale
-        * @param {scale} scale a D3 scale
-        */
-        bollingerBands.yScale = function(scale) {
-            if (!arguments.length) {
-                return yScale;
-            }
-            yScale = scale;
-            return bollingerBands;
-        };
-
-        /**
-        * Specifies the name of the data field which the component will follow. If not specified,
-        * returns the current data field, which defaults to 0.
-        *
-        * @memberof fc.indicators.bollingerBands
-        * @method yValue
-        * @param {accessor} value a D3 accessor function which returns the Y value for a given point
-        */
-        bollingerBands.yValue = function(value) {
-            if (!arguments.length) {
-                return yValue;
-            }
-            yValue = value;
-            return bollingerBands;
-        };
-
-        /**
-        * Specifies the number of data points the component will use when calculating its moving average
-        * value. If not specified, returns the current value, which defaults to 20.
-        *
-        * @memberof fc.indicators.bollingerBands
-        * @method movingAverage
-        * @param {integer} value the number of points to average
-        */
-        bollingerBands.movingAverage = function(value) {
-            if (!arguments.length) {
-                return movingAverage;
-            }
-            if (value >= 0) {
-                movingAverage = value;
-            }
-            return bollingerBands;
-        };
-
-        /**
-        * Specifies the number of standard deviations to use as the amplitude of the displayed bands.
-        * If not specified, returns the current data field, which defaults to 2.
-        *
-        * @memberof fc.indicators.bollingerBands
-        * @method standardDeviations
-        * @param {integer} value the number of standard deviations
-        */
-        bollingerBands.standardDeviations = function(value) {
-            if (!arguments.length) {
-                return standardDeviations;
-            }
-            if (value >= 0) {
-                standardDeviations = value;
-            }
-            return bollingerBands;
-        };
+        d3.rebind(bollingerBands, algorithm, 'multiplier', 'windowSize');
 
         return bollingerBands;
     };
@@ -1516,139 +1351,39 @@ window.fc = {
 (function(d3, fc) {
     'use strict';
 
-
-    /**
-    * A moving average is an indicator that smooths out fluctuations in data. This component draws
-    * a simple moving average line on a chart for a given data field, averaging the previous 5
-    * points by default.
-    *
-    * @type {object}
-    * @memberof fc.indicators
-    * @class fc.indicators.movingAverage
-    */
     fc.indicators.movingAverage = function() {
 
-        var xScale = d3.time.scale(),
-            yScale = d3.scale.linear(),
-            yValue = fc.utilities.valueAccessor('close'),
-            averagePoints = 5;
+        var algorithm = fc.math.slidingWindow()
+            .accumulator(d3.mean);
 
-        /**
-        * Constructs a new instance of the moving average component.
-        *
-        * @memberof fc.indicators.movingAverage
-        * @param {selection} selection a D3 selection
-        */
+        var averageLine = fc.series.line();
+
         var movingAverage = function(selection) {
-            var line = d3.svg.line();
-            line.defined(function(d, i) { return i >= averagePoints; });
-            line.x(function(d) { return xScale(d.date); });
 
-            var css = 'moving-average';
+            algorithm.inputValue(movingAverage.yValue.value)
+                .outputValue(movingAverage.writeCalculatedValue.value);
+
+            averageLine.xScale(movingAverage.xScale.value)
+                .yScale(movingAverage.yScale.value)
+                .xValue(movingAverage.xValue.value)
+                .yValue(movingAverage.readCalculatedValue.value);
+
             selection.each(function(data) {
+                algorithm(data);
 
-                if (averagePoints === 0) {
-                    line.y(function(d) { return yScale(yValue(d)); });
-                } else {
-                    line.y(function(d, i) {
-                        var first = i + 1 - averagePoints;
-                        var sum = 0;
-                        for (var index = first; index <= i; ++index) {
-                            sum += yValue(data[index]);
-                        }
-                        var mean = sum / averagePoints;
-
-                        return yScale(mean);
-                    });
-                }
-
-                // add a 'root' g element on the first enter selection. This ensures
-                // that it is just added once
-                var container = d3.select(this).selectAll('g.' + css).data([data]);
-                container.enter().append('g')
-                    .attr('class', css);
-                container.exit().remove();
-
-                // create a data-join for the path
-                var path = container.selectAll('path.' +  css).data([data]);
-
-                // enter
-                path.enter().append('path')
-                    .attr('class', css);
-
-                // update
-                path.attr('d', line);
-
-                // exit
-                path.exit().remove();
+                d3.select(this)
+                    .call(averageLine);
             });
         };
 
-        /**
-        * Specifies the X scale which the tracker uses to locate its SVG elements. If not specified, returns
-        * the current X scale, which defaults to an unmodified d3.time.scale
-        *
-        * @memberof fc.indicators.movingAverage
-        * @method xScale
-        * @param {scale} scale a D3 scale
-        */
-        movingAverage.xScale = function(scale) {
-            if (!arguments.length) {
-                return xScale;
-            }
-            xScale = scale;
-            return movingAverage;
-        };
+        movingAverage.xScale = fc.utilities.property(d3.time.scale());
+        movingAverage.yScale = fc.utilities.property(d3.scale.linear());
+        movingAverage.yValue = fc.utilities.property(function(d) { return d.close; });
+        movingAverage.xValue = fc.utilities.property(function(d) { return d.date; });
+        movingAverage.writeCalculatedValue = fc.utilities.property(function(d, value) { d.movingAverage = value; });
+        movingAverage.readCalculatedValue = fc.utilities.property(function(d) { return d.movingAverage; });
 
-        /**
-        * Specifies the Y scale which the tracker uses to locate its SVG elements. If not specified, returns
-        * the current Y scale, which defaults to an unmodified d3.scale.linear.
-        *
-        * @memberof fc.indicators.movingAverage
-        * @method yScale
-        * @param {scale} scale a D3 scale
-        */
-        movingAverage.yScale = function(scale) {
-            if (!arguments.length) {
-                return yScale;
-            }
-            yScale = scale;
-            return movingAverage;
-        };
-
-        /**
-        * Specifies the name of the data field which the component will follow. If not specified,
-        * returns the 'close' property of each datapoint.
-        *
-        * @memberof fc.indicators.movingAverage
-        * @method yValue
-        * @param {accessor} value a D3 accessor function which returns the Y value for a given point
-        */
-        movingAverage.yValue = function(value) {
-            if (!arguments.length) {
-                return yValue;
-            }
-            yValue = value;
-            return movingAverage;
-        };
-
-        /**
-        * Specifies the number of data points the tracker will use when calculating its moving average value.
-        * If not specified, returns the current value, which defaults to 5.
-        *
-        * @memberof fc.indicators.movingAverage
-        * @method averagePoints
-        * @param {integer} value the number of points to average
-        */
-        movingAverage.averagePoints = function(value) {
-            if (!arguments.length) {
-                return averagePoints;
-            }
-            if (value >= 0) {
-                averagePoints = value;
-            }
-            return movingAverage;
-        };
+        d3.rebind(movingAverage, algorithm, 'windowSize');
 
         return movingAverage;
     };
@@ -1657,246 +1392,179 @@ window.fc = {
 (function(d3, fc) {
     'use strict';
 
-    /**
-    * This component will generate an RSI data series on
-    * a chart based on data generated in the format produced by the dataGenerator component.
-    *
-    * @type {object}
-    * @memberof fc.indicators
-    * @class fc.indicators.rsi
-    */
-    fc.indicators.rsi = function() {
+    fc.indicators.relativeStrengthIndicator = function() {
 
-        var xScale = d3.time.scale(),
-            yScale = d3.scale.linear(),
-            samplePeriods = 14,
-            upperMarker = 70,
-            lowerMarker = 30,
-            lambda = 1.0,
-            css = 'rsi',
-            yValue = fc.utilities.valueAccessor('close');
+        var algorithm = fc.math.relativeStrengthIndicator();
+        var annotations = fc.tools.annotation();
+        var rsiLine = fc.series.line();
 
-        var upper = null,
-            centre = null,
-            lower = null;
-
-        /**
-        * Constructs a new instance of the RSI component.
-        *
-        * @memberof fc.indicators.rsi
-        * @param {selection} selection a D3 selection
-        */
         var rsi = function(selection) {
 
-            var line = d3.svg.line();
-            line.x(function(d) { return xScale(d.date); });
+            algorithm.outputValue(rsi.writeCalculatedValue.value);
+
+            annotations.xScale(rsi.xScale.value)
+                .yScale(rsi.yScale.value);
+
+            rsiLine.xScale(rsi.xScale.value)
+                .yScale(rsi.yScale.value)
+                .xValue(rsi.xValue.value)
+                .yValue(rsi.readCalculatedValue.value);
 
             selection.each(function(data) {
+                algorithm(data);
 
-                if (samplePeriods === 0) {
-                    line.y(function(d) { return yScale(0); });
-                } else {
-                    line.y(function(d, i) {
-                        var from = i - samplePeriods,
-                        to = i,
-                        up = [],
-                        down = [];
+                var container = d3.select(this);
 
-                        if (from < 1) {
-                            from = 1;
-                        }
+                var annotationsContainer = container.selectAll('g.annotations')
+                    .data([[
+                        rsi.upperValue.value.apply(this, arguments),
+                        50,
+                        rsi.lowerValue.value.apply(this, arguments)
+                    ]]);
 
-                        for (var offset = to; offset >= from; offset--) {
-                            var dnow = data[offset],
-                            dprev = data[offset - 1];
-
-                            var weight = Math.pow(lambda, offset);
-                            up.push(yValue(dnow) > yValue(dprev) ? (yValue(dnow) - yValue(dprev)) * weight : 0);
-                            down.push(yValue(dnow) < yValue(dprev) ? (yValue(dprev) - yValue(dnow)) * weight : 0);
-                        }
-
-                        if (up.length <= 0 || down.length <= 0) {
-                            return yScale(0);
-                        }
-
-                        var rsi = 100 - (100 / (1 + (d3.mean(up) / d3.mean(down))));
-                        return yScale(rsi);
-                    });
-                }
-
-                // add a 'root' g element on the first enter selection. This ensures
-                // that it is just added once
-                var container = d3.select(this)
-                    .selectAll('.' + css)
-                    .data([data]);
-                container.enter()
+                annotationsContainer.enter()
                     .append('g')
-                    .classed(css, true);
+                    .attr('class', 'annotations');
 
+                annotationsContainer.call(annotations);
 
-                // add the marker lines
-                container.selectAll('.marker').remove();
-
-                upper = container.append('line')
-                    .attr('class', 'marker upper')
-                    .attr('x1', xScale.range()[0])
-                    .attr('y1', yScale(upperMarker))
-                    .attr('x2', xScale.range()[1])
-                    .attr('y2', yScale(upperMarker));
-
-                centre = container.append('line')
-                    .attr('class', 'marker centre')
-                    .attr('x1', xScale.range()[0])
-                    .attr('y1', yScale(50))
-                    .attr('x2', xScale.range()[1])
-                    .attr('y2', yScale(50));
-
-                lower = container.append('line')
-                    .attr('class', 'marker lower')
-                    .attr('x1', xScale.range()[0])
-                    .attr('y1', yScale(lowerMarker))
-                    .attr('x2', xScale.range()[1])
-                    .attr('y2', yScale(lowerMarker));
-
-
-                 // create a data-join for the path
-                var path = container
-                    .selectAll('path')
+                var rsiLineContainer = container.selectAll('g.indicator')
                     .data([data]);
 
-                // enter
-                path.enter()
-                    .append('path');
+                rsiLineContainer.enter()
+                    .append('g')
+                    .attr('class', 'indicator');
 
-                // update
-                path.attr('d', line);
-
-                // exit
-                path.exit()
-                    .remove();
+                rsiLineContainer.call(rsiLine);
             });
         };
 
-        /**
-        * Specifies the X scale which the tracker uses to locate its SVG elements. If not specified, returns
-        * the current X scale, which defaults to an unmodified d3.time.scale
-        *
-        * @memberof fc.indicators.rsi
-        * @method xScale
-        * @param {scale} scale a D3 scale
-        */
-        rsi.xScale = function(scale) {
-            if (!arguments.length) {
-                return xScale;
-            }
-            xScale = scale;
-            return rsi;
-        };
+        rsi.xScale = fc.utilities.property(d3.time.scale());
+        rsi.yScale = fc.utilities.property(d3.scale.linear());
+        rsi.xValue = fc.utilities.property(function(d) { return d.date; });
+        rsi.writeCalculatedValue = fc.utilities.property(function(d, value) { d.rsi = value; });
+        rsi.readCalculatedValue = fc.utilities.property(function(d) { return d.rsi; });
+        rsi.upperValue = fc.utilities.functorProperty(70);
+        rsi.lowerValue = fc.utilities.functorProperty(30);
 
-        /**
-        * Specifies the Y scale which the tracker uses to locate its SVG elements. If not specified, returns
-        * the current Y scale, which defaults to an unmodified d3.scale.linear.
-        *
-        * @memberof fc.indicators.rsi
-        * @method yScale
-        * @param {scale} scale a D3 scale
-        */
-        rsi.yScale = function(scale) {
-            if (!arguments.length) {
-                return yScale;
-            }
-            yScale = scale;
-            return rsi;
-        };
-
-        /**
-        * Specifies the number of data samples used to calculate the RSI over, much like the number of
-        * points for the moving average indicator. If not set the default value is 14, which is the
-        * accepted value given by Wilder
-        *
-        * @memberof fc.indicators.rsi
-        * @method samplePeriods
-        * @param {integer} value the number of periods
-        */
-        rsi.samplePeriods = function(value) {
-            if (!arguments.length) {
-                return samplePeriods;
-            }
-            samplePeriods = value < 0 ? 0 : value;
-            return rsi;
-        };
-
-        /**
-        * Specifies the location of the upper marker used to mark the level at which the market/instrument is
-        * considered over bought. The default value of this 70%. The value is specified as a percentage so
-        * 70 as opposed to 0.7.
-        *
-        * @memberof fc.indicators.rsi
-        * @method upperMarker
-        * @param {number} value the value of the upper marker
-        */
-        rsi.upperMarker = function(value) {
-            if (!arguments.length) {
-                return upperMarker;
-            }
-            upperMarker = value > 100 ? 100 : (value < 0 ? 0 : value);
-            return rsi;
-        };
-
-        /**
-        * Specifies the location of the lower marker used to mark the level at which the market/instrument is
-        * considered over sold. The default value of this 30%. The value is specified as a percentage so 30
-        * as opposed to 0.3.
-        *
-        * @memberof fc.indicators.rsi
-        * @method lowerMarker
-        * @param {number} value the value of the lower marker
-        */
-        rsi.lowerMarker = function(value) {
-            if (!arguments.length) {
-                return lowerMarker;
-            }
-            lowerMarker = value > 100 ? 100 : (value < 0 ? 0 : value);
-            return rsi;
-        };
-
-
-        /**
-        * Specifies the relative influence that the samples have on the Exponential Moving average
-        * calculation. A value of 1 (Default value) will mean that every data sample will have equal
-        * weight in the calculation. The most widely used values are in the region 0.92 to 0.98.
-        *
-        * @memberof fc.indicators.rsi
-        * @method lambda
-        * @param {number} value the value of the lower marker
-        */
-        rsi.lambda = function(value) {
-            if (!arguments.length) {
-                return lambda;
-            }
-            lambda = value > 1.0 ? 1.0 : (value < 0.0 ? 0.0 : value);
-            return rsi;
-        };
-
-        /**
-        * Specifies the name of the data field which the component will follow. If not specified,
-        * returns the 'close' property of each datapoint
-        *
-        * @memberof fc.indicators.bollingerBands
-        * @method yValue
-        * @param {accessor} value a D3 accessor function which returns the Y value for a given point
-        */
-        rsi.yValue = function(value) {
-            if (!arguments.length) {
-                return yValue;
-            }
-            yValue = value;
-            return rsi;
-        };
+        d3.rebind(rsi, algorithm, 'openValue', 'closeValue', 'windowSize');
 
         return rsi;
     };
 }(d3, fc));
+(function(d3, fc) {
+    'use strict';
+
+    fc.math.bollingerBands = function() {
+
+        var slidingWindow = fc.math.slidingWindow()
+            .accumulator(function(values) {
+                var avg = d3.mean(values);
+                var stdDev = d3.deviation(values);
+                var multiplier = bollingerBands.multiplier.value.apply(this, arguments);
+                return {
+                    upper: avg + multiplier * stdDev,
+                    average: avg,
+                    lower: avg - multiplier * stdDev
+                };
+            });
+
+        var bollingerBands = function(data) {
+            return slidingWindow(data);
+        };
+
+        bollingerBands.multiplier = fc.utilities.functorProperty(2);
+
+        d3.rebind(bollingerBands, slidingWindow, 'windowSize', 'inputValue', 'outputValue');
+
+        return bollingerBands;
+    };
+}(d3, fc));
+
+(function(d3, fc) {
+    'use strict';
+
+    fc.math.relativeStrengthIndicator = function() {
+
+        var slidingWindow = fc.math.slidingWindow()
+            .windowSize(14)
+            .accumulator(function(values) {
+                var downCloses = [];
+                var upCloses = [];
+
+                for (var i = 0, l = values.length; i < l; i++) {
+                    var value = values[i];
+
+                    var openValue = rsi.openValue.value(value);
+                    var closeValue = rsi.closeValue.value(value);
+
+                    downCloses.push(openValue > closeValue ? openValue - closeValue : 0);
+                    upCloses.push(openValue < closeValue ? closeValue - openValue : 0);
+                }
+
+                var downClosesAvg = rsi.averageAccumulator.value(downCloses);
+                if (downClosesAvg === 0) {
+                    return 100;
+                }
+
+                var rs = rsi.averageAccumulator.value(upCloses) / downClosesAvg;
+                return 100 - (100 / (1 + rs));
+            });
+
+        var rsi = function(data) {
+            return slidingWindow(data);
+        };
+
+        rsi.openValue = fc.utilities.property(function(d) { return d.open; });
+        rsi.closeValue = fc.utilities.property(function(d) { return d.close; });
+        rsi.averageAccumulator = fc.utilities.property(function(values) {
+            var alpha = 1 / values.length;
+            var result = values[0];
+            for (var i = 1, l = values.length; i < l; i++) {
+                result = alpha * values[i] + (1 - alpha) * result;
+            }
+            return result;
+        });
+
+        d3.rebind(rsi, slidingWindow, 'windowSize', 'outputValue');
+
+        return rsi;
+    };
+}(d3, fc));
+
+(function(d3, fc) {
+    'use strict';
+
+    fc.math.slidingWindow = function() {
+
+        var slidingWindow = function(data) {
+            var size = slidingWindow.windowSize.value.apply(this, arguments);
+            var accumulator = slidingWindow.accumulator.value;
+            var inputValue = slidingWindow.inputValue.value;
+            var outputValue = slidingWindow.outputValue.value;
+
+            var windowData = data.slice(0, size).map(inputValue);
+            return data.slice(size - 1, data.length)
+                .map(function(d, i) {
+                    if (i > 0) {
+                        // Treat windowData as FIFO rolling buffer
+                        windowData.shift();
+                        windowData.push(inputValue(d));
+                    }
+                    var result = accumulator(windowData);
+                    return outputValue(d, result);
+                });
+        };
+
+        slidingWindow.windowSize = fc.utilities.functorProperty(10);
+        slidingWindow.accumulator = fc.utilities.property(fc.utilities.fn.noop);
+        slidingWindow.inputValue = fc.utilities.property(fc.utilities.fn.identity);
+        slidingWindow.outputValue = fc.utilities.property(function(obj, value) { return value; });
+
+        return slidingWindow;
+    };
+}(d3, fc));
+
 (function(d3, fc) {
     'use strict';
 
@@ -2320,6 +1988,14 @@ window.fc = {
         var y0 = function(d) { return area.yScale.value(area.y0Value.value(d)); };
         var y1 = function(d) { return area.yScale.value(area.y1Value.value(d)); };
 
+        var areaData = d3.svg.area()
+            .defined(function(d) {
+                return !isNaN(y0(d)) && !isNaN(y1(d));
+            })
+            .x(x)
+            .y0(y0)
+            .y1(y1);
+
         var area = function(selection) {
 
             selection.each(function(data) {
@@ -2333,10 +2009,6 @@ window.fc = {
                     .classed('area-series', true)
                     .append('path');
 
-                var areaData = d3.svg.area()
-                    .x(x)
-                    .y0(y0)
-                    .y1(y1);
                 container.select('path')
                     .attr('d', areaData);
 
@@ -2348,8 +2020,8 @@ window.fc = {
         area.xScale = fc.utilities.property(d3.time.scale());
         area.yScale = fc.utilities.property(d3.scale.linear());
         area.y0Value = fc.utilities.functorProperty(0);
-        area.y1Value = fc.utilities.property(fc.utilities.valueAccessor('close'));
-        area.xValue = fc.utilities.property(fc.utilities.valueAccessor('date'));
+        area.y1Value = fc.utilities.property(function(d) { return d.close; });
+        area.xValue = fc.utilities.property(function(d) { return d.date; });
 
 
         return area;
@@ -2393,8 +2065,8 @@ window.fc = {
         bar.xScale = fc.utilities.property(d3.time.scale());
         bar.yScale = fc.utilities.property(d3.scale.linear());
         bar.barWidth = fc.utilities.functorProperty(fc.utilities.fractionalBarWidth(0.75));
-        bar.yValue = fc.utilities.property(fc.utilities.valueAccessor('close'));
-        bar.xValue = fc.utilities.property(fc.utilities.valueAccessor('date'));
+        bar.yValue = fc.utilities.property(function(d) { return d.close; });
+        bar.xValue = fc.utilities.property(function(d) { return d.date; });
 
         return bar;
     };
@@ -2466,11 +2138,11 @@ window.fc = {
         candlestick.xScale = fc.utilities.property(d3.time.scale());
         candlestick.yScale = fc.utilities.property(d3.scale.linear());
         candlestick.barWidth = fc.utilities.functorProperty(fc.utilities.fractionalBarWidth(0.75));
-        candlestick.yOpenValue = fc.utilities.property(fc.utilities.valueAccessor('open'));
-        candlestick.yHighValue = fc.utilities.property(fc.utilities.valueAccessor('high'));
-        candlestick.yLowValue = fc.utilities.property(fc.utilities.valueAccessor('low'));
-        candlestick.yCloseValue = fc.utilities.property(fc.utilities.valueAccessor('close'));
-        candlestick.xValue = fc.utilities.property(fc.utilities.valueAccessor('date'));
+        candlestick.yOpenValue = fc.utilities.property(function(d) { return d.open; });
+        candlestick.yHighValue = fc.utilities.property(function(d) { return d.high; });
+        candlestick.yLowValue = fc.utilities.property(function(d) { return d.low; });
+        candlestick.yCloseValue = fc.utilities.property(function(d) { return d.close; });
+        candlestick.xValue = fc.utilities.property(function(d) { return d.date; });
 
         return candlestick;
 
@@ -2690,6 +2362,13 @@ window.fc = {
         var x = function(d) { return line.xScale.value(line.xValue.value(d)); };
         var y = function(d) { return line.yScale.value(line.yValue.value(d)); };
 
+        var lineData = d3.svg.line()
+            .defined(function(d) {
+                return !isNaN(y(d));
+            })
+            .x(x)
+            .y(y);
+
         var line = function(selection) {
 
             selection.each(function(data) {
@@ -2703,9 +2382,6 @@ window.fc = {
                     .classed('line-series', true)
                     .append('path');
 
-                var lineData = d3.svg.line()
-                    .x(x)
-                    .y(y);
                 container.select('path')
                     .attr('d', lineData);
 
@@ -2716,8 +2392,8 @@ window.fc = {
         line.decorate = fc.utilities.property(fc.utilities.fn.noop);
         line.xScale = fc.utilities.property(d3.time.scale());
         line.yScale = fc.utilities.property(d3.scale.linear());
-        line.yValue = fc.utilities.property(fc.utilities.valueAccessor('close'));
-        line.xValue = fc.utilities.property(fc.utilities.valueAccessor('date'));
+        line.yValue = fc.utilities.property(function(d) { return d.close; });
+        line.xValue = fc.utilities.property(function(d) { return d.date; });
 
         return line;
     };
@@ -2779,11 +2455,11 @@ window.fc = {
         ohlc.xScale = fc.utilities.property(d3.time.scale());
         ohlc.yScale = fc.utilities.property(d3.scale.linear());
         ohlc.barWidth = fc.utilities.functorProperty(fc.utilities.fractionalBarWidth(0.75));
-        ohlc.yOpenValue = fc.utilities.property(fc.utilities.valueAccessor('open'));
-        ohlc.yHighValue = fc.utilities.property(fc.utilities.valueAccessor('high'));
-        ohlc.yLowValue = fc.utilities.property(fc.utilities.valueAccessor('low'));
-        ohlc.yCloseValue = fc.utilities.property(fc.utilities.valueAccessor('close'));
-        ohlc.xValue = fc.utilities.property(fc.utilities.valueAccessor('date'));
+        ohlc.yOpenValue = fc.utilities.property(function(d) { return d.open; });
+        ohlc.yHighValue = fc.utilities.property(function(d) { return d.high; });
+        ohlc.yLowValue = fc.utilities.property(function(d) { return d.low; });
+        ohlc.yCloseValue = fc.utilities.property(function(d) { return d.close; });
+        ohlc.xValue = fc.utilities.property(function(d) { return d.date; });
 
         return ohlc;
     };
@@ -2826,8 +2502,8 @@ window.fc = {
         point.decorate = fc.utilities.property(fc.utilities.fn.noop);
         point.xScale = fc.utilities.property(d3.time.scale());
         point.yScale = fc.utilities.property(d3.scale.linear());
-        point.yValue = fc.utilities.property(fc.utilities.valueAccessor('close'));
-        point.xValue = fc.utilities.property(fc.utilities.valueAccessor('date'));
+        point.yValue = fc.utilities.property(function(d) { return d.close; });
+        point.xValue = fc.utilities.property(function(d) { return d.date; });
         point.radius = fc.utilities.functorProperty(5);
 
         return point;
@@ -2947,7 +2623,7 @@ window.fc = {
                 var container = d3.select(this);
 
                 // Create a group for each annotation
-                var g = fc.utilities.simpleDataJoin(container, 'annotation', data, annotation.yValue.value);
+                var g = fc.utilities.simpleDataJoin(container, 'annotation', data, annotation.keyValue.value);
 
                 // Added the required elements - each annotation consists of a line and text label
                 var enter = g.enter();
@@ -2968,13 +2644,14 @@ window.fc = {
                     .attr('y', function(d) { return y(d) - paddingValue; })
                     .text(annotation.label.value);
 
-                annotation.decorate.value(container);
+                annotation.decorate.value(g);
             });
         };
 
         annotation.xScale = fc.utilities.property(d3.time.scale());
         annotation.yScale = fc.utilities.property(d3.scale.linear());
         annotation.yValue = fc.utilities.functorProperty(fc.utilities.fn.identity);
+        annotation.keyValue = fc.utilities.functorProperty(fc.utilities.fn.index);
         annotation.label = fc.utilities.functorProperty(annotation.yValue.value);
         annotation.padding = fc.utilities.functorProperty(2);
         annotation.decorate = fc.utilities.property(fc.utilities.fn.noop);

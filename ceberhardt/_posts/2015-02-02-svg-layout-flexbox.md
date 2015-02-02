@@ -2,10 +2,10 @@
 author: ceberhardt
 title: "SVG layout with Flexbox for simpler D3 charts"
 layout: default_post
-summary: "This blog looks at how the recently open-sourced CSS flexbox layout (courtesy of Facebook) can be applied to SVG in order to simplify the task of constructing charts with D3."
+summary: "This blog looks at how CSS flexbox layout can be applied to SVG in order to simplify the task of constructing charts with D3. This approach has been made possible by the JavaScript flexbox implementation that Facebook recently open sourced to support ReactJS Native."
 ---
 
-This blog looks at how the recently open-sourced CSS flexbox layout (courtesy of Facebook) can be applied to SVG in order to simplify the task of constructing charts with D3. 
+This blog looks at how CSS flexbox layout can be applied to SVG in order to simplify the task of constructing charts with D3. This approach has been made possible by the JavaScript flexbox implementation that Facebook recently open sourced to support ReactJS Native.
 
 Here's a quick example, where the layout of a chart is defined using SVG and flexbox via the `layout-css` attributes:
 
@@ -37,7 +37,7 @@ Here's a quick example, where the layout of a chart is defined using SVG and fle
 
 And here's a chart that makes use of the above layout:
 
-<div style="width: 600px; height: 350px; padding: 20px">
+<div style="width: 500px; height: 300px; padding: 20px">
 <svg id="chart" style="height: 100%; width: 100%; margin: 10px">
   <g layout-css="height: 30; justifyContent: center; flexDirection: row">
     <text layout-css="width: 0;" text-anchor="middle" dy="1em" font-size="20">
@@ -136,10 +136,12 @@ The following code constructs a suitable node-tree from the above SVG:
 function createNodes(el) {
   function getChildNodes() {
     var children = [];
-    for (var i = 0; i < el.childElementCount; i++) {
-      var child = el.children[i];
-      if (child.getAttribute('layout-css')) {
-        children.push(createNodes(child));
+    for (var i = 0; i < el.childNodes.length; i++) {
+      var child = el.childNodes[i];
+      if (child.nodeType === 1) {
+        if (child.getAttribute('layout-css')) {
+          children.push(createNodes(child));
+        }
       }
     }
     return children;
@@ -257,7 +259,7 @@ d3.selectAll("g").filter(function(d) {
 
 This results in the following layout:
 
-<svg id="layout-test" style="width: 600px; height: 350px; margin: 10px; background: yellow"
+<svg id="layout-test" style="width: 500px; height: 300px; margin: 10px; background: yellow"
      layout-css="paddingLeft: 10">
   <g layout-css="height: 30; justifyContent: center; flexDirection: row;">
   </g>
@@ -355,7 +357,7 @@ d3.selectAll("g").filter(function(d) {
     var line = fc.series.line()
         .xScale(dateScale)
         .yScale(priceScale)
-        .yValue(fc.utilities.valueAccessor('open'));
+        .yValue(function(d) { return d.open; });
 
 
     plotArea.datum(data).call(line);
