@@ -1,2 +1,6 @@
+---
+
+---
 User-agent: *
 Disallow: /
+# Disallow:{% if site.github.owner_name != 'ScottLogic' %} /{% endif %}
