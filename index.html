@@ -27,15 +27,15 @@ paginated: true
       <div class="pagination">
         {% if paginator.previous_page %}
           {% if paginator.page == 2 %}
-            <a href="{{ site.siteurl }}{{ site.baseurl }}/">&laquo; Prev</a>
+            <a href="{{ site.baseurl }}/">&laquo; Prev</a>
           {% else %}
-            <a href="{{ site.siteurl }}{{ site.baseurl }}/page{{ paginator.previous_page }}/">&laquo; Prev</a>
-          {% endif %}    
+            <a href="{{ site.baseurl }}/page{{ paginator.previous_page }}/">&laquo; Prev</a>
+          {% endif %}
         {% else %}
           <span>&laquo; Prev</span>
         {% endif %}
         {% if paginator.next_page %}
-          <a class="next" href="{{ site.siteurl }}{{ site.baseurl }}/page{{ paginator.next_page }}/">Next &raquo;</a>
+          <a class="next" href="{{ site.baseurl }}/page{{ paginator.next_page }}/">Next &raquo;</a>
         {% else %}
           <span class="next">Next &raquo;</span>
         {% endif %}
