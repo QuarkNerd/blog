@@ -6,11 +6,11 @@ title-short: Number Animation with jQuery and CSS3
 oldlink: "/2012/09/picker-style-number-animation-with-jquery-and-css3/"
 image: "mrhodes/assets/featured/picker.jpg"
 featured-overlay-inverted: true
-tags: 
+tags:
   - CSS
   - JQuery
   - blog
-categories: 
+categories:
   - mrhodes
 layout: default_post
 source: site
@@ -35,7 +35,7 @@ $('my selector').numberAnimate('init', {
 <p>To animate the selected elements to a new value, you need the <code>set</code> method, which takes the new value to animate to (which can be either a number of a string value) and optionally an array of animation times to use; overridding the values specified on initialisation.  For example, two equivalent calls to it are:</p>
 {% highlight javascript %}
 $('my selector').numberAnimate('set', '150.2');
-$('my selector').numberAnimate('set', 150.2, [500, 500, 500]); 
+$('my selector').numberAnimate('set', 150.2, [500, 500, 500]);
 {% endhighlight %}
 <p>The plugin also has two additional methods: <code>val</code> and <code>destoy</code>.</p>
 <p>The <code>val</code>method returns the current value of the first selected element as a string, this is either the initial <code>innerHTML</code> of the element, or the last value which was passed to the <code>set</code> method (not necessarily the number which it's currently showing, as animation could be in progress).  It is used like so:</p>
@@ -65,7 +65,7 @@ $('my selector').numberAnimate('destory');
 </span>
 {% endhighlight %}
 <p>The idea is that the width and height of the holding divs is set to be the same as a single character (which is why the font must be monospaced), and acts as a window for it's inner child, which is transformed on it's Y axis to move it up and down, so that the expected character is visible.  The image below shows visually what's going on.  The blue boxes represent the holding divs and the black boxes the child divs containing the text.  CSS3 transforms are applied to the child divs to ensure that the correct numbers appear inline with the holding divs.  As these holding divs have the style <code>overflow: hidden;</code> applied to them, you don't see the additional numbers, only what is in the blue box.</p>
-<p><img src="{{ site.baseurl }}/archive/2012/09/numberAnimatePluginExplanation.png" alt="" title="numberAnimatePluginExplanation" width="139" height="227" class="aligncenter size-full wp-image-159589" style="margin: 0 auto; display: block;" /></p>
+<p><img src="{{ site.github.url }}/archive/2012/09/numberAnimatePluginExplanation.png" alt="" title="numberAnimatePluginExplanation" width="139" height="227" class="aligncenter size-full wp-image-159589" style="margin: 0 auto; display: block;" /></p>
 <p>When the <code>set</code> method is called, the plugin has to do three things, each of which represents a phase of the animation; figure out which characters of the new value aren't currently present and add them in, alter the transform property of the child divs so that the new values are displayed, and lastly remove characters that are no longer required in the new value.  If figures out which characters are currently there are which aren't by labelling each holding div with its position relative the 'point' of the value (i.e. the first instance of the '.' character in the value, or the length of the string if that character is not present).  </p>
 <p>Making the values relative to the point, rather than say the start or the end of the string, feels natural with numbers and means that animating between say: "5.62" to "15.6" doesn't involve altering the positions for the characters representing "5", ".", or "6".  In this case, the plugin would firstly add an additional holder div to hold the newly required "1", then animate the characters to their new positions, in this case the div showing "2" gets moved so that no character visible, finally this holding div is removed since it is no longer required.  </p>
 <p><strong>Chaining transitions together</strong>The plugin performs a few transitions one after the other - this involves chaining them together.  There are several ways in which this could be achieved - using the <code>transition-delay</code> property, using CSS3 animation key-frames or by using JavaScript to listen for the end of one transition, then triggering the next.  This plugin uses the latter approach as it gives the best flexibility, since you can also trigger additional actions to occur at the end of a transition - for example, remove an element from the DOM when it's no longer visible.</p>

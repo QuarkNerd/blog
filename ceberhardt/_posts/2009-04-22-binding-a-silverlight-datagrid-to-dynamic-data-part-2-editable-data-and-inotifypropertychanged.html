@@ -3,13 +3,13 @@ id: 275
 author: ceberhardt
 title: "Binding a Silverlight DataGrid to dynamic data Part 2 - editable data and INotifyPropertyChanged"
 oldlink: "/blog/colin/2009/04/binding-a-silverlight-datagrid-to-dynamic-data-part-2-editable-data-and-inotifypropertychanged/"
-tags: 
+tags:
   - DataGrid
   - silverlight
   - binding
   - blog
   - codeproject
-categories: 
+categories:
   - ceberhardt
 layout: default_post
 source: wordpress
@@ -36,10 +36,10 @@ public class Row
         <data:DataGridTextColumn Header="Forename"
                                  Binding="{Binding Converter={StaticResource RowIndexConverter},
                                     ConverterParameter=Forename}"/>
-        <data:DataGridTextColumn Header="Surname" 
+        <data:DataGridTextColumn Header="Surname"
                                  Binding="{Binding Converter={StaticResource RowIndexConverter},
                                     ConverterParameter=Surname}"/>
-        ...               
+        ...
     </data:DataGrid.Columns>
 </data:DataGrid>
 {% endhighlight %}
@@ -52,7 +52,7 @@ public class RowIndexConverter : IValueConverter
     Row row = value as Row;
     string index = parameter as string;
     return row[index];
-  } 
+  }
 }
 {% endhighlight %}
 <p>It is important to note that the Binding does not have a Path defined. As a result, the binding source is the Row instance itself rather than a property of the Row as would more normally be the case when binding data. The rest of the post described how to create a collection view which sorts the collection via the Row's string indexer. You can read about this in full in my <a href="http://www.scottlogic.co.uk/blog/colin/2009/04/binding-a-silverlight-datagrid-to-dynamic-data-via-idictionary/">previous blog post</a>.</p>
@@ -174,10 +174,10 @@ private void Button_Click(object sender, RoutedEventArgs e)
     {
         row["Age"] = rand.Next(10) + 5;
     }
-} 
+}
 {% endhighlight %}
 <p>Also, the Age column has a value converter associated ...</p>
-<div id="slPluginHost"> <object id="SilverlightPlugin" width="300" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2009/04/silverlighttable1.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div id="slPluginHost"> <object id="SilverlightPlugin" width="300" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.github.url }}/archive/2009/04/silverlighttable1.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <p>So there you have it, binding to dynamic data with INotifyPropertyChanged implemented and an editable DataGrid. The only reservation I have with this technique is that I am really bending the binding framework to achieve the results, having a Data property which expects different types for the getter and setter is a little ugly ... use with caution!</p>
-<p>You can download the project sourcecode: <a href='{{ site.baseurl }}/archive/2009/04/silverlightdynamicbinding2.zip'>silverlightdynamicbinding2.zip</a></p>
+<p>You can download the project sourcecode: <a href='{{ site.github.url }}/archive/2009/04/silverlightdynamicbinding2.zip'>silverlightdynamicbinding2.zip</a></p>
 <p>Regards, Colin E.</p>

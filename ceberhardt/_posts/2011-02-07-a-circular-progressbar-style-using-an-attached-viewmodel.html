@@ -3,28 +3,28 @@ id: 1189
 author: ceberhardt
 title: A Circular ProgressBar Style using an Attached ViewModel
 oldlink: "/blog/colin/2011/02/a-circular-progressbar-style-using-an-attached-viewmodel/"
-tags: 
+tags:
   - styling
   - codeproject
   - attached view model
   - blog
   - codeproject
-categories: 
+categories:
   - ceberhardt
 layout: default_post
 source: wordpress
 ---
 <p><em>This blog post describes how to re-template the Silverlight ProgressBar control to render a circular progress indicator. This approach uses an attached view model to circumnavigate some of the limitations of the ProgressBar design.</em></p>
 <p>This blog post describes the creation of the following funky styles for the <code>ProgressBar</code> (and a bit of a <strong>rant</strong> about just what is wrong with the way that 'lookless' controls work!)</p>
-<div style="text-align: center;"><object width="500" height="250" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2011/02/CircularProgressBar.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div style="text-align: center;"><object width="500" height="250" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.github.url }}/archive/2011/02/CircularProgressBar.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <p>If you get sick of the spinning, click the pause button!</p>
 <h2>Introduction</h2>
 <p>A few days ago I answered a question on stack overflow which asked <a href="http://stackoverflow.com/questions/4871263/how-create-a-circular-style-progressbar/4871370#4871370">How create a Circular Style progressbar?</a> (sic)</p>
-<p><a href="http://stackoverflow.com/questions/4871263/how-create-a-circular-style-progressbar/4871370#4871370"><img src="{{ site.baseurl }}/archive/2011/02/CircleProgressSO.png" alt="" title="CircleProgressSO" width="500" height="267" class="aligncenter size-full wp-image-1190" /></a></p>
+<p><a href="http://stackoverflow.com/questions/4871263/how-create-a-circular-style-progressbar/4871370#4871370"><img src="{{ site.github.url }}/archive/2011/02/CircleProgressSO.png" alt="" title="CircleProgressSO" width="500" height="267" class="aligncenter size-full wp-image-1190" /></a></p>
 <p>The answer which I gave, and most people seemed to agree with, was that to achieve this you would have to create your own control from 'scratch'. I was happy that my answer was accepted, but at the same time a little unhappy that this should be the right answer. After all, Silverlight / WPF give you the power to create 'lookless' controls, and what is a circular progress bar if it isn't just another skin or 'look' for the regular progress bar?</p>
 <h2>What is wrong with the ProgressBar?</h2>
 <p>If you look at the <a href="http://msdn.microsoft.com/en-us/library/dd334413%28VS.95%29.aspx">documentation for styling / templating the ProgressBar</a> you will find that this control expects the template to contain two elements, <code>ProgressBarTrack</code> and <code>ProgressBarIndicator</code>:</p>
-<p><a href="{{ site.baseurl }}/archive/2011/02/ProgressBarParts.png"><img src="{{ site.baseurl }}/archive/2011/02/ProgressBarParts.png" alt="" title="ProgressBarParts" width="534" height="135" class="aligncenter size-full wp-image-1197" /></a></p>
+<p><a href="{{ site.github.url }}/archive/2011/02/ProgressBarParts.png"><img src="{{ site.github.url }}/archive/2011/02/ProgressBarParts.png" alt="" title="ProgressBarParts" width="534" height="135" class="aligncenter size-full wp-image-1197" /></a></p>
 <p>What the ProgressBar does is, when the template is applied, in OnApplyTemplate, it locates the elements with the given names in order to update the visual state of the UI. You can use Reflector (quick, <a href="http://www.red-gate.com/products/dotnet-development/reflector/announcement">while it is still free</a>!)  to see how the state of these elements is updated in the <code>ProgressBar.SetProgressBarIndicatorLength</code> method:</p>
 {% highlight csharp %}
 private void SetProgressBarIndicatorLength()
@@ -64,7 +64,7 @@ private void SetProgressBarIndicatorLength()
 <p>OK, rant over. Time to fix the problem!</p>
 <p>A few months ago I blogged about <a href="http://www.scottlogic.co.uk/blog/colin/2010/10/developing-a-lookless-silverlight-gauge-control-part-2/">how to create completely lookless controls using an attached view model</a>. The basic concept behind this approach is that the control itself should not include any logic which is tightly-coupled to a particular template, or 'look'. This logic is still required, but is instead introduced into the template by means of an attached view model.</p>
 <p>Typically the elements within a control's template inherit the same DataContext as the control itself, i.e. whatever business object or view model you have bound to your UI. With the attached view model approach, a view model is attached to the root element in the template. On attachment, this view model acquires a reference to the ProgressBar, in order to adapt its properties, making it easier to render a circular indicator, and sets itself as the DataContext of the child elements:</p>
-<p><a href="{{ site.baseurl }}/archive/2011/02/AttachedViewModel.png"><img src="{{ site.baseurl }}/archive/2011/02/AttachedViewModel.png" alt="" title="AttachedViewModel" width="650" height="211" class="aligncenter size-full wp-image-1203" /></a></p>
+<p><a href="{{ site.github.url }}/archive/2011/02/AttachedViewModel.png"><img src="{{ site.github.url }}/archive/2011/02/AttachedViewModel.png" alt="" title="AttachedViewModel" width="650" height="211" class="aligncenter size-full wp-image-1203" /></a></p>
 <p>The view model is attached in XAMl as follows, as a result the DataContext of any element within the template is now the view model:</p>
 {% highlight xml %}
 <ControlTemplate TargetType="ProgressBar">
@@ -125,14 +125,14 @@ private void SetProgressBar(ProgressBar progressBar)
 
   ComputeViewModelProperties();
 }
-    
+
 
 /// Add a handler for a DP change
 /// see: http://amazedsaint.blogspot.com/2009/12/silverlight-listening-to-dependency.html
 private void RegisterForNotification(string propertyName, FrameworkElement element, PropertyChangedCallback callback)
 {
 
-  //Bind to a dependency property  
+  //Bind to a dependency property
   Binding b = new Binding(propertyName) { Source = element };
   var prop = System.Windows.DependencyProperty.RegisterAttached(
       "ListenAttached" + propertyName,
@@ -186,7 +186,7 @@ protected virtual void ComputeViewModelProperties()
           <local:PiePiece CentreX="{Binding CentreX}" CentreY="{Binding CentreY}"
                           RotationAngle="0" WedgeAngle="{Binding Angle}"
                           Radius="{Binding Radius}" Fill="LightBlue"/>
-           
+
           <!-- progress as a percent -->
           <Grid util:GridUtils.RowDefinitions="*,3.5*,*"
                 util:GridUtils.ColumnDefinitions="*,3.5*,*">
@@ -204,7 +204,7 @@ protected virtual void ComputeViewModelProperties()
 {% endhighlight %}
 <p>(The template uses a <code>PiePiece</code> is a control I borrowed from a <a href="http://www.codeproject.com/KB/WPF/PieChartDataBinding.aspx">PieChart control</a> I created a few years back, and the <a href="http://www.scottlogic.co.uk/blog/colin/2010/12/a-simplified-grid-markup-for-silverlight-and-wpf/">simplified Grid syntax</a>)</p>
 <p>We now have a circular ProgressBar! ...</p>
-<p><img src="{{ site.baseurl }}/archive/2011/02/CircleProgress.png" alt="" title="CircleProgress" width="142" height="144" class="aligncenter size-full wp-image-1207" /></p>
+<p><img src="{{ site.github.url }}/archive/2011/02/CircleProgress.png" alt="" title="CircleProgress" width="142" height="144" class="aligncenter size-full wp-image-1207" /></p>
 <h2>Segmented Progress Bar</h2>
 <p>For a bit of fun I extended the attached view model to allow for the easy construction of circular progress bar sthat are rendered as discrete segments. The <code>SegmentedProgressBarViewModel</code>, which is attached to the template exposes a collection of objects which allow the creation of a segmented indicator via an <code>ItemsControl</code>. For full details,download the blog sourcecode.</p>
 {% highlight xml %}
@@ -240,7 +240,7 @@ protected virtual void ComputeViewModelProperties()
                             Fill="DarkBlue" Stroke="White" Opacity="{Binding Opacity}"/>
                 </Grid>
               </DataTemplate>
-            </ItemsControl.ItemTemplate>                  
+            </ItemsControl.ItemTemplate>
           </ItemsControl>
         </Grid>
       </ControlTemplate>
@@ -249,8 +249,8 @@ protected virtual void ComputeViewModelProperties()
 </Style>
 {% endhighlight %}
 <p>The above markup results in the following style:</p>
-<p><img src="{{ site.baseurl }}/archive/2011/02/SegmentedProgress.png" alt="" title="SegmentedProgress" width="135" height="135" class="aligncenter size-full wp-image-1208" /></p>
+<p><img src="{{ site.github.url }}/archive/2011/02/SegmentedProgress.png" alt="" title="SegmentedProgress" width="135" height="135" class="aligncenter size-full wp-image-1208" /></p>
 <p>The sourcecode for this blog includes a few other styles, including a 'glass' effect which was borrowed from <a href="http://10rem.net/blog/2009/01/09/dazzling-silverlight-toolkit-pie-charts-with-overlays">Pete Brown's blog post on Pie chart styling</a>.</p>
 <h2>Sourcecode</h2>
-<p>You can download the full sourcecode for this blog post: <a href='{{ site.baseurl }}/archive/2011/02/CircularProgressBar.zip'>CircularProgressBar.zip</a></p>
+<p>You can download the full sourcecode for this blog post: <a href='{{ site.github.url }}/archive/2011/02/CircularProgressBar.zip'>CircularProgressBar.zip</a></p>
 <p>Regards, Colin E.</p>

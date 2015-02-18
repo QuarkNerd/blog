@@ -3,9 +3,9 @@ id: 152898
 author: mrhodes
 title: Efficient Map Initialization in Java
 oldlink: "/2012/08/efficient-map-initialization-in-java/"
-tags: 
+tags:
   - blog
-categories: 
+categories:
   - mrhodes
 layout: default_post
 source: site
@@ -17,12 +17,12 @@ source: site
 {% highlight java %}
 Map<String, CustomObj> objectById = new HashMap<String, CustomObj>();
 for(CustomObj obj : listOfCustomObjs){
-   objectById.put(obj.getId(), obj) 
+   objectById.put(obj.getId(), obj)
 }
 {% endhighlight %}
 <p>The use of the default constructor in the above code means that it's possible that the map will have to unnecessarily reallocate the elements to ever larger backing arrays numerous times before it's finished the loop.  However, the snag is that it's not entirely obvious what you should set the initial size of the backing array to be in order to prevent the map needing to do this and so that you don't use an excessive amount of memory.  After trawling through the source code of the two hash map implementations and creating some unit tests, it looks like the a good initial value is defined by:</p>
 {% highlight java %}
-(int) Math.ceil(requiredCapacity / loadFactor); 
+(int) Math.ceil(requiredCapacity / loadFactor);
 {% endhighlight %}
 <p>Here, <code>loadFactor</code> is the threshold ratio between the number of items in the map (<em>n</em>) and the size of the backing array (<em>s</em>), i.e. if <em>n</em> > <code>loadFactor</code> * <em>s</em>, a new larger backing array is created and the elements added to it.  The default load factor for both implementations is .75.  Therefore the above code could be more efficiently written like so:</p>
 {% highlight java %}
@@ -32,10 +32,10 @@ Map<String, CustomObj> objectById = new HashMap<String, CustomObj>(initSize);
 {% endhighlight %}
 <p>The same trick also works for instances of Java's commonly used <a href="http://docs.oracle.com/javase/7/docs/api/java/util/HashSet.html"><code>HashSet</code></a> class, as a <code>HashSet</code> is these are effectively just a wrapper for <code>HashMap</code> instance.  For example the following code instantiates an <code>HashSet</code> which can hold at least 100 <code>Strings</code> without requiring a reallocating of elements to a new backing array:</p>
 {% highlight java %}
-int initSize = (int) Math.ceil(100 / 0.75); 
+int initSize = (int) Math.ceil(100 / 0.75);
 Set<String> someStrings = new HashSet<String>(initSize);
 {% endhighlight %}
-<p><strong>Testing it Works</strong>In order to verify that initializing hash maps in this way works as expected, I wrote some <a href="http://www.junit.org/">JUnit</a> tests, the source for which is available here: <a href="{{ site.baseurl }}/archive/2012/08/initialisingHashMapUnitTestSource.zip">JUnit test source</a>.  Since we are interested in the state of the underlying backing arrays, which are private in both the <code>HashMap</code> and <code>Hashtable</code> classes, these tests need to use <a href="http://java.sun.com/developer/technicalArticles/ALT/Reflection/">reflection</a> to see what's going on.  In order to reduce the amount of duplicate code, I made use of the <a href="http://en.wikipedia.org/wiki/Abstract_factory_pattern">abstract factory pattern</a>, so that the main bulk of the testing code doesn't need to know the specifics of how the map instances it's testing are constructed.</p>
+<p><strong>Testing it Works</strong>In order to verify that initializing hash maps in this way works as expected, I wrote some <a href="http://www.junit.org/">JUnit</a> tests, the source for which is available here: <a href="{{ site.github.url }}/archive/2012/08/initialisingHashMapUnitTestSource.zip">JUnit test source</a>.  Since we are interested in the state of the underlying backing arrays, which are private in both the <code>HashMap</code> and <code>Hashtable</code> classes, these tests need to use <a href="http://java.sun.com/developer/technicalArticles/ALT/Reflection/">reflection</a> to see what's going on.  In order to reduce the amount of duplicate code, I made use of the <a href="http://en.wikipedia.org/wiki/Abstract_factory_pattern">abstract factory pattern</a>, so that the main bulk of the testing code doesn't need to know the specifics of how the map instances it's testing are constructed.</p>
 <p>The interface for the factory which provides instances to verify is as follows:</p>
 {% highlight java %}
 interface TestInstanceFactory {
@@ -113,7 +113,7 @@ private <T> void testMapInit(TestInstanceFactory instanceFactory) throws
             	smallerCapMapResized = true;
             }
 
-            //check that the map has not had to resize it's table.. 
+            //check that the map has not had to resize it's table..
             table = (Map.Entry<Integer, Integer>[]) tableField.get(map);
             assertEquals(startSize, table.length);
 

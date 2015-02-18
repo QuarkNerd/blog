@@ -3,15 +3,15 @@ id: 145083
 author: mrhodes
 title: Blake 512 in Javascript
 oldlink: "/2012/02/blake-512-in-javascript/"
-tags: 
+tags:
   - Javascript
   - blog
-categories: 
+categories:
   - mrhodes
 layout: default_post
 source: site
 ---
-<p><script src="{{ site.baseurl }}/archive/2012/02/blake512.js"></script><script src="{{ site.baseurl }}/archive/2012/02/testBlakeHash.js"></script><em>This post describes an implementation of the Blake 512 hashing algorithm in JavaScript.  This algorithm is one of the finalists for the <a href="http://csrc.nist.gov/groups/ST/hash/sha-3/index.html">SHA-3 competition</a> due to be completed in the next month or so.  The source code for the implementation is available here: <a href="{{ site.baseurl }}/archive/2012/02/blake512.js">blake512.js</a></em></p>
+<p><script src="{{ site.github.url }}/archive/2012/02/blake512.js"></script><script src="{{ site.github.url }}/archive/2012/02/testBlakeHash.js"></script><em>This post describes an implementation of the Blake 512 hashing algorithm in JavaScript.  This algorithm is one of the finalists for the <a href="http://csrc.nist.gov/groups/ST/hash/sha-3/index.html">SHA-3 competition</a> due to be completed in the next month or so.  The source code for the implementation is available here: <a href="{{ site.github.url }}/archive/2012/02/blake512.js">blake512.js</a></em></p>
 <p>You can try it yourself by putting in a string to hash below:</p>
 <style>    #blakeTestArea {       width: 80%;       margin: 20px auto;       font-family: Arial;    }    #blakeTestArea .note {        font-size: 9px;    }    #blakeTestArea label {        font-size: 12px;       }    #blakeHashButton {        padding: 2px 5px;    }</style>
 <div id="blakeTestArea">    <label for="blake512Input">Message: </label>    <textarea id="blake512Input" name="blake512Input" cols="70" rows="5"></textarea>    <label for="blake512Salt">Salt: </label><input id="blake512Salt" name="blake512Salt" type="text" length="16" />    <span class="note">(Note: if specified, this needs to be a 16 character string)</span>    <input id="blakeHashButton" type="button" onclick="testBlakeHash()" value="Hash!" /></div>
@@ -59,10 +59,10 @@ Word.prototype.add = function(oWord) {
     lowMid = (this._low >>> 16) + (oWord._low >>> 16) + (lowest >>> 16);
     highMid = (this._high & 0XFFFF) + (oWord._high & 0XFFFF) + (lowMid >>> 16);
     highest = (this._high >>> 16) + (oWord._high >>> 16) + (highMid >>> 16);
-     
+
     //now set the hgih and the low accordingly..
     this._low = (lowMid << 16) | (lowest & 0XFFFF);
-    this._high = (highest << 16) | (highMid & 0XFFFF); 
+    this._high = (highest << 16) | (highMid & 0XFFFF);
     return this; //for chaining..
 };
 //Shifts this word by the given number of bits (max 32)..
@@ -88,7 +88,7 @@ Word.prototype.rotateLeft = function(bits) {
         this._low = this._high;
         this._high = newHigh;
     } else {
-        newHigh = (this._high << bits) | (this._low >>> (32-bits)); 
+        newHigh = (this._high << bits) | (this._low >>> (32-bits));
         this._low = (this._low << bits) | (this._high >>> (32-bits));
         this._high = newHigh;
     }
@@ -102,7 +102,7 @@ Word.prototype.rotateRight = function(bits) {
         this._low = this._high;
         this._high = newHigh;
     } else {
-        newHigh = (this._low << (32-bits)) | (this._high >>> bits); 
+        newHigh = (this._low << (32-bits)) | (this._high >>> bits);
         this._low = (this._high << (32-bits)) | (this._low >>> bits);
         this._high = newHigh;
     }

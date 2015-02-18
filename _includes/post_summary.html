@@ -3,32 +3,32 @@
     {% if showTechs %}
       <div style="float: right;margin-top: 5px;">
       {% for tech in post.techs %}
-        <img src="{{ site.baseurl }}/labs/assets/labs_{{ tech }}.png"/>
+        <img src="{{ site.github.url }}/labs/assets/labs_{{ tech }}.png"/>
       {% endfor %}
       </div>
     {% endif %}
     <h3>
-      <a href="{{ site.baseurl }}{{ post.url }}">
+      <a href="{{ site.github.url }}{{ post.url }}">
           {{ post.title }}
       </a>
     </h3>
     <h5 class="sub author">
     {% assign author = site.data.authors.authors[post.author] %}
-    
+
     {% if showAuthorInfo %}
-      by <a href="{{ site.baseurl }}/{{ post.author }}">{{ author.name }}</a>,
+      by <a href="{{ site.github.url }}/{{ post.author }}">{{ author.name }}</a>,
     {% endif %}
-    
+
     {% if suppressPostDate %}
     {% else %}
       on {{ post.date | date: "%d %b %Y" }}
     {% endif %}
-    
+
     {% if showAuthorInfo %}
       {% if author.gravatar %}
       <img src="http://www.gravatar.com/avatar/{{ author.gravatar }}" alt="{{ author.name }}" class="img-circle hidden-small" />
       {% else %}
-      <img src="{{ site.baseurl }}/images/avatar.png" alt="{{ author.name }}" class="img-circle hidden-small" />
+      <img src="{{ site.github.url }}/images/avatar.png" alt="{{ author.name }}" class="img-circle hidden-small" />
       {% endif %}
     {% endif %}
     </h5>
@@ -43,7 +43,7 @@
     </p>
 {% endif %}
 
-  {% capture url %}{{ site.siteurl }}{{ site.baseurl }}{{ post.url }}{% endcapture %}
+  {% capture url %}{{ site.siteurl }}{{ site.github.url }}{{ post.url }}{% endcapture %}
   {% assign disqusID = post.url %}
   {% if post.oldlink %}
     {% capture url %}http://www.scottlogic.co.uk{{ post.oldlink }}{% endcapture %}
@@ -53,11 +53,11 @@
     {% assign url = post.originalArticleLink %}
   {% endif %}
   {% assign title = post.title %}
-  
+
   {% if suppressSocialLinks %}
   {% else %}
   {% assign inverted = false %}
   {% include social.html %}
   {% endif %}
-  
+
 </article>

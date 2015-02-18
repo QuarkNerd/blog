@@ -4,13 +4,13 @@ author: ceberhardt
 title: "A gesture-driven Windows Phone to-do application"
 oldlink: "/blog/colin/2012/06/a-gesture-driven-windows-phone-to-do-application/"
 image: "ceberhardt/assets/featured/gesture-wp.jpg"
-tags: 
+tags:
   - WP7
   - gestures
   - blog
   - windowsphone
   - featured-windowsphone
-categories: 
+categories:
   - ceberhardt
 layout: default_post
 source: wordpress
@@ -41,14 +41,14 @@ source: wordpress
               <GradientStop Color="#22000000" Offset="1"/>
             </LinearGradientBrush>
           </Grid.Background>
-                
+
           <!-- task text -->
           <TextBlock Text="{Binding Text}" Margin="15,15,0,15" FontSize="30"/>
         </Grid>
       </Border>
     </DataTemplate>
   </ItemsControl.ItemTemplate>
-        
+
   <ItemsControl.Template>
     <ControlTemplate TargetType="ItemsControl">
       <ScrollViewer>
@@ -59,7 +59,7 @@ source: wordpress
 </ItemsControl>
 {% endhighlight %}
 <p>The items control is template to host the <code>ItemsPanel</code> within a <code>ScrollViewer</code>, the default panel, a vertically-oriented <code>StackPanel</code>, is used here. The template to render each item is a simple <code>Border</code>, <code>Grid </code>and <code>TextBlock</code>. The code-behind iterates over the <code>ToDoItem </code>instances setting their <code>Color </code>property to produce a pretty looking gradient from red to orange, representing the priority of each item:</p>
-<p><img src="{{ site.baseurl }}/archive/2012/06/list.jpg" alt="" title="list" width="300" height="545" class="aligncenter size-full wp-image-2160" /></p>
+<p><img src="{{ site.github.url }}/archive/2012/06/list.jpg" alt="" title="list" width="300" height="545" class="aligncenter size-full wp-image-2160" /></p>
 <h2>Handling gestures</h2>
 <p>Silverlight for Windows Phone provides manipulation events which you can handle in order to track when a user places one or more fingers on the screen and moves them around. Turning low-level manipulation events into high-level gestures is actually quite tricky. Touch devices give a much greater control when dragging objects, or flicking them, but have a much lower accuracy for the more commonplace task of trying to hit a specific spot on the screen. For this reason, gestures have a built in tolerance. As an example, a drag manipulation gesture is not initiated if the user's finger moves by a single pixel.</p>
 <p>Fortunately, the <a href="http://silverlight.codeplex.com/">Silverlight Toolkit</a> contains a <code>GestureListener </code>which handles manipulation events and turns them into the standard gesture events for you. Unless you need a quite fancy gesture (two-finger-swipe for example), the <code>GestureListener </code>probably gives you all you need. To use this class, simply attach it to the element that you want to handle gestures on, then add handlers to the events that the <code>GestureListener</code> provides.</p>
@@ -76,18 +76,18 @@ source: wordpress
                     DragDelta="GestureListener_DragDelta"
                     DragCompleted="GestureListener_DragCompleted"/>
         </toolkit:GestureService.GestureListener>
-              
+
         <Grid>
           ...
-                
+
           <!-- task text -->
           <TextBlock Text="{Binding Text}" Margin="15,15,0,15" FontSize="30"/>
-                
+
         </Grid>
       </Border>
     </DataTemplate>
   </ItemsControl.ItemTemplate>
-        
+
   ...
 </ItemsControl>
 {% endhighlight %}
@@ -97,7 +97,7 @@ private void GestureListener_DragStarted(object sender, DragStartedGestureEventA
 {
   // initialize the drag
   FrameworkElement fe = sender as FrameworkElement;
-  fe.SetHorizontalOffset(0);  
+  fe.SetHorizontalOffset(0);
 }
 
 private void GestureListener_DragDelta(object sender, DragDeltaGestureEventArgs e)
@@ -192,7 +192,7 @@ public static void Animate(this DependencyObject target, double from, double to,
 <p>When an item is dragged sufficiently far to the right, we'd like to have it marked as complete. To implement this, we'll check how far an item was dragged when the user releases their finger. If it was dragged more than half way, we'll mark the item as complete:</p>
 {% highlight csharp %}
 private void GestureListener_DragCompleted(object sender, DragCompletedGestureEventArgs e)
-{  
+{
   FrameworkElement fe = sender as FrameworkElement;
   if (e.HorizontalChange > fe.ActualWidth / 2)
   {
@@ -216,7 +216,7 @@ private void ToDoItemCompletedAction(FrameworkElement fe)
 }
 {% endhighlight %}
 <p>The bindings take care of updating the UI so that our item is now green. I also added a <code>Line</code> element which has its <code>Visibility </code>bound to the <code>Completed </code>property of the <code>ToDoItem</code>:</p>
-<p><img src="{{ site.baseurl }}/archive/2012/06/complete.jpg" alt="" title="complete" width="300" height="544" class="aligncenter size-full wp-image-2159" /></p>
+<p><img src="{{ site.github.url }}/archive/2012/06/complete.jpg" alt="" title="complete" width="300" height="544" class="aligncenter size-full wp-image-2159" /></p>
 <h2>Deleting an item</h2>
 <p>If instead the use slides the item to the left we'd like to delete it. The <code>DragCompleted</code> event handler can easily be extended to check whether the item was dragged more than half-way across the screen in the other direction. The method that performs the deletion is shown below:</p>
 {% highlight csharp %}
@@ -232,7 +232,7 @@ private void ToDoItemDeletedAction(FrameworkElement deletedElement)
   {
     // find the model object that was deleted
     ToDoItem deletedItem = deletedElement.DataContext as ToDoItem;
-        
+
     // determine how much we have to 'shuffle' up by
     double elementOffset = -deletedElement.ActualHeight;
 
@@ -276,7 +276,7 @@ private void ToDoItemDeletedAction(FrameworkElement deletedElement)
 <p>There's actually rather a lot going on in that method. Firstly the deleted item is animated so that it flies off the screen to the left. Once this animation is complete, we'd like to make the items below 'shuffle' up to fill the space. In order to do this, we measure the size of the deleted items, then iterate over all the items within the current view, that are below the deleted item, and apply an animation to each one. The code makes use of the <code>GetItemsInView</code> extension method that I wrote for the <a href="http://www.scottlogic.co.uk/blog/colin/2011/01/a-windows-phone-7-jump-list-control/" title="A Windows Phone 7 Jump List Control">WP7 JumpList control</a> - it returns a list of items that are currently visible to the user, taking vertical scroll into consideration. </p>
 <p>Once all the elements have shuffled up, our UI now contains a number of <code>ToDoItems </code>that have been 'artificially' offset. Rather than try to keep track of how each item is offset, at this point we force the <code>ItemsControl </code>to re-render the entire list. </p>
 <p>The result looks pretty cool ...</p>
-<p><img src="{{ site.baseurl }}/archive/2012/06/delete.jpg" alt="" title="delete" width="600" height="337" class="aligncenter size-full wp-image-2154" /></p>
+<p><img src="{{ site.github.url }}/archive/2012/06/delete.jpg" alt="" title="delete" width="600" height="337" class="aligncenter size-full wp-image-2154" /></p>
 <h2lick gestures</h2>
 <p>Part of the power of manipulations is their 'organic' feel, which is why inertia and the feeling of friction are important considerations. With the current to-do application, when the user releases an item after dragging it, the item springs back to its original positions, as if it were tether via a piece of elastic. The user needs to 'pull' the item past the half way mark in order to invoke a delete / complete operation. However, in order to make the interaction feel more 'organic' the user should be able to give the todo item a short, fast flick, giving the item enough momentum to pass the critical point. In order to support this we can use the<code> GestureListener.Flick</code> event:</p>
 <p>We could do a bit of physics, creating a spring-constant, give our items a nominal mass and determine whether they have ben flicked with a 'critical velocity'. However, for such a simple application, I'm happy to just come up with a velocity constant, that if passed results in the delet or complete action:</p>
@@ -294,7 +294,7 @@ private void GestureListener_Flick(object sender, FlickGestureEventArgs e)
   else if (e.HorizontalVelocity > FLICK_VELOCITY)
   {
     _flickOccured = true;
-    ToDoItemCompletedAction(fe);        
+    ToDoItemCompletedAction(fe);
   }
 }
 {% endhighlight %}
@@ -306,17 +306,17 @@ private void GestureListener_Flick(object sender, FlickGestureEventArgs e)
 <Grid>
   <!-- add a subtle gradient over the background color for this item -->
   ...
-                
+
   <!-- task text -->
   <TextBlock Text="{Binding Text}" Margin="15,15,0,15" FontSize="30"/>
-                
+
   <!-- the strike-through that is shown when a task is complete -->
   <Line Visibility="{Binding Path=Completed, Converter={StaticResource BoolToVisibilityConverter}}"
-        X1="0" Y1="0" X2="1" Y2="0" 
+        X1="0" Y1="0" X2="1" Y2="0"
         Stretch="UniformToFill"
         Stroke="White" StrokeThickness="2"
         Margin="8,5,8,0"/>
-                
+
   <!-- a tick and a cross, rendered off screen -->
   <Canvas Opacity="0" x:Name="tickAndCross" >
     <TextBlock Text="&times;" FontWeight="Bold" FontSize="35"
@@ -365,8 +365,8 @@ private double TickAndCrossOpacity(double offset)
   return opacity;
 }
 {% endhighlight %}
-<p><img src="{{ site.baseurl }}/archive/2012/06/gesture.jpg" alt="" title="gesture" width="600" height="170" class="aligncenter size-full wp-image-2155" /></p>
+<p><img src="{{ site.github.url }}/archive/2012/06/gesture.jpg" alt="" title="gesture" width="600" height="170" class="aligncenter size-full wp-image-2155" /></p>
 <p>With that subtle visual effect, the first iteration of my gesture-driven to-do application is complete. I'll add new features, such as drag-to-reorder, and the ability to add / edit items in the near future, again, all driven by gestures.</p>
-<p>You can download the code here: <a href='{{ site.baseurl }}/archive/2012/06/ClearStyle.zip'>ClearStyle.zip</a></p>
+<p>You can download the code here: <a href='{{ site.github.url }}/archive/2012/06/ClearStyle.zip'>ClearStyle.zip</a></p>
 <p><b>Update:</b> Read more about this application <a href="http://www.scottlogic.co.uk/blog/colin/2012/06/a-gesture-driven-windows-phone-todo-application-part-two-drag-re-ordering/" title="A gesture-driven Windows Phone to-do application Part Two - drag re-ordering">in part two, where I add drag re-ordering</a>.</p>
 <p>Regards, Colin E.</p>

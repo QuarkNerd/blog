@@ -1,7 +1,7 @@
 ---
 
 ---
-<script src="{{ site.baseurl }}/scripts/jquery-1.9.1.js"></script>
+<script src="{{ site.github.url }}/scripts/jquery-1.9.1.js"></script>
 <script type="text/javascript">
     $(function() {
         var redirectMarkup = function(oldlink, newlink) {
@@ -28,32 +28,32 @@
 	    { oldlink: '/blog/tom-baker', url: '/tbaker/' }
         ];
 
-	    redirects += redirectMarkup('/feed/', '/feed.xml');           
+	    redirects += redirectMarkup('/feed/', '/feed.xml');
 	    redirects += redirectMarkup('/feed', '/feed.xml');
-	    redirects += redirectMarkup('/rss/', '/feed.xml');           
+	    redirects += redirectMarkup('/rss/', '/feed.xml');
 	    redirects += redirectMarkup('/rss', '/feed.xml');
-            redirects += redirectMarkup('/feed/atom/', '/atom.xml');           
+            redirects += redirectMarkup('/feed/atom/', '/atom.xml');
 	    redirects += redirectMarkup('/feed/atom', '/atom.xml');
-	    redirects += redirectMarkup('/blog/feed/', '/feed.xml');           
+	    redirects += redirectMarkup('/blog/feed/', '/feed.xml');
 	    redirects += redirectMarkup('/blog/feed', '/feed.xml');
-	    redirects += redirectMarkup('/blog/rss/', '/feed.xml');           
+	    redirects += redirectMarkup('/blog/rss/', '/feed.xml');
 	    redirects += redirectMarkup('/blog/rss', '/feed.xml');
-            redirects += redirectMarkup('/blog/feed/atom/', '/atom.xml');           
+            redirects += redirectMarkup('/blog/feed/atom/', '/atom.xml');
 	    redirects += redirectMarkup('/blog/feed/atom', '/atom.xml');
 
         for(var i in authors) {
             redirects += redirectMarkup(authors[i].oldlink, authors[i].url);
             redirects += redirectMarkup(authors[i].oldlink + '/', authors[i].url);
-            redirects += redirectMarkup(authors[i].oldlink + '/feed/', authors[i].url + 'feed.xml');           
+            redirects += redirectMarkup(authors[i].oldlink + '/feed/', authors[i].url + 'feed.xml');
 	    redirects += redirectMarkup(authors[i].oldlink + '/feed', authors[i].url + 'feed.xml');
-            redirects += redirectMarkup(authors[i].oldlink + '/feed/atom/', authors[i].url + 'atom.xml');           
-	    redirects += redirectMarkup(authors[i].oldlink + '/feed/atom', authors[i].url + 'atom.xml');	    
+            redirects += redirectMarkup(authors[i].oldlink + '/feed/atom/', authors[i].url + 'atom.xml');
+	    redirects += redirectMarkup(authors[i].oldlink + '/feed/atom', authors[i].url + 'atom.xml');
 	    redirects += redirectMarkup(authors[i].oldlink + '/atom/', authors[i].url + 'atom.xml');
 	    redirects += redirectMarkup(authors[i].oldlink + '/atom', authors[i].url + 'atom.xml');
 	    redirects += redirectMarkup(authors[i].oldlink + '/rss/', authors[i].url + 'feed.xml');
 	    redirects += redirectMarkup(authors[i].oldlink + '/rss', authors[i].url + 'feed.xml');
 	    }
-	    
+
 
 
         {% for post in site.posts %}

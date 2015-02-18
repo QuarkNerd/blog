@@ -6,13 +6,13 @@ oldlink: /blog/colin/2013/02/linq-to-objective-c/
 image: "ceberhardt/assets/featured/linq.jpg"
 summary-short: "Bringing the goodness of Linq to iOS"
 featured-overlay-inverted: true
-categories: 
+categories:
 - codeproject
 - linq
 - iOS
 - objective-c
 - ceberhardt
-tags: 
+tags:
 - blog
 - codeproject
 layout: default_post
@@ -20,43 +20,43 @@ source: wordpress
 ---
 <p>In the past few months I have been immersing myself into the world of iOS development. Whilst the Objective-C language takes a little getting used to, with its odd syntax and memory management rules, it is certainly a fun platform to develop for. I do miss a few C# language features, such as events, but for the most part I am a happy iOS developer.</p>
 <p>... that is apart from Linq!</p>
-<p><img src="{{ site.baseurl }}/archive/2010/03/tree.jpg" alt="tree" width="650" height="201" class="aligncenter size-full wp-image-608" /></p>
+<p><img src="{{ site.github.url }}/archive/2010/03/tree.jpg" alt="tree" width="650" height="201" class="aligncenter size-full wp-image-608" /></p>
 <p>A few weeks back I was writing some examples for a future release of the <a href="http://www.shinobicontrols.com/">ShinobiControls Grid</a>. The example in question required a datasource of people grouped by the first letter of their surname. Despite the use of predicates and key valued sorting, the code looked like this:</p>
 {% highlight objective-c %}
 - (NSArray*) createGroupedTestData
 {
     NSMutableArray* groupedData = [[NSMutableArray alloc] init];
-    
+
     // create some people
     NSArray* people = [PersonDataSource generatePeople:50];
-    
+
     // create a set of letters - based on the first letter of the surname
     NSMutableSet* groups = [[NSMutableSet alloc] init];
     for(PersonDataObject* person in people)
     {
         [groups addObject:[person.surname substringToIndex:1]];
     }
-    
+
     // create the groups
     for(NSString* letter in groups)
     {
         PersonGroup* group = [[PersonGroup alloc] init];
         group.letter = letter;
-        
+
         // locate the person objects that belong in this group
         NSPredicate* predicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
             PersonDataObject* person = (PersonDataObject*)evaluatedObject;
             return [[person.surname substringToIndex:1] isEqualToString:letter];
         }];
         group.items = [people filteredArrayUsingPredicate:predicate];
-        
+
         [groupedData addObject:group];
     }
-    
+
     // sort the groups
     NSSortDescriptor* sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"letter" ascending:YES];
     NSArray* sortedGroupedData = [groupedData sortedArrayUsingDescriptors:@[sortDescriptor]];
-    
+
     return sortedGroupedData;
 }
 {% endhighlight %}
@@ -65,14 +65,14 @@ source: wordpress
 {% highlight objective-c %}
 - (NSArray*) createGroupedTestData
 {
-    
+
     // create some people
     NSArray* people = [PersonDataSource generatePeople:50];
-    
+
     Selector firstLetterOfSurname = ^id(id person){
         return [[person surname] substringToIndex:1];
     };
-    
+
     Selector groupForLetter = ^id(id letter) {
         PersonGroup* group = [[PersonGroup alloc] init];
         group.letter = letter;
@@ -81,7 +81,7 @@ source: wordpress
         }];
         return group;
     };
-    
+
     return [[[[people   select:firstLetterOfSurname]
                         sort]
                         distinct]
@@ -111,7 +111,7 @@ var query =  from p in PersonCollection
                where p.age < 10
                select p;
 
-var query = PersonCollection.Where(p => p.age < 10); 
+var query = PersonCollection.Where(p => p.age < 10);
 {% endhighlight %}
 <p>Whilst the application of Linq for querying database is obvious, Linq can be used to query practically anything. The .NET framework supplies Linq to SQL, XML and Objects - while the community has added Linq to CSV, JSON, DataSets, Facebook, and my own contribution <a href="http://www.scottlogic.co.uk/blog/colin/2010/03/linq-to-visual-tree/">Linq-to-VisualTree</a>.</p>
 <p>I've found myself using Linq in virtually every .NET application I have ever written - and I miss it!</p>
@@ -124,7 +124,7 @@ var query = PersonCollection.Where(p => p.age < 10);
 typedef BOOL (^Predicate)(id);
 
 /** Filters a sequence of values based on a predicate.
- 
+
  @param The function to test each source element for a condition.
  @return The elements from the input sequence that satisfy the condition.
  */
@@ -146,11 +146,11 @@ typedef BOOL (^Predicate)(id);
 - (void)testWhere
 {
     NSArray* input = [self createTestData];
-    
+
     NSArray* peopleWhoAre25 = [input where:^BOOL(id person) {
         return [[person age] isEqualToNumber:@25];
     }];
-    
+
     STAssertEquals(peopleWhoAre25.count, 2U, @"There should have been 2 items returned");
     STAssertEquals([peopleWhoAre25[0] name], @"bob", @"Bob is 25!");
     STAssertEquals([peopleWhoAre25[1] name], @"jim", @"Jim is 25!");
@@ -189,7 +189,7 @@ NSArray* peopleWhoAre25 = [input filteredArrayUsingPredicate:[NSPredicate predic
 typedef id (^Selector)(id);
 
 /** Projects each element of a sequence into a new form.
- 
+
  @param selector Projects each element of a sequence into a new form.
  @return An array whose elements are the result of invoking the transform function on each element of source.
  */
@@ -200,11 +200,11 @@ typedef id (^Selector)(id);
 - (void)testSelect
 {
     NSArray* input = [self createTestData];
-    
+
     NSArray* names = [input select:^id(id person) {
         return [person name];
     }];
-    
+
     STAssertEquals(names.count, 5U, nil);
     // 'spot' check a few values
     STAssertEquals(names[0], @"bob", nil);
@@ -234,9 +234,9 @@ typedef id (^Selector)(id);
 - (void)testSort
 {
     NSArray* input = @[@21, @34, @25];
-    
+
     NSArray* sortedInput = [input sort];
-    
+
     STAssertEquals(sortedInput.count, 3U, nil);
     STAssertEqualObjects(sortedInput[0], @21, nil);
     STAssertEqualObjects(sortedInput[1], @25, nil);
@@ -246,11 +246,11 @@ typedef id (^Selector)(id);
 - (void)testSortWithKeySelector
 {
     NSArray* input = [self createTestData];
-    
+
     NSArray* sortedByName = [input sort:^id(id person) {
         return [person name];
     }];
-    
+
     STAssertEquals(sortedByName.count, 5U, nil);
     STAssertEquals([sortedByName[0] name], @"bob", nil);
     STAssertEquals([sortedByName[1] name], @"frank", nil);
@@ -282,7 +282,7 @@ typedef id (^Selector)(id);
 <p>The Linq of-type method is use to filter a list of objects to remove all of those which are not of a specific type. Here's the method signature:</p>
 {% highlight objective-c %}
 /** Filters the elements of an an array based on a specified type.
- 
+
  @param type The type to filter the elements of the sequence on.
  @return An array whose elements are all of the given type.
  */
@@ -293,9 +293,9 @@ typedef id (^Selector)(id);
 - (void)testOfType
 {
     NSArray* mixed = @[@"foo", @25, @"bar", @33];
-    
+
     NSArray* strings = [mixed ofType:[NSString class]];
-    
+
     STAssertEquals(strings.count, 2U, nil);
     STAssertEqualObjects(strings[0], @"foo", nil);
     STAssertEqualObjects(strings[1], @"bar", nil);
@@ -316,7 +316,7 @@ typedef id (^Selector)(id);
 <p>The distinct method returns the distinct elements from an array, in other words, it removes duplicates based on an equality comparison. The signature is as follows:</p>
 {% highlight objective-c %}
 /** Returns distinct elements from a sequence.
- 
+
  @return An array of distinct elements.
  */
 - (NSArray*) distinct;
@@ -326,9 +326,9 @@ typedef id (^Selector)(id);
 - (void)testDistinct
 {
     NSArray* names = @[@"bill", @"bob", @"bob", @"brian", @"bob"];
-    
+
     NSArray* distinctNames = [names distinct];
-    
+
     STAssertEquals(distinctNames.count, 3U, nil);
     STAssertEqualObjects(distinctNames[0], @"bill", nil);
     STAssertEqualObjects(distinctNames[1], @"brian", nil);
@@ -354,7 +354,7 @@ typedef id (^Selector)(id);
 <p>Here is the method signature:</p>
 {% highlight objective-c %}
 /** Projects each element of a sequence to an NSArray and flattens the resulting sequences into one sequence.
- 
+
  @param transform A transform function to apply to each element, this should return an NSArray.
  @return An array whose elements are the result of invoking the one-to-many transform function on each element of the input sequence.
  */
@@ -365,11 +365,11 @@ typedef id (^Selector)(id);
 - (void)testSelectMany
 {
     NSArray* data = @[@"foo, bar", @"fubar"];
-    
+
     NSArray* components = [data selectMany:^id(id string) {
         return [string componentsSeparatedByString:@", "];
     }];
-    
+
     STAssertEquals(components.count, 3U, nil);
     STAssertEqualObjects(components[0], @"foo", nil);
     STAssertEqualObjects(components[1], @"bar", nil);
@@ -394,7 +394,7 @@ typedef id (^Selector)(id);
 <p>The next Linq method, aggregate, is an interesting one because it doesn't return an array, instead it applies an accumulator function to the elements of an array, returning a single result. The signature is as follows:</p>
 {% highlight objective-c %}
 /** Applies an accumulator function over a sequence.
- 
+
  @param accumulator An accumulator function to be invoked on each element.
  @return The final accumulator value.
  */
@@ -405,11 +405,11 @@ typedef id (^Selector)(id);
 - (void)testAggregate
 {
     NSArray* names = @[@"bill", @"bob", @"brian"];
-    
+
     id aggregate = [names aggregate:^id(id item, id aggregate) {
         return [NSString stringWithFormat:@"%@, %@", aggregate, item];
     }];
-    
+
     STAssertEqualObjects(aggregate, @"bill, bob, brian", nil);
 }
 {% endhighlight %}

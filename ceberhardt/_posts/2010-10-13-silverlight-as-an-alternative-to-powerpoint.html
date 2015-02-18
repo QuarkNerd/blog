@@ -3,11 +3,11 @@ id: 837
 author: ceberhardt
 title: Silverlight as an alternative to PowerPoint
 oldlink: "/blog/colin/2010/10/silverlight-as-an-alternative-to-powerpoint/"
-tags: 
+tags:
   - presentation
   - WP7
   - blog
-categories: 
+categories:
   - ceberhardt
 layout: default_post
 source: wordpress
@@ -16,7 +16,7 @@ source: wordpress
 <p>PowerPoint is a very popular tool for the rapid creation of presentations, however, PowerPoint presentations have the problem that they tend to look-alike, due to them being built upon 'stock' templates, clip art and animated transitions. Interestingly data visualisation guru Edward Tufte goes further that just criticising the cosmetics of PowePoint. In his book "<a href="http://www.ibm.com/developerworks/rational/library/2051.html">The Cognitive Style of PowerPoint</a>", he claims that the bullet-point, abbreviated-text style of PowerPoint foreshortens evidence and thought!</p>
 <p>For my presentation at a recent <a href="http://www.scottlogic.co.uk/2010/10/unifying-development-across-the-desktop-web-and-mobile-scott-logic-points-the-way/">Scott Logic / Microsoft</a> event I wanted to avoid using bullet-points as much as possible. I decided to make my presentation mostly graphical, putting more emphasis on the verbal delivery of the content. The subject of the talk was how <a href="http://www.scottlogic.co.uk/blog/colin/2010/10/white-paper-silverlight-wpf-and-windows-phone-7-cross-platform-development/">Silverlight and WPF are unifying cross platform development</a>, so I thought, why not use a full-screen Silverlight application to deliver the presentation?</p>
 <p>Taking inspiration from the <a href="http://en.wikipedia.org/wiki/Metro_Design_Language">Metro Design Language</a> and the Windows Phone 7 <a href="http://en.wikipedia.org/wiki/Metro_Design_Language">Panorama control</a>, here is the presentation I created:</p>
-<div style="text-align: center; "><object width="500" height="350" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/10/Presentation2.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div style="text-align: center; "><object width="500" height="350" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.github.url }}/archive/2010/10/Presentation2.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <p><em>Mouse-over to see the forward / back / full-screen controls, also left / right mouse button clicks navigate forwards / backwards</em></p>
 <p>Whilst it is graphically quite rich, and includes animated transitions, I feel that by writing the presentation as a Silverlight application, it further re-enforces the contents of the talk. (at least that is my excuse for not following Edward Tufte's teachings to the letter!).</p>
 <p>The presentation also works just fine on Windows Phone 7, with just a few tweaks required for the small differences in user interaction:</p>
@@ -49,7 +49,7 @@ source: wordpress
   <Setter Property="Template">
     <Setter.Value>
       <ControlTemplate TargetType="local:PanormicSlidePresenter">
-        <Grid local:Clip.ToBounds="True">      
+        <Grid local:Clip.ToBounds="True">
           <!-- the title for this slide presenter -->
           <Canvas VerticalAlignment="Top" HorizontalAlignment="Left">
             <Viewbox x:Name="Title">
@@ -112,7 +112,7 @@ public class PanormicSlidePresenter : ListBox
 
   #endregion
 
-  public PanormicSlidePresenter() 
+  public PanormicSlidePresenter()
   {
     DefaultStyleKey = typeof(PanormicSlidePresenter);
 
@@ -222,8 +222,8 @@ public class PanormicSlidePresenter : ListBox
 {% endhighlight %}
 <p>The presentation shown above also has another 'slide presenter' which animates transitions between its child control by spinning each into view using a RotateTransform. The code for this presenter, WheelSlidePresenter, is very similar to the panorama presenter described above. If you are interested, the sourecode is available to download below.</p>
 <p>As an aside, I really like the way that the Visual Studio designed shows the positions of the off-screen slides. You can even change the SelectedIndex of the presenter elements in XAML and watch the animated transitions:</p>
-<p><img src="{{ site.baseurl }}/archive/2010/10/slidePresenters.png" alt="" title="slidePresenters" width="595" height="366" class="aligncenter size-full wp-image-854" /></p>
+<p><img src="{{ site.github.url }}/archive/2010/10/slidePresenters.png" alt="" title="slidePresenters" width="595" height="366" class="aligncenter size-full wp-image-854" /></p>
 <p>In conclusion, I think Silverlight provides an interesting alternative to PowerPoint for presentations (although creating Silverlight presentations requires coding skills, so it is not suitable for the masses!).</p>
 <p>You can download the full sourcecode for this presentation below:</p>
-<p>Sourcecode for Web version: <a href='{{ site.baseurl }}/archive/2010/10/SilverlightPresentationWeb.zip'>SilverlightPresentationWeb.zip</a>Sourcecode for Windows Phone 7 version: <a href='{{ site.baseurl }}/archive/2010/10/SilverlightPresentationMobile.zip'>SilverlightPresentationMobile.zip</a></p>
+<p>Sourcecode for Web version: <a href='{{ site.github.url }}/archive/2010/10/SilverlightPresentationWeb.zip'>SilverlightPresentationWeb.zip</a>Sourcecode for Windows Phone 7 version: <a href='{{ site.github.url }}/archive/2010/10/SilverlightPresentationMobile.zip'>SilverlightPresentationMobile.zip</a></p>
 <p>Regards,Colin E.</p>

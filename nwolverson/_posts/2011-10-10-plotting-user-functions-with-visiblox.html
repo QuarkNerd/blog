@@ -3,9 +3,9 @@ id: 130838
 author: nwolverson
 title: Plotting user functions with Visiblox
 oldlink: "/2011/10/plotting-user-functions-with-visiblox/"
-tags: 
+tags:
   - blog
-categories: 
+categories:
   - nwolverson
 layout: default_post
 source: site
@@ -104,11 +104,11 @@ protected void OnCollectionChanged(NotifyCollectionChangedEventArgs args)
 <p>I'll omit most of the event subscription/unsubscription boilerplate, but here's the meat of it:</p>
 {% highlight csharp %}
 // Property with some event subscribe/unsubscribe logic using SubscribeAxis
-public IChartSeries ChartSeries 
+public IChartSeries ChartSeries
 {
 	get { return _chartSeries; }
-	set 
-        { 
+	set
+        {
             // ...
             _chartSeries = value;
             // ...
@@ -121,7 +121,7 @@ public IChartSeries ChartSeries
 private void SubscribeAxis(IAxis axis)
 {
     // AxisEventRelay is a great way to be notified of maximum/minimum effective or actual range limit changes
-    // without listening to properties directly. 
+    // without listening to properties directly.
     // Try changing this to AxisEventEnumeration.ActualRangeEffectiveLimitsChanged
     AxisEventRelay relay = new AxisEventRelay(axis, AxisEventEnumeration.ActualRangeLimitsChanged);
     relay.AxisEvent += Relay_AxisEvent;
@@ -174,17 +174,17 @@ let num = (pfloat |>> (fun z _ -> z))
 let fop op fa fb env = fa env |> op <| fb env
 
 (* Parse single operators - return function taking two operands and giving the result *)
-let (addop : Parser<_,unit>) = 
+let (addop : Parser<_,unit>) =
     sym "+" >>% fop (+)
     <|> ( sym "-" >>% fop (-) )
-let (mulop : Parser<_,unit>) = 
+let (mulop : Parser<_,unit>) =
     sym "*" >>% fop (*)                  // Keep syntax highlighter happy! *)
     <|> ( sym "/" >>% fop (/) )
 
 let (atom: Parser<float->float,unit>), atomImpl = createParserForwardedToRef() // break circular reference
 
 (*  Parse math function name - return the function itself *)
-let (mathOp: Parser<_,unit>) = 
+let (mathOp: Parser<_,unit>) =
        sym "sin" >>% sin
        <|> ( sym "cos" >>% cos )
        <|> ( sym "tan" >>% tan )
@@ -198,6 +198,6 @@ let term = chainl1 atom mulop
 let expr = chainl1 term addop
 atomImpl := num <|> var  <|> mathExpr <|> between (sym "(") (sym ")") expr
 {% endhighlight %}
-<p>Putting it all together:       <object data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="400" height="400"><param name="source" value="{{ site.baseurl }}/archive/2011/10/UserFunctionPlotter.xap"/><param name="background" value="white" /><param name="minRuntimeVersion" value="4.0.50826.0" /><param name="autoUpgrade" value="true" /><a href="http://go.microsoft.com/fwlink/?LinkID=149156&v=4.0.50826.0" style="text-decoration:none"> 			  <img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight" style="border-style:none"/>		  </a>	    </object></p>
+<p>Putting it all together:       <object data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="400" height="400"><param name="source" value="{{ site.github.url }}/archive/2011/10/UserFunctionPlotter.xap"/><param name="background" value="white" /><param name="minRuntimeVersion" value="4.0.50826.0" /><param name="autoUpgrade" value="true" /><a href="http://go.microsoft.com/fwlink/?LinkID=149156&v=4.0.50826.0" style="text-decoration:none"> 			  <img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight" style="border-style:none"/>		  </a>	    </object></p>
 <p>(Try writing arithmetic expressions in x using *,/,+,-, sin(), cos() - note spaces are not permitted with this simple parser.)</p>
-<p>The source code to this <a href='{{ site.baseurl }}/archive/2011/10/UserFunctionPlotter.zip'>is available here</a>, this requires the free version of Visiblox Charts which can be <a href="http://www.visiblox.com/download">downloaded here</a>.</p>
+<p>The source code to this <a href='{{ site.github.url }}/archive/2011/10/UserFunctionPlotter.zip'>is available here</a>, this requires the free version of Visiblox Charts which can be <a href="http://www.visiblox.com/download">downloaded here</a>.</p>

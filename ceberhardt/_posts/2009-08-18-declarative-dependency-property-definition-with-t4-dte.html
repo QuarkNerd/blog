@@ -3,11 +3,11 @@ id: 491
 author: ceberhardt
 title: Declarative Dependency Property Definition with T4 + DTE
 oldlink: "/blog/colin/2009/08/declarative-dependency-property-definition-with-t4-dte/"
-tags: 
+tags:
   - dependency properties
   - t4
   - codeproject
-categories: 
+categories:
   - ceberhardt
 layout: default_post
 source: wordpress
@@ -59,7 +59,7 @@ public IEnumerable<CodeElement> CodeElementsInProjectItems(ProjectItems projectI
 public IEnumerable<CodeElement> CodeElementsInProjectItem(ProjectItem projectItem)
 {
     FileCodeModel fileCodeModel = projectItem.FileCodeModel;
-    
+
     if (fileCodeModel != null)
     {
         foreach (CodeElement codeElement in fileCodeModel.CodeElements)
@@ -71,7 +71,7 @@ public IEnumerable<CodeElement> CodeElementsInProjectItem(ProjectItem projectIte
             }
         }
     }
-    
+
     if (projectItem.ProjectItems != null)
     {
         foreach (ProjectItem childItem in projectItem.ProjectItems)
@@ -81,7 +81,7 @@ public IEnumerable<CodeElement> CodeElementsInProjectItem(ProjectItem projectIte
                 yield return el;
             }
         }
-    }        
+    }
 }
 
 
@@ -91,7 +91,7 @@ public IEnumerable<CodeElement> CodeElementsDescendants(CodeElements codeElement
     {
         foreach (CodeElement descendant in CodeElementDescendantsAndSelf(element))
         {
-            yield return descendant;                
+            yield return descendant;
         }
     }
 }
@@ -99,36 +99,36 @@ public IEnumerable<CodeElement> CodeElementsDescendants(CodeElements codeElement
 public IEnumerable<CodeElement> CodeElementDescendantsAndSelf(CodeElement codeElement)
 {
     yield return codeElement;
-    
+
     CodeElements codeElements;
-            
+
     switch(codeElement.Kind)
-    {        
-    
+    {
+
         /* namespaces */
         case vsCMElement.vsCMElementNamespace:
         {
-            CodeNamespace codeNamespace = (CodeNamespace)codeElement;                                        
+            CodeNamespace codeNamespace = (CodeNamespace)codeElement;
             codeElements = codeNamespace.Members;
             foreach(CodeElement descendant in CodeElementsDescendants(codeElements))
             {
-                yield return descendant;                
+                yield return descendant;
             }
             break;
         }
-        
+
         /* Process classes */
         case vsCMElement.vsCMElementClass:
-        {            
-            CodeClass codeClass = (CodeClass)codeElement;            
+        {
+            CodeClass codeClass = (CodeClass)codeElement;
             codeElements = codeClass.Members;
             foreach(CodeElement descendant in CodeElementsDescendants(codeElements))
-            {                
-                yield return descendant;                
-            }            
-            break;    
-        }        
-    }    
+            {
+                yield return descendant;
+            }
+            break;
+        }
+    }
 }
 {% endhighlight %}
 <p>There might be simpler way of achieving this, it is the first time I have created a recursive IEnumerable implementation, so please let me know if I have done something stupid! For a much more elegant solution to the problem of creating an IEnumerable implementation on a tree like structure via recursion have a look at <a href="http://mutable.net/blog/archive/2008/05/23/using-linq-to-objects-for-recursion.aspx">this blog post by David Jade</a>. However, as I mentioned earlier, the heterogeneous nature of the DTE API onto the project structure prohibits this method. </p>
@@ -162,14 +162,14 @@ private void GenerateClass(CodeClass clazz)
 
 namespace <#= classNamespace #>
 {
-    public partial class <#= className #> <#+ if(classRaisesPropertyChanged){ #>: INotifyPropertyChanged<#+ } #> 
+    public partial class <#= className #> <#+ if(classRaisesPropertyChanged){ #>: INotifyPropertyChanged<#+ } #>
     {
 <#+
     var attributes = Attributes(clazz).Where(att => att.Name=="DependencyPropertyDecl");
     foreach(CodeAttribute attribute in attributes)
     {
         string[] attributeValues = attribute.Value.Split(',');
-        
+
         string propertyName = attributeValues[0].Trim().Replace("\"","");
         string propertyType = attributeValues[1].Trim().Substring(7, attributeValues[1].Length - 9);
         string summary = null;
@@ -181,25 +181,25 @@ namespace <#= classNamespace #>
         #>
 
         #region <#= propertyName #>
-        <#+        
-        
+        <#+
+
         GenerateCLRAccessor(typeConverter, propertyType, propertyName, summary);
-        
+
         bool handleDPPropertyChanged = propertyChangedCallback || classRaisesPropertyChanged;
-        
+
         GenerateDependencyProperty(className, propertyType, defaultValue, propertyName,
-                                   handleDPPropertyChanged, isAttached, metadata, summary);        
-        
+                                   handleDPPropertyChanged, isAttached, metadata, summary);
+
         if (handleDPPropertyChanged)
         {
             GenerateChangeEventHandler(className, propertyName, propertyChangedCallback, classRaisesPropertyChanged);
-        } 
-        
+        }
+
         if (isAttached)
         {
             GenerateAttachedPropertyAccessor(propertyName, propertyType);
         }
-        #>        
+        #>
         #endregion
     <#+
     } // end foreach dps
@@ -208,7 +208,7 @@ namespace <#= classNamespace #>
     {
         GenerateINotifyPropertChangedImpl();
     }
-    #> 
+    #>
     }
 }
 
@@ -269,7 +269,7 @@ public partial class RangeControl : UserControl
 <p>When using this approach the workflow is quite simple, create your class, add the DependencyPropertyDecl attributes, then execute the code generation template. The output is an accompanying partial class which contains the DP code itself, plus partial methods which can be implemented in order to perform logic when the property changes.</p>
 <p>I have not-yet completely ported my XML-based DP generation templates to this new declarative approach, for example the DependencyPropertyDecl attribute needs to also indicate property meta-data, whether a property is attached etc ... However, I thought I would share my ideas in case I didn't get the time (or urge) to make a complete  implementation. </p>
 <p>I feel that this approach has great potential far beyond DP code generation, simple examples could include attributes that indicate that a T4 template should generate a 'generic' INotifyPropertyChanged or IEditableObject implementation, and of course, the more complex application-specific possibilities are endless. </p>
-<p>You can download an example project containing the RangeControl above: <a href='{{ site.baseurl }}/archive/2009/08/WpfDeclarativeDpCodeGen1.zip'>WpfDeclarativeDpCodeGen.zip</a></p>
+<p>You can download an example project containing the RangeControl above: <a href='{{ site.github.url }}/archive/2009/08/WpfDeclarativeDpCodeGen1.zip'>WpfDeclarativeDpCodeGen.zip</a></p>
 <p>Try adding new DependencyPropertyDecl attributes, and re-run the code generation template (right click CodeGen/GeneratedObjects.tt -> Run Custom Tool), and inspect the generated output - CodeGen/GeneratedObjects.cs.</p>
 <p>Finally, thanks to Daniel Vaughan for the inspiration.</p>
 <p>Regards,Colin E.</p>

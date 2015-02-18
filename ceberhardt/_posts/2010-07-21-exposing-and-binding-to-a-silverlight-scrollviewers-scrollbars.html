@@ -3,11 +3,11 @@ id: 740
 author: ceberhardt
 title: "Exposing and Binding to a Silverlight ScrollViewer's Scrollbars"
 oldlink: "/blog/colin/2010/07/exposing-and-binding-to-a-silverlight-scrollviewer%e2%80%99s-scrollbars/"
-tags: 
+tags:
   - silverlight
   - attached behaviour
   - codeproject
-categories: 
+categories:
   - ceberhardt
 layout: default_post
 source: wordpress
@@ -146,13 +146,13 @@ scroll.SetBinding(ScrollBar.ValueProperty,
 <p>However, it appears that there is a <a href="http://forums.silverlight.net/forums/p/153389/342703.aspx">bug in Silverlight</a> which makes binding to custom attached properties in code behind fail with a critical error. Until this is fixed, we have to take care of the 'binding', by handling change events from both properties, manually.</p>
 <p>Using this attached behaviour is as simple as the following:</p>
 {% highlight xml %}
-<ScrollViewer 
+<ScrollViewer
     local:ScrollViewerBinding.VerticalOffset="{Binding YPosition, Mode=TwoWay}"
     local:ScrollViewerBinding.HorizontalOffset="{Binding XPosition, Mode=TwoWay}">
     <!-- Big content goes here! -->
 </ScrollViewer>
 {% endhighlight %}
 <p>The following little demo binds the X & Y offset of the scrollviewer to two CLR properties (with property changed notifications) defined in code behind. These same properties are bound to the text fields below:</p>
-<div id="slPluginHost1" > <object id="SilverlightPlugin1" width="400" height="180" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/07/ScrollOffsetBinding.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
-<p>You can download the complete sourcecode for this blog post: <a href='{{ site.baseurl }}/archive/2010/07/ScrollOffsetBinding.zip'>ScrollOffsetBinding.zip</a></p>
+<div id="slPluginHost1" > <object id="SilverlightPlugin1" width="400" height="180" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.github.url }}/archive/2010/07/ScrollOffsetBinding.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>You can download the complete sourcecode for this blog post: <a href='{{ site.github.url }}/archive/2010/07/ScrollOffsetBinding.zip'>ScrollOffsetBinding.zip</a></p>
 <p>Regards, Colin E.</p>

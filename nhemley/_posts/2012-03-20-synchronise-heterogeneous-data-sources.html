@@ -3,14 +3,14 @@ id: 147146
 author: nhemley
 title: Synchronise Heterogeneous Data Sources
 oldlink: "/2012/03/synchronise-heterogeneous-data-sources/"
-tags: 
+tags:
   - Java
   - Graph database
   - Neo4j
   - JMS
   - JBoss
   - blog
-categories: 
+categories:
   - nhemley
 layout: default_post
 source: site
@@ -22,7 +22,7 @@ source: site
 <p>The graph-based web-app, based on user comments, I have called 'Yakkety Yak' for obvious reasons.</p>
 <h2>Lines, boxes and handwaving</h2>
 <p>The overall architecture of the solution is shown as a series of lines and boxes below. It is based around an application container in which two separate deployments are made - the first deployment is the vanilla database webapp. The second is the yakkety yak graph-based webapp.</p>
-<p style="text-align: center;"><a href="{{ site.baseurl }}/archive/2012/03/yakketyyak_architecture1.png"><img class="size-full wp-image-147159 aligncenter" title="yakketyyak_architecture" src="{{ site.baseurl }}/archive/2012/03/yakketyyak_architecture1.png" alt="" width="451" height="424" /></a></p>
+<p style="text-align: center;"><a href="{{ site.github.url }}/archive/2012/03/yakketyyak_architecture1.png"><img class="size-full wp-image-147159 aligncenter" title="yakketyyak_architecture" src="{{ site.github.url }}/archive/2012/03/yakketyyak_architecture1.png" alt="" width="451" height="424" /></a></p>
 <p>The overall application has the following features:</p>
 <ul>
 <li>Orthogonality i.e. the two webapps must be able to exist independently of each other</li>
@@ -84,7 +84,7 @@ function createLinks() {
 </div>
 </div>
 <p>When rendered, this gives us the 'Add Comment' images as follows:</p>
-<p><a href="{{ site.baseurl }}/archive/2012/03/yakketyyak2.png"><img class="size-full wp-image-147150 aligncenter" title="yakketyyak2" src="{{ site.baseurl }}/archive/2012/03/yakketyyak2.png" alt="" width="233" height="231" /></a></p>
+<p><a href="{{ site.github.url }}/archive/2012/03/yakketyyak2.png"><img class="size-full wp-image-147150 aligncenter" title="yakketyyak2" src="{{ site.github.url }}/archive/2012/03/yakketyyak2.png" alt="" width="233" height="231" /></a></p>
 <h2>REST assured</h2>
 <p>So far so good. But how do we now enable comments to actually be added?</p>
 <p>The answer to this is to expose our graph-database in a RESTful manner.</p>
@@ -113,10 +113,10 @@ public @ResponseBody void addComment(CommentFormModel commentFormModel) {
 </div>
 </div>
 <p>These JSON-enabled methods are called from the dialog box that is part of our JQuery plugin (below).</p>
-<p style="text-align: center;"><a href="{{ site.baseurl }}/archive/2012/03/yakketyyak31.png"><img class="size-full wp-image-147156 aligncenter" title="yakketyyak3" src="{{ site.baseurl }}/archive/2012/03/yakketyyak31.png" alt="" width="587" height="236" /></a></p>
+<p style="text-align: center;"><a href="{{ site.github.url }}/archive/2012/03/yakketyyak31.png"><img class="size-full wp-image-147156 aligncenter" title="yakketyyak3" src="{{ site.github.url }}/archive/2012/03/yakketyyak31.png" alt="" width="587" height="236" /></a></p>
 <p>When the comment is submitted, our new comment is stored in the graph-database.</p>
 <p>Under the covers, we have modelled the comment as a relationship that joins user nodes and content nodes, as follows:</p>
-<p><a href="{{ site.baseurl }}/archive/2012/03/UserCommentContent.png"><img class="size-medium wp-image-147147 aligncenter" title="UserCommentContent" src="{{ site.baseurl }}/archive/2012/03/UserCommentContent-300x168.png" alt="" width="300" height="168" /></a></p>
+<p><a href="{{ site.github.url }}/archive/2012/03/UserCommentContent.png"><img class="size-medium wp-image-147147 aligncenter" title="UserCommentContent" src="{{ site.github.url }}/archive/2012/03/UserCommentContent-300x168.png" alt="" width="300" height="168" /></a></p>
 <p>Note that the relationship is uni-directional i.e. Users can make comments on Content but not vice versa</p>
 <p>In terms of implementation, we can abstract away from the actual underlying graph store by using a DAO layer, for example:</p>
 <div class="wp_syntax">
@@ -144,7 +144,7 @@ public interface ICommentDAO extends IBaseDAO {
 </div>
 <p>would display the node with id 345345345 in the browser; in this case it displays the content node along with its concomitant comments.The important point to note is that this is outwith the existing RDBMS and we are displaying only data held in the graph database.</p>
 <p>For example, we can display the comments using a JQuery JSON request:</p>
-<p style="text-align: center;"><a href="{{ site.baseurl }}/archive/2012/03/yakketyyak41.png"><img class="size-full wp-image-147157 aligncenter" title="yakketyyak4" src="{{ site.baseurl }}/archive/2012/03/yakketyyak41.png" alt="" width="517" height="285" /></a></p>
+<p style="text-align: center;"><a href="{{ site.github.url }}/archive/2012/03/yakketyyak41.png"><img class="size-full wp-image-147157 aligncenter" title="yakketyyak4" src="{{ site.github.url }}/archive/2012/03/yakketyyak41.png" alt="" width="517" height="285" /></a></p>
 <h2>Tell the world of the creation!</h2>
 <p>The next task is the non-trivial part - to fully synchronize the two data sources.</p>
 <p>When content or users are added, we can implicitly add nodes, yet we would still need to be able to inform the (slave) data source of deletion events so that nodes (and their relationships) can be removed.</p>

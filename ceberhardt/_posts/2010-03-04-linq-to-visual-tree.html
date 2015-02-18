@@ -3,7 +3,7 @@ id: 588
 author: ceberhardt
 title: Linq to Visual Tree
 oldlink: "/blog/colin/2010/03/linq-to-visual-tree/"
-tags: 
+tags:
   - WPF
   - silverlight
   - templates
@@ -11,13 +11,13 @@ tags:
   - t4
   - linq
   - blog
-categories: 
+categories:
   - ceberhardt
 layout: default_post
 source: wordpress
 ---
 <p><em>This blog post demonstrates a Linq API which can be used to query the WPF / Silverlight Visual Tree. You can find a few other Linq to Visual Tree techniques on other blogs, but what makes this one unique is that it retains, and allows queries that make use of the tree like structure rather than simply flattening it.</em></p>
-<p><img src="{{ site.baseurl }}/archive/2010/03/tree-300x92.jpg" alt="" title="tree" width="300" height="92" class="aligncenter size-medium wp-image-608" /></p>
+<p><img src="{{ site.github.url }}/archive/2010/03/tree-300x92.jpg" alt="" title="tree" width="300" height="92" class="aligncenter size-medium wp-image-608" /></p>
 <p>I have recently published an article on codeproject which describes a technique for <a href="http://www.codeproject.com/KB/linq/LinqToTree.aspx">generating Linq API for querying tree-like structures</a>. This blog post makes use of a generated API for WPF / Silverlight. If you are interested in the more generic approach, and how this API was constructed, (and how it is influenced by XPath) head on over to codeproject ...</p>
 <p>What I will provide here is a brief overview of the Linq to Visual Tree API. The full sourcecode for this API is at the end of this article.</p>
 <p>The Linq to Visual Tree API defines a number of extension methods on <code>DependencyObject</code> that provide mechanisms for navigating to other <code>DependencyObject</code> instances. I will provide a few examples that query the following simple markup:</p>
@@ -42,7 +42,7 @@ source: wordpress
             <TextBox x:Name="TextBoxThree" Text="Three" Grid.Row="0" />
 
             <StackPanel x:Name="StackPanelTwo" Grid.Row="1">
-                <TextBox x:Name="TextBoxFour" Text="Four"/>                    
+                <TextBox x:Name="TextBoxFour" Text="Four"/>
             </StackPanel>
         </Grid>
     </StackPanel>
@@ -50,7 +50,7 @@ source: wordpress
 {% endhighlight %}
 <p>We'll start with a simple  example. Include the Linq to Visual Tree namespace, then use the Descendants method to obtain all the descendants (i.e. children and children's children, etc ...) of an object within the visual tree.</p>
 <p><strong>Descendants</strong></p>
-<p><img src="{{ site.baseurl }}/archive/2010/03/descendants.png" alt="" title="descendants" width="200" height="117" class="aligncenter size-full wp-image-598" /></p>
+<p><img src="{{ site.github.url }}/archive/2010/03/descendants.png" alt="" title="descendants" width="200" height="117" class="aligncenter size-full wp-image-598" /></p>
 {% highlight csharp %}
 using LinqToVisualTree;
 
@@ -95,10 +95,10 @@ var textBoxDescendantsOfGridTwo2 = GridTwo.Descendants<TextBox>();
 */
 {% endhighlight %}
 <p><strong>Elements</strong></p>
-<p><a href="{{ site.baseurl }}/archive/2010/03/child.png"><img src="{{ site.baseurl }}/archive/2010/03/child.png" alt="" title="child" width="200" height="117" class="aligncenter size-full wp-image-597" /></a></p>
+<p><a href="{{ site.github.url }}/archive/2010/03/child.png"><img src="{{ site.github.url }}/archive/2010/03/child.png" alt="" title="child" width="200" height="117" class="aligncenter size-full wp-image-597" /></a></p>
 <p>The elements extension method obtains all the direct children of an item in the visual tree:</p>
 {% highlight csharp %}
-// find all direct children of this user control 
+// find all direct children of this user control
 var userControlChildren = this.Elements();
 /*
 0 {Grid} 	[GridOne]
@@ -119,7 +119,7 @@ var gridChildren2 = GridTwo.Elements<StackPanel>();
 {% endhighlight %}
 <p>There are also, <code>ElementsBeforeSelf</code> and <code>ElementsAfterSelf</code> methods that return the elements before and after the item which the method is being invoked upon.</p>
 <p><strong>Ancestors</strong></p>
-<p><a href="{{ site.baseurl }}/archive/2010/03/ancestors.png"><img src="{{ site.baseurl }}/archive/2010/03/ancestors.png" alt="" title="ancestors" width="200" height="117" class="aligncenter size-full wp-image-599" /></a></p>
+<p><a href="{{ site.github.url }}/archive/2010/03/ancestors.png"><img src="{{ site.github.url }}/archive/2010/03/ancestors.png" alt="" title="ancestors" width="200" height="117" class="aligncenter size-full wp-image-599" /></a></p>
 <p>The ancestors methods traverse the tree towards the root, finding all the ancestors:</p>
 {% highlight csharp %}
 // the ancestors for 'TextBoxFour'
@@ -262,7 +262,7 @@ string tree = this.DescendantsAndSelf().Aggregate("",
                   \-Path
 </pre>
 <p>Note: this was invoked after the <code>LayoutUpdated</code> event so that we not only see the elements from our XAML, but also the elements created from their templates, giving us our full run-time visual tree.</p>
-<p>You can download a simple Silverlight application that demonstrated all the examples given above: <a href='{{ site.baseurl }}/archive/2010/03/LinqToTree.zip'>LinqToTree.zip</a>. </p>
+<p>You can download a simple Silverlight application that demonstrated all the examples given above: <a href='{{ site.github.url }}/archive/2010/03/LinqToTree.zip'>LinqToTree.zip</a>. </p>
 <p>Or, if you just want the Linq to VisualTree code, you can copy-n-paste from the windows below which has the entire API, which includes the methods illustrated above, plus their <code>IEnumerable</code> equivalents, and a few others I have not illustrated.</p>
 <pre style="height: 350px; overflow: scroll; border: 1px solid #aaa;">
 using System;

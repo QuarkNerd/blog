@@ -5,26 +5,26 @@ title: "Integrating Knockout and jQueryMobile "
 oldlink: "/blog/colin/2012/10/integrating-knockout-and-jquerymobile/"
 image: "ceberhardt/assets/featured/knockout-jqm.jpg"
 summary-short: "How to make these two technologies play nicely together!"
-tags: 
+tags:
   - codeproject
   - mvvm
   - knockoutJS
   - "jquery-mobile"
   - codeproject
-categories: 
+categories:
   - ceberhardt
 layout: default_post
 source: wordpress
 ---
 <p><em>This blog post looks at the issues regarding integration of KnockoutJS and jQueryMobile, and provides a simple worked example - a Twitter Search application - where the two technologies play nicely together!</em></p>
-<p><img src="{{ site.baseurl }}/archive/2012/10/TwitterSearch.jpg" alt="" title="TwitterSearch" width="500" height="375" class="aligncenter size-full wp-image-2308" /></p>
+<p><img src="{{ site.github.url }}/archive/2012/10/TwitterSearch.jpg" alt="" title="TwitterSearch" width="500" height="375" class="aligncenter size-full wp-image-2308" /></p>
 <p>The <a href="https://github.com/ColinEberhardt/Knockout-jQueryMobile">code for this blog post can be found on github</a>. You can also <a href="http://colineberhardt.github.com/knockout-jqm/">try it out on your phone or browser</a>.</p>
 <h2>Integration Woes!</h2>
 <p><a href="http://knockoutjs.com/">Knockout</a> is a great JavaScript framework for managing the various UI layers of your application, and I use it wherever possible. Recently, while I was working on an <a href="http://www.codeproject.com/Articles/445361/Property-Finder-a-Cross-Platform-HTML5-Mobile-App">HTML5-based cross platform project</a> Knockout was the obvious choice and for the Windows Phone version it worked very well.</p>
 <p>For the iOS version I wanted to mimic the platform look and feel, which requires quite a lot of CSS, so rather than try to write this all myself I opted for <a href="http://jquerymobile.com/">jQueryMobile</a> (jQM) which is a well established framework for transforming HTML into iOS styled pages.</p>
 <p>However, integrating Knockout and jQM poses something of a challenge. One of the biggest issues is that jQM is more than just a set of stylesheets; In order to support the iOS styling it processes the DOM adding supporting structure. For example, a simple button is transformed from this:</p>
 {% highlight xml %}
-<button type="submit" data-bind="enable: isSearchEnabled, click: executeSearch">Go</button> 
+<button type="submit" data-bind="enable: isSearchEnabled, click: executeSearch">Go</button>
 {% endhighlight %}
 <p>To this:</p>
 {% highlight xml %}
@@ -33,7 +33,7 @@ source: wordpress
     <span class="ui-btn-text">Go</span>
   </span>
   <input class="ui-btn-hidden" type="button" value="Go"
-                  data-bind="enable: isSearchEnabled, 
+                  data-bind="enable: isSearchEnabled,
                                     click: executeSearch"/>
 </div>
 {% endhighlight %}

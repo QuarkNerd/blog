@@ -6,16 +6,16 @@ title-short: "KendoUI vs. KnockoutJS"
 oldlink: /blog/colin/2013/04/comparing-kendoui-and-knockout-with-a-bit-of-jquerymobile-on-the-side/
 image: "ceberhardt/assets/featured/kendo-vs-knockout.png"
 summary-short: "Comparing the KendoUI and Knockout MVVM frameworks"
-categories: 
+categories:
 - ceberhardt
-tags: 
+tags:
 - codeproject
 layout: default_post
 source: wordpress
 suppress-careers-add: true
 ---
 <p>This blog post compares the same twitter search application written with both Knockout and Kendo in order to highlight the strengths and weaknesses of each framework.</p>
-<p><img src="{{ site.baseurl }}/archive/2013/04/knockout-vs-kendo.png" alt="knockout-vs-kendo" width="400" height="175" class="aligncenter size-full wp-image-2402" /></p>
+<p><img src="{{ site.github.url }}/archive/2013/04/knockout-vs-kendo.png" alt="knockout-vs-kendo" width="400" height="175" class="aligncenter size-full wp-image-2402" /></p>
 <h2>Introduction</h2>
 <p>I've always been a big fan of Knockout, most likely because it reminds me of Silverlight (rest in peace).</p>
 <blockquote><p>For my thoughts on how Silverlight and Knockout compare, head over to codeproject where I wrote <a href="http://www.codeproject.com/Articles/365120/KnockoutJS-vs-Silverlight">quite a lengthy article on the subject</a>.</p></blockquote>
@@ -127,7 +127,7 @@ var viewModel = new KendoViewModel ();
 function KendoViewModel() {
   this.name = "john";
 
-  function saveState = function() { 
+  function saveState = function() {
     console.log(that);
   }
 
@@ -145,9 +145,9 @@ var viewModel = new KendoViewModel ();
 <h3><a id="intellisense"></a>Kendo requires a little effort to make it work with Intellisense</h3>
 <p>Following on from the previous point, because the Kendo 'magic' is at the object level, Visual Studio Intellisense becomes flummoxed. Now I know that Visual Studio is perhaps not the best tool for JavaScript, but I can bet that quite a few Knockout and Kendo developers use it!</p>
 <p>Visual Studio uses pseudo-execution of your JavaScript code to provide Intellisense. With Knockout this works well out-of-the-box - see the image below where the update function, together with its 'summary' text, are picked up by Intellisense:</p>
-<p><img src="{{ site.baseurl }}/archive/2013/04/ko_intellisense.png" alt="ko_intellisense" width="424" height="407" class="aligncenter size-full wp-image-2382" /></p>
+<p><img src="{{ site.github.url }}/archive/2013/04/ko_intellisense.png" alt="ko_intellisense" width="424" height="407" class="aligncenter size-full wp-image-2382" /></p>
 <p>Whereas with Kendo, in order for Visual Studio to be able to execute your code it needs to be aware of the Kendo and jQuery JavaScript files. This can be done by adding a 'reference' comment, as shown below:</p>
-<p><img src="{{ site.baseurl }}/archive/2013/04/kendo_intellisense.png" alt="kendo_intellisense" width="475" height="448" class="aligncenter size-full wp-image-2383" /></p>
+<p><img src="{{ site.github.url }}/archive/2013/04/kendo_intellisense.png" alt="kendo_intellisense" width="475" height="448" class="aligncenter size-full wp-image-2383" /></p>
 <p>Note that you can also see the other functions that are present on observable objects.</p>
 <h3><a id="hierarchies"></a>Knockout supports view model hierarchies</h3>
 <p>One particularly elegant feature of Knockout is that it supports view model hierarchies. When binding collections of objects, Knockout creates a child binding context that refers to the nested view model data. You can also explicitly set the binding-context of an element via the 'with' binding. This approach allows you to create complex nested view models.</p>
@@ -203,14 +203,14 @@ this.recentSearches.unshift({ searchString: this.searchTerm });
     <span class="ui-btn-text">Go</span>
   </span>
   <input class="ui-btn-hidden" type="button" value="Go"
-                  data-bind="enable: isSearchEnabled, 
+                  data-bind="enable: isSearchEnabled,
                                     click: executeSearch"/>
 </div>
 {% endhighlight %}
 <p>This causes all kinds of headaches when trying to use jQM with an MVVM or MVC framework. </p>
 <p>In contrast, with Kendo when you create a button:</p>
 {% highlight xml %}
-<a data-role="button" 
+<a data-role="button"
    data-bind="click: executeSearch, { disabled: searchButtonDisabled }">Go</a>
 {% endhighlight %}
 <p>It adds very little supporting structure:</p>
@@ -223,9 +223,9 @@ this.recentSearches.unshift({ searchString: this.searchTerm });
 <p>And in many cases it leaves the DOM structure unaltered. </p>
 <h3><a id="styles"></a>jQM has a more extensive set of styles</h3>
 <p>The jQuery Mobile framework is more extensive than Kendo. As a quick example, jQM nicely styles your list items:</p>
-<p><img src="{{ site.baseurl }}/archive/2013/04/jqm_list.png" alt="jqm_list" width="425" height="276" class="aligncenter size-full wp-image-2385" /></p>
+<p><img src="{{ site.github.url }}/archive/2013/04/jqm_list.png" alt="jqm_list" width="425" height="276" class="aligncenter size-full wp-image-2385" /></p>
 <p>With Kendo, you have to put in a bit of extra effort to style the list:</p>
-<p><img src="{{ site.baseurl }}/archive/2013/04/kendo_list.png" alt="kendo_list" width="422" height="447" class="aligncenter size-full wp-image-2384" /></p>
+<p><img src="{{ site.github.url }}/archive/2013/04/kendo_list.png" alt="kendo_list" width="422" height="447" class="aligncenter size-full wp-image-2384" /></p>
 <p>This is just one example of many - jQM is a <em>big</em> framework.</p>
 <h3><a id="themes"></a>Kendo supports multiple mobile themes</h3>
 <p>The jQM UI is designed to look at home on iOS devices, which is just fine for the ~30% of people who own an iPhone. However, this UI just looks plain wrong on an Android or Windows Phone. </p>

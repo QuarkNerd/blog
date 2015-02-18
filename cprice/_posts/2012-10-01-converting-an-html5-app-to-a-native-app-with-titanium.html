@@ -3,19 +3,19 @@ id: 160072
 author: cprice
 title: Converting an HTML5 App to a Native App with Titanium
 oldlink: "/2012/10/converting-an-html5-app-to-a-native-app-with-titanium/"
-tags: 
+tags:
   - HTML5
   - mvvm
   - Titanium
   - Knockout.js
   - blog
-categories: 
+categories:
   - cprice
 layout: default_post
 source: site
 ---
-<p><a style="float: right; margin-left: 16px;" href="http://www.scottlogic.co.uk/blog/chris/"><img class="aligncenter size-full wp-image-145833" style="border: 1px solid black;" title="Chris Price" src="{{ site.baseurl }}/archive/2012/03/me1.png" alt="" /></a><em>In this post Colin Eberhardt's Property Finder app gets another outing, but this time with a native twist. Titanium is a popular open-source framework for building multi-platform native apps in JavaScript. Here I've used it to port the existing MVVM application to iOS and Android whilst trying to maintain as much code reuse as possible.</em></p>
-<p><a href="http://www.scottlogic.co.uk/blog/colin/2012/08/property-finder-a-cross-platform-html5-mobile-app/"><img alt="" src="{{ site.baseurl }}/archive/2012/08/wpAndios.jpg" class="alignnone" width="562" height="451" /></a></p>
+<p><a style="float: right; margin-left: 16px;" href="http://www.scottlogic.co.uk/blog/chris/"><img class="aligncenter size-full wp-image-145833" style="border: 1px solid black;" title="Chris Price" src="{{ site.github.url }}/archive/2012/03/me1.png" alt="" /></a><em>In this post Colin Eberhardt's Property Finder app gets another outing, but this time with a native twist. Titanium is a popular open-source framework for building multi-platform native apps in JavaScript. Here I've used it to port the existing MVVM application to iOS and Android whilst trying to maintain as much code reuse as possible.</em></p>
+<p><a href="http://www.scottlogic.co.uk/blog/colin/2012/08/property-finder-a-cross-platform-html5-mobile-app/"><img alt="" src="{{ site.github.url }}/archive/2012/08/wpAndios.jpg" class="alignnone" width="562" height="451" /></a></p>
 <h2>Knockout.js in Titanium?</h2>
 <p>As a developer, I'm plagued by laziness. In this case it manifested itself such; the original PropertyFinder HTML5 version was written in an MVVM style using Knockout.js, if I adopt an MVVM structure for the Titanium version can I reuse those view-models?</p>
 <p>Unfortunately out of the box the answer is no, Knockout.js needs a browser environment to run in and the Titanium runtime obviously doesn't provide one. However, I wasn't about to throw away over 500 lines of perfectly good code without a fight! So I set about tracking down the browser references that Knockout needed. A little bit of trial and error later and out popped the following ugly but functional mock DOM -</p>
@@ -96,16 +96,16 @@ ApplicationViewModel.Instance = new ApplicationViewModel();
 <p>&nbsp;</p>
 <h2>The Final Product</h2>
 <p>Here are some screenshots captured from my Samsung Galaxy Nexus -</p>
-<p><img src="{{ site.baseurl }}/archive/2012/10/android.jpg" alt="" title="android" width="600" height="356" class="alignnone size-full wp-image-160093" /></p>
+<p><img src="{{ site.github.url }}/archive/2012/10/android.jpg" alt="" title="android" width="600" height="356" class="alignnone size-full wp-image-160093" /></p>
 <p>And here's the same app in the iOS Simulator (iPhone non-retina) -</p>
-<p><img src="{{ site.baseurl }}/archive/2012/10/ios.jpg" alt="" title="ios" width="600" height="389" class="alignnone size-full wp-image-160092" /></p>
+<p><img src="{{ site.github.url }}/archive/2012/10/ios.jpg" alt="" title="ios" width="600" height="389" class="alignnone size-full wp-image-160092" /></p>
 <p>The source code is available on Github as part of the <a href="https://github.com/ColinEberhardt/PropertyFinderCrossPlatform/tree/master/Titanium">PropertyFinderCrossPlatform project</a>.</p>
 <p>&nbsp;</p>
 <h2>The Good, the Bad and the Ugly</h2>
 <p><strong>The good</strong> has got to be the final app, I was genuinely surprised that I could build a native app for both iOS and Android (with very little native experience) in less than a week. The app performs well on both platforms and I think most users would be unable to differentiate it from a "proper" native app. I was able to reuse the vast majority of view-model code from the HTML5 app and managed a reasonable amount of view code-sharing between the two platforms.</p>
 <p><strong>The bad</strong> is the Titanium API, not for the lack of feature support that I discussed previously, but rather for it's schizophrenic approach to abstraction. It seems completely unable to decide where to draw the line, what to abstract and what to leave as platform specific.</p>
 <p>A quick glance at the API suggests a write-once run anywhere approach (well iOS/Android), but a closer look reveals a different story. There are platform-specific packages in the API, even within the common controls certain properties are marked as platform specific and often the documentation pages start with a section explaining how to use a particular control on Android and then a separate section explaining how to use the control on iOS!</p>
-<p><img src="{{ site.baseurl }}/archive/2012/10/titanium-docs-abstraction-example.png" alt="" title="titanium-docs-abstraction-example" width="581" height="244" class="alignnone size-full wp-image-160094" /></p>
+<p><img src="{{ site.github.url }}/archive/2012/10/titanium-docs-abstraction-example.png" alt="" title="titanium-docs-abstraction-example" width="581" height="244" class="alignnone size-full wp-image-160094" /></p>
 <p>I can see how this has happened, as time has gone on the different platforms have evolved in different directions as they seek to differentiate themselves from each other. At the same time a lot of code will have been written against the existing Titanium API so Appcelerator are obviously reluctant to make breaking changes.</p>
 <p>However, something needs to change as new code is now being written against an increasingly awkward API, one that's going to struggle with performance as it tries to match old concepts onto new. As such I'd recommend that anyone starting out with Titanium consider it as a set of abstractions of the individual platforms rather than as one overarching abstraction, and therefore plan on producing separate view components for each platform.</p>
 <p>With the good and the bad out of the way, it's time for <strong>the ugly</strong> and boy is it ugly! The mobile web platform support is so much of an afterthought that it's almost a joke. It again suffers from the same platform inconsistencies as iOS/Android (the bad) but then adds a completely different JavaScript runtime environment (pseudo-AMD instead of CommonJS) to the mix. Couple this with a manual build step after each change and I gave up supporting it very quickly.</p>

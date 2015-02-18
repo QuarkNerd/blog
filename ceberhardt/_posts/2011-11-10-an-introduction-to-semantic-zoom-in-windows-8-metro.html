@@ -3,10 +3,10 @@ id: 1803
 author: ceberhardt
 title: An Introduction to Semantic Zoom in Windows 8 Metro
 oldlink: "/blog/colin/2011/11/an-introduction-to-semantic-zoom-in-windows-8-metro/"
-tags: 
+tags:
   - WinRT
   - blog
-categories: 
+categories:
   - ceberhardt
 layout: default_post
 source: wordpress
@@ -140,7 +140,7 @@ var source = people.GroupBy(person => person.Surname.Substring(0, 1),
 </GridView.GroupStyle>
 {% endhighlight %}
 <p>This rather complex block of XAML is composed of three parts, the best way to understand how they relate to the rendered output is via a picture:</p>
-<p><img src="{{ site.baseurl }}/archive/2011/11/ContentView.png" alt="" title="ContentView" width="600" height="406" class="aligncenter size-full wp-image-1804" /></p>
+<p><img src="{{ site.github.url }}/archive/2011/11/ContentView.png" alt="" title="ContentView" width="600" height="406" class="aligncenter size-full wp-image-1804" /></p>
 <h2>The JumpView</h2>
 <p>The jump-view is again a <code>GridView</code>, however, this view is much simpler because it does not render a grouped view. The <code>ItemsSource</code> for the <code>GridView </code>is set to the <code>CollectionViewSource.View.CollectionGroups</code> property. At runtime this property is populated with a collection of DependencyObjects which have a <code>Name </code>property which exposes the <code>Key </code>of each group.</p>
 <p>The XAML for the <code>JumpView</code> is given below:</p>
@@ -179,7 +179,7 @@ var source = people.GroupBy(person => person.Surname.Substring(0, 1),
 </GridView>
 {% endhighlight %}
 <p>The JumpViewer handles the pinch zoom, hiding the ContentView and showing the JumpView, which looks as follows:</p>
-<p><img src="{{ site.baseurl }}/archive/2011/11/JumpView.png" alt="" title="JumpView" width="491" height="484" class="aligncenter size-full wp-image-1805" /></p>
+<p><img src="{{ site.github.url }}/archive/2011/11/JumpView.png" alt="" title="JumpView" width="491" height="484" class="aligncenter size-full wp-image-1805" /></p>
 <p>When you click on one of the items displayed in the above view, the <code>JumpViewer </code>detects the item that has been clicked, it then shows the <code>ContentView </code>and instructs it to scroll to show the first item within the clicked group. This works regardless of the layout you define for the <code>ContentView</code>, i.e. it will scroll vertically or horizontally depending on the layout.</p>
 <p>The WP7 jump-list switches to the jump-view when the user clicks a category heading. The final step in emulating this control is to handle the click on the category heading and programmatically switch views as follows:</p>
 {% highlight csharp %}
@@ -189,5 +189,5 @@ private void Button_Click(object sender, RoutedEventArgs e)
 }
 {% endhighlight %}
 <p>In summary, the <code>JumpViewer </code>is a powerful and flexible control which makes it easy to provide semantic-zoom within Metro applications.</p>
-<p>You can download the full sourcecode: <a href='{{ site.baseurl }}/archive/2011/11/SemanticZoomExample.zip'>SemanticZoomExample.zip</a></p>
+<p>You can download the full sourcecode: <a href='{{ site.github.url }}/archive/2011/11/SemanticZoomExample.zip'>SemanticZoomExample.zip</a></p>
 <p>Regards, Colin E.</p>

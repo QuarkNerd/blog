@@ -3,17 +3,17 @@ id: 76695
 author: mrhodes
 title: Sorted Lists in Java
 oldlink: /2010/12/sorted_lists_in_java/
-tags: 
+tags:
   - Algorithms
   - Data Structures
   - Java
   - blog
-categories: 
+categories:
   - mrhodes
 layout: default_post
 source: site
 ---
-<p><em>This post goes through an implementation a SortedList in Java which ensures its elements are kept in order and guarantees O(log(n)) run time for all the basic operations: get, contains, remove and add.</em>  The source code, javadoc, unit tests and class files for this post are available here: <a href="{{ site.baseurl }}/archive/2011/06/scottlogic-utils-mr-1.4.zip"><strong>scottlogic-utils-mr-1.4.zip</strong></a>.</p>
+<p><em>This post goes through an implementation a SortedList in Java which ensures its elements are kept in order and guarantees O(log(n)) run time for all the basic operations: get, contains, remove and add.</em>  The source code, javadoc, unit tests and class files for this post are available here: <a href="{{ site.github.url }}/archive/2011/06/scottlogic-utils-mr-1.4.zip"><strong>scottlogic-utils-mr-1.4.zip</strong></a>.</p>
 <p>Sorting is one of the most common operations applied to lists and as such Java has built in mechanisms for doing it, like the <code>Comparable</code> and <code>Comparator</code> interfaces and the <code>Collections.sort</code> methods.  These are great when you have a static list that needs to be ordered, but sometimes you want the list to remain sorted after some altering operations have been applied to it (e.g. if you add an element to an ArrayList which you've sorted, chances are that it's no longer in the right order).  For some reason, the <code>java.util</code> package is lacking a proper <code>SortedList</code>, and since they're quite handy, I thought I write my own.</p>
 <p><strong>Alternatives</strong>As with all data structures, whether a <code>SortedList</code> the right tool for the job depends on how the data is going to be used.  The <code>java.util</code> package contains a host of different data structures, all of which have their place, but unfortunately it (at least at the moment) is missing the <code>SortedList</code>.  A comparison between some of the the Java's built in data structures and a <code>SortedList</code> is given below:</p>
 <table class="blogTable">
@@ -104,7 +104,7 @@ public SortedList(Comparator<? super T> comparator)
 {% endhighlight %}
 <p>If you're not used to Java generics then this line might look a bit odd!  The type definition, "<code>&lt;? super T&gt;&gt;</code>" just says that the given comparator must be capable of comparing elements of type <code>T</code>, which is the type of element that the list is able to store.</p>
 <p>This might seem like a weird decision, since Java's built in <code>TreeSet</code> doesn't enforce the same restriction; it also allows a no-argument constructor.  The reason is that this no-argument constructor is used to create a <code>TreeSet</code> which orders elements by their <em>natural order</em>; i.e. the order you get if you use the <code>compareTo</code> method on the set's elements.  The draw back of this design decision is that there is no way to say that either the elements must be <code>Comparable</code>, or you need to supply a <code>Comparator</code>, so you need to add a runtime check for this (i.e. note the <code>ClassCastException</code> thrown by the <a href="http://download.oracle.com/javase/1.4.2/docs/api/java/util/TreeSet.html#add(java.lang.Object)"><code>TreeSet</code>'s  <code>add</code></a> method).</p>
-<p>If you need this behaviour with this <code>SortedList</code>, you can you implement a very simple subclass of it which passes in a <code>Comparator</code> providing this natural ordering.  An example implementation of this is given in this file: <a href="{{ site.baseurl }}/archive/2011/03/SortedListNatural.java">SortedListNatural.java</a>, since it's so short I've also included all the code in it below too:</p>
+<p>If you need this behaviour with this <code>SortedList</code>, you can you implement a very simple subclass of it which passes in a <code>Comparator</code> providing this natural ordering.  An example implementation of this is given in this file: <a href="{{ site.github.url }}/archive/2011/03/SortedListNatural.java">SortedListNatural.java</a>, since it's so short I've also included all the code in it below too:</p>
 {% highlight java %}
 public class SortedListNatural<T extends Comparable<? super T>> extends SortedList<T> {
 	public SortedListNatural(){
@@ -112,7 +112,7 @@ public class SortedListNatural<T extends Comparable<? super T>> extends SortedLi
 			public int compare(T one, T two){
 				return one.compareTo(two);
 			}
-		}); 
+		});
 	}
 }
 {% endhighlight %}
@@ -131,15 +131,15 @@ private int NEXT_NODE_ID = Integer.MIN_VALUE;
 
 private class Node implements Comparable<Node> {
     final int id = NEXT_NODE_ID++; //get the id and increment it..
-    T value; //the data value being stored at this node 
-      
+    T value; //the data value being stored at this node
+
     Node leftChild;
     Node rightChild;
     Node parent;
 
     //The "cached" values used to speed up methods..
     int height;
-    int numChildren; 
+    int numChildren;
 
     //Compares the t values using the comparator, if they are equal it uses the
     //node it - older nodes considered to be smaller..
@@ -162,13 +162,13 @@ private void updateCachedValues(){
 			int leftTreeHeight = (current.leftChild == null) ? 0 : current.leftChild.height;
 			int rightTreeHeight = (current.rightChild == null) ? 0 : current.rightChild.height;
 			current.height = 1 + Math.max(leftTreeHeight, rightTreeHeight);
-			
+
 			//deal with the number of children..
 			int leftTreeSize = (current.leftChild == null) ? 0 : current.leftChild.sizeOfSubTree();
-			int rightTreeSize = (current.rightChild == null) ? 0 : current.rightChild.sizeOfSubTree();                   
+			int rightTreeSize = (current.rightChild == null) ? 0 : current.rightChild.sizeOfSubTree();
 			current.numChildren = leftTreeSize + rightTreeSize;
 		}
-	   //propagate up the tree.. 
+	   //propagate up the tree..
 	   current = current.parent;
 	}
 }
@@ -182,7 +182,7 @@ public T get(int index){
 }
 
 private Node findNodeAtIndex(int index){
-	if(index < 0 || index >= size()){ 
+	if(index < 0 || index >= size()){
 		throw new IllegalArgumentException(index + " is not valid index.");
 	}
 	Node current = root;
@@ -196,7 +196,7 @@ private Node findNodeAtIndex(int index){
 			current = current.leftChild;
 			totalSmallerElements--;
 			totalSmallerElements -= (current.rightChild == null) ? 0 : current.rightChild.sizeOfSubTree();
-		} else { //go right.. 
+		} else { //go right..
 			totalSmallerElements++;
 			current = current.rightChild;
 			totalSmallerElements += (current.leftChild == null) ? 0 : current.leftChild.sizeOfSubTree();
@@ -221,7 +221,7 @@ void method(){
 <p>to something like:</p>
 {% highlight java %}
 void method(){
-    Node currentPosition = this; 
+    Node currentPosition = this;
     while(currentPosition != null){
         if(/*some condition holds for currentPosition*/){
             return currentPosition;
@@ -246,7 +246,7 @@ void printAll(){
 {% endhighlight %}
 <p>This could then be invoked on the root node to print the whole tree.  It's really not obvious how to do this without using recursion!  To overcome this, the <code>Node</code> class in the implementation defines a couple of handy iterative methods - the <code>smallestNodeInSubTree</code>, which finds the smallest node in the sub-tree rooted at the node and <code>successor</code>, which find the next largest node in the tree (so returns <code>null</code> for the node storing the largest values in the tree).  They are defined like this:</p>
 {% highlight java %}
-public Node smallestNodeInSubTree(){ 
+public Node smallestNodeInSubTree(){
      Node current = this;
      while(current != null){
          if(current.leftChild == null){
@@ -257,7 +257,7 @@ public Node smallestNodeInSubTree(){
     }
     return current;
 }
- 
+
 public Node successor(){
    Node successor = null;
    if(rightChild != null){

@@ -3,24 +3,24 @@ id: 1873
 author: ceberhardt
 title: "A Simple Multi-Page Windows Phone 7 PhoneGap Example"
 oldlink: "/blog/colin/2011/12/a-simple-multi-page-windows-phone-7-phonegap-example/"
-tags: 
+tags:
   - Windows Phone 7
   - PhoneGap
   - blog
   - windowsphone
-categories: 
+categories:
   - ceberhardt
 layout: default_post
 source: wordpress
 ---
 <p><em>This blog post shows how you can use PhoneGap to create Windows Phone 7 applications that are comprised of multiple, simple HTML pages, whilst meeting the Marketplace certification requirements.</em></p>
-<div style="float:right; width:130px; margin:10px; padding:10px; border: solid 1px #aaa; font-size:0.8em;"><img src="http://0.gravatar.com/avatar/458f2e0d08d4114f8b323798cfea141d?s=64&d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&r=G" style="float:left; margin:5px;">Colin Eberhardt is a Scott Logic technical Evangelist and a Technical Architect for Visiblox, suppliers of <a href="http://www.visiblox.com">high-performance WPF and Silverlight charts</a>.<a href="http://www.visiblox.com"><img src="{{ site.baseurl }}/archive/2012/04/visiblox-white.png"/></a></div>
+<div style="float:right; width:130px; margin:10px; padding:10px; border: solid 1px #aaa; font-size:0.8em;"><img src="http://0.gravatar.com/avatar/458f2e0d08d4114f8b323798cfea141d?s=64&d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&r=G" style="float:left; margin:5px;">Colin Eberhardt is a Scott Logic technical Evangelist and a Technical Architect for Visiblox, suppliers of <a href="http://www.visiblox.com">high-performance WPF and Silverlight charts</a>.<a href="http://www.visiblox.com"><img src="{{ site.github.url }}/archive/2012/04/visiblox-white.png"/></a></div>
 <p>Readers of my blog will know that I have been working on, and writing about, the use of <a href="http://phonegap.com/">PhoneGap</a> to create HTML5-based Windows Phone 7 applications. Along the way I have solved problems such as <a href="http://www.scottlogic.co.uk/blog/colin/2011/11/handling-the-back-stack-in-windows-phone-7-phonegap-applications/">back-button support</a>, <a href="http://www.scottlogic.co.uk/blog/colin/2011/10/tombstoning-with-phonegap-for-windows-phone-7-and-knockoutjs/">tombstoning</a> and <a href="http://www.scottlogic.co.uk/blog/colin/2011/11/suppressing-zoom-and-scroll-interactions-in-the-windows-phone-7-browser-control/">suppressing browser pan and zoom</a>. So far the applications I have discussed have all been single-page JavaScript applications, i.e. the <code>WebBrowser </code>control loads a single HTML page which links to the application JavaScript. All subsequent navigation involves updating the DOM dynamically rather than navigating to a new URL. However, I have had numerous questions to my previous blog posts from people who are using PhoneGap to create simple navigation-based applications. In this context PhoneGap is being used as a mechanism for packaging up a collection of relatively static HTML pages.</p>
 <p>So why would you want to do this? This is a perfectly valid question! If you have static HTML based content why not simply put it on the web? There are a few reasons, one is to ensure that the content is always available, whether the phone is connected to a network or not. Another is monetization, the app-store model provides an easy way to charge for this content. Regardless of the pros and cons, based on the feedback my previous articles have received, people are very interested in using PhoneGap as a model for packaging static content.</p>
 <p>In this blog post I will show how to solve the problems of back-button support and pan / zoom for a simple navigation-based HTML application. As an example, I have chosen a subject which I have a lot of interest in ... sandwiches! I have previously blogged about <a href="http://www.scottlogic.co.uk/blog/colin/2011/05/metro-in-motion-5-sandwichflow/">SandwichFlow</a>, an example application which showcased my metro-in-motion series, here I have transformed the sandwich recipe HTML into a collection of static HTML pages.</p>
 <h2>Packaging the HTML</h2>
 <p>My <a href="http://www.scottlogic.co.uk/blog/colin/2011/09/developing-windows-phone-7-html5-apps-with-phonegap/">first PhoneGap blog post</a> detailed how to get up-and-running with PhoneGap, if you have never used this framework before I would recommend that you read that first. Packaging my sandwich recipe content into an application was simply a matter of copying the files (HTML and CSS) into the 'www' directory, running the T4 template that auto-generates the <code>GapSourceDictionary.xml</code>, building and running. The resulting application is as follows:</p>
-<p><img src="{{ site.baseurl }}/archive/2011/12/SandwichFlowThree.jpg" alt="" title="SandwichFlowThree" width="600" height="346" class="aligncenter size-full wp-image-1883" /></p>
+<p><img src="{{ site.github.url }}/archive/2011/12/SandwichFlowThree.jpg" alt="" title="SandwichFlowThree" width="600" height="346" class="aligncenter size-full wp-image-1883" /></p>
 <p>PhoneGap does a great job of making it very easy to package HTML content into an application, loading the files into isolates storage etc ... However, there are a few Windows Phone 7 specific concepts that have to be supported in order to ensure certification on submission to the marketplace.</p>
 <h2>Back-button Support</h2>
 <p><strong>UPDATE:</strong> There are a few issues with the code below. See my <a href="http://www.scottlogic.co.uk/blog/colin/2012/01/wp7-phonegap-backbutton-support-re-visited/" title="WP7 PhoneGap Backbutton support re-visited">more recent blogpost for an improved solution</a>.</p>
@@ -71,7 +71,7 @@ public class BackButtonHandler
 {% endhighlight %}
 <p><strong>Note:</strong> I have had a number of requests from readers who do not have any C# / Silverlight experience, so are unsure how to use code snippets like the one above. In this blog post I have included the full sourcecode. Just grab the code and replace the contents of the 'www' directory with your own content, and you are good to go!</p>
 <p>With the above code in place the application now supports the back-button </p>
-<p><img src="{{ site.baseurl }}/archive/2011/12/BackStack.jpg" alt="" title="BackStack" width="600" height="249" class="aligncenter size-full wp-image-1874" /></p>
+<p><img src="{{ site.github.url }}/archive/2011/12/BackStack.jpg" alt="" title="BackStack" width="600" height="249" class="aligncenter size-full wp-image-1874" /></p>
 <p>With this feature in place you should be able to successfully submit a PhoneGap based application to the Windows Phone 7 marketplace. The other bits of code that follow are all about improving the cosmetics.</p>
 <h2>Suppressing Pan and Zoom</h2>
 <p>Whilst the viewport metadata settings can be used to prevent scaling, the cosmetics of this feature are not terribly good with Windows Phone 7, the user can still 'pinch' your HTML page, however, it snaps back to its original scale when the manipulation ends. I previously published a <a href="http://www.scottlogic.co.uk/blog/colin/2011/11/suppressing-zoom-and-scroll-interactions-in-the-windows-phone-7-browser-control/">simple class which can intercept manipulation events</a> in order to suppress the pinch zoom behaviour.</p>
@@ -121,12 +121,12 @@ private void Browser_ScriptNotify(object sender, NotifyEventArgs e)
 <p>To do this, create an image and position it in front of the PhoneGap browser control:</p>
 {% highlight xml %}
 <Grid x:Name="LayoutRoot" Background="Transparent">
-    
-  <my:PGView HorizontalAlignment="Stretch" 
-                  Margin="0,0,0,0"  
-                  Name="PGView" 
+
+  <my:PGView HorizontalAlignment="Stretch"
+                  Margin="0,0,0,0"
+                  Name="PGView"
                   VerticalAlignment="Stretch"/>
-    
+
   <Image Source="/SplashScreenImage.jpg"
           x:Name="splashImage">
     <Image.Resources>
@@ -162,5 +162,5 @@ private void fadeOut_Completed(object sender, EventArgs e)
 {% endhighlight %}
 <h2>Conclusions</h2>
 <p>Hopefully this blog post will help people who are new to WP7 and wish to release PhoneGap applications comprised of multiple HTML pages. </p>
-<p>You can download the sourcecode: <a href='{{ site.baseurl }}/archive/2011/12/HTML5SandwichFlow.zip'>HTML5SandwichFlow.zip</a></p>
+<p>You can download the sourcecode: <a href='{{ site.github.url }}/archive/2011/12/HTML5SandwichFlow.zip'>HTML5SandwichFlow.zip</a></p>
 <p>Regards, Colin E.</p>

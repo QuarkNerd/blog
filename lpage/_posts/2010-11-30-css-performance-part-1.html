@@ -3,12 +3,12 @@ id: 77518
 author: lpage
 title: "Css Performance - Part 1"
 oldlink: "/2010/11/css-performance-part-1/"
-tags: 
+tags:
   - CSS
   - Javascript
   - performance
   - blog
-categories: 
+categories:
   - lpage
 layout: default_post
 source: site
@@ -149,16 +149,16 @@ var create100Rows = function () {
 	tbl.id = "mytb";
 	testcontainer.appendChild(tbl);
 	tbl.appendChild(tbody);
- 
+
 	for(i = 0; i < 100; i++) {
 		tr = document.createElement("tr");
 		tbody.appendChild(tr);
 		for(j = 0; j < 100; j++) {
 			td = document.createElement("td");
 			tr.appendChild(td);
- 
+
 			td.innerHTML = "<span class="unm">_</span>";
-			gs = td.childNodes[0];        
+			gs = td.childNodes[0];
 			td.className = usedClasses[Math.floor(Math.random()*usedClasses.length)];
 			if  (j === 3 || j === 8 || j === 10) {
 				addEvent(td, "Click", onClick);
@@ -191,7 +191,7 @@ var create100RowsNoIH = function() {
 			td.appendChild(span);
 			span.innerHTML = "_";
 			span.className = "unm";
- 
+
 			td.className = usedClasses[Math.floor(Math.random()*usedClasses.length)];
 			if  (j === 3 || j === 8 || j === 10) {
 				addEvent(td, "Click", onClick);
@@ -232,7 +232,7 @@ var create100RowsUIH = function () {
 			}
 		}
 		tbody.appendChild(tr);
-	}     
+	}
 };{% endhighlight %}
 <h3>Mix of both - but disconnected from the DOM</h3>
 <p>Next in our first variation we take the first example but don't attach it to the DOM until after we have set properties like the className and innerHTML.</p>
@@ -284,7 +284,7 @@ var create100RowsNoIHDc = function() {
 			span = document.createElement("span");
 			span.innerHTML = "_";
 			span.className = "unm";
- 
+
 			td.className = usedClasses[Math.floor(Math.random()*usedClasses.length)];
 			if  (j === 3 || j === 8 || j === 10) {
 				addEvent(td, "Click", onClick);
@@ -297,7 +297,7 @@ var create100RowsNoIHDc = function() {
 };
 {% endhighlight %}
 <h3>Results</h3>
-<p><a href='{{ site.baseurl }}/archive/2010/11/row_constructing_test.htm'>You can view the row constructing test here</a>.</p>
+<p><a href='{{ site.github.url }}/archive/2010/11/row_constructing_test.htm'>You can view the row constructing test here</a>.</p>
 <p>I tested some browsers on my Windows 7 machine and a HTC Desire (Android) and here are the results.</p>
 <style type="text/css" media="all">table.browserresults { border-collapse: collapse; border: 0px; margin: 0px;}.browserresults td {	padding: 1px;	white-space:nowrap;	text-align: right;	padding-left: 10px;}.desc {	text-align: left;}.smallCss	{	background:#92D050;}.bigCss	{	background:#9BBB59;}.browserresults th {	-webkit-transform: rotate(-45deg); 	-moz-transform: rotate(-45deg);	-o-transform: rotate(-45deg);	transform: rotate(-45deg);        image-rendering: -moz-crisp-edges;}</style>
 <table class="browserresults">

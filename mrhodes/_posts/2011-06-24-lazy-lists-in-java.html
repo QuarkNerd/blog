@@ -3,21 +3,21 @@ id: 118536
 author: mrhodes
 title: Lazy Lists in Java
 oldlink: "/2011/06/lazy-lists-in-java/"
-tags: 
+tags:
   - Data Structures
   - Java
   - blog
-categories: 
+categories:
   - mrhodes
 layout: default_post
 source: site
 ---
-<p><em>This post outlines a general purpose alternative to <code>ArrayList</code>s which provide lazy insertions and deletions to speed up those operations. </em> The Java source code, unit tests, javadoc and jar file for all the classes mentioned in this blog is available here:<a href="{{ site.baseurl }}/archive/2011/10/scottlogic-utils-mr-1.5.zip">scottlogic-utils-mr.zip</a>.</p>
+<p><em>This post outlines a general purpose alternative to <code>ArrayList</code>s which provide lazy insertions and deletions to speed up those operations. </em> The Java source code, unit tests, javadoc and jar file for all the classes mentioned in this blog is available here:<a href="{{ site.github.url }}/archive/2011/10/scottlogic-utils-mr-1.5.zip">scottlogic-utils-mr.zip</a>.</p>
 <p><code>ArrayLists</code> are perfect when you want to get elements by their indices but not so brilliant when you want to insert or remove elements.  In a <a href="http://www.scottlogic.co.uk/2011/04/lists-with-fast-insertions-and-removals-in-java/">previous post</a>, I showed how a <a href="http://en.wikipedia.org/wiki/Self-balancing_binary_search_tree">balanced binary search tree</a> can be designed to work as if it's an extendable array, this approach offers faster removals and insertions at the cost of more time to get elements.  In this post, I'll go through an implementation of a new list (at least I don't know what the name for it is, if it has one already!) which attempts to marry up these two approaches, offering improved speed on all operations over the binary tree based list by being lazy.</p>
 <p>I call this new list a "<code>PatchWorkArray</code>" because it stores its data in patches throughout a regular <code>ArrayList</code>.  The idea behind it is this: Suppose you've got a list with a large number of elements in it and want to remove the element at index <em>i</em>, where <em>i &lt; n</em>, and <em>n</em> is the number of elements in the list; instead of moving elements <em>i+1</em> to <em>n</em> up one place (which is what happens in an <code>ArrayList</code>), you could just leave the list as is, then, when someone asks for the element at index <em>j</em>, where <em>j &gt;= i</em>, you just give them the element at index <em>j+1</em> instead.</p>
 <p>The <code>PatchWorkArray</code> generalizes this idea; it's an <code>ArrayList</code> (the "<em>backing list</em>") and an associated set of alterations (insertions and removals) to that <code>ArrayList</code>.  When an element is requested, the set of alterations is queried to figure out the correct location of the element in the backing list, which is then returned.</p>
 <p>The relationship between the various classes involved is described in the following UML diagram:</p>
-<p><img class="aligncenter size-full wp-image-121029" style="display: block; margin: auto;" title="PatchWorkArrayUMLImage" src="{{ site.baseurl }}/archive/2011/06/PatchWorkArrayUMLImage.png" alt="PatchWorkArray UML Diagram" width="80%" height="200" /></p>
+<p><img class="aligncenter size-full wp-image-121029" style="display: block; margin: auto;" title="PatchWorkArrayUMLImage" src="{{ site.github.url }}/archive/2011/06/PatchWorkArrayUMLImage.png" alt="PatchWorkArray UML Diagram" width="80%" height="200" /></p>
 <p><strong>Dealing with Alterations</strong>The <code>PatchWorkArray</code> doesn't do anything special about removals or insertions made to the end of the list - they simply get performed on the backing list itself.  However, the effect differs for alterations made at any other position.  When an element is removed, instead of removing the corresponding element from the backing list, it is instead replaced with a dummy value.  When an element is inserted, the element currently in the corresponding position in the backing list is replaced with a new sub-list containing the newly inserted element followed by the replaced one.  This sub-list is an instance of a <a href="http://www.scottlogic.co.uk/2011/04/lists-with-fast-insertions-and-removals-in-java/">binary tree based list</a>, which allows log time insertions and removal by index.  Further deletions and insertions at indices covered by this sub-list are then performed on the sub-list itself, rather than affecting the backing list.</p>
 <p>For example, suppose you have a <code>PatchWorkArray</code> storing the numbers 0 to 9, in the most simple case the backing list would look like so:</p>
 <p style="text-align: center;">[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</p>
@@ -92,14 +92,14 @@ ArrayLocation getLocationOf(final int index){
                 //case that we want an element in this location..
                 if(mainIndex <= largestIndexInSubArray){
                     subIndex = mainIndex-smallestIndexInSubArray;
-                    mainIndex = alt.index;    
+                    mainIndex = alt.index;
                     break;
-           
+
                 } else { //(mainIndex > largestIndexInSubArray)
                     current = (AlterationNode) current.getRightChild();
                     mainIndex = adjustedIndex + alt.indexDiff;
                 }
-            
+
             } else { //alt instanceof Removal
                 current = (AlterationNode) current.getRightChild();
                 mainIndex = adjustedIndex + alt.indexDiff; //need to change what we are looking for..

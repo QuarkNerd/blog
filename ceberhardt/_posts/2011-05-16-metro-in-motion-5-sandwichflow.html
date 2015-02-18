@@ -3,14 +3,14 @@ id: 1475
 author: ceberhardt
 title: "Metro In Motion #5 - SandwichFlow"
 oldlink: "/blog/colin/2011/05/metro-in-motion-5-sandwichflow/"
-tags: 
+tags:
   - codeproject
   - WP7
   - metro
   - sandwiches
   - blog
   - codeproject
-categories: 
+categories:
   - ceberhardt
 layout: default_post
 source: wordpress
@@ -31,7 +31,7 @@ Sandwiches = doc.Descendants("sandwich")
                   Title = el.Attribute("title").Value,
                   Id = id++,
                   Keywords = el.Descendants("keyword")
-                                .Select(l => Regex.Replace(l.Value, @"\b(\w)", m => m.Value.ToUpper()))                                      
+                                .Select(l => Regex.Replace(l.Value, @"\b(\w)", m => m.Value.ToUpper()))
                                 .ToList(),
                   Ingredients = el.Descendants("ingredient")
                                   .Select(l => l.Value)
@@ -140,8 +140,8 @@ private double KeywordCorrelation(List<string> keywordsOne, List<string> keyword
       <BeginStoryboard>
         <Storyboard BeginTime="00:00:0.2">
           <DoubleAnimation Duration="00:00:0.7"
-                            Storyboard.TargetName="tomTrans" 
-                            Storyboard.TargetProperty="X" 
+                            Storyboard.TargetName="tomTrans"
+                            Storyboard.TargetProperty="X"
                             From="400" To="0">
             <DoubleAnimation.EasingFunction>
               <SineEase EasingMode="EaseOut"/>
@@ -154,5 +154,5 @@ private double KeywordCorrelation(List<string> keywordsOne, List<string> keyword
 </Image>
 {% endhighlight %}
 <p>They also have the <code>MetroInMotion.AnimationLevel</code> attached property set so that they slide with the pivot control. </p>
-<p>You can grab the code here: <a href='{{ site.baseurl }}/archive/2011/05/SandwichFlow.zip'>SandwichFlow.zip</a></p>
-<p>Regards, Colin E.<a href="{{ site.baseurl }}/archive/2011/05/SplashScreenImage.jpg"><img src="{{ site.baseurl }}/archive/2011/05/SplashScreenImage.jpg" alt="" title="SplashScreenImage" width="480" height="800" class="aligncenter size-full wp-image-1499" /></a></p>
+<p>You can grab the code here: <a href='{{ site.github.url }}/archive/2011/05/SandwichFlow.zip'>SandwichFlow.zip</a></p>
+<p>Regards, Colin E.<a href="{{ site.github.url }}/archive/2011/05/SplashScreenImage.jpg"><img src="{{ site.github.url }}/archive/2011/05/SplashScreenImage.jpg" alt="" title="SplashScreenImage" width="480" height="800" class="aligncenter size-full wp-image-1499" /></a></p>

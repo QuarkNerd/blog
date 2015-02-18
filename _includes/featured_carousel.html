@@ -11,9 +11,9 @@
           {% assign offset = i | times: 5 %}
           {% for post in site.tags.featured limit:2 offset: offset %}
           <div>
-            <a href="{{ site.baseurl }}{{ post.url }}">
-              <img src="{{ site.baseurl }}/{{ post.image }}">
-              {% capture url %}{{ site.siteurl }}{{ site.baseurl }}{{ post.url }}{% endcapture %}
+            <a href="{{ site.github.url }}{{ post.url }}">
+              <img src="{{ site.github.url }}/{{ post.image }}">
+              {% capture url %}{{ site.siteurl }}{{ site.github.url }}{{ post.url }}{% endcapture %}
               {% assign disqusID = post.url %}
               {% if post.oldlink %}
                 {% capture url %}http://www.scottlogic.co.uk{{ post.oldlink }}{% endcapture %}
@@ -44,9 +44,9 @@
           {% assign offset = offset | plus: 2 %}
           {% for post in site.tags.featured limit:1 offset:offset %}
           <div>
-            <a href="{{ site.baseurl }}{{ post.url }}">
-              <img src="{{ site.baseurl }}/{{ post.image }}">
-              {% capture url %}{{ site.siteurl }}{{ site.baseurl }}{{ post.url }}{% endcapture %}
+            <a href="{{ site.github.url }}{{ post.url }}">
+              <img src="{{ site.github.url }}/{{ post.image }}">
+              {% capture url %}{{ site.siteurl }}{{ site.github.url }}{{ post.url }}{% endcapture %}
               {% assign disqusID = post.url %}
               {% if post.oldlink %}
                 {% capture url %}http://www.scottlogic.co.uk{{ post.oldlink }}{% endcapture %}
@@ -84,9 +84,9 @@
           {% assign offset = offset | plus: 1 %}
           {% for post in site.tags.featured limit:2 offset:offset %}
           <div>
-            <a href="{{ site.baseurl }}{{ post.url }}">
-              <img src="{{ site.baseurl }}/{{ post.image }}">
-              {% capture url %}{{ site.siteurl }}{{ site.baseurl }}{{ post.url }}{% endcapture %}
+            <a href="{{ site.github.url }}{{ post.url }}">
+              <img src="{{ site.github.url }}/{{ post.image }}">
+              {% capture url %}{{ site.siteurl }}{{ site.github.url }}{{ post.url }}{% endcapture %}
               {% assign disqusID = post.url %}
               {% if post.oldlink %}
                 {% capture url %}http://www.scottlogic.co.uk{{ post.oldlink }}{% endcapture %}

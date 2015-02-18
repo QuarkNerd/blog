@@ -7,7 +7,7 @@ layout: default
     <h1>
       {{ page.title }}
     </h1>
-  </header> 
+  </header>
   <aside class="span2 author">
     {% if page.author == "labs" %}
     {% else %}
@@ -15,9 +15,9 @@ layout: default
       {% if author.gravatar %}
       <img src="http://www.gravatar.com/avatar/{{ author.gravatar }}" alt="{{ author.name }}" class="img-circle hidden-small" />
       {% else %}
-      <img src="{{ site.baseurl }}/images/avatar.png" alt="{{ author.name }}" class="img-circle hidden-small" />
+      <img src="{{ site.github.url }}/images/avatar.png" alt="{{ author.name }}" class="img-circle hidden-small" />
       {% endif %}
-      <a class="authorName" href="{{ site.baseurl }}/{{ page.author }}"><span><span class="visible-small">by </span>{{ author.name }}</span></a>
+      <a class="authorName" href="{{ site.github.url }}/{{ page.author }}"><span><span class="visible-small">by </span>{{ author.name }}</span></a>
       {% if author.author-summary %}
       <div class="authorSummary hidden-small">{{ author.author-summary }}</div>
       {% endif %}
@@ -25,7 +25,7 @@ layout: default
         <strong>Published</strong>
         <div>{{ page.date | date: "%d %b %Y" }}</div>
       </div>
-      {% capture url %}{{ site.siteurl }}{{ site.baseurl }}{{ page.url }}{% endcapture %}
+      {% capture url %}{{ site.siteurl }}{{ site.github.url }}{{ page.url }}{% endcapture %}
       {% assign disqusID = page.url %}
       {% if page.oldlink %}
         {% capture url %}http://www.scottlogic.co.uk{{ page.oldlink }}{% endcapture %}
@@ -59,6 +59,6 @@ layout: default
         var disqus_url = '{{ url }}';
     {% endif %}
 </script>
-<script src="{{ site.baseurl }}/scripts/disqus-comment-thread.js"></script>
+<script src="{{ site.github.url }}/scripts/disqus-comment-thread.js"></script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>

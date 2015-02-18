@@ -3,19 +3,19 @@ id: 1554
 author: ceberhardt
 title: "Metro In Motion #8 - AutoCompleteBox Reveal Animation"
 oldlink: "/blog/colin/2011/06/metro-in-motion-8-autocompletebox-reveal-animation/"
-tags: 
+tags:
   - codeproject
   - metro
   - windows ph
   - codeproject
-categories: 
+categories:
   - ceberhardt
 layout: default_post
 source: wordpress
 ---
 <p>When I started the Metro In Motion series, I thought I would probably post three or four articles and be done. However, every time I use my Windows Phone 7 I seem to spot a new 'native' fluid UI effect which I would like to use in my own code. Also, these posts have proven very popular, there appears to be a real developer 'need' for this sort of information.</p>
 <p>In this instalment of Metro In Motion I will show how to implement the fluid auto-complete effect that can be seen in the Windows Phone 7 email client. You can see a 'storyboard' for this effect below; the items within the auto-complete popup slide gracefully into view when the popup initially renders:</p>
-<p><a href="{{ site.baseurl }}/archive/2011/06/AutoCompleteSlide.png"><img src="{{ site.baseurl }}/archive/2011/06/AutoCompleteSlide.png" alt="" title="AutoCompleteSlide" width="650" height="172" class="aligncenter size-full wp-image-1555" /></a></p>
+<p><a href="{{ site.github.url }}/archive/2011/06/AutoCompleteSlide.png"><img src="{{ site.github.url }}/archive/2011/06/AutoCompleteSlide.png" alt="" title="AutoCompleteSlide" width="650" height="172" class="aligncenter size-full wp-image-1555" /></a></p>
 <p>This effect uses the <code>AutoCompleteBox</code> which is part of the <a href="http://silverlight.codeplex.com/releases/view/60291">Silverlight for Windows Phone Toolkit</a>. I have implemented this effect as a Blend Behaviour, allowing it to be easily added to an AutoCompleteBox either via drag and drop within Expression Blend, or by simply adding the XAML below:</p>
 {% highlight xml %}
 <tk:AutoCompleteBox VerticalAlignment="Top"
@@ -127,7 +127,7 @@ private void Popup_Opened(object sender, System.EventArgs e)
 }
 {% endhighlight %}
 <p>The full sourcecode for this behaviour can be found in the <a href="http://wp7contrib.codeplex.com/">WP7Contrib project</a>, within the <code>WP7Contrib.View.Controls</code> assembly.</p>
-<p>You can download a simple working example here: <a href='{{ site.baseurl }}/archive/2011/06/MetroInMotionEight.zip'>MetroInMotionEight.zip</a></p>
+<p>You can download a simple working example here: <a href='{{ site.github.url }}/archive/2011/06/MetroInMotionEight.zip'>MetroInMotionEight.zip</a></p>
 <p>I have of course updated the Sandwich Flow, Metro In Motion demo application to include this effect. Again, this is available via the <a href="http://wp7contrib.codeplex.com/">WP7Contrib project</a>:</p>
 <p><iframe width="640" height="510" src="http://www.youtube.com/embed/TtVWLxDDhiE" frameborder="0" allowfullscreen></iframe></p>
 <p>Regards,Colin E.</p>

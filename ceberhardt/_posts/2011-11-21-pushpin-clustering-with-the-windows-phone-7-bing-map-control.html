@@ -3,12 +3,12 @@ id: 1845
 author: ceberhardt
 title: Pushpin Clustering with the Windows Phone 7 Bing Map control
 oldlink: "/blog/colin/2011/11/pushpin-clustering-with-the-windows-phone-7-bing-map-control/"
-tags: 
+tags:
   - Windows Phone 7
   - bing maps
   - blog
   - windowsphone
-categories: 
+categories:
   - ceberhardt
 layout: default_post
 source: wordpress
@@ -65,7 +65,7 @@ private void RenderPins()
       // add it to a cluster
       if (distance < DistanceThreshold)
       {
-        pinContainer.Merge(newPinContainer);            
+        pinContainer.Merge(newPinContainer);
         addNewPin = false;
         break;
       }
@@ -141,7 +141,7 @@ public class PushpinContainer
   public Point ScreenLocation { get; private set; }
 
   /// <summary>
-  /// Gets the visual representation of the contents of this container. If it is 
+  /// Gets the visual representation of the contents of this container. If it is
   /// a single pushpin, the pushpin itself is returned. If multiple pushpins are present
   /// a pushpin with the given clusterTemplate is returned.
   /// </summary>
@@ -161,7 +161,7 @@ public class PushpinContainer
         Background = new SolidColorBrush(Colors.Red)
       };
     }
-  }    
+  }
 }
 {% endhighlight %}
 <p>The <code>GetElement</code> method will either return the <code>Pushpin</code>, if it has not been clustered, or a new <code>Pushpin </code>with the <code>ClusterTemplate </code>applied. Note, the <code>Content</code> property of the clustered pin is a list of the <code>DataContext</code> properties of all the pins it 'contains'.</p>
@@ -189,5 +189,5 @@ private void Map_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
 }
 {% endhighlight %}
 <p>Let me know if you find this code useful, or you apply it in your application.</p>
-<p>You can download the full sourcecode here: <a href='{{ site.baseurl }}/archive/2011/11/MarkerClustering.zip'>MarkerClustering.zip</a></p>
+<p>You can download the full sourcecode here: <a href='{{ site.github.url }}/archive/2011/11/MarkerClustering.zip'>MarkerClustering.zip</a></p>
 <p>Regards, Colin E.</p>

@@ -3,11 +3,11 @@ id: 927
 author: ceberhardt
 title: Using a Grid as the Panel for an ItemsControl
 oldlink: "/blog/colin/2010/11/using-a-grid-as-the-panel-for-an-itemscontrol/"
-tags: 
+tags:
   - binding
   - ItemsControl
   - codeproject
-categories: 
+categories:
   - ceberhardt
 layout: default_post
 source: wordpress
@@ -80,7 +80,7 @@ private static void OnItemsPerRowPropertyChanged(DependencyObject d,
 <p>Note the use of a lambda expression for the event handler in order to 'capture' a reference to the Grid (as described in my previous blog post on <a href="http://www.scottlogic.co.uk/blog/colin/2010/07/exposing-and-binding-to-a-silverlight-scrollviewer%E2%80%99s-scrollbars/">binding the ScrollViewers offset properties</a>).</p>
 <p>Changing our markup to use the above attached property:</p>
 {% highlight xml %}
-<ItemsControl ItemsSource="{Binding}">  
+<ItemsControl ItemsSource="{Binding}">
   <ItemsControl.ItemsPanel>
     <ItemsPanelTemplate>
       <!-- use the ItemsPerRow attached property to dynamically add rows -->
@@ -96,7 +96,7 @@ private static void OnItemsPerRowPropertyChanged(DependencyObject d,
 </ItemsControl>
 {% endhighlight %}
 <p>The array of strings bound in code-behind results in the following grid layout being rendered:</p>
-<p><img src="{{ site.baseurl }}/archive/2010/11/gridOne.png" alt="" title="gridOne" width="105" height="93" class="aligncenter size-full wp-image-928" /></p>
+<p><img src="{{ site.github.url }}/archive/2010/11/gridOne.png" alt="" title="gridOne" width="105" height="93" class="aligncenter size-full wp-image-928" /></p>
 <p>Great, all fixed. Time to grab a coffee.</p>
 <p>Unfortunately it isn't that simple. The above example has a single item per grid row, typically you would want to have multiple items in each row, with each item positioned in a different column. This is where it gets tricky. DataTemplate only supports a single child element, so we will have to wrap the elements which we want to add into our grid in a panel of some sort. However, if we do this, the column index that we apply to the element of each row will be ignored because the Grid only honours the Row and Column properties of its direct descendants.</p>
 <h2>Creating a Row Template</h2>
@@ -169,9 +169,9 @@ private static void OnItemsPerRowPropertyChanged(DependencyObject d,
 <p>With the above code it is now possible to create a more complex grid layout:</p>
 {% highlight xml %}
 <StackPanel Orientation="Vertical">
-    
+
   <sdk:DataGrid ItemsSource="{Binding}" Margin="10"/>
-    
+
   <Border x:Name="LayoutRoot" Background="White"
         BorderBrush="Black" BorderThickness="1" Margin="10">
 
@@ -202,7 +202,7 @@ private static void OnItemsPerRowPropertyChanged(DependencyObject d,
 </StackPanel>
 {% endhighlight %}
 <p>The above XAML renders a list of simple model objects that implement INotifyPropertyChanged in a DataGrid and an ItemsControl (using our Grid layout). Notice that if you edit the properties of the bound objects via the DataGrid, these changes are reflected in the Grid below, i.e. it is all working!</p>
-<div style="text-align: center; "><object width="300" height="240" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/11/ItemsControlGrid.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div style="text-align: center; "><object width="300" height="240" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.github.url }}/archive/2010/11/ItemsControlGrid.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <h2>Handling CollectionChanged Events</h2>
 <p>The above example looks pretty complete, however there is one remaining issue, handling changes to the bound collection. The problem with the above solution is that it effectively subverts the ItemsControls usage of the ItemsPanel. The ItemsControl will expect that items that it adds to the Panel to appear at certain indices, by removing our phantom panels and adding their contente directly this is no longer the case. </p>
 <p>A simple hack (and yes, it really is a hack!) is to confuse the ItemsControl into thinking that any change to our bound collection is a reset, i.e. the collection has changed completely, so the UI needs to be rebuilt from scratch. To do this, I have created an attached ItemsSource property that adapts the bound collection, ensuring that any collection changes result in the ItemsControl rebuilding its UI. The changed handler for this attached property is given below:</p>
@@ -222,7 +222,7 @@ private static void OnItemsSourcePropertyChanged(DependencyObject d,
   if (notifyCollection != null)
   {
     // if a collection changed event occurs, reset the ItemsControl's
-    // ItemsSource, rebuilding the UI 
+    // ItemsSource, rebuilding the UI
     notifyCollection.CollectionChanged += (s, e2) =>
       {
         control.ItemsSource = null;
@@ -260,7 +260,7 @@ private static void OnItemsSourcePropertyChanged(DependencyObject d,
 </ItemsControl>
 {% endhighlight %}
 <p>And here it is with a DataGrid bound to the same data:</p>
-<div style="text-align: center; "><object width="300" height="380" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/11/ItemsControlGridTwo.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div style="text-align: center; "><object width="300" height="380" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.github.url }}/archive/2010/11/ItemsControlGridTwo.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <p>You can add, remove and update the bound objects and the Grid rendered via the ItemsControl remains synchronised with the bound data.</p>
 <h2>Conclusions</h2>
 <p>Finally, the ItemsControl and Grid can be used together, a cause for much rejoicing! I must admit, I am pretty pleased with my solution; however, it is far from perfect. There are a couple of areas of this implementation that you should be wary of.</p>
@@ -268,5 +268,5 @@ private static void OnItemsSourcePropertyChanged(DependencyObject d,
 <p>Secondly, adapting the ItemsSource to force a Reset whenever an items is added or removed is pretty costly!</p>
 <p>If you do not use the technique for rendering large quantities of data it will probably be just fine. It may be fine for large volumes of data also, however, it is always better to be aware of potential issue.</p>
 <p>If anyone has any ideas on how to improve on this technique, please leave a comment below:</p>
-<p>You can download the full project sourcecode: <a href='{{ site.baseurl }}/archive/2010/11/ItemsControlGrid.zip'>ItemsControlGrid.zip</a></p>
+<p>You can download the full project sourcecode: <a href='{{ site.github.url }}/archive/2010/11/ItemsControlGrid.zip'>ItemsControlGrid.zip</a></p>
 <p>Regards, Colin E.</p>

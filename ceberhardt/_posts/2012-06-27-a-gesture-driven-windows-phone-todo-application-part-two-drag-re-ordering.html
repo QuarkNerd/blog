@@ -3,12 +3,12 @@ id: 2209
 author: ceberhardt
 title: "A gesture-driven Windows Phone to-do application Part Two - drag re-ordering"
 oldlink: "/blog/colin/2012/06/a-gesture-driven-windows-phone-todo-application-part-two-drag-re-ordering/"
-tags: 
+tags:
   - WP7
   - gestures
   - blog
   - windowsphone
-categories: 
+categories:
   - ceberhardt
 layout: default_post
 source: wordpress
@@ -34,7 +34,7 @@ source: wordpress
     <Image x:Name="dragImage"
           VerticalAlignment="Top">
     </Image>
-        
+
     <!-- lower drop shadow -->
     <Rectangle Height="10"
                 VerticalAlignment="Bottom">
@@ -48,7 +48,7 @@ source: wordpress
         <TranslateTransform Y="10"/>
       </Rectangle.RenderTransform>
     </Rectangle>
-        
+
     <!-- upper drop shadow -->
     <Rectangle Height="10"
                VerticalAlignment="Top">
@@ -71,7 +71,7 @@ private void GestureListener_Hold(object sender, Microsoft.Phone.Controls.Gestur
 {
   _dragReOrder = true;
 
-  // copy the dragged item to our 'dragImage' 
+  // copy the dragged item to our 'dragImage'
   FrameworkElement draggedItem = sender as FrameworkElement;
   var bitmap = new WriteableBitmap(draggedItem, null);
   dragImage.Source = bitmap;
@@ -84,12 +84,12 @@ private void GestureListener_Hold(object sender, Microsoft.Phone.Controls.Gestur
 
   // fade out the list
   todoList.Animate(1.0, 0.7, FrameworkElement.OpacityProperty, 300, 0);
-      
+
   _initialDragIndex = _todoItems.IndexOf(((ToDoItem)draggedItem.DataContext));
 }
 {% endhighlight %}
 <p>The code above also hides the real object and offsets our 'fake' vertically so that it occupies the same position as the original. The list is also faded slightly to give a visual indication that the dragged item is now above the rest of the list:</p>
-<p><img src="{{ site.baseurl }}/archive/2012/06/holdToDrag.jpg" alt="" title="holdToDrag" width="450" height="382" class="aligncenter size-full wp-image-2210" /></p>
+<p><img src="{{ site.github.url }}/archive/2012/06/holdToDrag.jpg" alt="" title="holdToDrag" width="450" height="382" class="aligncenter size-full wp-image-2210" /></p>
 <h3>Dragging the item</h3>
 <p>In order to allow the user to support dragging of the item we also need to handle <code>ManipulationDelta </code>on the <code>Border </code>element, as shown below:</p>
 {% highlight xml %}
@@ -109,9 +109,9 @@ private void GestureListener_Hold(object sender, Microsoft.Phone.Controls.Gestur
                   GestureCompleted="GestureListener_GestureCompleted"
                   Flick="GestureListener_Flick"/>
       </toolkit:GestureService.GestureListener>
-              
+
       <Grid>
-        <!-- the todo item XAML from the previous blog post -->        
+        <!-- the todo item XAML from the previous blog post -->
       </Grid>
     </Border>
   </DataTemplate>
@@ -153,7 +153,7 @@ private int GetDragIndex()
 }
 
 private ScrollViewer _scrollViewer;
-    
+
 
 // gets the scrollviewer from the ItemsControl template
 private ScrollViewer VerticalScrollViewer
@@ -215,7 +215,7 @@ private void OffsetItem(double offset, FrameworkElement item)
   }
 }
 {% endhighlight %}
-<p><img src="{{ site.baseurl }}/archive/2012/06/drag.jpg" alt="" title="drag" width="300" height="545" class="aligncenter size-full wp-image-2211" /></p>
+<p><img src="{{ site.github.url }}/archive/2012/06/drag.jpg" alt="" title="drag" width="300" height="545" class="aligncenter size-full wp-image-2211" /></p>
 <h3>Completing the drag</h3>
 <p>When the user stops dragging the item, the <code>ManipulationCompleted</code> event is fired. Here we perform a number of tasks:</p>
 <ol><li>Fade the list back to full opacity</li>
@@ -234,7 +234,7 @@ private void Border_ManipulationCompleted(object sender, ManipulationCompletedEv
   _autoScrollTimer.Stop();
 
   int dragIndex = GetDragIndex();
-      
+
   // fade in the list
   todoList.Animate(null, 1.0, FrameworkElement.OpacityProperty, 200, 0);
 
@@ -288,7 +288,7 @@ private void AutoScrollList()
 }
 {% endhighlight %}
 <p>You can see the scroll zones illustrated below:</p>
-<p><img src="{{ site.baseurl }}/archive/2012/06/scrollZones.jpg" alt="" title="scrollZones" width="300" height="545" class="aligncenter size-full wp-image-2212" /></p>
+<p><img src="{{ site.github.url }}/archive/2012/06/scrollZones.jpg" alt="" title="scrollZones" width="300" height="545" class="aligncenter size-full wp-image-2212" /></p>
 <p>And finally, we are all done! With our todo application you can use flick and drag gestures to mark items as complete or delete them, and now use hold and drag to re-order. I think it's about time I made it so that you can add or edit items. We'll get to that next time!</p>
-<p>You can download the sourcecode here: <a href='{{ site.baseurl }}/archive/2012/06/ClearStyle1.zip'>ClearStyle.zip</a></p>
+<p>You can download the sourcecode here: <a href='{{ site.github.url }}/archive/2012/06/ClearStyle1.zip'>ClearStyle.zip</a></p>
 <p>Regards, Colin E.</p>
