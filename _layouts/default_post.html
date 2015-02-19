@@ -25,7 +25,7 @@ layout: default
         <strong>Published</strong>
         <div>{{ page.date | date: "%d %b %Y" }}</div>
       </div>
-      {% capture url %}{{ site.siteurl }}{{ site.github.url }}{{ page.url }}{% endcapture %}
+      {% capture url %}{{ site.github.url }}{{ page.url }}{% endcapture %}
       {% assign disqusID = page.url %}
       {% if page.oldlink %}
         {% capture url %}http://www.scottlogic.co.uk{{ page.oldlink }}{% endcapture %}
