@@ -17,24 +17,24 @@ To illustrate the difference, here are a couple of screen-captures of the two ap
 
 <table style='width: 100%; background-color: #b0b0b0; margin-bottom: 16px;'>
 <tr><td style='padding: 0 32px 0 8px; text-align: center;'>
-<p><a target='_blank' href='{{ site.baseurl }}/alee/assets/ionic-sorter/default-ionic.gif'>
- <img src='{{ site.baseurl }}/alee/assets/ionic-sorter/default-ionic.gif' />
+<p><a target='_blank' href='{{ site.github.url }}/alee/assets/ionic-sorter/default-ionic.gif'>
+ <img src='{{ site.github.url }}/alee/assets/ionic-sorter/default-ionic.gif' />
 </a></p>
-<p><a target='_blank' href='{{ site.baseurl }}/alee/assets/ionic-sorter/default-ionic.gif'>Click button to reorder</a></p>
+<p><a target='_blank' href='{{ site.github.url }}/alee/assets/ionic-sorter/default-ionic.gif'>Click button to reorder</a></p>
 </td><td style='padding: 0 8px 0 32px; text-align: center;'>
-<p><a target='_blank' href='{{ site.baseurl }}/alee/assets/ionic-sorter/new-sorter.gif'>
- <img src='{{ site.baseurl }}/alee/assets/ionic-sorter/new-sorter.gif' />
+<p><a target='_blank' href='{{ site.github.url }}/alee/assets/ionic-sorter/new-sorter.gif'>
+ <img src='{{ site.github.url }}/alee/assets/ionic-sorter/new-sorter.gif' />
 </a></p>
-<p><a target='_blank' href='{{ site.baseurl }}/alee/assets/ionic-sorter/new-sorter.gif'>Long-press to Reorder</a></p>
+<p><a target='_blank' href='{{ site.github.url }}/alee/assets/ionic-sorter/new-sorter.gif'>Long-press to Reorder</a></p>
 </td></tr></table>
 
 You can also try both versions for yourself here (looks best in a narrow window like a phone):
 
 <table style='width: 100%; margin-bottom: 16px;'>
 <tr><td style='padding: 0 32px 0 8px; text-align: center;'>
-<a target='_blank' href='{{ site.baseurl }}/alee/assets/ionic-sorter/default/index.html'>Click button to reorder</a>
+<a target='_blank' href='{{ site.github.url }}/alee/assets/ionic-sorter/default/index.html'>Click button to reorder</a>
 </td><td style='padding: 0 8px 0 32px; text-align: center;'>
-<a target='_blank' href='{{ site.baseurl }}/alee/assets/ionic-sorter/new/index.html'>Long-press to Reorder</a>  
+<a target='_blank' href='{{ site.github.url }}/alee/assets/ionic-sorter/new/index.html'>Long-press to Reorder</a>  
 </td></tr></table>
 
 I spent some time searching for other options for re-ordering lists - there a few that support touch. However, they all start the re-order operation on a touch-down event, rather than a long press. That wouldn't work in this case, because the list also needs to scroll using touch.

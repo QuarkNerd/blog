@@ -15,7 +15,7 @@ Having recently dipped my toe into the world of functional programming with both
 
 ## And so it begins ##
 
-![Missing jigsaw piece]({{ site.baseurl }}/hpowell/assets/MissingPiece.jpg)
+![Missing jigsaw piece]({{ site.github.url }}/hpowell/assets/MissingPiece.jpg)
 
 Having spent more man hours than I care to think about debugging multi-threaded programs that shared state I started looking for ways to reduce these problems and get back to developing code rather than debugging it.  I quickly discovered Clojure and was intrigued by its purported elegance and simplicity and have been dabbling in it for the last 6 months or so.  I've also recently joined a MOOC, along with some of the other developers in the Edinburgh office, on functional programming in Scala.  Now that I'm half way through the course I thought I'd do a quick compare and contrast of the major similarities and differences I've found between the languages.
 
@@ -24,7 +24,7 @@ To start with I'm going to define a functional programming language simply as on
 
 ## Some things are the same... ##
 
-![Four yachts in a line]({{ site.baseurl }}/hpowell/assets/Yacht.jpg)
+![Four yachts in a line]({{ site.github.url }}/hpowell/assets/Yacht.jpg)
 
 Firstly I'm going to take a look at what I've found to be the most important similarities between the two languages.  The first two points apply to (almost?) all modern functional programming languages with the final one not being just limited to Scala and Clojure.
 
@@ -39,7 +39,7 @@ Java has been around for the best part of 20 years, in which time it has become 
 
 ## ... some not so much ##
 
-![Geese, one looking backwards]({{ site.baseurl }}/hpowell/assets/Geese.jpg)
+![Geese, one looking backwards]({{ site.github.url }}/hpowell/assets/Geese.jpg)
 
 Now that we've seen some of the similarities between the languages lets take a look at what distinguishes them from each other.
 

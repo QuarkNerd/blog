@@ -19,7 +19,7 @@ The fund screener is an example of Scott Logic's innovative application of visua
 
 The Fund Screener is a dynamic filtering tool intended to facilitate the selection and analysis of funds. It is based around an adaptation of Moritz Stefaner's Elastic Lists concept, implemented entirely in HTML and JavaScript.
 
-![Fund Screener]({{ site.baseurl }}/labs/assets/fund_screener.png)
+![Fund Screener]({{ site.github.url }}/labs/assets/fund_screener.png)
 
 The fundamental concept behind Elastic Lists is that the filter criteria always reflect the current result set; whenever selections are made, all the criteria update to reflect the new result set. Each criterion is divided into categories. The count on the right-hand side of each category shows how many funds fall into that category. Furthermore the size of a category represents the proportion of funds that fall in a category, so that distributions across categories become immediately apparent.
 

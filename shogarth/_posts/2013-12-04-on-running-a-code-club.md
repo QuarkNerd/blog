@@ -9,7 +9,7 @@ summary: "Scott Logic have been helping out with a Code Club at a local primary 
 ---
 Since September, a colleague (Pat Armstrong) and I have been taking part in a local school's after-school [Code Club](https://www.codeclub.org.uk/), [backed by Scott Logic](http://www.scottlogic.com/news/20131203-certificates-awarded-to-code-club-whiz-kids/). This is a nationwide, non-governmental initiative to aid children, aged 9-11, to learn programming. It's operated purely on a voluntary basis and is free for a school, library or community centre to set up. In this post, I'd like to discuss my personal experiences from the initiative and provide some tips I found useful during the sessions.
 
-<img src="{{ site.baseurl }}/shogarth/assets/code-club-west-jesmond-primary-school.jpg"/>
+<img src="{{ site.github.url }}/shogarth/assets/code-club-west-jesmond-primary-school.jpg"/>
 
 ## What is Code Club?
 
@@ -40,7 +40,7 @@ Code Club can be hard work, so take a step back and enjoy it! Give the students 
 
 Programs in Scratch are created by dragging and dropping 'blocks' of functionality into a stage. The shape of a block affords its function - iterative and conditional blocks literally enclose their contents. That way it's easy to see exactly what code will be executed under certain conditions. Interactive components, known as sprites, are added to a stage. These can be styled with 'costumes', respond to messages and events (such as mouse clicks) and can contain their own scripts.
 
-<img src="{{ site.baseurl }}/shogarth/assets/scratch.png"/>
+<img src="{{ site.github.url }}/shogarth/assets/scratch.png"/>
 
 Scratch comes in two forms, both of which are available for free online. Version one is a desktop application and version two is both a desktop and web application. Scratch 2 also has some new features that the Code Club material doesn't cover, such as function blocks'. There's an ongoing effort to [convert the lessons to Scratch 2 over on GitHub](https://github.com/CodeClub/scratch-curriculum/issues/37), should you wish to help out. Until the Scratch 2 conversion has finished, I advise sticking to Scratch 1.4 as there are some subtle differences between the two platforms.
 

@@ -19,11 +19,11 @@ The application is implemented entirely in HTML and JavaScript to provide a smal
 
 Stock Screener is an HTML5 application that allows users to filter and analyse our UK equity data based on key metrics. By default the full data set is used for filtering, but this can be limited to particular sectors if required. The filter criteria are set either by entering explicit values or by using the sliders on the criterion's distribution chart. The distribution charts are simple histograms of the criterion values for the entire data set, thereby presenting additional contextual information to aid analysis.
 
-![Stock Screener]({{ site.baseurl }}/labs/assets/stock_screener.png)
+![Stock Screener]({{ site.github.url }}/labs/assets/stock_screener.png)
 
 Criteria can be added, removed and re-ordered, using drag and drop when supported by the browser, to ensure users can choose the exact filter configuration they require. An annotated funnel chart beside the filter criteria inputs shows the effect successive criteria have on the size of the filtered data set.
 
-![Stock Screener]({{ site.baseurl }}/labs/assets/stock_screener_criteria.png)
+![Stock Screener]({{ site.github.url }}/labs/assets/stock_screener_criteria.png)
 
 The screener results are presented in a sortable table, which if required can be exported to Excel for further manipulation and analysis. The application also allows users to convert results into custom portfolios which can subsequently be revisited and monitored. Stocks can be added and removed from portfolios, using drag and drop when supported by the browser and portfolios can easily be created and deleted.
 

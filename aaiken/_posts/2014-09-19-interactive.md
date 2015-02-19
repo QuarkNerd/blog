@@ -9,10 +9,10 @@ categories:
   - aaiken
 layout: default_post
 ---
-<link rel="stylesheet" href="{{ site.baseurl }}/aaiken/assets/interactive/style/style.css" />
-<script src="{{ site.baseurl }}/aaiken/assets/interactive/js/require.config.js">
+<link rel="stylesheet" href="{{ site.github.url }}/aaiken/assets/interactive/style/style.css" />
+<script src="{{ site.github.url }}/aaiken/assets/interactive/js/require.config.js">
 </script>
-<script data-main="{{ site.baseurl }}/aaiken/assets/interactive/js/Chart.js" src="{{ site.baseurl }}/aaiken/assets/interactive/js/lib/require.js">
+<script data-main="{{ site.github.url }}/aaiken/assets/interactive/js/Chart.js" src="{{ site.github.url }}/aaiken/assets/interactive/js/lib/require.js">
 </script>
 
 Recently I've been looking at various D3 components, which has been a fun project. I haven't yet had the chance to develop an interactive, dynamic component though, which has meant that the resulting charts have been sadly static. For this article I wanted to use what I've learned to build a fully interactive chart - something that wouldn't look out of place on a financial app.
@@ -38,7 +38,7 @@ The main chart is also interactive. You can:
 
 As you can see, the navigation viewport automatically adjusts its size and position to match the data shown in the main chart when you pan or zoom.
 
-Note: As with my previous D3 posts, my starting point for this work was the chart Tom developed in his article on [OHLC and candlestick components](http://www.scottlogic.com/blog/2014/08/19/an-ohlc-chart-component-for-d3.html) - you'll see that I'm using his candlestick chart here.
+Note: As with my previous D3 posts, my starting point for this work was the chart Tom developed in his article on [OHLC and candlestick components]({{ site.github.url }}/2014/08/19/an-ohlc-chart-component-for-d3.html) - you'll see that I'm using his candlestick chart here.
 
 ## Putting it Together
 

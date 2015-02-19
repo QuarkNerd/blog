@@ -4,7 +4,7 @@ title: "A piecemeal approach to introducing Agile"
 layout: default_post
 summary: "One of the common ways of introducing Agile is to incrementally move the current process to a more Agile one. Here I take a look at the strengths and weakness of this approach."
 ---
-In my <a href="{{site.baseurl}}{% post_url 2014-08-04-introducing-agile-development-to-client-projects %}">previous post</a> I looked at why I think we should be transitioning our clients to Agile. Having decided that we want to help our clients work in an Agile way, the next thing to look at is how we approach this.
+In my <a href="{{site.github.url}}{% post_url 2014-08-04-introducing-agile-development-to-client-projects %}">previous post</a> I looked at why I think we should be transitioning our clients to Agile. Having decided that we want to help our clients work in an Agile way, the next thing to look at is how we approach this.
 
 My first instinct when thinking about introducing Agile is to take it step by step, introducing new technical practices and process improvements as they are needed. Continuous and incremental improvement has always been a key part of Agile, so extending this to introducing Agile seems to make perfect sense.
 
@@ -40,4 +40,4 @@ This approach has had mixed results. Progress can sometimes feel slow, but this 
 
 On the plus side this approach allows projects to progress effectively whilst the transition occurs. The clients with whom we’ve tried this have always been incredibly happy with the work we’ve done, and the new practices we’ve introduced. There is often a recognition that we are introducing a better way of working, even if there is not a clear desire to push us to follow it through.
 
-So whilst this approach is effective, and keeps our clients happy, there is a nagging feeling that more could be done. <a href="{{site.baseurl}}{% post_url 2014-08-18-introducing-agile-upfront %}">Next time</a> I'll look at an alternative approach which might have better results.
+So whilst this approach is effective, and keeps our clients happy, there is a nagging feeling that more could be done. <a href="{{site.github.url}}{% post_url 2014-08-18-introducing-agile-upfront %}">Next time</a> I'll look at an alternative approach which might have better results.

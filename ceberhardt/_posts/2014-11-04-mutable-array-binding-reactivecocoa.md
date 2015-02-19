@@ -5,7 +5,7 @@ layout: default_post
 summary: "This post describes a binding helper that allows you to bind arrays directly to table views with ReactiveCocoa. In this update to my previous post, the helper is extended to support mutable arrays."
 ---
 
-A few months ago I wrote a wrote about a utility class that allows you to [bind ReactiveCocoa view models to table views](http://www.scottlogic.com/blog/2014/05/11/reactivecocoa-tableview-binding.html). With this binding helper, each item in the view model array is automatically bound to a cell. The binding helper also automatically updates the table view if the array property on the view model is updated.
+A few months ago I wrote a wrote about a utility class that allows you to [bind ReactiveCocoa view models to table views]({{ site.github.url }}/2014/05/11/reactivecocoa-tableview-binding.html). With this binding helper, each item in the view model array is automatically bound to a cell. The binding helper also automatically updates the table view if the array property on the view model is updated.
 
 Since publishing this binding helper, I've had  number of people ask me how to handle view model properties which are mutable arrays. This presents a bit of a problem; you can certainly use the binding helper with `NSMutableArray` properties, however, there is no way to observe an array for changes, making it impossible to know when to update the UI.
 
@@ -17,7 +17,7 @@ This example shows how the binding helper can be used to render a dynamic list o
 
 Here's the example in action:
 
-<img src="{{ site.baseurl }}/ceberhardt/assets/quotes.gif"></img>
+<img src="{{ site.github.url }}/ceberhardt/assets/quotes.gif"></img>
 
 The view model for this application is very simple, each item within the list is backed by the following view model:
 

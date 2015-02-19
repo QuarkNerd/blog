@@ -122,7 +122,7 @@ effectively could remove multiple round trips to the server.
 
 ![Comparison of time to fetch HTTP resources][6]
 
-[6]: <{{site.baseurl}}/wreilly/assets/http2/http-timing-diagram.png>
+[6]: <{{site.github.url}}/wreilly/assets/http2/http-timing-diagram.png>
 
 This may also lead to additional optimizations, as the server has the best
 information about which resources are the most important, even more so than the

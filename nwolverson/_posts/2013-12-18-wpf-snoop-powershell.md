@@ -25,11 +25,11 @@ For the purpose of this
 article I constructed an extremely simple WPF application containing only a button. After attaching Snoop I selected the button's  content TextBlock
 in the element tree, giving a "selection" box around it in the application:
 
-![WPF example application]({{ site.baseurl }}/nwolverson/assets/snoop/window-snooped.png)
+![WPF example application]({{ site.github.url }}/nwolverson/assets/snoop/window-snooped.png)
 
 The corresponding Snoop properties window then looks like this:
 
-![Snoop properties window]({{ site.baseurl }}/nwolverson/assets/snoop/snoop-properties.png)
+![Snoop properties window]({{ site.github.url }}/nwolverson/assets/snoop/snoop-properties.png)
 
 This properties window gives us the opportunity to change all sorts of visual aspects (hiding elements by collapsing their visibility,
 changing colours and tweaking layout margins), and drill down into the UI structure (as well as the corresponding DataContext).
@@ -85,7 +85,7 @@ Delete-Visual($selected)
 
 And voila (note that the Snoop tree view needs to be refreshed to reflect the updated UI):
 
-![Snoop after deleting item]({{ site.baseurl }}/nwolverson/assets/snoop/snoop-ps-deleted.png)
+![Snoop after deleting item]({{ site.github.url }}/nwolverson/assets/snoop/snoop-ps-deleted.png)
 
 ## Add visual
 
@@ -265,15 +265,15 @@ function Add-Visual([string]$xaml, $root = $selected.visual) {
 
 We can then run the `Set-ContextMenu` command in the PS console to apply the context menu to the Snoop tree view:
 
-![Our context menu]({{ site.baseurl }}/nwolverson/assets/snoop/set-contextmenu.png)
+![Our context menu]({{ site.github.url }}/nwolverson/assets/snoop/set-contextmenu.png)
 
 This opens an editing window:
 
-![Enter XAML]({{ site.baseurl }}/nwolverson/assets/snoop/snoop-enter-xaml.png)
+![Enter XAML]({{ site.github.url }}/nwolverson/assets/snoop/snoop-enter-xaml.png)
 
 And updates the snooped application:
 
-![Enter XAML here displayed]({{ site.baseurl }}/nwolverson/assets/snoop/snoop-enter-xaml-here-button.png)
+![Enter XAML here displayed]({{ site.github.url }}/nwolverson/assets/snoop/snoop-enter-xaml-here-button.png)
 
 ## A final tip
 

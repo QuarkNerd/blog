@@ -20,7 +20,7 @@ What truly matters is the impact this has on developers and product owners. Frag
 
 With such a wide variety of devices, how is it possible to make sure your app looks great everywhere? The solution is to design with this in mind. Responsive design involves adapting the UI such that it is optimized for the user’s advice. Layouts displayed individually on a phone may be combined into a multi-column layout on tablets. Adaptations apply at the micro level too, with flexible margins for content to scale and fit a new boundary, and images displaying at an appropriate resolution.
 
-<img src="{{ site.baseurl }}/shogarth/assets/responsive_android_layout.png"/>
+<img src="{{ site.github.url }}/shogarth/assets/responsive_android_layout.png"/>
 
 Android supports, indeed encourages, this style of design. Images, layouts, colours and strings are all loaded dynamically. Apps can therefore provide multiple versions of an asset for different situations and let the system choose the most appropriate resource, based upon the device configuration. It’s possible to load a resource based on screen size, OS version, screen orientation, language - or a combination of these!
 
@@ -73,4 +73,4 @@ Fragmentation is a feature with bugs. There is a wealth of support available to 
 When fragmentation issues do pop up, a tailored cost-benefit analysis approach must be taken to ensure that the right decision is taken. Factor into analyses the time involved to fix an issue, versus the amount of affected devices and the impact of the fix.
 
 Android embraces fragmentation. You should too! A more open operating system results in more innovation and a wide uptake of devices. Embracing fragmentation means your application is ready to handle whatever device the market produces, and works to a high degree of quality. Maximising the amount of devices your application is compatible with ensures you are well-placed in an increasingly lucrative marketplace.
-<a href="http://www.shinobicontrols.com/android"><img src="{{ site.baseurl }}/shogarth/assets/shinobi_android_ad.jpg"/></a>
+<a href="http://www.shinobicontrols.com/android"><img src="{{ site.github.url }}/shogarth/assets/shinobi_android_ad.jpg"/></a>

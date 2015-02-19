@@ -12,12 +12,12 @@ summary: >
     new compiler and language services API to facilitate better tool support. Here I'll give a brief introduction with some
     pointers on places to get started.
 ---
-<script src="{{ site.baseurl }}/nwolverson/assets/tsc/highlight.pack.js"> </script>
+<script src="{{ site.github.url }}/nwolverson/assets/tsc/highlight.pack.js"> </script>
 
 <style type="text/css">
     @import url("http://www.fssnip.net/Content/style.css");
-    @import url("{{ site.baseurl }}/nwolverson/assets/tsc/vs.css");
-    @import url("{{ site.baseurl }}/nwolverson/assets/tsc/tsblog.css");
+    @import url("{{ site.github.url }}/nwolverson/assets/tsc/vs.css");
+    @import url("{{ site.github.url }}/nwolverson/assets/tsc/tsblog.css");
     <!-- -->
 </style>
 
@@ -28,13 +28,13 @@ summary: >
 <script src="http://www.fssnip.net/Content/tips.js">
 <!-- maruku :( -->
 </script>
-<script src="{{ site.baseurl }}/nwolverson/assets/tsc/typescriptServices.js">
+<script src="{{ site.github.url }}/nwolverson/assets/tsc/typescriptServices.js">
 <!-- maruku :( -->
 </script>
-<script src="{{ site.baseurl }}/scripts/jquery-1.9.1.js">
+<script src="{{ site.github.url }}/scripts/jquery-1.9.1.js">
 <!-- not loaded (yet)? -->
 </script>
-<script src="{{ site.baseurl }}/nwolverson/assets/tsc/blog.js">
+<script src="{{ site.github.url }}/nwolverson/assets/tsc/blog.js">
 <!-- maruku :( -->
 </script>
 
@@ -59,7 +59,7 @@ At some point last year I wanted to write some TypeScript in a web page, so I lo
 <div class="tip" id="fst1">val factorial : int -&gt; int<br /><br />Full name: Test.factorial<br /></div>
 <div class="tip" id="fst2">val n : int<br /><br />&#160;&#160;type: int<br />&#160;&#160;implements: System.IComparable<br />&#160;&#160;implements: System.IFormattable<br />&#160;&#160;implements: System.IConvertible<br />&#160;&#160;implements: System.IComparable&lt;int&gt;<br />&#160;&#160;implements: System.IEquatable&lt;int&gt;<br />&#160;&#160;inherits: System.ValueType<br /></div>
 
-![Tooltip screenshot]({{site.baseurl}}/nwolverson/assets/tsc/fs-tooltip.png) Tooltip appearing on mouseover.
+![Tooltip screenshot]({{site.github.url}}/nwolverson/assets/tsc/fs-tooltip.png) Tooltip appearing on mouseover.
 
 A basic implementation of the tooltip type-display idea is available [on my github](https://github.com/nwolverson/tstooltip), but for the purpose of this blog we will simplify the goal to get a list of identifiers and types in a sample program. Another notable simplification is that that project makes use of web workers to perform the actual parsing - running the TypeScript compiler in the browser can be slow and will lock up the page.
 
@@ -75,7 +75,7 @@ The end result is something like the following (live example, mouse over an iden
     }
 }</code></pre>
 
-![Tooltip screenshot]({{site.baseurl}}/nwolverson/assets/tsc/ts-tooltip.png) Tooltip appearing on mouseover.
+![Tooltip screenshot]({{site.github.url}}/nwolverson/assets/tsc/ts-tooltip.png) Tooltip appearing on mouseover.
 
 #### Getting Started
 The APIs described here are part of the TypeScript compiler 1.4 release, which you can grab from [npm](https://www.npmjs.com/package/typescript) or [with VS tools](https://visualstudiogallery.msdn.microsoft.com/2d42d8dc-e085-45eb-a30b-3f7d50d55304).

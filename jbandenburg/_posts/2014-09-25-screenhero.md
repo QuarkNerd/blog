@@ -8,7 +8,7 @@ layout: default_post
 
 In this blog post, I talk about my team’s journey from traditional “pass me the keyboard and mouse” pair programming to use of Screenhero for IDE sharing both within the office and remotely.
 
-![Our desks]({{ site.baseurl }}/jbandenburg/assets/screenhero-empty-desks.jpg)
+![Our desks]({{ site.github.url }}/jbandenburg/assets/screenhero-empty-desks.jpg)
 
 I work in a team practising Agile development (we use Scrum as our process framework). Some way into the project, the subject of [pair programming](http://en.wikipedia.org/wiki/Pair_programming) came up in a retrospective and we decided to try it, as we believed it could improve code quality and knowledge sharing. We resolved to pair for at least two hours every day and posted this resolution in big, bold letters on our team wall.
 
@@ -56,7 +56,7 @@ Ultimately, we still weren’t satisfied with the experience and continued searc
 
 ## Screenhero
 
-[![Screenhero]({{ site.baseurl }}/jbandenburg/assets/screenhero-logo-rgb.png)](https://screenhero.com/)
+[![Screenhero]({{ site.github.url }}/jbandenburg/assets/screenhero-logo-rgb.png)](https://screenhero.com/)
 
 Screenhero is a tool that allows one party to share their screen, keyboard input, and mouse cursor with another party. It also supports remote pairing through VoIP and instant messaging (we found remote working just as productive as us both being in the office).
 

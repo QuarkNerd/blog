@@ -44,7 +44,7 @@ This will cause the posts to be divided into pages and made accessible via the `
 {％ for post in paginator.posts ％}
   <article>
     <header>
-      <h2><a href="{{ site.siteurl }}{{ post.url }}">{{ post.title }}</a></h2>
+      <h2><a href="{{ site.scottlogic.url }}{{ post.url }}">{{ post.title }}</a></h2>
       <h5>{{ post.date | date: "%d %b %Y" }}</h5>
       <p>{{ post.content | truncatewords:50 | strip_html }}</p>
     </header>
@@ -54,7 +54,7 @@ This will cause the posts to be divided into pages and made accessible via the `
 
 Generating your site using the pagination option results in Jekyll creating multiple copies of the index page, each containing the posts for the given page. The first page, `index.html` resides in the usual location, whereas subsequent pages reside in numbered sub-folders starting at `page2`:
 
-<img src="{{ site.baseurl }}/ceberhardt/assets/JekyllPagination.png"></img>
+<img src="{{ site.github.url }}/ceberhardt/assets/JekyllPagination.png"></img>
 
 This slightly peculiar structure makes the next part a little more tricky ...
 
@@ -67,9 +67,9 @@ The `paginator` object contains various other properties that can be used to ren
   {％ if paginator.previous_page ％}
     <!-- special case the second page to link back to index.html -->
     {％ if paginator.page == 2 ％}
-      <a href="{{ site.siteurl }}/">&laquo; Prev</a>
+      <a href="{{ site.scottlogic.url }}/">&laquo; Prev</a>
     {％ else ％}
-      <a href="{{ site.siteurl }}/page{{ paginator.previous_page }}/">&laquo; Prev</a>
+      <a href="{{ site.scottlogic.url }}/page{{ paginator.previous_page }}/">&laquo; Prev</a>
     {％ endif ％}    
   {％ else ％}
     <!-- if no 'previous' pages exit, render a span rather than an anchor -->
@@ -77,7 +77,7 @@ The `paginator` object contains various other properties that can be used to ren
   {％ endif ％}
 
   {％ if paginator.next_page ％}    
-    <a class='next' href="{{ site.siteurl }}/page{{ paginator.next_page }}/">Next &raquo;</a>
+    <a class='next' href="{{ site.scottlogic.url }}/page{{ paginator.next_page }}/">Next &raquo;</a>
   {％ else ％}
     <!-- if no 'next' pages exit, render a span rather than an anchor -->
     <span class='next'>Next &raquo;</span>

@@ -12,7 +12,7 @@ One of many new features that was introduced with iOS 7 is custom view controlle
 
 In this blog post I'll look at how to implement a custom 'flip' animation which gives the impression of turning a page: 
 
-<img src="{{ site.baseurl }}/ceberhardt/assets/CustomVCTransitions/FlipViewControllerAnimationSmall.png"/>
+<img src="{{ site.github.url }}/ceberhardt/assets/CustomVCTransitions/FlipViewControllerAnimationSmall.png"/>
 
 You can find the full sourcecode for this custom animation on github, in a project called [VCTransitionsLibrary](https://github.com/ColinEberhardt/VCTransitionsLibrary), which is a collection of different animations and interaction controllers.
 
@@ -143,7 +143,7 @@ Notice that the to- view is rotated to 90 degrees, meaning that it will not be v
 
 The result of these transforms is shown below:
 
-<img src="{{ site.baseurl }}/ceberhardt/assets/CustomVCTransitions/Flip.png"/>
+<img src="{{ site.github.url }}/ceberhardt/assets/CustomVCTransitions/Flip.png"/>
 
 ## Animating
 
@@ -237,7 +237,7 @@ flippedSectionOfToViewShadow.alpha = 0.0;
 
 The alpha values above just need to be updated within the keyframes of the animation, to give a lovely gradient effect:
 
-<img src="{{ site.baseurl }}/ceberhardt/assets/CustomVCTransitions/FlipWithShadow.png"/>
+<img src="{{ site.github.url }}/ceberhardt/assets/CustomVCTransitions/FlipWithShadow.png"/>
 
 ##Done!!!
 
