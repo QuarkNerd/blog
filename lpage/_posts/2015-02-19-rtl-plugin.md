@@ -7,7 +7,7 @@ categories:
 tags: 
 layout: default_post
 ---
-I mentioned in the previous post that I would create a plugin for less which converted from ltr to rtl. Here is a tutorial post on creating that plugin.
+I mentioned in the previous post that I would create a plugin for less which converted from LTR to RTL. Here is a tutorial post on creating that plugin.
 
 ## Setting the project up
 
@@ -144,9 +144,9 @@ The next job is to reverse properties like `margin-left` to `margin-right`. For 
 
 Unfortunately at the moment there is no way to clone a node and change just what you need, but it is something I will need to add in the future. See the full commit [here](https://github.com/less/less-plugin-rtl/commit/23b2e72cb75d6b81070fd9cbadfcfa9a8331ab6f).
 
-## Reversing Shorthands
+## Reversing Shorthand Properties
 
-Next, we want to reverse shorthands. So for instance this is all the shorthands for margin.
+Next, we want to reverse shorthand properties. So for instance this is all the shorthands for margin.
 {% highlight css %}
 .reverse {
   @top: 1px;
@@ -202,10 +202,10 @@ RTLVariablePlugin.prototype.process = function(src, extra) {
 };
 {% endhighlight %}
 
-We update the contentsIgnoredChars in order that the sourcemap offset is correctly updated. You can see this commit [here](fd1cf38e3be17241aecedd334b5e0ae8350e396d). Finally, since we have a variable we probably want to run the plugin whether we are producing LTR or RTL, so finally we [add some options and update the readme](259adba62b388302c9d6442d92f360dcf4b03fb7).
+We update the contentsIgnoredChars in order that the sourcemap offset is correctly updated. You can see this commit [here](https://github.com/less/less-plugin-rtl/commit/fd1cf38e3be17241aecedd334b5e0ae8350e396d). Finally, since we have a variable we probably want to run the plugin whether we are producing LTR or RTL, so finally we [add some options and update the readme](https://github.com/less/less-plugin-rtl/commit/259adba62b388302c9d6442d92f360dcf4b03fb7).
 
 ## Conclusion
 
-I have no doubt there are CSS rules I have missed, but I hope this takes some of the mystery out of less and creates something that with a little bit of polishing and bugfixing can be a useful plugin.
+I have no doubt there are CSS rules I have missed, but I hope this takes some of the mystery out of less and creates something that with a little bit of polishing and bug-fixing can be a useful plugin.
 
-There is also a change we need to make soon which makes extensions like this easier. At the moment comment nodes are added as nodes to the AST, which means that the code that reverses shorthands might not always work if there is a comment in the middle of the value. We need to move comments and whitespace inside the nodes and then create a better mechanism for cloning so that plugins can be forward compatible. Its also clear there is boiler plate code in this plugin that could be taken back into the less project, when someone has time.
+There is also a change we need to make soon which makes extensions like this easier. At the moment comment nodes are added as nodes to the AST, which means that the code that reverses shorthands might not always work if there is a comment in the middle of the value. We need to move comments and white-space inside the nodes and then create a better mechanism for cloning so that plugins can be forward compatible. Its also clear there is boiler plate code in this plugin that could be taken back into the less project, when someone has time.
