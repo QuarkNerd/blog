@@ -10,8 +10,8 @@
     {% assign description = site.description %}
     {% endif %}
     <description><![CDATA[{{ description }}]]></description>
-    <link>{{ site.siteurl}}{{ site.baseurl }}{% if page.author %}/{{ page.author }}{% endif %}</link>
-    <atom:link href="{{ site.baseurl }}{% if page.author %}/{{ page.author }}{% endif %}/feed.xml" rel="self" type="application/rss+xml" />
+    <link>{{ site.github.url }}{% if page.author %}/{{ page.author }}{% endif %}</link>
+    <atom:link href="{{ site.github.url }}{% if page.author %}/{{ page.author }}{% endif %}/feed.xml" rel="self" type="application/rss+xml" />
     <language>en-us</language>
     <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
     <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
@@ -29,7 +29,7 @@
         <author>{% if author.email %}{{ author.email }} ({{ author.name }}){% else %}{{ author.name }}{% endif %}</author>
         <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
         <description><![CDATA[{% if post.summary %}{{ post.summary }}{% else %}{{ post.content | truncatewords:50 | strip_html }}{% endif %}]]></description>
-        <link>{{ site.siteurl}}{{ site.baseurl }}{{ post.url }}</link>
+        <link>{{ site.github.url }}{{ post.url }}</link>
         <guid isPermaLink="false">{{ post.url }}</guid>
         {% for category in post.categories %}
         <category><![CDATA[{{ category }}]]></category>
