@@ -113,7 +113,7 @@ For example, take this excerpt from [an article by Rachel Andrew](http://alistap
 
 *The blue text inherently stands out to us*
 
-Because our seeing similarly coloured elements as being part of a group (see the [Gestalt Principles](http://en.wikipedia.org/wiki/Gestalt_psychology#Gestalt_laws_of_grouping), for more, the Head of UX Practice at Scott Logic Graham Odds’ [presentation on data visualisation](http://www.scottlogic.com/blog/2013/08/09/the-science-behind-data-visualisation.html)), we see the blue text ‘Cascading To Do List’ as inherently different from the surrounding text.  This difference draws our attention, signifying that there may be something functionally different about it.  If we move our cursor over this blue text, we trigger more actions:
+Because our seeing similarly coloured elements as being part of a group (see the [Gestalt Principles](http://en.wikipedia.org/wiki/Gestalt_psychology#Gestalt_laws_of_grouping), for more, the Head of UX Practice at Scott Logic Graham Odds’ [presentation on data visualisation]({{ site.github.url }}/2013/08/09/the-science-behind-data-visualisation.html)), we see the blue text ‘Cascading To Do List’ as inherently different from the surrounding text.  This difference draws our attention, signifying that there may be something functionally different about it.  If we move our cursor over this blue text, we trigger more actions:
 
 <img src="{{ site.github.url }}/sduncan/assets/2014-02-04-intro-to-ixd/underline.png" alt="underlined link" class="aligncenter" />
 

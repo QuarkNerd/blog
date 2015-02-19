@@ -12,7 +12,7 @@ featured-overlay-inverted: true
 suppress-careers-add: true
 ---
 
-I've always been very keen on the Model-View-ViewModel (MVVM) UI design pattern, ever since I first encountered it whilst developing WPF and Silverlight ([RIP](http://www.scottlogic.com/blog/2011/11/14/the-untimely-demise-of-the-plugin-and-how-lob-developments-will-suffer.html)) applications. As a result I've been quick to adopt frameworks in other languages / technologies that provide an implementation of the MVVM pattern, such as [KnockoutJS](http://www.codeproject.com/Articles/365120/KnockoutJS-vs-Silverlight).
+I've always been very keen on the Model-View-ViewModel (MVVM) UI design pattern, ever since I first encountered it whilst developing WPF and Silverlight ([RIP]({{ site.github.url }}/2011/11/14/the-untimely-demise-of-the-plugin-and-how-lob-developments-will-suffer.html)) applications. As a result I've been quick to adopt frameworks in other languages / technologies that provide an implementation of the MVVM pattern, such as [KnockoutJS](http://www.codeproject.com/Articles/365120/KnockoutJS-vs-Silverlight).
 
 Recently I have been doing quite a bit of iOS development. The UIKit frameworks lack databinding and as a result an MVVM implementation would be pretty cumbersome. Fortunately ReactiveCocoa plugs this gap (and adds a whole lot more besides). You can read all about it in this two part tutorial series.
 

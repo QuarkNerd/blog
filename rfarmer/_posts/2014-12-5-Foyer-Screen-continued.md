@@ -137,7 +137,7 @@ Picking up where Mila left off allowed me experience of getting to know an unfam
 
 <img alt="Testimonials - long string" src="{{ site.github.url }}/rfarmer/assets/shinobi-showcase.jpg"/>  
 
-[MilaBlog]: http://www.scottlogic.com/blog/2014/08/29/foyer-screen.html
+[MilaBlog]: {{ site.github.url }}/2014/08/29/foyer-screen.html
 [Parse]: https://www.parse.com/
 [Parse API]: https://www.parse.com/docs/rest
 [CodeSchool Angular]: https://www.codeschool.com/courses/shaping-up-with-angular-js

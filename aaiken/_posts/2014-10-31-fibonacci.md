@@ -49,7 +49,7 @@ Have a go and see it in action.
 
 I tackled this project by creating a component with multiple phases, whose mouse move / click behaviour would change depending on which phase it was in.
 
-* In **phase 1**, we highlight the nearest data point, much like [my previous crosshairs component](http://www.scottlogic.com/blog/2014/09/29/crosshairs.html); a mouse click stores this point (let's call it *origin*) and moves us on to phase 2
+* In **phase 1**, we highlight the nearest data point, much like [my previous crosshairs component]({{ site.github.url }}/2014/09/29/crosshairs.html); a mouse click stores this point (let's call it *origin*) and moves us on to phase 2
 * In **phase 2**, we again highlight the data point nearest the mouse and draw a trend line between this and the origin point; a click stores this point (*target*), draws the fan lines in the right places and moves us on to phase 3
 * In **phase 3**, we don't react to mouse movement at all; a click hides the trend line and fan and returns us to phase 1
 
@@ -458,9 +458,9 @@ Here's the CSS that I've used - nothing unusual here. Blue for the circles and t
 
 ## Adding the fan to the chart
 
-Now that we've created the component, the final step is to add the component to a chart. As usual, I'm starting with the OHLC chart that Tom developed in his article on [OHLC and candlestick components](http://www.scottlogic.com/blog/2014/08/19/an-ohlc-chart-component-for-d3.html).
+Now that we've created the component, the final step is to add the component to a chart. As usual, I'm starting with the OHLC chart that Tom developed in his article on [OHLC and candlestick components]({{ site.github.url }}/2014/08/19/an-ohlc-chart-component-for-d3.html).
 
-As with [my previous article](http://www.scottlogic.com/blog/2014/09/19/interactive.html), I'm adding an invisible overlay onto the chart, so that we get mousemove events fired when the mouse moves anywhere on the chart area.
+As with [my previous article]({{ site.github.url }}/2014/09/19/interactive.html), I'm adding an invisible overlay onto the chart, so that we get mousemove events fired when the mouse moves anywhere on the chart area.
 
 We initialise the Fibonacci fan component, providing values for all the properties it needs, then we add the component to the plot area, as follows:
 

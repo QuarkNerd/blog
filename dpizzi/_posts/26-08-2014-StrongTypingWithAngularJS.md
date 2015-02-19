@@ -8,7 +8,7 @@ tags:
 image: "dpizzi/assets/featured/Strong.png"
 ---
 
-A few weeks ago my colleague presented a detailed article about [strong typing for SignalR](http://www.scottlogic.com/blog/2014/08/08/signalr-typed.html). This article presents the integration of TypeScript with the AngularJS framework. Whilst both technologies are widely adopted, and thoroughly documented, their integration seems however to rather lack documentation.
+A few weeks ago my colleague presented a detailed article about [strong typing for SignalR]({{ site.github.url }}/2014/08/08/signalr-typed.html). This article presents the integration of TypeScript with the AngularJS framework. Whilst both technologies are widely adopted, and thoroughly documented, their integration seems however to rather lack documentation.
 
 [AngularJS](https://angularjs.org/) is a JavaScript Model-View-Whatever ([MVW](https://plus.google.com/+AngularJS/posts/aZNVhj355G2)) framework that allows the writing of dynamic Single Page web Applications, and is becoming widely embraced because of its simplicity and completeness. Amongst its exhaustive list of features, the framework includes Dynamic Data Binding, Client-side Routing, Unit and End2End Testing or even HTML language extension.
 

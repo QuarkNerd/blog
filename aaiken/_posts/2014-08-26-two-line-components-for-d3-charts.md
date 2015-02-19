@@ -39,7 +39,7 @@ var line = sl.series.tracker()
 
 <img src="{{ site.github.url }}/aaiken/assets/average.png"/>
 
-I'm not proposing to cover what D3 is in this post; Tom's done that admirably in his article on [OHLC and candlestick components](http://www.scottlogic.com/blog/2014/08/19/an-ohlc-chart-component-for-d3.html), and in fact I'm going to be lazy and build on the chart he developed there.
+I'm not proposing to cover what D3 is in this post; Tom's done that admirably in his article on [OHLC and candlestick components]({{ site.github.url }}/2014/08/19/an-ohlc-chart-component-for-d3.html), and in fact I'm going to be lazy and build on the chart he developed there.
 
 ## Line Annotation Component
 

@@ -32,7 +32,7 @@ Initially when I started looking at the App Studio my idea was to try and create
 
 Unfortunately it quickly became obvious that this was not going to be possible. The App Studio allows you to create apps that have pages of static or dynamic data that the user can navigate between. However, it doesn't allow you to add *any* conditional logic to your applications at all. As a result, it is very limited in terms of the types of app you can create with this tool.
 
-Time for a re-think ... instead I decided to re-implement [SandwichFlow](http://www.scottlogic.com/blog/2011/05/16/metro-in-motion-5-sandwichflow.html), a sandwich recipe app, using the App Studio.
+Time for a re-think ... instead I decided to re-implement [SandwichFlow]({{ site.github.url }}/2011/05/16/metro-in-motion-5-sandwichflow.html), a sandwich recipe app, using the App Studio.
 
 ## Adding Content
 

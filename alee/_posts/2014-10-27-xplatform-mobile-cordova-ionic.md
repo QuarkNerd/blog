@@ -9,7 +9,7 @@ layout: default_post
 
 Using [Cordova](http://cordova.apache.org/) and [Ionic Framework](http://ionicframework.com/) to turn  an AngularJS web application into a cross-platform mobile application.
 
-This year our summer interns worked on an internal project to build a mobile application. They used Cordova to deploy the cross-platform HTML5 app onto multiple phone platforms, including iPhone and Android. The results looked really good, and inspired me to try making a cross-platform app out of my Angular SPA (Single Page Application) from my [earlier blog post](http://www.scottlogic.com/blog/2014/07/30/spa-angular-knockout.html).
+This year our summer interns worked on an internal project to build a mobile application. They used Cordova to deploy the cross-platform HTML5 app onto multiple phone platforms, including iPhone and Android. The results looked really good, and inspired me to try making a cross-platform app out of my Angular SPA (Single Page Application) from my [earlier blog post]({{ site.github.url }}/2014/07/30/spa-angular-knockout.html).
 
 ###Setting up Cordova
 

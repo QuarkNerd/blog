@@ -17,7 +17,7 @@ layout: default_post
 <script data-main="{{ site.github.url }}/aaiken/assets/crosshairs/js/Chart.js" src="{{ site.github.url }}/aaiken/assets/crosshairs/js/lib/require.js">
 </script>
 
-In [my last article](http://www.scottlogic.com/blog/2014/09/19/interactive.html) I put together an interactive chart that could be panned and zoomed, but there was one obvious omission - crosshairs. In this article I'm going to create a D3 crosshairs component, and show you how to add it to a chart.
+In [my last article]({{ site.github.url }}/2014/09/19/interactive.html) I put together an interactive chart that could be panned and zoomed, but there was one obvious omission - crosshairs. In this article I'm going to create a D3 crosshairs component, and show you how to add it to a chart.
 
 Here's the chart we're going to build:
 
@@ -26,7 +26,7 @@ Here's the chart we're going to build:
 
 You can see that, when you move your mouse over the chart, crosshairs appear on the chart to give you information about the data point the mouse is nearest to. This should also work if you're on a touch screen device - you'd just tap on a data point to bring up the crosshairs, or tap off the chart to clear them - but I have to admit I haven't tested this.
 
-I'm going to approach this project in the same way I approached the [line annotation](http://www.scottlogic.com/blog/2014/08/26/two-line-components-for-d3-charts.html) and [Bollinger Bands](http://www.scottlogic.com/blog/2014/08/28/bollinger.html) components - that is, by breaking the work down into three sections:
+I'm going to approach this project in the same way I approached the [line annotation]({{ site.github.url }}/2014/08/26/two-line-components-for-d3-charts.html) and [Bollinger Bands]({{ site.github.url }}/2014/08/28/bollinger.html) components - that is, by breaking the work down into three sections:
 
 * First we write the component (this is obviously where the majority of the work goes)
 * Then we style the component
@@ -359,9 +359,9 @@ The important thing to note here is that the user *could* style each element dif
 
 The final step is to add the crosshairs component to a chart.
 
-Rather than create a chart from scratch, I'm starting with the OHLC chart that Tom developed in his article on [OHLC and candlestick components](http://www.scottlogic.com/blog/2014/08/19/an-ohlc-chart-component-for-d3.html).
+Rather than create a chart from scratch, I'm starting with the OHLC chart that Tom developed in his article on [OHLC and candlestick components]({{ site.github.url }}/2014/08/19/an-ohlc-chart-component-for-d3.html).
 
-To add the crosshairs component, I'm firstly using a trick I learned in [my previous article](http://www.scottlogic.com/blog/2014/09/19/interactive.html) - adding an invisible overlay onto the chart area. If we don't do this, the `mouseover()` event will only be fired when we mouse over a data point, but adding this we get the events fired when the mouse moves anywhere on the chart area.
+To add the crosshairs component, I'm firstly using a trick I learned in [my previous article]({{ site.github.url }}/2014/09/19/interactive.html) - adding an invisible overlay onto the chart area. If we don't do this, the `mouseover()` event will only be fired when we mouse over a data point, but adding this we get the events fired when the mouse moves anywhere on the chart area.
 
 Once that's created, we initialise the crosshairs component, providing values for all the properties we defined.
 
@@ -401,7 +401,7 @@ And with that, we're done! We've created the interactive chart you see above.
 
 ## Enhancements
 
-As we've learned from [my previous article](http://www.scottlogic.com/blog/2014/09/19/interactive.html), when you add multiple modes of interactivity to a chart, most of your time is spent making sure everything is synchronised correctly. If we added this crosshairs component to the interactive chart we developed in that article, we'd soon run into a problem - when you zoomed the chart, the crosshairs would stay in the same place because they only respond to the mouse moving over the chart (panning the chart probably wouldn't be a problem, because you need to move the mouse to do that).
+As we've learned from [my previous article]({{ site.github.url }}/2014/09/19/interactive.html), when you add multiple modes of interactivity to a chart, most of your time is spent making sure everything is synchronised correctly. If we added this crosshairs component to the interactive chart we developed in that article, we'd soon run into a problem - when you zoomed the chart, the crosshairs would stay in the same place because they only respond to the mouse moving over the chart (panning the chart probably wouldn't be a problem, because you need to move the mouse to do that).
 
 Luckily there's an easy fix for this issue - all we'd have to do would be to refactor the drawing code from `mousemove()` into its own method, maybe called `update()`, and then call `crosshairs.update()` whenever a zoom would cause the chart to be redrawn.
 

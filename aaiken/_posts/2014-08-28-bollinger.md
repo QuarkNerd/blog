@@ -9,13 +9,13 @@ categories:
   - aaiken
 layout: default_post
 ---
-In my last article (on [line annotation components](http://www.scottlogic.com/blog/2014/08/26/two-line-components-for-d3-charts.html) for D3 charts), I created a component which calculated and displayed a moving average. As promised, I'm now turning my attention to [Bollinger Bands](http://en.wikipedia.org/wiki/Bollinger_Bands).
+In my last article (on [line annotation components]({{ site.github.url }}/2014/08/26/two-line-components-for-d3-charts.html) for D3 charts), I created a component which calculated and displayed a moving average. As promised, I'm now turning my attention to [Bollinger Bands](http://en.wikipedia.org/wiki/Bollinger_Bands).
 
 The component I'm going to create is going to look like this:
 
 <img src="{{ site.github.url }}/aaiken/assets/bollinger.png"/>
 
-As before, I'm going to cheat by taking the chart Tom's developed in his article on [OHLC and candlestick components](http://www.scottlogic.com/blog/2014/08/19/an-ohlc-chart-component-for-d3.html), and I'm creating the component following [Mike Bostock's convention](http://bost.ocks.org/mike/chart/).
+As before, I'm going to cheat by taking the chart Tom's developed in his article on [OHLC and candlestick components]({{ site.github.url }}/2014/08/19/an-ohlc-chart-component-for-d3.html), and I'm creating the component following [Mike Bostock's convention](http://bost.ocks.org/mike/chart/).
 
 ## What are Bollinger Bands?
 
@@ -292,4 +292,4 @@ I'm pretty happy with this component - it works really well and it's reasonably 
 
 ## Conclusion
 
-In this article I've taken the moving average component I developed in [my previous article](http://www.scottlogic.com/blog/2014/08/26/two-line-components-for-d3-charts.html) and used it as the basis for a Bollinger Bands component. The new component is very easy to configure and style.
+In this article I've taken the moving average component I developed in [my previous article]({{ site.github.url }}/2014/08/26/two-line-components-for-d3-charts.html) and used it as the basis for a Bollinger Bands component. The new component is very easy to configure and style.

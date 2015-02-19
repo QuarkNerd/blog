@@ -38,7 +38,7 @@ The main chart is also interactive. You can:
 
 As you can see, the navigation viewport automatically adjusts its size and position to match the data shown in the main chart when you pan or zoom.
 
-Note: As with my previous D3 posts, my starting point for this work was the chart Tom developed in his article on [OHLC and candlestick components](http://www.scottlogic.com/blog/2014/08/19/an-ohlc-chart-component-for-d3.html) - you'll see that I'm using his candlestick chart here.
+Note: As with my previous D3 posts, my starting point for this work was the chart Tom developed in his article on [OHLC and candlestick components]({{ site.github.url }}/2014/08/19/an-ohlc-chart-component-for-d3.html) - you'll see that I'm using his candlestick chart here.
 
 ## Putting it Together
 

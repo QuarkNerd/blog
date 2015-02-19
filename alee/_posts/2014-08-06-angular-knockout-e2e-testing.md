@@ -8,7 +8,7 @@ layout: default_post
 suppress-careers-add: true
 ---
 
-In my last post [Single Page Applications - Angular vs Knockout](http://www.scottlogic.com/blog/2014/07/30/spa-angular-knockout.html), I built a Single Page Application (SPA) using Angular and Knockout (with CrossroadsJS and RequireJS). Both solutions unit tested the model code, but I glossed over the idea of end-to-end (e2e) testing, so I'd like to take a closer look at that now.
+In my last post [Single Page Applications - Angular vs Knockout]({{ site.github.url }}/2014/07/30/spa-angular-knockout.html), I built a Single Page Application (SPA) using Angular and Knockout (with CrossroadsJS and RequireJS). Both solutions unit tested the model code, but I glossed over the idea of end-to-end (e2e) testing, so I'd like to take a closer look at that now.
 
 I'll start by looking at how we can implement e2e tests in both solutions. Next, I'll consider the value of having these tests, how brittle they can be, and therefore the cost of writing and maintaining them. Finally, I'll suggest a couple of ways to reduce the cost by making the tests more robust.
 
