@@ -3,8 +3,8 @@
   xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
   xmlns:sl="scott-logic">
   <title><![CDATA[{% if page.author %}{{ site.data.authors.authors[page.author].name }} at {% endif %}{{ site.name }}]]></title>
-  <link href="{{ site.siteurl}}{{ site.baseurl }}{% if page.author %}/{{ page.author }}{% endif %}"/>
-  <link type="application/atom+xml" rel="self" href="{{ site.siteurl}}{{ site.baseurl }}{% if page.author %}/{{ page.author }}{% endif %}/atom.xml"/>
+  <link href="{{ site.github.url }}{% if page.author %}/{{ page.author }}{% endif %}"/>
+  <link type="application/atom+xml" rel="self" href="{{ site.github.url }}{% if page.author %}/{{ page.author }}{% endif %}/atom.xml"/>
   {% if page.author and site.data.authors.authors[page.author].feed-description %}
   {% assign description = site.data.authors.authors[page.author].feed-description %}
   {% else %}
@@ -13,7 +13,7 @@
   <description><![CDATA[{{ description }}]]></description>
   <language>en-US</language>
   <updated>{{ site.time | date_to_rfc822  }}</updated>
-  <id>{{ site.siteurl}}{{ site.baseurl }}{% if page.author %}/{{ page.author }}{% endif %}</id>
+  <id>{{ site.github.url }}{% if page.author %}/{{ page.author }}{% endif %}</id>
 
 
   {% if page.author %}
@@ -24,7 +24,7 @@
   {% for post in feed_posts limit:20 %}
   <entry>
     <id>{{ post.url }}</id>
-    <link type="text/html" rel="alternate" href="{{ site.siteurl}}{{ site.baseurl }}{{ post.url }}"/>
+    <link type="text/html" rel="alternate" href="{{ site.github.url }}{{ post.url }}"/>
     <title><![CDATA[{{ post.title }}]]></title>
     <sl:title-short><![CDATA[{% if post.title-short %}{{ post.title-short }}{% else %}{{ post.title | truncatewords: 6 }}{% endif %}]]></sl:title-short>
     <published>{{ post.date | date_to_rfc822 }}</published>
