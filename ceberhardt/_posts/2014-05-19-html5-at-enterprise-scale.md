@@ -11,7 +11,7 @@ layout: default_post
 
 It was only three years ago that myself and a couple of colleagues wrote the paper [Flex, Silverlight or HTML5? Time To Decide](http://www.scottlogic.com/blog/2011/05/05/flex-silverlight-html5-time-to-decide.html). At the time developers were struggling to choose between mature and reliable Flex, Microsoft-backed newcomer Silverlight, and young upstart HTML5.
 
-<img src="{{ site.baseurl }}/ceberhardt/assets/HTML5-tech-cloud.png"></img>
+<img src="{{ site.github.url }}/ceberhardt/assets/HTML5-tech-cloud.png"></img>
 
 Now just three years later [Flex and Silverlight are dead](http://www.scottlogic.com/blog/2011/11/14/the-untimely-demise-of-the-plugin-and-how-lob-developments-will-suffer.html) and you would be foolish to choose anything other than HTML5!
 

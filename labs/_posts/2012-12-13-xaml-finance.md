@@ -28,15 +28,15 @@ The application presents a Price List for the entire FTSE 100 from which individ
 
 The web-based version of XAML Finance uses the Microsoft Silverlight plug-in technology. The price list, company overviews and heatmap are presented as a tabbed user interface, allowing the user to switch rapidly between the pages of interest.
 
-![XAML Finance]({{ site.baseurl }}/labs/assets/xaml3.jpg)
+![XAML Finance]({{ site.github.url }}/labs/assets/xaml3.jpg)
 
 The desktop version of the application uses WPF and presents the functionality as a multi-window interface, making best use of desktop application capabilities.
 
-![XAML Finance]({{ site.baseurl }}/labs/assets/xaml2.jpg)
+![XAML Finance]({{ site.github.url }}/labs/assets/xaml2.jpg)
 
 The Windows Phone 7 version is the most distinct, closely following the Metro theme that defines the platform both in terms of look and behaviour. A video of this version in action can be viewed here.
 
-![XAML Finance]({{ site.baseurl }}/labs/assets/xaml4.jpg)
+![XAML Finance]({{ site.github.url }}/labs/assets/xaml4.jpg)
 
 For a more technical discussion of the project, please read the [accompanying CodeProject article](http://www.codeproject.com/KB/windows-phone-7/XAMLFinance.aspx).
 

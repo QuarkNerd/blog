@@ -13,7 +13,7 @@ suppress-careers-add: true
 
 I have just <a href="http://www.codeproject.com/Articles/687093/Understanding-JavaScript-Object-Creation-Patterns">published an article on CodeProject</a> which explores the various different patterns that you can use to create objects with JavaScript. 
 
-<a href="http://www.codeproject.com/Articles/687093/Understanding-JavaScript-Object-Creation-Patterns"><img src="{{ site.baseurl }}/ceberhardt/assets/PrototypeGraphTwo.png"></img></a>
+<a href="http://www.codeproject.com/Articles/687093/Understanding-JavaScript-Object-Creation-Patterns"><img src="{{ site.github.url }}/ceberhardt/assets/PrototypeGraphTwo.png"></img></a>
 
 
 

@@ -277,7 +277,7 @@ You can read more details about name mangling and interaction with the native co
 
 Now build the library and open `index.html`. You should see a nicely colored triangle which we can actually move around and zoom with a mouse.
 
-<a href="http://ilyalopatkin.github.io/emscripten_webgl_simmer_gently"><img src="{{ site.baseurl }}/ilopatkin/assets/emscripten_screenshot.png" alt="Emscripten WebGL screenshot"/></a>
+<a href="http://ilyalopatkin.github.io/emscripten_webgl_simmer_gently"><img src="{{ site.github.url }}/ilopatkin/assets/emscripten_screenshot.png" alt="Emscripten WebGL screenshot"/></a>
 
 ##Automating the build process
 
@@ -339,7 +339,7 @@ This would generate an additional `.map` file sitting next to the output file (i
 
 Refresh your `index.html`, open the developer console (in Chrome press F12), go to the Sources tab, open up the list of source files and you should see and able to open our original `.cpp` files. Breakpoints and stepping through should all work as expected. The only thing is the variable viewer would not be able to resolve things like Emscripten pointers which would naturally appear as numbers. Otherwise you should be able to debug just fine although I would imagine writing a simple wrapper and using a native debugger and a native IDE would certainly bring its advantages in debugging.
 
-<img src="{{ site.baseurl }}/ilopatkin/assets/emscripten_debug.png"/>
+<img src="{{ site.github.url }}/ilopatkin/assets/emscripten_debug.png"/>
 
 ##Optimisation
 

@@ -15,7 +15,7 @@ We're the Scott Logic interns for Newcastle in 2014, and our project was to make
 
 And just to whet your appetite, here's a screenshot of the popular Doodle Jump game working on the HTML5 scratch player:
 
-<a href="http://sl-scratch-app.herokuapp.com/scratch-player/11342979"><img src="{{ site.baseurl }}/jhill/assets/DoodleJump.png"></img></a>
+<a href="http://sl-scratch-app.herokuapp.com/scratch-player/11342979"><img src="{{ site.github.url }}/jhill/assets/DoodleJump.png"></img></a>
 
 
 ### What's Scratch?

@@ -24,7 +24,7 @@ To build an application all you need is your regular Microsoft account, with thi
 
 On hitting the 'Create' button you are faced with a list of templates that you can use as the starting point of your application:
 
-<img src="{{ site.baseurl }}/ceberhardt/assets/AppStudioTemplate.png" alt="App Studio Templates"/>
+<img src="{{ site.github.url }}/ceberhardt/assets/AppStudioTemplate.png" alt="App Studio Templates"/>
 
 These templates cover some of the common application types, restaurant apps, company apps and catalogs. And some less obvious ones such as personal photo albums, file reviews and wedding invitations. It is clear that Microsoft want you to use this tool for creating applications that are very personal ... apps that you just use yourself or share with a few friends rather than adding them to the Marketplace.
 
@@ -38,13 +38,13 @@ Time for a re-think ... instead I decided to re-implement [SandwichFlow](http://
 
 Once you select a template, you proceed to the next screen where you add content. The App Studio has the concept of datasource, which can be RSS feeds, or static data, which you add directly via the web interface:
  
-<img src="{{ site.baseurl }}/ceberhardt/assets/SandwichFlowContent.png" alt="App Studio Content Editing"/>
+<img src="{{ site.github.url }}/ceberhardt/assets/SandwichFlowContent.png" alt="App Studio Content Editing"/>
 
 At this point you can add / remove datasources and add pages that render this data. I did find that regardless of which template you select at the start, you basically end up with the same structure. In other words, the templates provide suggestions for how you might use App Studio, however, each results in the same 'panorama' style application.
 
 Adding content is pretty painful, the web-based form you are presented with isn't ideal if you have to input large quantities of data:
 
-<img src="{{ site.baseurl }}/ceberhardt/assets/AppStudioAddData.png" alt="App Studio Content Editing"/>
+<img src="{{ site.github.url }}/ceberhardt/assets/AppStudioAddData.png" alt="App Studio Content Editing"/>
 
 After adding around four sandwiches I got sick of the process and gave up on it!
 
@@ -54,7 +54,7 @@ On a serious note, this does have a significant impact on the usefulness of this
 
 Through the 'App Content' process you can also configure the layout of the various 'detail' pages that the user will see when they tap on content items:
 
-<img src="{{ site.baseurl }}/ceberhardt/assets/AppStudioLayout.png" alt="App Studio Changing Layout"/>
+<img src="{{ site.github.url }}/ceberhardt/assets/AppStudioLayout.png" alt="App Studio Changing Layout"/>
 
 This screen gives you a decent preview of that area of your application.
 
@@ -66,7 +66,7 @@ I'd have to say that I did find the whole layout / content generation to be pret
 
 Once your content and layout is complete you move onto styling your app. At this point you can select a few colours, your app tile, backgrounds and a few other features:
 
-<img src="{{ site.baseurl }}/ceberhardt/assets/AppStudioStyle.png" alt="App Studio Styling"/>
+<img src="{{ site.github.url }}/ceberhardt/assets/AppStudioStyle.png" alt="App Studio Styling"/>
 
 Again, this is pretty limited, you cannot change fonts for example.
 
@@ -78,7 +78,7 @@ Once your app is styled, you can review, then generate the final application.
 
 Generation typically takes a few minutes, and you are sent an email once it is complete. Once generated you are free to distribute your application.
 
-<img src="{{ site.baseurl }}/ceberhardt/assets/AppStudioGenerate.png" alt="App Studio Generate"/>
+<img src="{{ site.github.url }}/ceberhardt/assets/AppStudioGenerate.png" alt="App Studio Generate"/>
 
 Here is where it gets interesting, there are a few different ways you can distribute your app:
 

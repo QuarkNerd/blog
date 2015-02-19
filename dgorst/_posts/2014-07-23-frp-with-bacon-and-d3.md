@@ -14,7 +14,7 @@ One of my colleagues, Sam Davies, recently gave a presentation on functional rea
 
 As a quick taster, the results of the work done in this post will look something like this.
 
-<img src="{{ site.baseurl }}/dgorst/assets/frp-with-bacon/FinishedChart.png"/>
+<img src="{{ site.github.url }}/dgorst/assets/frp-with-bacon/FinishedChart.png"/>
 
 So what is functional reactive programming (FRP)? Reactive programming can be described as a paradigm orientated around data flows and the propagation of change. The aim of this concept is to make it easier to express dynamic data flows. As one part of your data model changes, that change should automatically propagate through your model, potentially changing other parts of it.
 

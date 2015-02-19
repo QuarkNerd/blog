@@ -11,7 +11,7 @@ tags:
 ---
 This post demonstrates how JavaScript and HTML5 related technologies can be used to create an application that can run in both a web browser and as a cross-platform desktop application using [node-webkit](https://github.com/rogerwang/node-webkit). It describes the tools that were used in creating a simple contact list application.
 
-<img alt="phone list" src="{{ site.baseurl }}/isullivan/assets/phone-list.png" />
+<img alt="phone list" src="{{ site.github.url }}/isullivan/assets/phone-list.png" />
 
 As you can see in the above screenshots, the app has been built for both the web and desktop. Both versions have the same core functionality and UI. The web version lives within a browser window and is therefore cluttered with toolbars, an address bar, various icons and a cartoon of a dog that my wife insists she has nothing to do with. The desktop version on the other hand is lean and has only a small toolbar and minimize button which are built with standard HTML elements.
 
@@ -58,7 +58,7 @@ This, coupled with a very modest configuration file:
 
 is enough to produce an application that node-webkit can run. Run node-webkit with the directory containing these files as an argument and you're good to go!
     
-<img alt="Example application" src="{{ site.baseurl }}/isullivan/assets/node-webkit-example.png" />
+<img alt="Example application" src="{{ site.github.url }}/isullivan/assets/node-webkit-example.png" />
 
 Granted, it does look like a web browser but the extraneous toolbars and chrome can be hidden in the configuration file making it look much more appealing. 
 
@@ -66,7 +66,7 @@ Building for Web & Desktop
 --------------------------
 The JavaScript behind both versions is largely the same however there are some differences. The desktop version has some css styles to show the grey bar at the top, it stores the list of contacts in a file whereas the web version uses HTML5 local storage and it has code for creating a system tray item when the window is closed. The two versions are built and managed using [gulp.js](http://gulpjs.com/). Gulp is a build system for defining build tasks using code rather than configuration. The tasks in this application are largely for copying and bundling code (css/html/javascript) into the appropriate output directory.
 
-<img alt="Gulp flow chart" src="{{ site.baseurl }}/isullivan/assets/gulp.png" />
+<img alt="Gulp flow chart" src="{{ site.github.url }}/isullivan/assets/gulp.png" />
 
 As the tasks are written in vanilla JavaScript, they can be abstracted into shared methods. If the source is stored in a directory called `src`, the web and desktop scripts can be compiled, minified and deployed using the following gulp tasks:
 

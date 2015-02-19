@@ -33,7 +33,7 @@ Each shard in a sharded cluster exclusively holds onto a set of chunks. These ch
 
 If you are not currently using a sharded cluster in MongoDB, you are forced to increase the specifications of your replica set machines to cope with additional load.  For some systems this approach works well, but there does come a point for some where this does not become worthwhile.
 
-<img src="{{ site.baseurl }}/mdunsdon/assets/mongo-sharding-infrastructure.png"/>
+<img src="{{ site.github.url }}/mdunsdon/assets/mongo-sharding-infrastructure.png"/>
 
 Before you can bring a production MongoDB system over to using a sharded cluster, there are additional costs that you need to bear. Not only do you need to duplicate your existing replica set, but you need to set up the following:
 
@@ -50,7 +50,7 @@ Your ability to make forecasts is important, for you need to see whether it is c
 
 A shard key acts as an index over your data and is needed to create a sharded cluster.  When setting up a sharded cluster, this shard key is broken up into chunks by MongoDB - using a configurable data storage criterion.
 
-<img src="{{ site.baseurl }}/mdunsdon/assets/mongo-sharding-chunks.png"/>
+<img src="{{ site.github.url }}/mdunsdon/assets/mongo-sharding-chunks.png"/>
 
 There are three aspects to consider when defining your shard key:
 

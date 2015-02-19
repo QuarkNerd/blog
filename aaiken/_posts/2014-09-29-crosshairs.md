@@ -11,10 +11,10 @@ categories:
   - aaiken
 layout: default_post
 ---
-<link rel="stylesheet" href="{{ site.baseurl }}/aaiken/assets/crosshairs/style/style.css" />
-<script src="{{ site.baseurl }}/aaiken/assets/crosshairs/js/require.config.js">
+<link rel="stylesheet" href="{{ site.github.url }}/aaiken/assets/crosshairs/style/style.css" />
+<script src="{{ site.github.url }}/aaiken/assets/crosshairs/js/require.config.js">
 </script>
-<script data-main="{{ site.baseurl }}/aaiken/assets/crosshairs/js/Chart.js" src="{{ site.baseurl }}/aaiken/assets/crosshairs/js/lib/require.js">
+<script data-main="{{ site.github.url }}/aaiken/assets/crosshairs/js/Chart.js" src="{{ site.github.url }}/aaiken/assets/crosshairs/js/lib/require.js">
 </script>
 
 In [my last article](http://www.scottlogic.com/blog/2014/09/19/interactive.html) I put together an interactive chart that could be panned and zoomed, but there was one obvious omission - crosshairs. In this article I'm going to create a D3 crosshairs component, and show you how to add it to a chart.

@@ -14,7 +14,7 @@ Having completed the [Scala MOOC](https://class.coursera.org/progfun-005) [I sta
 The first two assignments looked at recursive and higher order functions.  Pretty straightforward stuff for any functional language.  The only thing to mention is that because both languages run on the JVM there are issues with [tail call optimisation](http://www.drdobbs.com/jvm/tail-call-optimization-and-java/240167044).  Scala is able to implement tail call optimisation at compile time by turning the call into a loop if the recursive call is in the tail position (there's an annotation you can use to tell the complier where you expect a tail call and it'll warn you if it isn't). Clojure, on the other hand, has a form called "recur" which is used in place of the recursive call allowing the use of tail call optimisation.  The incorrect use of this form causes an exception.
 
 ## Data and Abstraction ##
-![Data from Star Trek]({{ site.baseurl }}/hpowell/assets/Data.jpg)
+![Data from Star Trek]({{ site.github.url }}/hpowell/assets/Data.jpg)
 [Big Data](https://www.flickr.com/photos/jdhancock/8031897271/in/photolist-834e93-7K6TWX-deKzer-7PMpXT-6UDnWP-gdMrKi-8Lsgfn-nX546-ax8z4B-9rnTdL-6GiYkV-i3Rby3-bf2wtK-gdMuhT-bf2wpa-i3NECz-5NfuQU-9uDrJR-7GaoYw-22CjS2) by [JD Hancock](https://www.flickr.com/photos/jdhancock/) is licensed under [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/legalcode)
 
 The third assignment requires the creation of an immutable set of tweets using two data structures, a binary search tree and a linked list.  Skeletons are provided for the trait and abstract class along with skeletons for empty and non-empty concrete classes (or objects, essentially a Singleton of a class) for each.
@@ -108,7 +108,7 @@ This is isn't something Clojurians would be expected to do on a regular basis, i
 The Clojure version requires the implementation of nearly twice as many functions, but allows for the new deftypes to be used as drop in replacements for sets and seqs respectively.
 
 ## Types and Pattern Matching ##
-![Swirly Pattern]({{ site.baseurl }}/hpowell/assets/Pattern.jpg)
+![Swirly Pattern]({{ site.github.url }}/hpowell/assets/Pattern.jpg)
 
 [Webtreats Abstract Wavy Photoshop Patterns 1](https://www.flickr.com/photos/webtreatsetc/5663012271/in/photolist-9CqqfB-7tdSwx-7ELgDS-7ZSBk7-7Mp9ye-3sdkMh-pCaSMa-7NCPf9-7vg6ne-6oQE3u-5jTgTA-7f1cr9-8fBTBf-5h39EN-9AE76t-7GnWHM-8zYrEi-6bB3Ud-8fyCZP-3sdkMw-8Y56q9-9BBvfd-9AiDkX-5MEhA1-92hxHD-qhLeHm-9GbKkN-ejU2kr-7AQpm8-dKdjpS-eerw4x-ejZLyG-6fT1A2-ib3TXU-7TP53b-77QDrK-eQaSxu-9Ph8mg-8Xjxht-7VFWrF-4zEYcH-6uoKzD-ePYCaK-91YrTZ-5MA9XX-e2rzA9-ejZLAU-5MA2KH) by [webtreats](https://www.flickr.com/photos/webtreatsetc/) is licensed under [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/legalcode)
 
@@ -165,7 +165,7 @@ Case classes aren't the only way Scala has to pattern match, but unfortunately t
 The penultimate assignment introduces maps (which Clojure has and are used regularly) and tuples (which Clojure doesn't have, although lists can easily be used in their place).  It also introduces list comprehension using the for loop with Clojure having a similar form.
 
 ## Lazy Evaluation ##
-![Lazy Lioness]({{ site.baseurl }}/hpowell/assets/Lazy.jpg)
+![Lazy Lioness]({{ site.github.url }}/hpowell/assets/Lazy.jpg)
 [Lazy lioness](https://www.flickr.com/photos/tambako/12213600616/in/photolist-jBgTWY-99bb2c-5v8bik-duAe9-4E2s7M-7Y2mnC-78CoJx-87MqPt-7XY7BH-oNNxYp-bwKSef-6ohr3r-g1hJge-a21uq9-oYaswj-oFHbmB-nrmHt9-myozEy-5w7mht-oQ1Bij-87MqVk-ihrNo2-amZua5-9D2Zso-4z9hJ-i1vEU4-4iR5UZ-aFi2LB-hCThu2-esZEKQ-8iU2Wv-4UiSu-5bkvyj-8eP3So-zsMAG-6m5Ft-7YUB5d-cbV975-4A4Y27-fhtqqR-cYv8q9-tM5nv-g4Ufc9-jWJf-6CbdfG-g4j71P-5yY6v4-o9yAVK-76PCvE-936fG4) by [Tambako The Jaguar](https://www.flickr.com/photos/tambako/) is licensed under [CC BY-ND 2.0](https://creativecommons.org/licenses/by-nd/2.0/legalcode)
 
 Both Scala and Clojure are strict about passing parameters.  However, both have the ability to return lazy collections, Streams and lazy-seqs respectively.  The usual collection modifying functions (e.g. map, filter, range (although it's called from when used by Scala Streams), etc.) can be applied to these lazy collections and will return lazy collections.

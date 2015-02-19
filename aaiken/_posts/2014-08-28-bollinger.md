@@ -13,7 +13,7 @@ In my last article (on [line annotation components](http://www.scottlogic.com/bl
 
 The component I'm going to create is going to look like this:
 
-<img src="{{ site.baseurl }}/aaiken/assets/bollinger.png"/>
+<img src="{{ site.github.url }}/aaiken/assets/bollinger.png"/>
 
 As before, I'm going to cheat by taking the chart Tom's developed in his article on [OHLC and candlestick components](http://www.scottlogic.com/blog/2014/08/19/an-ohlc-chart-component-for-d3.html), and I'm creating the component following [Mike Bostock's convention](http://bost.ocks.org/mike/chart/).
 
@@ -284,7 +284,7 @@ As an aside, note that I've set `stroke-width: 0` on the area so that it doesn't
 
 Putting it all together, this is the result:
 
-<img src="{{ site.baseurl }}/aaiken/assets/bollinger.png"/>
+<img src="{{ site.github.url }}/aaiken/assets/bollinger.png"/>
 
 ## Enhancements
 

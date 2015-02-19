@@ -108,7 +108,7 @@ Secondly the line `Async call made in state:making sync call` - this means that 
 
 If you don't quite understand, the easiest way is to compare the code with the stack traces.
 
-The test case can be run from <a href="{{ site.baseurl }}/lpage/assets/wrong-context/testmain.htm">here</a>.
+The test case can be run from <a href="{{ site.github.url }}/lpage/assets/wrong-context/testmain.htm">here</a>.
 
 ##What are the implications?
 

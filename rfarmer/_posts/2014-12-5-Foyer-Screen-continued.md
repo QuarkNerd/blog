@@ -18,7 +18,7 @@ At the end of her internship, Mila identified a few next steps for the project w
 Initially, some string resources were all that was stored on Parse, with photo content stored on Dropbox.
 I separated further content from the presentation, including Web Banner details and Photos and also created classes to store configuration data for slides; specifying details such as sort order, timing, slide type, post limits etc.
 
-<img alt="Admin Parse Edit" src="{{ site.baseurl }}/rfarmer/assets/admin1.jpg"/>
+<img alt="Admin Parse Edit" src="{{ site.github.url }}/rfarmer/assets/admin1.jpg"/>
 
 Having slide data fetched after the slide is shown, rather than only on initialisation, removes the need to re-deploy code and restart application for changes as the presentation deployed on the foyer-screen can dynamically respond to changes.
 
@@ -31,7 +31,7 @@ This was an opportunity for me to develop something 'from scratch'. Initially I 
 For text-based Parse content, you can edit, add and delete entries.
 JQuery Sortable UI has been used to allow entries to be sorted, and this has been implemented across Facts, Photo sets, and Slides.
 
-<img alt="Admin slide Ordering" src="{{ site.baseurl }}/rfarmer/assets/admin2.jpg"/>  
+<img alt="Admin slide Ordering" src="{{ site.github.url }}/rfarmer/assets/admin2.jpg"/>  
 Slide Ordering differs slightly from the others in that each entry is sortable across 3 headings.
 
 * **Static order**: for those slides which should be shown just once per run-through
@@ -40,7 +40,7 @@ Slide Ordering differs slightly from the others in that each entry is sortable a
 
 In addition to specifying the order of photo sets, users can add new photos and sets, configure display settings for photo slide, re-order/remove photos within a set, change set name etc.
 
-<img alt="Admin Organise Photos" src="{{ site.baseurl }}/rfarmer/assets/admin3.jpg"/>  
+<img alt="Admin Organise Photos" src="{{ site.github.url }}/rfarmer/assets/admin3.jpg"/>  
 
 ## Deployment:
 In the first few weeks of my placement, I created a two part script to simplify deployment of new versions of the foyer-screen application. Deployment previously consisted of transfering the repository via USB stick as the foyer screen is not connected to the internal network, and so we cannot directly pull from the internal git repository.
@@ -80,7 +80,7 @@ Throughout all 5 levels we follow an example of creating a 'Gem Store'.
 
 After each video the student (i.e. you), is required to complete a few exercises using the concepts they have just learned. These exercises are completed in an environment within the course, which assesses your answer dynamically.
 
-<img alt="Shaping Up With Angular" src="{{ site.baseurl }}/rfarmer/assets/shaping-up.jpg"/>  
+<img alt="Shaping Up With Angular" src="{{ site.github.url }}/rfarmer/assets/shaping-up.jpg"/>  
 This course is very engaging and quickly brings you up to speed on the Angular basics. CodeSchool have other, more advanced, Angular resources and I would personally recommend Shaping Up as a great starting point.
 
 * [Egghead.io][EggheadIO]
@@ -88,7 +88,7 @@ For a deeper level of detail, I looked at the Egghead.io website.
 
 Their free content again covers the basics, however, there are ~60 free Angular JS videos available. These can be found on the website, or as a Youtube [playlist][EggheadPlaylist]. The videos each last anywhere between 2 - 10 minutes and are split into concepts. John Lindquist and team have done an excellent job in breaking down the creating a concise and informative course. The videos are great for beginners and I have also found that I use them as reference material almost as much as the Angular docs themselves.
 
-<img alt="Egghead Playlist" src="{{ site.baseurl }}/rfarmer/assets/egghead.jpg"/>  
+<img alt="Egghead Playlist" src="{{ site.github.url }}/rfarmer/assets/egghead.jpg"/>  
 Egghead.io also has further content available for paid subscribers and new videos are uploaded to the website on a regular basis.
 
 To run unit tests I used [Karma][karma] with assertions in [Jasmine][jasmine]. Writing these tests was very simple due to the extensive resources of examples available on the Jasmine site, and within developer communities.
@@ -123,19 +123,19 @@ Picking up where Mila left off allowed me experience of getting to know an unfam
 ***
 **Some Screenshots of the Foyer Screen**
 
-<img alt="Photo Slide - Scatter" src="{{ site.baseurl }}/rfarmer/assets/scatter.jpg"/>  
+<img alt="Photo Slide - Scatter" src="{{ site.github.url }}/rfarmer/assets/scatter.jpg"/>  
 
-<img alt="Photo Slide Grid" src="{{ site.baseurl }}/rfarmer/assets/GridShinobi.jpg"/>  
+<img alt="Photo Slide Grid" src="{{ site.github.url }}/rfarmer/assets/GridShinobi.jpg"/>  
 
-<img alt="Twitter - Scott Logic" src="{{ site.baseurl }}/rfarmer/assets/tweetsScottLogic.jpg"/>  
+<img alt="Twitter - Scott Logic" src="{{ site.github.url }}/rfarmer/assets/tweetsScottLogic.jpg"/>  
 
-<img alt="Twitter Shinobi" src="{{ site.baseurl }}/rfarmer/assets/TweetsShinobi.jpg"/>  
+<img alt="Twitter Shinobi" src="{{ site.github.url }}/rfarmer/assets/TweetsShinobi.jpg"/>  
 
-<img alt="Testimonials" src="{{ site.baseurl }}/rfarmer/assets/TestimoniesShinobi.jpg"/>  
+<img alt="Testimonials" src="{{ site.github.url }}/rfarmer/assets/TestimoniesShinobi.jpg"/>  
 
-<img alt="Testimonials - long string" src="{{ site.baseurl }}/rfarmer/assets/TestimoniesShinobi2.jpg"/>  
+<img alt="Testimonials - long string" src="{{ site.github.url }}/rfarmer/assets/TestimoniesShinobi2.jpg"/>  
 
-<img alt="Testimonials - long string" src="{{ site.baseurl }}/rfarmer/assets/shinobi-showcase.jpg"/>  
+<img alt="Testimonials - long string" src="{{ site.github.url }}/rfarmer/assets/shinobi-showcase.jpg"/>  
 
 [MilaBlog]: http://www.scottlogic.com/blog/2014/08/29/foyer-screen.html
 [Parse]: https://www.parse.com/

@@ -17,7 +17,7 @@ This example shows how the binding helper can be used to render a dynamic list o
 
 Here's the example in action:
 
-<img src="{{ site.baseurl }}/ceberhardt/assets/quotes.gif"></img>
+<img src="{{ site.github.url }}/ceberhardt/assets/quotes.gif"></img>
 
 The view model for this application is very simple, each item within the list is backed by the following view model:
 

@@ -9,7 +9,7 @@ layout: default_post
 source: site
 summary: In the previous part of this series discussing running an interactive environment (REPL) on .NET I covered the non-C# options. This post explores the options for an interactive or lightweight C# environment. 
 ---
-In the <a href="{{site.baseurl}}/2013/08/08/interactive-dotnet-1.html">previous post</a> 
+In the <a href="{{site.github.url}}/2013/08/08/interactive-dotnet-1.html">previous post</a> 
 I discussed various options for running an interactive environment (a REPL) 
 on .NET, and there was one glaring omission - C# (and perhaps VB if that's your cup of tea). The
 collected source of the examples in this post/series is 
@@ -28,7 +28,7 @@ it seems like you can almost execute arbitrary C#. Outside of debugging, there's
 up your code with a breakpoint just to execute some exploratory code in the immediate window. I often find myself
 doing this from a unit test when really I'd rather just have a REPL, but at least it's there!
 
-![Immediate window screenshot]({{ site.baseurl }}/nwolverson/assets/interactive.net/immediate-intellisense.png)
+![Immediate window screenshot]({{ site.github.url }}/nwolverson/assets/interactive.net/immediate-intellisense.png)
 
 Unfortunately there are some limitations to the immediate window which if anything are becoming worse over time.
 
@@ -64,13 +64,13 @@ lighter-weight experience. Again there is no REPL. However LinqPad does provide 
 particular offering rich data dumps. This excels for LINQ-like collection data, but there is no requirement to
 use LINQ, despite the name. It also supports F# or VB too, if you want to make use of the visualisation.
 
-![LinqPad screenshot]({{ site.baseurl }}/nwolverson/assets/interactive.net/linqpad.png)
+![LinqPad screenshot]({{ site.github.url }}/nwolverson/assets/interactive.net/linqpad.png)
 
 It's worth mentioning a word on assembly references. Many of the examples above load references
 as part of the script itself, and import namespaces. LinqPad can add references and namespaces
 outside of your script via the properties dialog:
 
-![LinqPad references screenshot]({{ site.baseurl }}/nwolverson/assets/interactive.net/linqpad-references.png)
+![LinqPad references screenshot]({{ site.github.url }}/nwolverson/assets/interactive.net/linqpad-references.png)
 
 LinqPad follows a free/premium model, and statement completion is a premium feature, along with NuGet support.
 
@@ -89,7 +89,7 @@ There's also a GUI version, gsharp, but I was unable to find a simple installati
 I actually expected that MonoDevelop/Xamarin Studio would have an interface over the csharp REPL - this is pretty
 standard after all, to integrate with a "send to interactive" function - but this doesn't seem to exist as of now.
 
-![Mono csharp window]({{ site.baseurl }}/nwolverson/assets/interactive.net/mono-csharp-window.png)
+![Mono csharp window]({{ site.github.url }}/nwolverson/assets/interactive.net/mono-csharp-window.png)
 
 To get started with the previous example, we first import a namespace:
 
@@ -141,7 +141,7 @@ and VB compilers in managed code. Not only that, but a rich API is being exposed
 of the compilation process, rather than the existing "black box" compiler, enabling things like editor
 refactoring support to use the actual compiler code itself. This also enables a rich interactive window:
 
-![C# interactive window screenshot]({{ site.baseurl }}/nwolverson/assets/interactive.net/csharp-interactive.png)
+![C# interactive window screenshot]({{ site.github.url }}/nwolverson/assets/interactive.net/csharp-interactive.png)
 
 #### The code
 

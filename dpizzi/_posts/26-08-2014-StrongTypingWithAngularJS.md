@@ -71,7 +71,7 @@ tsc --out app.js _app.ts
 The resulting app.js file will just need to be included within our main HTML file.
 For Visual Studio users, where TypeScript has been included within VS 2012 and 2013 since Update 2, the JavaScript compiled files can be combined into one by setting the Project Properties:
 
-<img src="{{ site.baseurl }}/dpizzi/assets/StrongTypingWithAngularJS/VSProjectSettings.jpg"/>
+<img src="{{ site.github.url }}/dpizzi/assets/StrongTypingWithAngularJS/VSProjectSettings.jpg"/>
 
 ## Defining Angular Components
 

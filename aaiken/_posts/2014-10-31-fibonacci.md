@@ -12,10 +12,10 @@ categories:
   - aaiken
 layout: default_post
 ---
-<link rel="stylesheet" href="{{ site.baseurl }}/aaiken/assets/fibonacci/style/style.css" />
-<script src="{{ site.baseurl }}/aaiken/assets/fibonacci/js/require.config.js">
+<link rel="stylesheet" href="{{ site.github.url }}/aaiken/assets/fibonacci/style/style.css" />
+<script src="{{ site.github.url }}/aaiken/assets/fibonacci/js/require.config.js">
 </script>
-<script data-main="{{ site.baseurl }}/aaiken/assets/fibonacci/js/Chart.js" src="{{ site.baseurl }}/aaiken/assets/fibonacci/js/lib/require.js">
+<script data-main="{{ site.github.url }}/aaiken/assets/fibonacci/js/Chart.js" src="{{ site.github.url }}/aaiken/assets/fibonacci/js/lib/require.js">
 </script>
 
 In this article I'm going to create an interactive **Fibonacci fan** D3 component, and show you how to add it to a chart in just 7 lines of code.
@@ -26,7 +26,7 @@ For many of you, your first question is probably...
 
 A Fibonacci fan looks like this:
 
-<img src="{{ site.baseurl }}/aaiken/assets/fibonacci.png" />
+<img src="{{ site.github.url }}/aaiken/assets/fibonacci.png" />
 
 [Investopedia explains how to draw a Fibonacci fan](http://www.investopedia.com/terms/f/fibonaccifan.asp):
 

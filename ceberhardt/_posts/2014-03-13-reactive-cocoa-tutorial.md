@@ -59,7 +59,7 @@ There is *no way* you could code this logic so clearly and concisely without Rea
 
 Here it is in diagram form:
 
-<img src="{{ site.baseurl }}/ceberhardt/assets/CompletePipeline.png"></img>
+<img src="{{ site.github.url }}/ceberhardt/assets/CompletePipeline.png"></img>
 
 If you are an iOS developer, I would thoroughly recommend having a look at ReactiveCocoa. It's [not everyone's liking](http://inessential.com/2014/03/10/reactivecocoa), but it is certainly worth taking a look to see what all the fuss is about.
 

@@ -54,7 +54,7 @@ This will cause the posts to be divided into pages and made accessible via the `
 
 Generating your site using the pagination option results in Jekyll creating multiple copies of the index page, each containing the posts for the given page. The first page, `index.html` resides in the usual location, whereas subsequent pages reside in numbered sub-folders starting at `page2`:
 
-<img src="{{ site.baseurl }}/ceberhardt/assets/JekyllPagination.png"></img>
+<img src="{{ site.github.url }}/ceberhardt/assets/JekyllPagination.png"></img>
 
 This slightly peculiar structure makes the next part a little more tricky ...
 

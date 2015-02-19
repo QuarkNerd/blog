@@ -12,7 +12,7 @@ featured-overlay-inverted: true
 ---
 Writing software that is concurrent, scalable and fault-tolerant is hard. To achieve concurrency developers have to manage multiple threads, which can be tricky and error-prone. This post looks at how the Actor model makes it easier to write concurrent code. Specifically it renders a Mandelbrot Set using the Akka framework and investigates how Akka can be used with Scala to create highly concurrent and scalable systems.
 
-<img src="{{ site.baseurl }}/rdoyle/assets/mandelbrot.png" />
+<img src="{{ site.github.url }}/rdoyle/assets/mandelbrot.png" />
 
 ##What is the Actor Model?
 
@@ -27,7 +27,7 @@ The Actor model allows the developer to write concurrent and distributed systems
 
 The diagram below shows multiple Actors in an Actor system communicating through message passing.
 
-<img src="{{ site.baseurl }}/rdoyle/assets/ActorModel.png" />
+<img src="{{ site.github.url }}/rdoyle/assets/ActorModel.png" />
 
 There are various implementations of the Actor model. [Akka](http://akka.io/) is a framework available for both Java and Scala, in this post I have used it with Scala. Scala used to have its own implementation of the Actor model but this was deprecated in Scala 2.10 in favour of the Akka framework’s implementation.
 
@@ -270,7 +270,7 @@ class ResultHandler extends Actor {
 
 If I now run the code I see an image similar to the one below, pretty cool! To understand more about what the image shows you should read about [Mandelbrot Sets](http://en.wikipedia.org/wiki/Mandelbrot_set). If you want to see the entirety of my code and try it for yourself you can find it [here](https://github.com/rdoyleSL/akka-scala).
 
-<img src="{{ site.baseurl }}/rdoyle/assets/mandelbrotComplete.png" />
+<img src="{{ site.github.url }}/rdoyle/assets/mandelbrotComplete.png" />
 
 I have now implemented a simple Actor model using the Akka framework and I hope you’ll agree that it was a lot simpler than the alternative of explicitly handling thread management. The workers are the part of the system that act concurrently to calculate the value of points in the set. Here I have used four Worker Actors that work at the same time to calculate values. What do you think will happen if I change the value of the `numWorkers` parameter in the call to the calculate method? 
 
@@ -280,7 +280,7 @@ The main advantage of using an Actor model is to easily create highly concurrent
 
 I executed the program a number of times with one to four Actors in the pool and measured the average time it took for the program to execute. The graph below shows the results. With one Actor the average time was 1790ms, this time was drastically decreased to 788ms when four Actors were used. There is a significant performance improvement each time the number of Actors in the router pool is increased and there was more than a 50% reduction in the execution time by changing from one to four actors in the pool.
 
-<img src="{{ site.baseurl }}/rdoyle/assets/actorChart.png" />
+<img src="{{ site.github.url }}/rdoyle/assets/actorChart.png" />
 
 In this example I have used Akka’s `RoundRobinPool` for delegating messages between the Workers. The round robin pool passes messages to each Actor in the pool in turn. This might not provide the best performance or be appropriate, depending on the use case. Akka offers several other routing methods, including:
 

@@ -31,7 +31,7 @@ I'll also explore various optimisations techniques including lock-free concurren
 
 The Mandelbrot set is described by a stunningly simple mathematical equation; it is the set of complex numbers `c` for which the following equation does not tend to infinity:
 
-![image]({{ site.baseurl }}/ceberhardt/assets/Mandelbrot/MandelbrotEquation.png)
+![image]({{ site.github.url }}/ceberhardt/assets/Mandelbrot/MandelbrotEquation.png)
 
 It is possible to implement this equation with just a few lines of code. However, despite its simplicity the Mandelbrot set exhibits tremendous complexity and beauty.
 
@@ -179,13 +179,13 @@ Each datapoint, which is a `ComplexNumber`, is mapped to a tuple of type `Mandel
 
 With some suitable rendering code in place, this creates a pretty Mandelbrot image:
 
-![image]({{ site.baseurl }}/ceberhardt/assets/Mandelbrot/Mandelbrot.png)
+![image]({{ site.github.url }}/ceberhardt/assets/Mandelbrot/Mandelbrot.png)
 
 NOTE: For fast pixel-based image rendering, ignore my Core Graphics code! Instead, I'd recommend looking at Joseph Lord's post ["Drawing Images From Pixel Data - In Swift"](http://blog.human-friendly.com/drawing-images-from-pixel-data-in-swift), his approach is much faster ;-)
 
 The above code is functional, but isn't exactly efficient in that it doesn't use all of the resources at our disposal. While the Mandelbrot number-crunching is underway, the CPU Report reveals the following:
 
-![image]({{ site.baseurl }}/ceberhardt/assets/Mandelbrot/CPUUsage.png)
+![image]({{ site.github.url }}/ceberhardt/assets/Mandelbrot/CPUUsage.png)
 
 Only 99% of a possible 400% CPU utilisation.
 
@@ -251,7 +251,7 @@ generateDatapoints().concurrentMap({
 
 This has the desired effect of using all of the available CPU power:
 
-![image]({{ site.baseurl }}/ceberhardt/assets/Mandelbrot/CPUMaxedOut.png)
+![image]({{ site.github.url }}/ceberhardt/assets/Mandelbrot/CPUMaxedOut.png)
 
 However, there's a problem. Rendering a typical Mandelbrot, with a maximum iteration count of 1,000, using the original functional algorithm completed in 1.4 seconds, however, the concurrent form executes in 3.8 seconds!
 
@@ -349,7 +349,7 @@ This significantly improves performance for small units of work.
 
 The following chart compares the performance of the single-threaded serial implementation versus the various implementations of concurrent map:
 
-![image]({{ site.baseurl }}/ceberhardt/assets/Mandelbrot/Chart.png)
+![image]({{ site.github.url }}/ceberhardt/assets/Mandelbrot/Chart.png)
 
 As you can see, for very small numbers of iterations the non-concurrent implementation is faster than any of the parallel versions. However as the Mandelbrot iteration count increases, the various parallel implementations prove to be significantly faster.
 

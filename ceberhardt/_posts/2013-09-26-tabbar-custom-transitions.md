@@ -7,11 +7,11 @@ categories:
 summary: This blog post looks at creating an interactive tab bar controller transition, where you can swipe left and right to navigate between the tabs. The transition itself is a 'paperfold' effect - very pretty!
 layout: default_post
 ---
-In my previous blog post on <a href="{{ site.baseurl }}/2013/09/20/creating-a-custom-flip-view-controller-transition.html">view controller transitions</a> I demonstrated how to create a page-fold animation controller. In this blog post, I'll take the concepts a step further by showing how to create interactive tab bar controller transitions.
+In my previous blog post on <a href="{{ site.github.url }}/2013/09/20/creating-a-custom-flip-view-controller-transition.html">view controller transitions</a> I demonstrated how to create a page-fold animation controller. In this blog post, I'll take the concepts a step further by showing how to create interactive tab bar controller transitions.
 
 If you watched the [WWDC video #228](https://developer.apple.com/wwdc/videos/) "Custom Transitions Using View Controllers" you will have seen a demonstration that showed a tabbed interface where you can swipe left and right to navigate, with the view controllers folding like paper:
 
-<img src="{{ site.baseurl }}/ceberhardt/assets/TabBarTransitions/WWDCTransition.png"/>
+<img src="{{ site.github.url }}/ceberhardt/assets/TabBarTransitions/WWDCTransition.png"/>
 
 This blog post will show how to replicate this effect.
 
@@ -107,7 +107,7 @@ Notice that the above method sets the anchor point of the snapshot view to eithe
 
 If you add a border to the snapshots you can see how they are arranged vertically as shown below:
 
-<img src="{{ site.baseurl }}/ceberhardt/assets/TabBarTransitions/snapshots.png"/>
+<img src="{{ site.github.url }}/ceberhardt/assets/TabBarTransitions/snapshots.png"/>
 
 In the above screenshot you can see the 'sliced' view that is being navigated from, but where is the view that is navigated to? In the above code that creates the snapshots, each of the to- views has the following applied:
 
@@ -120,7 +120,7 @@ All the to- views are located on the left hand edge of the screen and rotate by 
 
 If we rotate the viewport just a little, and make the layers opaque, you can see the to- views all bunched up at the edge:
 
-<img src="{{ site.baseurl }}/ceberhardt/assets/TabBarTransitions/hiddenSnapshots.png"/>
+<img src="{{ site.github.url }}/ceberhardt/assets/TabBarTransitions/hiddenSnapshots.png"/>
 
 ## Animating the transition
 
@@ -168,7 +168,7 @@ The above code iterates over the folds, retrieving the snapshot views from the a
 
 Fortunately, as the animation interpolates the frame for each layer and simultaneously rotates it, the edges are always in contact with the neighbours:
 
-<img src="{{ site.baseurl }}/ceberhardt/assets/TabBarTransitions/animation.png"/>
+<img src="{{ site.github.url }}/ceberhardt/assets/TabBarTransitions/animation.png"/>
 
 One thing you have to do is make sure you 'clean up' after your animation. In the case of this animation, you have to remove all the snapshot views and restore the from- and to- view to their original locations:
 
@@ -220,11 +220,11 @@ In order to add a bit of realism and depth, I used the same technique as I descr
 
 With this in place, the snapshots now have a gradient as shown below:
 
-<img src="{{ site.baseurl }}/ceberhardt/assets/TabBarTransitions/withShadow.png"/>
+<img src="{{ site.github.url }}/ceberhardt/assets/TabBarTransitions/withShadow.png"/>
 
 The final step is to animate the alpha value of these gradient views along with the existing animations, so that the gradient is darker as the fold increases:
 
-<img src="{{ site.baseurl }}/ceberhardt/assets/TabBarTransitions/animatedShadow.png"/>
+<img src="{{ site.github.url }}/ceberhardt/assets/TabBarTransitions/animatedShadow.png"/>
 
 Done!
 
@@ -258,7 +258,7 @@ You can obtain the source code for this interactive transition form the [VCTrans
 
 Regards, Colin E.
 
-<a href="http://www.shinobicontrols.com"><img src="{{ site.baseurl }}/ceberhardt/assets/shinobiad.jpg"/></a>
+<a href="http://www.shinobicontrols.com"><img src="{{ site.github.url }}/ceberhardt/assets/shinobiad.jpg"/></a>
 
 
 

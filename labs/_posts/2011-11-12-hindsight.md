@@ -19,12 +19,12 @@ Users typically perform many analyses, so responsiveness and ease of use are bot
 
 Hindsight is a time-series charting application for research into historical equity data. Users can easily select companies for which to plot time series. Zooming and panning allow users to choose the section of the chart on which they focus, and datatips allow users to drill down to specific values for any point in the time series. Additional features such as dynamically calculated statistical information and the ability to add analytical annotations provide support for more advanced analysis.
 
-![Hindsight]({{ site.baseurl }}/labs/assets/hindsight.png)
+![Hindsight]({{ site.github.url }}/labs/assets/hindsight.png)
 
-Equity time series can be added to the chart through two different mechanisms. The auto-completing search box allows users to add series for companies by name, while the selector, located in the pullout tab on the right-hand side supports more general searching and filtering to find the desired series (see [Graham's blog post]({{ site.baseurl }}/2010/05/19/contextual-cues-in-ui-design.html) for a detailed UX analysis).
+Equity time series can be added to the chart through two different mechanisms. The auto-completing search box allows users to add series for companies by name, while the selector, located in the pullout tab on the right-hand side supports more general searching and filtering to find the desired series (see [Graham's blog post]({{ site.github.url }}/2010/05/19/contextual-cues-in-ui-design.html) for a detailed UX analysis).
 
-![Add Series Controls]({{ site.baseurl }}/labs/assets/hindsight2.png)
+![Add Series Controls]({{ site.github.url }}/labs/assets/hindsight2.png)
 
 Hindsight's analytical features are all calculated client-side, both to reduce the load on the server and also to provide the immediacy and responsiveness normally only associated with desktop applications. For example, when multiple series are plotted, by default they are rebased on the date range currently being viewed. Client-side rebasing provides the user with immediate updates while panning or zooming the chart. Similarly, the statistical information for each series is kept updated no matter how quickly a user interacts with the chart. The immediacy of the client-side calculation is even more apparent when more advanced analytical annotations such as moving averages and Bollinger Bands are added to the chart.
 
-![Hindsight]({{ site.baseurl }}/labs/assets/hindsight_rebasing.png)
+![Hindsight]({{ site.github.url }}/labs/assets/hindsight_rebasing.png)

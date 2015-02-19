@@ -175,7 +175,7 @@ frame, Spark will reduce the new data and "un-reduce" the old. Here's a
 picture to try and illustrate this:
 
 <p class="text-center">
-  <img title="reduceByKeyAndWindow" src="{{ site.baseurl }}/jphillpotts/assets/reduceByKeyAndWindow.png">
+  <img title="reduceByKeyAndWindow" src="{{ site.github.url }}/jphillpotts/assets/reduceByKeyAndWindow.png">
 </p>
 
 Here we're looking at a sliding window in its old state (red) and new state 

@@ -5,7 +5,7 @@ layout: default_post
 summary: "Agile is a term that is heavily overloaded within software development. In this blog I take a look at Agile as a mindset for development, as opposed to a set of tools and practices."
 ---
 
-<img src="{{ site.baseurl }}/dthomas/assets/AgileMindset/ManThinking.jpg" style="width: 200px; float:right;" />
+<img src="{{ site.github.url }}/dthomas/assets/AgileMindset/ManThinking.jpg" style="width: 200px; float:right;" />
 
 Nowadays, it feels like everyone and their dog are practising Agile development. Over half of the respondents to VersionOne’s [8th Annual State of Agile Survey](www.versionone.com/pdf/2013-state-of-agile-survey.pdf) used Agile methodologies in the majority of their projects. Despite this, I’ve always had a nagging feeling that many supposedly Agile projects aren’t all that Agile. When speaking to other developers about whether their projects are Agile, I often hear the same thing: “We’re kind of Agile. We do sprints and daily stand ups, and we estimate in story points”. I’ve heard the term “Scrum-lite” to describe teams that follow the general idea of Scrum, but perhaps don’t have Product Owners or Scrum Masters, or don’t have stand-ups every day. [Scrum.org](http://www.scrum.org) refers to this as “Scrumbut”. I’ve also come across teams who doggedly follow "Scrum rules" despite them obviously being more of a hindrance than a help to that particular team.
 
@@ -40,7 +40,7 @@ Practices such as pair programming and TDD can be hugely effective, but this eff
 One of the principles behind the Agile Manifesto is that “The best architectures, requirements, and designs emerge from self-organizing teams”. From this, it should be clear that Agile practices cannot be imposed on a team, as that in itself would be un-Agile. Instead, support should be provided for teams to use these practices. For example, if developers know they have the time to thoroughly test code, they will use TDD of their own accord, and will do a far better job of it than if it had been imposed.
 
 
-<img src="{{ site.baseurl }}/dthomas/assets/AgileMindset/AgileManifesto.png"/>
+<img src="{{ site.github.url }}/dthomas/assets/AgileMindset/AgileManifesto.png"/>
 
 ##The Agile Mindset
 So what is the Agile Mindset, and how does it differ from blindly following a process such as Scrum, or using technical practices such as those in XP? The simplest answer is to go back to the Agile Manifesto, and the principles backing it, and to read and reread them until they are instinctive. However it would make for a fairly lame blog post if I said little more than “read the Agile Manifesto”, so I’ll try a bit harder. Here are a few key things to understand in order to work in an Agile way:

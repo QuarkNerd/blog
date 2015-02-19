@@ -15,7 +15,7 @@ delegates ensured that [Our Dynamic Earth](http://www.dynamicearth.co.uk/) in Ed
 discussion and enthusiasm.  Overall, the conference was a definite success and I'm delighted to hear Software Acumen are
  already planning to repeat it [next year](http://lanyrd.com/2014/uxscot/).
 
-<img src="{{ site.baseurl }}/godds/assets/uxscotland-logo.png" alt="UX Scotland" style="width: 100%" />
+<img src="{{ site.github.url }}/godds/assets/uxscotland-logo.png" alt="UX Scotland" style="width: 100%" />
 
 The keynotes from [Jeff Gothelf](https://twitter.com/jboogie) and [Giles Colborne](https://twitter.com/gilescolborne)
 epitomised the two recurring themes of the conference: cross-functional collaboration and context.
@@ -42,7 +42,7 @@ the involved parties and showed how an understanding of the psychology involved 
 to better design apps.  In effect, as Giles summarised, designing for context isn't the right approach, designing for
 relevance is.
 
-<img src="{{ site.baseurl }}/godds/assets/psychology-for-designers.png" alt="Psychology for Designers" class="aligncenter" />
+<img src="{{ site.github.url }}/godds/assets/psychology-for-designers.png" alt="Psychology for Designers" class="aligncenter" />
 
 [Avi Itzkovitch](https://twitter.com/xgmedia)'s talk, [Designing with Sensors: Creating Adaptive Experiences](http://lanyrd.com/2013/uxscot/schcwf/),
 complemented Giles Colborne's wonderfully by delighting in the possibilities for adaptive design that current technology
@@ -60,7 +60,7 @@ chaired by [Rhys Nealon](https://twitter.com/Rhysotto) of STV and featuring seni
  will address many of the current problems with the experience of watching all forms of broadcasting (although I can't
  imagine this is something TV manufacturers would embrace!).
 
-<img src="{{ site.baseurl }}/godds/assets/complimentary-use.png" alt="Psychology for Designers" class="aligncenter" />
+<img src="{{ site.github.url }}/godds/assets/complimentary-use.png" alt="Psychology for Designers" class="aligncenter" />
 
 Of the many useful sessions not already mentioned, a number of moments in particular stood out.  Firstly,
 [Paul Steven](https://twitter.com/ChunkyUX)'s analogy to explain what it's like if you try to present too much

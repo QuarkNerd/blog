@@ -15,7 +15,7 @@ First, a little more information about my use case. I am part of a team who will
 
 A few years ago, Nathan Hurst wrote a [blog post giving a visual guide to NoSQL systems](http://blog.nahurst.com/visual-guide-to-nosql-systems). That post included the image below.
 
-<img src="{{ site.baseurl }}/dgorst/assets/mongodb-vs-couchdb/nosql-triangle.png"/>
+<img src="{{ site.github.url }}/dgorst/assets/mongodb-vs-couchdb/nosql-triangle.png"/>
 
 As you can see, there are three primary concerns you must balance when choosing a data management system: consistency, availability, and partition tolerance.
 * __Consistency__ means that each client always has the same view of the data.
@@ -176,7 +176,7 @@ Great, so now we have a system where we're saving telemetry information to the d
 
 As with MongoDB, the first thing to do is to get a database server up and running. I'm running on a Mac and this is simple in that environment. I haven't tried this on a Windows machine, but I imagine it would be similar there. On a Mac, you just download a zipped version of the CouchDB app, then unzip it and copy it to the Applications folder on your machine. After doing that, you can launch the app using Launchpad, and it will start the database server and open up Futon, its web-based administration panel. Futon will look a little like the screenshot below.
 
-<img src="{{ site.baseurl }}/dgorst/assets/mongodb-vs-couchdb/futon.png"/>
+<img src="{{ site.github.url }}/dgorst/assets/mongodb-vs-couchdb/futon.png"/>
 
 Futon gives you a button to create a new database. As you can see, I've used that to create a new database for our data, called *telemetry*. Now that we have a database, it's time to populate it when we receive new telemetry information. 
 
