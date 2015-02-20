@@ -5,6 +5,9 @@
     <title>{% if page.title %}{{ page.title }}{% else %}Scott Logic{% endif %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="canonical" href="{{ site.canonical.url }}{{ page.url | replace:'index.html',''}}">
+    {% if site.github.owner_name != 'ScottLogic' %}
+    <meta name="robots" content="noindex, nofollow">
+    {% endif %}
     <!--[if lt IE 9]>
     <script src="{{ site.github.url }}/scripts/html5shiv.js"></script>
     <![endif]-->
