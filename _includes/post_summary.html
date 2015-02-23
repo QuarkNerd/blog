@@ -46,7 +46,7 @@
   {% capture url %}{{ site.github.url }}{{ post.url }}{% endcapture %}
   {% assign disqusID = post.url %}
   {% if post.oldlink %}
-    {% capture url %}http://www.scottlogic.co.uk{{ post.oldlink }}{% endcapture %}
+    {% capture url %}{{ post.oldlink }}{% endcapture %}
     {% assign disqusID = post.oldlink %}
   {% endif %}
   {% if post.originalArticleLink %}

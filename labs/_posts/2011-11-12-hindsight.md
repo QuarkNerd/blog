@@ -1,7 +1,7 @@
 ---
 author: labs
 title: Hindsight
-oldlink: "/labs/hindsight/"
+oldlink: "http://www.scottlogic.co.uk/labs/hindsight/"
 tags: 
 techs:
  - flex
