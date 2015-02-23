@@ -8,6 +8,7 @@ tags:
 categories: 
   - aaiken
 layout: default_post
+oldlink: http://www.scottlogic.com/blog/2014/09/19/interactive.html
 ---
 <link rel="stylesheet" href="{{ site.github.url }}/aaiken/assets/interactive/style/style.css" />
 <script src="{{ site.github.url }}/aaiken/assets/interactive/js/require.config.js">

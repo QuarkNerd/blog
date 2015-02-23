@@ -12,6 +12,7 @@ categories:
  - EmberJS
 summary: The recent rise of web applications that have all the functionality of their desktop counterparts has highlighted the fact that JavaScript MVC Frameworks are now an essential part of any modern web developers toolkit.
 suppress-careers-add: true
+oldlink: http://www.scottlogic.com/blog/2013/12/06/JavaScript-MVC-frameworks.html
 ---
 Web development has changed significantly in the past few years; it hasn't been long since deploying a web project simply involved uploading static HTML, CSS and JavaScript files to a HTTP server. The growing popularity with providing software as a service has meant that applications which have resided on the desktop are being transferred to the browser.
 

@@ -11,6 +11,7 @@ summary: >
     TypeScript 1.4 was released last Friday, bringing union types, type aliases, and some ES6-related features. It also brought a
     new compiler and language services API to facilitate better tool support. Here I'll give a brief introduction with some
     pointers on places to get started.
+oldlink: http://www.scottlogic.com/blog/2015/01/20/typescript-compiler-api.html
 ---
 <script src="{{ site.github.url }}/nwolverson/assets/tsc/highlight.pack.js"> </script>
 

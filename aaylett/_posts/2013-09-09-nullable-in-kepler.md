@@ -10,6 +10,7 @@ tags:
 categories: 
   - aaylett
 layout: default_post
+oldlink: http://www.scottlogic.com/blog/2013/09/09/nullable-in-kepler.html
 ---
 When Eclipse Juno came out last year, I was excited to see some support for
 `@Nullable` annotations.  I didn't get very far with them at the time, though,

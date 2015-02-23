@@ -7,6 +7,7 @@ categories:
   - aaylett
 layout: default_post
 source: site
+oldlink: http://www.scottlogic.com/blog/2013/12/05/counting-iterables.html
 ---
 
 Suppose you have a collection, and you need to perform an action on each

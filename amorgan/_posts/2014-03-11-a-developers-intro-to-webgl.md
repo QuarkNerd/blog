@@ -4,6 +4,7 @@ title: "A Developer's intro to WebGL"
 categories:
 - amorgan
 layout: default_post
+oldlink: http://www.scottlogic.com/blog/2014/03/11/a-developers-intro-to-webgl.html
 ---
 Recently, I have been starting to get to grips with WebGL. Having little to no real previous experience with 3D graphics, there was a reasonably steep learning curve to overcome. So I thought I'd touch on a few of the basics here and share some resources that I found really useful.
 

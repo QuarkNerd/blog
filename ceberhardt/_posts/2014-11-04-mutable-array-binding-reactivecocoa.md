@@ -3,6 +3,7 @@ author: ceberhardt
 title: "Binding mutable arrays with ReactiveCocoa"
 layout: default_post
 summary: "This post describes a binding helper that allows you to bind arrays directly to table views with ReactiveCocoa. In this update to my previous post, the helper is extended to support mutable arrays."
+oldlink: http://www.scottlogic.com/blog/2014/11/04/mutable-array-binding-reactivecocoa.html
 ---
 
 A few months ago I wrote a wrote about a utility class that allows you to [bind ReactiveCocoa view models to table views]({{ site.github.url }}/2014/05/11/reactivecocoa-tableview-binding.html). With this binding helper, each item in the view model array is automatically bound to a cell. The binding helper also automatically updates the table view if the array property on the view model is updated.

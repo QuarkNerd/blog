@@ -7,6 +7,7 @@ layout: default_post
 featured-overlay-inverted: true
 summary: It's easy to get started building data-bound user interfaces in the browser using the KnockoutJS MVVM library. This post covers some practices and techniques that help with using it successfully in large single page applications.
 summary-short: Practical practices and techniques for large SPAs
+oldlink: http://www.scottlogic.com/blog/2014/02/28/developing-large-scale-knockoutjs-applications.html
 ---
 Using the [KnockoutJS](http://knockoutjs.com/) JavaScript front end [MVVM](http://addyosmani.com/blog/understanding-mvvm-a-guide-for-javascript-developers/) library, it's easy to get started with building data-bound user interfaces in the browser. Using the library and the pattern can greatly improve many of the aspects that matter in building a high quality application.
 

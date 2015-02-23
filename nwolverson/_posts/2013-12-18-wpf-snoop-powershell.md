@@ -7,6 +7,7 @@ tags:
 categories: 
   - nwolverson
 layout: default_post
+oldlink: http://www.scottlogic.com/blog/2013/12/18/wpf-snoop-powershell.html
 ---
 When moving back from web to desktop development, it's easy to miss the quick feedback and update cycle enabled by the developer tools in modern 
 web browsers. To an extent the debugger intermediate window does many of the things the console allows, and many of the "script debugging" 

@@ -5,6 +5,7 @@ tags:
 categories: 
 summary: How to use a long-press to trigger re-ordering a list in Ionic Framework, instead of Ionic’s default implementation, which requires a button to switch modes.
 layout: default_post
+oldlink: http://www.scottlogic.com/blog/2014/11/25/ionic-sorter.html
 ---
 
 How to use a long-press to trigger re-ordering a list in Ionic Framework, instead of Ionic’s default implementation, which requires a button to switch modes.
