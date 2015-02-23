@@ -1,7 +1,7 @@
 ---
 author: labs
 title: Mobile Markets
-oldlink: "/labs/mobile-markets/"
+oldlink: "http://www.scottlogic.co.uk/labs/mobile-markets/"
 tags: 
 techs:
  - html5

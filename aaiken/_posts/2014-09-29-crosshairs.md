@@ -10,6 +10,7 @@ tags:
 categories: 
   - aaiken
 layout: default_post
+oldlink: http://www.scottlogic.com/blog/2014/09/29/crosshairs.html
 ---
 <link rel="stylesheet" href="{{ site.github.url }}/aaiken/assets/crosshairs/style/style.css" />
 <script src="{{ site.github.url }}/aaiken/assets/crosshairs/js/require.config.js">

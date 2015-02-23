@@ -2,7 +2,7 @@
 id: 165416
 author: cprice
 title: "Jekyll - A Developer's Wordpress?"
-oldlink: "/2012/12/jekyll-a-developers-wordpress/"
+oldlink: "http://www.scottlogic.co.uk/2012/12/jekyll-a-developers-wordpress/"
 tags: 
   - blog
 categories: 

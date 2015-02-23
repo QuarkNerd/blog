@@ -6,6 +6,7 @@ tags:
 
 summary: This blog post presents a simple utility class for binding ReactiveCocoa ViewModels to UITableViews without the need for the usual datasource / delegate boiler-plate.
 layout: default_post
+oldlink: http://www.scottlogic.com/blog/2014/05/11/reactivecocoa-tableview-binding.html
 ---
 This blog post presents a simple utility class for binding ReactiveCocoa ViewModels to UITableViews without the need for the usual datasource / delegate boiler-plate. Here's an example of how to use this binding helper:
 

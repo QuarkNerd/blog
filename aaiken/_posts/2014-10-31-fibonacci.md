@@ -11,6 +11,7 @@ tags:
 categories: 
   - aaiken
 layout: default_post
+oldlink: http://www.scottlogic.com/blog/2014/10/31/fibonacci.html
 ---
 <link rel="stylesheet" href="{{ site.github.url }}/aaiken/assets/fibonacci/style/style.css" />
 <script src="{{ site.github.url }}/aaiken/assets/fibonacci/js/require.config.js">

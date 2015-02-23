@@ -8,6 +8,7 @@ categories:
   - nwolverson
 layout: default_post
 summary: SignalR is an easy to use framework for .NET and the browser which enables bi-directional communication over a variety of transports (from WebSockets to Ajax long-polling). The SignalR Hubs API is dynamically typed, in this post I will summarise some existing tools which can be used to provide strong typing for calls between C# and TypeScript, as well as a more experimental approach via F#, FunScript and Type Providers.
+oldlink: http://www.scottlogic.com/blog/2014/08/08/signalr-typed.html
 ---
 [SignalR](http://signalr.net/) is an easy to use framework for .NET and the browser ([introduction](http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/introduction-to-signalr)) which enables bi-directional communication over a variety of transports (from WebSockets to Ajax long-polling). In particular the Hubs API allows both client-to-server and server-to-client calls to be made simply as method calls on a 'hub' proxy object. On the .NET side this makes use of *dynamic* method calls, while JavaScript is dynamic by nature—so although the communication is easy, it does not benefit from the safety guarantees and tooling support brought by strong typing. In this post I will summarise some existing tools which can be used to provide strong typing for the SignalR Hubs API  between C# and [TypeScript](http://www.typescriptlang.org/), as well as a more experimental approach via F#, [FunScript](http://funscript.info/) and Type Providers.
 

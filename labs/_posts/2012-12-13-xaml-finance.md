@@ -1,7 +1,7 @@
 ---
 author: labs
 title: XAML Finance
-oldlink: "/labs/xaml-finance/"
+oldlink: "http://www.scottlogic.co.uk/labs/xaml-finance/"
 tags: 
 techs:
  - silverlight

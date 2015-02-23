@@ -16,6 +16,7 @@ summary: |
     processing streams of high velocity data in near-real time. Here we're going 
     to look at using Big Data-style techniques in Scala on a stream of data from 
     a WebSocket.
+oldlink: http://www.scottlogic.com/blog/2013/07/29/spark-stream-analysis.html
 ---
 
 Big Data is a hot topic these days, and one aspect of that problem space is

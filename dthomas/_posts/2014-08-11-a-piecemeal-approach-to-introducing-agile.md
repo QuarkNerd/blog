@@ -3,6 +3,7 @@ author: dthomas
 title: "A piecemeal approach to introducing Agile"
 layout: default_post
 summary: "One of the common ways of introducing Agile is to incrementally move the current process to a more Agile one. Here I take a look at the strengths and weakness of this approach."
+oldlink: http://www.scottlogic.com/blog/2014/08/11/a-piecemeal-approach-to-introducing-agile.html
 ---
 In my <a href="{{site.github.url}}{% post_url 2014-08-04-introducing-agile-development-to-client-projects %}">previous post</a> I looked at why I think we should be transitioning our clients to Agile. Having decided that we want to help our clients work in an Agile way, the next thing to look at is how we approach this.
 

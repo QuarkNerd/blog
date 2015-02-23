@@ -8,6 +8,7 @@ summary: "Reactive programming is a paradigm which allows you to better represen
 summary-short: ""
 layout: default_post
 suppress-careers-add: true
+oldlink: http://www.scottlogic.com/blog/2014/07/23/frp-with-bacon-and-d3.html
 ---
 
 One of my colleagues, Sam Davies, recently gave a presentation on functional reactive programming in iOS (For those of you who are interested, a recording of the talk is available from the [BrisTech YouTube channel](https://www.youtube.com/watch?v=1-YhrLIyRXs)). The concepts introduced in that talk were very interesting, so I was inspired to investigate how you might go about implementing them in the Javascript world. This blog post describes the results of that investigation.

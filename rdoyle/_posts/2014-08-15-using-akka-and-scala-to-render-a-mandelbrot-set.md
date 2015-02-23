@@ -9,6 +9,7 @@ image: "rdoyle/assets/featured/mandelbrot.jpg"
 summary: "Actor Models make writing concurrent and scalable software much easier. This post uses Akka and Scala to demonstrate some of the benefits of the Actor model."
 summary-short: Exploring the use of the Actor Model
 featured-overlay-inverted: true
+oldlink: http://www.scottlogic.com/blog/2014/08/15/using-akka-and-scala-to-render-a-mandelbrot-set.html
 ---
 Writing software that is concurrent, scalable and fault-tolerant is hard. To achieve concurrency developers have to manage multiple threads, which can be tricky and error-prone. This post looks at how the Actor model makes it easier to write concurrent code. Specifically it renders a Mandelbrot Set using the Akka framework and investigates how Akka can be used with Scala to create highly concurrent and scalable systems.
 

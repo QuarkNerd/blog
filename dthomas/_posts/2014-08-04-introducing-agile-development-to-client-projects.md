@@ -3,6 +3,7 @@ author: dthomas
 title: "Introducing Agile development to client projects"
 layout: default_post
 summary: "As Agile methodologies gain more acceptance in the software development world, should Scott Logic look at introducing Agile to our client projects? And if so how?"
+oldlink: http://www.scottlogic.com/blog/2014/08/04/introducing-agile-development-to-client-projects.html
 ---
 Since I joined Scott Logic I’ve worked on three separate teams which have, in one way or another, made a transition to Agile. This has meant either introducing development processes such as Scrum, technical practices such as TDD and iterative development, or indeed both. On top of this I’ve always tried to bring an Agile mindset to the development work I’ve been involved in, as well as promoting this approach within Scott Logic as a whole. This has involved trying to spread an understanding of the principles behind the Agile Manifesto, and encouraging teams and developers to refine their own best practice based on this.
 

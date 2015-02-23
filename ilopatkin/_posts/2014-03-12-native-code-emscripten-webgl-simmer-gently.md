@@ -9,6 +9,7 @@ tags:
  - blog
 summary: "An emeging recipe that can change the way we make rich web apps."
 suppress-careers-add: true
+oldlink: http://www.scottlogic.com/blog/2014/03/12/native-code-emscripten-webgl-simmer-gently.html
 ---
 Yep, it's WebGL and Native together. This is a short tutorial on using [Emscripten](https://github.com/kripken/emscripten) to integrate a C++/OpenGL code with JS environment. There are some other tutorials on the net you might want to have a look at if you want to simply convert an existing native app and not bother with web-specific input events or render loops ([gears](http://ehsanakhgari.org/blog/2012-01-25/porting-opengl-application-web),[simplegl](http://www.joshuagranick.com/blog/2013/04/21/deploying-cpp-to-javascript-using-emscripten/)). If you have some native code you want to use within a bigger webapp, e.g., write a JS API around your existing library, read on. Also there are some conclusions regarding performance and maturity of Emscripten+WebGL solutions closer to the end of this page.
 

@@ -11,6 +11,7 @@ layout: default_post
 source: site
 title-short: "Agile: Case Study"
 summary-short: "A brief look into how and why a big project became more agile."
+oldlink: http://www.scottlogic.com/blog/2014/12/02/agile-projects-a-case-study.html
 ---
 
 Over the past year, I worked on a large project which saw a dramatic shift towards a more Agile way of working. In this post, I will run through exactly what changed, how it made our project better, and what you can do to become more Agile.

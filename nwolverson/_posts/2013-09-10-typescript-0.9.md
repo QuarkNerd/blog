@@ -9,6 +9,7 @@ categories:
   - nwolverson
 layout: default_post
 summary: Version 0.9 of Typescript was recently released with support for generic types. In this post I discuss the features of 0.9 and 0.9.1, particularly generics and the "no implicit any" option.
+oldlink: http://www.scottlogic.com/blog/2013/09/10/typescript-0.9.html
 ---
 I've been "noodling around" with [Typescript](http://www.typescriptlang.org/) for a while, and enjoying the various improvements over standard Javascript. 
 Quite a bit of this comes from ES6 improvements which Typescript incorporates (and transforms to sensible ES3 output) - for example

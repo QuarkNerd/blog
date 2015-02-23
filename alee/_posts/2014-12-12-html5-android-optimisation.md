@@ -5,6 +5,7 @@ tags:
 categories: 
 summary: Some lessons I've learned trying to optimise a HTML5 mobile App so that it's fast and responsive even on old or budget phones with limited performance.
 layout: default_post
+oldlink: http://www.scottlogic.com/blog/2014/12/12/html5-android-optimisation.html
 ---
 
 Recently I built a proof of concept HTML5 cross-platform Mobile App, which we intended to use as a technology showcase running on both iPhones and Android phones. I used animated transitions to give the user good feedback when moving between screens and interacting with the App. For example, screens would slide in from the left, and "Hero" elements would move to new positions and change shape/style.

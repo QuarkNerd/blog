@@ -3,6 +3,7 @@ author: rfarmer
 title: "Foyer Screen, continued."
 layout: default_post
 summary: "I have spent the last 12 weeks continuing the Foyer Screen project. In this post I describe the Admin Panel which I created to allow dynamic editing of presentation content and share a little of what I've learned in my time at Scott Logic, including some useful resources for getting started with Angular JS."
+oldlink: http://www.scottlogic.com/blog/2014/12/05/Foyer-Screen-continued.html
 ---
 
 

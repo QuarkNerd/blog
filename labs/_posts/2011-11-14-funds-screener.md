@@ -1,7 +1,7 @@
 ---
 author: labs
 title: Fund Screener
-oldlink: "/labs/fund-screener/"
+oldlink: "http://www.scottlogic.co.uk/labs/fund-screener/"
 tags: 
 techs:
  - html5

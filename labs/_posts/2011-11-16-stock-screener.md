@@ -1,7 +1,7 @@
 ---
 author: labs
 title: Stock Screener
-oldlink: "/labs/stock-screener/"
+oldlink: "http://www.scottlogic.co.uk/labs/stock-screener/"
 tags: 
 techs:
  - html5

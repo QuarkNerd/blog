@@ -13,6 +13,7 @@ summary: |
     <a href="http://freeside.co/betamax/">Betamax</a> is a tool to help with testing 
     applications that consume web services by allowing the developer to record 
     responses and then replay them. In this post we look at how we can use it in Scala.
+oldlink: http://www.scottlogic.com/blog/2013/07/18/betamax-in-scala.html
 ---
 
 I first saw [Betamax](http://freeside.co/betamax/) a couple of years ago when Rob 

@@ -9,6 +9,7 @@ categories:
 tags: 
 layout: default_post
 suppress-careers-add: true
+oldlink: http://www.scottlogic.com/blog/2014/02/28/arrow-functions-in-knockoutjs.html
 ---
 
 Recently, Knockout's original author Steve Sanderson released a plugin called [knockout-projections](https://github.com/stevesanderson/knockout-projections) which optimises the performance of the observable array methods filter and map. In this post, I'll take a peek into the future by combining this plugin with the forthcoming ES6 arrow functions to produce some very terse and highly efficient collection bindings.

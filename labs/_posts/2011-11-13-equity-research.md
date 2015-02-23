@@ -1,7 +1,7 @@
 ---
 author: labs
 title: Equity Research
-oldlink: "/labs/market-overview/"
+oldlink: "http://www.scottlogic.co.uk/labs/market-overview/"
 tags: 
 techs:
  - flex
