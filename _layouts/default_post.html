@@ -28,7 +28,7 @@ layout: default
       {% capture url %}{{ site.github.url }}{{ page.url }}{% endcapture %}
       {% assign disqusID = page.url %}
       {% if page.oldlink %}
-        {% capture url %}http://www.scottlogic.co.uk{{ page.oldlink }}{% endcapture %}
+        {% capture url %}{{ page.oldlink }}{% endcapture %}
         {% assign disqusID = page.oldlink %}
       {% endif %}
       {% if page.originalArticleLink %}
