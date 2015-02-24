@@ -65,7 +65,7 @@ lighter-weight experience. Again there is no REPL. However LinqPad does provide 
 particular offering rich data dumps. This excels for LINQ-like collection data, but there is no requirement to
 use LINQ, despite the name. It also supports F# or VB too, if you want to make use of the visualisation.
 
-![LinqPad screenshot]({{ site.github.url }}/nwolverson/assets/interactive.net/linqpad.png)
+![LinqPad screenshot]({{ site.github.url }}/nwolverson/assets/interactive.net/linqpad.PNG)
 
 It's worth mentioning a word on assembly references. Many of the examples above load references
 as part of the script itself, and import namespaces. LinqPad can add references and namespaces
