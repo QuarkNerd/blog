@@ -11,7 +11,7 @@ tags:
 oldlink: http://www.scottlogic.com/blog/2014/10/29/concurrent-functional-swift.html
 ---
 
-In my previous blog posts on the [Game of Life](www.scottlogic.com/blog/2014/09/10/game-of-life-in-functional-swift.html) I explored how functional programming techniques can result in clear and concise code. However, the benefits of functional programming are more than just cosmetic. You've probably heard that functions and the use of constants make it easier to write applications that make use of concurrency. In this post I put this theory into practice!
+In my previous blog posts on the [Game of Life]({{ site.github.url }}/2014/09/10/game-of-life-in-functional-swift.html) I explored how functional programming techniques can result in clear and concise code. However, the benefits of functional programming are more than just cosmetic. You've probably heard that functions and the use of constants make it easier to write applications that make use of concurrency. In this post I put this theory into practice!
 
 This post shows how the simple task of computing a Mandelbrot set can be split up across multiple threads (and processors) as follows:
 
