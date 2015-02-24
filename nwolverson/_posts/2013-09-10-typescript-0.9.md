@@ -137,7 +137,7 @@ function repeat<T>(n: number, x: T) {
 And this function returns `T[]`.
 
 This might all seem a bit academic, but I think it's huge. As an example take the library 
-[Underscore.js](underscorejs.org). This provides
+[Underscore.js](http://underscorejs.org). This provides
 a bunch of utility functions for working on lists and collections (familiar to the functional programmer/LINQ user,
 and some of which are in some JS implementations but not present on all browsers).
 Prior to 0.9, many types would incorporate `any`, eg `rest` which returns the rest of a list after skipping the first
