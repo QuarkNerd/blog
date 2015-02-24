@@ -20,7 +20,7 @@ My proof of concept App consists of a home screen showing a scrollable list of c
 
 <img src="{{ site.github.url }}/alee/assets/android-optimise/app-layout.png"/>
 
-I built my App using [Ionic Framework](ionicframework.com), which is based on [AngularJS](https://angularjs.org/), but these lessons should apply to other frameworks too. Angular has built-in support for animations, and Ionic comes with some default transitions for sliding pages left and right. I used that, and added a Javascript animation for the "Hero" element. It extracts the element from the card and positions it so it's in the same place on screen, then animates it to it's new location before removing it. The corresponding element in the details page is initially hidden during the animation, and revealed at the end so it appears to be the same element.
+I built my App using [Ionic Framework](http://ionicframework.com), which is based on [AngularJS](https://angularjs.org/), but these lessons should apply to other frameworks too. Angular has built-in support for animations, and Ionic comes with some default transitions for sliding pages left and right. I used that, and added a Javascript animation for the "Hero" element. It extracts the element from the card and positions it so it's in the same place on screen, then animates it to it's new location before removing it. The corresponding element in the details page is initially hidden during the animation, and revealed at the end so it appears to be the same element.
 
 ###Cache or pre-fetch data
 
