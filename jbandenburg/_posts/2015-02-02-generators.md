@@ -3,6 +3,7 @@ author: jbandenburg
 title: JavaScript ES6 generators
 summary: The upcoming JavaScript standard ES6 introduces generators, which provides us with a new pattern for writing asynchronous code. I compare this pattern to the established patterns of callbacks and Promises.
 layout: default_post
+oldlink: http://www.scottlogic.com/blog/2015/02/02/generators.html
 ---
 JavaScript is mostly single-threaded, code cannot be executed while any other operation is currently executing. This has
 lead to the JavaScript community shunning long, blocking operations and moving to asynchronous APIs. Asynchronous
