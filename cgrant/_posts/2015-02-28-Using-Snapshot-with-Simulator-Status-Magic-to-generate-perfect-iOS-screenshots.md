@@ -7,7 +7,7 @@ tags:
 layout: default_post
 ---
 
-I have recently been using a set of tools called [fastlane](http://fastlane.tools/), developed by [Felix Krause](http://www.krausefx.com/). [fastlane](http://fastlane.tools/) helps to automate the steps involved in building and deploying iOS applications to the App Store.
+I have recently been using a set of tools called [fastlane](http://fastlane.tools/), developed by [Felix Krause](http://www.krausefx.com/). fastlane helps to automate the steps involved in building and deploying iOS applications to the App Store.
 
 <p style='text-align:center'>
 <a href='http://fastlane.tools/'>
@@ -17,7 +17,7 @@ I have recently been using a set of tools called [fastlane](http://fastlane.tool
 
 ##Snapshot
 
-One of my favourite [fastlane](http://fastlane.tools/) tools is [snapshot](https://github.com/KrauseFx/snapshot). [snapshot](https://github.com/KrauseFx/snapshot) allows you to automate taking localised screenshots of your iOS app on every device. Without such a tool, taking multiple screenshots in every locale and on every device would take hours, if not days. This is not only very time consuming, but very boring too! I've recently set up [snapshot](https://github.com/KrauseFx/snapshot) so that it creates all of the screenshots required for the application I have been working on. This is great. It took a short while to set up, but now that it is done, I am free to work on other things while screenshots are being generated.  
+One of my favourite fastlane tools is [snapshot](https://github.com/KrauseFx/snapshot). snapshot allows you to automate taking localised screenshots of your iOS app on every device. Without such a tool, taking multiple screenshots in every locale and on every device would take hours, if not days. This is not only very time consuming, but very boring too! I've recently set up snapshot so that it creates all of the screenshots required for the application I have been working on. This is great. It took a short while to set up, but now that it is done, I am free to work on other things while screenshots are being generated.  
 
 	devices([
 	  "iPad Air",
@@ -38,7 +38,7 @@ One of my favourite [fastlane](http://fastlane.tools/) tools is [snapshot](https
 *A simplified version of the Snapfile script I use with fastlane to generate the screenshots*
 
 ##Simulator Status Magic
-One issue that I originally came across when setting up [snapshot](https://github.com/KrauseFx/snapshot) was the status bar. Because [snapshot](https://github.com/KrauseFx/snapshot) runs on the simulator, the status bar is not realistic and inconsistent. I wanted to display a perfect, consistent status bar on the screenshots that match Apple's [marketing materials](http://www.apple.com/ios/). This led me to [SimulatorStatusMagic](https://github.com/shinydevelopment/SimulatorStatusMagic). [SimulatorStatusMagic](https://github.com/shinydevelopment/SimulatorStatusMagic) is a tool that modifies the iOS Simulator so that it has a perfect status bar. You can then launch your app and take perfect screenshots every time. The modifications made are designed to match the images you see on the Apple site and are as follows:
+One issue that I originally came across when setting up snapshot was the status bar. Because snapshot runs on the simulator, the status bar is not realistic and inconsistent. I wanted to display a perfect, consistent status bar on the screenshots that match Apple's [marketing materials](http://www.apple.com/ios/). This led me to [Simulator Status Magic](https://github.com/shinydevelopment/Simulator Status Magic). Simulator Status Magic is a tool that modifies the iOS Simulator so that it has a perfect status bar. You can then launch your app and take perfect screenshots every time. The modifications made are designed to match the images you see on the Apple site and are as follows:
 
 - 9:41 AM is displayed for the time.
 - The battery is full and shows 100%.
@@ -48,11 +48,11 @@ One issue that I originally came across when setting up [snapshot](https://githu
 *If you're interested in the significance of 9:41 and why Apple use it throughout their marketing materials, check out [this link over at The Unoffical Apple Weblog](http://www.tuaw.com/2014/04/14/why-9-41-am-is-the-always-the-time-displayed-on-iphones-and-ipad/).*
 
 ###Using Simulator Status Magic
-The easiest way to install [Simulator Status Magic](https://github.com/shinydevelopment/SimulatorStatusMagic) is with [CocoaPods](http://cocoapods.org/). Just add the following to your Podfile.
+The easiest way to install Simulator Status Magic is with [CocoaPods](http://cocoapods.org/). Just add the following to your Podfile.
 
-	pod 'SimulatorStatusMagic'
+	pod 'Simulator Status Magic'
 
-This will install [Simulator Status Magic](https://github.com/shinydevelopment/SimulatorStatusMagic) into your CococaPods library, and you can access it in your code by adding the following import to the top of your AppDelegate.m file.
+This will install Simulator Status Magic into your CococaPods library, and you can access it in your code by adding the following import to the top of your AppDelegate.m file.
 
 	#import <SDStatusBarManager.h>
 
@@ -79,4 +79,4 @@ You can then surround the import and the `enableOverrides` call in your AppDeleg
     [[SDStatusBarManager sharedInstance] enableOverrides];
 	#endif
 	
-Your status bar will now only be overriden when SCREENSHOTS is specified. This short piece of code used in combination with snapshot and simulator status magic should give you a perfect status bar in all of your screenshots for your iOS App Store applications!
+Your status bar will now only be overriden when `SCREENSHOTS` is specified. This short piece of code used in combination with snapshot and simulator status magic should give you a perfect status bar in all of your screenshots for your iOS App Store applications!
