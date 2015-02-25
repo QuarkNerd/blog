@@ -12,9 +12,29 @@ I have recently been using a set of tools called [fastlane](http://fastlane.tool
 
 One of my favourite [fastlane](http://fastlane.tools/) tools is [snapshot](https://github.com/KrauseFx/snapshot). [snapshot](https://github.com/KrauseFx/snapshot) allows you to automate taking localised screenshots of your iOS app on every device. Without such a tool, taking multiple screenshots in every locale and on every device would take hours, if not days. This is not only very time consuming, but very boring too! I've recently set up [snapshot](https://github.com/KrauseFx/snapshot) so that it creates all of the screenshots required for the application I have been working on. This is great. It took a short while to set up, but once that was done, I am free to work on other things while the screenshots are being generated.  
 
-One issue that I originally came across when setting up [snapshot](https://github.com/KrauseFx/snapshot) was the status bar. Because [snapshot](https://github.com/KrauseFx/snapshot) runs on the simulator, the status bar is not realistic and inconsistent. I wanted to display a perfect, consistent status bar on the screenshots that match Apple's [marketing materials](http://www.apple.com/ios/). This led me to [SimulatorStatusMagic](https://github.com/shinydevelopment/SimulatorStatusMagic). [SimulatorStatusMagic](https://github.com/shinydevelopment/SimulatorStatusMagic) is a tool developed by Shiny Development that modifies the iOS Simulator so that it has a perfect status bar. You can then launch your app and take perfect screenshots every time. The modifications made are designed to match the images you see on the Apple site and are as follows:
+One issue that I originally came across when setting up [snapshot](https://github.com/KrauseFx/snapshot) was the status bar. Because [snapshot](https://github.com/KrauseFx/snapshot) runs on the simulator, the status bar is not realistic and inconsistent. I wanted to display a perfect, consistent status bar on the screenshots that match Apple's [marketing materials](http://www.apple.com/ios/). This led me to [SimulatorStatusMagic](https://github.com/shinydevelopment/SimulatorStatusMagic). [SimulatorStatusMagic](https://github.com/shinydevelopment/SimulatorStatusMagic) is a tool that modifies the iOS Simulator so that it has a perfect status bar. You can then launch your app and take perfect screenshots every time. The modifications made are designed to match the images you see on the Apple site and are as follows:
 
 - 9:41 AM is displayed for the time.
 - The battery is full and shows 100%.
 - On iPhone: The carrier text is removed, 5 bars of cellular signal and full WiFi bars are displayed.
 - On iPad: The carrier text is set to "iPad" and full WiFi bars are displayed.
+
+*If you're interested in the significance of 9:41 and why Apple use it throughout their marketing materials, check out [this link over at The Unoffical Apple Weblog](http://www.tuaw.com/2014/04/14/why-9-41-am-is-the-always-the-time-displayed-on-iphones-and-ipad/).*
+
+The easiest way to install [SimulatorStatusMagic](https://github.com/shinydevelopment/SimulatorStatusMagic) is with [CocoaPods](http://cocoapods.org/). Just add the following to your Podfile.
+
+	pod 'SimulatorStatusMagic'
+
+This will install [SimulatorStatusMagic](https://github.com/shinydevelopment/SimulatorStatusMagic) into your CococaPods library, and you can access it in your code by adding the following import to the top of your AppDelegate.m file.
+
+	#import <SDStatusBarManager.h>
+
+Once you have imported the library, add the following line at the top of your `application:didFinishLaunchingWithOptions` method.
+
+    [[SDStatusBarManager sharedInstance] enableOverrides];
+
+Now, whenever you launch the simulator, the time will be displayed as 9:41 AM, the battery will be full, and the carrier text will be set to "iPad" when launched on an iPad simulator, which matches the Apple marketing materials.
+
+##Conditional Compiliation
+
+This works fine, but you definitely don't want to TODO
