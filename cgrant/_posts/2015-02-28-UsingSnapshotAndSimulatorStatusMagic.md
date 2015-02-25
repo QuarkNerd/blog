@@ -10,9 +10,11 @@ layout: default_post
 
 I have recently been using a set of tools called [fastlane](http://fastlane.tools/), developed by [Felix Krause](http://www.krausefx.com/). [fastlane](http://fastlane.tools/) helps to automate the steps involved in building and deploying iOS applications to the App Store.
 
-<a href='http://fastlane.tools/' style='text-align:center'>
+<p style='text-align:center'>
+<a href='http://fastlane.tools/'>
 <img src='{{ site.github.url }}/cgrant/assets/fastlane.png' style='width:266px;'>
 </a>
+</p>
 
 ##Snapshot
 
