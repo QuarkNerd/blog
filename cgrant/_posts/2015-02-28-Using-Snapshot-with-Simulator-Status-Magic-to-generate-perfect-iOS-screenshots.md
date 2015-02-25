@@ -79,4 +79,4 @@ You can then surround the import and the `enableOverrides` call in your AppDeleg
     [[SDStatusBarManager sharedInstance] enableOverrides];
 	#endif
 	
-Your status bar will now only be overriden when SCREENSHOTS is specified. 
+Your status bar will now only be overriden when SCREENSHOTS is specified. This short piece of code used in combination with snapshot and simulator status magic should give you a perfect status bar in all of your screenshots for your iOS App Store applications!
