@@ -16,6 +16,24 @@ I have recently been using a set of tools called [fastlane](http://fastlane.tool
 
 One of my favourite [fastlane](http://fastlane.tools/) tools is [snapshot](https://github.com/KrauseFx/snapshot). [snapshot](https://github.com/KrauseFx/snapshot) allows you to automate taking localised screenshots of your iOS app on every device. Without such a tool, taking multiple screenshots in every locale and on every device would take hours, if not days. This is not only very time consuming, but very boring too! I've recently set up [snapshot](https://github.com/KrauseFx/snapshot) so that it creates all of the screenshots required for the application I have been working on. This is great. It took a short while to set up, but once that was done, I am free to work on other things while the screenshots are being generated.  
 
+	devices([
+	  "iPad Air",
+	  "iPhone 6",
+	  "iPhone 5",
+	  "iPhone 4s"
+	])
+	
+	languages([
+	  'en-US',
+	  'en-GB',
+	  'de-DE'
+	])
+	
+	screenshots_path "./screenshots"
+	clear_previous_screenshots
+	
+*A simplified version of the Snapfile script I use with fastlane to generate the screenshots*
+
 One issue that I originally came across when setting up [snapshot](https://github.com/KrauseFx/snapshot) was the status bar. Because [snapshot](https://github.com/KrauseFx/snapshot) runs on the simulator, the status bar is not realistic and inconsistent. I wanted to display a perfect, consistent status bar on the screenshots that match Apple's [marketing materials](http://www.apple.com/ios/). This led me to [SimulatorStatusMagic](https://github.com/shinydevelopment/SimulatorStatusMagic). [SimulatorStatusMagic](https://github.com/shinydevelopment/SimulatorStatusMagic) is a tool that modifies the iOS Simulator so that it has a perfect status bar. You can then launch your app and take perfect screenshots every time. The modifications made are designed to match the images you see on the Apple site and are as follows:
 
 - 9:41 AM is displayed for the time.
@@ -40,5 +58,20 @@ Once you have imported the library, add the following line at the top of your `a
 Now, whenever you launch the simulator, the time will be displayed as 9:41 AM, the battery will be full, and the carrier text will be set to "iPad" when launched on an iPad simulator, which matches the Apple marketing materials.
 
 ##Conditional Compiliation
+This works fine, but you definitely don't want to leave this in your production code! Thankfully however, there is a way around this. In your Snapfile, you can specify custom_args that are passed to the project when it is build in preparation for taking the screenshots. By specifying a 'SCREENSHOTS' preprocessor definition in your Snapfile, like so.
+	
+	custom_args "GCC_PREPROCESSOR_DEFINITIONS='SCREENSHOTS'"
+	
+You can then surround the import and the `enableOverrides` call in your AppDelegate.m file, so that it is only activated when these custom arguments are specified.
 
-This works fine, but you definitely don't want to TODO
+	#ifdef SCREENSHOTS
+	#import <SDStatusBarManager.h>
+	#endif
+	
+	...
+	    
+	#ifdef SCREENSHOTS
+    [[SDStatusBarManager sharedInstance] enableOverrides];
+	#endif
+	
+Your status bar will now only be overriden when SCREENSHOTS is specified!
