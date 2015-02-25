@@ -1,6 +1,5 @@
 ---
 author: cgrant
-title: "Using Snapshot and Simulator Status Magic to generate iOS screenshots"
 featured-overlay-inverted: true
 categories:
  - cgrant
