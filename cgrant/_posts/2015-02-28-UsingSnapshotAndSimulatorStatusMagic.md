@@ -1,4 +1,12 @@
-#Using Snapshot and SimulatorStatusMagic to generate iOS Screenshots 
+---
+author: cgrant
+title: "Using Snapshot and SimulatorStatusMagic to generate iOS screenshots"
+featured-overlay-inverted: true
+categories:
+ - cgrant
+tags: 
+layout: default_post
+---
 
 I have recently been using a set of tools called [fastlane](http://fastlane.tools/), developed by [Felix Krause](http://www.krausefx.com/). [fastlane](http://fastlane.tools/) helps to automate the steps involved in building and deploying iOS applications to the App Store.
 
