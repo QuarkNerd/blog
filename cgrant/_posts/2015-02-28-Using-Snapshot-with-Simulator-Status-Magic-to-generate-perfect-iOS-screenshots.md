@@ -50,7 +50,7 @@ One issue that I originally came across when setting up snapshot was the status 
 ###Using Simulator Status Magic
 The easiest way to install Simulator Status Magic is with [CocoaPods](http://cocoapods.org/). Just add the following to your Podfile.
 
-	pod 'Simulator Status Magic'
+	pod 'SimulatorStatusMagic'
 
 This will install Simulator Status Magic into your CococaPods library, and you can access it in your code by adding the following import to the top of your AppDelegate.m file.
 
