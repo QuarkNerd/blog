@@ -1,4 +1,4 @@
-<div class="authorCarousel carousel slide hidden-small">
+<div id="authorCarousel" class="authorCarousel carousel slide hidden-small">
   {% comment %} Rounding hack of -1, patches welcome! {% endcomment %}
   {% assign count = site.data.authors.active-authors | size | minus: 1 | divided_by: 6 %}
   <div class="carousel-inner">
@@ -23,8 +23,8 @@
     </div>
     {% endfor %}
   </div>
-  <a class="left carousel-control" href="div.authorCarousel" data-slide="prev"><div class="arrow left"></div></a>
-  <a class="right carousel-control" href="div.authorCarousel" data-slide="next"><div class="arrow right"></div></a>
+  <a class="left carousel-control" href="#authorCarousel" data-slide="prev"><div class="arrow left"></div></a>
+  <a class="right carousel-control" href="#authorCarousel" data-slide="next"><div class="arrow right"></div></a>
 </div>
 <div class="authorCarousel visible-small">
   <ul class="row">
