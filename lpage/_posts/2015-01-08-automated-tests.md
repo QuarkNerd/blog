@@ -7,6 +7,7 @@ categories:
 tags: 
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2015/01/08/automated-tests.html
+disqus-id: /2015/01/08/automated-tests.html
 ---
 
 It has become generally accepted that a good project has a set of automated tests behind it - whether they be unit tests, integration tests or end-to-end tests. However I don't often hear people talking about the benefits vs cost and how much should be spent on particular projects. I thought it would be nice to write up a guide and cover when automated tests are economical.

@@ -11,6 +11,7 @@ layout: default_post
 featured-overlay-inverted: true
 suppress-careers-add: true
 oldlink: http://www.scottlogic.com/blog/2014/06/26/swift-sequences.html
+disqus-id: /2014/06/26/swift-sequences.html
 ---
 
 I've had a lot of fun poking around the Swift APIs over the past few weeks. The lack of documentation means that there are a some real gems hidden among the more mundane API and language features.

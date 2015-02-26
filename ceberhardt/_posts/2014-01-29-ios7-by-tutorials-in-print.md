@@ -5,6 +5,7 @@ categories:
 summary: The book, iOS 7 By Tutorials, which I contributed four chapters to, is now in print.
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2014/01/29/ios7-by-tutorials-in-print.html
+disqus-id: /2014/01/29/ios7-by-tutorials-in-print.html
 ---
 
 A few days ago I was happy to receive a weighty package through the post containing the following:

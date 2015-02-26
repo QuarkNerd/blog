@@ -9,6 +9,7 @@ image-attribution: 'image courtesy of <a href="https://www.flickr.com/photos/lae
 tags:
   - featured
 oldlink: http://www.scottlogic.com/blog/2014/11/20/swift-initialisation.html
+disqus-id: /2014/11/20/swift-initialisation.html
 ---
 
 Swift's strict initialisation process results in a number of practical issues, leaving developers scratching their heads. This post explores a few solutions including two-phase initialisation, the use of optionals and lazy properties. 

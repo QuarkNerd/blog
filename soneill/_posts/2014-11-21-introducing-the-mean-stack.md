@@ -16,6 +16,7 @@ source: site
 title-short: "MEAN.IO"
 summary-short: "An introduction to MEAN.IO"
 oldlink: http://www.scottlogic.com/blog/2014/11/21/introducing-the-mean-stack.html
+disqus-id: /2014/11/21/introducing-the-mean-stack.html
 ---
 
 In this post I’ll go over what the MEAN stack is and how easy it is to setup and develop with. Hopefully this will give you enough of a taste to try it yourself. The post will cover the following topics : 

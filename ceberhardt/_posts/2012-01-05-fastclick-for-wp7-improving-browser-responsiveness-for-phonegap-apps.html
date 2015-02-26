@@ -13,6 +13,7 @@ categories:
   - ceberhardt
 layout: default_post
 source: wordpress
+disqus-id: /blog/colin/2012/01/fastclick-for-wp7-improving-browser-responsiveness-for-phonegap-apps/
 ---
 <p>I recently released an update of the HTML5 / PhoneGap application I wrote a few months ago to the marketplace. This update fixed the location detection issue, where the marketplace certification process failed to detect that the application was using geolocation data via the browser (this issue <a href="https://issues.apache.org/jira/browse/CB-138">has been fixed in PhoneGap 1.2</a>), plus a few cosmetic improvements.</p>
 <p>This application still exhibits a few UI quirks that make it fairly obvious that this is not a native application, the first is the <a href="http://stackoverflow.com/questions/6378008/windows-phone-7-browser-turn-off-the-gray-shading-when-links-are-clicked">gray box that appears whenever a link is clicked</a>, the second is the overall responsiveness - there is a short delay between clicking on links / buttons and the application responding. It is this responsiveness that I would like to tackle in this blog post. This delay unfortunately gives the impression that your application is less responsive than it actually is!</p>

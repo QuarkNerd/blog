@@ -8,6 +8,7 @@ summary: "It was just two months ago that Apple took us by surprise in releasing
 layout: default_post
 suppress-careers-add: true
 oldlink: http://www.scottlogic.com/blog/2014/08/01/swift-vs-objectivec.html
+disqus-id: /2014/08/01/swift-vs-objectivec.html
 ---
 
 It was just two months ago that Apple took developers by surprise in releasing the Swift programming language. Ever since I've been spending my evenings thoroughly immersed in the 'all new' Swift programming language. 

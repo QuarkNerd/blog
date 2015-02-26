@@ -10,6 +10,7 @@ featured-overlay-inverted: true
 tags:
   - featured
 oldlink: http://www.scottlogic.com/blog/2014/10/28/Scala-Vs-Clojure.html
+disqus-id: /2014/10/28/Scala-Vs-Clojure.html
 ---
 
 Having recently dipped my toe into the world of functional programming with both Scala and Clojure I thought it'd be useful to do a quick compare and contrast of these two JVM based languages.  Firstly I'll define what a functional programming language is and then move on to discuss the major similarities and differences between Scala and Clojure.

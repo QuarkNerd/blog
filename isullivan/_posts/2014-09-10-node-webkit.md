@@ -9,6 +9,7 @@ featured-overlay-black: true
 tags: 
   - featured
 oldlink: http://www.scottlogic.com/blog/2014/09/10/node-webkit.html
+disqus-id: /2014/09/10/node-webkit.html
 ---
 This post demonstrates how JavaScript and HTML5 related technologies can be used to create an application that can run in both a web browser and as a cross-platform desktop application using [node-webkit](https://github.com/rogerwang/node-webkit). It describes the tools that were used in creating a simple contact list application.
 

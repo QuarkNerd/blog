@@ -9,6 +9,7 @@ layout: default_post
 source: site
 summary: In the previous part of this series discussing running an interactive environment (REPL) on .NET I covered the non-C# options. This post explores the options for an interactive or lightweight C# environment. 
 oldlink: http://www.scottlogic.com/blog/2013/08/15/interactive-dotnet-2.html
+disqus-id: /2013/08/15/interactive-dotnet-2.html
 ---
 In the <a href="{{site.github.url}}/2013/08/08/interactive-dotnet-1.html">previous post</a> 
 I discussed various options for running an interactive environment (a REPL) 

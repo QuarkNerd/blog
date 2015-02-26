@@ -8,6 +8,7 @@ layout: default_post
 featured-overlay-inverted: true
 suppress-careers-add: true
 oldlink: http://www.scottlogic.com/blog/2014/07/30/spa-angular-knockout.html
+disqus-id: /2014/07/30/spa-angular-knockout.html
 ---
 
 A few weeks ago I finished working on a project that made extensive use of Knockout. It wasn't a Single Page Application (SPA), but Knockout allowed us to create a very rich and engaging user experience. During my time on the project, I had seen blogs and posts mentioning Angular as an alternative to Knockout, and colleagues had asked me whether I would consider Angular in future projects. It was time for me to learn more about Angular.

@@ -4,6 +4,7 @@ title: "Introducing Agile upfront"
 layout: default_post
 summary: "An alternative to introducing Agile incrementally is to make a 'big bang' transition, converting over to Agile all at once. In this post I take a look at how this might work."
 oldlink: http://www.scottlogic.com/blog/2014/08/18/introducing-agile-upfront.html
+disqus-id: /2014/08/18/introducing-agile-upfront.html
 ---
 In my <a href="{{site.github.url}}{% post_url 2014-08-11-a-piecemeal-approach-to-introducing-agile %}">previous post</a> I looked at a slow and incremental approach to transitioning to Agile. When first thinking about transitioning to Agile this seemed like the obvious approach, after all Agile methods advocate continuous incremental improvement. Despite this many people in the Agile community advocate making the change overnight. This is known as the “big bang” approach to transitioning. For us, this means introducing the idea of Agile at the start of the engagement, convincing the client of it, and kicking the project off as an Agile project.
 

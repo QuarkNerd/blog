@@ -8,6 +8,7 @@ summary: "Moving from desktop or plugin technologies (Flex, Silverlight, Java Ap
 is a challenge for developers of large-scale enterprise applications. This White Paper discusses the challenges and offers potential solutions."
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2014/05/19/html5-at-enterprise-scale.html
+disqus-id: /2014/05/19/html5-at-enterprise-scale.html
 ---
 
 It was only three years ago that myself and a couple of colleagues wrote the paper [Flex, Silverlight or HTML5? Time To Decide]({{ site.github.url }}/2011/05/05/flex-silverlight-html5-time-to-decide.html). At the time developers were struggling to choose between mature and reliable Flex, Microsoft-backed newcomer Silverlight, and young upstart HTML5.

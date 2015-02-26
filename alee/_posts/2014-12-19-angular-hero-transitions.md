@@ -6,6 +6,7 @@ categories:
 summary: How to create hero transitions with AngularJS, similar to those implemented by Google's Material Design and Polymer's core-animated-pages.
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2014/12/19/angular-hero-transitions.html
+disqus-id: /2014/12/19/angular-hero-transitions.html
 ---
 
 *How to create hero transitions with [AngularJS](https://angularjs.org/), similar to those implemented by Google's Material Design and Polymer's [core-animated-pages](https://www.polymer-project.org/docs/elements/core-elements.html#core-animated-pages).*

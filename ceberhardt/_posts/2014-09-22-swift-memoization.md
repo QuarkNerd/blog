@@ -10,6 +10,7 @@ tags:
   - featuredcolin
 suppress-careers-add: true
 oldlink: http://www.scottlogic.com/blog/2014/09/22/swift-memoization.html
+disqus-id: /2014/09/22/swift-memoization.html
 ---
 This post is a [continuation of my previous]({{ site.github.url }}/2014/09/10/game-of-life-in-functional-swift.html) which looked at implementing Conway's Game of Life using functional techniques. Here I look at how memoization can be used to cache the return value of a function in order to improve performance.
 

@@ -9,6 +9,7 @@ categories:
   - aaiken
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2014/08/28/bollinger.html
+disqus-id: /2014/08/28/bollinger.html
 ---
 In my last article (on [line annotation components]({{ site.github.url }}/2014/08/26/two-line-components-for-d3-charts.html) for D3 charts), I created a component which calculated and displayed a moving average. As promised, I'm now turning my attention to [Bollinger Bands](http://en.wikipedia.org/wiki/Bollinger_Bands).
 

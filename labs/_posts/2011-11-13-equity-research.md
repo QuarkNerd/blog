@@ -9,6 +9,7 @@ techs:
 layout: default_post
 source: scottlogic
 summary: Equity Research is a research portal web application providing intra-day and end-of-day UK equity data for companies, sectors and indices.
+disqus-id: /labs/market-overview/
 ---
 ##Motivation
 
