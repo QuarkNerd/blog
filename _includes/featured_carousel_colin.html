@@ -12,14 +12,14 @@
           <div>
             <a href="{{ site.github.url }}{{ post.url }}">
               <img src="../{{ post.image }}">
-              {% capture url %}{{ site.github.url }}{{ page.url }}{% endcapture %}
-              {% if page.oldlink %}
-                {% capture url %}{{ page.oldlink }}{% endcapture %}
+              {% capture url %}{{ site.github.url }}{{ post.url }}{% endcapture %}
+              {% if post.oldlink %}
+                {% capture url %}{{ post.oldlink }}{% endcapture %}
               {% endif %}
-              {% if page.originalArticleLink %}
-                {% assign url = page.originalArticleLink %}
+              {% if post.originalArticleLink %}
+                {% assign url = post.originalArticleLink %}
               {% endif %}
-              {% assign disqusID = page.url %}
+              {% assign disqusID = post.url %}
               {% if post.disqus-id %}
                 {% assign disqusID = post.disqus-id %}
               {% endif %}
@@ -47,14 +47,14 @@
           <div>
             <a href="{{ site.github.url }}{{ post.url }}">
               <img src="../{{ post.image }}">
-              {% capture url %}{{ site.github.url }}{{ page.url }}{% endcapture %}
-              {% if page.oldlink %}
-                {% capture url %}{{ page.oldlink }}{% endcapture %}
+              {% capture url %}{{ site.github.url }}{{ post.url }}{% endcapture %}
+              {% if post.oldlink %}
+                {% capture url %}{{ post.oldlink }}{% endcapture %}
               {% endif %}
-              {% if page.originalArticleLink %}
-                {% assign url = page.originalArticleLink %}
+              {% if post.originalArticleLink %}
+                {% assign url = post.originalArticleLink %}
               {% endif %}
-              {% assign disqusID = page.url %}
+              {% assign disqusID = post.url %}
               {% if post.disqus-id %}
                 {% assign disqusID = post.disqus-id %}
               {% endif %}
@@ -89,14 +89,14 @@
           <div>
             <a href="{{ site.github.url }}{{ post.url }}">
               <img src="../{{ post.image }}">
-              {% capture url %}{{ site.github.url }}{{ page.url }}{% endcapture %}
-              {% if page.oldlink %}
-                {% capture url %}{{ page.oldlink }}{% endcapture %}
+              {% capture url %}{{ site.github.url }}{{ post.url }}{% endcapture %}
+              {% if post.oldlink %}
+                {% capture url %}{{ post.oldlink }}{% endcapture %}
               {% endif %}
-              {% if page.originalArticleLink %}
-                {% assign url = page.originalArticleLink %}
+              {% if post.originalArticleLink %}
+                {% assign url = post.originalArticleLink %}
               {% endif %}
-              {% assign disqusID = page.url %}
+              {% assign disqusID = post.url %}
               {% if post.disqus-id %}
                 {% assign disqusID = post.disqus-id %}
               {% endif %}
