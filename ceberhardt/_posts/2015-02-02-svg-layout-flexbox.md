@@ -87,7 +87,7 @@ var svg = d3.select("body").append("svg")
 
 Once you start adding axes, titles or a legend things really start to get out of hand ...
 
-<img src="{{ site.baseurl }}/ceberhardt/assets/d3/chart_layout.jpg" />
+<img src="{{ site.github.url }}/ceberhardt/assets/d3/chart_layout.jpg" />
 
 To be fair, this isn't really a fault of D3, the problem of layout simply isn't within the remit of this library.
 
@@ -287,10 +287,10 @@ It was a great coincidence that the ReactJS Native development resulted in the o
 
 Anyhow, more on D3FC later ...
 
-<link href="{{ site.baseurl }}/ceberhardt/assets/d3/d3-financial-components.css" type="text/css" rel="stylesheet" />
-<script src="{{ site.baseurl }}/ceberhardt/assets/d3/d3.js"> </script>
-<script src="{{ site.baseurl }}/ceberhardt/assets/d3/Layout.js"> </script>
-<script src="{{ site.baseurl }}/ceberhardt/assets/d3/d3-financial-components.js"> </script>
+<link href="{{ site.github.url }}/ceberhardt/assets/d3/d3-financial-components.css" type="text/css" rel="stylesheet" />
+<script src="{{ site.github.url }}/ceberhardt/assets/d3/d3.js"> </script>
+<script src="{{ site.github.url }}/ceberhardt/assets/d3/Layout.js"> </script>
+<script src="{{ site.github.url }}/ceberhardt/assets/d3/d3-financial-components.js"> </script>
 <script>
 var layout = fc.utilities.layout();
 d3.select('#layout-test').call(layout);
