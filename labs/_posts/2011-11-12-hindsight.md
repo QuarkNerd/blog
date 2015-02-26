@@ -8,6 +8,7 @@ techs:
 layout: default_post
 source: scottlogic
 summary: Hindsight is a time-series charting application for the analysis of historical end-of-day equity data, allowing users to plot time series, apply analytics, and annotate charts.
+disqus-id: /labs/hindsight/
 ---
 ##Motivation
 

@@ -9,6 +9,7 @@ categories:
   - cprice
 layout: default_post
 source: site
+disqus-id: /2012/12/jekyll-a-developers-wordpress/
 ---
 ## *Outrageous pun intentionally... hyde-n...*
 

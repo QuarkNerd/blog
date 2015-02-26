@@ -6,6 +6,7 @@ categories:
 summary: A couple of days ago Microsoft announced Windows Phone App Studio, a web based tool for the rapid creation of Windows Phone applications. In this blog post I take this new technology for a spin to see what it's capable of, and the interesting potential it has for creating 'personal' apps.
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2013/08/09/windows-phone-app-studio-first-impressions.html
+disqus-id: /2013/08/09/windows-phone-app-studio-first-impressions.html
 ---
 A couple of days ago Microsoft announced [Windows Phone App Studio](http://blogs.windows.com/windows_phone/b/wpdev/archive/2013/08/06/making-it-easier-to-get-started-with-windows-phone-app-studio-beta-simplified-phone-registration-support-options-amp-more-payout-markets.aspx), a web based tool for the rapid creation of Windows Phone applications. Whilst the graphical app-builder idea is not a new one, the App Studio has a few interesting features, such as the ability to distribute your apps outside of the Windows Phone Marketplace. This allows you to create much more 'personal' apps.
 

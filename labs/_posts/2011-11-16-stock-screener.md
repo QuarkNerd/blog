@@ -8,6 +8,7 @@ techs:
 layout: default_post
 source: scottlogic
 summary: Stock Screener provides dynamic filtering of real-time UK equity data for both analytical and portfolio-building purposes.
+disqus-id: /labs/stock-screener/
 ---
 ##Motivation
 

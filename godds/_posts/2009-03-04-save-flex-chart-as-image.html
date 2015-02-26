@@ -11,6 +11,7 @@ categories:
   - godds
 layout: default_post
 source: wordpress
+disqus-id: /blog/graham/2009/03/save-flex-chart-as-image/
 ---
 <p>The ability to allow a user to save a Flex chart, or in fact any Flex UI component, as an image has popped up on my radar several times over the last few years.  Solutions to the problem have generally involved producing a pop-up window with the UI component as an image that the user can then save, either by bouncing the information off a server (<a href="http://www.jamesward.com/blog/2006/08/16/flex-paint-flex-display-object-to-png/" target="_blank">James Ward - RIA Cowboy</a> and <a href="http://www.adobe.com/cfusion/communityengine/index.cfm?event=showdetails&amp;postId=5021&amp;productId=2&amp;loc=en_US" target="_blank">Flex Cookbook</a>) or interacting with JavaScript (<a href="http://dougmccune.com/blog/2007/06/03/save-a-snapshot-image-of-a-flex-app-without-a-server/" target="_blank">Doug McCune</a>).  However, additions made to the framework in Flex 3 combined with new features of Flash Player 10 have made these cumbersome techniques redundant.  It is now possible to provide this functionality directly from your Flex application in two simple steps.</p>
 <p>The first step involves capturing the UI component's bitmap information.  The Flex 3 API introduced the <a href="http://livedocs.adobe.com/flex/3/langref/mx/graphics/ImageSnapshot.html" target="_blank">ImageSnapshot class</a> specifically to simplify this process.  The following line of code is sufficient to capture the image data:</p>

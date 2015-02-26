@@ -10,6 +10,7 @@ techs:
 layout: default_post
 source: scottlogic
 summary: XAML Finance is a cross-platform application for viewing and analysing FTSE 100 equities. The application is available on the desktop, web and mobile as a demonstration of cross-platform .NET development..
+disqus-id: /labs/xaml-finance/
 ---
 ##Motivation
 It is becoming increasingly common for investment banks to deliver their research and trading applications across a range of platforms, from desktop, to web, to mobile. Ideally, a single codebase would be developed to cater for each platform, but due to differing development technologies this is infeasible.

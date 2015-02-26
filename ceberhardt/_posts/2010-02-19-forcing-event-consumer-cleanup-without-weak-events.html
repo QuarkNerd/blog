@@ -10,6 +10,7 @@ categories:
   - ceberhardt
 layout: default_post
 source: wordpress
+disqus-id: /blog/colin/2010/02/forcing-event-consumer-cleanup-without-weak-events/
 ---
 <p><em>This blog post describes a simple technique for ensuring that consumers of events unsubscribe their event handlers without the need for weak events.</em></p>
 <p>I think the concept of managed memory, where the cleanup of unused objects from the heap is performed by a garbage collector, is a fantastic idea. It means that developers working with Java or C# (or other CLR languages) can often forget all about memory allocation, concentrating on more interesting tasks. However, whereas in the Java language the concept of memory leaks has almost completely vanished, they unfortunately rear their ugly head all to often when developing applications for the Microsoft Common Language Runtime (CLR). This is almost entirely down to one thing, events.</p>

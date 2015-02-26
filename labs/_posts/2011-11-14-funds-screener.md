@@ -8,6 +8,7 @@ techs:
 layout: default_post
 source: scottlogic
 summary: Fund Screener is a dynamic search and filter tool for the selection and analysis of open-ended funds.
+disqus-id: /labs/fund-screener/
 ---
 ##Motivation
 

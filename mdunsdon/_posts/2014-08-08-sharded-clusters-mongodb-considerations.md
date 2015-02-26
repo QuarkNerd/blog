@@ -10,6 +10,7 @@ layout: default_post
 image-attribution: 'image courtesy of <a href="https://www.flickr.com/photos/billburris/">Bill Burris</a>'
 featured-overlay-inverted: true
 oldlink: http://www.scottlogic.com/blog/2014/08/08/sharded-clusters-mongodb-considerations.html
+disqus-id: /2014/08/08/sharded-clusters-mongodb-considerations.html
 ---
 
 

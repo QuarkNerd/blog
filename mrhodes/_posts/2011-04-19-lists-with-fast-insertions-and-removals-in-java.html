@@ -11,6 +11,7 @@ categories:
   - mrhodes
 layout: default_post
 source: site
+disqus-id: /2011/04/lists-with-fast-insertions-and-removals-in-java/
 ---
 <p><em>This post describes the implementation of a List in Java which allows log time removals and insertions.</em></p>
 <p>Lists are probably the most useful data structures in programming.  Java provides a number of ways of creating a list out of the box with regular arrays, and the <code>ArrayList</code>, <code>LinkedList</code> and <code>Vector</code> classes in the java.util package.  However, none of these structures allow elements to be removed or added to the middle of the list in sub-linear time*, which for some applications can be useful.  <em>(* - the LinkedList allows elements to be removed (inserted) via a <a href="http://download.oracle.com/javase/6/docs/api/java/util/ListIterator.html"><code>ListIterator</code></a> in constant time, but requires that the element (position) is located first, which takes linear time).</em></p>

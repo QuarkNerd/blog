@@ -6,6 +6,7 @@ layout: default_post
 summary: Now that I've completed the Scala MOOC I thought I'd go back and re-implement the assignments in Clojure to get a better understanding of the differences between these two languages
 summary-short: "Reimplementing Scala assignments in Clojure"
 oldlink: http://www.scottlogic.com/blog/2015/01/07/Scala-Vs-Clojure-Pt2.html
+disqus-id: /2015/01/07/Scala-Vs-Clojure-Pt2.html
 ---
 
 ## Introduction ##

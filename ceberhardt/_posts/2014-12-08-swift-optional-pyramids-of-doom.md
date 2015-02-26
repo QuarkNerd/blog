@@ -4,6 +4,7 @@ title: "Tearing Down Swift's Optional Pyramid of Doom"
 layout: default_post
 summary: "This blog post looks at a few techniques that can be used to remove the deeply nested if-let statements that are a common sight in Swift code."
 oldlink: http://www.scottlogic.com/blog/2014/12/08/swift-optional-pyramids-of-doom.html
+disqus-id: /2014/12/08/swift-optional-pyramids-of-doom.html
 ---
 This blog post looks at a few techniques that can be used to remove the deeply nested if-let statements that are a common sight in Swift code.
 

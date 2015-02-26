@@ -44,13 +44,15 @@
 {% endif %}
 
   {% capture url %}{{ site.github.url }}{{ post.url }}{% endcapture %}
-  {% assign disqusID = post.url %}
   {% if post.oldlink %}
     {% capture url %}{{ post.oldlink }}{% endcapture %}
-    {% assign disqusID = post.oldlink | replace:'http://www.scottlogic.co.uk','' | replace:'http://www.scottlogic.com/blog','' %}
   {% endif %}
   {% if post.originalArticleLink %}
     {% assign url = post.originalArticleLink %}
+  {% endif %}
+  {% assign disqusID = post.url %}
+  {% if post.disqus-id %}
+    {% assign disqusID = post.disqus-id %}
   {% endif %}
   {% assign title = post.title %}
 

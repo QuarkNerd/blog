@@ -4,6 +4,7 @@ title: Using Screenhero To Turbo-Charge Pair Programming!
 summary: In this blog post, I talk about my team’s journey from traditional “pass me the keyboard and mouse” pair programming to use of Screenhero for IDE sharing both within the office and remotely.
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2014/09/25/screenhero.html
+disqus-id: /2014/09/25/screenhero.html
 ---
 *Written in collaboration with [@cjsmithie](https://twitter.com/cjsmithie)*
 

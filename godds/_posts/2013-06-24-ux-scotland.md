@@ -9,6 +9,7 @@ categories:
 layout: default_post
 source: site
 oldlink: http://www.scottlogic.com/blog/2013/06/24/ux-scotland.html
+disqus-id: /2013/06/24/ux-scotland.html
 ---
 Last week I spoke at and attended [UX Scotland 2013](http://uxscotland.net/), a new user experience design conference
 organised by [Software Acumen](http://software-acumen.com/).  Over the course of 2 days, 31 sessions and roughly 130

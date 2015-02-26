@@ -9,6 +9,7 @@ categories:
   - aaiken
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2014/08/26/two-line-components-for-d3-charts.html
+disqus-id: /2014/08/26/two-line-components-for-d3-charts.html
 ---
 In this article I'm going to create two simple, reusable D3 components for adding line annotations to charts. One of the things I appreciate most about D3 components is that, regardless of the complexity of the component itself, adding one to a chart is typically a really simple process, and these components will illustrate that elegance.
 

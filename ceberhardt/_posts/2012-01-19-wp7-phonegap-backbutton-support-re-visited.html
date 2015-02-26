@@ -10,6 +10,7 @@ categories:
   - ceberhardt
 layout: default_post
 source: wordpress
+disqus-id: /blog/colin/2012/01/wp7-phonegap-backbutton-support-re-visited/
 ---
 <p>About a month ago I published an article which demonstrated how to <a href="http://www.scottlogic.co.uk/blog/colin/2011/12/a-simple-multi-page-windows-phone-7-phonegap-example/" title="A Simple Multi-Page Windows Phone 7 PhoneGap Example">create a WP7 application using static HTML pages and PhoneGap</a>. Whilst PhoneGap makes the packaging of HTML / JavaScript / CSS and images into a breeze, one thing it doesn't do is provide correct back-button support. Correct back-button support is a mandatory requirement for marketplace certification. Hitting the back button should navigate back through the various screens of an application. Hitting the back-button on the first screen should terminate the application. </p>
 <p>The solution I published previously handles the WP7 back keypress in order to keep track of the back-stack depth. When the back-stack depth is just one, a back-button press exits the application. This works fine if backwards navigation is always controlled via the hardware back-button, however if your application has HTML anchor elements that navigate back to a previous page, or you use code such as <code>javascript:history.go(-1)</code>, this back-stack handling code will not detect that a backwards navigation has occurred.</p>

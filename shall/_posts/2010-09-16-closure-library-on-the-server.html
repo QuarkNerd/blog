@@ -16,6 +16,7 @@ categories:
   - shall
 layout: default_post
 source: site
+disqus-id: /2010/09/closure-library-on-the-server/
 ---
 <p>Over the past few months I've been using the <a href="http://www.scottlogic.co.uk/2010/09/introducing-closure-tools/" target="_blank">Closure Library</a> to create my own JavaScript library that carries out some graphical processing. This is done entirely in JavaScript, using Closure's <strong>graphics</strong> package.</p>
 <p>An important factor in the development of this library was compatibility. I wanted assurance that, no matter what browser the user hit the page from, the graphic would be displayed. The Library's graphics package is already very good at this; determining the browser from the User-Agent header and then deciding whether to produce an SVG, VML or Canvas drawing context.  However, some devices either don't support any of these drawing methods, or cannot process the JavaScript involved.</p>

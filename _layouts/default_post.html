@@ -26,13 +26,15 @@ layout: default
         <div>{{ page.date | date: "%d %b %Y" }}</div>
       </div>
       {% capture url %}{{ site.github.url }}{{ page.url }}{% endcapture %}
-      {% assign disqusID = page.url %}
       {% if page.oldlink %}
         {% capture url %}{{ page.oldlink }}{% endcapture %}
-        {% assign disqusID = page.oldlink %}
       {% endif %}
       {% if page.originalArticleLink %}
         {% assign url = page.originalArticleLink %}
+      {% endif %}
+      {% assign disqusID = page.url %}
+      {% if post.disqus-id %}
+        {% assign disqusID = post.disqus-id %}
       {% endif %}
       {% assign title = page.title %}
       {% include social.html %}

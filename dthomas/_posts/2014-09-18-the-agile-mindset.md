@@ -4,6 +4,7 @@ title: "The Agile Mindset"
 layout: default_post
 summary: "Agile is a term that is heavily overloaded within software development. In this blog I take a look at Agile as a mindset for development, as opposed to a set of tools and practices."
 oldlink: http://www.scottlogic.com/blog/2014/09/18/the-agile-mindset.html
+disqus-id: /2014/09/18/the-agile-mindset.html
 ---
 
 <img src="{{ site.github.url }}/dthomas/assets/AgileMindset/ManThinking.jpg" style="width: 200px; float:right;" />

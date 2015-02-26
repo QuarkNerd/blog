@@ -4,6 +4,7 @@ title: "How does the nature of an engagement affect how we introduce Agile?"
 layout: default_post
 summary: "The exact method used for introducing Agile will depend on the nature of our client. Here I look at how different clients might affect the approach we take."
 oldlink: http://www.scottlogic.com/blog/2014/08/22/how-does-the-nature-of-an-engagement-affect-how-we-introduce-agile.html
+disqus-id: /2014/08/22/how-does-the-nature-of-an-engagement-affect-how-we-introduce-agile.html
 ---
 In my <a href="{{site.github.url}}{% post_url 2014-08-18-introducing-agile-upfront %}">previous post</a> we looked at introducing Agile at the start of a client engagement. <a href="{{site.github.url}}{% post_url 2014-08-11-a-piecemeal-approach-to-introducing-agile %}">Prior to that</a> we had a look at making a slow transition across to Agile. There are clearly benefits and weaknesses to both approaches, and typically a blend of the two will be used. This allows us to make it clear the kind of changes that we want to make to the client, and the kind of impact it will have on the stakeholders, but to make the change in a way that will last and that will be supported by everyone involved. The exact approach used is heavily dependent on the specifics of the client engagement. Here we look at a few of the things that can affect our choices.
 

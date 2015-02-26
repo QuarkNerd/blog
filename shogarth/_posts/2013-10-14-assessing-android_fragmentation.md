@@ -10,6 +10,7 @@ categories:
  - android
 summary: "Android is fragmented. This is a feature, not a bug. Embrace this and you embrace the future."
 oldlink: http://www.scottlogic.com/blog/2013/10/14/assessing-android_fragmentation.html
+disqus-id: /2013/10/14/assessing-android_fragmentation.html
 ---
 Android targets a wide user base. It runs on budget to high-end phones and tablets, digital cameras and even refrigerators! In its short lifetime, several major versions have been shipped. This proliferation has been described as the 'fragmentation' of the platform.
 

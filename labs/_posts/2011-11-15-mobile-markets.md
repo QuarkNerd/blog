@@ -10,6 +10,7 @@ techs:
 layout: default_post
 source: scottlogic
 summary: Mobile Markets brings intra-day and end-of-day UK equity data to your mobile. It supports browsing and searching as well as analytical functionality such as time-series charting.
+disqus-id: /labs/mobile-markets/
 ---
 ##Motivation
 
