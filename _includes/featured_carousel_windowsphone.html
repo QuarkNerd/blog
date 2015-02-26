@@ -45,14 +45,16 @@
           <div>
             <a href="{{ site.github.url }}{{ post.url }}">
               <img src="../{{ post.image }}">
-              {% capture url %}{{ site.github.url }}{{ post.url }}{% endcapture %}
-              {% assign disqusID = post.url %}
-              {% if post.oldlink %}
-                {% capture url %}{{ post.oldlink }}{% endcapture %}
-                {% assign disqusID = post.oldlink %}
+              {% capture url %}{{ site.github.url }}{{ page.url }}{% endcapture %}
+              {% if page.oldlink %}
+                {% capture url %}{{ page.oldlink }}{% endcapture %}
               {% endif %}
-              {% if post.originalArticleLink %}
-                {% assign url = post.originalArticleLink %}
+              {% if page.originalArticleLink %}
+                {% assign url = page.originalArticleLink %}
+              {% endif %}
+              {% assign disqusID = page.url %}
+              {% if post.disqus-id %}
+                {% assign disqusID = post.disqus-id %}
               {% endif %}
               {% assign title = post.title %}
               {% assign inverted = post.featured-overlay-inverted %}
@@ -85,14 +87,16 @@
           <div>
             <a href="{{ site.github.url }}{{ post.url }}">
               <img src="../{{ post.image }}">
-              {% capture url %}{{ site.github.url }}{{ post.url }}{% endcapture %}
-              {% assign disqusID = post.url %}
-              {% if post.oldlink %}
-                {% capture url %}{{ post.oldlink }}{% endcapture %}
-                {% assign disqusID = post.oldlink %}
+              {% capture url %}{{ site.github.url }}{{ page.url }}{% endcapture %}
+              {% if page.oldlink %}
+                {% capture url %}{{ page.oldlink }}{% endcapture %}
               {% endif %}
-              {% if post.originalArticleLink %}
-                {% assign url = post.originalArticleLink %}
+              {% if page.originalArticleLink %}
+                {% assign url = page.originalArticleLink %}
+              {% endif %}
+              {% assign disqusID = page.url %}
+              {% if post.disqus-id %}
+                {% assign disqusID = post.disqus-id %}
               {% endif %}
               {% assign title = post.title %}
               {% assign inverted = post.featured-overlay-inverted %}
