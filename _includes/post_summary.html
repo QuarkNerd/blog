@@ -47,7 +47,7 @@
   {% assign disqusID = post.url %}
   {% if post.oldlink %}
     {% capture url %}{{ post.oldlink }}{% endcapture %}
-    {% assign disqusID = post.oldlink %}
+    {% assign disqusID = post.oldlink | replace:'http://www.scottlogic.co.uk','' | replace:'http://www.scottlogic.com/blog','' %}
   {% endif %}
   {% if post.originalArticleLink %}
     {% assign url = post.originalArticleLink %}
