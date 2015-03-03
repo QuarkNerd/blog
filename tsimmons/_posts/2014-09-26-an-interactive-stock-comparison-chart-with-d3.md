@@ -14,6 +14,7 @@ This post continues a series of posts on making financial charts using D3. We've
 
 <!-- Here it is -->
 Here's what we'll be making - try zooming and panning the chart!
+
 <iframe src="http://tlsim.github.io/sl-blog-d3/comparisonSemanticZoom.html" width="680" height="430" scrolling="no" frameborder="0"> </iframe>
 
 ## Comparison Series Component
@@ -280,6 +281,7 @@ The solution is to have the component itself implement geometric zooming of the 
 This turns out to be another win for the component pattern - components can internally implement an optimised zoom method, so the component user gets fast zooming without any extra effort.
 
 The chart below uses geometric zooming for the series lines, and should perform better for larger datasets.
+
 <iframe src="http://tlsim.github.io/sl-blog-d3/comparisonGeometricZoom.html" width="680" height="430" scrolling="no" frameborder="0"> </iframe>
 
 For full code of the components, see [GitHub](https://github.com/tlsim/sl-blog-d3/tree/gh-pages/js/components).
