@@ -11,7 +11,7 @@ Apple released the first public beta of the Swift programming language just over
 
 After a tremendous amount of work, that has seen us update our chapters numerous times through 6 different beta releases, I am happy to say that the book is finally finished and shipping:
 
-<a href="http://www.raywenderlich.com/store/swift-by-tutorials?source=ceberhardt"><img src="{{ site.github.url }}/ceberhardt/assets/swift-by-tutorials.png"></img></a>
+<a href="http://www.raywenderlich.com/store/swift-by-tutorials?source=ceberhardt"><img src="{{ site.github.url }}/ceberhardt/assets/swift-by-tutorials.png" /></a>
 
 ... all this just days after Swift 1.0 was released and the NDA lifted!
 

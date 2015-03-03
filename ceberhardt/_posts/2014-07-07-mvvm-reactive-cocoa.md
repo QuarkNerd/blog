@@ -19,7 +19,7 @@ Recently I have been doing quite a bit of iOS development. The UIKit frameworks 
 - [MVVM Tutorial with ReactiveCocoa: Part 1/2](http://www.raywenderlich.com/74106/mvvm-tutorial-with-reactivecocoa-part-1)
 - [MVVM Tutorial with ReactiveCocoa: Part 2/2](http://www.raywenderlich.com/74131/mvvm-tutorial-with-reactivecocoa-part-2)
 
-<img src="{{ site.github.url }}/ceberhardt/assets/MVVMReactiveCocoa.png"></img>
+<img src="{{ site.github.url }}/ceberhardt/assets/MVVMReactiveCocoa.png" />
 
 I'm looking forward to making this code even more lovely when I convert it over to Swift.
 
