@@ -87,7 +87,7 @@ var svg = d3.select("body").append("svg")
 
 Once you start adding axes, titles or a legend things really start to get out of hand ...
 
-<img src="{{ site.baseurl }}/ceberhardt/assets/d3/chart_layout.jpg"></img>
+<img src="{{ site.baseurl }}/ceberhardt/assets/d3/chart_layout.jpg" />
 
 To be fair, this isn't really a fault of D3, the problem of layout simply isn't within the remit of this library.
 

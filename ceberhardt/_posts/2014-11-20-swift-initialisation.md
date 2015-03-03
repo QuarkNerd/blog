@@ -20,7 +20,7 @@ Swift is an opinionated language. It is clear that it was designed with strictne
 
 One of the more radical features of this language is that it doesn't permit nil references.
 
-<img src="{{ site.github.url }}/ceberhardt/assets/SwiftStrict.png"></img>
+<img src="{{ site.github.url }}/ceberhardt/assets/SwiftStrict.png" />
 
 Unlike most other mainstream languages you have to explicitly opt-in to nil via the use of optionals. Whilst this sounds like a very sensible concept it has a knock-on effect to the seemingly simple task of initialising objects.
 
