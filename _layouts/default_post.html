@@ -32,10 +32,12 @@ layout: default
       {% if page.originalArticleLink %}
         {% assign url = page.originalArticleLink %}
       {% endif %}
+
       {% assign disqusID = page.url %}
-      {% if post.disqus-id %}
-        {% assign disqusID = post.disqus-id %}
+      {% if page.disqus-id %}
+        {% assign disqusID = page.disqus-id %}
       {% endif %}
+
       {% assign title = page.title %}
       {% include social.html %}
     </div>
@@ -53,13 +55,12 @@ layout: default
 <a name="comments"></a>
 <div id="disqus_thread" class="offset2 span8"></div>
 <script type="text/javascript">
-    {% if page.oldlink %}
-        var disqus_identifier = '{{ page.oldlink }}';
-        var disqus_url = '{{ url }}';
-    {% else %}
-        var disqus_identifier = '{{ page.url }}';
-        var disqus_url = '{{ url }}';
-    {% endif %}
+{% if disqusID %}
+  var disqus_identifier = '{{ disqusID }}';
+{% else %}
+  var disqus_identifier = '{{ page.url }}';
+{% endif %}
+  var disqus_url = '{{ url }}';
 </script>
 <script src="{{ site.github.url }}/scripts/disqus-comment-thread.js"></script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
