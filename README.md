@@ -76,6 +76,7 @@ To test that your post works and looks as expected, push your changes to your Gi
 ```
 git push origin gh-pages
 ```
+n.b. If you use 2-factor authentication, make sure you generate an application token to use instead of your password. https://help.github.com/articles/creating-an-access-token-for-command-line-use/
 
 After pushing, GitHub will generate the site at https://USERNAME.github.io/blog/ which you can use to view your changes. If this is the first time pushing the blog repo, GitHub may take up to 10 minutes to generate the site. Changes made in subsequent pushes should be visible almost immediately.  
 
