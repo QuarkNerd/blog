@@ -1,5 +1,5 @@
 
-active-authors: [aaiken, aaylett, alee, amorgan, ceberhardt, cgrant, cprice, dgorst, dmcnamee, dthomas, dkerr, godds, isullivan, jbandenburg, jphillpotts, lpage, mrhodes, mdunsdon, mjose, nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth, soneill, tkelly, tsimmons, wreilly]
+active-authors: [aaiken, aaylett, alee, amorgan, bmumford, ceberhardt, cgrant, cprice, dgorst, dmcnamee, dthomas, dkerr, godds, isullivan, jbandenburg, jphillpotts, lpage, mrhodes, mdunsdon, mjose, nhemley, nwolverson, rbaxter, rwilliams, sduncan, shall, shogarth, soneill, tkelly, tsimmons, wreilly]
 authors:
     labs:
         name: Scott Logic Labs
@@ -170,3 +170,7 @@ authors:
     rfarmer:
         name: Roisin Farmer
         email: roisin.farmer@scottlogic.co.uk
+    bmumford:
+        name: Ben Mumford
+        email: bmumford@scottlogic.com
+        gravatar: 9ea9b7ccfd8bd0e0400912d69fc60be0
