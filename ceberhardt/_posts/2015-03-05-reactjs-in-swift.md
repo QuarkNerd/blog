@@ -29,17 +29,18 @@ There are a number of ways you can update UI state and keep it synchronised with
 
 There are slight more elegant methods, that minimise the code required to manage these two flows of data (from model to view and view to model), search as ReactiveCocoa bindings:
 
-```
+{% highlight csharp %}
 searchTextField.rac_textSignal() ~> RAC(viewModel, "searchText")
-```
+{% endhighlight %}
+
 (The above uses a few [Swift 'shims' over ReactiveCocoa](http://www.scottlogic.com/blog/2014/07/24/mvvm-reactivecocoa-swift.html))
 
 Or more recent concepts such as [Bond](https://github.com/SwiftBond/Bond):
 
-```
+{% highlight csharp %}
 textField ->> label
-```
-  
+{% endhighlight %}
+
 However, regardless of the mechanism you use to keep your view synchronised with your model, it will always involve replication of state. One copy in your model, and another copy in your view. 
 
 Surely there is a better way.
@@ -60,7 +61,7 @@ The goal of this experiment is to allow the UI state to be expressed as a functi
 
 The following enumeration constructs a number of simple, lightweight, view primitives:
 
-```
+{% highlight csharp %}
 enum ReactView: ReactComponent {
   case View(CGRect, [ReactComponent])
   case Button(CGRect, String, Invocable)
@@ -71,17 +72,17 @@ enum ReactView: ReactComponent {
     return self
   }
 }
-```
+{% endhighlight %}
 
 Which makes good use of the concept of associated values - originally I implemented the above as structs, but found the enumerations to be much more elegant.
 
 The `ReactComponent` protocol allows the creation of more complex components that are built using the ReactView enumeration:
 
-```
+{% highlight csharp %}
 protocol ReactComponent {
   func render() -> ReactView
 }
-```
+{% endhighlight %}
 
 ReactView also adopt this protocol, simply returning `self`.
 
@@ -89,8 +90,7 @@ Let's take a look at how a UI can be constructed using the `ReactComponent` prot
 
 The following is a very simple app, defined as a component, that simply renders the current time:
 
-
-```
+{% highlight csharp %}
 class TimerApp: NSObject, ReactComponent {
   
   var time = NSDate()
@@ -104,7 +104,7 @@ class TimerApp: NSObject, ReactComponent {
       ])
   }
 }
-```
+{% endhighlight %}
 
 `timerFrame` and `textFrame` are `CGRect` instances defined elsewhere (for clarity)
 
@@ -114,7 +114,7 @@ As promised, the UI state is expressed as a function of the application state, w
 
 In order to render this component, we need a way of taking this lightweight view an constructing a UIKit view hierarchy. That's the job of the renderer:
 
-```
+{% highlight csharp %}
 class ReactViewRenderer {
   let hostView: UIView
   let component: ReactComponent
@@ -139,11 +139,11 @@ class ReactViewRenderer {
     hostView.addSubview(uiView)
   }
 }
-```
+{% endhighlight %}
 
 The above class takes a component and renders it within a host `UIView`. The final piece of the puzzle is the `createUIKitView` function used by the renderer class:
 
-```
+{% highlight csharp %}
 func createUIKitView(virtualView: ReactView) -> UIView {
   switch virtualView {
   case let .View(frame, children):
@@ -163,13 +163,13 @@ func createUIKitView(virtualView: ReactView) -> UIView {
     // ... more UI Kit construction code ....
   }
 }
-```
+{% endhighlight %}
 
 The above is pretty self explanatory, the switch statement is used to determine the required UIKit control / view, with the associated properties being copied to their respective properties on the UIKit objects.
 
 Wiring up the renderer within a view controller results in the following UI:
 
-![image](ReactiveTime.png)
+<img src="{{ site.github.url }}/ceberhardt/assets/ReactSwift/ReactiveTime.png" />
 
 I'd forgive you for being slightly un-impressed at this point. I've simply taken a variable, which never changes, and constructed a UIKit view via some intermediate format.
 
@@ -179,7 +179,7 @@ Bear with me, it gets better!
 
 The app displays the time, but is a pretty useless clock at the moment, time to add some update logic. This is achieved by adding an `NSTimer` that invokes a `tick` function every second:
 
-```
+{% highlight csharp %}
 class TimerApp: NSObject, ReactComponent {
   
   var time = NSDate()
@@ -205,7 +205,7 @@ class TimerApp: NSObject, ReactComponent {
       ])
   }
 }
-```
+{% endhighlight %}
 
 Simple. Our application state is now dynamic, yet the UI is still expressed as a simple function of the current state.
 
@@ -213,14 +213,14 @@ But how do we update the *real* UI?
 
 One way could be to create some form of notification that informs the renderer that something has changed. But there's a much easier solution. By adding the following timer to the renderer, the `render` method is invoked at approximately 60fps:
 
-```
+{% highlight csharp %}
 NSTimer.scheduledTimerWithTimeInterval(0.02, target: self,
   selector: "render", userInfo: nil, repeats: true) 
-```
+{% endhighlight %}
 
 This repeatedly tears down the UI then re-creates it. As a result the time now updates quite nicely:
 
-![image](timer.gif)
+<img src="{{ site.github.url }}/ceberhardt/assets/ReactSwift/timer.gif" />
 
 If we ignore the rather glaring performance issues, this is a surprisingly elegant solution. There is no need to determine which UI components need to be updated based on the change of application state,removing the need for manual wire-up or bindings. Whilst this is a trivial example, it could be updated to render a much more complex UI with many dynamic parts.
 
@@ -241,7 +241,7 @@ The current application doesn't involve any UI interaction. How does it look whe
 The following code constructs a simple (and ugly) app where a number can be shifted up or down via a couple of buttons:
 
 
-```
+{% highlight csharp %}
 class CounterApp: ReactComponent {
   
   var count: Int = 0
@@ -285,11 +285,11 @@ struct Toolbar: ReactComponent {
     ])
   }
 }
-```
+{% endhighlight %}
 
 Here's the app in action:
 
-![image](CounterApp.png)
+<img src="{{ site.github.url }}/ceberhardt/assets/ReactSwift/CounterApp.png" />
 
 In this more complex example you can see that the `CounterApp` render function makes use of the ReactView primitives as well as another component, `Toolbar`. Whilst `Toolbar` knows the current count, so that it can increment or decrement it, within this component it is a constant.
 
@@ -305,11 +305,11 @@ The previous example still feels a little trivial, how do you render a collectio
 
 The final example is a simple to-do list app:
 
-![image](ToDoApp.png)
+<img src="{{ site.github.url }}/ceberhardt/assets/ReactSwift/ToDoApp.png" />
 
 The top-level component contains a mutable array of strings, and a variable which represents the current state of the text field at the top of the application:
 
-```
+{% highlight csharp %}
 class ToDoApp: ReactComponent {
   
   var items = ["Make a cup of tea",
@@ -344,12 +344,12 @@ class ToDoApp: ReactComponent {
       ])
   }
 }
-```
+{% endhighlight %}
 
 When the Add button is tapped, the text from `newItem` is added to the to-do list. The items themselves are rendered via the `ListItems` component shown below:
 
 
-```
+{% highlight csharp %}
 class ListItems: ReactComponent {
   
   let items: [String]
@@ -376,13 +376,13 @@ class ListItems: ReactComponent {
       })
   }
 }
-```
+{% endhighlight %}
 
 The constant array of items is rendered using a `map` operation, with `enumerate` being used because the frame for each item depends on the index. Each individual item is a `ListItem` component, which invokes a given function when the delete button is tapped. The `render` function adds the item index to this 'event' which is then passed up to the `ToDoApp` so that it can perform the required deletion.
 
 Finally the `ListItem` component is shown below:
 
-```
+{% highlight csharp %}
 class ListItem: ReactComponent {
   let item: String
   let frame: CGRect
@@ -409,7 +409,7 @@ class ListItem: ReactComponent {
       ])
   }
 }
-```
+{% endhighlight %}
 
 This simple little example is a good illustration of how data flows down whilst events flow up. There is only a single copy of the applications mutable state, it is not replicated (in a mutable form) within the various components. Once again, the application UI is simply a function of the current application state. Furthermore, regardless of what has changed, we simply re-render the entire application.
 
