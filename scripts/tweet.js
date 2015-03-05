@@ -1,5 +1,5 @@
 function loadTweetCount() {
-    var API_URL = "http://cdn.api.twitter.com/1/urls/count.json",
+    var API_URL = "//cdn.api.twitter.com/1/urls/count.json",
         TWEET_URL = "https://twitter.com/intent/tweet";
 
     jQuery(".tweet").each(function() {
