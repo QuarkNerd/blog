@@ -836,7 +836,7 @@ disqus-id: /2011/02/css-performance-part-3-updating-nodes/
 <p>However I wouldn't say that the results are that significant and the difference between the numbers is quite small. For the purpose of this blog series, it is worth considering these updates (especially since we already test innerHTML performance in creating the tables in the first place).</p>
 <h3>A word on Divs</h3>
 <p>All of my tests thus far have been focused on tables - this is where we most likeley have a large dom and may be performing updates. However in the interests of fairness I will also be using Divs, but simulating a table, so that all the same tests can be performed.</p>
-<p>I will do this by setting the div 'td' class to inline-block (<a href="http://code.google.com/p/closure-library/source/browse/trunk/closure/goog/css/common.css">goog-inline-block</a>) in order to stack them horizontally and putting them inside divs that simulate tr's (stacked vertically). Here is an example..</p>
+<p>I will do this by setting the div 'td' class to inline-block (<a href="https://github.com/google/closure-library/blob/master/closure/goog/css/common.css#L19">goog-inline-block</a>) in order to stack them horizontally and putting them inside divs that simulate tr's (stacked vertically). Here is an example..</p>
 <style type="text/css">.ib { display: inline-block; position: relative; }*:first-child+html .ib { display: inline; }.divtd { margin: 0px; padding: 0px; width: 15px; height: 20px; overflow: hidden; white-space: nowrap; background-color: #ddd; border: 1px solid blue; }</style>
 <div class="divtable">
 <div class="divtr"><div class="ib divtd"><span>TD</span></div>
