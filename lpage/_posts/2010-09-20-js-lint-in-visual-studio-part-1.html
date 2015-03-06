@@ -19,7 +19,7 @@ disqus-id: /2010/09/js-lint-in-visual-studio-part-1/
 <p>My initial thought was to try to invoke windows script host directly, so I started looking at the Microsoft script compilers (thinking I could create whatever is used by wsh and run it in the same process). But JSLint came up with compile errors and I quickly realised that I was trying to run it as <a href="http://en.wikipedia.org/wiki/JScript">JScript</a> which is a Microsoft relative of JavaScript.</p>
 <h3>JavaScript Engines In Dot NET</h3>
 <p>So, I found two JavaScript interpreters for C# - <a href="http://jint.codeplex.com/">Jint</a>, a parser written from scratch with the help of <a href="http://www.antlr.org">ANTLR</a> and <a href="http://javascriptdotnet.codeplex.com/">JavaScript.NET</a> which was using the <a href="http://code.google.com/apis/v8/">Google V8</a> JavaScript engine - used in chrome and the fastest JavaScript engine (as far as I know). Jint has better support for integrating between C# and JavaScript, but JavaScript.NET used V8, so I felt it more likely to handle anything thrown at it. So I went with JavaScript.NET and the V8 JavaScript engine.</p>
-<p>So firstly, I embed the <a href="http://www.jslint.com/fulljslint.js">full JSLint JavaScript file</a>, create a JavaScript context and run the JSLint code in order that JSLint can be ready for linting.</p>
+<p>So firstly, I embed the <a href="https://github.com/douglascrockford/JSLint/blob/master/jslint.js">full JSLint JavaScript file</a>, create a JavaScript context and run the JSLint code in order that JSLint can be ready for linting.</p>
 {% highlight csharp %}
 /// <summary>
 ///  Constructs an object capable of linting JavaScript files and return
