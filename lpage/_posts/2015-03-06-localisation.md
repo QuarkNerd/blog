@@ -10,10 +10,10 @@ layout: default_post
 
 Localising a web application to a high standard is difficult. Why is that? Consider the following differently formatted numbers...
 
--1,23,45,678.99
-12.345.678,99-
-(12 345 678.99)
-<span dir="rtl">١٢,٣٤٥,٦٧٨.٩٩</span>
+* -1,23,45,678.99
+* 12.345.678,99-
+* (12 345 678.99)
+* <span dir="rtl">١٢,٣٤٥,٦٧٨.٩٩</span>
   
 There are several differences between them:
 
