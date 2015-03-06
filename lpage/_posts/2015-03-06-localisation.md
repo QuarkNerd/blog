@@ -26,7 +26,7 @@ With datetimes you get a whole new set of problems
 
  - Do you allow language and locale to be set seperately or do you disallow e.g. french language to be used with american style dates.
  - How do you configure date formats for each locale and yet still be configurable for different parts of your app (e.g. date only, long date, with time, with time and seconds etc.)
- - Do you need to cope with other calendar systems?
+ - Do you need to cope with calendars other than Gregorian?
 
 # The Old
 
@@ -49,7 +49,7 @@ Two libraries that are very popular at the moment are the open source [momentjs]
 Moment came first and covers date-time manipulation, formatting and through a [plugin, timezones](http://momentjs.com/timezone/). It has a nice API, but for use in complex web applications it has a few issues:
 
  * The locales are user contributed, meaning there may be some missing and the data may not be perfect.
- * [It does not support other calendars](https://github.com/moment/moment/issues/1454)
+ * [It does not support other calendars](https://github.com/moment/moment/issues/1454) - but it doesn't seem like many things do
  * The date formats are built into the locales, so unless you fork and edit the locales, you must keep your own date formats to [the ones moment supports](https://github.com/moment/moment/blob/develop/locale/en-gb.js#L20).
  * It doesn't support the [genitive form of the month name](http://stackoverflow.com/questions/19675155/what-is-difference-between-monthgenitivenames-and-monthnames-why-there-is-blank)
  
@@ -76,7 +76,36 @@ Other libraries? angular? dojo?
 
 # The New
 
-## jquery globalisation
+## jQuery globalize
+
+[Globalize](https://github.com/jquery/globalize) is a new library, seeded from the Microsoft Ajax source code, but modified to use CLDR. It comes in modules, does not require jQuery and leaves it up to the consumer to extract the pieces out of CLDR that they need.
+
+ - It appears to only support the Gregorian calendar
+ - The fact you load the data yourself and that the data is well separated means it looks like it would not be too difficult to use one locale for the formats and another for the trabslations.
+ 
+Comparing the CLDR date formats with moments, this is en-gb
+
+{% highlight js %}
+"dateFormats": {
+  "full": "EEEE, d MMMM y",
+  "long": "d MMMM y",
+  "medium": "d MMM y",
+  "short": "dd/MM/y"
+},
+"timeFormats": {
+  "full": "HH:mm:ss zzzz",
+  "long": "HH:mm:ss z",
+  "medium": "HH:mm:ss",
+  "short": "HH:mm"
+},
+"dateTimeFormats": {
+  "full": "{1} 'at' {0}",
+  "long": "{1} 'at' {0}",
+  "medium": "{1}, {0}",
+  "short": "{1}, {0}",
+{% endhighlight %}
+
+which looks to me more flexible than the momentjs system.
 
 # The Native
 
@@ -84,6 +113,10 @@ Other libraries? angular? dojo?
 
 ## Polyfill for Intl
 
-# The Problems
+# Other Problems
 
 datepicker. number input.
+
+# Conclusion
+
+I like momentjs for its timezone and date handling, but I would not reccommend using it for date formatting - I would look at using jQuery Globalize. Its a shame that moment isn't split up into a small library that does date-times and another which does the formatting.
