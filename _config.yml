@@ -10,9 +10,34 @@ safe: true
 
 paginate: 5
 
-debug: false
-
 excerpt_separator: ""
 
-include: [.htaccess]
-exclude: [_migration, checkdups, post-receive, blogdeploy.sh, README.txt, redirect_list.html,create-blog-post.sh]
+exclude:
+    - checkdups
+    - CNAME
+    - create-blog-post.sh
+    - Gemfile
+    - Gemfile.lock
+    - Gruntfile.js
+    - less
+    - node_modules
+    - package.json
+    - README.md
+    # N.B. Not all scripts are excluded, as some are directly referenced, because:
+    # - jquery-1.9.1.js - some posts make use of this
+    # - disqus-comment-thread.js - only required on the post pages
+    # - html5shiv.js - must be included before the opening `<body>` tag
+    - scripts/README.md
+    - scripts/disqus-comment-count.js
+    - scripts/jquery.jscroll-2.2.4.js
+    - scripts/modernizr.custom.js
+    - scripts/tweet.js
+
+
+# For local use only
+# If building the site locally, you won't have access to the site.github namespace
+# Uncomment the lines below to have access to these variables when building locally
+
+#github:
+#    url: http://blog.scottlogic.com
+#    owner_name: ScottLogic
