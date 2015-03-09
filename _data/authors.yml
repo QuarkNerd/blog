@@ -24,6 +24,7 @@ active-authors:
   - rbaxter
   - rhendry
   - rwilliams
+  - sdavies
   - sduncan
   - shall
   - shogarth
@@ -210,3 +211,9 @@ authors:
         name: Ben Mumford
         email: bmumford@scottlogic.com
         gravatar: 9ea9b7ccfd8bd0e0400912d69fc60be0
+    sdavies:
+        name: Sam Davies
+        email: sdavies@scottlogic.com
+        gravatar: ddd6d3bac7772fa67fc5e312a18bdaec
+        author-summary: Writes and speaks a lot about mobile development. Author of <a href="http://shinobicontrols.com/ios8">iOS8 Day-by-Day</a>. Trombonist. <br/><br/><a href="https://twitter.com/iwantmyrealname">@iwantmyrealname</a> <a href="https://plus.google.com/+SamDavies_ActuallyMyRealName" rel="author">Google+</a> <br/><br/>Technical Evangelist @ <a href="http://www.shinobicontrols.com">shinobicontrols</a>
+
