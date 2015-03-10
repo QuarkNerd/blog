@@ -5,6 +5,9 @@ featured-overlay-inverted: true
 categories:
  - bmumford
 tags: 
+  - featured
+image: "bmumford/assets/featured/flight.png"
+image-attribution: "image courtesy of <a href='http://sandbox.aaronkoblin.com/projects/flightpaths/'>Aaron Koblin</a>"
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2015/03/03/introduction-to-flight.html
 disqus-id: /2015/03/03//introduction-to-flight.html

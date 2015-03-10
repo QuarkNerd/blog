@@ -4,7 +4,6 @@ title: "Strong Typing With AngularJS"
 layout: default_post
 summary: "This article demonstrates a successful integration of TypeScript with AngularJS to provide a strongly-typed environment for development of HTML5 apps."
 tags:
-  - featured
 image: "dpizzi/assets/featured/Strong.png"
 oldlink: http://www.scottlogic.com/blog/2014/08/26/StrongTypingWithAngularJS.html
 disqus-id: /2014/08/26/StrongTypingWithAngularJS.html

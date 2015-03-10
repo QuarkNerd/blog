@@ -6,8 +6,7 @@ summary: This post demonstrates how JavaScript and HTML5 related technologies ca
 summary-short: "Creating desktop and web applications from a single codebase"
 image: isullivan/assets/featured/hybridApp.jpg
 featured-overlay-black: true
-tags: 
-  - featured
+tags:
 oldlink: http://www.scottlogic.com/blog/2014/09/10/node-webkit.html
 disqus-id: /2014/09/10/node-webkit.html
 ---

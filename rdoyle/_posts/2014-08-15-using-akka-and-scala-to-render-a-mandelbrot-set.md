@@ -4,7 +4,6 @@ title: "Using Akka and Scala to Render a Mandelbrot Set"
 title-short: "Akka, Scala and the Mandelbrot Set"
 layout: default_post
 tags:
-  - featured
 image: "rdoyle/assets/featured/mandelbrot.jpg"
 summary: "Actor Models make writing concurrent and scalable software much easier. This post uses Akka and Scala to demonstrate some of the benefits of the Actor model."
 summary-short: Exploring the use of the Actor Model
