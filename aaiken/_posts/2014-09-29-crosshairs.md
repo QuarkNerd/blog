@@ -6,7 +6,6 @@ image: aaiken/assets/featured/crosshairFeatured.jpg
 image-attribution: 'image courtesy of <a href="https://www.flickr.com/photos/natureindyablogspotcom/">Vivek Raj</a>'
 tags: 
   - d3
-  - featured
 categories: 
   - aaiken
 layout: default_post

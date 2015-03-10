@@ -4,6 +4,9 @@ featured-overlay-inverted: true
 categories:
  - cgrant
 tags: 
+ - featured
+image: "cgrant/assets/featured/phone.jpg"
+image-attribution: "image courtesy of <a href='https://www.flickr.com/photos/janitors/'>Kārlis Dambrāns</a>"
 layout: default_post
 ---
 

@@ -6,7 +6,6 @@ summary: "This post is a continuation of my previous which looked at implementin
 image: ceberhardt/assets/featured/memoization.png
 featured-overlay-black: true
 tags: 
-  - featured
   - featuredcolin
 suppress-careers-add: true
 oldlink: http://www.scottlogic.com/blog/2014/09/22/swift-memoization.html

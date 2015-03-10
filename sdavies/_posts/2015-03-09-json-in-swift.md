@@ -4,7 +4,8 @@ title: Swift JSON Shoot-Out
 layout: default_post
 summary: For some reason, everybody and their dog has written about how to parse JSON in Swift. Not wishing to be left out, I thought I'd throw my hat into the ring.
 tags:
-image:
+  - featured
+image: "sdavies/assets/featured/json.jpg"
 title-short: JSON in Swift
 summary-short: What's the _best_ way to parse JSON in Swift?
 ---

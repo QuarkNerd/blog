@@ -1,9 +1,11 @@
 ---
 title: Investigating TypeScript compiler APIs
 author: nwolverson
-image: ""
 tags: 
   - blog
+  - featured
+image: "nwolverson/assets/featured/compiler.jpg"
+image-attribution: "image courtesy of <a href='https://www.flickr.com/photos/stvan4245/'>KāSteve</a>"
 categories: 
   - nwolverson
 layout: default_post
