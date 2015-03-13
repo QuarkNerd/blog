@@ -13,7 +13,7 @@ summary-short: What's the _best_ way to parse JSON in Swift?
 ## Introduction
 
 In the world of Swift blogging, JSON parsing seems to be a 'hot topic'. Maybe it's
-a right of passage to becoming a Swift blogger? Anyway, it seems like a good time
+a rite of passage to becoming a Swift blogger? Anyway, it seems like a good time
 to get involved.
 
 There have been some truly excellent blog posts about using JSON with Swift, but
