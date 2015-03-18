@@ -77,6 +77,11 @@
     width: (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns - 1));
   }
 
+  .carousel-caption-container {
+    position: relative;
+    display: block;
+  }
+
   .span6 {
     img {
       .height(4);
@@ -89,6 +94,7 @@
       .height(2);
       .width(3);
     }
+
     .carousel-caption {
       padding: 7px 10px;
       h4 {
@@ -101,10 +107,9 @@
 
   cite {
     color: @grey;
-    position: absolute;
     font-size: 8px;
-    right: 2px;
-    bottom: -10px;
+    float: right;
+    margin: 2px 2px 0px 0px;
   }
 
   .carousel-control {

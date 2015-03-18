@@ -11,7 +11,7 @@
           {% assign offset = i | times: 5 %}
           {% for post in site.tags.featured limit:2 offset: offset %}
           <div>
-            <a href="{{ site.github.url }}{{ post.url }}">
+            <a class="carousel-caption-container" href="{{ site.github.url }}{{ post.url }}">
               <img src="{{ site.github.url }}/{{ post.image }}">
               {% capture url %}{{ site.github.url }}{{ post.url }}{% endcapture %}
               {% if post.oldlink %}
@@ -46,7 +46,7 @@
           {% assign offset = offset | plus: 2 %}
           {% for post in site.tags.featured limit:1 offset:offset %}
           <div>
-            <a href="{{ site.github.url }}{{ post.url }}">
+            <a class="carousel-caption-container" href="{{ site.github.url }}{{ post.url }}">
               <img src="{{ site.github.url }}/{{ post.image }}">
               {% capture url %}{{ site.github.url }}{{ post.url }}{% endcapture %}
               {% if post.oldlink %}
@@ -88,7 +88,7 @@
           {% assign offset = offset | plus: 1 %}
           {% for post in site.tags.featured limit:2 offset:offset %}
           <div>
-            <a href="{{ site.github.url }}{{ post.url }}">
+            <a class="carousel-caption-container" href="{{ site.github.url }}{{ post.url }}">
               <img src="{{ site.github.url }}/{{ post.image }}">
               {% capture url %}{{ site.github.url }}{{ post.url }}{% endcapture %}
               {% if post.oldlink %}
