@@ -8,14 +8,20 @@ summary-short: "Short introduction to ZeroMQ"
 ---
 
 ## Zero what? ##
-[ZeroMQ](http://zeromq.org/) is an opinionated, light weight, blazing fast messaging library.  It provides you with an assortment of sockets and patterns with which to connect the disparate parts of your distributed system.  These aren't your run-of-the-mill sockets mind you, so it'll take some time to wrap your mind around their way of thinking, but I've found the time and effort well worth it.  The base implementation is in C/C++ with bindings for some 20-odd other languages and native implementations for several including Java and .Net.
+[ZeroMQ](http://zeromq.org/) is an opinionated, light weight, blazing fast messaging library that describes its origins thusly
+
+> We took a normal TCP socket, injected it with a mix of radioactive isotopes stolen from a secret Soviet atomic research project, bombarded it with 1950-era cosmic rays, and put it into the hands of a drug-addled comic book author with a badly-disguised fetish for bulging muscles clad in spandex. Yes, ØMQ sockets are the world-saving superheroes of the networking world.
+
+Back in the real world this roughly translates as providing you with an assortment of sockets and patterns with which to connect the disparate parts of your distributed system.  These aren't your run-of-the-mill sockets mind you, so it'll take some time to wrap your mind around their way of thinking, but I've found the time and effort well worth it.  The base implementation is in C/C++ with bindings for some 20-odd other languages and native implementations for several including Java and .Net.
 In this post I'll walk you through installation for some of the prominent languages used here at Scott Logic followed by a quick look at each of the main messaging patterns found in ZeroMQ.
 Please note this post has liberally purloined its information, examples and diagrams from the excellent [ZeroMQ guide](http://zguide.zeromq.org).  Once you've read this go read that, it's easily the best documentation/tutorial I've ever read.
-Most of the example code will be in C# because that's my background.  There'll also be examples in Java and Node.js, languages I have yet to fight with on the battlefield, and I apologise in advance for the likely deficiencies.
+Most of the example code will be in C# because that's my background.  There'll also be examples in Java and Node.js, languages I have yet to fight with on the battlefield, so I'll apologise in advance for the poor programming style.
 
 ## Really?  More services/brokers/fiddly bits to install. ##
-Nope, just a library.  If you're living in .Net land you can use the [NetMQ](https://github.com/zeromq/netmq) native implementation use the native implementation, just bring up the Package Manager Console, select the project that needs some super charged messaging functionality and enter the following magic words:
-Install-Package NetMQ -Version 3.3.0.11 
+Nope, just a library.  If you're living in .Net land you can use the [NetMQ](https://github.com/zeromq/netmq) native implementation , just bring up the Package Manager Console, select the project that needs some super charged messaging functionality and enter the following magic words:
+~~~~
+Install-Package NetMQ -Version 3.3.0.11
+~~~~
 (replace -Version 3.3.0.11 with -Pre for the latest and greatest).
 
 For those of you in the Java camp there is the [JeroMQ](https://github.com/zeromq/jeromq) native implementation which just requires adding the following to you pom.xml:
@@ -52,18 +58,19 @@ For those of you in the Java camp there is the [JeroMQ](https://github.com/zerom
 {% endhighlight %}
   
 And for Node.js there is the [zeromq.node](https://github.com/JustinTulloss/zeromq.node) binding:
+~~~~
 Download and install the [C/C++ version](http://zeromq.org/distro:microsoft-windows)
 npm install zmq
-
+~~~~
 That wasn't so painful now was it.  For those of you used to other messaging solutions you might be wondering where the brokers/gateways/etc. are.  ZeroMQ doesn't provide any of that extraneous architecture out of the box so if you want them you'll have to write them (or better yet, steal them out of the guide).
 
 ## Let's do the mind warp ##
 ZeroMQ comes with 5 basic patterns
- - Synchronous Request/Response
- - Asynchronous Request/Response
- - Publish/Subscribe
- - Push/Pull
- - Exclusive Pair
+* Synchronous Request/Response
+* Asynchronous Request/Response
+* Publish/Subscribe
+* Push/Pull
+* Exclusive Pair
 each of which comes with its own pair of sockets (some can be mixed-and-matched, but we'll worry about that later).
 
 ### Contexts ####
@@ -114,18 +121,26 @@ Once our sockets are set up we send a request, read it and print it.  We then se
 
 ### Connection strings ###
 Once a socket has been created it needs to be bound or connected.  To do this a string is passed in of the form "<i>transport</i>:<i>endpoint</i>".  The transport can be any of the following values:
-- "inproc" : thread to thread within a single process
-- "ipc" : inter-process communication (linux only and not available in any of the native ports as yet)
-- "tcp" : box to box communication and inter-process when "ipc" isn't available
-- "epgm", "pgm" : multicast protocols that make my head hurt, the guide has more information if you really want to use these
+* inproc
+  : thread to thread within a single process
+* ipc
+  : inter-process communication (linux only and not available in any of the native ports as yet)
+* tcp
+  : box to box communication and inter-process when "ipc" isn't available
+* epgm, pgm
+  : multicast protocols that make my head hurt, the guide has more information if you really want to use these
+
 Once you've decided on a transport you need to define an endpoint as follows:
-- "inproc" : unique (enough) ascii string
-- "ipc" : unique (enough) ascii string (usually postfixed with ".ipc")
-- "tcp" : internet address and port number
+* inproc
+  : unique (enough) ascii string
+* ipc
+  : unique (enough) ascii string (usually postfixed with ".ipc")
+* tcp
+  : internet address and port number
 So in our first example we used thread to thread communication (inproc) through the "HelloWorld" endpoint.
 
 ### Publish - Subscribe ###
-What if you wanted to publish a stream of data and allow any number of clients to consume that stream.  Well, ZeroMQ has a pattern for that using publish and subscribe sockets.  In this example we'll break the client and server out into separate processes.  This will allow us to show off the ability of ZeroMQ to communicate across languages so we'll write the server in Java and the Client in C#.
+What if you wanted to publish a stream of data and allow any number of clients to consume that stream.  Well, ZeroMQ has a pattern for that using publish and subscribe sockets.  In this example we'll break the client and server out into separate processes.  This will allow us to show off the ability of ZeroMQ to communicate across languages so we'll write the server in Java and the client in C#.
 
 ![Publish/Subscribe messaging]({{ site.baseurl }}/blog/hpowell/assets/PUB-SUB.png)
 
@@ -298,7 +313,7 @@ The sync binds to its endpoint, waits for the signal from the ventilator then ti
 
 ### Asynchronous Request - Response ###
 Let's go back to the Request - Response pattern and put some real power into it.  Rather than having one client request work from one worker can we get any number of clients to request work from any number of workers.  We could pre load each client with a list of workers and have each client talk directly to a worker.  This works, but what if we add or remove workers, we then need to update every client.  A better solution would be to have a broker which both clients and workers connect to and is responsible for passing messages back and forth.
-Since this broker will need to deal with many simultaneous requests and responses we'll need some new sockets.  Routers are like asynchronous response sockets and dealer like asynchronous request sockets.
+Since this broker will need to deal with many simultaneous requests and responses we'll need some new sockets.  Routers are like asynchronous response sockets and dealers like asynchronous request sockets.
 
 ![Asynchronous Request/Response messaging]({{ site.baseurl }}/blog/hpowell/assets/BROKER.png)
 
@@ -378,7 +393,7 @@ frontend.bindSync('tcp://*:5559');
 backend.bindSync('tcp://*:5560');
 {% endhighlight %}
 
-We create a router socket as our frontend (which our clients will connect to) and a dealer socket as our backend (which the workers connect to).  Whenever a message is received by a socket it is sent out on its counter part, pretty straight froward really.  Now, fire up a few clients, a few workers and a broker and see what happens.  Take away or add some workers and/or clients and notice that everything still works as expected.  Despite this there are a couple of things to notice here.  Firstly there's no context.  I'm not entirely sure, but suspect this is because Node is single threaded and therefore only one can be used so it's created as a global object when the library is initialised. Secondly, how does the router socket send the correct replies to the correct workers?  This is quite a complex area of ZeroMQ, but at the moment it's enough to know it will just work for simple cases like this.  If you want to know more chapter 3 of the guide is the place to start.
+We create a router socket as our frontend (which our clients will connect to) and a dealer socket as our backend (which the workers connect to).  Whenever a message is received by a socket it is sent out on its counterpart, pretty straight froward really.  Now, fire up a few clients, a few workers and a broker and see what happens.  Take away or add some workers and/or clients and notice that everything still works as expected.  Despite this there are a couple of things to notice here.  Firstly there's no context.  I'm not entirely sure why, but suspect this is because Node is single threaded and therefore only one can be used so it's created as a global object when the library is initialised. Secondly, how does the router socket send the correct replies to the correct workers?  This is quite a complex area of ZeroMQ, but at the moment it's enough to know it will just work for simple cases like this.  If you want to know more chapter 3 of the guide is the place to start.
 
 ### Exclusive Pair ###
 Exclusive pairs are used to co-ordinate multi-threaded applications.  Hintjens makes the following statement in the guide:
