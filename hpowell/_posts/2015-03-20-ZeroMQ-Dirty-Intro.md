@@ -73,6 +73,7 @@ Before embarking on any ZeroMQ expedition you'll need to create a context.  Cont
 Firstly we'll look at the synchronous request/response pattern to create the obligatory "Hello World" application.
 
 ![Synchronous Request/Response messaging]({{ site.baseurl }}/blog/hpowell/assets/REQ-REP.png)
+
 [Request-Reply](https://github.com/imatix/zguide/raw/master/images/fig2.png) by [iMatix Corporation](http://www.imatix.com/) is licensed under [cc-by-sa 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
 
 {% highlight csharp %}
@@ -127,6 +128,7 @@ So in our first example we used thread to thread communication (inproc) through 
 What if you wanted to publish a stream of data and allow any number of clients to consume that stream.  Well, ZeroMQ has a pattern for that using publish and subscribe sockets.  In this example we'll break the client and server out into separate processes.  This will allow us to show off the ability of ZeroMQ to communicate across languages so we'll write the server in Java and the Client in C#.
 
 ![Publish/Subscribe messaging]({{ site.baseurl }}/blog/hpowell/assets/PUB-SUB.png)
+
 [Publish-Subscribe](https://github.com/imatix/zguide/raw/master/images/fig4.png) by [iMatix Corporation](http://www.imatix.com/) is licensed under [cc-by-sa 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
 
 {% highlight java %}
@@ -194,6 +196,7 @@ We get one hundred messages from the publisher totalling up the total amount of 
 Push and pull sockets are used for fan-out, fan-in one way communication.  Push will evenly distribute messages to all available clients and pull will fairly queue messages from all connected clients.  To demonstrate this we'll create a ventilator to distribute work to some workers and then collect the results in a sink.  Since we've got three pieces to our architecture this time lets add a third language, JavaScript running on Node.js.
 
 ![Push/Pull messaging]({{ site.baseurl }}/blog/hpowell/assets/PUSH-PULL.png)
+
 [Extended Request-Reply](https://github.com/imatix/zguide/raw/master/images/fig5.png) by [iMatix Corporation](http://www.imatix.com/) is licensed under [cc-by-sa 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
 
 {% highlight java %}
@@ -298,6 +301,7 @@ Let's go back to the Request - Response pattern and put some real power into it.
 Since this broker will need to deal with many simultaneous requests and responses we'll need some new sockets.  Routers are like asynchronous response sockets and dealer like asynchronous request sockets.
 
 ![Asynchronous Request/Response messaging]({{ site.baseurl }}/blog/hpowell/assets/BROKER.png)
+
 [Extended Request-Reply](https://github.com/imatix/zguide/raw/master/images/fig16.png) by [iMatix Corporation](http://www.imatix.com/) is licensed under [cc-by-sa 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
 
 {% highlight java %}
@@ -382,6 +386,7 @@ Exclusive pairs are used to co-ordinate multi-threaded applications.  Hintjens m
 Mostly this is still true, but with the advent of immutable data structures and thread safe queues (sort of, they're available for .Net 4.5 and in the Google Guava library for Java, having incubated in the functional programming domain) I think there's less need for these.  Exclusive pairs tightly couple the threads of your application (much like the immutable collections) and can't scale out to processes so the only real advantage I can see would be not having to learn about immutable data structures.  But, if you're using one of the many languages for which such collections don't exist exclusive pairs are infinitely better than sharing mutable state and using locks, semaphores and/or mutexes.  On with the demonstration.
 
 ![Exclusive pair messaging]({{ site.baseurl }}/blog/hpowell/assets/PAIR-PAIR.png)
+
 [The Relay Race](https://github.com/imatix/zguide/raw/master/images/fig21.png) by [iMatix Corporation](http://www.imatix.com/) is licensed under [cc-by-sa 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
 
 {% highlight js %}
