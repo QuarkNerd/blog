@@ -20,7 +20,7 @@ Install-Package NetMQ -Version 3.3.0.11
 
 For those of you in the Java camp there is the [JeroMQ](https://github.com/zeromq/jeromq) native implementation which just requires adding the following to you pom.xml:
 
-~~~~ xml
+{% highlight xml %}
 <dependencies>
   <dependency>
     <groupId>org.zeromq</groupId>
@@ -49,7 +49,7 @@ For those of you in the Java camp there is the [JeroMQ](https://github.com/zerom
     </snapshots>
    </repository>
 </repositories>
-~~~~
+{% endhighlight %}
   
 And for Node.js there is the [zeromq.node](https://github.com/JustinTulloss/zeromq.node) binding:
 Download and install the [C/C++ version](http://zeromq.org/distro:microsoft-windows)
@@ -75,7 +75,7 @@ Firstly we'll look at the synchronous request/response pattern to create the obl
 ![Synchronous Request/Response messaging]({{ site.baseurl }}/blog/hpowell/assets/REQ-REP.png)
 [Request-Reply](https://github.com/imatix/zguide/raw/master/images/fig2.png) by [iMatix Corporation](http://www.imatix.com/) is licensed under [cc-by-sa 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
 
-~~~~ csharp
+{% highlight csharp %}
 using System;
 
 using NetMQ;
@@ -106,7 +106,7 @@ namespace HelloWorld {
     }
   }
 }
-~~~~
+{% endhighlight %}
 
 First we create a connection string, which I'll talk more about in a minute, and the context.  Then we create a response socket and bind it using the connection string, followed by a request socket and connect it.  Much like regular TCP sockets one end must bind and the other must connect.  Theoretically it shouldn't matter which does what, but in practice that's not quite the case.  Generally you want to bind the most stable parts of your topology and connect the more ephemeral ones.  Here, thinking of the response socket as the server and the request socket as the client works well enough so we bind and connect appropriately.
 Once our sockets are set up we send a request, read it and print it.  We then send a response, read it and print it.  Because request and response sockets are synchronous their send and receive calls must be made in a specific order.  Request sockets must send and then receive and vis-versa for response sockets.  If you try these operations in the wrong order or double up on one of them then an exception is thrown.
@@ -129,7 +129,7 @@ What if you wanted to publish a stream of data and allow any number of clients t
 ![Publish/Subscribe messaging]({{ site.baseurl }}/blog/hpowell/assets/PUB-SUB.png)
 [Publish-Subscribe](https://github.com/imatix/zguide/raw/master/images/fig4.png) by [iMatix Corporation](http://www.imatix.com/) is licensed under [cc-by-sa 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
 
-~~~~ java
+{% highlight java %}
 package org.PubSub;
 
 import java.util.Random;
@@ -152,11 +152,11 @@ public class Server {
     }
   }
 }
-~~~~
+{% endhighlight %}
 
 Here we start by creating our context and publisher socket and binding to our endpoint.  We then loop, each time pushing a random value to one of 100000 ids.
 
-~~~~ csharp
+{% highlight csharp %}
 using System;
 
 using NetMQ;
@@ -185,7 +185,7 @@ namespace PubSub {
     }
   }
 }
-~~~~
+{% endhighlight %}
 
 So again, we create our context, a subscriber socket and connect to our endpoint.  We then select a random ID to subscribe to.  Note, even if you want to subscribe to all events published by the sever you MUST set a subscription (to get all messages you need the empty string) or the client will receive nothing.  Subscriptions do a string match against the beginning of the message.  If a match is found the client receives the message.
 We get one hundred messages from the publisher totalling up the total amount of data we have received.  Once we have processed the messages we print out the ID we were subscribed to and the average of the data.
@@ -196,7 +196,7 @@ Push and pull sockets are used for fan-out, fan-in one way communication.  Push 
 ![Push/Pull messaging]({{ site.baseurl }}/blog/hpowell/assets/PUSH-PULL.png)
 [Extended Request-Reply](https://github.com/imatix/zguide/raw/master/images/fig5.png) by [iMatix Corporation](http://www.imatix.com/) is licensed under [cc-by-sa 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
 
-~~~~ java
+{% highlight java %}
 package org.Ventilator;
 
 import java.io.IOException;
@@ -230,11 +230,11 @@ public class Ventilator {
     }
   }
 }
-~~~~
+{% endhighlight %}
 
 It's the usual start, but we're also going to create a socket to connect to the downstream sink.  Then we wait for the user to tell us all the workers are up and running.  We need this otherwise the first worker to complete its connection will grab most (if not all) of the work.  There are ways to fix this, but they would detract from looking at the pattern itself so we'll leave them out for now.  Once the user has indicated the workers are ready we notify the sink and dispatch 100 workloads.
 
-~~~~ csharp
+{% highlight csharp %}
 using System;
 
 using NetMQ;
@@ -260,11 +260,11 @@ namespace Worker {
     }
   }
 }
-~~~~
+{% endhighlight %}
 
 The workers are the ephemeral parts of our architecture so we'll connect upstream to the ventilator to obtain work and downstream to the sink to pass out results.  We're able to start as many as we like.  Each worker simply receives a message from the ventilator, does an appropriate amount of "work" and then notifies the sink that it has completed a single task.
 
-~~~~ javascript
+{% highlight js %}
 var zmq = require('zmq')
   , receiver = zmq.socket('pull');
 
@@ -289,7 +289,7 @@ receiver.on('message', function() {
 });
 
 receiver.bindSync("tcp://*:5558");
-~~~~
+{% endhighlight %}
 
 The sync binds to its endpoint, waits for the signal from the ventilator then times how long it takes for 100 tasks to complete.  The more workers there are the quicker this should be (up to a point).
 
@@ -300,7 +300,7 @@ Since this broker will need to deal with many simultaneous requests and response
 ![Asynchronous Request/Response messaging]({{ site.baseurl }}/blog/hpowell/assets/BROKER.png)
 [Extended Request-Reply](https://github.com/imatix/zguide/raw/master/images/fig16.png) by [iMatix Corporation](http://www.imatix.com/) is licensed under [cc-by-sa 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
 
-~~~~ java
+{% highlight java %}
 package org.AsyncReqRep;
 
 import java.util.Random;
@@ -322,12 +322,12 @@ public class Worker {
     }
   }
 }
-~~~~
+{% endhighlight %}
 
 This worker is very similar to the response socket we saw in the first example except that we create a random identity for ourselves and whenever we receive a message we do "work" for 3-7 seconds.
 The client is, like wise, very similar to the request socket in the original example.
 
-~~~~ csharp
+{% highlight csharp %}
 using System;
 
 using NetMQ;
@@ -350,12 +350,12 @@ namespace AsyncReqRep {
     }
   }
 }
-~~~~
+{% endhighlight %}
 
 Here we set up our socket, generate a random identity for ourselves and serially send our 10 requests, printing the response.
 So we've got our client and worker, now we need our broker.
 
-~~~~ javascript
+{% highlight js %}
 var zmq = require('zmq')
   , frontend = zmq.socket('router')
   , backend = zmq.socket('dealer');
@@ -372,7 +372,7 @@ backend.on('message', function() {
 
 frontend.bindSync('tcp://*:5559');
 backend.bindSync('tcp://*:5560');
-~~~~
+{% endhighlight %}
 
 We create a router socket as our frontend (which our clients will connect to) and a dealer socket as our backend (which the workers connect to).  Whenever a message is received by a socket it is sent out on its counter part, pretty straight froward really.  Now, fire up a few clients, a few workers and a broker and see what happens.  Take away or add some workers and/or clients and notice that everything still works as expected.  Despite this there are a couple of things to notice here.  Firstly there's no context.  I'm not entirely sure, but suspect this is because Node is single threaded and therefore only one can be used so it's created as a global object when the library is initialised. Secondly, how does the router socket send the correct replies to the correct workers?  This is quite a complex area of ZeroMQ, but at the moment it's enough to know it will just work for simple cases like this.  If you want to know more chapter 3 of the guide is the place to start.
 
@@ -384,7 +384,7 @@ Mostly this is still true, but with the advent of immutable data structures and 
 ![Exclusive pair messaging]({{ site.baseurl }}/blog/hpowell/assets/PAIR-PAIR.png)
 [The Relay Race](https://github.com/imatix/zguide/raw/master/images/fig21.png) by [iMatix Corporation](http://www.imatix.com/) is licensed under [cc-by-sa 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
 
-~~~~ javascript
+{% highlight js %}
 var zmq = require('zmq')
 
 var step3Receiver = zmq.socket('pair');
@@ -406,7 +406,7 @@ var xmitter = zmq.socket('pair');
 xmitter.connect('inproc://step2');
 console.log('Step 1 ready, signalling step 2');
 xmitter.send('READY');
-~~~~
+{% endhighlight %}
 
 In this final example a three step process is created connected by exclusive pair sockets over the inproc transport.  The steps are created in the reverse order in which they'll be used and wait for the READY signal from the previous step.  
 
