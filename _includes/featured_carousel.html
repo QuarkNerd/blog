@@ -127,13 +127,42 @@
   <a class="right carousel-control" href="#featuredCarousel" data-slide="next"><div class="arrow right"></div></a>
 </div>
 
-<div class="row visible-small">
+<div class="row featuredCarousel visible-small">
   <section class="offset2 span8">
     <div class="small-carousel">
       {% assign showPostSummary = true %}
       {% for post in site.tags.featured %}
       <div class="carousel-content">
-        {% include post_summary.html %}
+
+          <a class="carousel-caption-container" href="{{ site.github.url }}{{ post.url }}">
+            <img src="{{ site.github.url }}/{{ post.image }}">
+            {% capture url %}{{ site.github.url }}{{ post.url }}{% endcapture %}
+            {% if post.oldlink %}
+              {% capture url %}{{ post.oldlink }}{% endcapture %}
+            {% endif %}
+            {% if post.originalArticleLink %}
+              {% assign url = post.originalArticleLink %}
+            {% endif %}
+            {% assign disqusID = post.url %}
+            {% if post.disqus-id %}
+              {% assign disqusID = post.disqus-id %}
+            {% endif %}
+            {% assign title = post.title %}
+            {% assign inverted = post.featured-overlay-inverted %}
+            {% assign black = post.featured-overlay-black %}
+            <div class="carousel-caption">
+              <h4>
+                  {% if post.title-short %}
+                  {{ post.title-short }}
+                  {% else %}
+                  {{ post.title | truncatewords: 6 }}
+                  {% endif %}
+              </h4>
+            </div>
+          </a>
+          {% include social.html %}
+          <cite>{{ post.image-attribution }}</cite>
+
       </div>
       {% endfor %}
     </div>
