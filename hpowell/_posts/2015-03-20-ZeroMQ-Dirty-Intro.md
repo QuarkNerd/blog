@@ -57,20 +57,21 @@ For those of you in the Java camp there is the [JeroMQ](https://github.com/zerom
 </repositories>
 {% endhighlight %}
   
-And for Node.js there is the [zeromq.node](https://github.com/JustinTulloss/zeromq.node) binding:
+And for Node.js there is the [zeromq.node](https://github.com/JustinTulloss/zeromq.node) binding.  First you need to download and install the [C/C++ version](http://zeromq.org/distro:microsoft-windows) and then:
 
-    Download and install the [C/C++ version](http://zeromq.org/distro:microsoft-windows)
     npm install zmq
 
 That wasn't so painful now was it.  For those of you used to other messaging solutions you might be wondering where the brokers/gateways/etc. are.  ZeroMQ doesn't provide any of that extraneous architecture out of the box so if you want them you'll have to write them (or better yet, steal them out of the guide).
 
 ## Let's do the mind warp ##
 ZeroMQ comes with 5 basic patterns
+
 * Synchronous Request/Response
 * Asynchronous Request/Response
 * Publish/Subscribe
 * Push/Pull
 * Exclusive Pair
+
 each of which comes with its own pair of sockets (some can be mixed-and-matched, but we'll worry about that later).
 
 ### Contexts ####
@@ -121,22 +122,25 @@ Once our sockets are set up we send a request, read it and print it.  We then se
 
 ### Connection strings ###
 Once a socket has been created it needs to be bound or connected.  To do this a string is passed in of the form "<i>transport</i>:<i>endpoint</i>".  The transport can be any of the following values:
-* inproc
-  : thread to thread within a single process
-* ipc
-  : inter-process communication (linux only and not available in any of the native ports as yet)
-* tcp
-  : box to box communication and inter-process when "ipc" isn't available
-* epgm, pgm
-  : multicast protocols that make my head hurt, the guide has more information if you really want to use these
+
+inproc
+: thread to thread within a single process
+ipc
+: inter-process communication (linux only and not available in any of the native ports as yet)
+tcp
+: box to box communication and inter-process when "ipc" isn't available
+epgm, pgm
+: multicast protocols that make my head hurt, the guide has more information if you really want to use these
 
 Once you've decided on a transport you need to define an endpoint as follows:
-* inproc
-  : unique (enough) ascii string
-* ipc
-  : unique (enough) ascii string (usually postfixed with ".ipc")
-* tcp
-  : internet address and port number
+
+inproc
+: unique (enough) ascii string
+ipc
+: unique (enough) ascii string (usually postfixed with ".ipc")
+tcp
+: internet address and port number
+
 So in our first example we used thread to thread communication (inproc) through the "HelloWorld" endpoint.
 
 ### Publish - Subscribe ###
