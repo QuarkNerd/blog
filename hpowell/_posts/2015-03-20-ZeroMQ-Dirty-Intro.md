@@ -18,7 +18,7 @@ Please note this post has liberally purloined its information, examples and diag
 Most of the example code will be in C# because that's my background.  There'll also be examples in Java and Node.js, languages I have yet to fight with on the battlefield, so I'll apologise in advance for the poor programming style.
 
 ## Really?  More services/brokers/fiddly bits to install. ##
-Nope, just a library.  If you're living in .Net land you can use the [NetMQ](https://github.com/zeromq/netmq) native implementation , just bring up the Package Manager Console, select the project that needs some super charged messaging functionality and enter the following magic words:
+Nope, just a library.  If you're living in .Net land you can use the [NetMQ](https://github.com/zeromq/netmq) native implementation, just bring up the Package Manager Console, select the project that needs some super charged messaging functionality and enter the following magic words:
 
     Install-Package NetMQ -Version 3.3.0.11
 
@@ -125,10 +125,13 @@ Once a socket has been created it needs to be bound or connected.  To do this a 
 
 inproc
 : thread to thread within a single process
+
 ipc
 : inter-process communication (linux only and not available in any of the native ports as yet)
+
 tcp
 : box to box communication and inter-process when "ipc" isn't available
+
 epgm, pgm
 : multicast protocols that make my head hurt, the guide has more information if you really want to use these
 
@@ -136,8 +139,10 @@ Once you've decided on a transport you need to define an endpoint as follows:
 
 inproc
 : unique (enough) ascii string
+
 ipc
 : unique (enough) ascii string (usually postfixed with ".ipc")
+
 tcp
 : internet address and port number
 
