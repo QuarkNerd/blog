@@ -19,9 +19,9 @@ Most of the example code will be in C# because that's my background.  There'll a
 
 ## Really?  More services/brokers/fiddly bits to install. ##
 Nope, just a library.  If you're living in .Net land you can use the [NetMQ](https://github.com/zeromq/netmq) native implementation , just bring up the Package Manager Console, select the project that needs some super charged messaging functionality and enter the following magic words:
-~~~~
-Install-Package NetMQ -Version 3.3.0.11
-~~~~
+
+    Install-Package NetMQ -Version 3.3.0.11
+
 (replace -Version 3.3.0.11 with -Pre for the latest and greatest).
 
 For those of you in the Java camp there is the [JeroMQ](https://github.com/zeromq/jeromq) native implementation which just requires adding the following to you pom.xml:
@@ -58,10 +58,10 @@ For those of you in the Java camp there is the [JeroMQ](https://github.com/zerom
 {% endhighlight %}
   
 And for Node.js there is the [zeromq.node](https://github.com/JustinTulloss/zeromq.node) binding:
-~~~~
-Download and install the [C/C++ version](http://zeromq.org/distro:microsoft-windows)
-npm install zmq
-~~~~
+
+    Download and install the [C/C++ version](http://zeromq.org/distro:microsoft-windows)
+    npm install zmq
+
 That wasn't so painful now was it.  For those of you used to other messaging solutions you might be wondering where the brokers/gateways/etc. are.  ZeroMQ doesn't provide any of that extraneous architecture out of the box so if you want them you'll have to write them (or better yet, steal them out of the guide).
 
 ## Let's do the mind warp ##
