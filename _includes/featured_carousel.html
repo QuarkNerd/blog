@@ -126,3 +126,16 @@
   <a class="left carousel-control" href="#featuredCarousel" data-slide="prev"><div class="arrow left"></div></a>
   <a class="right carousel-control" href="#featuredCarousel" data-slide="next"><div class="arrow right"></div></a>
 </div>
+
+<div class="row visible-small">
+  <section class="offset2 span8">
+    <div class="small-carousel">
+      {% assign showPostSummary = true %}
+      {% for post in site.tags.featured %}
+      <div class="carousel-content">
+        {% include post_summary.html %}
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+</div>
