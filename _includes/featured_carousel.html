@@ -11,7 +11,7 @@
           {% assign offset = i | times: 5 %}
           {% for post in site.tags.featured limit:2 offset: offset %}
           <div>
-            <a href="{{ site.github.url }}{{ post.url }}">
+            <a class="carousel-caption-container" href="{{ site.github.url }}{{ post.url }}">
               <img src="{{ site.github.url }}/{{ post.image }}">
               {% capture url %}{{ site.github.url }}{{ post.url }}{% endcapture %}
               {% if post.oldlink %}
@@ -27,7 +27,6 @@
               {% assign title = post.title %}
               {% assign inverted = post.featured-overlay-inverted %}
               {% assign black = post.featured-overlay-black %}
-              {% include social.html %}
               <div class="carousel-caption">
                 <h4>
                     {% if post.title-short %}
@@ -38,6 +37,7 @@
                 </h4>
               </div>
             </a>
+            {% include social.html %}
             <cite>{{ post.image-attribution }}</cite>
           </div>
           {% endfor %}
@@ -46,7 +46,7 @@
           {% assign offset = offset | plus: 2 %}
           {% for post in site.tags.featured limit:1 offset:offset %}
           <div>
-            <a href="{{ site.github.url }}{{ post.url }}">
+            <a class="carousel-caption-container" href="{{ site.github.url }}{{ post.url }}">
               <img src="{{ site.github.url }}/{{ post.image }}">
               {% capture url %}{{ site.github.url }}{{ post.url }}{% endcapture %}
               {% if post.oldlink %}
@@ -62,7 +62,6 @@
               {% assign title = post.title %}
               {% assign inverted = post.featured-overlay-inverted %}
               {% assign black = post.featured-overlay-black %}
-              {% include social.html %}
               <div class="carousel-caption">
                 <h4>
                     {% if post.title-short %}
@@ -80,6 +79,7 @@
                 </p>
               </div>
             </a>
+            {% include social.html %}
             <cite>{{ post.image-attribution }}</cite>
           </div>
           {% endfor %}
@@ -88,7 +88,7 @@
           {% assign offset = offset | plus: 1 %}
           {% for post in site.tags.featured limit:2 offset:offset %}
           <div>
-            <a href="{{ site.github.url }}{{ post.url }}">
+            <a class="carousel-caption-container" href="{{ site.github.url }}{{ post.url }}">
               <img src="{{ site.github.url }}/{{ post.image }}">
               {% capture url %}{{ site.github.url }}{{ post.url }}{% endcapture %}
               {% if post.oldlink %}
@@ -104,7 +104,6 @@
               {% assign title = post.title %}
               {% assign inverted = post.featured-overlay-inverted %}
               {% assign black = post.featured-overlay-black %}
-              {% include social.html %}
               <div class="carousel-caption">
                 <h4>
                     {% if post.title-short %}
@@ -115,6 +114,7 @@
                 </h4>
               </div>
             </a>
+            {% include social.html %}
             <cite>{{ post.image-attribution }}</cite>
           </div>
           {% endfor %}
