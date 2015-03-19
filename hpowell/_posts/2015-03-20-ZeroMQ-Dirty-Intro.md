@@ -75,7 +75,7 @@ Firstly we'll look at the synchronous request/response pattern to create the obl
 ![Synchronous Request/Response messaging]({{ site.baseurl }}/hpowell/assets/REQ-REP.png)
 [Request-Reply](https://github.com/imatix/zguide/raw/master/images/fig2.png) by [iMatix Corporation](http://www.imatix.com/) is licensed under [cc-by-sa 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
 
-~~~~ c#
+~~~~ csharp
 using System;
 
 using NetMQ;
@@ -156,7 +156,7 @@ public class Server {
 
 Here we start by creating our context and publisher socket and binding to our endpoint.  We then loop, each time pushing a random value to one of 100000 ids.
 
-~~~~ c#
+~~~~ csharp
 using System;
 
 using NetMQ;
@@ -234,7 +234,7 @@ public class Ventilator {
 
 It's the usual start, but we're also going to create a socket to connect to the downstream sink.  Then we wait for the user to tell us all the workers are up and running.  We need this otherwise the first worker to complete its connection will grab most (if not all) of the work.  There are ways to fix this, but they would detract from looking at the pattern itself so we'll leave them out for now.  Once the user has indicated the workers are ready we notify the sink and dispatch 100 workloads.
 
-~~~~ c#
+~~~~ csharp
 using System;
 
 using NetMQ;
@@ -327,7 +327,7 @@ public class Worker {
 This worker is very similar to the response socket we saw in the first example except that we create a random identity for ourselves and whenever we receive a message we do "work" for 3-7 seconds.
 The client is, like wise, very similar to the request socket in the original example.
 
-~~~~ c#
+~~~~ csharp
 using System;
 
 using NetMQ;
