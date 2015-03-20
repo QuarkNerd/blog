@@ -406,7 +406,9 @@ We create a router socket as our frontend (which our clients will connect to) an
 
 ### Exclusive Pair ###
 Exclusive pairs are used to co-ordinate multi-threaded applications.  Hintjens makes the following statement in the guide:
+
 > If there's one lesson we've learned from 30+ years of concurrent programming, it is: <em>just don't share state</em>. It's like two drunkards trying to share a beer. It doesn't matter if they're good buddies. Sooner or later, they're going to get into a fight. And the more drunkards you add to the table, the more they fight each other over the beer.
+
 Mostly this is still true, but with the advent of immutable data structures and thread safe queues (sort of, they're available for .Net 4.5 in the Google Guava library for Java and there are the mori and immutable.js libraries for JavaScript, having incubated in the functional programming domain) I think there's less need for these.  Exclusive pairs tightly couple the threads of your application (much like the immutable collections) and can't scale out to processes so the only real advantage I can see would be not having to learn about immutable data structures.  But, if you're using one of the many languages for which such collections don't exist exclusive pairs are infinitely better than sharing mutable state and using locks, semaphores and/or mutexes.  On with the demonstration.
 
 ![Exclusive pair messaging]({{ site.baseurl }}/blog/hpowell/assets/PAIR-PAIR.png)
