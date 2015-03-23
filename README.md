@@ -40,6 +40,26 @@ post contents, markdown/html
 * **title-short** - An optional abbreviated title for articles that appear in the featured carousel.
 * **summary-short** - An optional abbreviated summary for articles that appear in the featured carousel. This summary text is only displayed in 'large' carousel tiles.
 
+##### Linking to assets
+
+To link to any [assets hosted with the blog](https://github.com/ScottLogic/blog#first-post-setup), you should make use of `{{ site.github.url }}` to form the link.
+
+On a fork, `{{ site.github.url }}` will return : `http://username.github.io/repository-name`; in the main repo, it will return: `http://blog.scottlogic.com`. This allows for images to be linked to correctly, both on forks and the main blog.
+
+N.B. `site.baseurl` no longer exists - please use `site.github.url` instead.
+
+For example, to link to this image `/jbloggs/assets/my-image.png`, with **HTML**:
+
+```html
+<img src='{{ site.github.url }}/jbloggs/assets/my-image.png' title="My Image Title" alt="My Image" />
+```
+
+Or **Markdown**:
+
+```markdown
+![My Image]({{ site.github.url }}/jbloggs/assets/my-image.png "My Image Title")
+```
+
 ### First post setup
 Before your first post you will need to:  
 * Create an author folder with the following file structure:
