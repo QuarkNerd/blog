@@ -28,11 +28,16 @@
   aside.author {
     text-align: left;
   }
-// Padding to set content in a bit
+
   body > div.container {
+    // Padding to set content in a bit
     padding-left: 20px;
     padding-right: 20px;
+
+    // Clip mobile screen scroll view content.
+    overflow-x: hidden;
   }
+
 // Negative indent the now static "fixed" navbar
   .navbar-fixed-top,
   .navbar-fixed-bottom,
@@ -40,6 +45,7 @@
     margin-left: -20px;
     margin-right: -20px;
   }
+
 // Remove padding on container given explicit padding set on body
   .container-fluid {
     padding: 0;
