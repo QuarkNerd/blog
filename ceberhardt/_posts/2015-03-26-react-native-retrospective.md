@@ -72,7 +72,7 @@ I believe that this is a relatively straightforward task. I've not tried it myse
 
 ### Animations
 
-Animation is simply something which I haven't tried yet. Conceptually there might be concerns, for each step in the animation all your React Native components are re-rendered, reconciled and the native UI updated. However, until I have had a chance to give this a go, I'll not pass option yet.
+Animation is simply something which I haven't tried yet. Conceptually there might be concerns, for each step in the animation all your React Native components are re-rendered, reconciled and the native UI updated. However, until I have had a chance to give this a go, I'll not pass judgement!
 
 What I would say is that in the iOS world there are already some widely used frame-based animation frameworks, e.g. Facebook's [POP](https://github.com/facebook/pop), so I would't be concerned about creating non UIView / CALayer animations.
 
