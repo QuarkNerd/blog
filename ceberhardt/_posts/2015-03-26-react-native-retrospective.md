@@ -80,7 +80,7 @@ What I would say is that in the iOS world there are already some widely used fra
 
 This is probably the most important limitation of React Native. It is an abstraction, by which I mean that there is a pretty large chunk of code sitting between yourself and the native platform you are developing for.
 
-Time or that Joel Spolsky quote:
+Time for that [Joel Spolsky quote](http://www.joelonsoftware.com/articles/LeakyAbstractions.html):
 
 > All non-trivial abstractions, to some degree, are leaky
 
@@ -142,7 +142,7 @@ Will it be the framework that finally replaces native mobile app development?
 
 No, don't be silly!
 
-Whether or not React Native is right for you very much depends on who you are and wha you are trying to build. The same could be said for any other mobil framework. 
+Whether or not React Native is right for you very much depends on who you are and what you are trying to build. The same could be said for any other mobile framework. 
 
 I'd encourage you to give it a try, and see whether it is right for you.
 
