@@ -7,8 +7,6 @@ summary: Having recently dipped my toe into the world of functional programming 
 summary-short: "Comparing and contrasting these JVM based languages"
 image: hpowell/assets/featured/functional.jpg
 featured-overlay-inverted: true
-tags:
-  - featured
 oldlink: http://www.scottlogic.com/blog/2014/10/28/Scala-Vs-Clojure.html
 disqus-id: /2014/10/28/Scala-Vs-Clojure.html
 ---
