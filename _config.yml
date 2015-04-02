@@ -7,6 +7,7 @@ scottlogic:
 scottlogicdisqusurl: http://scottlogic.disqus.com
 permalink: /:year/:month/:day/:title.html
 safe: true
+twitter_handle: Scott_Logic
 
 paginate: 5
 
