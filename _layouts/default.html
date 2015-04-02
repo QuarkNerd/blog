@@ -24,7 +24,14 @@
     {% if page.author-twitter-handle %}<meta name="twitter:creator" content="@{{ page.author-twitter-handle }}"/>{% endif %}
     <meta name="twitter:title" content="{{ page.title }}"/>
     <meta name="twitter:description" content="{{ page.summary }}"/>
-    {% if page.image %}<meta name="twitter:image:src" content="{{ site.canonical.url }}/{{ page.image }}"/>{% endif %}
+    <meta name="twitter:image:src" content="{{ site.canonical.url }}/{% if page.image %}{{ page.image }}{% else %}assets/sl-dark.png{% endif %}"/>
+
+    <meta property="og:title" content="{{ page.title }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="{{ site.canonical.url }}/{% if page.image %}{{ page.image }}{% else %}assets/sl-dark.png{% endif %}" />
+    <meta property="og:site_name" content="{{ site.name }}"/>
+    <meta property="og:url" content="{{ site.canonical.url }}{{ page.url }}" />
+    <meta property="og:description" content="{{ page.summary }}" />
 
     <link rel="stylesheet" href="{{ site.github.url | remove_first: 'http:' }}/style.css" type="text/css">
 
