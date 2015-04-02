@@ -13,6 +13,7 @@ module.exports = function(grunt) {
         'scripts/tweet.js',
         'scripts/disqus-comment-count.js',
         'scripts/modernizr.custom.js',
+        'scripts/app.js',
         'less/twitter-bootstrap/js/bootstrap-transition.js',
         'less/twitter-bootstrap/js/bootstrap-carousel.js'
       ],
