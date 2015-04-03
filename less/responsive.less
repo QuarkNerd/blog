@@ -153,12 +153,6 @@
     -webkit-transform: translate3d(0, 0, 0); // activate the GPU
   }
 
-// Block level the page header small tag for readability
-  .page-header h1 small {
-    display: block;
-    line-height: @baseLineHeight;
-  }
-
 // Update checkboxes for iOS
   input[type="checkbox"],
   input[type="radio"] {
@@ -236,4 +230,30 @@
   .visible-large  { display: none !important; }
   .hidden-small   { display: none !important; }
   .hidden-large   { display: inherit !important; }
+}
+
+// All devices larger than mobiles.
+@media (max-width: 480px) {
+  h1 {
+    font-size: @baseFontSize * 2;
+  }
+  h2 {
+    font-size: @baseFontSize * 1.5;
+  }
+  h3 {
+    font-size: @baseFontSize * 1.17;
+  }
+}
+
+// All devices larger than mobiles.
+@media (min-width: 480px) {
+  h1 {
+    font-size: @baseFontSize * 3.125;
+  }
+  h2 {
+    font-size: @baseFontSize * 2;
+  }
+  h3 {
+    font-size: @baseFontSize * 1.5;
+  }
 }
