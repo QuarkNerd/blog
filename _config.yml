@@ -32,6 +32,7 @@ exclude:
     - scripts/jquery.jscroll-2.2.4.js
     - scripts/modernizr.custom.js
     - scripts/tweet.js
+    - scripts/app.js
 
 
 # For local use only
