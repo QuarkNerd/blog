@@ -34,7 +34,7 @@
         {% for category in post.categories %}
         <category><![CDATA[{{ category }}]]></category>
         {% endfor %}
-        <comments>{{ site.scottlogicdisqusurl }}/{{ post.title }}/latest.rss</comments>
+        <comments>{{ site.scottlogicdisqusurl }}{{ post.title | downcase | replace:' ','_' }}</comments>
     </item>
     {% endfor %}
 

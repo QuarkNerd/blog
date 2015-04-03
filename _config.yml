@@ -4,7 +4,7 @@ canonical:
     url: http://blog.scottlogic.com
 scottlogic:
     url: http://www.scottlogic.com
-scottlogicdisqusurl: http://scottlogic.disqus.com
+scottlogicdisqusurl: https://disqus.com/home/discussion/scottlogic/
 permalink: /:year/:month/:day/:title.html
 safe: true
 
