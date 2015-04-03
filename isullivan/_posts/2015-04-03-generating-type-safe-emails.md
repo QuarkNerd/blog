@@ -10,7 +10,7 @@ Sending emails or other personalised messages from an application is a very comm
 
 ## The Problem
 
-Emails are important to get right and easy to get wrong. They are often public facing communications from your company and mistakes will reflect badly. I recently received an email from a large company that ended 'Sincerely, {3}'. It's enough ruin the illusion of a personal email that the company's marketing team spent many man hours creating. 
+Emails are important to get right and easy to get wrong. They are often public facing communications from your company and mistakes will reflect badly. I recently received an email from a large company that ended 'Sincerely, {3}'. It's enough to ruin the illusion of a personal email that the company's marketing team spent many man hours creating. 
 
 An email might be written like this in C#:
 
