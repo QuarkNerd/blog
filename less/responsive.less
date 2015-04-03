@@ -231,3 +231,29 @@
   .hidden-small   { display: none !important; }
   .hidden-large   { display: inherit !important; }
 }
+
+// All devices larger than mobiles.
+@media (max-width: 480px) {
+  h1 {
+    font-size: @baseFontSize * 2;
+  }
+  h2 {
+    font-size: @baseFontSize * 1.5;
+  }
+  h3 {
+    font-size: @baseFontSize * 1.17;
+  }
+}
+
+// All devices larger than mobiles.
+@media (min-width: 480px) {
+  h1 {
+    font-size: @baseFontSize * 3.125;
+  }
+  h2 {
+    font-size: @baseFontSize * 2;
+  }
+  h3 {
+    font-size: @baseFontSize * 1.5;
+  }
+}
