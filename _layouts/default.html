@@ -18,6 +18,7 @@
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     {% endif %}
 
+    {% comment %} Twitter meta data. API ref: https://dev.twitter.com/cards/types/summary-large-image {% endcomment%}
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:site" content="@{{ site.twitter_handle }}"/>
     {% if page.author-twitter-handle %}<meta name="twitter:creator" content="@{{ page.author-twitter-handle }}"/>{% endif %}
