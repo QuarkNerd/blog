@@ -30,6 +30,8 @@
     <published>{{ post.date | date_to_rfc822 }}</published>
     <updated>{{ post.date | date_to_rfc822 }}</updated>
     <summary><![CDATA[{% if post.summary %}{{ post.summary }}{% else %}{{ post.content | truncatewords:50 | strip_html | xml_escape }}{% endif %}]]></summary>
+    <content type="html">{{ post.content | xml_escape }}</content>
+
     {% assign author = site.data.authors.authors[post.author] %}
     <author>
       <name>{% if author.email %}{{ author.email }} ({{ author.name }}){% else %}{{ author.name }}{% endif %}</name>
