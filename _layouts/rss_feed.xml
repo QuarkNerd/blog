@@ -28,7 +28,7 @@
         {% assign author = site.data.authors.authors[post.author] %}
         <author>{% if author.email %}{{ author.email }} ({{ author.name }}){% else %}{{ author.name }}{% endif %}</author>
         <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <description><![CDATA[{% if post.summary %}{{ post.summary }}{% else %}{{ post.content | truncatewords:50 | strip_html }}{% endif %}]]></description>
+        <description><![CDATA[{{ post.content }}]]></description>
         <link>{{ site.github.url }}{{ post.url }}</link>
         <guid isPermaLink="false">{{ post.url }}</guid>
         {% for category in post.categories %}
