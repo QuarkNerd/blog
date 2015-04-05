@@ -29,7 +29,7 @@
     <published>{{ post.date | date_to_xmlschema }}</published>
     <updated>{{ post.date | date_to_xmlschema }}</updated>
     <summary><![CDATA[{% if post.summary %}{{ post.summary }}{% else %}{{ post.content | truncatewords:50 | strip_html | xml_escape }}{% endif %}]]></summary>
-    <content type="html">{{ post.content | xml_escape }}</content>
+    <content type="html"><![CDATA[{{ post.content }}]]></content>
 
     {% assign author = site.data.authors.authors[post.author] %}
     <author>
