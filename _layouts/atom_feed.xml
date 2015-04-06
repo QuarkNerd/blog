@@ -10,9 +10,8 @@
   {% else %}
   {% assign description = site.description %}
   {% endif %}
-  <description><![CDATA[{{ description }}]]></description>
-  <language>en-US</language>
-  <updated>{{ site.time | date_to_rfc822  }}</updated>
+  <subtitle><![CDATA[{{ description }}]]></subtitle>
+  <updated>{{ site.time | date_to_xmlschema  }}</updated>
   <id>{{ site.github.url }}{% if page.author %}/{{ page.author }}{% endif %}</id>
 
 
@@ -23,13 +22,15 @@
   {% endif %}
   {% for post in feed_posts limit:20 %}
   <entry>
-    <id>{{ post.url }}</id>
+    <id>{{ site.github.url }}{{ post.url }}</id>
     <link type="text/html" rel="alternate" href="{{ site.github.url }}{{ post.url }}"/>
     <title><![CDATA[{{ post.title }}]]></title>
     <sl:title-short><![CDATA[{% if post.title-short %}{{ post.title-short }}{% else %}{{ post.title | truncatewords: 6 }}{% endif %}]]></sl:title-short>
-    <published>{{ post.date | date_to_rfc822 }}</published>
-    <updated>{{ post.date | date_to_rfc822 }}</updated>
+    <published>{{ post.date | date_to_xmlschema }}</published>
+    <updated>{{ post.date | date_to_xmlschema }}</updated>
     <summary><![CDATA[{% if post.summary %}{{ post.summary }}{% else %}{{ post.content | truncatewords:50 | strip_html | xml_escape }}{% endif %}]]></summary>
+    <content type="html"><![CDATA[{{ post.content }}]]></content>
+
     {% assign author = site.data.authors.authors[post.author] %}
     <author>
       <name>{% if author.email %}{{ author.email }} ({{ author.name }}){% else %}{{ author.name }}{% endif %}</name>
