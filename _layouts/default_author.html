@@ -22,10 +22,14 @@ layout: default
     {% assign includeSocialLinks = true %}
     {% assign showAuthorInfo = false %}
     {% for post in site.categories[page.author] %}
-      {% if  forloop.index > 20 %}
-         {% assign showPostSummary = false %}
+      {% if post.tags contains "author-featured" %}
+        {% comment %} Couldn't work out how to negate the filter! {% endcomment %}
+      {% else %}
+        {% if  forloop.index > 20 %}
+           {% assign showPostSummary = false %}
+        {% endif %}
+        {% include post_summary.html %}
       {% endif %}
-      {% include post_summary.html %}
     {% endfor %}
   </section>
 </div>
