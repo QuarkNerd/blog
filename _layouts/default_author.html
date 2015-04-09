@@ -11,6 +11,10 @@ layout: default
 </section>
 {% endif %}
 
+{% assign featuredCarouselPosts= site.tags["author-featured"] | where:"author",page.author %}
+{% if featuredCarouselPosts | size > 0 %}
+{% include featured_carousel.html %}
+{% endif %}
 <div class="row">
   <section class="offset2 span8">
     <h2>Articles</h2>

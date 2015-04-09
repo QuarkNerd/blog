@@ -8,7 +8,7 @@ tags:
   - UX design
   - visualisation
   - infographics
-  - featuredgodds
+  - author-featured
 categories:
   - godds
 layout: default_post
