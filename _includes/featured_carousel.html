@@ -4,7 +4,7 @@
   {% assign featuredPosts = site.tags.featured | sort: 'date', 'first' %}
 
   {% comment %} Limit number of posts to `maxPosts`. {% endcomment %}
-  {% assign maxPosts = 10 %}
+  {% assign maxPosts = include.maxPosts %}
   {% assign numPosts = featuredPosts | size %}
   {% if numPosts > maxPosts %}
     {% assign numPosts = maxPosts %}
