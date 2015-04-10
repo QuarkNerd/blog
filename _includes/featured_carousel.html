@@ -1,8 +1,9 @@
 <div id="featuredCarousel" class="featuredCarousel carousel slide hidden-small">
   {% comment %} Render the carousel panels but only FULL panels (there's probably a nicer way...) {% endcomment %}
   {% comment %} Rounding hack of -1, patches welcome! {% endcomment %}
-  {% assign modulo = site.tags.featured | size | minus: 1 | modulo: 5 %}
-  {% assign count = site.tags.featured | size | minus: modulo | divided_by: 5 %}
+  {% assign featuredPosts = site.tags.featured | sort: 'date', 'first' %}
+  {% assign modulo = featuredPosts | size | minus: 1 | modulo: 5 %}
+  {% assign count = featuredPosts | size | minus: modulo | divided_by: 5 %}
   <div class="carousel-inner">
     {% for i in (0..count) %}
     <div class="item {% if forloop.first %} active{% endif %}">
@@ -25,7 +26,7 @@
   <section class="offset2 span8">
     <div class="small-carousel carousel">
       {% assign showPostSummary = true %}
-      {% for post in site.tags.featured %}
+      {% for post in featuredPosts %}
       <div class="carousel-content">
 
           <a class="carousel-caption-container" href="{{ site.github.url }}{{ post.url }}">
