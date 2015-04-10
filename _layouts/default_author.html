@@ -1,21 +1,21 @@
 ---
 layout: default
 ---
-<section class="row">
+<section class="row blog-post-container">
   <h1 class="offset2 span8">{{ site.data.authors.authors[page.author].name }}</h1>
+  {% if content %}
+  <section class="container">
+  {{ content }}
+  </section>
+  {% endif %}
 </section>
-
-{% if content %}
-<section class="container">
-{{ content }}
-</section>
-{% endif %}
 
 {% assign featuredCarouselPosts= site.tags["author-featured"] | where:"author",page.author %}
 {% if featuredCarouselPosts | size > 0 %}
 {% include featured_carousel.html %}
 {% endif %}
-<div class="row">
+
+<div class="row blog-post-container">
   <section class="offset2 span8">
     <h2>Articles</h2>
     {% assign showPostSummary = true %}
