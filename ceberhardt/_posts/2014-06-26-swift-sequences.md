@@ -4,7 +4,7 @@ title: "Swift Sequences and Lazy Evaluation"
 image: "ceberhardt/assets/featured/sequence.jpg"
 categories: 
 tags:
-  - featuredcolin
+  - author-featured
 summary: "In this blog post I want to take a quick look at the Swift Sequence protocol, which forms the basis for the for-in loop, and see how this allows you to write code that performs sequence operations that are only evaluated on-demand."
 summary-short: "An exploration of lazy evaluation via Swift generators"
 layout: default_post
