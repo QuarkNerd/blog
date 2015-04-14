@@ -1,8 +1,9 @@
 <div id="featuredCarousel" class="featuredCarousel carousel slide hidden-small">
   {% comment %} Render the carousel panels but only FULL panels (there's probably a nicer way...) {% endcomment %}
   {% comment %} Rounding hack of -1, patches welcome! {% endcomment %}
-  {% assign modulo = featuredCarouselPosts | size | minus: 1 | modulo: 5 %}
-  {% assign count = featuredCarouselPosts | size | minus: modulo | divided_by: 5 %}
+  {% assign numberFeaturedPosts = featuredCarouselPosts | size %}
+  {% assign modulo = numberFeaturedPosts | minus: 1 | modulo: 5 %}
+  {% assign count = numberFeaturedPosts | minus: modulo | divided_by: 5 %}
   <div class="carousel-inner">
     {% for i in (0..count) %}
     <div class="item {% if forloop.first %} active{% endif %}">
@@ -17,7 +18,7 @@
     </div>
     {% endfor %}
   </div>
-  {% if count > 5 %}
+  {% if numberFeaturedPosts > 5 %}
   <a class="left carousel-control" href="#featuredCarousel" data-slide="prev"><div class="arrow left"></div></a>
   <a class="right carousel-control" href="#featuredCarousel" data-slide="next"><div class="arrow right"></div></a>
   {% endif %}
