@@ -9,9 +9,8 @@ summary: This blog is brought to you by Scott Logic's team of technical authors 
   <div class="row">
     <h1 class="offset2 span10 hidden-small">Blog</h1>
   </div>
-  {% assign featuredCarouselPosts = site.tags.featured %}
-  {% include featured_carousel.html %}
-
+  {% assign featuredPosts = site.tags.featured %}
+  {% include featured_carousel.html maxPosts=10 featuredPosts=featuredPosts %}
 </section>
 
 <div class="row">
