@@ -26,8 +26,10 @@
     </div>
     {% endfor %}
   </div>
+  {% if numPosts > 5 %}
   <a class="left carousel-control" href="#featuredCarousel" data-slide="prev"><div class="arrow left"></div></a>
   <a class="right carousel-control" href="#featuredCarousel" data-slide="next"><div class="arrow right"></div></a>
+  {% endif %}
 </div>
 
 <div class="row featuredCarousel visible-small">
