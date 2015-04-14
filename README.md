@@ -39,6 +39,8 @@ post contents, markdown/html
 * **image** - The image used for this article if present in the carousel.
 * **title-short** - An optional abbreviated title for articles that appear in the featured carousel.
 * **summary-short** - An optional abbreviated summary for articles that appear in the featured carousel. This summary text is only displayed in 'large' carousel tiles.
+* **disqus-id** - A unique ID for the Disqus thread. If this is left blank the page's URL path will be used instead.
+* **originalArticleLink** - A URL to the original content. This is only needed if the blog post is just a reference to an article/blog in another location. Including this link will disable the page's Disqus thread so that readers post comments on the original content.
 
 ##### Linking to assets
 

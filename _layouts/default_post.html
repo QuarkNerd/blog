@@ -52,25 +52,28 @@ layout: default
   </div>
 </article>
 
-{% comment %} Only load the Disqus thread when on the main repo; disable on forks {% endcomment %}
-{% if site.github.owner_name == 'ScottLogic' %}
-<a name="comments"></a>
-<div id="disqus_thread" class="offset2 span8"></div>
-<script type="text/javascript">
-{% if disqusID %}
-  var disqus_identifier = '{{ disqusID }}';
-{% else %}
-  var disqus_identifier = '{{ page.url }}';
-{% endif %}
-  var disqus_url = '{{ url }}';
-</script>
-<script src="{{ site.github.url }}/scripts/disqus-comment-thread.js"></script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-{% else %}
-<div class="row">
-  <div class="offset2 span8">
-    <p class="text-center">Disqus comments are disabled on forks.</p>
+{% comment %} Don't load Disqus comments for syndicated content. {% endcomment %}
+{% unless page.originalArticleLink %}
+  {% comment %} Only load the Disqus thread when on the main repo; disable on forks {% endcomment %}
+  {% if site.github.owner_name == 'ScottLogic' %}
+  <a name="comments"></a>
+  <div id="disqus_thread" class="offset2 span8"></div>
+  <script type="text/javascript">
+  {% if disqusID %}
+    var disqus_identifier = '{{ disqusID }}';
+  {% else %}
+    var disqus_identifier = '{{ page.url }}';
+  {% endif %}
+    var disqus_url = '{{ url }}';
+  </script>
+  <script src="{{ site.github.url }}/scripts/disqus-comment-thread.js"></script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+  {% else %}
+  <div class="row">
+    <div class="offset2 span8">
+      <p class="text-center">Disqus comments are disabled on forks.</p>
+    </div>
   </div>
-</div>
-{% endif %}
+  {% endif %}
+{% endunless %}
