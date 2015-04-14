@@ -128,6 +128,12 @@ To get your blog posts on the Scott Logic website, go to your personal GitHub fo
 ### Featured Articles
 Featured articles are selected at the discretion of Colin Eberhardt (bribes accepted). The general idea is to feature popular articles from the past ~6 months, or articles that we think are particularly interesting, important, or are from people who have just started contributing.  
 
+To make an article appear on the featured carousel, simply add the `featured` tag to your post. The featured carousel will show the 10 most recent `featured` blogs.
+
+#### Author Featured Articles
+
+Every author page has a featured carousel, much like the main blog page. To add items to your featured carousel, simply add the `author-featured` tag to your blog post.
+
 ### Comments and notifications
 When you have posted your first blog post there are a few of other things you should consider doing:  
 
