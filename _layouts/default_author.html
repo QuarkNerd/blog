@@ -10,9 +10,10 @@ layout: default
   {% endif %}
 </section>
 
-{% assign featuredCarouselPosts= site.tags["author-featured"] | where:"author",page.author %}
-{% if featuredCarouselPosts | size > 0 %}
-{% include featured_carousel.html %}
+{% assign featuredPosts = site.tags["author-featured"] | where:"author",page.author %}
+{% assign numPosts = featuredPosts | size %}
+{% if numPosts > 0 %}
+{% include featured_carousel.html maxPosts=10 featuredPosts=featuredPosts %}
 {% endif %}
 
 <div class="row blog-post-container">

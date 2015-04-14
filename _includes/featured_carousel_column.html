@@ -1,5 +1,5 @@
         <div class="{{ include.containerClasses }}">
-          {% for post in featuredPosts limit:include.numItems offset: offset %}
+          {% for post in include.featuredPosts limit:include.numItems offset: offset %}
           <div>
             <a class="carousel-caption-container" href="{{ site.github.url }}{{ post.url }}">
               <img src="{{ site.github.url }}/{{ post.image }}">

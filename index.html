@@ -10,7 +10,7 @@ summary: This blog is brought to you by Scott Logic's team of technical authors 
     <h1 class="offset2 span10 hidden-small">Blog</h1>
   </div>
   {% assign featuredPosts = site.tags.featured | sort: 'date', 'first' %}
-  {% include featured_carousel.html maxPosts=10 %}
+  {% include featured_carousel.html maxPosts=10 featuredPosts=featuredPosts %}
 </section>
 
 <div class="row">
