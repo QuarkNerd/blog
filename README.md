@@ -35,7 +35,9 @@ post contents, markdown/html
 
 ##### Optional post meta-data
 * **summary** - The index pages for the blog and author pages includes summaries of each blog post. You can use summary to provide a **summary** for your blog post, otherwise the first 50 words of the post itself are used. When writing your own summaries, please try to make them roughly 50 words in length.
-* **tags** - An array of keywords that describe the blog post contents. Currently we do not have tag-clouds or any of that fluff, so there is no need to tag your posts. The only tag we actively use at the moment is 'featured', which indicates that an article should be included in the front-page carousel.
+* **tags** - An array of keywords that describe the blog post contents:
+  * Add the `featured` tag to have your article displayed in the blog's featured carousel.
+  * Add the `author-featured` tag to have your article displayed in your author page carousel.    
 * **image** - The image used for this article if present in the carousel.
 * **title-short** - An optional abbreviated title for articles that appear in the featured carousel.
 * **summary-short** - An optional abbreviated summary for articles that appear in the featured carousel. This summary text is only displayed in 'large' carousel tiles.
