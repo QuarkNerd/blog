@@ -108,7 +108,15 @@ layout: rss_feed
 ---  
 ```
 
-* Edit the ```/_data/authors.yml``` file and add your username to ```active-authors``` and your details to ```authors```.  
+* Edit the ```/_data/authors.yml``` file and add your username to ```active-authors``` and your details to ```authors```.
+
+When adding your details to authors you'll need to add the following:
+
+* **name**
+* **email**
+* **author-summary** - A paragraph of two about the author that will be displayed on their author page.
+* **feed-description** - A short description that will be added to the description of the author's Atom and RSS feed.
+* **gravatar** - The author's [gravatar hash](https://en.gravatar.com/site/implement/hash/). This is an [md5 hash](http://www.miraclesalad.com/webtools/md5.php) of your email address in lower case. If you don't have a gravatar account you'll need to [sign up](https://en.gravatar.com/) for one.
 
 ### Testing
 To test that your post works and looks as expected, push your changes to your GitHub repository, entering your username/password when prompted:
