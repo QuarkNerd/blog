@@ -39,10 +39,14 @@ post contents, markdown/html
   * Add the `featured` tag to have your article displayed in the blog's featured carousel.
   * Add the `author-featured` tag to have your article displayed in your author page carousel.    
 * **image** - The image used for this article if present in the carousel.
+* **image-attribution** - An attribution for your chosen `image` property. Add this as follows: `image courtesy of <a href='EXAMPLE_LINK'>EXAMPLE_SOURCE</a>`
+* **featured-overlay-inverted** - (true/false) Whether to invert the colour of the social icons. If your featured image is dark in its top right corner, choose 'true'.
 * **title-short** - An optional abbreviated title for articles that appear in the featured carousel.
 * **summary-short** - An optional abbreviated summary for articles that appear in the featured carousel. This summary text is only displayed in 'large' carousel tiles.
 * **disqus-id** - A unique ID for the Disqus thread. If this is left blank the page's URL path will be used instead.
 * **originalArticleLink** - A URL to the original content. This is only needed if the blog post is just a reference to an article/blog in another location. Including this link will disable the page's Disqus thread so that readers post comments on the original content.
+* **categories** - An array of categories for the post. These are added to the `<categories>` tag on the post's RSS & Atom feed entries.
+* **suppress-careers-add** - (true/false) Whether to suppress the careers advert at the bottom of the blog post. Setting 'true' will cause the advert to be hidden.
 
 ##### Linking to assets
 
