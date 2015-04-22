@@ -121,6 +121,10 @@
   overflow: auto;
   white-space: nowrap;
 
+  &.carousel {
+    margin-bottom: 0px;
+  }
+
   .carousel-content:first-of-type {
     margin-left: 20px;
   }
@@ -132,7 +136,8 @@
 
   .carousel-content {
     display: inline-block;
-    max-width: 75%;
+    // 40 pixels centeres our image as our first carousel item has a 20px left margin.
+    max-width: calc(~"100% - 40px");
     position: relative;
 
     h4 {
