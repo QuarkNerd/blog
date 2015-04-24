@@ -233,7 +233,7 @@ The compilation errors you are faced with when working with RC3 are often mislea
 
 <img src="{{ site.github.url }}/ceberhardt/assets/rac3/error.png" />
 
-It really helps to be able to pull these pipelines apart, so that you can locate the soccer of the error.
+It really helps to be able to pull these pipelines apart, so that you can locate the source of the error.
 
 You might also be wondering why build a complex API using curried functions and pipe forward? I had exactly the same thought when I first saw RC3!
 
