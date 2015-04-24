@@ -31,28 +31,28 @@ ReactiveCocoa 3.0 contains an all-new Swift API, but also has supported for Obje
 
 A very important feature of the Swift signal is that it is generic:
 
-```
-class Signal<T, E: ErrorType> {
-  ...
-}
-```
+
+    class Signal<T, E: ErrorType> {
+      ...
+    }
+
 
 The type parameter `T` denotes the type of data associated with the 'next' events emitted by the signal, while errors have the type `E` and must conform to the ErrorType protocol.
 
 Swift signals can be created in a similar fashion to Objective-C signals. Here's a quick example that creates a signal that emits an event every second:
 
-```
-func createSignal() -> Signal<String, NoError> {
-  var count = 0
-  return Signal {
-    sink in
-    NSTimer.schedule(repeatInterval: 1.0) { timer in
-      sendNext(sink, "tick #\(count++)")
+
+    func createSignal() -> Signal<String, NoError> {
+      var count = 0
+      return Signal {
+        sink in
+        NSTimer.schedule(repeatInterval: 1.0) { timer in
+          sendNext(sink, "tick #\(count++)")
+        }
+        return nil
+      }
     }
-    return nil
-  }
-}
-```
+
 
 (NOTE: The schedule method used above is [courtesy of this gist](https://gist.github.com/natecook1000/b0285b518576b22c4dc8))
 
@@ -68,34 +68,30 @@ There are a number of different ways you can observe, or subscribe, to signals. 
 
 Here's a simple example where the next event is observed:
 
-```
-let signal = createSignal()
-signal.observe(next: { println($0) })
-```
+
+    let signal = createSignal()
+    signal.observe(next: { println($0) })
+
   
 Which outputs the following:
 
-```
-tick #0
-tick #1
-tick #2
-tick #3
-tick #4
-```
+    tick #0
+    tick #1
+    tick #2
+    tick #3
+    tick #4
 
 As an alternative, you can provide a sink that observes a signal's events as follows:
 
-```
-createSignal().observe(SinkOf {
-  event in
-  switch event {
-  case let .Next(data):
-    println(data.unbox)
-  default:
-    break
-  }
-})
-```
+    createSignal().observe(SinkOf {
+      event in
+      switch event {
+      case let .Next(data):
+        println(data.unbox)
+      default:
+        break
+      }
+    })
 
 The `Event` type is an enumeration, with associated values for next and error event types. The `SinkOf` initialiser in the above code constructs a sink of type `SinkOf<Event<String, NoError>>`, again a trailing closure expression is passed to the initialiser.
 
@@ -109,99 +105,80 @@ The Swift signal type supports a very similar family of operations to its Obj-C 
 
 For a simple map operation, you might expect it to be defined as a method on `Signal` - in pseudo-code:
 
-```
-class Signal<T, E: ErrorType> {
-  func map(transform: ...) -> Signal
-}
-```
+    class Signal<T, E: ErrorType> {
+      func map(transform: ...) -> Signal
+    }
 
 However, the map function and all other operations that can be applied to signals are actually free functions:
 
 
-```
-class Signal<T, E: ErrorType> {
-  
-}
+    class Signal<T, E: ErrorType> {
+      
+    }
 
-func map(signal: Signal, transform: ...) -> Signal
-
-```
+    func map(signal: Signal, transform: ...) -> Signal
 
 Unfortunately by moving from methods to free functions, the interface is no longer [fluent](http://en.wikipedia.org/wiki/Fluent_interface). For example a map followed by a filter would look something like this:
 
-```
-let transformedSignal = filter(map(signal, { ... }), { ... })
-```
+    let transformedSignal = filter(map(signal, { ... }), { ... })
 
 Fortunately ReactiveCocoa has a solution for this problem via the funky looking pipe-forward operator `|>`, an [idea taken from the F# language](http://www.kevinberridge.com/2012/12/neat-f-pipe-forward.html).
 
 The Swift map operation is actually a curried free function:
 
-```
-public func map<T, U, E>(transform: T -> U)
-                        (signal: Signal<T, E>) -> Signal<U, E> {
-  
-}
-```
+    public func map<T, U, E>(transform: T -> U)
+                            (signal: Signal<T, E>) -> Signal<U, E> {
+      
+    }
 
 What this means is that on first invocation you supply a transform, which returns a new function that maps from one signal to another using the given transformation.
 
 The pipe forward operator allows you to chain operations that transform a signal to another type (typically another signal).
 
-```
-public func |> <T, E, X>(signal: Signal<T, E>,
-                      transform: Signal<T, E> -> X) -> X {
-  return transform(signal)
-}
-```
+    public func |> <T, E, X>(signal: Signal<T, E>,
+                          transform: Signal<T, E> -> X) -> X {
+      return transform(signal)
+    }
 
 Putting this into practice, to transform the current signal to emit upper case strings, you can use the curried map function as follows:
 
-```
-let signal = createSignal();
 
-let upperMapping: (Signal<String, NoError>) -> (Signal<String, NoError>) = map({
-  value in
-  return value.uppercaseString
-})
+    let signal = createSignal();
 
-let newSignal = upperMapping(signal)
-newSignal.observe(next: { println($0)})
-```
+    let upperMapping: (Signal<String, NoError>) -> (Signal<String, NoError>) = map({
+      value in
+      return value.uppercaseString
+    })
+
+    let newSignal = upperMapping(signal)
+    newSignal.observe(next: { println($0)})
 
 Which results in the following output:
 
-```
-TICK #0
-TICK #1
-TICK #2
-TICK #3
-TICK #4
-```
+    TICK #0
+    TICK #1
+    TICK #2
+    TICK #3
+    TICK #4
 
 Notice that the `upperMapping` constant has an explicit type of `(Signal<String, NoError>) -> (Signal<String, NoError>)`, this is because there is no way for the compiler to infer the type based on the arguments supplied to the function.
 
 Using pipe forward operator, you can instead transform the signal as follows:
 
-```
-let newSignal = signal |> upperMapping
-```
+    let newSignal = signal |> upperMapping
 
 Furthermore, there is also an `observe` free function that can also be used with pipe forward resulting in the following:
 
-```
-signal
-  |> upperMapping
-  |> observe(next: { println($0) })
-```
+    signal
+      |> upperMapping
+      |> observe(next: { println($0) })
 
 Finally, rather than assigning the result of the curried `map` function to the `upperMapping` constant, you can include it within the 'pipeline' as follows:
 
-```
-signal
-  |> map { $0.uppercaseString }
-  |> observe(next: { println($0) })
-```
+    signal
+      |> map { $0.uppercaseString }
+      |> observe(next: { println($0) })
+
 
 Notice that you no longer need to inform the compiler of the function type returned by `map`, it can now infer that from the context.
 
@@ -209,11 +186,9 @@ This is all pretty awesome!
 
 One final observation, you can change the type of data flowing through this pipeline, and the type of the signal. Here's a quick example:
 
-```
-signal
-  |> map { count($0) }
-  |> observe(next: { println($0) })
-```
+    signal
+      |> map { count($0) }
+      |> observe(next: { println($0) })
 
 The map operation above creates a function that transforms from `Signal<String, NoError>` to `Signal<Int, NoError>`.
 
