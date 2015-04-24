@@ -48,6 +48,11 @@ post contents, markdown/html
 * **categories** - An array of categories for the post. These are added to the `<categories>` tag on the post's RSS & Atom feed entries.
 * **suppress-careers-add** - (true/false) Whether to suppress the careers advert at the bottom of the blog post. Setting 'true' will cause the advert to be hidden.
 
+##### Legacy post meta-data (not needed)
+* **oldlink** - This is a blog post's original link; I.E. including the canonical domain at the time the post was published, this ensures Twitter counts/Disqus threads still work; new posts (any posts published after the migration) don't need this. It may be useful for future migrations.
+* **id** - A legacy property that used on our old WordPress site.
+* **source** - Unknown.
+
 ##### Linking to assets
 
 To link to any [assets hosted with the blog](https://github.com/ScottLogic/blog#first-post-setup), you should make use of `{{ site.github.url }}` to form the link.
