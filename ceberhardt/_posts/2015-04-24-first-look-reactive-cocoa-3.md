@@ -7,7 +7,7 @@ summary: "This blog post takes a look at the new ReactiveCocoa 3.0 swift interfa
 
 This blog post takes a look at the new ReactiveCocoa 3.0 swift interface, which introduces generics, a pipe-forward operator and an interesting use of curried functions.
 
-This is the first of a couple of blog posts I intend to write about ReactiveCocoa 3 (RC3). The main focus of this post is the Swift `Signal` class itself, with the next post building on tech to show a more complete application.
+This is the first of a couple of blog posts I intend to write about ReactiveCocoa 3 (RC3). The main focus of this post is the Swift `Signal` class itself, with the next post building on this to show a more complete application.
 
 ## Introduction
 
