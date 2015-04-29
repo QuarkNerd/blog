@@ -239,6 +239,6 @@ You might also be wondering why build a complex API using curried functions and 
 
 One advantage that free functions have over instance methods is that they are not constrained by the rules of inheritance. As an example, the Swift foundation library defines a `map` function that can be used to transforms anything that conforms to the `CollectionType` protocol. As a result, you can apply this function to collections that do not have any inheritance relationship (e.g. sets, arrays, dictionaries).
 
-In my next blog post I'll build a more complex example and introduce some of the other new concepts, including signal producers, which are a replacement for cold signals!
+In [my next blog post](http://blog.scottlogic.com/2015/04/28/reactive-cocoa-3-continued.html) I introduce some of the other new concepts, including signal producers, which are a replacement for cold signals!
 
 Regards, Colin E. 
