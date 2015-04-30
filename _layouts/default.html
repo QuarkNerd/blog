@@ -21,7 +21,7 @@
     {% endif %}
 
     {% comment %} Twitter meta data. API ref: https://dev.twitter.com/cards/types/summary-large-image {% endcomment%}
-    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:card" content="{% if page.image %}summary_large_image{% else %}summary{% endif %}"/>
     <meta name="twitter:site" content="@{{ site.twitter_handle }}"/>
     {% if page.author-twitter-handle %}<meta name="twitter:creator" content="@{{ page.author-twitter-handle }}"/>{% endif %}
     <meta name="twitter:title" content="{{ page.title }}"/>
