@@ -2,10 +2,8 @@
 author: wloveland
 title: The State Of In-Car UIs
 layout: default_post
-summary:
-image:
-title-short: The State Of In-Car UIs
-summary-short:  
+summary: An examination of the current state of in-car UIs, and how Apple, Google and Tesla are significantly shaking things up.
+suppress-careers-add: true
 ---
 
 It goes without saying that the automotive industry is highly competitive. Manufacturers are constantly innovating, promising to to deliver the ‘latest’ technology. Yet throughout out all of their advancements there is one fundamental component which so far no one has managed to nail down, the in-car user interface. The technology available within contemporary cars is constantly evolving, from complex sound systems to zoned climate controls, connected smartphones to car performance settings.
