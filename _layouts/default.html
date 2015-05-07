@@ -150,5 +150,15 @@ jQuery('.content').jscroll({
 </script>
 {% endif %}
 
+{% comment %} Only use Google Remarketing Code when on the main repo; it will fail to load on the forks.  More Info - https://www.thinkwithgoogle.com/products/new-remarketing-tag.html {% endcomment %}
+{% if site.github.owner_name == 'ScottLogic' %}
+	<script type="text/javascript">
+		var google_conversion_id = 1067904467;
+		var google_custom_params = window.google_tag_params;
+		var google_remarketing_only = true;
+	</script>
+	<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+{% endif %}
+
 </body>
 </html>
