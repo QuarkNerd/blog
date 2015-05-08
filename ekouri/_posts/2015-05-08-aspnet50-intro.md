@@ -21,6 +21,7 @@ As a result of having everything that your application needs bundled and contain
 ### DNVM
 When you install Visual Studio 2015, [DNVM](https://github.com/aspnet/home) also gets installed and added to your PATH. DNVM is the dotnet version manager and will manage the different runtimes for you.
 
+
 <img alt="DNVM list" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/dnvmlist.PNG" />
 
 `Dnvm list` shows you all the installed runtimes. The active one is denoted with a \* in the first column. You can change which is the active one by running: *dnvm use <version number> -r <runtime> -arch <architecture>* as you can see in the following image.
