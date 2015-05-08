@@ -1,6 +1,6 @@
 ﻿---
 author: ekouri
-title: "Introduction to ASP.NET 5"
+title: Introduction to ASP.NET 5
 layout: default_post
 summary: This blog post will discuss the changes to the .NET framework, the solution layout / configuration and will serve as an introduction to the recommended programming style encouraged by Microsoft going forwards. 
 ---
