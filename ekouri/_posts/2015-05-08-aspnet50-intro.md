@@ -1,4 +1,4 @@
-﻿---
+---
 author: ekouri
 title: "Introduction to ASP.NET 5"
 layout: default_post
