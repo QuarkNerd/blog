@@ -161,5 +161,17 @@ jQuery('.content').jscroll({
 	<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
 {% endif %}
 
+{% comment %} Only use Hubspot Marketing Code when on the main repo; it will fail to load on the forks.  More Info - http://knowledge.hubspot.com/getting-started-with-hubspot/how-to-install-the-tracking-code-on-a-generic-website {% endcomment %}
+{% if site.github.owner_name == 'ScottLogic' %}
+    <script type="text/javascript">
+        (function (d, s, i, r) {
+            if (d.getElementById(i)) { return; }
+            var n = d.createElement(s), e = d.getElementsByTagName(s)[0];
+            n.id = i; n.src = '//js.hs-analytics.net/analytics/' + (Math.ceil(new Date() / r) * r) + '/452398.js';
+            e.parentNode.insertBefore(n, e);
+        })(document, "script", "hs-analytics", 300000); 
+    </script> 
+{% endif %}
+
 </body>
 </html>
