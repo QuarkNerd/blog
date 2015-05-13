@@ -60,7 +60,7 @@ Most of the application configuration now lives in this file. Within it you can 
 #### Dependencies
 This is the place to include any references to ASP.NET NuGet packages as well as project references (for example Class libraries in the same solution). Once you start typing a dependency, IntelliSense is provided to assist you and once you pick the package you want, it will indicate which the latest version available (although it is possible to specify a different version or just use empty quotes ("") to always reference the latest). 
 
-<img alt="Dependencies" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/dependencies.PNG" />
+<img alt="Dependencies" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/dependencies.png" />
 
 You can still access the NuGet package manager window and install dependencies using the GUI. Once you have saved the project.json file, you will notice that the **References** node in your solution explorer is restoring the appropriate packages. Only the primary dependencies need to be added in the project.json and are also listed under the **References** node but you can click on the arrows on the left to drill deeper.
 
@@ -75,11 +75,11 @@ In the References image above, you will notice that the top-level nodes are name
 
 When the application is built, the compiler will ensure that it runs against all the defined frameworks. In fact, IntelliSense will let you know if a method is available in all the targeted frameworks while you type.
 
-<img alt="Framework Error" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/frameerror.PNG" />
+<img alt="Framework Error" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/frameerror.png" />
 
 As before, you can add framework specific code if you wrap it in #if #endif as shown in the image below. The framework names DNX451 and DNXCORE50 are well known symbols actually referred to as target framework monikers (TFMs) and are the same throughout the project.json file, folder names, NuGet packages etc.
 
-<img alt="Framework Symbols" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/framesymbols.PNG" />
+<img alt="Framework Symbols" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/framesymbols.png" />
 
 You can also change the targeted framework when you edit a file from the dropdown list at the top. This will gray out any code that will not run with the selected framework which makes it easier to read.
 
@@ -121,7 +121,7 @@ Once you have a task runner installed, you need to configure which tasks it shou
 
 To run those tasks, there is a new window called Task Runner Explorer. You will find it under Tools or just right-click on the gulpfile.js and you will see it as an option. From there, you can right click on one of the tasks and run it or bind it to some specific action. For example, the clean task is bound to the Clean action.
 
-<img alt="Task Runner" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/taskrunner.PNG" />
+<img alt="Task Runner" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/taskrunner.png" />
 
 ## Unified MVC 6
 In previous ASP.NET releases, Web Pages, Web API and MVC were implemented separately but because they offered a lot of common functionality, there was some duplication and inconsistencies. They are now all unified under the umbrella of MVC 6. There no longer is a separate ApiController for your services or the need to write slightly different code or reference different libraries to achieve similar results between the three programming models. 
