@@ -22,7 +22,7 @@ Well thanks to a melting pot of showroom semantics, company politics, industry r
 Whilst these factors cumulate to what is an intricate design challenge, and I am sympathetic, sometimes bad design is simply bad design. There is no excuse for illegible text or offensive iconography. So far the automotive industry’s eagerness to create innovative hardware has not transferred to their software or UI experiences, however could the tide be turning?
 
 
-#### Enter the giants
+## Enter the giants
 
 Several technology companies, principally [Linux](https://www.automotivelinux.org/) and [Windows](http://www.autoblog.com/2014/04/07/microsoft-windows-in-the-car-video/), have tried to enter the automotive industry in the past. However the latest entrants, Apple and Google, are working to transfer their experiences with desktops and handhelds to the world of automotives. Whilst it is probable that the future of both companies lie in more advanced driverless, electric cars, their immediate interests lie firmly in UI development, through the release of [Apple Carplay](https://www.apple.com/uk/ios/carplay/) and [Android Auto](http://www.android.com/auto/). These tech giant’s latest developments are logical: harmonising the most commonly utilised features of a car UI, the infotainment system, with the smartphone sat in your back pocket. So it’s a match made in heaven right?! Not so fast.
 
@@ -35,7 +35,7 @@ Apple and Google have exploited their experience to provide streamlined systems 
 Therein lies the problem. The double edged sword of the current in-car experience. The majority of driving features are still designed and determined by the car manufacturers, varying drastically across the industry. The services provided by both Apple and Google currently only cater for a fraction of what is expected from today's UI’s. In this respect their systems are merely fronts, an afterthought, concocted from a sales and marketing strategy. From an UX perspective the seam between the native car operating system and Carplay/Auto will show. Furthermore the accumulation of analytical data and further design innovation by Apple and Google could heighten this disparity with each periodical update. If car manufacturers struggle to keep up with this pace, the divide could become even more substantial in time. Ultimately, the infotainment system will feel like an iPad neatly stuck to the dashboard rather than an actual part of the unified experience.
 
 
-#### A different direction
+## A different direction
 
 Since its conception in 2012 the release of [Tesla’s ‘Model-S’](http://www.teslamotors.com/models) has made a significant impact on the automotive industry. Its creator Elon Musk has altered the general perception of the electric vehicle, transforming it from lab rat to poster boy. The standard in-car UI concoction of buttons, knobs and sliders are replaced with a single 17 inch touch display with an interface following the familiar touch paradigms of tablets and smartphones.
 
@@ -50,16 +50,16 @@ However a convenient solution to these issues could be only an update away. Styl
 Despite it’s currently less-than-perfect in-car UI, it is undeniable that Tesla is leaving its mark on the automotive industry and could only be an update away from market superiority. The seeds of a great integrated experience is there, but it is evident that the optimum solution is still a few iterations away from being defined and standardised. In this regard Tesla has the capability to facilitate fresh content long after the customers initial excitable honeymoon period has past.
 
 
-### Summary
+## Summary
 
 Currently the in-car experience is in limbo, an awkward adolescence phase struggling to find its feet. Whilst the emergence of Apple Carplay and Android Auto could perhaps go some way to assist in the short-term it should not be seen as an answer for the long term. The responsibility for these systems lies at the feet of the large automotive manufacturers (amongst whom Apple and Google may eventually count themselves). However Apple and Google’s immediate presence already places a spotlight on the world of in-car UI’s, providing an impetus for improved future conceptions. The sizable 3rd party followings of both Apple and Android could see a raft of innovative developments, which have so far by passed the automotive community.
 
 So what can be done?
 
-#### Learn from software development
+### Learn from software development
 
 Software development is a volatile sector: in order to remain on the forefront manufacturers must adapt to its pace. Bug fixes, feature developments and iterative updates assist software development companies to maintain an agile approach, adapting to industry changes. In this regard Tesla has not only stolen a march on its direct competitors within the electric vehicle market, but the industry as a whole.
 
-#### The UI is part of the experience
+### The UI is part of the experience
 
 Manufacturers must encourage the development of on-screen content and recognise that the in-car experience plays a significant role in defining the broader product and brand. Manufacturers must do away with their ‘star-trek-esk’ fantasy concepts, and focus on software design and development through suitable processes and management structures. Whether we like it or not Apple Carplay and Android Auto are currently the must have feature of any contemporary car. Their introduction has already sparked [a bidding war](http://www.wired.com/2014/06/carplay-android-auto-automakers/), with automotive companies starting to pick sides. However these systems should not be seen as substitutes for a well designed native system that integrates the entire in-car experience and empathetically portrays a brand’s experience.
