@@ -67,9 +67,7 @@ You can still access the NuGet package manager window and install dependencies u
 #### Frameworks
 In the References image above, you will notice that the top-level nodes are named DNX 4.5.1 and DNX Core 5.0. These are the two frameworks targeted in my project.json file. It is also possible to have different dependencies for each framework - in fact, for the CoreCLR, you will need to add any packages that make up the Base Class Library (BCL) as they need to be referenced.
 
-<img alt="Frameworks" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/frameworks.PNG" />
-
-<img alt="References" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/references2.PNG" />
+<img alt="Frameworks" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/frameworks1.PNG" />
 
 When the application is built, the compiler will ensure that it runs against all the defined frameworks. In fact, IntelliSense will let you know if a method is available in all the targeted frameworks while you type.
 
@@ -96,9 +94,7 @@ The new compiler ([Roslyn](https://github.com/dotnet/roslyn)) supports dynamic c
 ## Client-side libraries
 As I mentioned previously, only NuGet packages should be added in the project.json. You could still add your client-side libraries in your project.json but the latest NuGet package might not correspond to the latest version of the library released. Microsoft encourage developers to use [Bower](http://bower.io/) instead which is a package manager for the web. The bower configuration file, bower.json, is very similar to project.json and also provides IntelliSense while you type a dependency. Once you save the file, Bower will restore the packages which you can see under the Dependencies/Bower folder in your solution explorer.
 
-<img alt="Bower" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/bower1.PNG" />
-
-<img alt="Bower" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/bower2.PNG" />
+<img alt="Bower" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/bower4.PNG" />
 
 The files are automatically downloaded and placed under the bower_components folder. This folder is automatically excluded from the project so if you want to see it in your solution explorer you will need to enable the Show All Files button. You can change which folders are excluded from your project.json file under the "exclude" section. Once the libraries are downloaded, they should be copied under wwwroot. To learn how to do this automatically, read the following section.
 
@@ -107,11 +103,7 @@ The files are automatically downloaded and placed under the bower_components fol
 ## Task runners
 When building a website there are some common tasks, such as bundling and minification, which you do every time. In older versions of ASP.NET, Microsoft provided their own tools to automate that but just as they did with Bower, they now encourage developers to use established tools called task runners to do that. Visual Studio 2015 ships with a version of [npm](https://www.npmjs.com/) (node package manager) which allows you to download popular task runners such as [Grunt](http://gruntjs.com/) or [Gulp](http://gulpjs.com/). Once again the configuration file for npm, package.json, is very similar to project.json. The packages get restored under the Dependencies/NPM folder and the files are under node_modules (also excluded from project.json).
 
-<img alt="npm" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/npm1.PNG" />
-
-<img alt="npm" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/npm2.PNG" />
-
-<img alt="npm" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/npm3.PNG" />
+<img alt="npm" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/npm4.PNG" />
 
 Once you have a task runner installed, you need to configure which tasks it should run and when. For example, in the following gulpfile.js there is a copy task configured which will copy the needed JS libraries from bower_components and place them under a lib folder in your wwwroot. There is also a clean task which will delete the files under lib. 
 
