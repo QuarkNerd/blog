@@ -50,9 +50,7 @@ The first thing you will notice when you create your first project in VS 2015, i
 
 The root of the website is now wwwroot and not the root of the project. This is where all the static assets such as images should go to as well as downloaded JavaScript libraries, CSS etc. Adding a file from the file explorer will immediately add it to your solution, there is no need to include it in your project manually. The .csproj file has been replaced with a much simpler .xproj file and the project.json file. All the references to the files included in the project that used to be in the .csproj file have been completely removed.
 
-<img alt="Solution Explorer" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/solution1.PNG" />
-
-<img alt="File Explorer" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/solution2.PNG" />
+<img alt="Solution Explorer" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/solution.PNG" />
 
 ### Project.json
 Most of the application configuration now lives in this file. Within it you can add all your NuGet **dependencies**, the **frameworks** that you want to support, any **commands** that you wish to run using dnx as well as more advanced things such as compilation settings, excluded files and folders, scripts you wish to execute during different stages (prebuild, postbuild, prepack, postpack etc) and [many more](https://github.com/aspnet/Home/wiki/Project.json-file). Let's have a closer look at the dependencies, frameworks and commands sections.
@@ -134,6 +132,9 @@ All this happens in the Startup.cs file which has replaced the Global.asax file.
 <img alt="Startup" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/startup.PNG" />
 
 For example, to add support for MVC, we first need to add the dependency to Microsoft.AspNet.Mvc in our project.json file. Then, in the ConfigureServices() method, we need to add Mvc to the services collection passed into the method. This is simply done with the statement services.AddMvc(). Note that if you haven't added the NuGet package, AddMvc() will not be available. Finally, in the Configure() method, you need to use Mvc in your app. Extra configuration settings such as setting up routing can also be done here as demonstrated.
+
+## Open Source
+
 
 ## Summary
 In this post, all the major changes and new concepts introduced in ASP.NET 5 were discussed as well as layout changes to the project structure. The following videos and posts are good starting points:
