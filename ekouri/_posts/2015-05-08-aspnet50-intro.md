@@ -117,7 +117,7 @@ To run those tasks, there is a new window called Task Runner Explorer. You will 
 In previous ASP.NET releases, Web Pages, Web API and MVC were implemented separately but because they offered a lot of common functionality, there was some duplication and inconsistencies. They are now all unified under the umbrella of MVC 6. There no longer is a separate ApiController for your services or the need to write slightly different code or reference different libraries to achieve similar results between the three programming models. 
 
 ## Integrated Dependency Injection
-ASP.NET 5 comes with built-in support for dependency injection. In fact, creating an empty Web Application will not even provide support for MVC. This 'service' needs to be added to the dependency injection (DI) container. You can still explicitly instantiate specific services when needed but Microsoft really want to push this style of coding, because - let's face it - it's better!
+ASP.NET 5 comes with built-in support for dependency injection. In fact, creating an empty Web Application will not even provide support for MVC. This 'service' needs to be added to the dependency injection (DI) container. You can still explicitly instantiate specific services when needed but Microsoft seem to really want to push this style of coding.
 
 All this happens in the Startup.cs file which has replaced the Global.asax file. In the ConfigureServices(IServiceCollection services) method, you need to **add** (and obviously configure) the services you will need to **use** and in Configure(IApplicationBuilder app), where the application configuration happens, you need to use those services.
 
@@ -126,7 +126,10 @@ All this happens in the Startup.cs file which has replaced the Global.asax file.
 For example, to add support for MVC, we first need to add the dependency to Microsoft.AspNet.Mvc in our project.json file. Then, in the ConfigureServices() method, we need to add Mvc to the services collection passed into the method. This is simply done with the statement services.AddMvc(). Note that if you haven't added the NuGet package, AddMvc() will not be available. Finally, in the Configure() method, you need to use Mvc in your app. Extra configuration settings such as setting up routing can also be done here as demonstrated.
 
 ## Open Source
+The Core CLR, the C# compiler Roslyn, ASP.NET, Entity Framework and most of the source code under the .NET foundation has been made open source and is [available on GitHub](https://github.com/dotnet). Microsoft seem to have taken this very seriously and even have issues that are [Up for Grabs](http://up-for-grabs.net/#/) for anyone that would like to contribute.
 
+## Conclusion
+A lot of big changes were introduced in this release with many ideas coming from the open source development platforms such as nodeJS. It's a no brainer that refactoring the web stack and going open source is a step towards the right direction. The new solution structure though and the tools that come with it are more open to different interpretation. This will probably be welcomed by developers who prefer to work outside Visual Studio. It remains to be seen though if it will be appreciated by the existing .NET developers who admittedly have been spoiled for many years by the tooling that just works out of the box. It certainly is a very exciting time to be a developer!
 
 ## Summary
 In this post, all the major changes and new concepts introduced in ASP.NET 5 were discussed as well as layout changes to the project structure. The following videos and posts are good starting points:
