@@ -33,7 +33,7 @@ You will notice that the message printed after `dnvm use` says that the selected
 <img alt="DNVM use" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/dnvmuse.PNG" />
 
 ### DNX
-Another command that also gets installed is the dnx command. This is used to execute your application. You can see the options just by typing dnx but typically it would have the format *dnx <path to your project> <command>*. We will see in action further down.
+Another command that also gets installed is the dnx command. This is used to execute your application. You can see the options just by typing dnx but typically it would have the format _dnx <path to your project> <command>_. We will see in action further down.
 
 <img alt="DNX" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/dnx.PNG" />
 
