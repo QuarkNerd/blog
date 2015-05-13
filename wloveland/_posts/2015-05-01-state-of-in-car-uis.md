@@ -11,7 +11,7 @@ tags:
   - featured
 ---
 
-It goes without saying that the automotive industry is highly competitive. Manufacturers are constantly innovating, promising to to deliver the ‘latest’ technology. Yet throughout out all of their advancements there is one fundamental component which so far no one has managed to nail down, the in-car user interface. The technology available within contemporary cars is constantly evolving, from complex sound systems to zoned climate controls, connected smartphones to car performance settings.
+It goes without saying that the automotive industry is highly competitive. Manufacturers are constantly innovating, promising to deliver the ‘latest’ technology. Yet throughout all of their advancements there is one fundamental component which so far no one has managed to nail down, the in-car user interface. The technology available within contemporary cars is constantly evolving, from complex sound systems to zoned climate controls, connected smartphones to car performance settings.
 
 So whats the problem?
 
