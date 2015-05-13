@@ -21,10 +21,9 @@ As a result of having everything that your application needs bundled and contain
 ### DNVM
 When you install Visual Studio 2015, [DNVM](https://github.com/aspnet/home) also gets installed and added to your PATH. DNVM is the dotnet version manager and will manage the different runtimes for you.
 
-
 <img alt="DNVM list" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/dnvmlist.PNG" />
 
-`Dnvm list` shows you all the installed runtimes. The active one is denoted with a \* in the first column. You can change which is the active one by running: *dnvm use <version number> -r <runtime> -arch <architecture>* as you can see in the following image.
+`Dnvm list` shows you all the installed runtimes. The active one is denoted with a \* in the first column. You can change which is the active one by running: **dnvm use <version number> -r <runtime> -arch <architecture>** as you can see in the following image.
 
 <img alt="DNVM list" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/dnvmlist1.PNG" />
 
@@ -56,14 +55,14 @@ The root of the website is now wwwroot and not the root of the project. This is 
 <img alt="File Explorer" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/solution2.PNG" />
 
 ### Project.json
-Most of the application configuration now lives in this file. Within it you can add all your NuGet *dependencies*, the *frameworks* that you want to support, any *commands* that you wish to run using dnx as well as more advanced things such as compilation settings, excluded files and folders, scripts you wish to execute during different stages (prebuild, postbuild, prepack, postpack etc) and [many more](https://github.com/aspnet/Home/wiki/Project.json-file). Let's have a closer look at the dependencies, frameworks and commands sections.
+Most of the application configuration now lives in this file. Within it you can add all your NuGet **dependencies**, the **frameworks** that you want to support, any **commands** that you wish to run using dnx as well as more advanced things such as compilation settings, excluded files and folders, scripts you wish to execute during different stages (prebuild, postbuild, prepack, postpack etc) and [many more](https://github.com/aspnet/Home/wiki/Project.json-file). Let's have a closer look at the dependencies, frameworks and commands sections.
 
 #### Dependencies
 This is the place to include any references to ASP.NET NuGet packages as well as project references (for example Class libraries in the same solution). Once you start typing a dependency, IntelliSense is provided to assist you and once you pick the package you want, it will indicate which the latest version available (although it is possible to specify a different version or just use empty quotes ("") to always reference the latest). 
 
 <img alt="Dependencies" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/dependencies.PNG" />
 
-You can still access the NuGet package manager window and install dependencies using the GUI. Once you have saved the project.json file, you will notice that the *References* node in your solution explorer is restoring the appropriate packages. Only the primary dependencies need to be added in the project.json and are also listed under the *References* node but you can click on the arrows on the left to drill deeper.
+You can still access the NuGet package manager window and install dependencies using the GUI. Once you have saved the project.json file, you will notice that the **References** node in your solution explorer is restoring the appropriate packages. Only the primary dependencies need to be added in the project.json and are also listed under the **References** node but you can click on the arrows on the left to drill deeper.
 
 <img alt="References" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/references.PNG" />
 
@@ -89,7 +88,7 @@ You can setup various commands in the project.json file under the "commands" sec
 
 <img alt="Commands" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/command.PNG" />
 
-We can run the web command from a cmd using dnx: *dnx <path to where the project.json lives> web*. If we then open our browser and navigate to [http://localhost:5000](http://localhost:5000) (or the url specified in the web command), we should see our application running. The ef command has further options but the help will be displayed if more commands need to be provided.
+We can run the web command from a cmd using dnx: **dnx <path to where the project.json lives> web**. If we then open our browser and navigate to [http://localhost:5000](http://localhost:5000) (or the url specified in the web command), we should see our application running. The ef command has further options but the help will be displayed if more commands need to be provided.
 
 <img alt="EF" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/ef.PNG" />
 
@@ -130,7 +129,7 @@ In previous ASP.NET releases, Web Pages, Web API and MVC were implemented separa
 ## Integrated Dependency Injection
 ASP.NET 5 comes with built-in support for dependency injection. In fact, creating an empty Web Application will not even provide support for MVC. This 'service' needs to be added to the dependency injection (DI) container. You can still explicitly instantiate specific services when needed but Microsoft really want to push this style of coding, because - let's face it - it's better!
 
-All this happens in the Startup.cs file which has replaced the Global.asax file. In the ConfigureServices(IServiceCollection services) method, you need to *add* (and obviously configure) the services you will need to *use* and in Configure(IApplicationBuilder app), where the application configuration happens, you need to use those services.
+All this happens in the Startup.cs file which has replaced the Global.asax file. In the ConfigureServices(IServiceCollection services) method, you need to **add** (and obviously configure) the services you will need to **use** and in Configure(IApplicationBuilder app), where the application configuration happens, you need to use those services.
 
 <img alt="Startup" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/startup.PNG" />
 
