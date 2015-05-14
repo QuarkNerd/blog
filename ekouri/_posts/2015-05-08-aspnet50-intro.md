@@ -2,11 +2,11 @@
 author: ekouri
 title: "Introduction to ASP.NET 5"
 layout: default_post
-summary: "This blog post will discuss the changes to the .NET framework, the solution layout / configuration and will serve as an introduction to the recommended programming style encouraged by Microsoft going forwards."
+summary: "This blog post discusses the changes to the .NET framework, the solution layout / configuration and serves as an introduction to the recommended programming style encouraged by Microsoft going forwards."
 ---
-The [Build Conference](https://www.build15.com/) is now behind us where lots of exciting things were announced, among them the release of Visual Studio 2015 RC1. This blog post will discuss the changes to the .NET framework, the solution layout / configuration and will serve as an introduction to the recommended programming style encouraged by Microsoft going forwards. If you haven't downloaded Visual Studio 2015, [grab it now](https://www.visualstudio.com/en-us/downloads/visual-studio-2015-downloads-vs.aspx)!
+The [Build Conference](https://www.build15.com/) is now behind us where lots of exciting things were announced, among them the release of Visual Studio 2015 RC1. This blog post discusses the changes to the .NET framework, the solution layout / configuration and serves as an introduction to the recommended programming style encouraged by Microsoft going forwards. If you haven't downloaded Visual Studio 2015, [grab it now](https://www.visualstudio.com/en-us/downloads/visual-studio-2015-downloads-vs.aspx)!
 
-# Framework changes
+## Framework changes
 Due to the rise of cloud hosting and the demand to host in any platform, not just Windows servers where you need to install the framework in order for your applications to work, ASP.NET 5 now supports two runtimes: 
 * Full .NET: This is what was being shipped until now. It's the version that gets installed on your machine. 
 * CoreCLR: It's the shiny new, cloud-optimized runtime that can run on any machine (Windows, Mac, Linux). To achieve this, the framework has been broken down into NuGet packages and applications only need to reference those packages that are needed. In fact only the primary dependencies, any inner dependencies are downloaded automatically. When you deploy your application to the host, it's bundled up into a NuGet package itself including all the dependencies. This results in the bundle being larger than previously where only the files belonging to your application were included, but it means that the server doesn't need to have the .NET framework installed. 
@@ -52,10 +52,10 @@ The root of the website is now wwwroot and not the root of the project. This is 
 
 <img alt="Solution Explorer" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/solution.PNG" />
 
-### Project.json
+## Project.json
 Most of the application configuration now lives in this file. Within it you can add all your NuGet **dependencies**, the **frameworks** that you want to support, any **commands** that you wish to run using dnx as well as more advanced things such as compilation settings, excluded files and folders, scripts you wish to execute during different stages (prebuild, postbuild, prepack, postpack etc) and [many more](https://github.com/aspnet/Home/wiki/Project.json-file). Let's have a closer look at the dependencies, frameworks and commands sections.
 
-#### Dependencies
+### Dependencies
 This is the place to include any references to ASP.NET NuGet packages as well as project references (for example Class libraries in the same solution). Once you start typing a dependency, IntelliSense is provided to assist you and once you pick the package you want, it will indicate which the latest version available (although it is possible to specify a different version or just use empty quotes ("") to always reference the latest). 
 
 <img alt="Dependencies" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/dependencies.png" />
@@ -64,7 +64,7 @@ You can still access the NuGet package manager window and install dependencies u
 
 <img alt="References" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/references.PNG" />
 
-#### Frameworks
+### Frameworks
 In the References image above, you will notice that the top-level nodes are named DNX 4.5.1 and DNX Core 5.0. These are the two frameworks targeted in my project.json file. It is also possible to have different dependencies for each framework - in fact, for the CoreCLR, you will need to add any packages that make up the Base Class Library (BCL) as they need to be referenced.
 
 <img alt="Frameworks" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/frameworks1.PNG" />
@@ -79,7 +79,7 @@ As before, you can add framework specific code if you wrap it in #if #endif as s
 
 You can also change the targeted framework when you edit a file from the dropdown list at the top. This will gray out any code that will not run with the selected framework which makes it easier to read.
 
-#### Commands
+### Commands
 You can setup various commands in the project.json file under the "commands" section. Common examples are the `web` command which will self-host your application as well as the `ef` command which enables the use of entity framework commands such as migrations. Any NuGet package can include commands and you can also create your own. The command names could be anything, they don't have to be web and ef but that's how these two are typically named.
 
 <img alt="Commands" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/command.PNG" />
