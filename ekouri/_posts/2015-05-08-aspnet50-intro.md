@@ -46,7 +46,7 @@ Just to clarify, you don't have to use these commands to do things with your app
 
 **Note**: In the beta and CTP versions of Visual Studio 2015, these commands were kvm, k and kpm respectively so you might see these used in older posts. These were renamed in the RC1 release.
 
-## Solution layout changes
+## Solution layout
 The first thing you will notice when you create your first project in VS 2015, is that the solution structure has changed and matches (almost) exactly what you see if you open the file explorer to your application's source code. At the top level, there is the solution file (.sln) and a global.json file, then under the src folder there is a separate folder for each project and within each are the files and folders of your application. 
 
 The root of the website is now wwwroot and not the root of the project. This is where all the static assets such as images should go to as well as downloaded JavaScript libraries, CSS etc. Adding a file from the file explorer will immediately add it to your solution, there is no need to include it in your project manually. The .csproj file has been replaced with a much simpler .xproj file and the project.json file. All the references to the files included in the project that used to be in the .csproj file have been completely removed.
@@ -117,7 +117,7 @@ To run those tasks, there is a new window called Task Runner Explorer. You will 
 ## Unified MVC 6
 In previous ASP.NET releases, Web Pages, Web API and MVC were implemented separately but because they offered a lot of common functionality, there was some duplication and inconsistencies. They are now all unified under the umbrella of MVC 6. There no longer is a separate ApiController for your services or the need to write slightly different code or reference different libraries to achieve similar results between the three programming models. 
 
-## Integrated Dependency Injection
+## Dependency Injection
 ASP.NET 5 comes with built-in support for dependency injection. In fact, creating an empty Web Application will not even provide support for MVC. This 'service' needs to be added to the dependency injection (DI) container. You can still explicitly instantiate specific services when needed but Microsoft seem to really want to push this style of coding.
 
 All this happens in the Startup.cs file which has replaced the Global.asax file. In the ConfigureServices(IServiceCollection services) method, you need to **add** (and obviously configure) the services you will need to **use** and in Configure(IApplicationBuilder app), where the application configuration happens, you need to use those services.
