@@ -8,6 +8,7 @@ The [Build Conference](https://www.build15.com/) is now behind us where lots of 
 
 ## Framework changes
 Due to the rise of cloud hosting and the demand to host in any platform, not just Windows servers where you need to install the framework in order for your applications to work, ASP.NET 5 now supports two runtimes: 
+
 * Full .NET: This is what was being shipped until now. It's the version that gets installed on your machine. 
 * CoreCLR: It's the shiny new, cloud-optimized runtime that can run on any machine (Windows, Mac, Linux). To achieve this, the framework has been broken down into NuGet packages and applications only need to reference those packages that are needed. In fact only the primary dependencies, any inner dependencies are downloaded automatically. When you deploy your application to the host, it's bundled up into a NuGet package itself including all the dependencies. This results in the bundle being larger than previously where only the files belonging to your application were included, but it means that the server doesn't need to have the .NET framework installed. 
 
@@ -23,7 +24,7 @@ When you install Visual Studio 2015, [DNVM](https://github.com/aspnet/home) also
 
 <img alt="DNVM list" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/dnvmlist.PNG" />
 
-`Dnvm list` shows you all the installed runtimes. The active one is denoted with a \* in the first column. You can change which is the active one by running: **dnvm use <version number> -r <runtime> -arch <architecture>** as you can see in the following image.
+`Dnvm list` shows you all the installed runtimes. The active one is denoted with a \* in the first column. You can change which is the active one by running: **dnvm use <version number\> -r <runtime\> -arch <architecture\>** as you can see in the following image.
 
 <img alt="DNVM list" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/dnvmlist1.PNG" />
 
@@ -32,7 +33,7 @@ You will notice that the message printed after `dnvm use` says that the selected
 <img alt="DNVM use" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/dnvmuse.PNG" />
 
 ### DNX
-Another command that also gets installed is the dnx command. This is used to execute your application. You can see the options just by typing dnx but typically it would have the format _dnx <path to your project> <command>_. We will see in action further down.
+Another command that also gets installed is the dnx command. This is used to execute your application. You can see the options just by typing dnx but typically it would have the format **dnx <path to your project\> <command\>**. We will see in action further down.
 
 <img alt="DNX" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/dnx.PNG" />
 
@@ -84,7 +85,7 @@ You can setup various commands in the project.json file under the "commands" sec
 
 <img alt="Commands" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/command.PNG" />
 
-We can run the web command from a cmd using dnx: **dnx <path to where the project.json lives> web**. If we then open our browser and navigate to [http://localhost:5000](http://localhost:5000) (or the url specified in the web command), we should see our application running. The ef command has further options but the help will be displayed if more commands need to be provided.
+We can run the web command from a cmd using dnx: **dnx <path to where the project.json lives\> web**. If we then open our browser and navigate to [http://localhost:5000](http://localhost:5000) (or the url specified in the web command), we should see our application running. The ef command has further options but the help will be displayed if more commands need to be provided.
 
 <img alt="EF" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/ef.PNG" />
 
