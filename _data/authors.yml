@@ -1,4 +1,4 @@
-active-authors:
+﻿active-authors:
   - aaiken
   - aaylett
   - alee
@@ -11,6 +11,7 @@ active-authors:
   - dmcnamee
   - dthomas
   - dkerr
+  - ekouri
   - godds
   - isullivan
   - jbandenburg
@@ -221,3 +222,7 @@ authors:
         name: Will Loveland
         email: wloveland@scottlogic.com
         gravatar: edd2ab1d485e1d3eb6626d6a3782590d
+    ekouri:
+        name: Effrosyni Kouri
+        email: ekouri@scottlogic.com
+        gravatar: 388f3dfcf0992c358f5dc149604ac14d
