@@ -79,7 +79,8 @@ RAC3 has a specific operator for this purpose:
 
 {% highlight swift %}
 executionTimeTextField.rac_text  <~ viewModel.queryExecutionTime
-    
+{% endhighlight %}
+
 The above code binds the `queryExecutionTime` view model property to the `rac_text` property on the text field.
 
 **NOTE:** Currently [RAC3 does not support two-way binding](https://github.com/ReactiveCocoa/ReactiveCocoa/issues/1986).
