@@ -7,7 +7,7 @@ summary: "This is my final article on ReactiveCocoa 3.0 (RAC3), where I demonstr
 
 This is my final article on ReactiveCocoa 3.0 (RAC3), where I demonstrate some more complex RAC3 usages within the context of an application built using the Model-View-ViewModel (MVVM) pattern.
 
-ReactiveCocoa 3.0 is currently in beta, having had [four beta releases](https://github.com/ReactiveCocoa/ReactiveCocoa/releases) in the past month. Version 3.0 brings a whole new Swift API alongside an updated Objective-C counterpart. While the core concepts of functional reactive programming remain the same, the Swift API is *very* different to the version that have come before it, using generics, custom operators and curried functions to good effect. In my previous articles I took a look at the [generic Signal class](http://blog.scottlogic.com/2015/04/24/first-look-reactive-cocoa-3.html), which allows for 'strongly typed' reactive pipelines, and the [SignalProducer interface](http://blog.scottlogic.com/2015/04/28/reactive-cocoa-3-continued.html), that gives a cleaner representation of signals that have side-effects.
+ReactiveCocoa 3.0 is currently in beta, having had [four beta releases](https://github.com/ReactiveCocoa/ReactiveCocoa/releases) in the past month. Version 3.0 brings a whole new Swift API alongside an updated Objective-C counterpart. While the core concepts of functional reactive programming remain the same, the Swift API is *very* different to the versions that have come before it, using generics, custom operators and curried functions to good effect. In my previous articles I took a look at the [generic Signal class](http://blog.scottlogic.com/2015/04/24/first-look-reactive-cocoa-3.html), which allows for 'strongly typed' reactive pipelines, and the [SignalProducer interface](http://blog.scottlogic.com/2015/04/28/reactive-cocoa-3-continued.html), that gives a cleaner representation of signals that have side-effects.
 
 Since publishing those articles I've had quite a few people ask me to demonstrate some more complex RAC3 code, hence this article!
 
@@ -41,13 +41,13 @@ The above code binds the `hidden` property of a loading indicator to the `execut
 
 Unfortunately these RAC2 macros are pretty clumsy and cumbersome to use. This is true of all macro-based APIs, not an issue with RAC specifically.
 
-RAC3 does away with macro, and KVO, replacing them both with a pure Swift implementation.
+RAC3 does away with macros, and KVO, replacing them both with a pure Swift implementation.
 
 ## RAC3 Properties
 
 I wrote a blog post a few months back which looked at [KVO and a few KVO-alternatives with Swift](http://blog.scottlogic.com/2015/02/11/swift-kvo-alternatives.html), the lack of strong-typing, dependence on NSObject and a rather clumsy syntax mean that KVO feels quite uncomfortable within the swift world. 
 
-With RAC3 properties (or at least properties which you wish to observe), are represented by the generic `MutableProperty` type:
+With RAC3, properties (or at least properties which you wish to observe),are represented by the generic `MutableProperty` type:
 
 {% highlight swift %}
 let name = MutableProperty<String>("")
@@ -55,7 +55,7 @@ let name = MutableProperty<String>("")
 
 This creates a `name` property of type `String` and initialises it with an empty string. Notice that the name property above is a constant, despite the fact that it represents a mutable property!
 
-Mutable properties have a very simple API, they have a `value` property and `put` method, which allow you to get / set the current value:
+Mutable properties have a very simple API, with a `value` property and `put` method, allowing you to get / set the current value:
 
 {% highlight swift %}
 name.put("Frank")
@@ -89,9 +89,11 @@ The above code binds the `queryExecutionTime` view model property to the `rac_te
 
 As promised, this blog post includes a more in-depth RAC3 example. A twitter search example:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/rac3/MVVMReactiveCocoa.png" />
+<img src="{{ site.github.url }}/ceberhardt/assets/rac3/MVVMRAC3.png" />
 
-(Yes, all my example code seems to involve either Twitter or Flickr APIs!)
+(Yes, all my example code seems to involve either Twitter or Flickr APIs! - if you have some more creative ideas that you'd like to share, please do)
+
+The app searches for tweets containing the given text, automatically executing the search as the user types.
 
 The ViewModel that backs the application has the following properties:
 
@@ -108,6 +110,8 @@ class TwitterSearchViewModel {
   ...
 }
 {% endhighlight %}
+
+These represent everything the View needs to know about the current UI state, and allow it to be notified, via RAC3 bindings, of updates. The table view of tweets is 'backed' by the `tweets` mtable property which contains an array of ViewModel instances, each one backing an inidividual cell. 
 
 The `TwitterSearchService` class provides a RAC3 wrapper around the Twitter APIs, representing requests as signal producers.
 
@@ -140,7 +144,7 @@ searchService.requestAccessToTwitterSignal()
     })
 {% endhighlight %}
 
-This requests access to the user's twitter account, following this the pipeline passes control to the `searchText.producer`, i.e. it observes its own `searchText` property. You'll notice that the producer isn;t used directly, instead it is first mapped, `searchText.producer |> mapError`. This highlights a common issue with RAC3, because signals have an error type constraint, any operation that combines signals (or signal producers) requires that their error type matches. The use of `mapError` above transforms any error that `searchText.producer` might produce into an `NSError`.
+This requests access to the user's twitter account, following this the pipeline passes control to the `searchText.producer`, i.e. it observes its own `searchText` property. You'll notice that the producer isn';'t used directly, instead it is first mapped as follows: `searchText.producer |> mapError`. This highlights a common issue with RAC3, because signals have an error type constraint, any operation that combines signals (or signal producers) requires that their error types matches. The use of `mapError` above transforms any error that `searchText.producer` might produce into an `NSError`, which is compatible with the other signals being used in this pipeline.
 
 Following this, the signal is filtered and throttled. This reduces the frequency of the signal if the `searchText` property (which is bound to the UI), changes rapidly.
 
@@ -148,7 +152,7 @@ The signal is then flat-mapped to a signal that searches twitter based on the gi
 
 ## Adding Mutable Properties to UIKit
 
-Currently RAC3 lacks any UIKit integration, my guess is that this will come later in the beta process. For now, in order to bind a ViewModel to a UIKit View, you have to add the required extensions yourself. Fortunately this is quite easy!
+Currently RAC3 lacks any UIKit integration, my guess is that this will come later in the beta process. For now, in order to bind a ViewModel to a UIKit View, you have to add the required extensions yourself. Fortunately this is quite simple!
 
 In another side project I have been messing about with I created a utility function for creating lazily-constructed associated properties:
 
@@ -165,6 +169,8 @@ func lazyAssociatedProperty<T: AnyObject>(host: AnyObject,
   return associatedProperty!
 }
 {% endhighlight %}
+
+This creates a property of type `T`, where the given factory function is used to create the properties initial value on first access.
 
 This can be used to create a lazily-constructed mutable property:
 
@@ -201,6 +207,33 @@ extension UIView {
 
 Note that these properties only have getters, you set them via the `put` method on the property itself.
 
+Within this project I have only added the properties I need for this example code.
+
+It is of course a little more complicated for controls where they also mutate the same properties. With a text field you also have to subscribe to changes as a result of user input:
+
+{% highlight swift %}
+extension UITextField {
+  public var rac_text: MutableProperty<String> {
+    return lazyAssociatedProperty(self, &AssociationKey.text) {
+      
+      self.addTarget(self, action: "changed", forControlEvents: UIControlEvents.EditingChanged)
+      
+      var property = MutableProperty<String>(self.text ?? "")
+      property.producer
+        .start(next: {
+          newValue in
+          self.text = newValue
+        })
+      return property
+    }
+  }
+  
+  func changed() {
+    rac_text.value = self.text
+  }
+}
+{% endhighlight %}
+
 With this in place, the ViewModel can be bound as follows:
 
 {% highlight swift %}
@@ -232,7 +265,7 @@ class TweetViewModel: NSObject {
 }
 {% endhighlight %}
 
-The value of this `ConstantProperty` is that you can still use the `<~` binding operator.
+The value of this `ConstantProperty` is that you can still use the `<~` binding operator, and in future if you do decide to make it mutable you do not have to change your binding code.
 
 ## Conclusions
 
