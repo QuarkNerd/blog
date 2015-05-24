@@ -4,6 +4,16 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
 
+    copy: {
+      main: {
+        files: [
+          {expand: true, cwd: 'shared-assets', src: ['less/*.less'], dest: '../less'},
+          {expand: true, cwd: 'shared-assets', src: ['_includes/*'], dest: '../_includes'},
+          {expand: true, cwd: 'shared-assets', src: ['assets/*'], dest: '../assets'}
+        ]
+      }
+    },
+
     paths: {
       lessSrc : 'less/main.less',
       lessDest: 'style.css',
@@ -78,8 +88,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('build', ['styles', 'scripts']);
+  grunt.registerTask('build', ['copy', 'styles', 'scripts']);
   grunt.registerTask('styles', ['clean:styleMap', 'less:production']);
   grunt.registerTask('scripts', ['clean:scriptMap', 'uglify:production']);
 
