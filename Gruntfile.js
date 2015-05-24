@@ -4,19 +4,10 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
 
-    copy: {
-      main: {
-        files: [
-          {expand: true, cwd: 'shared-assets', src: ['less/*.less'], dest: '../less'},
-          {expand: true, cwd: 'shared-assets', src: ['_includes/*'], dest: '../_includes'},
-          {expand: true, cwd: 'shared-assets', src: ['assets/*'], dest: '../assets'}
-        ]
-      }
-    },
-
     paths: {
       lessSrc : 'less/main.less',
       lessDest: 'style.css',
+      sharedAssets: 'node_modules/knowledge-unleashed-assets',
       jsSrc: [
         'scripts/jquery-1.9.1.js',
         'scripts/jquery.jscroll-2.2.4.js',
@@ -28,6 +19,16 @@ module.exports = function(grunt) {
         'less/twitter-bootstrap/js/bootstrap-carousel.js'
       ],
       jsDest: 'script.js',
+    },
+
+    copy: {
+      main: {
+        files: [
+          {expand: true, cwd: '<%= paths.sharedAssets %>', src: ['less/*.less'], dest: '../less'},
+          {expand: true, cwd: '<%= paths.sharedAssets %>', src: ['_includes/*'], dest: '../_includes'},
+          {expand: true, cwd: '<%= paths.sharedAssets %>', src: ['assets/*'], dest: '../assets'}
+        ]
+      }
     },
 
     clean: {
