@@ -7,6 +7,7 @@ module.exports = function(grunt) {
     paths: {
       lessSrc : 'less/main.less',
       lessDest: 'style.css',
+      sharedAssets: 'node_modules/knowledge-unleashed-assets',
       jsSrc: [
         'scripts/jquery-1.9.1.js',
         'scripts/jquery.jscroll-2.2.4.js',
@@ -18,6 +19,16 @@ module.exports = function(grunt) {
         'less/twitter-bootstrap/js/bootstrap-carousel.js'
       ],
       jsDest: 'script.js',
+    },
+
+    copy: {
+      main: {
+        files: [
+          {expand: true, cwd: '<%= paths.sharedAssets %>', src: ['less/*.less'], dest: '../less'},
+          {expand: true, cwd: '<%= paths.sharedAssets %>', src: ['_includes/*'], dest: '../_includes'},
+          {expand: true, cwd: '<%= paths.sharedAssets %>', src: ['assets/*'], dest: '../assets'}
+        ]
+      }
     },
 
     clean: {
@@ -78,8 +89,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('build', ['styles', 'scripts']);
+  grunt.registerTask('build', ['copy', 'styles', 'scripts']);
   grunt.registerTask('styles', ['clean:styleMap', 'less:production']);
   grunt.registerTask('scripts', ['clean:scriptMap', 'uglify:production']);
 
