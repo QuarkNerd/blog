@@ -1,6 +1,6 @@
 ---
 author: ceberhardt
-title: "MVVM With ReactiveCocoa 3.0"
+title: "MVVM test With ReactiveCocoa 3.0"
 layout: default_post
 summary: "This is my final article on ReactiveCocoa 3.0 (RAC3), where I demonstrate some more complex RAC3 usages within the context of an application built using the Model-View-ViewModel (MVVM) pattern."
 ---
