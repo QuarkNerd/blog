@@ -24,9 +24,9 @@ module.exports = function(grunt) {
     copy: {
       main: {
         files: [
-          {expand: true, cwd: '<%= paths.sharedAssets %>', src: ['less/*.less'], dest: '../less'},
-          {expand: true, cwd: '<%= paths.sharedAssets %>', src: ['_includes/*'], dest: '../_includes'},
-          {expand: true, cwd: '<%= paths.sharedAssets %>', src: ['assets/*'], dest: '../assets'}
+          {expand: true, cwd: '<%= paths.sharedAssets %>/less', src: ['*.less'], dest: 'less'},
+          {expand: true, cwd: '<%= paths.sharedAssets %>/_includes', src: ['*'], dest: '_includes'},
+          {expand: true, cwd: '<%= paths.sharedAssets %>/assets', src: ['*'], dest: 'assets'}
         ]
       }
     },
