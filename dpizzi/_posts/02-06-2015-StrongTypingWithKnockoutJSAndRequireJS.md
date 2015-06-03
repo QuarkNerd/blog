@@ -11,11 +11,11 @@ disqus-id: /2015/06/02/StrongTypingWithKnockoutJSAndRequireJS.html
 
 Following my previous post on [Strong Typing With AngularJS]({{ site.github.url }}/2014/08/26/StrongTypingWithAngularJS.html), this article presents the integration of TypeScript with an other client MVC framework: _KnockoutJS_. We will also integrate RequireJS that allows the use of the [Asynchronous Module Definition](https://github.com/amdjs/amdjs-api/wiki/AMD) (AMD) API.  
 
-[KnockoutJS](http://knockoutjs.com/) is a JavaScript front-end library based on the Model-View-ViewModel ([MVVM](http://addyosmani.com/blog/understanding-mvvm-a-guide-for-javascript-developers/)) framework that helps in the creation of rich and dynamic User Interface (UI).
+[KnockoutJS](http://knockoutjs.com/) is a JavaScript front-end library based on the Model-View-ViewModel ([MVVM](http://addyosmani.com/blog/understanding-mvvm-a-guide-for-javascript-developers/)) pattern that helps in the creation of rich and dynamic User Interface (UI).
 
 [Typescript](http://www.typescriptlang.org/), on the other hand, is a typed superset of the JavaScript language that is compiled to produce clean, simple, cross-browser compatible JavaScript code, which can help when building and maintaining large-scale applications.
 
-[RequireJS](http://requirejs.org/) is a JavaScript file and module loader, which improves the speed and quality of your code. It is optimized for in-browser use, but it can be used in other JavaScript environments, like Rhino and Node.
+[RequireJS](http://requirejs.org/) is a JavaScript file and module loader, which makes easier managing code structure. It is optimized for in-browser use, but it can be used in other JavaScript environments, like Rhino and Node.
 
 The Visual Studio 2013 (VS) solution containing the code for this article is available on [GitHub](https://github.com/dpizzi-scottlogic/StrongTypingWithKnockOutJS).
 
@@ -27,12 +27,12 @@ For this tutorial, we use a Visual Studio (VS) template project of type _HTML Ap
 
 <img src="{{ site.github.url }}/dpizzi/assets/StrongTypingWithKnockoutJS/AddNewProject.jpg"/>
 
-_NOTE: The [version 1.4 of TypeScript](https://visualstudiogallery.msdn.microsoft.com/2d42d8dc-e085-45eb-a30b-3f7d50d55304) is also needed for the last KnockoutJS TypeScript declaration file._ 
+_NOTE: The [version 1.4 of TypeScript](https://visualstudiogallery.msdn.microsoft.com/2d42d8dc-e085-45eb-a30b-3f7d50d55304) is also needed for the latest KnockoutJS TypeScript declaration file._ 
 
 Once created, simply remove the files _app.css_ and _app.ts_ from the project as they won't be needed anymore. 
 
-This tutorial makes use of AMD modules (e.g. we will use _export_ and _import_ keywords) that we will be loaded asynchronously when needed at runtime. 
-In order to support this, TypeScript requires the _--module_ flag on compilation which you can specify on the _TypeScript Build_ settings on the project properties by choosing _AMD_ in _Module system_.
+This tutorial makes use of AMD modules (e.g. we will use `export` and `import` keywords) that we will be loaded asynchronously when needed at runtime. 
+In order to support this, TypeScript requires the `--module` flag on compilation which you can specify on the _TypeScript Build_ settings on the project properties by choosing _AMD_ in _Module system_.
 
 <img src="{{ site.github.url }}/dpizzi/assets/StrongTypingWithKnockoutJS/TypeScriptBuild.jpg"/>
 
@@ -48,7 +48,7 @@ We will [install them via NuGet](https://docs.nuget.org/consume/installing-nuget
  * __knockout.TypeScript.DefinitelyTyped__ (Current version 0.8.2 by Jason Jarrett)
  * __jQuery__ (Current version 2.1.4)
  
-The corresponding files will be added into the _/Scripts/_ folder with the exception of the DefnitielyTyped packages that are added to the folder _/Scripts/Typing/_.
+The corresponding files will be added into the `/Scripts/` folder with the exception of the DefnitielyTyped packages that are added to the folder `/Scripts/Typing/`.
 
 ### RequireJS Configuration
 
@@ -61,7 +61,7 @@ _index.html_
 </head>
 {% endhighlight %}
 
-The configuration in _requireConfig.ts_ is needed to hold the list of dependencies that are wired up but is also used to load the first application module which acts as the main entry point. 
+The configuration in `requireConfig.ts` is needed to hold the list of dependencies that are wired up but is also used to load the first application module which acts as the main entry point. 
 
 _/Scripts/requireConfig.ts_ 
 {% highlight javascript %}
@@ -81,11 +81,11 @@ require.config({
 require(["Scripts/App/main"]);
 {% endhighlight %}
 
-The first application module (_Scripts/App/main.ts_) is in charge of initialising the viewmodel binding.
+The first application module (`Scripts/App/main.ts`) is in charge of initialising the viewmodel binding.
 
 ### KnockoutJS Activation
 
-The [activation process](http://knockoutjs.com/documentation/observables.html#activating-knockout) is needed in order to make use of KnockOutJS functionalities.
+The [activation process](http://knockoutjs.com/documentation/observables.html#activating-knockout) is needed in order to make use of KnockoutJS functionalities.
 After creating an instance of the page viewmodel we simply pass its reference to the method __ko.applyBindings()__. 
 
 _/Scripts/App/main.ts_ 
@@ -114,9 +114,9 @@ The full name field is computed from the first and last names but is also editab
 ### Models
 
 This data represents objects and operations in your business domain (e.g., bank accounts that can perform money transfers, etc.) and is independent of any UI. 
-In our case, this will represent the person object that is composed of the _firstName_, the _lastName_ and the _age_ fields.
+In our case, this will represent the person object that is composed of the `firstName`, the `lastName` and the `age` fields.
 
-We define the _IPerson_ interface to prototype our objects.
+We define the `IPerson` interface to prototype our objects.
 
 _/Scripts/App/Components/PersonTable/Models/IPerson.ts_
 {% highlight javascript %}
@@ -129,7 +129,7 @@ module PersonTable {
 }
 {% endhighlight %}
 
-Now we just need to define the _Person_ class to implement this interface.
+Now we just need to define the `Person` class to implement this interface.
 
 _/Scripts/App/Components/PersonTable/Models/Person.ts_
 {% highlight javascript %}
@@ -143,11 +143,11 @@ export = Person;
 ### View Models
 
 When using KnockoutJS, your view models are pure JavaScript objects that are a pure-code representation of the data and operations on a UI.
-Therefore, the _Person_ class also needs its equivalent in the viewmodel world to manage sophisticated behaviours such as the calculation of the full name or editing.
+Therefore, the `Person` class also needs its equivalent in the viewmodel world to manage sophisticated behaviours such as the calculation of the full name or editing.
 
-The functionalities of the _PersonViewModel_ class have been inspired by examples provided in the KnockOutJs documentation: See [decomposing user input](http://knockoutjs.com/documentation/computed-writable.html#example-1-decomposing-user-input) and [Click-to-edit](http://knockoutjs.com/documentation/hasfocus-binding.html#example-2-click-to-edit) for implementation details.
+The functionalities of the `PersonViewModel` class have been inspired by examples provided in the KnockOutJs documentation: See [decomposing user input](http://knockoutjs.com/documentation/computed-writable.html#example-1-decomposing-user-input) and [Click-to-edit](http://knockoutjs.com/documentation/hasfocus-binding.html#example-2-click-to-edit) for implementation details.
 
-The class _PersonViewModel_ has its properties represented by [observables](http://knockoutjs.com/documentation/observables.html) - because these are special JavaScript objects that can notify subscribers about changes - which automatically detect dependencies.
+The class `PersonViewModel` has its properties represented by [observables](http://knockoutjs.com/documentation/observables.html) - because these are special JavaScript objects that can notify subscribers about changes - which automatically detect dependencies.
 
 _/Scripts/App/Components/PersonTable/ViewModels/PersonViewModel.ts_
 {% highlight javascript %}
@@ -187,14 +187,14 @@ export = PersonViewModel;
 _NOTE: In order to follow good practices (e.g. Interface-based programming), the class PersonViewModel should normally implement its own interface. 
 However we will omit this pattern in this tutorial for clarity reasons._
 
-_In JavaScript, 'this' is a variable that is set when a function is called rather than being part of any object by default. 
+_In JavaScript, `this` is a variable that is set when a function is called rather than being part of any object by default. 
 This can lead to [issues in KnockOutJs](http://knockoutjs.com/documentation/computedObservables.html#managing-this) which requires different solutions to be solved (e.g. use of the 'self' variable). 
 However, TypeScript allows the use of the [lambda functions](http://www.typescriptlang.org/Handbook#functions-lambdas-and-using-39this39) which are a more elegant solution._
 
-The value of the _fullName_ property is represented using a [writeable computed observable](http://knockoutjs.com/documentation/computed-writable.html) and can therefore be both read or written. 
+The value of the `fullName` property is represented using a [writeable computed observable](http://knockoutjs.com/documentation/computed-writable.html) and can therefore be both read or written. 
 
-We need now to define the viewmodel of our component, the _PersonTableViewModel_ class. It is in charge of creating and storing a list of _PersonViewModel_ objects from a list of _Person_ which will be provided during construction as a parameter.
-Its _persons_ field uses the _KnockoutObservableArray_ generic type to track which _PersonViewModel_ objects are in the [observable array](http://knockoutjs.com/documentation/observableArrays.html).
+We need now to define the viewmodel of our component, the `PersonTableViewModel` class. It is in charge of creating and storing a list of `PersonViewModel` objects from a list of `Person` which will be provided during construction as a parameter.
+Its `persons` field uses the `KnockoutObservableArray` generic type to track which `PersonViewModel` objects are in the [observable array](http://knockoutjs.com/documentation/observableArrays.html).
 
 _/Scripts/App/Components/PersonTable/ViewModels/PersonTableViewModel.ts_
 {% highlight javascript %}
@@ -262,7 +262,7 @@ require(["jQuery"], function ($) {
 });
 {% endhighlight %}
 
-We can now add the _person-table_ [custom element](http://knockoutjs.com/documentation/component-custom-elements.html) that injects the component template into the page.
+We can now add the `person-table` [custom element](http://knockoutjs.com/documentation/component-custom-elements.html) that injects the component template into the page.
 However, we need to also pass the list of person to display to its viewmodel. 
 We can fortunately do this using the [params attribute](http://knockoutjs.com/documentation/component-custom-elements.html#passing-parameters).
 
@@ -273,7 +273,7 @@ _index.html_
 </body>
 {% endhighlight %}
 
-The _PageViewModel_ is responsible for holding these data using its _persons_ property.
+The `PageViewModel` is responsible for holding these data using its `persons` property.
 
 _/Scripts/App//ViewModels/PageViewModel.ts_
 {% highlight javascript %}
@@ -288,7 +288,7 @@ class PageViewModel {
 export = PageViewModel;
 {% endhighlight %}
 
-For simplicity the data is created during initialisation and passed to the _PageViewModel_.
+For simplicity the data is created during initialisation and passed to the `PageViewModel`.
 
 _/Scripts/App/main.ts_ 
 {% highlight javascript %}
@@ -312,11 +312,11 @@ _NOTE: On a real scenario the data are more likely to come from the server using
 
 ## Conclusions
 
-In this article we have presented one practical solution of the integration of strong typing using the TypeScript framework with KnockOutJS and RequireJS. 
-Whilst the size of the project is not considerable, the integration of these technologies are not straightforward, essentially due to the lack of documentation available on Internet.
+In this article we have presented one practical solution of the integration of strong typing using the TypeScript framework with KnockoutJS and RequireJS. 
+Whilst the size of the project - which you can find on [GitHub](https://github.com/dpizzi-scottlogic/StrongTypingWithKnockOutJS) - is not considerable, the integration of these technologies are not straightforward, essentially due to the lack of documentation available on Internet.
 
 First, we detailed project creation, framework configuration and activation.
 Then, we implemented a component that allows re-usability and asynchronous loading which is essential in large scale project.
 Finally, we integrated everything together and explained how data can be passed between viewmodels.
 
-What to do from here? Well, the [DefinitelyTyped](http://definitelytyped.org/) type definitions from KnockOutJS and its [GitHub repository](https://github.com/borisyankov/DefinitelyTyped) presents further examples that might (definitely) be worth a read.
+What to do from here? Well, the [DefinitelyTyped](http://definitelytyped.org/) type definitions from KnockoutJS and its [GitHub repository](https://github.com/borisyankov/DefinitelyTyped) presents further examples that might (definitely) be worth a read.
