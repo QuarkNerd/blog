@@ -1,15 +1,15 @@
 ---
 author: lpage
-title: "Learn ES6 from airbnb's coding standards"
+title: "Learn ES6 from Airbnb's coding standards"
 featured-overlay-inverted: true
 categories:
  - lpage
 tags: 
 layout: default_post
-summary: airbnb's JavaScript coding standards are now based around ES6 and contain many guidelines to help you take advantage of its features. In this blog post I'll present some resources I created to help you learn ES6 through their guidelines.
+summary: Airbnb's JavaScript coding standards are now based around ES6 and contain many guidelines to help you take advantage of its features. In this blog post I'll present some resources I created to help you learn ES6 through their guidelines.
 ---
 
-I really like [airbnb's coding standards][the standards] and as I've been trying to master ES6 ([also named EcmaScript 2015][es2015]) I've found that they offer main helpful hints on how to use ES6 functionality. Further, its really useful when learning to play around with the syntax and see what the equivalent is in ES5, in order to see what is and is-not possible. One of the best ways of doing that is using [babel js' REPL environment][babel repl].
+I really like [Airbnb's coding standards][the standards] and as I've been trying to master ES6 ([also named EcmaScript 2015][es2015]) I've found that they offer many helpful hints on how to use ES6 functionality. Further, its really useful when learning to play around with the syntax and see what the equivalent is in ES5, in order to see what is and is-not possible. One of the best ways of doing that is using [babel js' REPL environment][babel repl].
 
 So, I've created a set of links which open examples from the coding standards in babel, so you can see what the examples compile to and try editing the examples to learn more. I've also included links against each section to the MDN or other documentation which explains what is happening in more depth.
 
