@@ -3,6 +3,7 @@
   - aaylett
   - alee
   - amorgan
+  - awallis
   - bmumford
   - ceberhardt
   - cgrant
@@ -226,3 +227,7 @@ authors:
         name: Effrosyni Kouri
         email: ekouri@scottlogic.com
         gravatar: 388f3dfcf0992c358f5dc149604ac14d
+    awallis:
+        name: Allen Wallis
+        gravatar: 040a59115aea9a572eace5e19f1e6253
+        email: awallis@scottlogic.com
