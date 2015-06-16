@@ -83,7 +83,7 @@ rather unwieldy however I have not found a better solution.
 ### Global Module
 
 Our module will consist of a single class named `com.scottlogic.ldapleakpreventer.LDAPLeakPreventer`. It looks like this:
-```
+{% highlight java %}
 public class LDAPLeakPreventer {
     static {
         loadLdapPoolManagerClass();
@@ -109,7 +109,7 @@ public class LDAPLeakPreventer {
         }
     }
 }
-```
+{% endhighlight %}
 It loads the LdapPoolManager class from a static block because I do not want the web-application to have a compile-time
 dependency on this class. We need to still be careful with the context loader even though the LdapPoolManager class is
 being loaded from within a module. The calling thread has our web-application classloader set as the context classloader
@@ -121,14 +121,14 @@ being leaked.
 
 To package this class as a JBoss module, the .class files are added to a jar file named `ldapleakpreventer.jar`. JBoss 
 modules are installed under `<JBOSS_HOME>/modules`, ours will have the following structure:
-```
+<code>
 modules 
   - com/scottlogic/ldapleakpreventer/main
     - ldapleakpreventer.jar
 	- module.xml
-```
+</code>
 The `module.xml` file contains the following:
-```
+{% highlight xml %}
 <?xml version="1.0" encoding="UTF-8"?>
 <module xmlns="urn:jboss:module:1.0" name="com.scottlogic.ldapleakpreventer">
     <resources>
@@ -138,7 +138,7 @@ The `module.xml` file contains the following:
         <module name="sun.jdk"/>
     </dependencies>
 </module>
-```
+{% endhighlight %}
 The resources element simply references the jars that should be included with the module. The dependencies element 
 lists the modules that this module depends on. The module name should correspond to a module definition already in the 
 JBoss modules folder. JBoss has modularised the com.sun.* classes making it necessary to explicitly specify this 
@@ -146,13 +146,13 @@ dependency otherwise our module will not be able to load the LdapPoolManager cla
 
 Lastly we need to register our module as a global module to make it available to web-applications. This is done by 
 editing the JBoss `standalone.xml` configuration file, and adding the following:
-```
+{% highlight xml %}
 <subsystem xmlns="urn:jboss:domain:ee:1.0" >            
   <global-modules>
     <module name="com.scottlogic.ldapleakpreventer" slot="main" />            
   </global-modules> 
 </subsystem>
-```
+{% endhighlight %}
 
 ### Web Application
 
@@ -162,7 +162,7 @@ The ldapleakpreventer module must be loaded explicitly from a web-application. T
 
 While there is no compile-time dependency between the web-application and the module, there is a runtime dependency. 
 This must be declared in the `WEB-INF/jboss-deployment-structure.xml` file which looks like this:
-```
+{% highlight xml %}
 <?xml version="1.0" encoding="UTF-8"?>  
 <jboss-deployment-structure>  
     <deployment>  
@@ -171,7 +171,7 @@ This must be declared in the `WEB-INF/jboss-deployment-structure.xml` file which
         </dependencies>  
     </deployment>
 </jboss-deployment-structure>
-```
+{% endhighlight %}
 
 ### Last Thoughts
 
