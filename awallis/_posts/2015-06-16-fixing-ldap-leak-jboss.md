@@ -121,12 +121,12 @@ being leaked.
 
 To package this class as a JBoss module, the .class files are added to a jar file named `ldapleakpreventer.jar`. JBoss 
 modules are installed under `<JBOSS_HOME>/modules`, ours will have the following structure:
-<code>
+<pre>
 modules 
   - com/scottlogic/ldapleakpreventer/main
     - ldapleakpreventer.jar
 	- module.xml
-</code>
+</pre>
 The `module.xml` file contains the following:
 {% highlight xml %}
 <?xml version="1.0" encoding="UTF-8"?>
