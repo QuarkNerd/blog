@@ -125,7 +125,7 @@ modules are installed under `<JBOSS_HOME>/modules`, ours will have the following
 modules 
   - com/scottlogic/ldapleakpreventer/main
     - ldapleakpreventer.jar
-	- module.xml
+    - module.xml
 </pre>
 The `module.xml` file contains the following:
 {% highlight xml %}
