@@ -148,9 +148,9 @@ Lastly we need to register our module as a global module to make it available to
 editing the JBoss `standalone.xml` configuration file, and adding the following:
 {% highlight xml %}
 <subsystem xmlns="urn:jboss:domain:ee:1.0" >            
-  <global-modules>
-    <module name="com.scottlogic.ldapleakpreventer" slot="main" />            
-  </global-modules> 
+    <global-modules>
+      <module name="com.scottlogic.ldapleakpreventer" slot="main" />            
+    </global-modules> 
 </subsystem>
 {% endhighlight %}
 
