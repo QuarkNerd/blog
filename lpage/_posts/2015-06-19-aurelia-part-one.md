@@ -54,7 +54,7 @@ I can see there is a `gulp serve` command and when I run that I get a web server
 
 The first thing I'm going to do is try removing all the pages but one. `index.html` is just a bootstrapper and the rest of the files are in src. I'll keep the router for now, but [remove the nav bar](https://github.com/less/less-preview/commit/6a5a677813f4ae6e5b3fa450d204982759b6a01b).
 
-Next I'll include CodeMirror, since I see it as the riskiest part. First off, I need the CodeMirror files, so I try to get them with jspm..
+Startng with the riskiest part, which is the text editor, I've decided to use a project called [CodeMirror](https://codemirror.net/), which provides a fully featured text editor written in JavaScript for the browser, with support for various languages, Less and CSS included. First off, I need the CodeMirror files, so I try to get them with jspm..
 
 {% highlight bash %}
 $ jspm install npm:codemirror
@@ -82,6 +82,8 @@ Which downloads the files and puts them into the jspm_packages folder. A google 
 
 You might recognise the syntax as being close to requirejs and that may be because there are some familiar faces involved in jspm that contributed to requirejs.
 
+I create a new element for my editor, by adding an html template and a JavaScript file with the same name. There may be some way to associate the files that isn't just by naming convention, but I'm not sure what it is.
+
 Then I add some code to see if I can get at the library now...
 
 {% highlight js %}
@@ -91,9 +93,11 @@ alert(CodeMirror);
 
 And when I run the site, I see it is available!
 
-The next thing I need is a DOM element, to give to code mirror in order for it to create its editor. After a little searching I see I can use the `ref` attribute to get an element to be assigned to my view model.
+The next thing I need is a DOM element, to give to code mirror in order for it to create its editor. After a little searching I see I can use the `ref` attribute to get an element to be assigned to my view model. Unlike angular this doesn't require any prefixing, but the attribute is used in polymer too, so it may be also in a spec associated with web components and that may protect it against future additions to the HTML spec.
 
-My first attempt was to use a property setter. So, I had the following html template:
+At this point you might reel back in horror at getting a reference to an element inside your code. In Angular you might be using directives for a layer of dom manipulation and controllers for manipulating those directives and containing the model. Or you might not be using any controllers at all, treating directives as your controllers and abstracting as much logic as possible to services. This second approach fits better with what Aurelia does (it has no controllers, just a view model which can interact in both directions with the dom), but it also fits with what Angular 2 has planned. The reasoning ties into web components, because a native element/web component exposes an API that might not be so low level. For instance the video element has a play function on it, if you want to play that video when an event is raised, you need to access the element and writing another piece of code that mirrors the API may not be worth it.
+
+So, my first attempt was to use a property setter. I had the following html template in `cmeditor.html`:
 
 {% highlight html %}
 <template>
@@ -101,7 +105,7 @@ My first attempt was to use a property setter. So, I had the following html temp
 </template>
 {% endhighlight %}
 
-And view model...
+And view model in `cmeditor.js`:
 
 {% highlight js %}
 import CodeMirror from 'codemirror';
@@ -138,7 +142,7 @@ import 'codemirror/theme/cobalt.css!';
 import 'codemirror/mode/css/css';
 {% endhighlight %}
 
-But I found I was getting some strange styles from CodeMirror, supposedly caused by code mirror being initiated when the element is not visible. The problem was that code mirror was being initiated when hidden and I realised that instead of using an element setter, I need to add an attached method and that will get called at the right time.
+But I found I was getting some strange styles from CodeMirror, supposedly caused by code mirror being initiated when the element is not visible. The problem was that code mirror was being initiated when hidden and I realised that instead of using an element setter, I need to add a function called `attached` to my view model and that will get called at the right time.
 
 {% highlight js %}
 export class cmeditor {
