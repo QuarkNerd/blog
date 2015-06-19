@@ -54,7 +54,7 @@ I can see there is a `gulp serve` command and when I run that I get a web server
 
 The first thing I'm going to do is try removing all the pages but one. `index.html` is just a bootstrapper and the rest of the files are in src. I'll keep the router for now, but [remove the nav bar](https://github.com/less/less-preview/commit/6a5a677813f4ae6e5b3fa450d204982759b6a01b).
 
-Startng with the riskiest part, which is the text editor, I've decided to use a project called [CodeMirror](https://codemirror.net/), which provides a fully featured text editor written in JavaScript for the browser, with support for various languages, Less and CSS included. First off, I need the CodeMirror files, so I try to get them with jspm..
+Starting with the riskiest part, which is the text editor, I've decided to use a project called [CodeMirror](https://codemirror.net/), which provides a fully featured text editor written in JavaScript for the browser, with support for various languages, Less and CSS included. First off, I need the CodeMirror files, so I try to get them with jspm..
 
 {% highlight bash %}
 $ jspm install npm:codemirror
