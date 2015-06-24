@@ -11,7 +11,7 @@ summary: A walkthrough creating a project written using the new Aurelia and comp
 
 ###The Aurelia Story
 
-Aurelia is project created by Rob Eisenberg, a former member of the Angular 2.0 team and creator of Durandal and Caliber. In his own words...
+Aurelia is project created by Rob Eisenberg, a former member of the Angular 2.0 team and creator of Durandal and Caliburn. In his own words...
 
  > I left Angular 2.0 to build Aurelia, something that I believe is more in line with what the Angular community had hoped for in 2.0. It also draws from the best parts of Durandal and merges these ideas together into a consistent JavaScript application development experience for mobile, desktop and web.
  
