@@ -47,7 +47,7 @@ LDAP authentication. In either of these cases the `LdapPoolManager` class is loa
 classloader is in context and is consequently set as the PoolCleaner thread's `contextClassLoader` thereby leaking the
 web-application's classloader.
 
-At this point it should be noted this leak only occurs the first time the `LdapPoolManager` class is loaded. Because 
+At this point it should be noted this leak only occurs the first time the LdapPoolManager class is loaded. Because 
 this class is a system class it is only loaded once by the system classloader. Subsequent redeploys of the 
 web-application will not be leaked in this fashion, but the PoolCleaner thread will continue to reference the 
 classloader of the first-deployed web-application. While this makes the impact of this leak less critical in that the
@@ -55,7 +55,7 @@ memory consumed by the leak will be finite, it will still impact the overall mem
 
 Tomcat and Jetty both provide workarounds for this leak - see Tomcat's [JRE Memory Leak Prevention Listener](https://tomcat.apache.org/tomcat-7.0-doc/config/listeners.html#JRE%20Memory%20Leak%20Prevention%20Listener%20-%20org.apache.catalina.core.JreMemoryLeakPreventionListener)
 and Jetty's [LDAPLeakPreventer](http://www.eclipse.org/jetty/documentation/current/preventing-memory-leaks.html). Both
-these workarounds function by ensuring the `LdapPoolManager` class is loaded up front by the application server itself
+these workarounds function by ensuring the LdapPoolManager class is loaded up front by the application server itself
 which ensures the PoolCleaner thread's context classloader will be initialised to the application server's classloader.
 Unfortunately JBoss does not include this workaround. The most I've been able to find is [this thread](https://developer.jboss.org/thread/164760?_sscc=t) 
 which seems to indicate there was no plan to add the workaround.
@@ -118,7 +118,7 @@ configuration. My extension registers a parser during `Extension.initializeParse
 during `Extension.initialize`. The subsystem definition includes an *add* operation that is used when the parser 
 encounters the extension's `<subsystem>` element in the JBoss configuration file. By the time the parser is parsing
 the `<subsystem>` elements, the `<system-properties>` section will have been processed which means when my *add* 
-operation is invoked, the LDAP properties I defined in `<system-properties>' will be available. My *add* operation 
+operation is invoked, the LDAP properties I defined in `<system-properties>` will be available. My *add* operation 
 implementation is therefore very simple and just loads the LdapPoolManager class.
 
 I will not pretend to be an expert in JBoss subsystems, I based my implementation on the skeleton 
@@ -126,11 +126,11 @@ subsystem code that is generated when using the maven archetype `org.jboss.as.ar
 described in the [example subsystem](https://docs.jboss.org/author/display/AS71/Example+subsystem) section of the JBoss
 documentation. I have published the source on GitHub [here](https://github.com/awallis-scottlogic/jboss-ldap-leak-preventer). 
 You can build the extension using `mvn package`. The resulting module is packaged under `target/module` and should be 
-installed in your <JBOSS_INSTALLATION>/modules. You must then update the JBoss `standalone.xml` configuration file as 
+installed in your `<JBOSS_INSTALLATION>/modules`. You must then update the JBoss `standalone.xml` configuration file as 
 follows:
-1. Add `<extension module="com.scottlogic.ldapleakpreventer"/>` to the `<extensions>` element.
-1. Add `<subsystem xmlns="urn:scottlogic:ldapleakpreventer:1.0"/>` to the `<profile>` element.
-1. Add your LDAP configuration properties to the `<system-propeties>` element. If you currently apply these properties
+  1. Add `<extension module="com.scottlogic.ldapleakpreventer"/>` to the `<extensions>` element.
+  1. Add `<subsystem xmlns="urn:scottlogic:ldapleakpreventer:1.0"/>` to the `<profile>` element.
+  1. Add your LDAP configuration properties to the `<system-propeties>` element. If you currently apply these properties
 from your web-application they should be moved to standalone.xml for the reasons discussed [here](#gotcha).
 
 ## Final Thoughts
@@ -149,5 +149,5 @@ transient dependency on HttpClient, however in this case it is necessary in orde
 through upgrading a dependency version, it is probably a good idea to pre-emptively profile for leaks as part of the
 development cycle.
 
-My final Final Thought was that this LDAP leak and similar JRE leaks handled by Tomcat's JreMemoryLeakPreventionListener
+My final Final Thought is that this LDAP leak and similar JRE leaks handled by Tomcat's JreMemoryLeakPreventionListener
 become a non-issue if the web-application is implemented as a microservice running in its own process.
