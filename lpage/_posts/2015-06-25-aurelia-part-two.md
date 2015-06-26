@@ -6,14 +6,14 @@ categories:
  - lpage
 tags: 
 layout: default_post
-summary: A walkthrough bundling an Aurelia project.
+summary:"In the second post of my series on the Aurelia framework I walkthrough bundling the less2css project. The result of which significantly reduced the load time, but did uncover a few aspects of the Aurelia bundling process that do not yet feel fully formed.
 ---
 
 Please read [my first post](http://blog.scottlogic.com/2015/06/19/aurelia-part-one.html) for an introduction.
 
 At the end of that post I said that it takes a long time for the site to load, something I attributed mainly down to the fact that the JavaScript was not bundled, so Chrome was making many network requests to get the content. Here is the devtools network tab of the site running locally (hence why it is much faster than what I saw running on github pages)..
 
-<img src="{{ site.github.url }}/lpage/assets/aurelia-two/unbundled.png" alt="Chrome devtools timeline of the unbundled source" />
+<img src="{{ site.github.url }}/lpage/assets/aurelia-two/unbundled.png" alt="Chrome devtools timeline of the non-bundled source" />
 
 In this post, I will cover bundling. I'll try not to cover [what Rob Eisenberg has already blogged about](http://blog.durandal.io/2015/06/23/bundling-an-aurelia-application/) - please read that post for a good introduction.
 
@@ -95,7 +95,7 @@ System.config({
       //...
 {% endhighlight %}
 
-Which means that systemjs will look in the bundle file for those packages. It again means that the `config.js` file cannot be used not in a un-bundled scenario.
+Which means that systemjs will look in the bundle file for those packages. It again means that the `config.js` file can no longer be used in a non-bundled scenario.
 
 The Aurelia team are working on API, but for now it seems the way to get bundling to happen inside gulp is to exec the `aurelia` command.
 
@@ -142,7 +142,7 @@ gulp.task('bundle', function() {
 });
 {% endhighlight %}
 
-Which seems to work well, giving me a bundled version in one directory and unbundled in another. Now if I look at the bundled site I see eight requests (one of which is less loaded by the app). Note, this is on an external server, which is way the load time is longer than unbundled - but this was previously taking 12 seconds, so it is much improved.
+Which seems to work well, giving me a bundled version in one directory and non-bundled in another. Now if I look at the bundled site I see eight requests (one of which is less loaded by the app). Note, this is on an external server, which is why the load time is longer than non-bundled - but this was previously taking 12 seconds, so it is much improved.
 
 <img src="{{ site.github.url }}/lpage/assets/aurelia-two/bundled.png" alt="Chrome devtools timeline of the bundled source" />
 
