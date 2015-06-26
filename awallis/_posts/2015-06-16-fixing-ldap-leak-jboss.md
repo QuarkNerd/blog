@@ -128,6 +128,7 @@ documentation. I have published the source on GitHub [here](https://github.com/a
 You can build the extension using `mvn package`. The resulting module is packaged under `target/module` and should be 
 installed in your `<JBOSS_INSTALLATION>/modules`. You must then update the JBoss `standalone.xml` configuration file as 
 follows:
+
   1. Add `<extension module="com.scottlogic.ldapleakpreventer"/>` to the `<extensions>` element.
   1. Add `<subsystem xmlns="urn:scottlogic:ldapleakpreventer:1.0"/>` to the `<profile>` element.
   1. Add your LDAP configuration properties to the `<system-propeties>` element. If you currently apply these properties
