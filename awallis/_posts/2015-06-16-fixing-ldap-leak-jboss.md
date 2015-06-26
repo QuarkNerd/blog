@@ -12,6 +12,8 @@ Tomcat and Jetty web application containers provide factory-fitted workarounds, 
 Since I struggled to find anything online, I had to come up with my own workaround. I've described it in this post in 
 the hopes it may help someone else.
 
+<img src='{{ site.github.url }}/awallis/assets/fixing_permgen_leak.jpg' title="Fixing Leaks" alt="Firemen fixing a leak" />
+
 ## Leak Background
 
 At some point during Java EE development it is likely you will encounter a dreaded 
@@ -24,7 +26,7 @@ When a thread is started it holds a reference to a classloader. If the thread is
 classloader. If the thread is not cleanly stopped when the web-application is undeployed, the thread continues running
 and the strong reference to the classloader will prevent the web-application's classes from being garbage-collected.
 After a few redeploys typical of a development environment the application server will run out of permanent generation
-memory, generating the PermGen OutOfMemoryError. It should be noted that it makes no difference if a thread is marked
+memory, resulting in a PermGen OutOfMemoryError. It should be noted that it makes no difference if a thread is marked
 as a daemon thread - this will only influence the lifetime of the JVM (when all non-daemon threads complete the JVM
 will exit). Since the application server itself continues running even after all web-applications are undeployed, any
 daemon threads started by any web-applications will continue running.
@@ -58,130 +60,94 @@ which ensures the PoolCleaner thread's context classloader will be initialised t
 Unfortunately JBoss does not include this workaround. The most I've been able to find is [this thread](https://developer.jboss.org/thread/164760?_sscc=t) 
 which seems to indicate there was no plan to add the workaround.
 
+<a name="gotcha"/>
+There is a gotcha around how the LdapPoolManager is configured - it reads its configuration system properties once when
+the class is loaded, and since it is effectively a singleton the system properties available at the time the class is 
+loaded control its behaviour for the remainder of the JVM's lifetime. This means the system properties related to
+LdapPoolManager should not be defined at a web-application level but rather as part of the configuration of the 
+application server itself. If this is not done then the ultimate LdapPoolManager configuration will be determined by
+which web-application is first deployed leading to a non-deterministic configuration being applied.
+
 ## JBoss Workaround
 
 The workaround is misleadingly simple - invoke `Class.forName("com.sun.jndi.ldap.LdapPoolManager")`, however this must
 only be called when we know the context classloader is the system classloader. For this reason we cannot implement the
-workaround from within our web-application - it needs to be done from within the application server. 
+workaround from within our web-application - it needs to be done from within the application server.
 
-Fortunately JBoss provides the concept of global modules - these are basically libraries that you can pre-install into
-your JBoss installation and which can then be accessed by web-applications. This can allow for commonly used frameworks
-and libraries such as spring or hibernate to be installed and effectively shared across multiple web-applications, 
-avoiding the need for packaging these hefty frameworks with each web-application. The JBoss documentation on 
-classloading provides some limited information on [global modules](https://docs.jboss.org/author/display/AS71/Class+Loading+in+AS7#ClassLoadinginAS7-GlobalModules "Global Modules").
+### Workaround Attempt 1 - Global Modules
 
-Our JBoss workaround will therefore involve implementing a global module from which the `LdapPoolManager` class will 
-be loaded. However it is not as simple as this because global modules are passive libraries with no notion of 
-lifecycle - they are not loaded automatically by JBoss but instead are loaded as required by web-applications. 
-A web-application declares a dependency on a module using the jboss-specific `jboss-deployment-structure.xml` file,
-and then only when the web-application actually accesses one of the module's classes will the module class be loaded. 
+My first attempt at applying the workaround was to make use of JBoss's global modules. These are basically libraries 
+that you can pre-install into your JBoss installation and which can then be accessed by web-applications. This can allow 
+for commonly used frameworks and libraries such as spring or hibernate to be installed and effectively shared across 
+multiple web-applications, avoiding the need for packaging these hefty frameworks with each web-application. 
+The JBoss documentation on classloading provides some limited information on 
+[global modules](https://docs.jboss.org/author/display/AS71/Class+Loading+in+AS7#ClassLoadinginAS7-GlobalModules "Global Modules").
 
-The JBoss workaround is therefore a combination of a global module that performs the actual load of the 
-`LdapPoolManager` class, and a web-application that triggers the global module. This unfortunately makes the workaround 
-rather unwieldy however I have not found a better solution.
+The limitation with global modules is that they are not automatically loaded - they are passive libraries made available
+to web-applications when they need them. In our case this would mean our web-application would need to load a class from
+the global module. This introduces a dependency from the web-application on the global module which is not ideal, 
+especially if there are multiple web-applications. 
 
-### Global Module
+I implemented a workaround using this technique, however I was not happy with the solution due to the need for the 
+web-application to trigger the loading of the LdapPoolManager class.
 
-Our module will consist of a single class named `com.scottlogic.ldapleakpreventer.LDAPLeakPreventer`. It looks like this:
-{% highlight java %}
-public class LDAPLeakPreventer {
-    static {
-        loadLdapPoolManagerClass();
-    }
+### Workaround Attempt 2 - Extensions
 
-    private static void loadLdapPoolManagerClass() {
-        ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();
-        Thread.currentThread().setContextClassLoader(null);
-        try {
-            ldapPoolClass = AccessController.doPrivileged(new PrivilegedAction<Class<?>>() {
-                @Override
-                public Class<?> run() {
-                    try {
-                        return Class.forName("com.sun.jndi.ldap.LdapPoolManager");
-                    } catch (ClassNotFoundException e) {
-                        e.printStackTrace();
-                        return null;
-                    }
-                }
-            });
-        } finally {
-            Thread.currentThread().setContextClassLoader(contextClassLoader);
-        }
-    }
-}
-{% endhighlight %}
-It loads the LdapPoolManager class from a static block because I do not want the web-application to have a compile-time
-dependency on this class. We need to still be careful with the context loader even though the LdapPoolManager class is
-being loaded from within a module. The calling thread has our web-application classloader set as the context classloader
-because it is our web-application loading the module class. We simply set the context class loader to null while loading
-the LdapPoolManager class so that the PoolCleaner will not inherit the context class loader, and we ensure that we set
-it back when complete. Another catch I discovered is the `Thread.inheritedAccessControlContext` will also keep a 
-reference to the classloader. Loading the LdapPoolManager class from within `doPrivileged` prevents the classloader 
-being leaked.
+I then discovered that JBoss supports extensions which offers the potential for a better solution that removes the 
+requirement for the web-application. An extension is packaged (and installed) as a JBoss module, but it includes the 
+notion of a life-cycle - it is constructed and initialised when JBoss starts. This provides us with a chance to 
+pre-emptively load the LdapPoolManager class ahead of any web-application deployments.
 
-To package this class as a JBoss module, the .class files are added to a jar file named `ldapleakpreventer.jar`. JBoss 
-modules are installed under `<JBOSS_HOME>/modules`, ours will have the following structure:
-<pre>
-modules 
-  - com/scottlogic/ldapleakpreventer/main
-    - ldapleakpreventer.jar
-    - module.xml
-</pre>
-The `module.xml` file contains the following:
-{% highlight xml %}
-<?xml version="1.0" encoding="UTF-8"?>
-<module xmlns="urn:jboss:module:1.0" name="com.scottlogic.ldapleakpreventer">
-    <resources>
-        <resource-root path="ldapleakpreventer.jar"/>
-    </resources>
-    <dependencies>
-        <module name="sun.jdk"/>
-    </dependencies>
-</module>
-{% endhighlight %}
-The resources element simply references the jars that should be included with the module. The dependencies element 
-lists the modules that this module depends on. The module name should correspond to a module definition already in the 
-JBoss modules folder. JBoss has modularised the com.sun.* classes making it necessary to explicitly specify this 
-dependency otherwise our module will not be able to load the LdapPoolManager class.
+My naive attempt at implementing an extension assumed I could simply load the LdapPoolManager class from the
+extension's initialize method and add the `com.sun.jndi.ldap.connect.pool.*` properties to JBoss's standalone.xml
+configuration file under the convenient `<system-properties>` element. This however does not work due to the unexpected 
+way in which JBoss extensions are loaded - they are constructed and initialised before the properties in the 
+`<system-properties>` element are made available. This means my extension loads the LdapPoolManager class with the 
+default configuration instead of the configuration defined by my system properties.
 
-Lastly we need to register our module as a global module to make it available to web-applications. This is done by 
-editing the JBoss `standalone.xml` configuration file, and adding the following:
-{% highlight xml %}
-<subsystem xmlns="urn:jboss:domain:ee:1.0" >            
-    <global-modules>
-      <module name="com.scottlogic.ldapleakpreventer" slot="main" />            
-    </global-modules> 
-</subsystem>
-{% endhighlight %}
+### Workaround Attempt 3 - Subsystems
 
-### Web Application
+A JBoss subsystem is an extension that is further configured by a `<subsystem>` element in JBoss's configuration file.
+JBoss subsystems are tightly coupled to how the configuration file is parsed. A subsystem is registered by an extension
+which hooks into JBoss's configuration file parsing mechanism. By the time the parser encounters the extension's 
+`<subsystem>` element, the `<system-properties>` element will have been processed making the defined properties 
+available via Java's `System.getProperty(String)` method.
 
-The ldapleakpreventer module must be loaded explicitly from a web-application. The web-application registers a 
-`ServletContextListener` which calls `Class.forName("com.scottlogic.ldapleakpreventer.LDAPLeakPreventer")` from its 
-`contextInitialized()` method.
+My workaround therefore needs to plug into this subsystem parsing mechanism even though it won't require any direct
+configuration. My extension registers a parser during `Extension.initializeParsers()`, and a subsystem definition
+during `Extension.initialize`. The subsystem definition includes an *add* operation that is used when the parser 
+encounters the extension's `<subsystem>` element in the JBoss configuration file. By the time the parser is parsing
+the `<subsystem>` elements, the `<system-properties>` section will have been processed which means when my *add* 
+operation is invoked, the LDAP properties I defined in `<system-properties>' will be available. My *add* operation 
+implementation is therefore very simple and just loads the LdapPoolManager class.
 
-While there is no compile-time dependency between the web-application and the module, there is a runtime dependency. 
-This must be declared in the `WEB-INF/jboss-deployment-structure.xml` file which looks like this:
-{% highlight xml %}
-<?xml version="1.0" encoding="UTF-8"?>  
-<jboss-deployment-structure>  
-    <deployment>  
-        <dependencies>  
-            <module name="com.scottlogic.ldapleakpreventer" />  
-        </dependencies>  
-    </deployment>
-</jboss-deployment-structure>
-{% endhighlight %}
+I will not pretend to be an expert in JBoss subsystems, I based my implementation on the skeleton 
+subsystem code that is generated when using the maven archetype `org.jboss.as.archetypes.jboss-as-subsystem` as 
+described in the [example subsystem](https://docs.jboss.org/author/display/AS71/Example+subsystem) section of the JBoss
+documentation. I have published the source on GitHub [here](https://github.com/awallis-scottlogic/jboss-ldap-leak-preventer). 
+You can build the extension using `mvn package`. The resulting module is packaged under `target/module` and should be 
+installed in your <JBOSS_INSTALLATION>/modules. You must then update the JBoss `standalone.xml` configuration file as 
+follows:
+1. Add `<extension module="com.scottlogic.ldapleakpreventer"/>` to the `<extensions>` element.
+1. Add `<subsystem xmlns="urn:scottlogic:ldapleakpreventer:1.0"/>` to the `<profile>` element.
+1. Add your LDAP configuration properties to the `<system-propeties>` element. If you currently apply these properties
+from your web-application they should be moved to standalone.xml for the reasons discussed [here](#gotcha).
 
-### Last Thoughts
+## Final Thoughts
 
-This workaround is cumbersome. I do not like the web-application - module interaction. I know JBoss also supports
-extensions or subsystems which should remove the need for the web-application to trigger the module however I found the 
-information on subsystems even more sparse than modules. There is also a gotcha associated with the way the 
-LdapPoolManager starts the PoolCleaner thread. I mentioned that the PoolCleaner thread is only started if the idle 
-timeout is set to a non-zero value. This timeout is configured via a system property 
-`com.sun.jndi.ldap.connect.pool.timeout` which LdapPoolManager reads once when the class is loaded. This means that if
-this property is only set by the web-application, then loading the LdapPoolManager class before the web-application will
-not result in the PoolCleaner thread starting, and in fact the PoolCleaner thread will never be started. Similarly, if
-there are multiple web-applications, the first web-application to be deployed will control how the LdapPoolManager is
-loaded and whether the PoolCleaner thread is started.
+The amount of time I've spent in hunting memory leaks and working out how to implement this fix for JBoss feels 
+disproportionate to the value gained - especially since the LDAP leak in particular has a finite impact on PermGen 
+space. It does however quiet the niggling in my brain that would otherwise keep reminding me that there is a full set of
+web-application classes unnecessarily retained in PermGen memory.
+
+This process has also highlighted for me just how easy it is to introduce a classloader memory leak without writing any
+dodgy code. For example, one of the leaks I found was due to a third-party library that in turn used 
+Apache's HttpClient. The third-party library should have offered an API through which it could be cleanly shut down 
+when the web-application was undeployed but it didn't. Ideally the developer should not be required to be aware of the
+transient dependency on HttpClient, however in this case it is necessary in order to step in and call 
+`MultiThreadedHttpConnectionManager.shutdownAll()` during undeployment. Since such leaks could be introduced simply
+through upgrading a dependency version, it is probably a good idea to pre-emptively profile for leaks as part of the
+development cycle.
+
+My final Final Thought was that this LDAP leak and similar JRE leaks handled by Tomcat's JreMemoryLeakPreventionListener
+become a non-issue if the web-application is implemented as a microservice running in its own process.
