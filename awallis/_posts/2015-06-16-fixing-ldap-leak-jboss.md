@@ -102,7 +102,7 @@ My naive attempt at implementing an extension assumed I could simply load the Ld
 extension's initialize method and add the `com.sun.jndi.ldap.connect.pool.*` properties to JBoss's standalone.xml
 configuration file under the convenient `<system-properties>` element. This however does not work due to the unexpected 
 way in which JBoss extensions are loaded - they are constructed and initialised before the properties in the 
-`<system-properties>` element are made available. This means my extension loads the LdapPoolManager class with the 
+system-properties element are made available. This means my extension loads the LdapPoolManager class with the 
 default configuration instead of the configuration defined by my system properties.
 
 ### Workaround Attempt 3 - Subsystems
@@ -110,15 +110,15 @@ default configuration instead of the configuration defined by my system properti
 A JBoss subsystem is an extension that is further configured by a `<subsystem>` element in JBoss's configuration file.
 JBoss subsystems are tightly coupled to how the configuration file is parsed. A subsystem is registered by an extension
 which hooks into JBoss's configuration file parsing mechanism. By the time the parser encounters the extension's 
-`<subsystem>` element, the `<system-properties>` element will have been processed making the defined properties 
+subsystem element, the `<system-properties>` element will have been processed making the defined properties 
 available via Java's `System.getProperty(String)` method.
 
 My workaround therefore needs to plug into this subsystem parsing mechanism even though it won't require any direct
 configuration. My extension registers a parser during `Extension.initializeParsers()`, and a subsystem definition
-during `Extension.initialize`. The subsystem definition includes an *add* operation that is used when the parser 
-encounters the extension's `<subsystem>` element in the JBoss configuration file. By the time the parser is parsing
-the `<subsystem>` elements, the `<system-properties>` section will have been processed which means when my *add* 
-operation is invoked, the LDAP properties I defined in `<system-properties>` will be available. My *add* operation 
+during `Extension.initialize()`. The subsystem definition includes an *add* operation that is used when the parser 
+encounters the extension's subsystem element in the JBoss configuration file. By the time the parser is parsing
+the subsystem elements, the system-properties section will have been processed which means when my *add* 
+operation is invoked, the LDAP properties I defined in system-properties will be available. My *add* operation 
 implementation is therefore very simple and just loads the LdapPoolManager class.
 
 I will not pretend to be an expert in JBoss subsystems, I based my implementation on the skeleton 
