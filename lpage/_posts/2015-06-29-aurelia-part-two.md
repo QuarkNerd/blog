@@ -6,7 +6,7 @@ categories:
  - lpage
 tags: 
 layout: default_post
-summary:"In the second post of my series on the Aurelia framework I walkthrough bundling the less2css project. The result of which significantly reduced the load time, but did uncover a few aspects of the Aurelia bundling process that do not yet feel fully formed.
+summary: In the second post of my series on the Aurelia framework I walkthrough bundling the less2css project. The result of which significantly reduced the load time, but did uncover a few aspects of the Aurelia bundling process that do not yet feel fully formed.
 ---
 
 Please read [my first post](http://blog.scottlogic.com/2015/06/19/aurelia-part-one.html) for an introduction.
