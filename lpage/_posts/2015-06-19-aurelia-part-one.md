@@ -315,4 +315,6 @@ I also took the styling from the existing site, so now it is looking more famili
 
 You can see the work in progress [here](http://www.lesscss.org/less-preview) and the [source code is all on github](https://github.com/less/less-preview).
 
-In later posts I will look at binding the options panel, improving performance (The site at present takes 12 seconds to load!!!) and evaluating what I think of Aurelia.
+On an external server without bundling, the site takes 12 seconds to load - please see [my next post for how I tackled bundling and how it effected performance]({{ site.github.url }}/2015/06/25/aurelia-part-two.html).
+
+In later posts I will look at binding the options panel and evaluating what I think of Aurelia.
