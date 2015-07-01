@@ -1,12 +1,12 @@
 ---
 author: lpage
-title: "Six More JavaScript 'Features'"
+title: "Seven Surprising JavaScript 'Features'"
 featured-overlay-inverted: true
 categories:
  - lpage
 tags: 
 layout: default_post
-summary: A look at some of the more unusual parts of JavaScript by examining six things I've learnt recently.
+summary: A look at some of the more unusual parts of JavaScript by examining seven things I've learnt recently.
 ---
 
 Over the last couple of months I've made a few enhancements to JSHint, mainly as a way of learning ES6
@@ -133,12 +133,193 @@ I prefer the original, then using elses and then block labels - but maybe its be
 
 ## Destructuring an existing variable
 
-## `class` is block scoped
+First off, a quirk I cannot explain. It seems in ES3 you can add parentheses around a simple assignment and it works...
 
-## Same name parameters
+{% highlight js %}
+var a;
+(a) = 1;
+assertTrue(a === 1);
+{% endhighlight %}
 
-## Template literal ad-infinitum
+If you can think of why anyone would do this, then please comment!
+
+Destructuring is the process of pulling a variable out of an array or object. Most often you will see the following examples...
+
+{% highlight js %}
+function pullOutInParams({a}, [b]) {
+  console.log(a, b);
+}
+function pullOutInLet(obj, arr) {
+  let {a} = obj;
+  let [b] = arr;
+  console.log(a, b);
+}
+pullOutInParams({a: "Hello" }, ["World"]);
+pullOutInLet({a: "Hello" }, ["World"]);
+{% endhighlight %}
+
+But you can also do it without a `var`/`let`/`const`. With arrays you can just write it as you expect...
+
+{% highlight js %}
+var a;
+[a] = array;
+{% endhighlight %}
+
+But with objects you must surround the whole assignment in parenthsis...
+
+{% highlight js %}
+var a;
+({a} = obj);
+{% endhighlight %}
+
+The reasoning was that there was too much scope for confusion with code blocks, since you can have anonymous code blocks and asi will convert identifiers to expressions that evaluate (and as shown in the example below, can have side effects...)
+
+{% highlight js %}
+var a = {
+   get b() {
+     console.log("Hello!");
+   }
+};
+with(a) {
+  {
+    b
+  }
+}
+{% endhighlight %}
+
+Going back to the original example, where we parenthesised our identifier before assignment - you might think that also applies to destructuring. It doesn't.
+
+{% highlight js %}
+var a, b, c;
+(a) = 1;
+[b] = [2];
+({c} = { c : 3 });
+{% endhighlight %}
 
 ## Destructuring with numbers
 
+Another aspect of destructuring you might not realise is that the property names do not have to be unqouted strings. They can be numbers..
+
+{% highlight js %}
+var {1 : a} = { 1: true };
+{% endhighlight %}
+
+or quoted strings...
+
+{% highlight js %}
+var {"1" : a} = { "1": true };
+{% endhighlight %}
+
+or you might want to pull out a computed name...
+
+{% highlight js %}
+var myProp = "1";
+var {[myProp] : a} = { [myProp]: true };
+{% endhighlight %}
+
+Which makes it quite easy to write confusing code...
+
+{% highlight js %}
+var a = "a";
+var {[a] : [a]} = { a: [a] };
+{% endhighlight %}
+
+## `class` declarations are block scoped
+
+Functions are hoisted to their function scope, meaning you can have a function declaration after its usage...
+
+{% highlight js %}
+func();
+function func() {
+  console.log("Fine");
+}
+{% endhighlight %}
+
+as opposed to function expressions which when assigned to a variable, the variable is hoisted but the assignment doesn't happen until the function expression is assigned.
+
+{% highlight js %}
+func(); // func is declared, but undefined, so this throws E.g. "func is not a function"
+var func = function func() {
+  console.log("Fine");
+};
+{% endhighlight %}
+
+Classes have been a popular part of ES6 and have been widely touted as syntactic sugar for functions. So you might think that the following will work..
+
+{% highlight js %}
+new func();
+
+class func {
+  constructor() {
+    console.log("Fine");
+  }
+}
+{% endhighlight %}
+
+But even though this is basically syntactic sugar for our first example, it doesn't work. It is actually equivalent to
+
+{% highlight js %}
+new func();
+
+let func = function func() {
+  console.log("Fine");
+}
+{% endhighlight %}
+
+Which means we are accessing func in the temporal dead zone (TDZ), which is a syntax error.
+
+## Same name parameters
+
+I assumed it was not possible to specify parameters with the same name, however, it is!
+
+{% highlight js %}
+function func(a, a) {
+  console.log(a);
+}
+
+func("Hello", "World");
+// outputs "World"
+{% endhighlight %}
+
+Except in strict mode...
+
+{% highlight js %}
+function func(a, a) {
+  "use strict";
+  console.log(a);
+}
+
+func("Hello", "World");
+// errors in chrome - SyntaxError: Strict mode function may not have duplicate parameter names
+{% endhighlight %}
+
 ## `typeof` is not safe
+
+[Okay, I stole this observation](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15), but it is worth repeating.
+
+Before ES6, it was well known you could always use typeof to safely fine out if something was defined, whether it was declared or not...
+
+{% highlight js %}
+if (typeof Symbol !== "undefined") {
+  // Symbol is available
+}
+// The following throws an exception if Symbol not declared
+if (Symbol !== "undefined") {
+}
+{% endhighlight %}
+
+But now this only works if you have not declared the variable using let or const. This because of that TDZ, which makes it a syntax error to access the variable before declaration. Essentially the variable is hoisted to the begining of the block, but it is a syntax error to access it. In JSHint's scope manager I have to record usages of a variable, then if it is declared as a `let` or `const` within the current block or parent blocks, it is a syntax error. If it is declared by a var statement it is valid but a JSHint warning and if it is not declared it is using a global and possibly a different warning.
+
+{% highlight js %}
+if (typeof Symbol !== "undefined") {
+  // Symbol is available
+}
+let Symbol = true; // causes a syntax error above
+{% endhighlight %}
+
+## new Array
+
+{% highlight js %}
+
+{% endhighlight %}
+
