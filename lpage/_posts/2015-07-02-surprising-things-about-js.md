@@ -293,7 +293,7 @@ func("Hello", "World");
 // errors in chrome - SyntaxError: Strict mode function may not have duplicate parameter names
 {% endhighlight %}
 
-## `typeof` is not safe
+## typeof is not safe
 
 [Okay, I stole this observation](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15), but it is worth repeating.
 
@@ -319,7 +319,50 @@ let Symbol = true; // causes a syntax error above
 
 ## new Array
 
-{% highlight js %}
+I've always avoided using the new Array constructor. Part of the reasoning is that its arguments can either be a length or a list of items...
 
+{% highlight js %}
+new Array(1); // [undefined]
+new Array(1, 2); // [1, 2]
 {% endhighlight %}
 
+But a colleague was using it recently and came across something I haven't seen before..
+
+{% highlight js %}
+var arr = new Array(10);
+for(var i = 0; i < arr.length; i++) {
+  arr[i] = i;
+}
+console.dir(arr);
+{% endhighlight %}
+
+This produces an array of items from 0 to 9. But then, if this is refactored to use map...
+
+{% highlight js %}
+var arr = new Array(10);
+arr = arr.map(function(item, index) { return index; });
+console.dir(arr);
+{% endhighlight %}
+
+Then `arr` is unchanged. It seems that `new Array(length)` creates an array with that length, but does not set any items, so referring to the length works, but enumerating does not. What about if I set a number ?
+
+{% highlight js %}
+var arr = new Array(10);
+arr[8] = undefined;
+arr = arr.map(function(item, index) { return index; });
+console.dir(arr);
+{% endhighlight %}
+
+Now I get an array where the 8th index is equal to 8, but all the others are set to undefined. Looking at the polyfill for map, it loops over every item (hence why index is correct) but uses an `in` check to see if the property is set. You also get the same behaviour using array literals...
+
+{% highlight js %}
+var arr = [];
+arr[9] = undefined;
+// or
+var arr = [];
+arr.length = 10;
+{% endhighlight %}
+
+## Other gems
+
+Mozillas developer blog has [a great post on arrow functions](https://hacks.mozilla.org/2015/06/es6-in-depth-arrow-functions/), which includes details of using `<--` as an official ES6 comment token. It is worth checking out the [whole blog series](https://hacks.mozilla.org/category/es6-in-depth/) too.
