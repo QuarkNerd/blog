@@ -12,11 +12,11 @@ summary: A look at some of the more unusual parts of JavaScript by examining sev
 Over the last couple of months I've made a few enhancements to JSHint, mainly as a way of learning ES6
 (I'm [most proud](https://github.com/lukeapage/jshint/commit/08eb4e25962eb71f94c09f79b3b08288b91a7bce) of re-implementing
 variable scope detection) and during that process I've come across a few things that surprised me, mostly about ES6
-but also about a ES3 feature I've never used, which is where I will start.
+but also in ES3, including the following feature, which I've never used and this is where I will start.
 
 ## Break from any block
 
-You should be aware that you can break and continue from any loop - it is a fairly standard programming language conflict.
+You should be aware that you can break and continue from any loop - it is a fairly standard programming language construct.
 You might not be aware that you can label loops and jump out of any particular loop...
 
 {% highlight js %}
@@ -27,7 +27,7 @@ outer: for(var i = 0; i < 4; i++) {
 }
 {% endhighlight %}
 
-The same applies to both break and continue. You will have definitely seen break used with switch statements...
+The same applies to both `break` and `continue`. You will have definitely seen break used with switch statements...
 
 {% highlight js %}
 switch(i) {
@@ -36,7 +36,7 @@ switch(i) {
 }
 {% endhighlight %}
 
-Incidentally, this is why Crockford suggests your case should not be indented - the break jumps out of the switch, not the case, but I prefer the readability of indenting cases.
+Incidentally, this is why Crockford suggests your `case` should not be indented - the `break` jumps out of the `switch`, not the `case`, but I prefer the readability of indenting `case`.
 You can also label switch statements...
 
 {% highlight js %}
@@ -69,7 +69,7 @@ outer: {
 }
 {% endhighlight %}
 
-Note that this only applies to break - you can only continuea loop block.
+Note that this only applies to break - you can only `continue` in a loop block.
 I've never seen labels being used in JavaScript and I wondered why - I think its because if I need to break two layers
 of blocks, its a good sign that the block might be more readable inside a function and there I will use a single break
 or an early return to achieve the same thing.
@@ -91,7 +91,7 @@ function(a, b, c) {
 }
 {% endhighlight %}
 
-and use labels...
+And use labels...
 
 {% highlight js %}
 function(a, b, c) {
@@ -129,7 +129,7 @@ function(a, b, c) {
 }
 {% endhighlight %}
 
-I prefer the original, then using elses and then block labels - but maybe its because thats what I'm used to?
+I prefer the original, then using elses and then block labels - but maybe that's because thats what I'm used to?
 
 ## Destructuring an existing variable
 
@@ -256,7 +256,7 @@ class func {
 }
 {% endhighlight %}
 
-But even though this is basically syntactic sugar for our first example, it doesn't work. It is actually equivalent to
+But even though this is basically syntactic sugar for our first example, it doesn't work. It is actually equivalent to..
 
 {% highlight js %}
 new func();
@@ -266,7 +266,7 @@ let func = function func() {
 }
 {% endhighlight %}
 
-Which means we are accessing func in the temporal dead zone (TDZ), which is a syntax error.
+Which means we are accessing `func` in the temporal dead zone (TDZ), which is a syntax error.
 
 ## Same name parameters
 
@@ -297,7 +297,7 @@ func("Hello", "World");
 
 [Okay, I stole this observation](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15), but it is worth repeating.
 
-Before ES6, it was well known you could always use typeof to safely fine out if something was defined, whether it was declared or not...
+Before ES6, it was well known you could always use typeof to safely find out if something was defined, whether it was declared or not...
 
 {% highlight js %}
 if (typeof Symbol !== "undefined") {
@@ -308,7 +308,7 @@ if (Symbol !== "undefined") {
 }
 {% endhighlight %}
 
-But now this only works if you have not declared the variable using let or const. This because of that TDZ, which makes it a syntax error to access the variable before declaration. Essentially the variable is hoisted to the begining of the block, but it is a syntax error to access it. In JSHint's scope manager I have to record usages of a variable, then if it is declared as a `let` or `const` within the current block or parent blocks, it is a syntax error. If it is declared by a var statement it is valid but a JSHint warning and if it is not declared it is using a global and possibly a different warning.
+But now this only works if you have not declared the variable using let or const. This because of the TDZ, which makes it a syntax error to access the variable before declaration. Essentially the variable is hoisted to the beginning of the block, but it is a syntax error to access it. In JSHint's scope manager I have to record usages of a variable, then if it is declared as a `let` or `const` within the current block or parent blocks, it is a syntax error. If it is declared by a var statement it is valid but a JSHint warning and if it is not declared it is using a global and possibly a different warning.
 
 {% highlight js %}
 if (typeof Symbol !== "undefined") {
@@ -365,4 +365,4 @@ arr.length = 10;
 
 ## Other gems
 
-Mozillas developer blog has [a great post on arrow functions](https://hacks.mozilla.org/2015/06/es6-in-depth-arrow-functions/), which includes details of using `<--` as an official ES6 comment token. It is worth checking out the [whole blog series](https://hacks.mozilla.org/category/es6-in-depth/) too.
+Mozilla's developer blog has [a great post on arrow functions](https://hacks.mozilla.org/2015/06/es6-in-depth-arrow-functions/), which includes details of using `<--` as an official ES6 comment token. It is worth checking out the [whole blog series](https://hacks.mozilla.org/category/es6-in-depth/) too.
