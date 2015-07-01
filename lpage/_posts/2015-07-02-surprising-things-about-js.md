@@ -204,13 +204,13 @@ Another aspect of destructuring you might not realise is that the property names
 var {1 : a} = { 1: true };
 {% endhighlight %}
 
-or quoted strings...
+Or quoted strings...
 
 {% highlight js %}
 var {"1" : a} = { "1": true };
 {% endhighlight %}
 
-or you might want to pull out a computed name...
+Or you might want to pull out a computed name...
 
 {% highlight js %}
 var myProp = "1";
@@ -224,7 +224,7 @@ var a = "a";
 var {[a] : [a]} = { a: [a] };
 {% endhighlight %}
 
-## `class` declarations are block scoped
+## class declarations are block scoped
 
 Functions are hoisted to their function scope, meaning you can have a function declaration after its usage...
 
