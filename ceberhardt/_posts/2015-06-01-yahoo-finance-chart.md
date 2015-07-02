@@ -4,6 +4,12 @@ title: Creating a Yahoo Finance chart with D3 and d3fc
 layout: default_post
 ---
 
+<style>
+iframe {
+  border: 0;
+}
+</style>
+
 Most charting libraries are monoliths. The more features they support, the more unwieldy their APIs tend to become. With the [d3fc](http://scottlogic.github.io/d3fc/) project we have been exploring an alternative approach, constructing charts from a set of small components, using the D3 library.
 
 In this post I want to demonstrate the power of both d3fc and D3 by re-creating the [rather complex Yahoo Finance chart](http://finance.yahoo.com/echarts?s=yhoo+Interactive#{"showEma":true,"emaColors":"#cc0000","emaPeriods":"50","emaWidths":"1","emaGhosting":"0","range":"5d","allowChartStacking":true}). Creating a pixel-perfect recreation of this chart with any monolithic charting library would be a significant challenge (if not impossible). With d3fc it is surprisingly simple!
@@ -66,7 +72,9 @@ If you've already had some experience with D3, this construction pattern should 
 
 The simple code above results in the following chart:
 
-<iframe src='http://bl.ocks.org/ColinEberhardt/raw/8feaa6deaf7a5e276c49/' width='100%' height='300px'/>
+<iframe src='http://bl.ocks.org/ColinEberhardt/raw/8feaa6deaf7a5e276c49/' width='100%' height='300px'></iframe>
+
+<small>View the [full code for this example](http://bl.ocks.org/ColinEberhardt/8feaa6deaf7a5e276c49) via D3 bl.ocks.</small>
 
 ##Adding gridlines and line
 
@@ -99,9 +107,12 @@ chart.plotArea(multi);
 
 The multi-series creates a containing `g` element for each of the supplied series, sets their x and y scales and propagates the data to each.
 
-With gridlines, area and line series added, the chart looks like the following:
+With gridlines, area and line series added, and some minor tweaks to the number of ticks, the chart looks like the following:
 
-<!-- example -->
+<iframe src='http://bl.ocks.org/ColinEberhardt/raw/5e4583d9177aaf348c39/' width='100%' height='300px'></iframe>
+
+<small>View the [full code for this example](http://bl.ocks.org/ColinEberhardt/5e4583d9177aaf348c39) via D3 bl.ocks.</small>
+
 
 ## Styling
 
@@ -122,7 +133,7 @@ The Yahoo chart has a subtle gradient which is applied to the line series. SVG g
 </svg>
 ```
 
-Notice that  calling the `linearTimeSeries` component on the above SVG does not destroy the `defs` element. d3fc components are written in such as way that they identify their own elements via CSS class, allowing these elements to live alongside others within the same container.
+Notice that calling the `linearTimeSeries` component on the above SVG does not destroy the `defs` element. d3fc components are written in such as way that they identify their own elements via CSS class, allowing these elements to live alongside others within the same container.
 
 With some simple CSS the gradient and line styles can be applied to the chart.
 
@@ -139,21 +150,27 @@ path.line {
 </style>
 ```
 
-Unfortunately it is not possible to re-position D3 axis labels via CSS. The standard approach to this issue is to 
+Unfortunately it is not possible to re-position D3 axis labels via CSS. The only way to achieve this is to render the axis then use a D3 selection to locate the labels then move them directly:
 
 ```
 d3.selectAll('.y-axis text')
-    .attr('transform', 'translate(-' + (yAxisWidth - 5) + ', -8)');
+    .style('text-anchor', 'end')
+    .attr('transform', 'translate(-3, -8)');
 
 d3.selectAll('.x-axis text')
-    .style('text-anchor', 'left')
-    .attr('transform', 'translate(35, 0)');
-
-d3.selectAll('.plot-area')
-    .style('overflow', 'visible');
+    .attr('dy', undefined)
+    .style({'text-anchor': 'start', 'dominant-baseline': 'central'})
+    .attr('transform', 'translate(3, -' + (xAxisHeight / 2 + 3) + ' )');
 ```
 
-As we'll see in a later step, there is a much more effective way of achieving this.
+This is not ideal as the above code will be executed each time the charts is rendered, regardless of whether the axes require updates.
+
+
+With this styling in place the chart looks like the following:
+
+<iframe src='http://bl.ocks.org/ColinEberhardt/raw/b7584aa13ed53ab0cb0b/' width='100%' height='300px'></iframe>
+
+<small>View the [full code for this example](http://bl.ocks.org/ColinEberhardt/b7584aa13ed53ab0cb0b) via D3 bl.ocks.</small>
 
 # Adding a moving average
 
