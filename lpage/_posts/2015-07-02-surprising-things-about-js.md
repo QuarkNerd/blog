@@ -70,8 +70,8 @@ outer: {
 {% endhighlight %}
 
 Note that this only applies to break - you can only `continue` in a loop block.
-I've never seen labels being used in JavaScript and I wondered why - I think its because if I need to break two layers
-of blocks, its a good sign that the block might be more readable inside a function and there I will use a single break
+I've never seen labels being used in JavaScript and I wondered why - I think it's because if I need to break two layers
+of blocks, it's a good sign that the block might be more readable inside a function and there I will use a single break
 or an early return to achieve the same thing.
 
 However, if I wanted to write code that had a single return in every function, which is not to my taste, then I could use block breaking. E.g. Take this multiple return function...
@@ -129,7 +129,7 @@ function(a, b, c) {
 }
 {% endhighlight %}
 
-I prefer the original, then using elses and then block labels - but maybe that's because thats what I'm used to?
+I prefer the original, then using elses and then block labels - but maybe that's because it's what I'm used to?
 
 ## Destructuring an existing variable
 
@@ -172,7 +172,7 @@ var a;
 ({a} = obj);
 {% endhighlight %}
 
-The reasoning was that there was too much scope for confusion with code blocks, since you can have anonymous code blocks and asi will convert identifiers to expressions that evaluate (and as shown in the example below, can have side effects...)
+The reasoning was that there was too much scope for confusion with code blocks, since you can have anonymous code blocks and ASI (automatic semi-colon insertion) will convert identifiers to expressions that evaluate (and as shown in the example below, can have side effects...)
 
 {% highlight js %}
 var a = {
