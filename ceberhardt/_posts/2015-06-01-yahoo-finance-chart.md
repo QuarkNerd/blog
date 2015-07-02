@@ -80,30 +80,30 @@ The simple code above results in the following chart:
 
 Where other charting libraries might represent line, point and area as a single series type, d3fc prefers a 'micro component' approach where each are separate. For this chart an area and line component are required:
 
-```
+{% highlight js %}
 var area = fc.series.area()
       .yValue(function(d) { return d.open; });
 
 var line = fc.series.line()
       .yValue(function(d) { return d.open; });
-```
+{% endhighlight %}
 
 Gridlines are another d3fc component:
 
-```
+{% highlight js %}
 var gridlines = fc.annotation.gridline()
     .yTicks(5)
     .xTicks(0);
-```
+{% endhighlight %}
 
 The chart plot area only accepts a single component, however multiple components (that have x and y scales) can be grouped together using a multi-series:
 
-```
+{% highlight js %}
 var multi = fc.series.multi()
       .series([gridlines, area, line]);
 
 chart.plotArea(multi);
-```
+{% endhighlight %}
 
 The multi-series creates a containing `g` element for each of the supplied series, sets their x and y scales and propagates the data to each.
 
@@ -120,7 +120,7 @@ d3fc components are styled via CSS. The easiest way to determine the suitable CS
 
 The Yahoo chart has a subtle gradient which is applied to the line series. SVG gradients are (rather clumsily) defined in SVG as follows:
 
-```
+{% highlight html %}
 <svg id='time-series' style='height: 300px; width: 500px;'>
   <defs>
     <linearGradient id="area-gradient"
@@ -131,13 +131,13 @@ The Yahoo chart has a subtle gradient which is applied to the line series. SVG g
     </linearGradient>
   </defs>
 </svg>
-```
+{% endhighlight %}
 
 Notice that calling the `linearTimeSeries` component on the above SVG does not destroy the `defs` element. d3fc components are written in such as way that they identify their own elements via CSS class, allowing these elements to live alongside others within the same container.
 
 With some simple CSS the gradient and line styles can be applied to the chart.
 
-```
+{% highlight css %}
 <style>
 path.area {
   fill: url(#area-gradient);
@@ -148,11 +148,11 @@ path.line {
   stroke: rgb(26, 154, 249);
 }
 </style>
-```
+{% endhighlight %}
 
 Unfortunately it is not possible to re-position D3 axis labels via CSS. The only way to achieve this is to render the axis then use a D3 selection to locate the labels then move them directly:
 
-```
+{% highlight js %}
 d3.selectAll('.y-axis text')
     .style('text-anchor', 'end')
     .attr('transform', 'translate(-3, -8)');
@@ -161,7 +161,7 @@ d3.selectAll('.x-axis text')
     .attr('dy', undefined)
     .style({'text-anchor': 'start', 'dominant-baseline': 'central'})
     .attr('transform', 'translate(3, -' + (xAxisHeight / 2 + 3) + ' )');
-```
+{% endhighlight %}
 
 This is not ideal as the above code will be executed each time the charts is rendered, regardless of whether the axes require updates.
 
