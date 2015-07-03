@@ -31,14 +31,12 @@ The Yahoo Finance data is available as CSV data through an unsupported, [yet wid
 The following code performs an XHR request via `d3.csv`:
 
 {% highlight js %}
-d3.csv('yahoo.csv', function(error, data) {
-  // convert timestamps from seconds-since-epoch to Date instances.
-  data.forEach(function(d) {
+d3.csv('yahoo.csv')
+  .row(function(d) {
     d.date = new Date(d.Timestamp * 1000);
-  });
-
-  renderChart(data);
-});
+    return d;
+  })
+  .get(function(error, rows) { renderChart(rows); });
 {% endhighlight %}
 
 Once the data has been fetched and parsed, the following `renderChart` function is called:
@@ -217,39 +215,44 @@ The Yahoo Finance chart shows the traded volume in the bottom half of the plot a
 
 In order to render the volume chart, a secondary y-scale is required, with the domain based on the data's volume, and the range set to half the height of the plot area. The `linearTimeSeries` doesn't have a volume scale as part of its layout, this is something that has to be added manually.
 
-We need to create a new scale with a range that occupies approximately half the plot area.
-To do this, use the d3fc layout component to create a new `g` element to house the stuff ...
+The `linearTimeSeries` uses the d3fc `layout` component, which implemented flexbox layout, so it makes sense to use this to create a container for the volume series also.
+
+The following creates a `g` element which acts as a container for the volume series:
 
 {% highlight js %}
 var container = d3.select('#time-series');
 var volumeContainer = container.selectAll('g.volume')
-      .data([data]);
+                                .data([data]);
 volumeContainer.enter()
     .append('g')
     .attr({
-        'class': 'volume',
+      'class': 'volume',
     })
     .layout({
-        position: 'absolute',
-        top: 150,
-        bottom: xAxisHeight,
-        right: yAxisWidth,
-        left: 0
+      position: 'absolute',
+      top: 150,
+      bottom: xAxisHeight,
+      right: yAxisWidth,
+      left: 0
     });
 
 var layout = fc.layout();
 container.layout();
 {% endhighlight %}
 
-We are free to mix this in with the linear time series because the data-joins are 'scoped'.
+Rather than append a `g` element directly into the container, it is appended within a data join enter selection. This ensures that only a single element is added regardless of how many times the `renderChart` function is called. Whilst not strictly needed for this example it is good practice.
 
-Create a volume scale:
+The above example is a relatively simple layout, for a more complex example [pop over to the d3fc website](http://scottlogic.github.io/d3fc/components/layout/layout.html).
+
+A volume scale is constructed with a domain based on the input data and a range based on the height of the volume container:
 
 {% highlight js %}
 var volumeScale = d3.scale.linear()
-    .domain([0, d3.max(data, function (d) { return +d.volume; })])
+    .domain([0, d3.max(data, function (d) { return Number(d.volume); })])
     .range([volumeContainer.layout('height'), 0]);
 {% endhighlight %}
+
+Finally, a volume series is constructed and rendered:
 
 {% highlight js %}
 var volume = fc.series.bar()
@@ -261,6 +264,8 @@ volumeContainer
     .datum(data)
     .call(volume);
 {% endhighlight %}
+
+This results in the following chart:
 
 <iframe src='http://bl.ocks.org/ColinEberhardt/raw/c806028e47281b8dbb1d/' width='100%' height='300px'></iframe>
 
