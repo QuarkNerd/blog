@@ -78,7 +78,7 @@ The simple code above results in the following chart:
 
 ##Adding gridlines and line
 
-Where other charting libraries might represent line, point and area as a single series type, d3fc prefers a 'micro component' approach where each are separate. For this chart an area and line component are required:
+Where other charting libraries might represent line, point and area as a single series type, d3fc prefers a 'micro component' approach where each are separate. For this chart an area and line series are required:
 
 {% highlight js %}
 var area = fc.series.area()
@@ -96,7 +96,7 @@ var gridlines = fc.annotation.gridline()
     .xTicks(0);
 {% endhighlight %}
 
-The chart plot area only accepts a single component, however multiple components (that have x and y scales) can be grouped together using a multi-series:
+The chart plot area only accepts a single series, however multiple series instances (that have x and y scales) can be grouped together using a multi-series:
 
 {% highlight js %}
 var multi = fc.series.multi()
@@ -118,7 +118,7 @@ With gridlines, area and line series added, and some minor tweaks to the number 
 
 d3fc components are styled via CSS. The easiest way to determine the suitable CSS selectors for styling a component is to just look at the rendered output.
 
-The Yahoo chart has a subtle gradient which is applied to the line series. SVG gradients are (rather clumsily) defined in SVG as follows:
+The Yahoo chart has a subtle gradient which is applied to the area series. SVG gradients are (rather clumsily) defined in SVG as follows:
 
 {% highlight html %}
 <svg id='time-series' style='height: 300px; width: 500px;'>
@@ -198,7 +198,9 @@ var emaLine = fc.series.line()
 
 The code above demonstrates the 'decorate' pattern that can be found on most d3fc components. Decorate is passed a selection that is created as a result of the components data join. If you are not familiar with this concept, I'd recommend Mike's [Thinking With Joins](http://bost.ocks.org/mike/join/) article.
 
-In the above code, the selection supplied to `decorate` is the update selection for the component's root `g` element. The enter selection is used to add an `ema` class to this element. Note, that by using the enter selection, this is only done once, a the point the element is initially constructed.
+In the above code, the selection supplied to `decorate` is the update selection for the component's root `g` element. The enter selection is used to add an `ema` class to this element. Note, that by using the enter selection, this is only done once, at the point the element is initially constructed.
+
+NOTE: This enter selection is not quite the same as the one obtained through a standard data join, in this case the enter selection already has an element appended.
 
 You'll see decorate being used in quite a few places in this example, it is a powerful and versatile pattern.
 
@@ -216,7 +218,7 @@ The Yahoo Finance chart shows the traded volume in the bottom half of the plot a
 In order to render the volume chart, a secondary y-scale is required, with the domain based on the data's volume, and the range set to half the height of the plot area. The `linearTimeSeries` doesn't have a volume scale as part of its layout, this is something that has to be added manually.
 
 We need to create a new scale with a range that occupies approximately half the plot area.
-To do this, use the d3fc layout component to create anew `g` element to house the stuff ...
+To do this, use the d3fc layout component to create a new `g` element to house the stuff ...
 
 {% highlight js %}
 var container = d3.select('#time-series');
