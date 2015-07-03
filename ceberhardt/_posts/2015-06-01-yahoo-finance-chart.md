@@ -172,38 +172,54 @@ With this styling in place the chart looks like the following:
 
 <small>View the [full code for this example](http://bl.ocks.org/ColinEberhardt/b7584aa13ed53ab0cb0b) via D3 bl.ocks.</small>
 
-# Adding a moving average
+## Adding a moving average
 
-An EMA is an algorithm which is applied to the data ...
+d3fc has a number of financial indicators, these algorithms are applied directly to the chart data, with the default implementation adding new properties to the data (this can be modified by supplying a custom `merge` function).
 
-```
+The following computes an exponential moving average (EMA) based on the closed price:
+
+{% highlight js %}
 var movingAverage = fc.indicator.algorithm.exponentialMovingAverage()
       .value(function(d) { return d.close; })
       .windowSize(20);
 
 movingAverage(data);
-```
+{% endhighlight %}
 
-Default implementation mutates the data, but this can be configured.
+In order to render an indicator, a suitable renderer is required. An EMA computes a single value for each datapoint, and is rendered via a regular line series, but for more complex indicators (MACD, Bollinger) d3fc supplies dedicated renderers.
 
-An EMA line is just a line
-
-```
+{% highlight js %}
 var emaLine = fc.series.line()
   .yValue(function(d) { return d.exponentialMovingAverage; })
-  .decorate(function(g) {
-    g.enter().classed('ema', true);
+  .decorate(function(sel) {
+    sel.enter().classed('ema', true);
   });
-```
+{% endhighlight %}
 
-Decorate is passed the D3 selection / data-join allowing you to access the update / enter / exit selections.
+The code above demonstrates the 'decorate' pattern that can be found on most d3fc components. Decorate is passed a selection that is created as a result of the components data join. If you are not familiar with this concept, I'd recommend Mike's [Thinking With Joins](http://bost.ocks.org/mike/join/) article.
 
-# Adding a volume chart
+In the above code, the selection supplied to `decorate` is the update selection for the component's root `g` element. The enter selection is used to add an `ema` class to this element. Note, that by using the enter selection, this is only done once, a the point the element is initially constructed.
+
+You'll see decorate being used in quite a few places in this example, it is a powerful and versatile pattern.
+
+With the EMA series added to the multi-series the chart looks like the following:
+
+<iframe src='http://bl.ocks.org/ColinEberhardt/raw/7dfb83b72e872fe5a092/' width='100%' height='300px'></iframe>
+
+<small>View the [full code for this example](http://bl.ocks.org/ColinEberhardt/7dfb83b72e872fe5a092) via D3 bl.ocks.</small>
+
+
+## Adding a volume chart
+
+The Yahoo Finance chart shows the traded volume in the bottom half of the plot area, this is a pretty standard financial charting layout. 
+
+In order to render the volume chart, a secondary y-scale is required, with the domain based on the data's volume, and the range set to half the height of the plot area. The `linearTimeSeries` doesn't have a volume scale as part of its layout, this is something that has to be added manually.
 
 We need to create a new scale with a range that occupies approximately half the plot area.
 To do this, use the d3fc layout component to create anew `g` element to house the stuff ...
 
-```
+{% highlight js %}
+var container = d3.select('#time-series');
 var volumeContainer = container.selectAll('g.volume')
       .data([data]);
 volumeContainer.enter()
@@ -220,36 +236,39 @@ volumeContainer.enter()
     });
 
 var layout = fc.layout();
-d3.select('#time-series')
-  .layout();
-```
+container.layout();
+{% endhighlight %}
 
 We are free to mix this in with the linear time series because the data-joins are 'scoped'.
 
 Create a volume scale:
 
-```
-  var volumeScale = d3.scale.linear()
-      .domain([0, d3.max(data, function (d) { return +d.volume; })])
-      .range([volumeContainer.layout('height'), 0]);
-```
+{% highlight js %}
+var volumeScale = d3.scale.linear()
+    .domain([0, d3.max(data, function (d) { return +d.volume; })])
+    .range([volumeContainer.layout('height'), 0]);
+{% endhighlight %}
 
-  var volume = fc.series.bar()
-        .xScale(chart.xScale())
-        .yScale(volumeScale)
-        .yValue(function(d) { return d.volume; });
+{% highlight js %}
+var volume = fc.series.bar()
+      .xScale(chart.xScale())
+      .yScale(volumeScale)
+      .yValue(function(d) { return d.volume; });
 
-  volumeContainer
-      .datum(data)
-      .call(volume);
+volumeContainer
+    .datum(data)
+    .call(volume);
+{% endhighlight %}
 
-```
+<iframe src='http://bl.ocks.org/ColinEberhardt/raw/c806028e47281b8dbb1d/' width='100%' height='300px'></iframe>
 
-# Coloring the volume bars
+<small>View the [full code for this example](http://bl.ocks.org/ColinEberhardt/c806028e47281b8dbb1d) via D3 bl.ocks.</small>
 
-Just decorate
+## Coloring the volume bars
 
-```
+Just decorate ...
+
+{% highlight js %}
 var volume = fc.series.bar()
         .xScale(chart.xScale())
         .yScale(volumeScale)
@@ -260,6 +279,11 @@ var volume = fc.series.bar()
                     return d.close > d.open ? 'red' : 'green';
                 });
         });
-```
+{% endhighlight %}
+
+## Wrap up
+
+This concludes part one of my two-part series ...
+
 
 
