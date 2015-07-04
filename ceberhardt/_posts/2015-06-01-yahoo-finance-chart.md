@@ -12,9 +12,13 @@ iframe {
 
 Most charting libraries are monoliths. The more features they support, the more unwieldy their APIs tend to become. With the [d3fc](http://scottlogic.github.io/d3fc/) project we have been exploring an alternative approach, constructing charts from a set of small components, using the D3 library.
 
-In this post I want to demonstrate the power of both d3fc and D3 by re-creating the [rather complex Yahoo Finance chart](http://finance.yahoo.com/echarts?s=yhoo+Interactive#{"showEma":true,"emaColors":"#cc0000","emaPeriods":"50","emaWidths":"1","emaGhosting":"0","range":"5d","allowChartStacking":true}). Creating a pixel-perfect recreation of this chart with any monolithic charting library would be a significant challenge (if not impossible). With d3fc it is surprisingly simple!
+In this post I want to demonstrate the power of both d3fc and D3 by re-creating the [rather complex Yahoo Finance chart](http://finance.yahoo.com/echarts?s=yhoo+Interactive#{"showEma":true,"emaColors":"#cc0000","emaPeriods":"50","emaWidths":"1","emaGhosting":"0","range":"5d","allowChartStacking":true}). 
 
-This post takes a step-by-step approach to recreating the Yahoo Finance chart.
+<img src="{{ site.github.url }}/ceberhardt/assets/yahoo-finance.png" />
+
+Creating a pixel-perfect recreation of this chart with any monolithic charting library would be a significant challenge (if not impossible). With d3fc it is surprisingly simple!
+
+This post takes a step-by-step approach to demonstrate how the Yahoo Finance chart can be faithfully recreated.
 
 ## Rendering a simple chart
 
@@ -301,7 +305,7 @@ The chart is now starting to look quite like the Yahoo Finance chart:
 
 ## Conclusions
 
-In this blog post you've seen how d3fc components can be assembled, configured and decorated to recreate a relatively complex financial chart. Although it is not complete yet!
+In this blog post you've seen how d3fc components can be assembled, configured and decorated to recreate a relatively complex financial chart, although it is not complete yet!
 
 In the second blog post in this series I'll show how d3fc legend and crosshair components can be added to provide some interactivity, and how to create a custom discontinuity provider!
 
