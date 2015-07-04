@@ -240,7 +240,7 @@ var layout = fc.layout();
 container.layout();
 {% endhighlight %}
 
-Rather than append a `g` element directly into the container, it is appended within a data join enter selection. This ensures that only a single element is added regardless of how many times the `renderChart` function is called. Whilst not strictly needed for this example it is good practice.
+Rather than append a `g` element directly into the container, it is appended within a data join enter selection. This ensures that only a single element is added regardless of how many times the `renderChart` function is called.
 
 The above example is a relatively simple layout, for a more complex example [pop over to the d3fc website](http://scottlogic.github.io/d3fc/components/layout/layout.html).
 
@@ -273,24 +273,39 @@ This results in the following chart:
 
 ## Coloring the volume bars
 
-Just decorate ...
+The final step in this example is to colour each bar of the volume chart based on whether the price has risen or fallen within the time period represented by the given bar.
+
+Once again decorate is employed:
 
 {% highlight js %}
 var volume = fc.series.bar()
-        .xScale(chart.xScale())
-        .yScale(volumeScale)
-        .yValue(function(d) { return d.volume; })
-        .decorate(function(sel) {
-            sel.select('path')
-                .style('stroke', function(d, i) {
-                    return d.close > d.open ? 'red' : 'green';
-                });
-        });
+    .xScale(chart.xScale())
+    .yScale(volumeScale)
+    .yValue(function(d) { return d.volume; })
+    .decorate(function(sel) {
+      sel.enter()
+          .select('path')
+          .style('stroke', function(d, i) {
+            return d.close > d.open ? 'red' : 'green';
+          });
+    });
 {% endhighlight %}
 
-## Wrap up
+If you look at the SVG elements constructed for a bar series you will find that each bar is constructed from a `g` element containing a single `path`. The decorate function above uses the enter selection, which contains these `g` elements, selects the nested path and applies a suitable stroke colour based on the direction of price movement.
 
-This concludes part one of my two-part series ...
+The chart is now starting to look quite like the Yahoo Finance chart:
+
+<iframe src='http://bl.ocks.org/ColinEberhardt/raw/b46affe9af05aec55c67/' width='100%' height='300px'></iframe>
+
+<small>View the [full code for this example](http://bl.ocks.org/ColinEberhardt/b46affe9af05aec55c67) via D3 bl.ocks.</small> 
+
+## Conclusions
+
+In this blog post you've seen how d3fc components can be assembled, configured and decorated to recreate a relatively complex financial chart. Although it is not complete yet!
+
+In the second blog post in this series I'll show how d3fc legend and crosshair components can be added to provide some interactivity, and how to create a custom discontinuity provider!
+
+Regards, Colin E.
 
 
 
