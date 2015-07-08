@@ -365,4 +365,4 @@ arr.length = 10;
 
 ## Other gems
 
-Mozilla's developer blog has [a great post on arrow functions](https://hacks.mozilla.org/2015/06/es6-in-depth-arrow-functions/), which includes details of using `<--` as an official ES6 comment token. It is worth checking out the [whole blog series](https://hacks.mozilla.org/category/es6-in-depth/) too.
+Mozilla's developer blog has [a great post on arrow functions](https://hacks.mozilla.org/2015/06/es6-in-depth-arrow-functions/), which includes details of using `<!--` as an official ES6 comment token. It is worth checking out the [whole blog series](https://hacks.mozilla.org/category/es6-in-depth/) too.
