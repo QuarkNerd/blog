@@ -305,9 +305,11 @@ The chart is now starting to look quite like the Yahoo Finance chart:
 
 ## Conclusions
 
-In this blog post you've seen how d3fc components can be assembled, configured and decorated to recreate a relatively complex financial chart, although it is not complete yet!
+In this blog post you've seen how d3fc components can be assembled, configured and decorated to recreate a relatively complex financial chart, although it is not complete just yet.
 
-In the second blog post in this series I'll show how d3fc legend and crosshair components can be added to provide some interactivity, and how to create a custom discontinuity provider!
+In my next post I'll show how d3fc legend and crosshair components can be added to provide some interactivity, and how to create a custom discontinuity provider!
+
+Until then, if you have any questions about d3fc or this example, get in touch either via the comments field below, or [via the GitHub project](https://github.com/ScottLogic/d3fc).
 
 Regards, Colin E.
 
