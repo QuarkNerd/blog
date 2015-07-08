@@ -15,8 +15,9 @@ module.exports = function(grunt) {
         'scripts/disqus-comment-count.js',
         'scripts/modernizr.custom.js',
         'scripts/app.js',
-        'less/twitter-bootstrap/js/bootstrap-transition.js',
-        'less/twitter-bootstrap/js/bootstrap-carousel.js'
+        'scripts/carousel.js',
+        'node_modules/bootstrap/js/carousel.js',
+        'node_modules/bootstrap/js/transition.js'
       ],
       jsDest: 'script.js',
     },

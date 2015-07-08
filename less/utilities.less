@@ -3,6 +3,15 @@ img.aligncenter {
   margin: 0 auto;
 }
 
-.container.wide {
-  width: 1140px;
+// A container that spans full screen and removes spacing from columns & rows.
+.container.full-screen {
+  padding: 0px;
+
+  .row {
+    margin: 0px;
+  }
+
+  [class*="col-"] {
+    padding: 0px;
+  }
 }

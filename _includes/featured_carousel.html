@@ -1,73 +1,43 @@
-<div id="featuredCarousel" class="featuredCarousel carousel slide hidden-small">
-  {% comment %} Render the carousel panels but only FULL panels (there's probably a nicer way...) {% endcomment %}
-  {% assign featuredPosts = include.featuredPosts %}
-  {% comment %} Limit number of posts to `maxPosts`. {% endcomment %}
-  {% assign maxPosts = include.maxPosts %}
-  {% assign numPosts = featuredPosts | size %}
-  {% if numPosts > maxPosts %}
-    {% assign numPosts = maxPosts %}
-  {% endif %}
-  {% comment %} Rounding hack of -1, patches welcome! {% endcomment %}
-  {% assign modulo = numPosts | minus: 1 | modulo: 5 %}
-  {% assign count = numPosts | minus: modulo | divided_by: 5 %}
-  <div class="carousel-inner">
-    {% for i in (0..count) %}
-    <div class="item {% if forloop.first %} active{% endif %}">
-      <div class="row">
-        {% assign offset = i | times: 5 %}
-        {% include featured_carousel_column.html containerClasses="span3" numItems=2 showCaption=false maximumTitleWords=6 featuredPosts=featuredPosts%}
-        {% assign offset = offset | plus: 2 %}
-        {% include featured_carousel_column.html containerClasses="span6" numItems=1 showCaption=true maximumTitleWords=10 featuredPosts=featuredPosts %}
-        {% assign offset = offset | plus: 1 %}
-        {% include featured_carousel_column.html containerClasses="span3" numItems=2 showCaption=false maximumTitleWords=6 featuredPosts=featuredPosts %}
+<div class="container hidden-xs">
+  <div class="row">
+    <div class="col-xs-12">
+      <div id="featuredCarousel" class="featuredCarousel carousel slide">
+        {% assign featuredPosts = include.featuredPosts %}
+        {% assign maxPosts = include.maxPosts %}
+        {% assign numPosts = featuredPosts | size %}
+        {% if numPosts > maxPosts %}
+          {% assign numPosts = maxPosts %}
+        {% endif %}
+        {% assign modulo = numPosts | minus: 1 | modulo: 5 %}
+        {% assign count = numPosts | minus: modulo | divided_by: 5 %}
+        <div class="carousel-inner">
+          {% for i in (0..count) %}
+            {% assign offset = i | times: 5 %}
+            <div class="item {% if forloop.first %} active{% endif %}">
+                {% for post in featuredPosts limit:5 offset: offset %}
+                  {% include featured_carousel_cell.html post=post maximumTitleWords=3%}
+                {% endfor %}
+            </div>
+          {% endfor %}
+
+        </div>
+        {% if numPosts > 5 %}
+        <a class="left carousel-control" href="#featuredCarousel" data-slide="prev"><div class="arrow left"></div></a>
+        <a class="right carousel-control" href="#featuredCarousel" data-slide="next"><div class="arrow right"></div></a>
+        {% endif %}
       </div>
     </div>
-    {% endfor %}
   </div>
-  {% if numPosts > 5 %}
-  <a class="left carousel-control" href="#featuredCarousel" data-slide="prev"><div class="arrow left"></div></a>
-  <a class="right carousel-control" href="#featuredCarousel" data-slide="next"><div class="arrow right"></div></a>
-  {% endif %}
 </div>
-
-<div class="row featuredCarousel visible-small">
-  <div class="offset2 span8">
-    <div class="small-carousel carousel">
-      {% assign showPostSummary = true %}
-      {% for post in featuredPosts %}
-      <div class="carousel-content">
-
-          <a class="carousel-caption-container" href="{{ site.github.url }}{{ post.url }}">
-            <img src="{{ site.github.url }}/{{ post.image }}">
-            {% capture url %}{{ site.github.url }}{{ post.url }}{% endcapture %}
-            {% if post.oldlink %}
-              {% capture url %}{{ post.oldlink }}{% endcapture %}
-            {% endif %}
-            {% if post.originalArticleLink %}
-              {% assign url = post.originalArticleLink %}
-            {% endif %}
-            {% assign disqusID = post.url %}
-            {% if post.disqus-id %}
-              {% assign disqusID = post.disqus-id %}
-            {% endif %}
-            {% assign title = post.title %}
-            {% assign inverted = post.featured-overlay-inverted %}
-            {% assign black = post.featured-overlay-black %}
-            <div class="carousel-caption">
-              <h4>
-                  {% if post.title-short %}
-                  {{ post.title-short }}
-                  {% else %}
-                  {{ post.title | truncatewords: 6 }}
-                  {% endif %}
-              </h4>
-            </div>
-          </a>
-          {% include social.html %}
-          <cite>{{ post.image-attribution }}</cite>
-
+<div class="container full-screen visible-xs">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="small-carousel carousel">
+        {% assign showPostSummary = true %}
+        {% for post in featuredPosts %}
+            {% include featured_carousel_cell.html post=post maximumTitleWords=3%}
+        {% endfor %}
       </div>
-      {% endfor %}
     </div>
   </div>
 </div>

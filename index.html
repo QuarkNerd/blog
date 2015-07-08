@@ -6,44 +6,51 @@ summary: This blog is brought to you by Scott Logic's team of technical authors 
 ---
 
 <section id="home">
-  <div class="row">
-    <h1 class="offset2 span10 hidden-small">Blog</h1>
+  <div class="container">
+    <div class="row title-row hidden-xs">
+      <h1 class=" col-xs-12">Knowledge: Tech Blog</h1>
+    </div>
+    {% assign featuredPosts = site.tags.featured %}
+    {% include main_article.html post=featuredPosts.first %}
   </div>
-  {% assign featuredPosts = site.tags.featured %}
   {% include featured_carousel.html maxPosts=10 featuredPosts=featuredPosts %}
 </section>
 
-<section class="row">
- <div class="offset2 span8">
-    <h2 class="hidden-small">Latest Articles</h2>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-offset-2 col-sm-10 col-xs-12">
+        <h2 class="visible-md">Latest Articles</h2>
 
-    {% comment %} This container is used by jScroll. When the next page is fetched, the contents of this div are added to the bottom of the page {% endcomment %}
-    <div class="blog-post-container">
-      <div class="content">
-        {% assign showPostSummary = true %}
-        {% assign showAuthorInfo = true %}
-        {% for post in paginator.posts %}
-          {% include post_summary.html %}
-        {% endfor %}
+        {% comment %} This container is used by jScroll. When the next page is fetched, the contents of this div are added to the bottom of the page {% endcomment %}
+        <div class="blog-post-container">
+          <div class="content">
+            {% assign showPostSummary = true %}
+            {% assign showAuthorInfo = true %}
+            {% for post in paginator.posts %}
+              {% include post_summary.html %}
+            {% endfor %}
 
-        {% if paginator.total_pages > 1 %}
-        <div class="pagination">
-          {% if paginator.previous_page %}
-            {% if paginator.page == 2 %}
-              <a href="{{ site.github.url }}/">&laquo; Prev</a>
-            {% else %}
-              <a href="{{ site.github.url }}/page{{ paginator.previous_page }}/">&laquo; Prev</a>
+            {% if paginator.total_pages > 1 %}
+            <div class="pagination">
+              {% if paginator.previous_page %}
+                {% if paginator.page == 2 %}
+                  <a href="{{ site.github.url }}/">&laquo; Prev</a>
+                {% else %}
+                  <a href="{{ site.github.url }}/page{{ paginator.previous_page }}/">&laquo; Prev</a>
+                {% endif %}
+              {% else %}
+                <span>&laquo; Prev</span>
+              {% endif %}
+              {% if paginator.next_page %}
+                <a class="next" href="{{ site.github.url }}/page{{ paginator.next_page }}/">Next &raquo;</a>
+              {% else %}
+                <span class="next">Next &raquo;</span>
+              {% endif %}
+            </div>
             {% endif %}
-          {% else %}
-            <span>&laquo; Prev</span>
-          {% endif %}
-          {% if paginator.next_page %}
-            <a class="next" href="{{ site.github.url }}/page{{ paginator.next_page }}/">Next &raquo;</a>
-          {% else %}
-            <span class="next">Next &raquo;</span>
-          {% endif %}
+          </div>
         </div>
-        {% endif %}
       </div>
     </div>
   </div>
