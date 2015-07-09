@@ -1,6 +1,7 @@
 {% assign post = include.post %}
-<div class="carousel-cell" data-article-link="{{ site.github.url }}{{ post.url }}">
-    <img src="{{ site.github.url }}/{{ post.image }}">
+<div class="carousel-cell"
+     data-article-link="{{ site.github.url }}{{ post.url }}"
+     style="background-image: url({{ site.github.url }}/{{ post.image }});">
     {% capture url %}{{ site.github.url }}{{ post.url }}{% endcapture %}
     {% if post.oldlink %}
     {% capture url %}{{ post.oldlink }}{% endcapture %}
