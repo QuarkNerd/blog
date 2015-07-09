@@ -1,0 +1,32 @@
+{% comment %} Always visible vertical list for larger screens. {% endcomment %}
+<div class="hidden-xs hidden-sm md-categories-menu">
+    <h3>Categories</h3>
+    <ul>
+        <li class="active"><span>Latest Articles</span></li>
+        <li><a>Languages</a></li>
+        <li><a>Web</a></li>
+        <li><a>Server</a></li>
+        <li><a>Desktop</a></li>
+        <li><a>Mobile</a></li>
+        <li><a>Frameworks</a></li>
+        <li><a>Processes</a></li>
+    </ul>
+</div>
+{% comment %} Drop down vertical list for smaller screens. {% endcomment %}
+<div class="hidden-md hidden-lg sm-categories-menu">
+    <h3>Categories<span class="visible-xs-inline-block visible-sm-inline-block">:</span></h3>
+    <div class="dropdown">
+        <h3>Latest Articles</h3>
+        <ul class="dropdown-menu">
+            <div class="nav-arrow-up"></div>
+            <li><a>Latest Articles</a></li>
+            <li><a>Languages</a></li>
+            <li><a>Web</a></li>
+            <li><a>Server</a></li>
+            <li><a>Desktop</a></li>
+            <li><a>Mobile</a></li>
+            <li><a>Frameworks</a></li>
+            <li><a>Processes</a></li>
+        </ul>
+    </div>
+</div>

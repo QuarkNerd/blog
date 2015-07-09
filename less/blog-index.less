@@ -117,16 +117,83 @@
   }
 }
 
-.blog-post-container {
-  h2 {
-    margin-left: 20px;
-  }
-}
-
 // Pull author images closer to their articles.
 .imageContainer {
   img {
     float: right;
     margin-top: 25px;
+  }
+}
+
+// A vertical list for larger screens.
+@media (min-width: @screen-md-min) {
+  .md-categories-menu {
+    @menu-left-padding: 20px;
+
+    padding: 0px;
+    border-left: 1px solid #DDDEDD;
+    margin: 65px -15px 0px 15px;
+
+    h3 {
+      margin: 0px;
+      font-size: 16px;
+      padding-left: @menu-left-padding;
+    }
+
+    ul {
+      list-style-position: inherit;
+      list-style-type: none;
+      padding-left: 0;
+      margin: 0 0 0 -1px;
+    }
+
+    li {
+      padding-left: @menu-left-padding;
+      margin-bottom: 4px;
+      height: 18px;
+      border-left: 1px solid transparent;
+
+      &.active, &:hover {
+        color: #535252;
+        font-weight: 400;
+        border-left: 1px solid #000;
+      }
+    }
+
+    a {
+      color: #535252;
+      font-weight: 200;
+      text-decoration: none;
+    }
+  }
+}
+
+// A single line with a drop down list for smaller screens.
+@media (max-width: @screen-md-min) {
+  .sm-categories-menu {
+    margin: 20px 0px 25px 0px;
+
+    > h3 {
+      display: inline-block;
+      font-size: 16px;
+      font-weight: 300;
+      border-bottom: 1px solid #DDDEDD;
+      padding-right: 8px;
+    }
+
+    .dropdown {
+      display: inline-block;
+      margin-left: -2px;
+
+      h3 {
+        @selected-article-color: #3C3C3C;
+
+        color: @selected-article-color;
+        font-size: 24px;
+        font-weight: 200;
+        border-bottom: 1px solid @selected-article-color;
+        padding-bottom: 3px;
+      }
+    }
   }
 }
