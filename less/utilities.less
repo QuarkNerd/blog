@@ -21,3 +21,35 @@ img.aligncenter {
   font-size: @baseFontSize * 0.75;
   line-height: @baseLineHeight * 0.65;
 }
+
+.page-content-background {
+  background-image: url(assets/bg.png);
+  background-repeat: repeat-y;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -9999;
+  background-position-x: 70%;
+
+  // Offset vertically.
+  &.offset-y {
+    top: -170px;
+  }
+
+  &.mirror-h {
+    top: 480px;
+  }
+}
+
+// Horizontally mirror element.
+.mirror-h {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+
