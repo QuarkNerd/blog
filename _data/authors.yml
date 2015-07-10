@@ -44,13 +44,18 @@ authors:
         name: Colin Eberhardt
         email: ceberhardt@scottlogic.com
         gravatar: 458f2e0d08d4114f8b323798cfea141d
-        author-summary: A coding addict, dividing my time between iOS, C#, JavaScript and everything else. <br/><br/><a href="https://twitter.com/ColinEberhardt">@ColinEberhardt</a> <a href="https://plus.google.com/u/0/104181672098184856535" rel="author">Google+</a> <br/><br/>CTO @ <a href="http://www.shinobicontrols.com">ShinobiControls</a>
+        author-summary: A coding addict, dividing my time between iOS, C#, JavaScript and everything else. CTO @ <a href="http://www.shinobicontrols.com">ShinobiControls</a>
         feed-description: Colin Eberhardt's Technology Adventures
+        twitter-url: https://twitter.com/ColinEberhardt
+        twitter-handle: ColinEberhardt
+        google-plus-url: https://plus.google.com/u/0/104181672098184856535
     cprice:
         name: Chris Price
         email: cprice@scottlogic.com
         gravatar: b6fe36176ec7c9475374a5cd3b7bef1a
-        author-summary: <a href="https://twitter.com/100pxls">@100pxls</a><br/><a href="https://plus.google.com/u/0/114347034265773524402" rel="author">Google+</a>
+        twitter-url: https://twitter.com/100pxls
+        twitter-handle: 100pxls
+        google-plus-url: https://plus.google.com/u/0/114347034265773524402
     lpage:
         name: Luke Page
         gravatar: f40e61d9f159e1fd0cc70f1e717f6a7b
@@ -63,7 +68,9 @@ authors:
         name: Andrew Aylett
         email: aaylett@scottlogic.com
         gravatar: 279455275f7e4f69b0759fec26130c01
-        author-summary: '<a href="https://twitter.com/aaylett">Twitter: @aaylett</a><br/><a href="https://plus.google.com/117103827242094116619">Google+</a>'
+        twitter-url: https://twitter.com/aaylett
+        twitter-handle: aaylett
+        google-plus-url: https://plus.google.com/117103827242094116619
     rhendry:
         name: Ross Hendry
         email: rhendry@scottlogic.com
@@ -89,7 +96,10 @@ authors:
         name: Graham Odds
         email: godds@scottlogic.com
         gravatar: 3f5e6c753071c6a41f7f1dbb89daeb3b
-        author-summary: Designer and developer working across desktop, web and mobile, with a particular taste for data visualisation.<br/><a href="https://twitter.com/g_odds">@g_odds</a><br/><a href="https://plus.google.com/u/0/106838695703708413394" rel="author">Google+</a>
+        author-summary: Designer and developer working across desktop, web and mobile, with a particular taste for data visualisation.
+        twitter-url: https://twitter.com/g_odds
+        twitter-handle: g_odds
+        google-plus-url: https://plus.google.com/u/0/106838695703708413394
         feed-description: Graham Odds is a designer and developer working across desktop, web and mobile, with a particular taste for data visualisation.  He likes to educate coders about the concept of users and artists about the reality of technology, or just rant and rave at whoever will read his blog.
     isullivan:
         name: Ian Sullivan
@@ -125,13 +135,17 @@ authors:
         name: Simon Duncan
         email: sduncan@scottlogic.co.uk
         gravatar: 0f765c3e99ff8441cf0d0f60aed9634b
-        author-summary: UX designer. Arduino & physical computing enthusiast. Likes hip hop and 30 minute drone pieces.<br/><br/><a href="https://twitter.com/simonduncan">@simonduncan</a>
+        author-summary: UX designer. Arduino & physical computing enthusiast. Likes hip hop and 30 minute drone pieces.
+        twitter-url: https://twitter.com/simonduncan
+        twitter-handle: simonduncan
         feed-description: Simon Duncan is a UX designer, particularly interested in interaction design and information architecture. These are some of his thoughts.
     rwilliams:
         name: Robat Williams
         email: rwilliams@scottlogic.co.uk
         gravatar: b2e17d98db06119a53fffd5666848871
-        author-summary: <a href="https://twitter.com/_rwms">@_rwms</a><br/><a href="https://plus.google.com/u/0/111956836520400525467" rel="author">Google+</a>
+        twitter-url: https://twitter.com/_rwms
+        twitter-handle: _rwms
+        google-plus-url: https://plus.google.com/u/0/111956836520400525467
     amorgan:
         name: Adam Morgan
         email: amorgan@scottlogic.co.uk
@@ -146,7 +160,10 @@ authors:
         name: Daniel McNamee
         email: dmcnamee@scottlogic.com
         gravatar: a764bd37e5ba2ba9305fc4d0c8b67aa7
-        author-summary: Tester. Photographer. <br/><br/><a href="https://twitter.com/demcnamee">twitter</a><br/><a href="https://www.google.com/+DanielMcNamee">google+</a>
+        author-summary: Tester. Photographer.
+        twitter-url: https://twitter.com/demcnamee
+        twitter-handle: demcnamee
+        google-plus-url: https://www.google.com/+DanielMcNamee
         feed-description: Daniel is a senior test engineer and exponent of rapid software testing.
     dgorst:
         name: Dan Gorst
@@ -191,7 +208,9 @@ authors:
         name: Joe Bandenburg
         email: jbandenburg@scottlogic.co.uk
         gravatar: 785c4b4fe07574c8350791f355195f36
-        author-summary: Software engineer. <a href="https://twitter.com/joebandenburg">@joebandenburg</a>
+        author-summary: Software engineer.
+        twitter-url: https://twitter.com/joebandenburg
+        twitter-handle: joebandenburg
     wreilly:
         name: William Reilly
         email: wreilly@scottlogic.com
@@ -219,7 +238,11 @@ authors:
         name: Sam Davies
         email: sdavies@scottlogic.com
         gravatar: ddd6d3bac7772fa67fc5e312a18bdaec
-        author-summary: Writes and speaks a lot about mobile development. Author of <a href="http://shinobicontrols.com/ios8">iOS8 Day-by-Day</a>. Trombonist. <br/><br/><a href="https://twitter.com/iwantmyrealname">@iwantmyrealname</a> <a href="https://plus.google.com/+SamDavies_ActuallyMyRealName" rel="author">Google+</a> <br/><br/>Technical Evangelist @ <a href="http://www.shinobicontrols.com">shinobicontrols</a>
+        author-summary: Writes and speaks a lot about mobile development. Author of <a href="http://shinobicontrols.com/ios8">iOS8 Day-by-Day</a>. Trombonist. <br/><br/>Technical Evangelist @ <a href="http://www.shinobicontrols.com">shinobicontrols</a>
+        twitter-url: https://twitter.com/iwantmyrealname
+        twitter-handle: iwantmyrealname
+        google-plus-url: https://plus.google.com/+SamDavies_ActuallyMyRealName
+
     wloveland:
         name: Will Loveland
         email: wloveland@scottlogic.com

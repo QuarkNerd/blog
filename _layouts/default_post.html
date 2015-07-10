@@ -1,56 +1,49 @@
 ---
 layout: default
 ---
-{% assign author = site.data.authors.authors[page.author] %}
-<article class="row blog-post-container">
-  <header class="offset2 span8">
-    <h1>
-      {{ page.title }}
-    </h1>
-  </header>
-  <aside class="span2 author">
-    {% if page.author == "labs" %}
-    {% else %}
-    <div class="asideContainer">
-      {% if author.gravatar %}
-      <img src="//www.gravatar.com/avatar/{{ author.gravatar }}" alt="{{ author.name }}" class="img-circle hidden-small" />
-      {% else %}
-      <img src="{{ site.github.url }}/images/avatar.png" alt="{{ author.name }}" class="img-circle hidden-small" />
-      {% endif %}
-      <a class="authorName" href="{{ site.github.url }}/{{ page.author }}"><span><span class="visible-small">by </span>{{ author.name }}</span></a>
-      {% if author.author-summary %}
-      <div class="authorSummary hidden-small">{{ author.author-summary }}</div>
-      {% endif %}
-      <div class="sub  hidden-small">
-        <strong>Published</strong>
-        <div>{{ page.date | date: "%d %b %Y" }}</div>
-      </div>
-      {% capture url %}{{ site.github.url }}{{ page.url }}{% endcapture %}
-      {% if page.oldlink %}
-        {% capture url %}{{ page.oldlink }}{% endcapture %}
-      {% endif %}
-      {% if page.originalArticleLink %}
-        {% assign url = page.originalArticleLink %}
-      {% endif %}
+<article class="container">
+  <div class="row">
+    <div class="col-md-2 visible-md visible-lg">
 
-      {% assign disqusID = page.url %}
-      {% if page.disqus-id %}
-        {% assign disqusID = page.disqus-id %}
-      {% endif %}
-
-      {% assign title = page.title %}
-      {% include social.html %}
     </div>
-    {% endif %}
-  </aside>
-  <div class="span8">
-    {{ content }}
+    <div class="col-xs-12 col-md-8">
+      <header class="clearfix">
+        <h1>
+          {{ page.title }}
+        </h1>
+        <div class="secondary sub pull-left">{{ page.date | date: "%d %b %Y" }}</div>
+        <div class="secondary pull-right">{% include social.html %}</div>
+      </header>
+      {{ content }}
 
-    {% unless page.suppress-careers-add %}
-    {% include ads/careers.html %}
-    {% endunless %}
+      {% unless page.suppress-careers-add %}
+      {% include ads/careers.html %}
+      {% endunless %}
+    </div>
+    <aside class="col-md-2 visible-md visible-lg">
+      {% assign author = site.data.authors.authors[page.author] %}
+      {% unless page.author == "labs" %}
+      {% include author.html author=author %}
+      {% include author_post_list.html author=author skipPostTitled=page.title maxPosts=3 %}
+      {% endunless %}
+    </aside>
   </div>
 </article>
+
+{% capture url %}{{ site.github.url }}{{ page.url }}{% endcapture %}
+{% if page.oldlink %}
+{% capture url %}{{ page.oldlink }}{% endcapture %}
+{% endif %}
+{% if page.originalArticleLink %}
+{% assign url = page.originalArticleLink %}
+{% endif %}
+
+{% assign disqusID = page.url %}
+{% if page.disqus-id %}
+{% assign disqusID = page.disqus-id %}
+{% endif %}
+
+{% assign title = page.title %}
 
 {% comment %} Don't load Disqus comments for syndicated content. {% endcomment %}
 {% unless page.originalArticleLink %}
