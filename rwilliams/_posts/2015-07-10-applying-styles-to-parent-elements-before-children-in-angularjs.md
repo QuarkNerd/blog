@@ -19,6 +19,34 @@ Because post-link functions are run from the bottom up (as Angular traverses bac
 
 To avoid this issue, we can create a custom directive that applies the styles in the pre-link function. These functions are run top-down, so the styles will be applied to the parent element before the descendants link. Here's our new directive:
 
+{% highlight javascript %}
+app.directive('slngStylePrelink', function() {
+    return {
+        compile: function() {
+            return {
+                pre: function($scope, element, attr) {
+
+                    // from angular.js 1.4.1
+                    function ngStyleWatchAction(newStyles, oldStyles) {
+                        if (oldStyles && (newStyles !== oldStyles)) {
+                            forEach(oldStyles, function(val, style) {
+                                element.css(style, '');
+                            });
+                        }
+                        if (newStyles) element.css(newStyles);
+                    }
+
+                    $scope.$watch(attr.slngStylePrelink, ngStyleWatchAction, true);
+
+                    // Run immediately, because the watcher's first run is async
+                    ngStyleWatchAction($scope.$eval(attr.slngStylePrelink));
+                }
+            };
+        }
+    };
+});
+{% endhighlight %}
+
 The only other difference compared to [ng-style](https://github.com/angular/angular.js/blob/v1.4.1/src/ng/directive/ngStyle.js) is that we're calling `ngStyleWatchAction` directly in the post-link function, rather than relying on the `$watch`'s first run to apply the initial styles. This is because that first run is asynchronous.
 
 After replacing `ng-style` with `sl-ng-style-prelink` in our view, the grid now renders correctly within the container:
