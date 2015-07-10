@@ -5,7 +5,7 @@ layout: default_post
 summary: Sizing advanced components such as grids using ng-style can leave you with rendering problems. Here, I create a variant of ng-style with some small tweaks to avoid this problem.
 ---
 
-The ng-style directive is used to apply inline styles to an element. Using it to apply a width and a height to an element containing a ui-grid will cause the grid to be incorrectly sized. The container element is the one with the red border below.
+The ng-style directive is used to apply inline styles to an element. Using it to apply a width and a height to an element containing a [ui-grid](http://ui-grid.info/) will cause the grid to be incorrectly sized. The container element is the one with the red border below.
 
 This problem can occur when any advanced component that does some internal programmatic styling is used as a descendant of an ng-styled element. It's caused by the container element not having its styles applied when the grid is initialised, due to the order in which Angular runs the different initialisation phases of directives.
 
@@ -17,10 +17,10 @@ Because post-link functions are run from the bottom up (as Angular traverses bac
 
 To avoid this issue, we can create a custom directive that applies the styles in the pre-link function. These functions are run top-down, so the styles will be applied to the parent element before the descendants link. Here's our new directive:
 
-The only other difference compared to ng-style is that we're calling ngStyleWatchAction directly in the post-link function, rather than relying on the $watch's first run to apply the initial styles. This is because that first run is asynchronous.
+The only other difference compared to [ng-style](https://github.com/angular/angular.js/blob/v1.4.1/src/ng/directive/ngStyle.js) is that we're calling `ngStyleWatchAction` directly in the post-link function, rather than relying on the `$watch`'s first run to apply the initial styles. This is because that first run is asynchronous.
 
-After replacing ng-style with sl-ng-style-prelink in our view, the grid now renders correctly within the container:
+After replacing `ng-style` with `sl-ng-style-prelink` in our view, the grid now renders correctly within the container:
 
-Take a look at this Plunker for the surrounding code and live demo.
+Take a look at [this Plunker](http://plnkr.co/edit/67VByRQK65GoLdAlkZb2?p=preview) for the surrounding code and live demo.
 
 I've only encountered this problem when using ng-style, but there will be cases where the same behaviour of directives such as ng-class cause the same problem. I don't see a reason why the shipped versions of these directives couldn't work in the way described in this post.
