@@ -7,6 +7,9 @@ categories:
 tags: 
 layout: default_post
 summary: A look at some of the more unusual parts of JavaScript by examining seven things I've learnt recently.
+image: lpage/assets/featured/javascript.jpg
+tags:
+  - featured
 ---
 
 Over the last couple of months I've made a few enhancements to JSHint, mainly as a way of learning ES6
