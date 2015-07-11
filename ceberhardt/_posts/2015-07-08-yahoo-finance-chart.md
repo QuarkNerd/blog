@@ -1,7 +1,13 @@
 ---
 author: ceberhardt
 title: Creating a Yahoo Finance chart with D3 and d3fc
+title-short: Charting with D3 and d3fc
 layout: default_post
+summary: Most charting libraries are monoliths. The more features they support, the more unwieldy their APIs tend to become. With the d3fc project we have been exploring an alternative approach, constructing charts from a set of small components, using the D3 library.
+summary-short: Exploring the d3fc component approach to building charts.
+image: ceberhardt/assets/featured/yahoo.png
+tags:
+  - featured
 ---
 
 <style>
