@@ -1,15 +1,25 @@
+{% assign showPostSummary = include.showPostSummary %}
+{% assign suppressSocialLinks = include.suppressSocialLinks %}
+{% assign showAuthorInfo = include.showAuthorInfo %}
+{% assign postDetailLimit = include.postDetailLimit %}
+{% assign showTechs = include.showTechs %}
+{% assign suppressPostDate = include.suppressPostDate %}
+{% assign post = include.post %}
+{% assign author = site.data.authors.authors[post.author] %}
+
 <article class="summary row">
+  {% if showAuthorInfo %}
   <div class="hidden-xs hidden-sm col-md-2 imageContainer">
-    {% assign author = site.data.authors.authors[post.author] %}
-    {% if showAuthorInfo %}
+
     {% if author.gravatar %}
     <img src="//www.gravatar.com/avatar/{{ author.gravatar }}" alt="{{ author.name }}" class="img-circle hidden-small" />
     {% else %}
     <img src="{{ site.github.url }}/images/avatar.png" alt="{{ author.name }}" class="img-circle hidden-small" />
     {% endif %}
-    {% endif %}
+
   </div>
-  <div class="col-sm-12 col-md-10">
+  {% endif %}
+  <div class="col-sm-12 {% if showAuthorInfo %}col-md-10{% else %}col-md-12{% endif %}">
     <header>
       {% if showTechs %}
         <div style="float: right;margin-top: 5px;">
@@ -61,9 +71,7 @@
 
     {% if suppressSocialLinks %}
     {% else %}
-    {% assign inverted = false %}
-    {% assign black = false %}
-    {% include social.html %}
+    {% include social.html black=false invered=false %}
     {% endif %}
   </div>
 </article>

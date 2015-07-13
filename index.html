@@ -12,7 +12,20 @@ summary: This blog is brought to you by Scott Logic's team of technical authors 
     {% assign featuredPosts = site.tags.featured %}
     {% include main_article.html post=featuredPosts.first %}
   </div>
-  {% include featured_carousel.html maxPosts=10 featuredPosts=featuredPosts %}
+  <div class="container hidden-xs">
+    <div class="row">
+      <div class="col-xs-12">
+        {% include featured_carousel.html maxPosts=10 featuredPosts=featuredPosts %}
+      </div>
+    </div>
+  </div>
+  <div class="container full-screen visible-xs">
+    <div class="row">
+      <div class="col-xs-12">
+        {% include featured_carousel_mobile.html featuredPosts=featuredPosts %}
+      </div>
+    </div>
+  </div>
 </section>
 
 <section>
@@ -25,11 +38,8 @@ summary: This blog is brought to you by Scott Logic's team of technical authors 
         <h2 class="visible-md visible-lg col-md-offset-2">Latest Articles</h2>
         {% comment %} This container is used by jScroll. When the next page is fetched, the contents of this div are added to the bottom of the page {% endcomment %}
         <div class="content">
-          {% assign showPostSummary = true %}
-          {% assign showAuthorInfo = true %}
-          {% for post in paginator.posts %}
-            {% include post_summary.html %}
-          {% endfor %}
+
+          {% include post_list.html showPostSummary=true showAuthorInfo=true posts=paginator.posts postDetailLimit=20 %}
 
           {% if paginator.total_pages > 1 %}
           <div class="pagination">
