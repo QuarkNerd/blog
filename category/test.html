@@ -1,0 +1,10 @@
+---
+layout: default
+title: Test
+---
+
+
+{% include featured_header.html %}
+
+{% assign posts = site.categories["test"] %}
+{% include blog_index.html posts=posts paginate=false postsHeader="Test" categoryIndex=16 %}

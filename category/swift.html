@@ -1,0 +1,10 @@
+---
+layout: default
+title: Swift
+---
+
+
+{% include featured_header.html %}
+
+{% assign posts = site.categories["swift"] %}
+{% include blog_index.html posts=posts paginate=false postsHeader="Swift" categoryIndex=11 %}

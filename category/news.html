@@ -1,0 +1,10 @@
+---
+layout: default
+title: News
+---
+
+
+{% include featured_header.html %}
+
+{% assign posts = site.categories["News"] %}
+{% include blog_index.html posts=posts paginate=false postsHeader="News" categoryIndex=9 %}
