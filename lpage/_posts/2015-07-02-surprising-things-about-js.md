@@ -269,7 +269,7 @@ let func = function func() {
 }
 {% endhighlight %}
 
-Which means we are accessing `func` in the temporal dead zone (TDZ), which is a syntax error.
+Which means we are accessing `func` in the temporal dead zone (TDZ), which is a reference error.
 
 ## Same name parameters
 
@@ -311,13 +311,13 @@ if (Symbol !== "undefined") {
 }
 {% endhighlight %}
 
-But now this only works if you have not declared the variable using let or const. This because of the TDZ, which makes it a syntax error to access the variable before declaration. Essentially the variable is hoisted to the beginning of the block, but it is a syntax error to access it. In JSHint's scope manager I have to record usages of a variable, then if it is declared as a `let` or `const` within the current block or parent blocks, it is a syntax error. If it is declared by a var statement it is valid but a JSHint warning and if it is not declared it is using a global and possibly a different warning.
+But now this only works if you have not declared the variable using let or const. This because of the TDZ, which makes it a reference error to access the variable before declaration. Essentially the variable is hoisted to the beginning of the block, but it is a reference error to access it. In JSHint's scope manager I have to record usages of a variable, then if it is declared as a `let` or `const` within the current block or parent blocks, it is a reference error. If it is declared by a var statement it is valid but a JSHint warning and if it is not declared it is using a global and possibly a different warning.
 
 {% highlight js %}
 if (typeof Symbol !== "undefined") {
   // Symbol is available
 }
-let Symbol = true; // causes a syntax error above
+let Symbol = true; // causes a reference error
 {% endhighlight %}
 
 ## new Array
