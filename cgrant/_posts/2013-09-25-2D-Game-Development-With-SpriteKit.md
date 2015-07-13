@@ -1,14 +1,15 @@
 ---
 author: cgrant
 title: 2D Game Development with SpriteKit
-image: "cgrant/assets/featured/FirstSquadron.png"
-tags: 
-categories: 
+image: cgrant/assets/featured/FirstSquadron.png
+tags: null
+categories: []
 summary: Explaining the very basics of getting a simple 2D fighter plane game up and running with SpriteKit
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2013/09/25/2D-Game-Development-With-SpriteKit.html
+oldlink: "http://www.scottlogic.com/blog/2013/09/25/2D-Game-Development-With-SpriteKit.html"
 disqus-id: /2013/09/25/2D-Game-Development-With-SpriteKit.html
 ---
+
 
 When Apple announced iOS 7 back in June at WWDC, they also announced a number of exciting new APIs for developers. The API that caught my attention the most was SpriteKit. This is a new 2D rendering engine built primarily for game development. It allows you to compile the same code for iOS and OSX, meaning with just a few tweaks you can build a game that is available on Mac, iPad, iPod and iPhone! Combine this with the new GameController API, the rumours of a new Apple TV and the rapid level of iOS 7 adoption and you have something pretty exciting!
 
@@ -173,3 +174,26 @@ If a missle collides with anything, we want to remove it, regardless of what it 
 	
 	
 If you have noticed any issues with the app or want to help develop it further, please raise an issue or create a pull request over at [GitHub](https://github.com/ChrisGrant/FirstSquadron "GitHub First Squadron Repository").
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,16 +1,16 @@
 ---
 author: lpage
-title: "How IE confuses JavaScript context when running in multiple windows"
+title: How IE confuses JavaScript context when running in multiple windows
 summary: "This is a blog post about IE and how it handles windows running code which interacts with each other. I've created a test case that shows IE combine together two stacks so that code runs in a context which, when looking at the source code, seems impossible."
 image: ""
-tags: 
+tags:
   - IE
   - popup windows
   - JavaScript
-categories: 
-  - lpage
+categories:
+  - JavaScript
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2014/10/20/ie-run-js-wrong-context.html
+oldlink: "http://www.scottlogic.com/blog/2014/10/20/ie-run-js-wrong-context.html"
 disqus-id: /2014/10/20/ie-run-js-wrong-context.html
 ---
 
@@ -184,3 +184,26 @@ I wonder whether IE is detecting the deadlock and resolving it manually or if it
 I wonder what happens if you extend this to 3 browser windows? Does IE crash or cope with it in the same way as above?
 
 As for firefox and chrome - it seems they must have something in them which stops setTimeouts from firing on the parent window until the child window is free. Does that mechanism kick in for any site that can access its opener or just when you access the opener? If its the former then opening any site on the same domain could end up locking your page if that child window locks.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

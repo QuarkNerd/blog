@@ -5,10 +5,11 @@ tags:
   - UX design
   - conferences
 categories:
-  - godds
+  - UX
+  - Events
 layout: default_post
 source: site
-oldlink: http://www.scottlogic.com/blog/2013/06/24/ux-scotland.html
+oldlink: "http://www.scottlogic.com/blog/2013/06/24/ux-scotland.html"
 disqus-id: /2013/06/24/ux-scotland.html
 ---
 Last week I spoke at and attended [UX Scotland 2013](http://uxscotland.net/), a new user experience design conference
@@ -77,3 +78,26 @@ actually made a lot of sense.
 Thank you to everyone who came along to [my talk](http://lanyrd.com/2013/uxscot/schcrf/)!  It was lovely that there were
  so many of you.  I hope it was useful to you in some way.  The presentation slides are available [here](http://godds.github.io/the-minds-eye)
  (Chrome, Safari and FF only!) and my accompanying notes and references are available [here](https://github.com/godds/the-minds-eye/blob/master/TheMindsEye.pdf).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

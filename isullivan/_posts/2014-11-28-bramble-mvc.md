@@ -1,10 +1,12 @@
 ---
 author: isullivan
-title: "Introducing (Another) New Static Site Generator"
+title: Introducing (Another) New Static Site Generator
 layout: default_post
 summary: "This post introduces 'Bramble MVC', a prototype static site generator which aims to be a little different from existing static site generators by having an API resembling a dynamic web server."
-oldlink: http://www.scottlogic.com/blog/2014/11/28/bramble-mvc.html
+oldlink: "http://www.scottlogic.com/blog/2014/11/28/bramble-mvc.html"
 disqus-id: /2014/11/28/bramble-mvc.html
+categories:
+  - Server
 ---
 
 This post introduces 'Bramble MVC', a prototype static site generator. It aims to be a little different from existing static site generators by having an API resembling a dynamic web server. Its API removes the need for excessive configuration and affords developers many of the same benefits that come from using a dynamic web server.
@@ -214,3 +216,26 @@ Conclusion
 The work is still a prototype; I haven't developed any large sites using it. I would be extremely interested to hear any comments about Bramble MVC or even general idea.
 
 Full source for a more in depth multi-user blog is [available on github](https://github.com/iansullivan88/bramble-mvc-example). The full source of [Bramble MVC](https://github.com/iansullivan88/bramble-mvc) is also available and accepting feature and pull requests.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

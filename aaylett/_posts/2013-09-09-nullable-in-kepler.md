@@ -2,15 +2,15 @@
 id: 161553
 author: aaylett
 title: "Eclipse Kepler and @Nullable"
-image: "aaylett/assets/featured/eclipse.jpg"
+image: aaylett/assets/featured/eclipse.jpg
 featured-overlay-inverted: true
-tags: 
+tags:
   - Eclipse
   - blog
-categories: 
-  - aaylett
+categories:
+  - Java
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2013/09/09/nullable-in-kepler.html
+oldlink: "http://www.scottlogic.com/blog/2013/09/09/nullable-in-kepler.html"
 disqus-id: /2013/09/09/nullable-in-kepler.html
 ---
 When Eclipse Juno came out last year, I was excited to see some support for
@@ -151,3 +151,26 @@ JSR-305 isn't widely supported.  How much tooling support do you need before
 using a feature like this?  Is it useful to add annotations that won't be
 statically verified by the compiler?  What about annotations that are only
 verified by your IDE and not by your regular build (or CI server)?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

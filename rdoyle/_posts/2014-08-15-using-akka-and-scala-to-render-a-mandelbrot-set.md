@@ -1,15 +1,17 @@
 ---
 author: rdoyle
-title: "Using Akka and Scala to Render a Mandelbrot Set"
+title: Using Akka and Scala to Render a Mandelbrot Set
 title-short: "Akka, Scala and the Mandelbrot Set"
 layout: default_post
-tags:
-image: "rdoyle/assets/featured/mandelbrot.jpg"
-summary: "Actor Models make writing concurrent and scalable software much easier. This post uses Akka and Scala to demonstrate some of the benefits of the Actor model."
+tags: null
+image: rdoyle/assets/featured/mandelbrot.jpg
+summary: Actor Models make writing concurrent and scalable software much easier. This post uses Akka and Scala to demonstrate some of the benefits of the Actor model.
 summary-short: Exploring the use of the Actor Model
 featured-overlay-inverted: true
-oldlink: http://www.scottlogic.com/blog/2014/08/15/using-akka-and-scala-to-render-a-mandelbrot-set.html
+oldlink: "http://www.scottlogic.com/blog/2014/08/15/using-akka-and-scala-to-render-a-mandelbrot-set.html"
 disqus-id: /2014/08/15/using-akka-and-scala-to-render-a-mandelbrot-set.html
+categories:
+  - Scala
 ---
 Writing software that is concurrent, scalable and fault-tolerant is hard. To achieve concurrency developers have to manage multiple threads, which can be tricky and error-prone. This post looks at how the Actor model makes it easier to write concurrent code. Specifically it renders a Mandelbrot Set using the Akka framework and investigates how Akka can be used with Scala to create highly concurrent and scalable systems.
 
@@ -301,3 +303,26 @@ Actor models make concurrent software much easier for developers to write, as th
 If you have a problem that can be parallelised then I would suggest you consider using an Actor model. The performance benefit can be substantial and the implementation is relatively straightforward. This benefit can be more substantial when used in a production environment when your program is not running on a multi-core processor but on multiple distributed servers.
 
 This post has only scratched the surface of the Actor model and Akka framework but hopefully you have seen their benefits. I would encourage you to try using an Actor model when you next get the chance.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,13 +1,12 @@
 ---
 author: aaylett
-title: "Iterating while counting"
-tags: 
+title: Iterating while counting
+tags:
   - blog
-categories: 
-  - aaylett
+categories: []
 layout: default_post
 source: site
-oldlink: http://www.scottlogic.com/blog/2013/12/05/counting-iterables.html
+oldlink: "http://www.scottlogic.com/blog/2013/12/05/counting-iterables.html"
 disqus-id: /2013/12/05/counting-iterables.html
 ---
 
@@ -172,3 +171,26 @@ public final class CountingIterator<T> implements Iterator<Counted<T>> {
 Again, the complete code (including test cases) is [on GitHub](https://github.com/andrewaylett/iterables).
 
 You'll see that most of the complexity, such as there is, is in the `next()` function -- up to that point, we're simply wrapping the existing objects.  This allows us to write as little code as possible.  If we were creating a number of custom iteration types, we could even abstract out the pattern of wrapping the existing `Iterator` into an abstract superclass.  That's probably overkill for most use-cases, but I think that thinking about it is a useful exercise in understanding how to apply the design pattern in more complicated (and possibly more useful) cases.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

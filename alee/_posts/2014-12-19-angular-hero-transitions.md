@@ -1,13 +1,17 @@
 ---
 author: alee
-title: Hero transitions in AngularJS 
-tags: 
-categories: 
-summary: How to create hero transitions with AngularJS, similar to those implemented by Google's Material Design and Polymer's core-animated-pages.
+title: Hero transitions in AngularJS
+tags: null
+categories:
+  - Mobile
+  - Android
+  - Web
+summary: "How to create hero transitions with AngularJS, similar to those implemented by Google's Material Design and Polymer's core-animated-pages."
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2014/12/19/angular-hero-transitions.html
+oldlink: "http://www.scottlogic.com/blog/2014/12/19/angular-hero-transitions.html"
 disqus-id: /2014/12/19/angular-hero-transitions.html
 ---
+
 
 *How to create hero transitions with [AngularJS](https://angularjs.org/), similar to those implemented by Google's Material Design and Polymer's [core-animated-pages](https://www.polymer-project.org/docs/elements/core-elements.html#core-animated-pages).*
 
@@ -143,3 +147,26 @@ Finally, the `transitionend` events fire for all the Hero elements, and `hero-tr
 While I've been building the `angular-hero` component, I've learned a lot about CSS transitions generally and Angular animations in particular. It's surprisingly easy to do and can help build an engaging user experience. 
 
 Hopefully you can find a use for it too. Hero transitions in Angular are easy with `angular-hero`.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

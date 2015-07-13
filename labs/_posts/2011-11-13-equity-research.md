@@ -2,14 +2,15 @@
 author: labs
 title: Equity Research
 oldlink: "http://www.scottlogic.co.uk/labs/market-overview/"
-tags: 
+tags: null
 techs:
- - flex
- - html5
+  - flex
+  - html5
 layout: default_post
 source: scottlogic
-summary: Equity Research is a research portal web application providing intra-day and end-of-day UK equity data for companies, sectors and indices.
+summary: "Equity Research is a research portal web application providing intra-day and end-of-day UK equity data for companies, sectors and indices."
 disqus-id: /labs/market-overview/
+categories: []
 ---
 ##Motivation
 
@@ -46,5 +47,28 @@ An auto-completing quick-search facility can be found on every screen in the Mar
 Throughout the application we have made extensive use of [Edward Tufte's](http://www.edwardtufte.com/tufte/) [sparkline](http://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0001OR) concept because of their ability to convey significantly more contextual information than the traditional up-down trend arrows in a similar amount of screen space. As well as showing current performance, they highlight recent highs and lows and allow for 'at a glance' comparison of trends between stocks without the need for charting.
 
 ![Sparklines]({{ site.github.url }}/labs/assets/sparklines.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

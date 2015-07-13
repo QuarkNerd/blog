@@ -2,11 +2,11 @@
 author: cprice
 title: "ELK - 3 things I wish I'd known"
 categories:
- - cprice
-tags:
+  - NoSQL
+tags: null
 layout: default_post
 suppress-careers-add: true
-oldlink: http://www.scottlogic.com/blog/2014/12/19/elk-3-things-i-wish-id-known.html
+oldlink: "http://www.scottlogic.com/blog/2014/12/19/elk-3-things-i-wish-id-known.html"
 disqus-id: /2014/12/19/elk-3-things-i-wish-id-known.html
 ---
 
@@ -131,3 +131,26 @@ The above configuration defines the main field as an ```analyzed``` field and th
 # You know, for logs
 
 The ELK stack is an incredibly powerful tool which really can revolutionise how logs are *viewed*. Awful puns aside, it's a powerful and versitile stack that can seriously optimise the workload of operations, and at the same time expose fresh insights to business.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

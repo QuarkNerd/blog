@@ -1,14 +1,15 @@
 ---
 author: aaiken
-title: "A Bollinger Bands Component for D3 Charts"
+title: A Bollinger Bands Component for D3 Charts
 summary: "In my last article (on line annotation components for D3 charts), I created a D3 component which calculated and displayed a moving average. As promised, I'm now turning my attention to Bollinger Bands."
 image: aaiken/assets/featured/bollinger.png
-tags: 
+tags:
   - d3
-categories: 
-  - aaiken
+categories:
+  - D3
+  - Charting
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2014/08/28/bollinger.html
+oldlink: "http://www.scottlogic.com/blog/2014/08/28/bollinger.html"
 disqus-id: /2014/08/28/bollinger.html
 ---
 In my last article (on [line annotation components]({{ site.github.url }}/2014/08/26/two-line-components-for-d3-charts.html) for D3 charts), I created a component which calculated and displayed a moving average. As promised, I'm now turning my attention to [Bollinger Bands](http://en.wikipedia.org/wiki/Bollinger_Bands).
@@ -295,3 +296,26 @@ I'm pretty happy with this component - it works really well and it's reasonably 
 ## Conclusion
 
 In this article I've taken the moving average component I developed in [my previous article]({{ site.github.url }}/2014/08/26/two-line-components-for-d3-charts.html) and used it as the basis for a Bollinger Bands component. The new component is very easy to configure and style.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

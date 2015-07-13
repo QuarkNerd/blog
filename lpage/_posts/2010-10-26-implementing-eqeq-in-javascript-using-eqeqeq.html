@@ -3,12 +3,12 @@ id: 73642
 author: lpage
 title: Implementing eqeq in JavaScript using eqeqeq
 oldlink: "http://www.scottlogic.co.uk/2010/10/implementing-eqeq-in-javascript-using-eqeqeq/"
-tags: 
+tags:
   - Javascript
   - eqeqeq
   - blog
-categories: 
-  - lpage
+categories:
+  - JavaScript
 layout: default_post
 source: site
 disqus-id: /2010/10/implementing-eqeq-in-javascript-using-eqeqeq/
@@ -193,3 +193,26 @@ var Equals = function(x, y) {
 <tbody></tbody>
 </table>
 <p><script type="text/javascript"><!--//TypeOf = function (o) {	if (o === null)		return "null";	if  (typeof(o) === "function")		return "object";	return typeof(o);};ToPrimitive = function(o) {    var primitive,        funcCalls,        funcName,        i;    if  (typeof(o) === "object") {        if  (o instanceof Date) {            funcCalls = ["toString", "toValue"];        } else {            funcCalls = ["toValue", "toString"];        }        for(i = 0; i < funcCalls.length; i++) {            funcName = funcCalls[i];            if (typeof(o[funcName]) == "function") {                primitive = o[funcName]();                if  (typeof(primitive) === "string" ||                     typeof(primitive) === "number" ||                     typeof(primitive) === "boolean") {                    return primitive;                }            }         }        throw new Error("Cannot retrieve DefaultValue of Object");    }    return o;};Equals = function(x, y) {	var typeX = TypeOf(x),	    typeY = TypeOf(y);	if  (typeX === typeY) { // Step 1		// Steps 2->13 now covered by === since null is of type "null"		return x === y; // Step 13:	}	//Step 14, 15	if  ((x === null || y === null) && 	     (x === undefined || y === undefined)) {		return true;	}	//Step 16	if  (typeX === "number" && typeY === "string") {		return Equals(x, Number(y));	}	// Step 17	if  (typeX === "string" && typeY === "number") {		return Equals(Number(x), y);	}	//Step 18	if  (typeX === "boolean") {		return Equals(Number(x), y);	}	//Step 19	if  (typeY === "boolean") {		return Equals(x, Number(y));	}	//Step 20	if  ((typeX === "string" || typeX === "number") && typeY === "object") {		return Equals(x, ToPrimitive(y));	}	//Step 21	if  (typeX === "object" && (typeY === "string" || typeY === "number")) {		return Equals(ToPrimitive(x), y);	}	//Step 22.. Not convinced this will ever happen	return false;};String.prototype.trim = function () {    return this.replace(/^s*/, "").replace(/s*$/, "");}Tag = function(tag, end) {  return "< ".trim() + (end?"/" : "")+tag;}runUnitTests = function() {    var forUnitTests = $("#ForUnitTests tbody");    forUnitTests.empty();    $.each([                ["null", "undefined"],                ["undefined", "null"],                ["NaN", "NaN"],                ["Infinity", "Infinity"],                ["NaN", "null"],                ["""", "false"],                ["[0]", "0"],                ["[0]", "false"],                ["[1]", "true"],                ["[2]", "true"],                ["[1, 1]", "true"],                ["[1, 1]", ""1,1""],                ["1", ""1""],                ["[1]", ""1""],                ["["1"]", "1"],                ["["1"]", true],                ["false", ""false""],                ["true", ""true""],                [""1e10"", "10000000000"],                ["["1e0"]", "1"],                ["new Date(2000)", "new Date(2000)"],                ["new Date(2000)", "new Date(2000).toString()"],                ["new Date(2000)", "2000"],                ["{toString: function(){ return this; }}", """"]               ],        function(i, value) {            var expected, got;            try { expected = eval(value[0]) == eval(value[1]); } catch(e) { expected = "Exception"; }            try { got = Equals(eval(value[0]), eval(value[1]));} catch(e) { got = "Exception"; }	    $(Tag("tr")+">"+Tag("td")+">"+value[0] +" == " + value[1] + Tag("td", true)+">"+Tag("td")+">"+expected+Tag("td", true)+">"+Tag("td")+" style='color: "+((expected===got) ? "green" : "red")+"'>"+ got +Tag("td", true)+">"+Tag("tr", true)+">").appendTo(forUnitTests);	}    );    return false;};//--></script></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

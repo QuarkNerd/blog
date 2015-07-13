@@ -2,15 +2,17 @@
 author: labs
 title: Mobile Markets
 oldlink: "http://www.scottlogic.co.uk/labs/mobile-markets/"
-tags: 
+tags: null
 techs:
- - html5
- - ios
- - android
+  - html5
+  - ios
+  - android
 layout: default_post
 source: scottlogic
 summary: Mobile Markets brings intra-day and end-of-day UK equity data to your mobile. It supports browsing and searching as well as analytical functionality such as time-series charting.
 disqus-id: /labs/mobile-markets/
+categories:
+  - Mobile
 ---
 ##Motivation
 
@@ -31,3 +33,26 @@ To further improve the application feel of Mobile Markets, it makes use of the H
 A major feature of the Mobile Markets application is the use of the Scott Logic developed Closure Charts, a JavaScript charting component built on top of the Closure Library with an emphasis on cross-browser performance (including IE and mobile browsers). Closure Charts provides fully interactive charts with mouse and touch gesture interaction through optional modular plugins. For example, on devices running iOS, multi-touch gestures enable support for features such as pinch zooming.
 
 ![Fund Screener]({{ site.github.url }}/labs/assets/mobile_markets2.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

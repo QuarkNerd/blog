@@ -1,10 +1,13 @@
 ---
 author: sfoley
-title: "Does Scrum make the Project Manager role redundant?"
+title: Does Scrum make the Project Manager role redundant?
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2014/09/10/does-scrum-make-project-managers-redundant.html
+oldlink: "http://www.scottlogic.com/blog/2014/09/10/does-scrum-make-project-managers-redundant.html"
 disqus-id: /2014/09/10/does-scrum-make-project-managers-redundant.html
+categories:
+  - Agile
 ---
+
 This post will address a question that is often raised within organisations transitioning to Agile: is there a place for the Project Manager role when using Scrum on a project? This is a challenging question for IT departments that have historically relied on project managers to control their change portfolio, often trained in using an in-house methodology. Is all this to be rendered redundant by a move to Agile methods?
 
 At Scott Logic we run a lot of Agile projects and this question is asked regularly of us when we’re proposing a team structure for a new client project. In this post I’ll give my perspective on this based on our experience. We’ll focus on Scrum, but this discussion applies to projects run using any Agile method. At Scott Logic we have our own framework for Agile delivery, [Assured Agile](http://www.scottlogic.com/services/assured-agile), which I will refer to although no background knowledge is required!.
@@ -90,3 +93,26 @@ The combination can work, but it is important to note the differences in the rol
 ### Product Owner and Project Manager
 
 The Product Owner role has elements of overlap with project management. However, typically a Product Owner requires decision making authority for requirements and feature prioritisation, and a level of domain expertise, that Project Managers don't generally have. Conversely, many Product Owners are sourced from business departments and may not be able to bring the range of project management skills required. The combined role may therefore end up as second best hybrid of both roles. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

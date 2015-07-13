@@ -2,6 +2,7 @@
 author: cprice
 layout: default_post
 title: OAUTH2 Authentication with ADFS 3.0
+categories: []
 ---
 A quick run through of the steps involved in integrating a Node.js client with Active Directory Federation Services for authentication using OAUTH2.
 
@@ -161,3 +162,26 @@ When making the authorize request, you’ve not specified a resource parameter, 
 > HTTP error 503
 
 This normally meant I had a typo in the ```/adfs/oauth2/authorize``` or ```/adfs/oauth2/token``` URLs (don’t forget the 2).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

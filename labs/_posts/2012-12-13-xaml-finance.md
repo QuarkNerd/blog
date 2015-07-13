@@ -2,15 +2,16 @@
 author: labs
 title: XAML Finance
 oldlink: "http://www.scottlogic.co.uk/labs/xaml-finance/"
-tags: 
+tags: null
 techs:
- - silverlight
- - windows
- - wp7
+  - silverlight
+  - windows
+  - wp7
 layout: default_post
 source: scottlogic
-summary: XAML Finance is a cross-platform application for viewing and analysing FTSE 100 equities. The application is available on the desktop, web and mobile as a demonstration of cross-platform .NET development..
+summary: "XAML Finance is a cross-platform application for viewing and analysing FTSE 100 equities. The application is available on the desktop, web and mobile as a demonstration of cross-platform .NET development.."
 disqus-id: /labs/xaml-finance/
+categories: []
 ---
 ##Motivation
 It is becoming increasingly common for investment banks to deliver their research and trading applications across a range of platforms, from desktop, to web, to mobile. Ideally, a single codebase would be developed to cater for each platform, but due to differing development technologies this is infeasible.
@@ -40,5 +41,28 @@ The Windows Phone 7 version is the most distinct, closely following the Metro th
 ![XAML Finance]({{ site.github.url }}/labs/assets/xaml4.jpg)
 
 For a more technical discussion of the project, please read the [accompanying CodeProject article](http://www.codeproject.com/KB/windows-phone-7/XAMLFinance.aspx).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

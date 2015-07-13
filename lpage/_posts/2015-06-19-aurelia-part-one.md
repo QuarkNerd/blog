@@ -1,15 +1,16 @@
 ---
 author: lpage
-title: "Creating less2css using Aurelia"
+title: Creating less2css using Aurelia
 featured-overlay-inverted: true
 categories:
- - lpage
-tags: 
+  - HTML5
+  - Web
+  - CSS
+tags:
+  - featured
 layout: default_post
 summary: A walkthrough creating a project written using the new Aurelia and comparisons with Angular.
 image: lpage/assets/featured/aurelia.png
-tags:
-  - featured
 ---
 
 ###The Aurelia Story
@@ -321,3 +322,26 @@ You can see the work in progress [here](http://www.lesscss.org/less-preview) and
 On an external server without bundling, the site takes 12 seconds to load - please see [my next post for how I tackled bundling and how it effected performance]({{ site.github.url }}/2015/06/25/aurelia-part-two.html).
 
 In later posts I will look at binding the options panel and evaluating what I think of Aurelia.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

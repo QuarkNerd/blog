@@ -1,22 +1,23 @@
 ---
 author: sduncan
 title: "Intro to IxD: Affordance"
-image: "sduncan/assets/featured/2014-02-04-intro-to-ixd.jpg"
-summary: "Well designed objects and interfaces do not require lists of instructions. Why not?"
-summary-short: "Well designed objects and interfaces do not require lists of instructions. Why not?"
+image: sduncan/assets/featured/2014-02-04-intro-to-ixd.jpg
+summary: Well designed objects and interfaces do not require lists of instructions. Why not?
+summary-short: Well designed objects and interfaces do not require lists of instructions. Why not?
 tags:
   - interaction design
   - affordance
   - interface
   - ux design
 categories:
-  - sduncan
+  - UX
 layout: default_post
 source: site
 featured-overlay-inverted: true
-oldlink: http://www.scottlogic.com/blog/2014/02/04/intro-to-ixd.html
+oldlink: "http://www.scottlogic.com/blog/2014/02/04/intro-to-ixd.html"
 disqus-id: /2014/02/04/intro-to-ixd.html
 ---
+
 
 Don Norman, of MIT and the University of Pennsylvania is something of an interaction design and user experience figurehead. In his seminal book, The Design of Everyday Things, Norman (henceforth affectionately referred to as ‘The Don’) defines and describes one of the most fundamental concepts in interaction design: affordance.
 
@@ -134,4 +135,27 @@ Our cursor changes from a regular arrow to a pointer-finger; simultaneously, an 
 Leveraging our understanding of how real material/’content’ would appear if it was leaving our field of view/sight, these tiles continue off the viewport, hinting that there is more content to be had in that direction.  There are no explicit cues at work here; nothing is explicitly stating “Scroll to the right to discover more content”.  The tiles and their nested content being clipped by the edge of the viewport subconsciously imply this.
 
 Unlike the train toilet door, but like the push plate, these forms of digital interfaces afford; they do not insist. Breakdowns in interaction design often begin with a poor use of affordance. Forcing users to stop and consider how to achieve their task takes them away from their reasons for performing their task to begin with. Strong interaction design is born from a strong use of affordance. Affording users to subconsciously understand how while focusing on the more important what and why leads towards a positive experience.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

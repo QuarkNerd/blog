@@ -1,21 +1,21 @@
 ---
 author: soneill
-title: "Introducing the MEAN stack"
-summary: "Taking a look at a new fullstack Javascript web application framework."
-tags: 
+title: Introducing the MEAN stack
+summary: Taking a look at a new fullstack Javascript web application framework.
+tags:
   - mongo
   - express
   - angular
   - node
   - javascript
-image: "soneill/assets/featured/mean-carousel.png"
-categories: 
-  - soneill
+image: soneill/assets/featured/mean-carousel.png
+categories:
+  - Web
 layout: default_post
 source: site
-title-short: "MEAN.IO"
-summary-short: "An introduction to MEAN.IO"
-oldlink: http://www.scottlogic.com/blog/2014/11/21/introducing-the-mean-stack.html
+title-short: MEAN.IO
+summary-short: An introduction to MEAN.IO
+oldlink: "http://www.scottlogic.com/blog/2014/11/21/introducing-the-mean-stack.html"
 disqus-id: /2014/11/21/introducing-the-mean-stack.html
 ---
 
@@ -305,5 +305,28 @@ It should have also given you a taste of Angular.
 In the end, MEAN.IO is just a tool. If you require a fast, easy, simple way to create a modern, responsive, dynamic web site then MEAN.IO would be a great solution. If you've followed the steps this far, creating your responsive website only requires a quick `mean init ...`
 
 __Sean__
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

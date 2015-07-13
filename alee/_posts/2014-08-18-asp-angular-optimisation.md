@@ -1,13 +1,17 @@
 ---
 author: alee
 title: Asp.Net bundling of Angular templates
-tags: 
-categories: 
-summary: How to use Asp.Net's built-in bundling and optimisation feature to optimise AngularJS templates
+tags: null
+categories:
+  - HTML5
+  - .NET
+  - Server
+summary: "How to use Asp.Net's built-in bundling and optimisation feature to optimise AngularJS templates"
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2014/08/18/asp-angular-optimisation.html
+oldlink: "http://www.scottlogic.com/blog/2014/08/18/asp-angular-optimisation.html"
 disqus-id: /2014/08/18/asp-angular-optimisation.html
 ---
+
 
 How to use Asp.Net's built-in bundling and optimisation feature to optimise AngularJS templates.
 
@@ -183,3 +187,26 @@ The content of the download is JavaScript that inserts the specified templates i
 ###Conclusion
 
 Bundling and Optimisation are powerful features for improving the responsiveness of Asp.Net applications, without the need for a distribution build step. With a little extra effort, we've added Angular's templates to that process, and optimised six requests for HTML content into just one download.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

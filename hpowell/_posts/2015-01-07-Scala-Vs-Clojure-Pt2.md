@@ -1,13 +1,16 @@
 ---
 author: hpowell
 title: Reimplementing Scala assignments in Clojure
-title-short: "Scala vs. Clojure part 2"
+title-short: Scala vs. Clojure part 2
 layout: default_post
-summary: Now that I've completed the Scala MOOC I thought I'd go back and re-implement the assignments in Clojure to get a better understanding of the differences between these two languages
-summary-short: "Reimplementing Scala assignments in Clojure"
-oldlink: http://www.scottlogic.com/blog/2015/01/07/Scala-Vs-Clojure-Pt2.html
+summary: "Now that I've completed the Scala MOOC I thought I'd go back and re-implement the assignments in Clojure to get a better understanding of the differences between these two languages"
+summary-short: Reimplementing Scala assignments in Clojure
+oldlink: "http://www.scottlogic.com/blog/2015/01/07/Scala-Vs-Clojure-Pt2.html"
 disqus-id: /2015/01/07/Scala-Vs-Clojure-Pt2.html
+categories:
+  - Scala
 ---
+
 
 ## Introduction ##
 Having completed the [Scala MOOC](https://class.coursera.org/progfun-005) [I started]({{ site.github.url }}/2014/10/28/Scala-Vs-Clojure.html) I thought it would be interesting to go back and reimplement the assignments in Clojure and compare the results.  Obviously this isn't an entirely fair comparison, the assignments are presumably designed to help the student learn Scala and show off its best qualities which are unlikely to match up with Clojures.  Also, with my only Scala experience being this course I'm certain all of my answers won't be entirely efficient and idiomatic.  Similarly, the assignments were given in a very structured form with direct translations unlikely to lead to idiomatic Clojure code.  Where the resulting code wasn't particularly idiomatic I went back and tried to clean it up.  In this post I'll look at each of the assignments in turn, specifically how the answers I came up with differed and then draw conclusions from my experience.
@@ -184,3 +187,26 @@ Scala's syntax is an evolution from Java and allows the user to use a variety of
 
 ###Data###
 Scala wants you to take all of that OO knowledge you've accumulated over the years and expand upon it.  Classes are very much at its forefront, although significantly more flexible than those in Java, C# and C++ thanks to traits.  This is a familiar paradigm allowing users to get up to speed more quickly and take advantage of all of the benefits of OO (along with all of its downsides).  Clojure thinks OO is rather overrated and gives the user a new paradigm to work with having emulated/pillaged the bits of OO it does like (e.g. Polymorphism, although without inheritance).  It breaks with the OO notion that functions and data should be inextricably linked with its philosophy of 100 functions applied to 1 data structure.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

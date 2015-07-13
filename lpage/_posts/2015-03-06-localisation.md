@@ -1,10 +1,10 @@
 ---
 author: lpage
-title: "State of localisation on the web"
+title: State of localisation on the web
 featured-overlay-inverted: true
 categories:
- - lpage
-tags: 
+  - Web
+tags: null
 layout: default_post
 ---
 
@@ -147,3 +147,26 @@ momentjs is good for its timezone and date handling, but I would not reccommend 
 If your app *only* has to output numbers and dates localised, then look at polyfilling Intl - by picking a technology that has already been adopted in Firefox and Chrome, you are future protecting yourself better than picking a library which might get abandoned in the future. It also looks like one of the best libraries for formatting.
 
 If you need to parse the numbers too (and you are not using Angular), I'd consider globalise as the best option, but it should be tested first and you should bear in mind it is not very mature.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

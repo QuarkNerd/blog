@@ -3,15 +3,16 @@ id: 165234
 author: shall
 title: View Inheritance in Backbone
 oldlink: "http://www.scottlogic.co.uk/2012/12/view-inheritance-in-backbone/"
-tags: 
+tags:
   - blog
-categories: 
-  - shall
+categories:
+  - HTML5
 layout: default_post
 source: site
 suppress-careers-add: true
 disqus-id: /2012/12/view-inheritance-in-backbone/
 ---
+
 <p><em><a href="http://backbonejs.org" target="_blank">Backbone.js</a> is interesting because it gives you the basic framework of an MVC application without enforcing patterns on you. However, in larger web application it's always important to ensure your structure promotes code reuse and good organization for future development. One such way is through inheritance of views, and in this post I will describe how to create an inheritance chain using Backbone Views.</em></p>
 <h2>Motivation</h2>
 <p>Backbone views provide a basic implementation to represent a view, but there are also areas where further functionality could be required, such as an improved handling of view disposal, or just general application logic you feel a subset of your views should have.</p>
@@ -152,3 +153,26 @@ this.initialize = _.chain.apply(this, this.initializeChain);{% endhighlight %}
 <p>By inheriting from <code>Backbone.View</code> you improve the readability (i.e. views are less cluttered), promote code reuse and make future developments easy. Although how to inherit from views isn't obvious at first, and Backbone's way of handling events and attributes make things a little tricky, I think being able to perform classical inheritance with Backbone is an incredibly important concept for large-scale web applications.</p>
 
 {% include ads/html5-white-paper.html %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

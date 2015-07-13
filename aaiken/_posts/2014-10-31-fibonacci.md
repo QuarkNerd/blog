@@ -1,17 +1,17 @@
 ---
 author: aaiken
 title: A Fibonacci fan component for D3
-title-short: "A D3 Fibonacci Fan"
-summary: In this article I'm going to create an interactive Fibonacci fan D3 component, and show you how to add it to a chart in just 6 lines of code.
+title-short: A D3 Fibonacci Fan
+summary: "In this article I'm going to create an interactive Fibonacci fan D3 component, and show you how to add it to a chart in just 6 lines of code."
 image: aaiken/assets/featured/fibonacci.png
 featured-overlay-black: true
-tags: 
+tags:
   - d3
   - featured
-categories: 
-  - aaiken
+categories:
+  - D3
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2014/10/31/fibonacci.html
+oldlink: "http://www.scottlogic.com/blog/2014/10/31/fibonacci.html"
 disqus-id: /2014/10/31/fibonacci.html
 ---
 <link rel="stylesheet" href="{{ site.github.url }}/aaiken/assets/fibonacci/style/style.css" />
@@ -485,3 +485,26 @@ Perhaps a useful enhancement for this component would be to add a crosshairs ele
 ## Conclusion
 
 We now have a D3 Fibonacci fan component which can be added to a chart with only 6 lines of code. It's an interactive component, using mouse move / click events to move between the different phases of placing the first point, placing the second point, and viewing the fan. We also use transitions to make the appearance of the fan a little more visually appealing.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

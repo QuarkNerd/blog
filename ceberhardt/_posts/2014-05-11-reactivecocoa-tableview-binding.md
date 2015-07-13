@@ -1,14 +1,15 @@
 ---
 author: ceberhardt
 title: Binding to a UITableView from a ReactiveCocoa ViewModel
-categories: 
-tags:
-
+categories:
+  - iOS
+tags: null
 summary: This blog post presents a simple utility class for binding ReactiveCocoa ViewModels to UITableViews without the need for the usual datasource / delegate boiler-plate.
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2014/05/11/reactivecocoa-tableview-binding.html
+oldlink: "http://www.scottlogic.com/blog/2014/05/11/reactivecocoa-tableview-binding.html"
 disqus-id: /2014/05/11/reactivecocoa-tableview-binding.html
 ---
+
 This blog post presents a simple utility class for binding ReactiveCocoa ViewModels to UITableViews without the need for the usual datasource / delegate boiler-plate. Here's an example of how to use this binding helper:
 
 {% highlight objc %}
@@ -322,3 +323,26 @@ I've added a command to the top-level ViewModel which simply logs when a tweet i
 Hopefully this table view binding helper will be useful to people who are using ReactiveCocoa as a mechanism for implementing iOS apps using the MVVM pattern. All the code is on [GitHub](https://github.com/ColinEberhardt/CETableViewBinding). If you have any ideas, thoughts or comments - please let me know.
 
 Regards, Colin E.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

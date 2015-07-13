@@ -2,14 +2,16 @@
 author: ceberhardt
 title: iOS 7 by Tutorials - the first iOS 7 book - is published
 title-short: iOS 7 by Tutorials
-image: "ceberhardt/assets/featured/ios7-by-tutorials.png"
-tags: 
-categories: 
-summary: For the past four months I have been hard at work writing four chapters for a book, iOS 7 by tutorials. Just yesterday, as the iOS 7 NDA was lifted, the book went on sale. 
+image: ceberhardt/assets/featured/ios7-by-tutorials.png
+tags: null
+categories:
+  - iOS
+summary: "For the past four months I have been hard at work writing four chapters for a book, iOS 7 by tutorials. Just yesterday, as the iOS 7 NDA was lifted, the book went on sale."
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2013/09/19/ios-book-published.html
+oldlink: "http://www.scottlogic.com/blog/2013/09/19/ios-book-published.html"
 disqus-id: /2013/09/19/ios-book-published.html
 ---
+
 
 My blog has been a little quiet for the past few months, but this certainly doesn't mean I have given up on writing! A few months ago I joined the team behind [iOS 7 by Tutorials](http://www.raywenderlich.com/store/ios-7-by-tutorials?source=ceberhardt) and for the past four months I have been hard at work on the four chapters I contributed towards the book.
 
@@ -33,3 +35,26 @@ The chapters I wrote were; ***UIKit Dynamics and Motion Effects***, where I guid
 The end product was certainly worth all the late nights, and I am looking forward to doing this again next year!
 
 Regards, Colin E.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

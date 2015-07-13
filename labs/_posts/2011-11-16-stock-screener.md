@@ -2,13 +2,14 @@
 author: labs
 title: Stock Screener
 oldlink: "http://www.scottlogic.co.uk/labs/stock-screener/"
-tags: 
+tags: null
 techs:
- - html5
+  - html5
 layout: default_post
 source: scottlogic
 summary: Stock Screener provides dynamic filtering of real-time UK equity data for both analytical and portfolio-building purposes.
 disqus-id: /labs/stock-screener/
+categories: []
 ---
 ##Motivation
 
@@ -27,4 +28,27 @@ Criteria can be added, removed and re-ordered, using drag and drop when supporte
 ![Stock Screener]({{ site.github.url }}/labs/assets/stock_screener_criteria.png)
 
 The screener results are presented in a sortable table, which if required can be exported to Excel for further manipulation and analysis. The application also allows users to convert results into custom portfolios which can subsequently be revisited and monitored. Stocks can be added and removed from portfolios, using drag and drop when supported by the browser and portfolios can easily be created and deleted.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

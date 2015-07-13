@@ -8,17 +8,14 @@ tags:
   - WebSocket
   - Spark
 categories:
-  - jphillpotts
+  - Scala
 layout: default_post
 source: site
-summary: |
-    Big Data is a hot topic these days, and one aspect of that problem space is
-    processing streams of high velocity data in near-real time. Here we're going 
-    to look at using Big Data-style techniques in Scala on a stream of data from 
-    a WebSocket.
-oldlink: http://www.scottlogic.com/blog/2013/07/29/spark-stream-analysis.html
+summary: "Big Data is a hot topic these days, and one aspect of that problem space is\nprocessing streams of high velocity data in near-real time. Here we're going \nto look at using Big Data-style techniques in Scala on a stream of data from \na WebSocket.\n"
+oldlink: "http://www.scottlogic.com/blog/2013/07/29/spark-stream-analysis.html"
 disqus-id: /2013/07/29/spark-stream-analysis.html
 ---
+
 
 Big Data is a hot topic these days, and one aspect of that problem space is
 processing streams of data in near-real time. One of the applications that can
@@ -251,3 +248,26 @@ interval to do our reduction over. Spark is a powerful application, and its
 future is definitely looking good - it has a sound footing at UC Berkeley, 
 and has just been accepted as an Apache Incubator project, so expect to see
 more about it as it becomes a real alternative to Hadoop.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

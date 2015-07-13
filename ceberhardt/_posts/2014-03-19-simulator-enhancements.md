@@ -1,10 +1,11 @@
 ---
 author: ceberhardt
 title: Simulating Accelerometer and Location data for iOS
-categories: 
+categories:
+  - iOS
 summary: This blog post looks at how to simulate accelerometer and location data so that you can test iOS apps without the need for a physical device. The simulated data is provided by an interactive UI which allows you to rotate the phone and mark paths on a map which can then be replayed.
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2014/03/19/simulator-enhancements.html
+oldlink: "http://www.scottlogic.com/blog/2014/03/19/simulator-enhancements.html"
 disqus-id: /2014/03/19/simulator-enhancements.html
 ---
 
@@ -253,3 +254,26 @@ I'm very interested to hear people's thoughts and opinions on this approach, is 
 The code is all on GitHub, where you can find the [iOS simulation code](https://github.com/ColinEberhardt/SimulatorEnhancements), and the [server](https://github.com/ColinEberhardt/SimulatorEnhancements-Server) that simulates the input data. Feel free to dig around!
 
 Regards, Colin E.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

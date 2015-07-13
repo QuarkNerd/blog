@@ -8,7 +8,8 @@ tags:
   - Web Workers
   - blog
 categories:
-  - jcardy
+  - Web
+  - HTML5
 layout: default_post
 source: site
 disqus-id: /2011/02/web-workers-part-1-performance/
@@ -179,3 +180,26 @@ worker.postMessage({/* test object */});
 <p>Sometimes workers take longer to execute than they would in the UI thread, sometimes they're faster.  However, doing work in a Worker means the UI thread is free to concentrate on a responsive UI.  Of course, any potential benefits are totally lost if the Worker is only doing a little work, because it's not worth the overhead required to construct the Worker.</p>
 <p><strong>Limitations</strong></p>
 <p>Because of the context that a Worker is run in, it has no access to the window object - or any other global variable.  Additionally, object references can't be passed into the Worker.  This means that there will probably only be specific situations in which a Worker can be used, ie. Long-running algorithms.  In my experience the most time consuming operations usually involve DOM interaction and that isn't possible in a worker.It doesn't look like IE9 is going to support workers, so whatever happens, we can't speed up the slowest browser!  Additionally, we have to code alternatives for browsers that don't support workers so that the JavaScript doesn't break.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

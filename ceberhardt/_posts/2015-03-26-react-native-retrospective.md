@@ -1,14 +1,16 @@
 ---
 author: ceberhardt
-title: "Retrospective on Developing an application with React Native"
+title: Retrospective on Developing an application with React Native
 layout: default_post
 summary: "I've been building a React Native app for the past few months, which was published as a tutorial yesterday. A number of people have asked about my thoughts and opinions about React Native - which I am sharing in this blog post."
-summary-short: "Some thoughts on developing a React Native app"
-title-short: "React Native Retrospective"
+summary-short: Some thoughts on developing a React Native app
+title-short: React Native Retrospective
 image: ceberhardt/assets/featured/react-native-retrospective.jpg
 tags:
   - featured
   - author-featured
+categories:
+  - iOS
 ---
 
 Yesterday Facebook opened up React Native to the public, and judging by the number of tweets and news stories, has attracted considerable interest.
@@ -153,3 +155,26 @@ Whether or not React Native is right for you very much depends on who you are an
 I'd encourage you to give it a try, and see whether it is right for you.
 
 Regards, Colin E.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

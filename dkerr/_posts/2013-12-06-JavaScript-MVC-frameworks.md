@@ -2,19 +2,13 @@
 author: dkerr
 title: An introduction to MVC frameworks
 layout: default_post
-categories:
- - JavaScript
- - MVC
- - Frameworks
- - Backbone
- - KnockoutJS
- - Angular
- - EmberJS
+categories: []
 summary: The recent rise of web applications that have all the functionality of their desktop counterparts has highlighted the fact that JavaScript MVC Frameworks are now an essential part of any modern web developers toolkit.
 suppress-careers-add: true
-oldlink: http://www.scottlogic.com/blog/2013/12/06/JavaScript-MVC-frameworks.html
+oldlink: "http://www.scottlogic.com/blog/2013/12/06/JavaScript-MVC-frameworks.html"
 disqus-id: /2013/12/06/JavaScript-MVC-frameworks.html
 ---
+
 Web development has changed significantly in the past few years; it hasn't been long since deploying a web project simply involved uploading static HTML, CSS and JavaScript files to a HTTP server. The growing popularity with providing software as a service has meant that applications which have resided on the desktop are being transferred to the browser.
 
 Some of these web applications are large scale and complex, JavaScript alone cannot be used to provide a stable foundation to write quality, maintainable code. As a result, new MVC frameworks have appeared that offer to provide structure and guidance when developing these applications.
@@ -157,3 +151,26 @@ The discussion above illustrates how there isn't a one-size-fits-all framework t
 Finally, try to build some proof of concept prototypes in each framework and compare the implementations. This is similar to what the authors behind [TodoMVC](http://www.todomvc.com) started which highlights the differences between a huge number of MVC frameworks by implementing a simple TODO application in each one.
 
 {% include ads/html5-white-paper.html %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

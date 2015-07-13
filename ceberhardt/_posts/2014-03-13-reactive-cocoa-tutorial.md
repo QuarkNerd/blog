@@ -1,10 +1,11 @@
 ---
 author: ceberhardt
 title: ReactiveCocoa - The Definitive Guide
-categories: 
-summary: It feels like everyone in the iOS community is talking about ReactiveCocoa at the moment. In this blog post I talk briefly about what ReactiveCocoa is and the 'Definitive Guide' which I wrote for raywenderlich.com
+categories:
+  - iOS
+summary: "It feels like everyone in the iOS community is talking about ReactiveCocoa at the moment. In this blog post I talk briefly about what ReactiveCocoa is and the 'Definitive Guide' which I wrote for raywenderlich.com"
 layout: default_post
-originalArticleLink: http://www.raywenderlich.com/62699/reactivecocoa-tutorial-pt1
+originalArticleLink: "http://www.raywenderlich.com/62699/reactivecocoa-tutorial-pt1"
 ---
 
 It feels like everyone in the iOS community is talking about [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa) at the moment. Each day on Twitter I am seeing new blog posts and tutorials appearing, and every iOS conference seems to have at least one ReactiveCocoa presentation.
@@ -67,6 +68,29 @@ Regards, Colin E.
 
 
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

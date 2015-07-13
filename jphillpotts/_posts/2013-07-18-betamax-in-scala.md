@@ -6,16 +6,15 @@ tags:
   - Web Services
   - Testing
 categories:
-  - jphillpotts
+  - Scala
+  - Test
 layout: default_post
 source: site
-summary: |
-    <a href="http://freeside.co/betamax/">Betamax</a> is a tool to help with testing 
-    applications that consume web services by allowing the developer to record 
-    responses and then replay them. In this post we look at how we can use it in Scala.
-oldlink: http://www.scottlogic.com/blog/2013/07/18/betamax-in-scala.html
+summary: "<a href=\"http://freeside.co/betamax/\">Betamax</a> is a tool to help with testing \napplications that consume web services by allowing the developer to record \nresponses and then replay them. In this post we look at how we can use it in Scala.\n"
+oldlink: "http://www.scottlogic.com/blog/2013/07/18/betamax-in-scala.html"
 disqus-id: /2013/07/18/betamax-in-scala.html
 ---
+
 
 I first saw [Betamax](http://freeside.co/betamax/) a couple of years ago when Rob 
 Fletcher created it. More recently, I read about it being used with Scala in a 
@@ -203,6 +202,29 @@ you'll find them being used liberally all over the place to turn string test nam
 into rich test fragments, and so on. In this example you could of course also get
 rid of the `Some` from the `TapeMode`, by declaring a function with signature 
 `implicit def optionalTapeMode(t: TapeMode): Option[TapeMode]`.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

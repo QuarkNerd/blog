@@ -1,11 +1,14 @@
 ---
 author: hpowell
 title: A quick and dirty introduction to ZeroMQ
-title-short: "Introduction to ZeroMQ"
+title-short: Introduction to ZeroMQ
 layout: default_post
-summary: ZeroMQ is an opinionated, light weight, blazing fast messaging library.  Here I take a look at how to get up and running with it and the building blocks it provides you with.
-summary-short: "Short introduction to ZeroMQ"
+summary: "ZeroMQ is an opinionated, light weight, blazing fast messaging library.  Here I take a look at how to get up and running with it and the building blocks it provides you with."
+summary-short: Short introduction to ZeroMQ
+categories:
+  - Server
 ---
+
 
 ## Zero what? ##
 [ZeroMQ](http://zeromq.org/) is an opinionated, light weight, blazing fast messaging library that describes its origins thusly
@@ -443,3 +446,26 @@ In this final example a three step process is created connected by exclusive pai
 
 ## Conclusion ##
 Messaging has long been dominated by complex message brokers which typically become the fragile centres of the architectures they inhabit.  The ZeroMQ library allows a different approach with smart endpoints and dumb pipes.  Here it was shown how easily the library can be used by a number of languages (C#, Java and Node.js in this case) and examples of the 5 basic patterns it provides.  If this has whetted your appetite far more detailed (and entertainingly written) information can be found in the [official guide](http://zguide.zeromq.org).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,13 +2,15 @@
 author: wloveland
 title: The State Of In-Car UIs
 layout: default_post
-summary: An examination of the current state of in-car UIs, and how Apple, Google and Tesla are significantly shaking things up.
+summary: "An examination of the current state of in-car UIs, and how Apple, Google and Tesla are significantly shaking things up."
 suppress-careers-add: true
-image: "wloveland/assets/featured/car-ui.jpg"
+image: wloveland/assets/featured/car-ui.jpg
 summary-short: "How Apple, Google and Tesla are shaking things up"
 featured-overlay-inverted: true
 tags:
   - featured
+categories:
+  - UX
 ---
 
 It goes without saying that the automotive industry is highly competitive. Manufacturers are constantly innovating, promising to deliver the ‘latest’ technology. Yet throughout all of their advancements there is one fundamental component which so far no one has managed to nail down, the in-car user interface. The technology available within contemporary cars is constantly evolving, from complex sound systems to zoned climate controls, connected smartphones to car performance settings.
@@ -63,3 +65,26 @@ Software development is a volatile sector: in order to remain on the forefront m
 ### The UI is part of the experience
 
 Manufacturers must encourage the development of on-screen content and recognise that the in-car experience plays a significant role in defining the broader product and brand. Manufacturers must do away with their ‘star-trek-esk’ fantasy concepts, and focus on software design and development through suitable processes and management structures. Whether we like it or not Apple Carplay and Android Auto are currently the must have feature of any contemporary car. Their introduction has already sparked [a bidding war](http://www.wired.com/2014/06/carplay-android-auto-automakers/), with automotive companies starting to pick sides. However these systems should not be seen as substitutes for a well designed native system that integrates the entire in-car experience and empathetically portrays a brand’s experience.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

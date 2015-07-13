@@ -2,13 +2,14 @@
 author: labs
 title: Fund Screener
 oldlink: "http://www.scottlogic.co.uk/labs/fund-screener/"
-tags: 
+tags: null
 techs:
- - html5
+  - html5
 layout: default_post
 source: scottlogic
 summary: Fund Screener is a dynamic search and filter tool for the selection and analysis of open-ended funds.
 disqus-id: /labs/fund-screener/
+categories: []
 ---
 ##Motivation
 
@@ -29,3 +30,26 @@ Another way in which the current result set is reflected in the filter criteria 
 As well as providing a powerful filtering mechanism, the shading aspect of the Elastic Lists concept enables some higher level analysis of the fund market. As explained above, category shading can be used to indicate correlation between categories. For example, by selecting a particular sector or fund manager it might become apparent that funds in that selection tend to have a particular rating level, and the whiteness of that rating category will indicate how strong this tendency is.
 
 Scott Logic has made two additions to the original Elastic Lists concept to tailor it to the financial domain and so to provide an even more useful tool for the user. Firstly, individual criteria can be added, reordered, and removed from the overall criteria set so that users can configure the tool to their own needs. Secondly users are able to create custom categories for numeric criteria by specifying appropriate value ranges.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

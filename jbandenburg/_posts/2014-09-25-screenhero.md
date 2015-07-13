@@ -1,10 +1,14 @@
 ---
 author: jbandenburg
-title: Using Screenhero To Turbo-Charge Pair Programming!
-summary: In this blog post, I talk about my team’s journey from traditional “pass me the keyboard and mouse” pair programming to use of Screenhero for IDE sharing both within the office and remotely.
+title: "Using Screenhero To Turbo-Charge Pair Programming!"
+summary: "In this blog post, I talk about my team’s journey from traditional “pass me the keyboard and mouse” pair programming to use of Screenhero for IDE sharing both within the office and remotely."
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2014/09/25/screenhero.html
+oldlink: "http://www.scottlogic.com/blog/2014/09/25/screenhero.html"
 disqus-id: /2014/09/25/screenhero.html
+categories:
+  - Mobile
+  - Android
+  - Agile
 ---
 *Written in collaboration with [@cjsmithie](https://twitter.com/cjsmithie)*
 
@@ -84,3 +88,26 @@ We found working with Screenhero to be a real pleasure. We looked around for alt
 Control is no longer mutually-exclusive: We can write a suggestion directly into the code when the other person “has the baton”. We found that having a cursor each works really well.
 
 Screenhero has removed the impediments that were stopping us from pairing regularly - it’s as easy as saying “can I share my screen with you?”. Regular pairing has increased knowledge-sharing within the team, reduced code review issues, improved code quality and, ultimately, raised productivity. All of this has led to more enjoyment at work. We’d recommend Screenhero to any agile team.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

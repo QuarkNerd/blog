@@ -1,16 +1,16 @@
 ---
 author: bmumford
-title: "Introduction to Flight"
+title: Introduction to Flight
 featured-overlay-inverted: true
 categories:
- - bmumford
-tags: 
+  - HTML5
+tags:
   - featured
-image: "bmumford/assets/featured/flight.png"
+image: bmumford/assets/featured/flight.png
 image-attribution: "image courtesy of <a href='http://sandbox.aaronkoblin.com/projects/flightpaths/'>Aaron Koblin</a>"
 summary-short: "An introduction to Twitter's MVC framework."
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2015/03/03/introduction-to-flight.html
+oldlink: "http://www.scottlogic.com/blog/2015/03/03/introduction-to-flight.html"
 disqus-id: /2015/03/03//introduction-to-flight.html
 ---
 
@@ -380,3 +380,25 @@ Another thing I found was that because it isn't an end-to-end solution like Angu
 I hope you would now consider using Flight in your next project. Again, the full source code can be found <a href="https://github.com/bm1729/flight-experiments">here</a>.
 
 I am a student, not a teacher so any questions/corrections/observations are more than welcome.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

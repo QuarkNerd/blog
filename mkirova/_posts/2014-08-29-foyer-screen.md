@@ -10,8 +10,10 @@ tags:
   - Javascript
   - CSS 3
 title-short: Foyer Screen
-oldlink: http://www.scottlogic.com/blog/2014/08/29/foyer-screen.html
+oldlink: "http://www.scottlogic.com/blog/2014/08/29/foyer-screen.html"
 disqus-id: /2014/08/29/foyer-screen.html
+categories:
+  - UX
 ---
 
 As an Intern in the Edinburgh office I have been involved in creating a slideshow that conveys interesting information about the company; something useful and entertaining to catch the attention of visitors in the waiting area. The project is essentially a web application built with JavaScript, HTML5 and CSS3.
@@ -85,3 +87,26 @@ This was my first exposure to building an applications of this size from scratch
 ### Reflections
 
 Even though it was challenging, Foyer Screen has been extremely useful and has helped me gain a lot of insight into web development while being fun to work on at the same time. My time at the company provided me with the opportunity to be part of a both dedicated and friendly team and enjoy the advantages of working in a real-world environment. It was an invaluable experience for a student and one that I would definitely repeat!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

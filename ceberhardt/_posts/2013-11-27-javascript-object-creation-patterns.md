@@ -1,13 +1,14 @@
 ---
 author: ceberhardt
 title: Understanding JavaScript Object Creation Patterns
-image: "ceberhardt/assets/featured/JavaScriptObjectCreation.png"
+image: ceberhardt/assets/featured/JavaScriptObjectCreation.png
 image-attribution: "image courtesy of <a href='http://www.flickr.com/photos/byronj/12637612753/sizes/z/'>Byron James</a>"
-tags: 
-categories: 
-summary: This article explores the various ways you can create objects with the JavaScript language, and through this exploration finds that there is much to learn about the language!
+tags: null
+categories:
+  - JavaScript
+summary: "This article explores the various ways you can create objects with the JavaScript language, and through this exploration finds that there is much to learn about the language!"
 layout: default_post
-originalArticleLink: http://www.codeproject.com/Articles/687093/Understanding-JavaScript-Object-Creation-Patterns
+originalArticleLink: "http://www.codeproject.com/Articles/687093/Understanding-JavaScript-Object-Creation-Patterns"
 suppress-careers-add: true
 ---
 
@@ -22,5 +23,28 @@ I certainly learnt a lot in writing this article and trying to explain the conce
 Regards, Colin E.
 
 {% include ads/html5-white-paper.html %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -1,14 +1,15 @@
 ---
 author: aaiken
 title: Creating an interactive chart with D3
-summary: Recently I've been looking at various D3 components, which has been a fun project. I haven't yet had the chance to develop an interactive, dynamic component though, which has meant that the resulting charts have been sadly static. For this article I wanted to use what I've learned to build a fully interactive chart - something that wouldn't look out of place on a financial app.
+summary: "Recently I've been looking at various D3 components, which has been a fun project. I haven't yet had the chance to develop an interactive, dynamic component though, which has meant that the resulting charts have been sadly static. For this article I wanted to use what I've learned to build a fully interactive chart - something that wouldn't look out of place on a financial app."
 image: aaiken/assets/featured/none.jpg
-tags: 
+tags:
   - d3
-categories: 
-  - aaiken
+categories:
+  - D3
+  - Charting
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2014/09/19/interactive.html
+oldlink: "http://www.scottlogic.com/blog/2014/09/19/interactive.html"
 disqus-id: /2014/09/19/interactive.html
 ---
 <link rel="stylesheet" href="{{ site.github.url }}/aaiken/assets/interactive/style/style.css" />
@@ -402,3 +403,26 @@ Done!
 ## Conclusion
 
 We set out to create a simple interactive chart, and that's exactly what we've accomplished. The chart offers lots of ways to interact with it, either by mouse or touch gestures, and with the navigation chart you can quickly see the relationship between the data shown in the main chart and the entire dataset.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -3,10 +3,12 @@ author: lpage
 title: "Aurelia, less2css and bundling"
 featured-overlay-inverted: true
 categories:
- - lpage
-tags: 
+  - HTML5
+  - Web
+  - CSS
+tags: null
 layout: default_post
-summary: In the second post of my series on the Aurelia framework I walkthrough bundling the less2css project. The result of which significantly reduced the load time, but did uncover a few aspects of the Aurelia bundling process that do not yet feel fully formed.
+summary: "In the second post of my series on the Aurelia framework I walkthrough bundling the less2css project. The result of which significantly reduced the load time, but did uncover a few aspects of the Aurelia bundling process that do not yet feel fully formed."
 ---
 
 Please read [my first post](http://blog.scottlogic.com/2015/06/19/aurelia-part-one.html) for an introduction.
@@ -186,3 +188,26 @@ I do think it's a shame that we are continuing to bundle files that include alot
 Aurelia is still preview and performance optimisation will be left to the end, so don't take this as a no for production sites, but I think its probably a "not yet". That may change soon though, if the problems are down to systemjs.
 
 You can see the live site at [http://lesscss.org/less-preview/](http://lesscss.org/less-preview/) and I will try to keep it updated with performance fixes as they get released. Also note that it uses code mirror and less, which are both large javascript libraries, so please don't make performance assumptions!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
