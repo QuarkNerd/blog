@@ -7,7 +7,7 @@ summary: "Most charting libraries are monoliths. The more features they support,
 summary-short: Exploring the d3fc component approach to building charts.
 image: ceberhardt/assets/featured/yahoo.png
 tags:
-  - featured
+  - main
 categories:
   - D3
   - Charting

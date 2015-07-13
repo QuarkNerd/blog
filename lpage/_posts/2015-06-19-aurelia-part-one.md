@@ -7,7 +7,7 @@ categories:
   - Web
   - CSS
 tags:
-  - featured
+  - main_featured
 layout: default_post
 summary: A walkthrough creating a project written using the new Aurelia and comparisons with Angular.
 image: lpage/assets/featured/aurelia.png

@@ -4,13 +4,16 @@ title: Scott Logic Blog
 paginated: true
 summary: This blog is brought to you by Scott Logic's team of technical authors and bloggers, covering topics including HTML5, iOS, C#, process, UX and practically anything else relating to software development.
 ---
+
+{% assign featuredPosts = site.tags.featured %}
+
 <section id="home">
   <div class="container">
     <div class="row title-row hidden-xs">
       <h1 class=" col-xs-12">Knowledge: Tech Blog</h1>
     </div>
-    {% assign featuredPosts = site.tags.featured %}
-    {% include main_article.html post=featuredPosts.first %}
+    {% assign mainPost = site.tags.main_featured | first %}
+    {% include main_article.html post=mainPost %}
   </div>
   <div class="container hidden-xs">
     <div class="row">
