@@ -33,13 +33,21 @@
  * Common styling for carousel cells.
  */
 .carousel-cell {
-  height: 100%;
   position: relative;
-  overflow: hidden;
   cursor: pointer;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+
+  .clipping {
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+  }
+
+  .carousel-inner {
+    overflow: visible;
+  }
 
   .carousel-caption {
     position: absolute;
@@ -84,6 +92,9 @@
     white-space: normal;
   }
 }
+
+@cite-height: 12px;
+
 
 /*
  * Styling for screen-md carousel.
@@ -147,6 +158,7 @@
   .carousel-cell {
     display: inline-block;
     width: 200px;
+    height: ~"calc(100% - @{cite-height})";
   }
 
   .carousel-caption {
@@ -164,8 +176,10 @@
 .small-carousel, .featuredCarousel {
   font-size: 0;
 
+
   .carousel-cell {
     display: inline-block;
+    margin-bottom: @cite-height;
   }
 
   .carousel-caption {
@@ -200,7 +214,7 @@
   cite {
     color: @grey;
     font-size: 8px;
-    float: right;
+    height: @cite-height;
     margin: 2px 2px 0px 0px;
   }
 }
