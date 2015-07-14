@@ -1,6 +1,7 @@
 ---
 author: dpizzi
 title: Strong Typing With AngularJS
+title-short: TypingScript & AngularJS
 layout: default_post
 summary: This article demonstrates a successful integration of TypeScript with AngularJS to provide a strongly-typed environment for development of HTML5 apps.
 tags: null

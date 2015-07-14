@@ -1,13 +1,14 @@
 ---
 author: rhendry
 title: WebdriverJS and Promises
+title-short: WebdriverJS and Promises
 layout: default_post
 featured-overlay-inverted: true
 tags:
   - featured
 image: rhendry/assets/featured/promise.jpg
 image-attribution: "image courtesy of <a href='https://www.flickr.com/photos/32490173@N05/'>galleryquantum</a>"
-summary-short: Avoiding broken promises with WebDriverJS
+summary-short: Avoiding broken promises with WebDriverJS - a quick guide to avoiding some of the framework pitfalls.
 categories: []
 ---
 Recently I have been working with WebdriverJS to fulfill a need for browser testing on a project. Although I've used

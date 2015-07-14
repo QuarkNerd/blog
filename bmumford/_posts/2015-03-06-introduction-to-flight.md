@@ -1,6 +1,7 @@
 ---
 author: bmumford
 title: Introduction to Flight
+title-short: Introduction to Flight
 featured-overlay-inverted: true
 categories:
   - HTML5

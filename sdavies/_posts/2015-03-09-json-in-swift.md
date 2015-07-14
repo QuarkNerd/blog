@@ -7,7 +7,7 @@ tags:
   - featured
 image: sdavies/assets/featured/json.jpg
 title-short: JSON in Swift
-summary-short: "What's the _best_ way to parse JSON in Swift?"
+summary-short: "What's the _best_ way to parse JSON in Swift? Sam explores a number of options."
 categories:
   - Swift
   - iOS
