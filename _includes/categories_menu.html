@@ -1,52 +1,31 @@
 {% assign selectedIndex = include.selectedIndex %}
-{% assign categoryTitle = include.categoryTitle %}
+
 {% comment %} Always visible vertical list for larger screens. {% endcomment %}
 <div class="hidden-xs hidden-sm md-categories-menu">
     <h3>Categories</h3>
     <ul>
-        <li class="{% if selectedIndex == 0 %}active {% endif %}"><a href="{{ site.github.url }}/index.html">Latest Articles</a></li>
-        <li class="{% if selectedIndex == 1 %}active {% endif %}"><a href="{{ site.github.url }}/category/web.html">Web</a></li>
-        <li class="{% if selectedIndex == 2 %}active {% endif %}"><a href="{{ site.github.url }}/category/mobile.html">Mobile</a></li>
-        <li class="{% if selectedIndex == 3 %}active {% endif %}"><a href="{{ site.github.url }}/category/ios.html">iOS</a></li>
-        <li class="{% if selectedIndex == 4 %}active {% endif %}"><a href="{{ site.github.url }}/category/wpf.html">WPF</a></li>
-        <li class="{% if selectedIndex == 5 %}active {% endif %}"><a href="{{ site.github.url }}/category/html5.html">HTML5</a></li>
-        <li class="{% if selectedIndex == 6 %}active {% endif %}"><a href="{{ site.github.url }}/category/charting.html">Charting</a></li>
-        <li class="{% if selectedIndex == 7 %}active {% endif %}"><a href="{{ site.github.url }}/category/javascript.html">Javascript</a></li>
-        <li class="{% if selectedIndex == 8 %}active {% endif %}"><a href="{{ site.github.url }}/category/dotnet.html">.NET</a></li>
-        <li class="{% if selectedIndex == 9 %}active {% endif %}"><a href="{{ site.github.url }}/category/news.html">News</a></li>
-        <li class="{% if selectedIndex == 10 %}active {% endif %}"><a href="{{ site.github.url }}/category/css.html">CSS</a></li>
-        <li class="{% if selectedIndex == 11 %}active {% endif %}"><a href="{{ site.github.url }}/category/swift.html">Swift</a></li>
-        <li class="{% if selectedIndex == 12 %}active {% endif %}"><a href="{{ site.github.url }}/category/ux.html">UX</a></li>
-        <li class="{% if selectedIndex == 13 %}active {% endif %}"><a href="{{ site.github.url }}/category/events.html">Events</a></li>
-        <li class="{% if selectedIndex == 14 %}active {% endif %}"><a href="{{ site.github.url }}/category/d3.html">D3</a></li>
-        <li class="{% if selectedIndex == 15 %}active {% endif %}"><a href="{{ site.github.url }}/category/agile.html">Agile</a></li>
-        <li class="{% if selectedIndex == 16 %}active {% endif %}"><a href="{{ site.github.url }}/category/test.html">Test</a></li>
+        {% for category in site.data.categories %}
+            <li class="{% if selectedIndex == forloop.index0 %}active {% endif %}"><a href="{{ site.github.url }}{{ category.url }}">{{ category.title }}</a></li>
+        {% endfor %}
     </ul>
 </div>
 {% comment %} Drop down vertical list for smaller screens. {% endcomment %}
 <div class="hidden-md hidden-lg sm-categories-menu">
-    <h3>Categories<span class="visible-xs-inline-block visible-sm-inline-block">:</span></h3>
-    <div class="dropdown">
-        <h3>{{ categoryTitle }}</h3>
+    <h3>Categories:</h3>
+    <div class="dropdown hidden-xxs visible-xs-inline-block visible-sm-inline-block">
+        <h3>{{ site.data.categories[selectedIndex].title }}</h3>
         <ul class="dropdown-menu">
             <div class="nav-arrow-up"></div>
-            {% unless selectedIndex == 0 %}<li><a href="{{ site.github.url }}/index.html">Latest Articles</a></li>{% endunless %}
-            {% unless selectedIndex == 1 %}<li><a href="{{ site.github.url }}/category/web.html">Web</a></li>{% endunless %}
-            {% unless selectedIndex == 2 %}<li><a href="{{ site.github.url }}/category/mobile.html">Mobile</a></li>{% endunless %}
-            {% unless selectedIndex == 3 %}<li><a href="{{ site.github.url }}/category/ios.html">iOS</a></li>{% endunless %}
-            {% unless selectedIndex == 4 %}<li><a href="{{ site.github.url }}/category/wpf.html">WPF</a></li>{% endunless %}
-            {% unless selectedIndex == 5 %}<li><a href="{{ site.github.url }}/category/html5.html">HTML5</a></li>{% endunless %}
-            {% unless selectedIndex == 6 %}<li><a href="{{ site.github.url }}/category/charting.html">Charting</a></li>{% endunless %}
-            {% unless selectedIndex == 7 %}<li><a href="{{ site.github.url }}/category/javascript.html">Javascript</a></li>{% endunless %}
-            {% unless selectedIndex == 8 %}<li><a href="{{ site.github.url }}/category/dotnet.html">.NET</a></li>{% endunless %}
-            {% unless selectedIndex == 9 %}<li><a href="{{ site.github.url }}/category/news.html">News</a></li>{% endunless %}
-            {% unless selectedIndex == 10 %}<li><a href="{{ site.github.url }}/category/css.html">CSS</a></li>{% endunless %}
-            {% unless selectedIndex == 11 %}<li><a href="{{ site.github.url }}/category/swift.html">Swift</a></li>{% endunless %}
-            {% unless selectedIndex == 12 %}<li><a href="{{ site.github.url }}/category/ux.html">UX</a></li>{% endunless %}
-            {% unless selectedIndex == 13 %}<li><a href="{{ site.github.url }}/category/events.html">Events</a></li>{% endunless %}
-            {% unless selectedIndex == 14 %}<li><a href="{{ site.github.url }}/category/d3.html">D3</a></li>{% endunless %}
-            {% unless selectedIndex == 15 %}<li><a href="{{ site.github.url }}/category/agile.html">Agile</a></li>{% endunless %}
-            {% unless selectedIndex == 16 %}<li><a href="{{ site.github.url }}/category/test.html">Test</a></l{% endunless %}
+            {% for category in site.data.categories %}
+                {% unless selectedIndex == forloop.index0 %}<li><a href="{{ site.github.url }}{{ category.url }}">{{ category.title }}</a></li>{% endunless %}
+            {% endfor %}
         </ul>
     </div>
+    <select class="visible-xxs-inline-block hidden-xs hidden-sm hidden-md hidden-lg"
+            onchange="location = this.options[this.selectedIndex].value">
+        {% for category in site.data.categories %}
+        <option {% if selectedIndex == forloop.index0 %}selected="selected"{% endif %}
+                value="{{ site.github.url }}{{ category.url }}">{{ category.title }}</option>
+        {% endfor %}
+    </select>
 </div>

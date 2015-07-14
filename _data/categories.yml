@@ -1,0 +1,47 @@
+-  title: Latest Articles
+   url: /index.html
+
+-  title: Web
+   url: /category/web.html
+
+-  title: Mobile
+   url: /category/mobile.html
+
+-  title: iOS
+   url: /category/ios.html
+
+-  title: WPF
+   url: /category/wpf.html
+
+-  title: HTML5
+   url: /category/html5.html
+
+-  title: Charting
+   url: /category/charting.html
+
+-  title: .NET
+   url: /category/dotnet.html
+
+-  title: News
+   url: /category/news.html
+
+-  title: CSS
+   url: /category/css.html
+
+-  title: Swift
+   url: /category/swift.html
+
+-  title: UX
+   url: /category/ux.html
+
+-  title: Events
+   url: /category/events.html
+
+-  title: D3
+   url: /category/d3.html
+
+-  title: Agile
+   url: /category/agile.html
+
+-  title: Test
+   url: /category/test.html
