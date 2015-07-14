@@ -12,7 +12,7 @@ layout: default
         <h1>
           {{ page.title }}
         </h1>
-        <div class="secondary sub pull-left">
+        <div class="secondary sub pull-left sub">
           <span class="visible-xs-inline visible-sm-inline">
             By <a class="authorName highlight" rel="author" href="{{ site.github.url }}/{{ page.author }}">{{ author.name }}</a>, on the
           </span>
@@ -25,7 +25,7 @@ layout: default
           {% endcase %}
           {{ page.date | date: "%b %Y" }}
         </div>
-        <div class="secondary pull-right">{% include social.html %}</div>
+        <div class="secondary pull-right sub">{% include social.html %}</div>
       </header>
       {{ content }}
       {% unless page.suppress-careers-add %}

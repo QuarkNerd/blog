@@ -14,7 +14,7 @@
     {% assign disqusID = post.disqus-id %}
     {% endif %}
     {% assign title = post.title %}
-    <div class="carousel-caption">
+    <div class="carousel-caption {% if post.image == null %}full-cell{% endif %}">
         <h4>
             {% if post.title-short %}
             {{ post.title-short }}
