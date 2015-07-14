@@ -9,7 +9,7 @@
 
 <article class="summary row">
   {% if showAuthorInfo %}
-  <div class="hidden-xs hidden-sm col-md-2 imageContainer">
+  <div class="hidden-xs col-sm-2 imageContainer">
 
     {% if author.gravatar %}
     <img src="//www.gravatar.com/avatar/{{ author.gravatar }}" alt="{{ author.name }}" class="img-circle hidden-small" />
@@ -19,7 +19,7 @@
 
   </div>
   {% endif %}
-  <div class="col-sm-12 {% if showAuthorInfo %}col-md-10{% else %}col-md-12{% endif %}">
+  <div class="col-xs-12 {% if showAuthorInfo %}col-sm-10{% else %}col-sm-12{% endif %}">
     <header>
       {% if showTechs %}
         <div style="float: right;margin-top: 5px;">
