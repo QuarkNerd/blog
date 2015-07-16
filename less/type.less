@@ -120,3 +120,35 @@ a {
     color: @pink;
   }
 }
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance:    none;
+  appearance:         none;
+  background-color: transparent;
+  border: none;
+  border-bottom: solid 1px @black;
+  border-radius: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: -5px;
+  font-size: @largeFontSize;
+  line-height: @largeFontSize;
+  padding-bottom: 2px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.dropdown-arrow {
+  &:after {
+    content: '';
+    display: inline-block;
+    background: url(assets/arrow.png) no-repeat right;
+    background-position: right 0px top 3px;
+    width: 16px;
+    height: 16px;
+    margin-left: -20px;
+  }
+}

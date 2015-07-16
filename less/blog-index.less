@@ -172,10 +172,11 @@
 // A single line with a drop down list for smaller screens.
 @media (max-width: @screen-md-min) {
   .sm-categories-menu {
+    margin-bottom: 10px;
 
     > h3 {
       display: inline-block;
-      font-size: 16px;
+      font-size: @baseFontSize;
       font-weight: 300;
       border-bottom: 1px solid #DDDEDD;
       padding-right: 8px;
@@ -190,10 +191,11 @@
         @selected-article-color: #3C3C3C;
 
         color: @selected-article-color;
-        font-size: 24px;
+        font-size: @largeFontSize;
         font-weight: 200;
         border-bottom: 1px solid @selected-article-color;
-        padding-bottom: 3px;
+        padding: 0px 20px 3px 15px;
+        display: inline-block;
       }
     }
   }
