@@ -23,7 +23,6 @@ img.aligncenter {
 }
 
 .page-content-background {
-  background-image: url(assets/bg.png);
   background-repeat: repeat-y;
   position: absolute;
   top: 0;
@@ -31,26 +30,19 @@ img.aligncenter {
   left: 0;
   right: 0;
   z-index: -9999;
-  background-position-x: 70%;
 
-  // Offset vertically.
-  &.offset-y {
+  &.right {
     top: -170px;
+    background-image: url(assets/bg-50percent-opacity.png);
+    background-position: 75% 0%;
   }
 
-  &.mirror-h {
+  &.left {
     top: 480px;
-  }
-}
+    background-position: 30% 0%;
+    background-image: url(assets/bg-mirror-50percent-opacity.png);
 
-// Horizontally mirror element.
-.mirror-h {
-  -moz-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
-  filter: FlipH;
-  -ms-filter: "FlipH";
+  }
 }
 
 .align-center {
