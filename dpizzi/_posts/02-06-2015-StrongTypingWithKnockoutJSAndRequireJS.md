@@ -3,7 +3,6 @@ author: dpizzi
 title: Strong Typing With KnockoutJS and RequireJS
 layout: default_post
 summary: This article demonstrates a successful integration of TypeScript with KnockoutJS and RequireJS to provide a strongly-typed environment for development of HTML5 apps.
-tags: featured
 image: dpizzi/assets/featured/Strong.png
 oldlink: "http://www.scottlogic.com/blog/2015/06/02/StrongTypingWithKnockoutJSAndRequireJS.html"
 disqus-id: /2015/06/02/StrongTypingWithKnockoutJSAndRequireJS.html
