@@ -9,7 +9,7 @@ permalink: /:year/:month/:day/:title.html
 safe: true
 twitter_handle: Scott_Logic
 
-paginate: 5
+paginate: 20
 
 excerpt_separator: ""
 
