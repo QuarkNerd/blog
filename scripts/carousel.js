@@ -11,4 +11,7 @@
         $(this).find('.carousel-caption').removeClass('hover');
     });
 
+    var mobileMargin = 40
+    $('.small-carousel').scrollLeft(mobileMargin);;
+
 }(jQuery, window));
