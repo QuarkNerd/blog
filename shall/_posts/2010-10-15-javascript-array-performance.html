@@ -3,20 +3,21 @@ id: 71618
 author: shall
 title: JavaScript Array.push Performance
 oldlink: "http://www.scottlogic.co.uk/2010/10/javascript-array-performance/"
-tags: 
+tags:
   - Javascript
   - array
-  - "closure-compiler"
+  - closure-compiler
   - performance
   - push
   - blog
-categories: 
-  - shall
+categories:
+  - JavaScript
 layout: default_post
 source: site
 suppress-careers-add: true
 disqus-id: /2010/10/javascript-array-performance/
 ---
+
 <p>I was recently reading <a href="http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml" target="_blank">Google's JavaScript Style Guide</a> when I came across the following claim:</p>
 <blockquote><p>"Note that since assigning values to an array is faster than using <code>push()</code> you should use assignment where possible."</p></blockquote>
 <p>I had always used push to assign a value to the end of an array, so thought I'd investigate this a little bit further to determine the performance of each of the methods. There are 3 distinct ways to do this:</p>
@@ -137,3 +138,26 @@ var j = b[b.length] = 'test'; // j is 'test'{% endhighlight %}
 <p>Given the differences between Chrome's results, and the extremely poor performance in some other browsers, it may be worth sacrificing some performance in Chrome for much better performance in other browsers.</p>
 
 {% include ads/html5-white-paper.html %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

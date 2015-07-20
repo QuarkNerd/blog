@@ -6,13 +6,14 @@ tags:
   - Web Services
   - blog
 categories:
-  - jphillpotts
+  - Scala
 layout: default_post
 source: site
-summary: In this article we'll look at ways to overcome one of the main restrictions of def macros - the ability to only generate functions.
-oldlink: http://www.scottlogic.com/blog/2013/06/06/scala-macros-part-2.html
+summary: "In this article we'll look at ways to overcome one of the main restrictions of def macros - the ability to only generate functions."
+oldlink: "http://www.scottlogic.com/blog/2013/06/06/scala-macros-part-2.html"
 disqus-id: /2013/06/06/scala-macros-part-2.html
 ---
+
 
 ## Where next?
 
@@ -123,3 +124,26 @@ So now we've got our pattern matching working well, in
 <a href="{{site.github.url}}{% post_url 2013-06-07-scala-macros-part-3 %}">the next article</a> 
 we can start calling an API to produce our endpoints.
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

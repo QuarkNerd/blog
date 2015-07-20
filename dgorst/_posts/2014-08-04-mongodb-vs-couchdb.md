@@ -1,12 +1,12 @@
 ---
 author: dgorst
-title: "MongoDB vs CouchDB"
-categories: 
-tags:
-
+title: MongoDB vs CouchDB
+categories:
+  - NoSQL
+tags: null
 summary: "As part of a project I'm working on, I have a requirement for a NoSQL database. There are numerous offerings out there, of which MongoDB and CouchDB appear to be the most popular. So which system should I choose?"
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2014/08/04/mongodb-vs-couchdb.html
+oldlink: "http://www.scottlogic.com/blog/2014/08/04/mongodb-vs-couchdb.html"
 disqus-id: /2014/08/04/mongodb-vs-couchdb.html
 ---
 As part of a project I'm working on, I have a requirement for a NoSQL database. There are numerous offerings out there, of which [MongoDB](http://www.mongodb.org/) and [CouchDB](http://couchdb.apache.org/) appear to be the most popular. So which system should I choose?
@@ -269,3 +269,26 @@ If you need dynamic queries MongoDB will be the better option, as CouchDB requir
 If you have any questions, thoughts or feedback on this post, let me know! The full source code is up on my GitHub page, as part of the Project Latex project: [https://github.com/DanGorst/project-latex](https://github.com/DanGorst/project-latex)
 
 Dan G
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

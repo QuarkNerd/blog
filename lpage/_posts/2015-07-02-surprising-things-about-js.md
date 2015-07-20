@@ -1,15 +1,15 @@
 ---
 author: lpage
 title: "Seven Surprising JavaScript 'Features'"
+title-short: Surprising JavaScript
 featured-overlay-inverted: true
 categories:
- - lpage
-tags: 
-layout: default_post
-summary: A look at some of the more unusual parts of JavaScript by examining seven things I've learnt recently.
-image: lpage/assets/featured/javascript.jpg
+  - JavaScript
 tags:
   - featured
+layout: default_post
+summary: "A look at some of the more unusual parts of JavaScript by examining seven things I've learnt recently."
+image: lpage/assets/featured/javascript.jpg
 ---
 
 Over the last couple of months I've made a few enhancements to JSHint, mainly as a way of learning ES6
@@ -369,3 +369,26 @@ arr.length = 10;
 ## Other gems
 
 Mozilla's developer blog has [a great post on arrow functions](https://hacks.mozilla.org/2015/06/es6-in-depth-arrow-functions/), which includes details of using `<!--` as an official ES6 comment token. It is worth checking out the [whole blog series](https://hacks.mozilla.org/category/es6-in-depth/) too.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

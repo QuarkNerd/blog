@@ -1,12 +1,15 @@
 ---
 author: dpizzi
-title: "Strong Typing With KnockoutJS and RequireJS"
+title: Strong Typing With KnockoutJS and RequireJS
 layout: default_post
-summary: "This article demonstrates a successful integration of TypeScript with KnockoutJS and RequireJS to provide a strongly-typed environment for development of HTML5 apps."
+summary: This article demonstrates a successful integration of TypeScript with KnockoutJS and RequireJS to provide a strongly-typed environment for development of HTML5 apps.
 tags: featured
-image: "dpizzi/assets/featured/Strong.png"
-oldlink: http://www.scottlogic.com/blog/2015/06/02/StrongTypingWithKnockoutJSAndRequireJS.html
+image: dpizzi/assets/featured/Strong.png
+oldlink: "http://www.scottlogic.com/blog/2015/06/02/StrongTypingWithKnockoutJSAndRequireJS.html"
 disqus-id: /2015/06/02/StrongTypingWithKnockoutJSAndRequireJS.html
+categories:
+  - TypeScript
+  - Web
 ---
 
 Following my previous post on [Strong Typing With AngularJS]({{ site.github.url }}/2014/08/26/StrongTypingWithAngularJS.html), this article presents the integration of TypeScript with an other client MVC framework: _KnockoutJS_. We will also integrate RequireJS that allows the use of the [Asynchronous Module Definition](https://github.com/amdjs/amdjs-api/wiki/AMD) (AMD) API.  
@@ -320,3 +323,26 @@ Then, we implemented a component that allows re-usability and asynchronous loadi
 Finally, we integrated everything together and explained how data can be passed between viewmodels.
 
 What to do from here? Well, the [DefinitelyTyped](http://definitelytyped.org/) type definitions from KnockoutJS and its [GitHub repository](https://github.com/borisyankov/DefinitelyTyped) presents further examples that might (definitely) be worth a read.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

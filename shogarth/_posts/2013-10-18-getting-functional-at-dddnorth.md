@@ -5,8 +5,10 @@ tags:
   - Conferences
   - DeveloperDeveloperDeveloper
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2013/10/18/getting-functional-at-dddnorth.html
+oldlink: "http://www.scottlogic.com/blog/2013/10/18/getting-functional-at-dddnorth.html"
 disqus-id: /2013/10/18/getting-functional-at-dddnorth.html
+categories:
+  - Events
 ---
 
 Last weekend I had the pleasure of attending this year's [DDDNorth](http://dddnorth.co.uk/) conference at Sunderland University. DDD events are organised by the community, so anyone is free to submit a session. The community votes on which sessions they would like to see at the event. This year's event took on a distinctly functional feel - advocates of wisdom of the crowds, feel free to interpret this as a sign of things to come. I'd like to reflect upon the excellent sessions I attended.
@@ -55,5 +57,28 @@ Ian's talk took a deep dive into F#, to show how it can aid developers quickly c
 
 ## Summary
 DDD events are always high quality. This year's DDDNorth was no exception! My thanks go out to Andrew Westgarth and co for organising the event. As a developer, DDD events around the country are a great way to delve into concepts you may not normally have the time to investigate, network with developers around the country and eat far too much food at the Geek Dinner. I always come home brimming with ideas, but also with great insights on everyday practice. I highly recommend that you come along next year - remember to say hi!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

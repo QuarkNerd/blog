@@ -1,8 +1,11 @@
 ---
 author: ceberhardt
-title: "Implementing React.js in Swift"
+title: Implementing React.js in Swift
 layout: default_post
 summary: "This blog post explores the novel approach taken by the React.js team, where the UI is expressed as a function of the current application state, and re-implements it with Swift."
+categories:
+  - Swift
+  - iOS
 ---
 
 This blog post explores the novel approach taken by the [React.js](http://facebook.github.io/react/) team, where the UI is expressed as a function of the current application state, and re-implements it with Swift.
@@ -422,3 +425,26 @@ And if it has inspired someone to port it to 'native' Swift, good luck to you, a
 I've [placed my code from this post on GitHub](https://github.com/ColinEberhardt/ReactSwift). Please be warned, it is a concept experimentation, and full of short-cuts, and memory leaks!
 
 Regards, Colin E.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

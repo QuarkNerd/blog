@@ -9,7 +9,7 @@ tags:
   - .Net
   - blog
 categories:
-  - rbaxter
+  - .NET
 layout: default_post
 source: site
 disqus-id: /2012/10/pdf-generation-and-printing-in-net-2/
@@ -245,3 +245,26 @@ private void printDoc_PrintPage(object sender, PrintPageEventArgs e)
 <p style="text-align: justify;">For example, I wanted to use PdfSharp to construct a document and to then use the document preview User Control provided by Migradoc. When rendering a document with PdfSharp a PdfSharp.PdfDocument.PdfDocument object is used, however, MiigraDoc uses the Migradoc.DocumentObjectModel.Document object and the preview control requires such a document. Because PdfSharp does not use a document object model (you can render anything anywhere), there is no way of converting from one document type to another and thus one cannot utilise the Migradoc preview control in this way. In this scenario I do not believe there is any reason for requiring a document object model for rendering a preview, and I suspect that there are other components of Migradoc that cannot be used for similar reasons. Either way, anybody intending to mix the two libraries should keep in mind that such problems do arise, and thus one cannot assume that the two libraries can be fully integrated.</p>
 <h3>Closing Remarks</h3>
 <p style="text-align: justify;">Drawing this post to a close I want to reiterate that my experiences with PdfSharp and Migradoc have been largely positive. I would not hesitate to use them again in the future and I would encourage their use by any developer requiring .NET PDF export functionality. Without performing a side-by-side comparison of PdfSharp and Migradoc with other solutions (e.g. iTextSharp) I cannot comment on their relative merits, however, I will say that one should not be put off by the fact that PdfSharp and Migradoc are free. My experience with these libraries has shown them to be very well written and documented and I expect that very little would be gained by opting for a commercially licensed solution.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

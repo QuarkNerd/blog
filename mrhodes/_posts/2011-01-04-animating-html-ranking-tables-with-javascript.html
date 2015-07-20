@@ -8,10 +8,10 @@ tags:
   - JQuery
   - blog
 categories:
-  - mrhodes
+  - Web
 layout: default_post
 source: site
-summary: "This post details a jQuery plugin which animates updates to HTML tables representing rankings."
+summary: This post details a jQuery plugin which animates updates to HTML tables representing rankings.
 disqus-id: /2011/01/animating-html-ranking-tables-with-javascript/
 ---
 <p><script src="{{ site.github.url }}/archive/2010/12/jquery-1.4.3.js"></script><script src="{{ site.github.url }}/archive/2010/12/animator.js"></script><script src="{{ site.github.url }}/archive/2010/12/rankingTableUpdate.js"></script><em>This post details a jQuery plugin which animates updates to html tables representing rankings</em>.  The code can be downloaded here: <a href="{{ site.github.url }}/archive/2010/12/rankingTableUpdate.js"><strong>rankingTableUpdate.js</strong></a>.  If you're just interested in how to use the plugin your web page skip ahead to <a href="#usage">the usage section</a>.</p>
@@ -468,3 +468,26 @@ $(oldTableElement).rankingTableUpdate(newTableElement, {
 <p>Then the animation expands the height of the table wrapping div so that it shows the dummy row, but not the fresh one.  Note that some text is added to the dummy row which is the same colour as the background so that the row is not artificially small (which it could be with no content at all).</p>
 <p>Apart from that, the rest of the code deals with figuring out what has happened to the rows (did they go up, down, etc.) and dealing with an array of annoying details, like figuring out what colour to set things or what distance to move things.  I should probably point out that one great (and almost remarkable) thing about this code, is that it doesn't need to mess with the z-index.  The rows all move over/under each other like you'd (or at least I did!) expect.  I was prepared for some horrible fixes around this, but, as chance would have it, the top down way in which the DOM elements are processed and added to the page causes the effect I wanted.</p>
 <p>If you like it, please feel free to use it and let me know what you think.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

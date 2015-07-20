@@ -1,14 +1,15 @@
 ---
 author: aaiken
-title: "Two Reusable Line Components for D3 Charts"
+title: Two Reusable Line Components for D3 Charts
 summary: "In this article I'm going to create two simple, reusable D3 components for adding line annotations to charts."
 image: aaiken/assets/featured/annotation.png
-tags: 
+tags:
   - d3
-categories: 
-  - aaiken
+categories:
+  - D3
+  - Charting
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2014/08/26/two-line-components-for-d3-charts.html
+oldlink: "http://www.scottlogic.com/blog/2014/08/26/two-line-components-for-d3-charts.html"
 disqus-id: /2014/08/26/two-line-components-for-d3-charts.html
 ---
 In this article I'm going to create two simple, reusable D3 components for adding line annotations to charts. One of the things I appreciate most about D3 components is that, regardless of the complexity of the component itself, adding one to a chart is typically a really simple process, and these components will illustrate that elegance.
@@ -350,3 +351,28 @@ When I see a moving average on a financial chart, my mind immediately jumps to [
 ## Conclusion
 
 Starting out with a very simple horizontal-line component, we've now built a tracker component which can display a horizontal line at a specified y-value, or track any given field on the data model with an optional (and configurable) moving average calculation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

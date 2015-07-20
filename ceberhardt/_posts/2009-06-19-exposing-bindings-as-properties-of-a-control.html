@@ -9,8 +9,7 @@ tags:
   - binding
   - blog
   - codeproject
-categories:
-  - ceberhardt
+categories: []
 layout: default_post
 source: wordpress
 disqus-id: /blog/colin/2009/06/exposing-bindings-as-properties-of-a-control/
@@ -159,3 +158,26 @@ private void Ellipse_Loaded(object sender, RoutedEventArgs e)
 <p>Again, by exposing Bindings as properties this user control is just as flexible as if its markup was included in the page directly. This example also illustrates another interesting point, the Bindings that the client provided have been re-used for each Ellipse that was created by the ItemsControl. This is made possible because when SetBinding is invoked on our Ellipse, the Binding is not associated with the Ellipse, rather, it is used to create an instance of a <a href="http://msdn.microsoft.com/en-us/library/system.windows.data.bindingexpression(VS.85).aspx">BindingExpression</a>. Binding is used to declare a binding, whereas BindingExpression is the implementation, i.e. it does the heavy-lifting of copying data to-and-from from source to target (and vice-versa).</p>
 <p>You can download the full source for both examples: <a href='{{ site.github.url }}/archive/2009/06/bindingproperties.zip'>bindingproperties.zip</a></p>
 <p>Regards, Colin E.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

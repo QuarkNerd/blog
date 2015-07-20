@@ -3,10 +3,10 @@ id: 165416
 author: cprice
 title: "Jekyll - A Developer's Wordpress?"
 oldlink: "http://www.scottlogic.co.uk/2012/12/jekyll-a-developers-wordpress/"
-tags: 
+tags:
   - blog
-categories: 
-  - cprice
+categories:
+  - Server
 layout: default_post
 source: site
 disqus-id: /2012/12/jekyll-a-developers-wordpress/
@@ -55,3 +55,26 @@ I don't share Wordpress's requirement for the content and templates to be well s
 I don't like making changes in live! Now this is definitely the developer inside me talking, but making changes directly to a live instance makes me uneasy. In Wordpress creating the content is as much of a feature of the live instance as consuming the content. Whereas, with Jekyll consuming the content is the only feature of the live instance. Knowing that I can make large changes to the site offline, using whatever tools I see fit and all the while knowing that an SCM system has my back, puts me far more at ease.
 
 To be clear, these aren't the requirements of an average user, **Wordpress is an excellent tool for most** and Jekyll too is not without its downsides. Not least of which [the very lengthy Window's install process](http://www.madhur.co.in/blog/2011/09/01/runningjekyllwindows.html), [the "quirky" capabilities of its categories/tags/pagination](https://github.com/mojombo/jekyll/pull/521), [inconsistencies in its object model](https://github.com/mojombo/jekyll/issues/171) and [questions over its maintenance](https://github.com/mojombo/jekyll/issues/578) (UPDATE: [no more!](https://github.com/mojombo/jekyll/issues/578#issuecomment-11414645)) - but I'll save all these for another post. It's just that for me, as a developer, Jekyll permits a process and tooling that I'm far more comfortable with for a simple site.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

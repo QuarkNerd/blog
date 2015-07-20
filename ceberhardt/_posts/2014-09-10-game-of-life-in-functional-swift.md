@@ -1,9 +1,12 @@
 ---
 author: ceberhardt
-title: "The Game of Life with Functional Swift"
+title: The Game of Life with Functional Swift
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2014/09/10/game-of-life-in-functional-swift.html
+oldlink: "http://www.scottlogic.com/blog/2014/09/10/game-of-life-in-functional-swift.html"
 disqus-id: /2014/09/10/game-of-life-in-functional-swift.html
+categories:
+  - Swift
+  - iOS
 ---
 
 This blog post shows an implementation of Conway's Game of Life using functional techniques in Swift. This results in code which is a clear and concise representation of the game's logic. I also take a closer look at ranges, intervals, the pattern match operator, `~=` and how local functions help organise your code.
@@ -382,5 +385,28 @@ The code for this application is [available on GitHub](https://github.com/ColinE
 Regards, Colin E.
 
 {% include ads/swift_by_tutorials.html %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

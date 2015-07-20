@@ -1,18 +1,21 @@
 ---
 author: ceberhardt
-title: "Swift Sequences and Lazy Evaluation"
-image: "ceberhardt/assets/featured/sequence.jpg"
-categories: 
+title: Swift Sequences and Lazy Evaluation
+image: ceberhardt/assets/featured/sequence.jpg
+categories:
+  - Swift
+  - iOS
 tags:
   - author-featured
 summary: "In this blog post I want to take a quick look at the Swift Sequence protocol, which forms the basis for the for-in loop, and see how this allows you to write code that performs sequence operations that are only evaluated on-demand."
-summary-short: "An exploration of lazy evaluation via Swift generators"
+summary-short: An exploration of lazy evaluation via Swift generators
 layout: default_post
 featured-overlay-inverted: true
 suppress-careers-add: true
-oldlink: http://www.scottlogic.com/blog/2014/06/26/swift-sequences.html
+oldlink: "http://www.scottlogic.com/blog/2014/06/26/swift-sequences.html"
 disqus-id: /2014/06/26/swift-sequences.html
 ---
+
 
 I've had a lot of fun poking around the Swift APIs over the past few weeks. The lack of documentation means that there are a some real gems hidden among the more mundane API and language features.
 
@@ -333,3 +336,26 @@ Swift sequences are really cool and show a lot of potential. The examples in thi
 Regards, Colin E.
 
 {% include ads/swift_by_tutorials.html %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

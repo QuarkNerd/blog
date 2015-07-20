@@ -1,11 +1,14 @@
 ---
 author: ceberhardt
-title: "Swift and the curious case of AnyObject"
+title: Swift and the curious case of AnyObject
 layout: default_post
 summary: "Swift, as I am sure you are aware, is quite a strict, safe and strongly-typed language. However, because the language needs to maintain Objective-C compatibility it has some rather curious features, and the behaviour of `AnyObject` is one of them!"
 suppress-careers-add: true
-oldlink: http://www.scottlogic.com/blog/2014/09/24/swift-anyobject.html
+oldlink: "http://www.scottlogic.com/blog/2014/09/24/swift-anyobject.html"
 disqus-id: /2014/09/24/swift-anyobject.html
+categories:
+  - Swift
+  - iOS
 ---
 Swift, as I am sure you are aware, is quite a strict, safe and strongly-typed language. However, because the language needs to maintain Objective-C compatibility it has some rather curious features, and the behaviour of `AnyObject` is one of them!
 
@@ -109,3 +112,26 @@ Regards, Colin E.
 
 
 {% include ads/swift_by_tutorials.html %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

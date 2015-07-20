@@ -1,19 +1,16 @@
 ---
 title: Investigating TypeScript compiler APIs
 author: nwolverson
-tags: 
+tags:
   - blog
   - featured
-image: "nwolverson/assets/featured/compiler.jpg"
+image: nwolverson/assets/featured/compiler.jpg
 image-attribution: "image courtesy of <a href='https://www.flickr.com/photos/stvan4245/'>KāSteve</a>"
-categories: 
-  - nwolverson
+categories:
+  - TypeScript
 layout: default_post
-summary: >
-    TypeScript 1.4 was released last Friday, bringing union types, type aliases, and some ES6-related features. It also brought a
-    new compiler and language services API to facilitate better tool support. Here I'll give a brief introduction with some
-    pointers on places to get started.
-oldlink: http://www.scottlogic.com/blog/2015/01/20/typescript-compiler-api.html
+summary: "TypeScript 1.4 was released last Friday, bringing union types, type aliases, and some ES6-related features. It also brought a new compiler and language services API to facilitate better tool support. Here I'll give a brief introduction with some pointers on places to get started.\n"
+oldlink: "http://www.scottlogic.com/blog/2015/01/20/typescript-compiler-api.html"
 disqus-id: /2015/01/20/typescript-compiler-api.html
 ---
 <script src="{{ site.github.url }}/nwolverson/assets/tsc/highlight.pack.js"> </script>
@@ -318,3 +315,26 @@ a little useful information here to get you started, or perhaps provide a little
 
 After I started writing this post, an example was posted of using the Language Service to [reformat TypeScript code](http://blog.ctaggart.com/2015/01/format-typescript-with-v14-language.html), it can be seen that the in-memory language service there turns out very similar to mine (i.e. do as little as possible). 
 [TypeScript official API docs](https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API) are also a useful reference.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

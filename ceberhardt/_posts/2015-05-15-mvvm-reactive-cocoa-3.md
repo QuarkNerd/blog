@@ -1,9 +1,13 @@
 ---
 author: ceberhardt
-title: "MVVM With ReactiveCocoa 3.0"
+title: MVVM With ReactiveCocoa 3.0
 layout: default_post
 summary: "This is my final article on ReactiveCocoa 3.0 (RAC3), where I demonstrate some more complex RAC3 usages within the context of an application built using the Model-View-ViewModel (MVVM) pattern."
+categories:
+  - iOS
+  - Swift
 ---
+
 
 This is my final article on ReactiveCocoa 3.0 (RAC3), where I demonstrate some more complex RAC3 usages within the context of an application built using the Model-View-ViewModel (MVVM) pattern.
 
@@ -274,5 +278,28 @@ RAC3 is shaping up to be a really great framework. There are still one or two lo
 All the code for this example app is [available on GitHub](https://github.com/ColinEberhardt/ReactiveTwitterSearch). I'd also suggest taking a look at [WhiskyNotebook](https://github.com/nebhale/WhiskyNotebook), another project which makes quite a bit of ue fo RAC3.
 
 Regards, Colin E.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

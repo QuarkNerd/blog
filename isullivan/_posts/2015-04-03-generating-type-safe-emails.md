@@ -1,9 +1,11 @@
 ---
 author: isullivan
-title: "Generating Type-Safe Email Templates Using Single File Generators"
+title: Generating Type-Safe Email Templates Using Single File Generators
 layout: default_post
 summary: "This post shows how 'single file generators' can be used to generate type-safe email templates"
 disqus-id: /2015/04/03/generating-type-safe-emails.html
+categories:
+  - Server
 ---
 
 Sending emails or other personalised messages from an application is a very common task. This post shows how Single-File Generators (SFGs) and Visual Studio can be used to keep email templates both readable and type-safe.
@@ -270,3 +272,26 @@ public class CodeGenerator
 
 ## Conclusion
 Single File Generators provide an automated way to generate code from arbitrary input files inside Visual Studio. I used a custom templating engine however this solution could be adapted to use something more familiar such as 'Razor'. Even if you are not using Visual Studio or don't want your project to depend on a plugin, I implore you to leave large amounts of text outside of code files.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,17 +1,20 @@
 ---
 author: ceberhardt
-title: "Swift Initialization and the Pain of Optionals"
-title-short: "Swift Initialization Options"
+title: Swift Initialization and the Pain of Optionals
+title-short: Swift Initialization Options
 layout: default_post
 summary: "Swift's strict initialisation process results in a number of practical issues, leaving developers scratching their heads. This post explores a few solutions including two-phase initialisation, the use of optionals and lazy properties. "
 summary-short: "Swift's strict initialisation process results in a number of practical issues, leaving developers scratching their heads."
 image: ceberhardt/assets/featured/options.jpg
-image-attribution: 'image courtesy of <a href="https://www.flickr.com/photos/laenulfean/">Carsten Tolkmit</a>'
+image-attribution: "image courtesy of <a href=\"https://www.flickr.com/photos/laenulfean/\">Carsten Tolkmit</a>"
 tags:
   - featured
   - author-featured
-oldlink: http://www.scottlogic.com/blog/2014/11/20/swift-initialisation.html
+oldlink: "http://www.scottlogic.com/blog/2014/11/20/swift-initialisation.html"
 disqus-id: /2014/11/20/swift-initialisation.html
+categories:
+  - Swift
+  - iOS
 ---
 
 Swift's strict initialisation process results in a number of practical issues, leaving developers scratching their heads. This post explores a few solutions including two-phase initialisation, the use of optionals and lazy properties. 
@@ -228,5 +231,28 @@ I do feel that lazy properties provide a slightly more palatable solution, altho
 I am sure there are other techniques that can be employed to overcome this issue. If you have any ideas, please share them in the comments below.
 
 Regards, Colin E.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

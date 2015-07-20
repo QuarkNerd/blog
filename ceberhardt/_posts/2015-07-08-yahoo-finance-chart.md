@@ -3,12 +3,16 @@ author: ceberhardt
 title: Creating a Yahoo Finance chart with D3 and d3fc
 title-short: Charting with D3 and d3fc
 layout: default_post
-summary: Most charting libraries are monoliths. The more features they support, the more unwieldy their APIs tend to become. With the d3fc project we have been exploring an alternative approach, constructing charts from a set of small components, using the D3 library.
+summary: "Most charting libraries are monoliths. The more features they support, the more unwieldy their APIs tend to become. With the d3fc project we have been exploring an alternative approach, constructing charts from a set of small components, using the D3 library."
 summary-short: Exploring the d3fc component approach to building charts.
 image: ceberhardt/assets/featured/yahoo.png
 tags:
-  - featured
+  - main
+categories:
+  - D3
+  - Charting
 ---
+
 
 <style>
 iframe {
@@ -318,6 +322,29 @@ In my next post I'll show how d3fc legend and crosshair components can be added 
 Until then, if you have any questions about d3fc or this example, get in touch either via the comments field below, or [via the GitHub project](https://github.com/ScottLogic/d3fc).
 
 Regards, Colin E.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

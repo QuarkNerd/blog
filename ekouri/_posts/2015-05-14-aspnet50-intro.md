@@ -1,8 +1,11 @@
 ---
 author: ekouri
-title: "Introduction to ASP.NET 5"
+title: Introduction to ASP.NET 5
 layout: default_post
 summary: "This blog post discusses the changes to the .NET framework, the solution layout / configuration and serves as an introduction to the recommended programming style encouraged by Microsoft going forwards."
+categories:
+  - .NET
+  - Server
 ---
 The [Build Conference](https://www.build15.com/) is now behind us where lots of exciting things were announced, among them the release of Visual Studio 2015 RC1. This blog post discusses the changes to the .NET framework, the solution layout / configuration and serves as an introduction to the recommended programming style encouraged by Microsoft going forwards. If you haven't downloaded Visual Studio 2015, [grab it now](https://www.visualstudio.com/en-us/downloads/visual-studio-2015-downloads-vs.aspx)!
 
@@ -140,3 +143,26 @@ In this post, all the major changes and new concepts introduced in ASP.NET 5 wer
 * [http://docs.asp.net/en/latest/conceptual-overview/aspnet.html](http://docs.asp.net/en/latest/conceptual-overview/aspnet.html)
 * [http://weblogs.asp.net/scottgu/introducing-asp-net-5](http://weblogs.asp.net/scottgu/introducing-asp-net-5)
 * [http://www.hanselman.com/blog/IntroducingASPNETVNext.aspx](http://www.hanselman.com/blog/IntroducingASPNETVNext.aspx)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

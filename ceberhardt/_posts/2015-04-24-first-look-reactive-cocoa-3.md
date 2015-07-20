@@ -1,14 +1,16 @@
 ---
 author: ceberhardt
-title: "A First Look at ReactiveCocoa 3.0"
+title: A First Look at ReactiveCocoa 3.0
 layout: default_post
 summary: "This blog post takes a look at the new ReactiveCocoa 3.0 swift interface, which introduces generics, a pipe-forward operator and an interesting use of curried functions."
 image: ceberhardt/assets/featured/reactive-cocoa.png
-summary-short: "This blog post takes a look at the new ReactiveCocoa 3.0 swift interface"
-title-short: "ReactiveCocoa 3.0"
+title-short: ReactiveCocoa 3.0
 tags:
   - featured
   - author-featured
+categories:
+  - iOS
+  - Swift
 ---
 
 This blog post takes a look at the new ReactiveCocoa 3.0 swift interface, which introduces generics, a pipe-forward operator and an interesting use of curried functions.
@@ -248,3 +250,25 @@ One advantage that free functions have over instance methods is that they are no
 In [my next blog post](http://blog.scottlogic.com/2015/04/28/reactive-cocoa-3-continued.html) I introduce some of the other new concepts, including signal producers, which are a replacement for cold signals!
 
 Regards, Colin E. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

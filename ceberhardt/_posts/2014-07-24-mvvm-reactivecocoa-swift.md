@@ -1,15 +1,17 @@
 ---
 author: ceberhardt
 title: "MVVM, Swift and ReactiveCocoa - It's all good!"
-categories: 
-tags:
-
-summary: "This blog post looks out how Swift makes the combination of ReactiveCocoa and MVVM even better ..."
+categories:
+  - Swift
+  - iOS
+tags: null
+summary: This blog post looks out how Swift makes the combination of ReactiveCocoa and MVVM even better ...
 layout: default_post
 suppress-careers-add: true
-oldlink: http://www.scottlogic.com/blog/2014/07/24/mvvm-reactivecocoa-swift.html
+oldlink: "http://www.scottlogic.com/blog/2014/07/24/mvvm-reactivecocoa-swift.html"
 disqus-id: /2014/07/24/mvvm-reactivecocoa-swift.html
 ---
+
 
 Around one month ago my [two-part tutorial series](http://www.raywenderlich.com/74106/mvvm-tutorial-with-reactivecocoa-part-1) on how to use the MVVM pattern with ReactiveCocoa was published on Ray Wenderlich's website. Unfortunately just before the publication date Apple launched the Swift beta, a language which is much better suited to functional programming than Objective-C.
 
@@ -219,4 +221,27 @@ Keep your eye on [this branch](https://github.com/ReactiveCocoa/ReactiveCocoa/pu
 Regards, Colin E.
 
 {% include ads/swift_by_tutorials.html %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

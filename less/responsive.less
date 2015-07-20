@@ -1,152 +1,5 @@
-@import "twitter-bootstrap/less/responsive-utilities";
 @import "header-responsive";
 @import "carousel-responsive";
-
-@media (max-width: 1140px) {
-  .container.wide {
-    width: 100%;
-  }
-}
-
-@media (min-width: 800px) and (max-width: 1000px) {
-
-  // Fixed grid
-  #grid > .core(@gridColumnWidth768, @gridGutterWidth768);
-
-  // Fluid grid
-  #grid > .fluid(@fluidGridColumnWidth768, @fluidGridGutterWidth768);
-
-  // Input grid
-  #grid > .input(@gridColumnWidth768, @gridGutterWidth768);
-
-  // No need to reset .thumbnails here since it's the same @gridGutterWidth
-}
-
-
-@media (max-width: 799px) {
-
-  aside.author {
-    text-align: left;
-  }
-
-// Negative indent the now static "fixed" navbar
-  .navbar-fixed-top,
-  .navbar-fixed-bottom,
-  .navbar-static-top {
-    margin-left: -20px;
-    margin-right: -20px;
-  }
-
-// Remove padding on container given explicit padding set on body
-  .container-fluid {
-    padding: 0;
-  }
-
-
-  .blog-post-container {
-    padding: 0px 20px 0px 20px;
-  }
-
-// TYPOGRAPHY
-// ----------
-// Reset horizontal dl
-  .dl-horizontal {
-    dt {
-      float: none;
-      clear: none;
-      width: auto;
-      text-align: left;
-    }
-    dd {
-      margin-left: 0;
-    }
-  }
-
-// GRID & CONTAINERS
-// -----------------
-// Remove width from containers
-  .container {
-    width: auto;
-    &.wide {
-      width: 100%;
-    }
-  }
-// Fluid rows
-  .row-fluid {
-    width: 100%;
-  }
-// Undo negative margin on rows and thumbnails
-  .row,
-  .thumbnails {
-    margin-left: 0;
-  }
-  .thumbnails > li {
-    float: none;
-    margin-left: 0; // Reset the default margin for all li elements when no .span* classes are present
-  }
-// Make all grid-sized elements block level again
-  [class*="span"],
-  .uneditable-input[class*="span"], // Makes uneditable inputs full-width when using grid sizing
-  .row-fluid [class*="span"] {
-    float: none;
-    display: block;
-    width: 100%;
-    margin-left: 0;
-    .box-sizing(border-box);
-  }
-  .span12,
-  .row-fluid .span12 {
-    width: 100%;
-    .box-sizing(border-box);
-  }
-  .row-fluid [class*="offset"]:first-child {
-    margin-left: 0;
-  }
-
-// FORM FIELDS
-// -----------
-// Make span* classes full width
-  .input-large,
-  .input-xlarge,
-  .input-xxlarge,
-  input[class*="span"],
-  select[class*="span"],
-  textarea[class*="span"],
-  .uneditable-input {
-    .input-block-level();
-  }
-// But don't let it screw up prepend/append inputs
-  .input-prepend input,
-  .input-append input,
-  .input-prepend input[class*="span"],
-  .input-append input[class*="span"] {
-    display: inline-block; // redeclare so they don't wrap to new lines
-    width: auto;
-  }
-  .controls-row [class*="span"] + [class*="span"] {
-    margin-left: 0;
-  }
-
-// Modals
-  .modal {
-    position: fixed;
-    top:   20px;
-    left:  20px;
-    right: 20px;
-    width: auto;
-    margin: 0;
-    &.fade  { top: -100px; }
-    &.fade.in { top: 20px; }
-  }
-
-  // Carousel padding
-  article:first-child {
-    margin: 0px 0px 24px 0;
-  }
-
-}
-
-
 
 // UP TO LANDSCAPE PHONE
 // ---------------------
@@ -213,30 +66,6 @@
   }
 }
 
-
-// UTILITIES
-
-.visible-small    { display: none !important; }
-.visible-medium   { display: none !important; }
-.visible-large    { display: inherit !important; }
-.hidden-small     { }
-.hidden-medium    { }
-.hidden-large     { display: none !important; }
-
-@media (min-width: 800px) and (max-width: 1000px) {
-  .visible-medium { display: inherit !important; }
-  .visible-large  { display: none !important; }
-  .hidden-medium  { display: none !important; }
-  .hidden-large   { display: inherit !important; }
-}
-
-@media (max-width: 799px) {
-  .visible-small  { display: inherit !important; }
-  .visible-large  { display: none !important; }
-  .hidden-small   { display: none !important; }
-  .hidden-large   { display: inherit !important; }
-}
-
 // All devices larger than mobiles.
 @media (max-width: 480px) {
   h1 {
@@ -261,5 +90,21 @@
   }
   h3 {
     font-size: @baseFontSize * 1.5;
+  }
+}
+
+// Container that stays full desktop size.
+.container.sl-base-container {
+  width: @bar-width;
+  max-width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+// Larger gutter on small screens
+@media (max-width: @screen-sm-min) {
+  .container {
+    padding-left: @small-screen-gutter;
+    padding-right: @small-screen-gutter;
   }
 }

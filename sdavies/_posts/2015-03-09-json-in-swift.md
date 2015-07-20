@@ -2,12 +2,15 @@
 author: sdavies
 title: Swift JSON Shoot-Out
 layout: default_post
-summary: For some reason, everybody and their dog has written about how to parse JSON in Swift. Not wishing to be left out, I thought I'd throw my hat into the ring.
+summary: "For some reason, everybody and their dog has written about how to parse JSON in Swift. Not wishing to be left out, I thought I'd throw my hat into the ring."
 tags:
   - featured
-image: "sdavies/assets/featured/json.jpg"
+image: sdavies/assets/featured/json.jpg
 title-short: JSON in Swift
-summary-short: What's the _best_ way to parse JSON in Swift?
+summary-short: "What's the _best_ way to parse JSON in Swift? Sam explores a number of options."
+categories:
+  - Swift
+  - iOS
 ---
 
 ## Introduction
@@ -550,4 +553,27 @@ copy, head on over to the ShinobiControls site at
 [shinobicontrols.com/iOS8](http://shinobicontrols.com/iOS8).
 
 sam
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

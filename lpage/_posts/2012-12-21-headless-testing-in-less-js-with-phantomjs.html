@@ -9,7 +9,9 @@ tags:
   - phantomjs
   - blog
 categories:
-  - lpage
+  - Web
+  - CSS
+  - Test
 layout: default_post
 source: site
 disqus-id: /2012/12/headless-testing-in-less-js-with-phantomjs/
@@ -171,3 +173,26 @@ var testSheet = function(sheet) {
 {% endhighlight %}
 <h3>Conclusion</h3>
 <p>It wasn't much work and now we have the huge benefit of basic, automated browser testing without having to loading one. This work was added in <a href="https://github.com/cloudhead/less.js/commit/6554117643cfdf87f159a8a5a3d3dd42f953c5fe">two</a> <a href="https://github.com/cloudhead/less.js/commit/c35b6d733e048a3344ce95f5f225ee815a12f014">commits</a> and you can run "make browser-test" which runs the PhantomJS tests (it builds the browser distributable, builds the test pages and then runs PhantomJS). If you want to debug the tests "make browser-test-server" starts the PhantomJS web server without running any tests, so you can navigate to the test causing the problem and see it in your browser.<img src="{{ site.github.url }}/archive/2012/12/less-test-3.png" alt="" title="less test 3" width="309" height="182" class="alignnone size-full wp-image-165741" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

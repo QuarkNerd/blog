@@ -6,13 +6,14 @@ tags:
   - Web Services
   - blog
 categories:
-  - jphillpotts
+  - Scala
 layout: default_post
 source: site
-summary: Taking a macro that can extract path elements from a query string and turning it into a fully fledged RESTful API, backed by an in-memory database.
-oldlink: http://www.scottlogic.com/blog/2013/06/07/scala-macros-part-3.html
+summary: "Taking a macro that can extract path elements from a query string and turning it into a fully fledged RESTful API, backed by an in-memory database."
+oldlink: "http://www.scottlogic.com/blog/2013/06/07/scala-macros-part-3.html"
 disqus-id: /2013/06/07/scala-macros-part-3.html
 ---
+
 
 ## A RESTful<a id="footnotebody1" href="#footnote1"><sup>1</sup></a> API
 
@@ -202,6 +203,29 @@ animated discussion about whether or not that which is being described properly
 implements the principles of REST. To be clear, by 'RESTful' I mean in-the-style-of-REST,
 and not necessarily strictly conforming to the principles of REST. Please let me know if
 you think there are some improvements I could make.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

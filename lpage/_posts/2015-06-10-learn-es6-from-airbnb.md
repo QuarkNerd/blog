@@ -3,10 +3,10 @@ author: lpage
 title: "Learn ES6 from Airbnb's coding standards"
 featured-overlay-inverted: true
 categories:
- - lpage
-tags: 
+  - JavaScript
+tags: null
 layout: default_post
-summary: Airbnb's JavaScript coding standards are now based around ES6 and contain many guidelines to help you take advantage of its features. In this blog post I'll present some resources I created to help you learn ES6 through their guidelines.
+summary: "Airbnb's JavaScript coding standards are now based around ES6 and contain many guidelines to help you take advantage of its features. In this blog post I'll present some resources I created to help you learn ES6 through their guidelines."
 ---
 
 I really like [Airbnb's coding standards][the standards] and as I've been trying to master ES6 ([also named EcmaScript 2015][es2015]) I've found that they offer many helpful hints on how to use ES6 functionality. Further, its really useful when learning to play around with the syntax and see what the equivalent is in ES5, in order to see what is and is-not possible. One of the best ways of doing that is using [babel js' REPL environment][babel repl].
@@ -119,3 +119,26 @@ If you'd prefer to try out the code in the browser, check out the [kangax compat
 [10.3]: http://babeljs.io/repl/#?experimental=false&evaluate=true&loose=true&spec=false&code=%2F%2F%20Modules%20-%20https%3A%2F%2Fgithub.com%2Fairbnb%2Fjavascript%2310.3%0A%0A%2F%2F%20And%20do%20not%20export%20directly%20from%20an%20import.%0A%2F%2F%20%20%20Why%3F%20Although%20the%20one-liner%20is%20concise%2C%20having%20one%20clear%20way%20to%20import%20and%20one%20clear%20way%20to%20export%20makes%20things%20consistent.%0A%0A%20%2F%2F%20bad%0A%2F%2F%20filename%20es6.js%0Aexport%20%7B%20es6%20as%20default%20%7D%20from%20%27.%2FairbnbStyleGuide%27%3B%0A%0A%2F%2F%20good%0A%2F%2F%20filename%20es6.js%0Aimport%20%7B%20es6%20%7D%20from%20%27.%2FAirbnbStyleGuide%27%3B%0Aexport%20default%20es6%3B
 [11.1]: http://babeljs.io/repl/#?experimental=false&evaluate=true&loose=true&spec=false&code=%2F%2F%20Iterators%20%26%20Generators%20-%20https%3A%2F%2Fgithub.com%2Fairbnb%2Fjavascript%2311.1%0A%0A%2F%2F%20Don%27t%20use%20iterators.%20Prefer%20JavaScript%27s%20higher-order%20functions%20like%20map()%20and%20reduce()%20instead%20of%20loops%20like%20for-of.%0A%2F%2F%20%20%20Why%3F%20This%20enforces%20our%20immutable%20rule.%20Dealing%20with%20pure%20functions%20that%20return%20values%20is%20easier%20to%20reason%20about%20than%20side-effects.%0A%0Aconst%20numbers%20%3D%20%5B1%2C%202%2C%203%2C%204%2C%205%5D%3B%0A%0A%2F%2F%20bad%0Alet%20suma%20%3D%200%3B%0Afor%20(let%20num%20of%20numbers)%20%7B%0A%20%20suma%20%2B%3D%20num%3B%0A%7D%0A%0Asuma%20%3D%3D%3D%2015%3B%0A%0A%2F%2F%20good%0Alet%20sumb%20%3D%200%3B%0Anumbers.forEach((num)%20%3D%3E%20sumb%20%2B%3D%20num)%3B%0Asumb%20%3D%3D%3D%2015%3B%0A%0A%2F%2F%20best%20(use%20the%20functional%20force)%0Aconst%20sumc%20%3D%20numbers.reduce((total%2C%20num)%20%3D%3E%20total%20%2B%20num%2C%200)%3B%0Asumc%20%3D%3D%3D%2015%3B
 [11.2]: http://babeljs.io/repl/#?experimental=false&evaluate=true&loose=true&spec=false&code=%2F%2F%20Iterators%20%26%20Generators%20-%20https%3A%2F%2Fgithub.com%2Fairbnb%2Fjavascript%2311.1%0A%0A%2F%2F%20Don%27t%20use%20generators%20for%20now.%0A%2F%2F%20%20%20Why%3F%20They%20don%27t%20transpile%20well%20to%20ES5.%0A%0A%2F%2F%20bad%0A%0Afunction*%20argumentsGenerator()%20%7B%0A%20%20for%20(let%20i%20%3D%200%3B%20i%20%3C%20arguments.length%3B%20i%20%2B%3D%201)%20%7B%0A%20%20%20%20yield%20arguments%5Bi%5D%3B%0A%20%20%7D%0A%7D
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

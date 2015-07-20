@@ -1,12 +1,12 @@
 ---
 author: lpage
-title: "Why should a project have automated tests?"
+title: Why should a project have automated tests?
 featured-overlay-inverted: true
 categories:
- - lpage
-tags: 
+  - Test
+tags: null
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2015/01/08/automated-tests.html
+oldlink: "http://www.scottlogic.com/blog/2015/01/08/automated-tests.html"
 disqus-id: /2015/01/08/automated-tests.html
 ---
 
@@ -110,3 +110,26 @@ It is my experience that web applications in particular are more likely to requi
 If you are managing an IT project it can be tempting to think of automated tests as an un-necessary expense - but if your project matches the factors above, you may be increasing the cost in the long term (on testers and paying for mistakes) and also making your project a less desirable one to work on in the future (an important factor if it is difficult to get good staff).
 
 Given the cost of automated testing, it is important that you understand and acknowledge the required level of testing in each area and aim for a good balance that is providing you the benefits.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,15 +1,17 @@
 ---
 author: ceberhardt
-title: "Swift Adoption Statistics"
-categories: 
-tags:
-
-summary: "It was just two months ago that Apple took us by surprise in releasing the Swift programming language. This blog post reflects on the first few months of Swift adoption."
+title: Swift Adoption Statistics
+categories:
+  - Swift
+  - iOS
+tags: null
+summary: It was just two months ago that Apple took us by surprise in releasing the Swift programming language. This blog post reflects on the first few months of Swift adoption.
 layout: default_post
 suppress-careers-add: true
-oldlink: http://www.scottlogic.com/blog/2014/08/01/swift-vs-objectivec.html
+oldlink: "http://www.scottlogic.com/blog/2014/08/01/swift-vs-objectivec.html"
 disqus-id: /2014/08/01/swift-vs-objectivec.html
 ---
+
 
 It was just two months ago that Apple took developers by surprise in releasing the Swift programming language. Ever since I've been spending my evenings thoroughly immersed in the 'all new' Swift programming language. 
 
@@ -56,6 +58,29 @@ Based on this result, when talking with a group of iOS developers I certainly wo
 Regards, Colin E.
 
 {% include ads/swift_by_tutorials.html %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

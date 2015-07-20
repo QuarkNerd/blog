@@ -1,17 +1,19 @@
 ---
 author: mdunsdon
-title: "Sharded Clusters in MongoDB - The Key Considerations"
-title-short: "Sharded Clusters in MongoDB"
+title: Sharded Clusters in MongoDB - The Key Considerations
+title-short: Sharded Clusters in MongoDB
 categories:
-tags:
-image: "mdunsdon/assets/featured/sharded.jpg"
+  - NoSQL
+tags: null
+image: mdunsdon/assets/featured/sharded.jpg
 summary: "Sharded clusters enable the data persistence layer in MongoDB to be shared across several machines.  In this post, we will look at the key considerations you should make before you use sharded clusters."
 layout: default_post
-image-attribution: 'image courtesy of <a href="https://www.flickr.com/photos/billburris/">Bill Burris</a>'
+image-attribution: "image courtesy of <a href=\"https://www.flickr.com/photos/billburris/\">Bill Burris</a>"
 featured-overlay-inverted: true
-oldlink: http://www.scottlogic.com/blog/2014/08/08/sharded-clusters-mongodb-considerations.html
+oldlink: "http://www.scottlogic.com/blog/2014/08/08/sharded-clusters-mongodb-considerations.html"
 disqus-id: /2014/08/08/sharded-clusters-mongodb-considerations.html
 ---
+
 
 
 When using MongoDB as a data persistence layer, there comes a point when increasing the specifications of a single machine no longer yields the return in performance that is needed.  MongoDB seeks to mitigate this issue, by splitting the persistence layer across multiple machines, and offers a sharded cluster feature to facilitate this.
@@ -80,3 +82,26 @@ If you can predict the amount of data you will be receiving and the range of val
 So far, we have looked at the key considerations you need to make before transitioning over to a sharded cluster.  What we have seen is that there is a tremendous amount of value in collecting performance metrics as they allow you to evaluate your current resource usage, make forecasts and anticipate future performance bottlenecks.  We have also seen that the transition to a sharded cluster introduces an additional deployment and maintainability cost and that the addition or removal of a machine can add an additional load.  Finally, we have touched upon what a shard key is and how this one choice defines the types of performance benefits you can receive from a sharded cluster.
 
 However, there is one thing we have not seen. Up until this point I have been vague about how performance metrics are collected and how you can use them, so in the next post on "Sharded Clusters in MongoDB" I look to address this. I will walk you through the performance metrics I have gathered when creating my own sharded clusters, what you can do with these metrics to forecast hardware requirements and how you can proactively identify performance bottlenecks ahead of time.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

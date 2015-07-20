@@ -1,11 +1,12 @@
 ---
 author: ceberhardt
 title: PropertyCross 1.3 Released
-categories: 
-summary: PropertyCross has just announced a v1.3 release, which includes two new frameworks, a number of updates and an improved build system.
+categories:
+  - Mobile
+summary: "PropertyCross has just announced a v1.3 release, which includes two new frameworks, a number of updates and an improved build system."
 layout: default_post
 suppress-careers-add: true
-oldlink: http://www.scottlogic.com/blog/2014/01/31/propertycross-1-3-released.html
+oldlink: "http://www.scottlogic.com/blog/2014/01/31/propertycross-1-3-released.html"
 disqus-id: /2014/01/31/propertycross-1-3-released.html
 ---
 
@@ -46,3 +47,26 @@ At PropertyCross we have our work cut out updating various implementations to ma
 If you are interested in contributing, why not take a look at the [list of framework requests](https://github.com/tastejs/PropertyCross/issues?labels=Framework+Request&page=1&state=open)?
 
 {% include ads/html5-white-paper.html %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

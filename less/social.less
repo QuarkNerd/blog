@@ -1,5 +1,4 @@
 .social {
-  margin: (@baseLineHeight / 2) 0;
   font-size: @baseFontSize * 0.85;
   line-height: @baseLineHeight * 0.75;
 
@@ -82,18 +81,12 @@
 }
 
 .carousel .social {
-  font-size: @baseFontSize * 0.75;
-  line-height: @baseLineHeight * 0.65;
-  position: absolute;
-  top: 0;
-  right: 10px;
-  text-align: right;
+  margin: 0 0;
 
   .tweet {
-    display: block;
-    padding: 0 0 0 20px;
+    display: inline-block;
     height: 16px;
-    margin: 0 0 5px 0;
+    margin: 0 0 0 0;
     text-decoration: none;
 
     &:hover {
@@ -133,10 +126,9 @@
   }
 
   .dq-comment-count {
-    display: block;
-    padding: 0 0 0 22px;
+    display: inline-block;
     height: 16px;
-    margin: 0;
+    margin-left: 6px;
     text-decoration: none;
 
     background:
@@ -165,5 +157,13 @@
       display: block;
       margin: 0;
     }
+  }
+}
+
+// Make icons smaller when used in a secondary/aside role.
+aside {
+  .social {
+    transform: scale(0.9);
+    transform-origin: left;
   }
 }

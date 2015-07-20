@@ -1,14 +1,14 @@
 ---
 author: nwolverson
-title: "Interactive.NET (1)"
-tags: 
+title: Interactive.NET (1)
+tags:
   - blog
-categories: 
-  - nwolverson
+categories:
+  - .NET
 layout: default_post
 source: site
-summary: In the first part of a series on running an interactive environment (REPL) on .NET, I talk a little about why you might want one, and cover the non-C# options.
-oldlink: http://www.scottlogic.com/blog/2013/08/08/interactive-dotnet-1.html
+summary: "In the first part of a series on running an interactive environment (REPL) on .NET, I talk a little about why you might want one, and cover the non-C# options."
+oldlink: "http://www.scottlogic.com/blog/2013/08/08/interactive-dotnet-1.html"
 disqus-id: /2013/08/08/interactive-dotnet-1.html
 ---
 If you ever programmed in a functional language, a dynamic language like Python
@@ -421,3 +421,26 @@ JavaScript implementations - some of which may or may not have interactive envir
 As for C#, that shall be the subject of my next post, where I'll cover various options, both "Open Source" and "Official".
 
 You can download the full source for the examples above [from this repository](https://github.com/nwolverson/blog-interactivenet).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

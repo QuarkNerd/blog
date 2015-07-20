@@ -1,15 +1,18 @@
 ---
 author: hpowell
 title: A first foray into functional programming with Scala and Clojure
-title-short: "Scala vs. Clojure"
+title-short: Scala vs. Clojure
 layout: default_post
-summary: Having recently dipped my toe into the world of functional programming with both Scala and Clojure I thought it'd be useful to do a quick compare and contrast of these two JVM based languages.
-summary-short: "Comparing and contrasting these JVM based languages"
+summary: "Having recently dipped my toe into the world of functional programming with both Scala and Clojure I thought it'd be useful to do a quick compare and contrast of these two JVM based languages."
+summary-short: Comparing and contrasting these JVM based languages
 image: hpowell/assets/featured/functional.jpg
 featured-overlay-inverted: true
-oldlink: http://www.scottlogic.com/blog/2014/10/28/Scala-Vs-Clojure.html
+oldlink: "http://www.scottlogic.com/blog/2014/10/28/Scala-Vs-Clojure.html"
 disqus-id: /2014/10/28/Scala-Vs-Clojure.html
+categories:
+  - Scala
 ---
+
 
 Having recently dipped my toe into the world of functional programming with both Scala and Clojure I thought it'd be useful to do a quick compare and contrast of these two JVM based languages.  Firstly I'll define what a functional programming language is and then move on to discuss the major similarities and differences between Scala and Clojure.
 
@@ -100,3 +103,26 @@ So far as I've learned both languages seem to be perfectly competent functional 
 [\[2\] http://www.scala-lang.org/docu/files/ScalaReference.pdf (section 6.12.3)](http://www.scala-lang.org/docu/files/ScalaReference.pdf)
 
 [\[3\] http://www.infoq.com/presentations/Simple-Made-Easy](http://www.infoq.com/presentations/Simple-Made-Easy)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

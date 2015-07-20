@@ -2,13 +2,16 @@
 author: shogarth
 title: On Running a Code Club
 layout: default_post
-image: "shogarth/assets/featured/code-club.jpg"
-tags: 
-summary-short: "My thoughts and experiences setting up and running a Code Club"
+image: shogarth/assets/featured/code-club.jpg
+tags: null
+summary-short: My thoughts and experiences setting up and running a Code Club
 summary: "Scott Logic have been helping out with a Code Club at a local primary school. As one of the developers involved, I'd like to share my experiences and tips for running your own Code Club!"
-oldlink: http://www.scottlogic.com/blog/2013/12/04/on-running-a-code-club.html
+oldlink: "http://www.scottlogic.com/blog/2013/12/04/on-running-a-code-club.html"
 disqus-id: /2013/12/04/on-running-a-code-club.html
+categories:
+  - News
 ---
+
 Since September, a colleague (Pat Armstrong) and I have been taking part in a local school's after-school [Code Club](https://www.codeclub.org.uk/), [backed by Scott Logic](http://www.scottlogic.com/news/20131203-certificates-awarded-to-code-club-whiz-kids/). This is a nationwide, non-governmental initiative to aid children, aged 9-11, to learn programming. It's operated purely on a voluntary basis and is free for a school, library or community centre to set up. In this post, I'd like to discuss my personal experiences from the initiative and provide some tips I found useful during the sessions.
 
 <img src="{{ site.github.url }}/shogarth/assets/code-club-west-jesmond-primary-school.jpg"/>
@@ -47,3 +50,26 @@ Programs in Scratch are created by dragging and dropping 'blocks' of functionali
 Scratch comes in two forms, both of which are available for free online. Version one is a desktop application and version two is both a desktop and web application. Scratch 2 also has some new features that the Code Club material doesn't cover, such as function blocks'. There's an ongoing effort to [convert the lessons to Scratch 2 over on GitHub](https://github.com/CodeClub/scratch-curriculum/issues/37), should you wish to help out. Until the Scratch 2 conversion has finished, I advise sticking to Scratch 1.4 as there are some subtle differences between the two platforms.
 
 The very essence of possessing a general-purpose computer is its ability to be programmed, unlocking another form of creative expression. Passing this knowledge to the next generation and seeing such a rapid, passionate uptake of the information is something I've found to be extremely rewarding. Indeed, I'd go as far as saying this is the most rewarding experience I've had in my professional career. Computing, specifically programming, is becoming an integral part of education - next year will see a new [Computing curriculum](https://www.gov.uk/government/publications/national-curriculum-in-england-computing-programmes-of-study) introduced in the UK. If done correctly, this can have profoundly positive effect on the capabilities of our future society. Being a small part of that is exciting and something I can't recommend enough!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

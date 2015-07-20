@@ -1,11 +1,12 @@
 ---
 author: cgrant
 title: Video Stitching with AVFoundation
-tags: 
-categories: 
+tags: null
+categories:
+  - iOS
 summary: Explaining the very basics of AVFoundation while building a Mac Application that stitches 3 .mov files together.
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2014/11/10/Video-Stitching-With-AVFoundation.html
+oldlink: "http://www.scottlogic.com/blog/2014/11/10/Video-Stitching-With-AVFoundation.html"
 disqus-id: /2014/11/10/Video-Stitching-With-AVFoundation.html
 ---
 
@@ -132,3 +133,26 @@ And that's it! The API can seem a little complicated at first, and you have to b
 <img src="{{ site.github.url }}/cgrant/assets/player.png" />
 
 If you are interested in learning more, I recommend starting with the [AVFoundationFramework docs from Apple](https://developer.apple.com/library/ios/documentation/AVFoundation/Reference/AVFoundationFramework/). If you have noticed any issues with the code, please raise an issue or create a pull request over at [GitHub](https://github.com/ChrisGrant/AVFoundation-Video-Stitching "AVFoundation Video Stitching Repository").
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

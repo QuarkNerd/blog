@@ -3,12 +3,12 @@ id: 161127
 author: shogarth
 title: Dispatches from DDDNorth 2
 oldlink: "http://www.scottlogic.co.uk/2012/10/dispatches-from-dddnorth-2/"
-tags: 
+tags:
   - Conferences
   - DeveloperDeveloperDeveloper
   - blog
-categories: 
-  - shogarth
+categories:
+  - Events
 layout: default_post
 source: site
 disqus-id: /2012/10/dispatches-from-dddnorth-2/
@@ -35,3 +35,26 @@ disqus-id: /2012/10/dispatches-from-dddnorth-2/
 <p>Finally, Ian Cooper delivered a comprehensive, accessible talk on an entirely new concept to me: event-driven architecture, or service-oriented architecture. At an extremely distilled level, this is where an application is sliced into logical parts and a service is aligned with each individual part. These logical divisions correspond to some piece of business capability and are exposed to the outside world via a data contract. This boundary must be explicit and well-defined. JSON and XML are commonly used as a means of describing the data contract.</p>
 <p>Inter-service communication is achieved through events, and Ian took us on a whistle-stop tour on the various techniques that you can use to implement event dispatching and processing. He then progressed onto more complex aspects, such as how to maintain consistency between services and how to handle erroneous situations through the use of sagas, orchestration services and more event processing. Ian also talked in some depth about how to best deploy caching and cataloguing data as a means of improving the overall efficiency of an event-driven system.</p>
 <p>For someone new to this kind of architecture, my overall impression is that this is an extreme form of loose-coupling. Only schema and data contracts are exposed at boundaries - not types. Everything inside a service is entirely encapsulated, right down to the data storage mechanisms (only one service has write-access to a specific logical area of data storage). This naturally gives us the means to perform unit and integration testing. However, there is certainly a large degree of complexity in the interoperation between services that requires an extensive amount of coordination to overcome. I need to make a point of learning more about this architecture!</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

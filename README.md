@@ -126,6 +126,11 @@ When adding your details to authors you'll need to add the following:
 * **author-summary** - A paragraph of two about the author that will be displayed on their author page.
 * **feed-description** - A short description that will be added to the description of the author's Atom and RSS feed.
 * **gravatar** - The author's [gravatar hash](https://en.gravatar.com/site/implement/hash/). This is an [md5 hash](http://www.miraclesalad.com/webtools/md5.php) of your email address in lower case. If you don't have a gravatar account you'll need to [sign up](https://en.gravatar.com/) for one.
+* **twitter-url** - The author's Twitter account.
+* **twitter-handle** - The author's Twitter handle.
+* **google-plus-url** - The author's Google+ url.
+* **author-image** - A relative URL to the author's image. For example (/ceberhardt/assets/mugshot.jpg).
+* **author-summary** - A short paragraph introducing the author.
 
 ### Testing
 To test that your post works and looks as expected, push your changes to your GitHub repository, entering your username/password when prompted:

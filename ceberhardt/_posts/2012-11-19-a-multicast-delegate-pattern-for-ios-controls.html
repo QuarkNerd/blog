@@ -4,12 +4,12 @@ author: ceberhardt
 title: A Multicast Delegate Pattern for iOS Controls
 oldlink: "http://www.scottlogic.co.uk/blog/colin/2012/11/a-multicast-delegate-pattern-for-ios-controls/"
 tags:
-  - "objective-c"
+  - objective-c
   - delegate
   - multicast
   - blog
 categories:
-  - ceberhardt
+  - iOS
 layout: default_post
 source: wordpress
 disqus-id: /blog/colin/2012/11/a-multicast-delegate-pattern-for-ios-controls/
@@ -253,3 +253,26 @@ NSString* const UITextViewMulticastDelegateKey = @"multicastDelegate";
 <p>Finally, you might have noticed that the <code>UITextViewHideKeyboardOnEnterBehaviour</code> implementation above handles a delegate method with a non-void signature. Despite the fact that we are multicasting these messages return values are still possible! I must admit I could not find any information about how the runtime handles return values when <code>invokeWithTarget:</code> is used to invoke multiple targets. Through testing I have discovered that the value returned by the last invocation is the one that is ultimately returned. I would certainly recommend caution if you plan to use this feature!</p>
 <p>You can download the code for the simple example here: <a href='{{ site.github.url }}/archive/2012/11/MulticastDelegates.zip'>MulticastDelegates.zip</a></p>
 <p>Regards, Colin E.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

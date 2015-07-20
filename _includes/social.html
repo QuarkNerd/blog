@@ -1,4 +1,6 @@
-<aside class="social">
+{% assign inverted = include.inverted %}
+{% assign black = include.black%}
+<aside class="secondary social">
   <a href="#"
      class="tweet{% if inverted %} inverted{% endif %}{% if black %} black{% endif %}"
      data-text="{{ title }}"

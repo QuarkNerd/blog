@@ -1,21 +1,25 @@
 @black:                        #231f20;
 @grey:                         #999;
-@lightGrey:                    #e8e8e8;
+@lightGrey: #d3d3d3;
+@lighterGrey: #e8e8e8;
 @teal:                         #2bb3bb;
 @darkTeal:                     #00667d;
 @pink:                         #af025c;
 @darkPink:                     #a60659;
+@white:                        #ffffff;
 
 @sansFontFamily:               Helvetica, Arial, sans-serif;
 @headingsFontFamily:           "futura-pt", Helvetica, Arial, sans-serif;
 @headingsFontWeight:           400;
 @baseFontSize:                 16px;
 @smallFontSize:                 12px;
+@largeFontSize: 26px;
 @baseLineHeight:               24px;
 @tightLineHeight:               18px;  
 @textColor:                    @black;
 @linkColor:                    @pink;
 @linkColorHover:               @pink;
+@headingsColor:                inherit;
 
 @easeRate:                     0.15s;
 
@@ -31,6 +35,25 @@
 
 @scottlogicUrl : "http://www.scottlogic.com";
 
-// Change the 940px grid to 1000px
-// -------------------------
+@baseBorderRadius:      4px;
+
+@bar-width: 1140px;
+
+@large-screen-margin: 40px;
+@small-screen-gutter: 40px;
+
+// Override large desktop size.
+@container-large-desktop: @bar-width;
+// Override xs screen breakpoint.
+@screen-sm-min: 800px;
+
+
+
+// Bootstrap 2
 @gridColumnWidth:         65px;
+@gridGutterWidth:         20px;
+@gridColumnWidth768:      42px;
+@gridGutterWidth768:      20px;
+@inputHeight:                   @baseLineHeight + 10px; // base line-height + 8px vertical padding + 2px top/bottom border
+@baseLineHeight:        20px;
+
