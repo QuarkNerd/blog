@@ -11,26 +11,34 @@ layout: default
       {% include categories_menu.html %}
     </aside>
     <div class="col-xs-12 col-md-8">
-      <header class="clearfix">
-        <h1>
-          {{ page.title }}
-        </h1>
-        <div class="secondary sub pull-left sub">
-          <span class="visible-xs-inline visible-sm-inline">
-            By <a class="authorName highlight" rel="author" href="{{ site.github.url }}/{{ page.author }}">{{ author.name }}</a>, on the
-          </span>
-          {% assign d = page.date | date: "%-d" %}
-          {% case d %}
-            {% when "1" or "21" or "31" %}{{ d }}st
-            {% when "2" or "22" %}{{ d }}nd
-            {% when "3" or "23" %}{{ d }}rd
-            {% else %}{{ d }}th
-          {% endcase %}
-          {{ page.date | date: "%b %Y" }}
+      <div class="row">
+        <div class="col-xs-12">
+          <header class="clearfix">
+            <h1>
+              {{ page.title }}
+            </h1>
+            <div class="secondary sub pull-left sub">
+              <span class="visible-xs-inline visible-sm-inline">
+                By <a class="authorName highlight" rel="author" href="{{ site.github.url }}/{{ page.author }}">{{ author.name }}</a>, on the
+              </span>
+              {% assign d = page.date | date: "%-d" %}
+              {% case d %}
+                {% when "1" or "21" or "31" %}{{ d }}st
+                {% when "2" or "22" %}{{ d }}nd
+                {% when "3" or "23" %}{{ d }}rd
+                {% else %}{{ d }}th
+              {% endcase %}
+              {{ page.date | date: "%b %Y" }}
+            </div>
+            <div class="secondary pull-right sub">{% include social.html %}</div>
+          </header>
         </div>
-        <div class="secondary pull-right sub">{% include social.html %}</div>
-      </header>
-      {{ content }}
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          {{ content }}
+        </div>
+      </div>
       {% unless page.suppress-careers-add %}
       {% include ads/careers.html %}
       {% endunless %}
