@@ -189,16 +189,6 @@ Install development dependencies:
 npm install
 ```
 
-This project uses a number of shared assets (less, images, etc...) from the [knowledge-unleashed-assets](https://github.com/ScottLogic/knowledge-unleashed-assets) project. This is included as a git submodule, with this projects grunt build unpacking the various files into their required location.
-
-NOTE: These shared files also need to be committed into their 'unpacked' location, GitHub's gh-pages does not run the projects guntfile!
-
-To build both scripts and styles, initialise the `less/twitter-bootstrap` and `shared-assets` submodules:
-```
-git submodule init
-git submodule update
-```
-
 Build production versions of CSS and Scripts:
 ```
 grunt build

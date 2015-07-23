@@ -129,7 +129,11 @@
 
 // A vertical list for larger screens.
 @media (min-width: @screen-md-min) {
-  .md-categories-menu {
+  .md-authors-menu {
+    margin-top: @baseLineHeight;
+  }
+
+  .md-categories-menu, .md-authors-menu {
     @menu-left-padding: 20px;
 
     padding: 0px;
@@ -165,6 +169,7 @@
       color: #535252;
       font-weight: 200;
       text-decoration: none;
+      display: block;
     }
   }
 }

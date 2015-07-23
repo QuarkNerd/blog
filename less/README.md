@@ -10,13 +10,6 @@ Install development dependencies:
 npm install
 ```
 
-Make sure you initialise the `less/twitter-bootstrap` submodule:
-
-```
-git submodule init
-git submodule update
-```
-
 To build the styles, run:
 
 ```
