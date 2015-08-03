@@ -333,8 +333,6 @@ But if I had presented a fast implementation originally (and one that was possib
 
 Regards, Colin E.
 
-{% include ads/swift_by_tutorials.html %}
-
 
 
 

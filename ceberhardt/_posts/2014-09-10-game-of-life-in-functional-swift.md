@@ -384,7 +384,6 @@ The code for this application is [available on GitHub](https://github.com/ColinE
 
 Regards, Colin E.
 
-{% include ads/swift_by_tutorials.html %}
 
 
 

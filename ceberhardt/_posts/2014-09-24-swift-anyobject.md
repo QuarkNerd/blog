@@ -111,9 +111,6 @@ Take care when using `AnyObject`, you can do some pretty strange things with tha
 Regards, Colin E.
 
 
-{% include ads/swift_by_tutorials.html %}
-
-
 
 
 

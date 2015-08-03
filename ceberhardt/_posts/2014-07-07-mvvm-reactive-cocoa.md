@@ -27,8 +27,6 @@ I'm looking forward to making this code even more lovely when I convert it over 
 
 Regards, Colin E.
 
-{% include ads/swift_by_tutorials.html %}
-
 
 
 

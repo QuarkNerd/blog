@@ -57,8 +57,6 @@ Based on this result, when talking with a group of iOS developers I certainly wo
 
 Regards, Colin E.
 
-{% include ads/swift_by_tutorials.html %}
-
 
 
 
