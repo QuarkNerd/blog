@@ -6,8 +6,6 @@ categories:
   - HTML5
   - Web
   - CSS
-tags:
-  - main_featured
 layout: default_post
 summary: This post gives a walkthrough of a project that makes use of the new Aurelia framework. It also take a look at how it compares to Angular 2.0, which is still in development.
 image: lpage/assets/featured/aurelia-large.png
