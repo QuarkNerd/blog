@@ -9,6 +9,8 @@ image: ceberhardt/assets/featured/yahoo.png
 categories:
   - D3
   - Charting
+tags:
+  - main_featured
 ---
 
 
