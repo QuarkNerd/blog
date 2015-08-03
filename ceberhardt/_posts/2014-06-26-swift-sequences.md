@@ -335,8 +335,6 @@ Swift sequences are really cool and show a lot of potential. The examples in thi
 
 Regards, Colin E.
 
-{% include ads/swift_by_tutorials.html %}
-
 
 
 

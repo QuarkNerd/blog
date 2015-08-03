@@ -220,8 +220,6 @@ Keep your eye on [this branch](https://github.com/ReactiveCocoa/ReactiveCocoa/pu
 
 Regards, Colin E.
 
-{% include ads/swift_by_tutorials.html %}
-
 
 
 
