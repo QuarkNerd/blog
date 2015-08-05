@@ -7,6 +7,8 @@ categories: []
 
 I've been working on an open-source charting library called [d3fc](http://scottlogic.github.io/d3fc). And [following Colin's lead](http://blog.scottlogic.com/2015/07/08/yahoo-finance-chart.html), was looking for a creative example to replicate: I think I found it...
 
+[<img src="{{ site.github.url }}/cprice/assets/svg-filters/website-example.png" alt="Website example screenshot" width="878"/>](http://d3fc.io/examples/basecoin)
+
 # Once upon a time
 
 The story starts with [Coinbase](https://www.coinbase.com/), a well-known(/funded) Bitcoin company. I was hunting for a freely available streaming data feed that we could use to provide some more realistic examples. A Bitcoin feed is the obvious choice, they're generally a lot more accessible without onerous licensing agreements and despite (because of?) recent turbulent times, are far more interesting than most financial products.
@@ -33,7 +35,7 @@ I'm going to go out on a limb and assume this isn't a real chart from their plat
 * Free-floating labels with arrows
 * Fixed label annotation (green 965.33)
 
-Also missing from the static screenshot are the parrallax (elements moving over each other as the camera moves) and depth of field (blurring of elements outside of the camera's focus) effects. Now this isn't exactly the kind of a chart d3fc was designed for but we do claim that it's flexible, let's see how far we can get.
+Also missing from the static screenshot are the parallax (elements moving over each other as the camera moves) and depth of field (blurring of elements outside of the camera's focus) effects. Now this isn't exactly the kind of a chart d3fc was designed for but we do claim that it's flexible, let's see how far we can get.
 
 # Data
 
@@ -569,7 +571,7 @@ And here's the result -
 
 # SVG flare effect
 
-My favourite feature of the animation is the flare effect which follows the tip of the data and gives it a really dynamic feel. However, from my point of view it's probably also the most intimidating feature to desconstruct. There are a number of techniques at play and I've had to guess at a comination which I think look about right.
+My favourite feature of the animation is the flare effect which follows the tip of the data and gives it a really dynamic feel. However, from my point of view it's probably also the most intimidating feature to desconstruct. There are a number of techniques at play and I've had to guess at a combination which I think look about right.
 
 Let's start with the most striking feature, the intensity of the flare. As white is the brightest we can go, we'll start with a white copy of the original graphic -
 
@@ -835,7 +837,7 @@ The `candlestick` rendering is taking a huge proportion of the frame processing 
 </g>
 {% endhighlight %}
 
-Whilst that will work well for a small number of bars, it seems an overly complicated structure for our needs. As we're rendering 150 bars, that's a significant amount of DOM nodes to manage. Luckily, the library is designed in a layered fasion so if `candlestick` isn't working for us, let's pull it apart.
+Whilst that will work well for a small number of bars, it seems an overly complicated structure for our needs. As we're rendering 150 bars, that's a significant amount of DOM nodes to manage. Luckily, the library is designed in a layered fashion so if `candlestick` isn't working for us, let's pull it apart.
 
 Peeking into the source of the component, you can see that the actual candlestick path generation is being done by a separate component `fc.svg.candlestick`. As we want to get things running as fast as possible and we don't need to `decorate` individual bars (the reason behind the g elements), let's directly use this underlying component.
 
@@ -968,7 +970,7 @@ We're now within the magic 60fps for processing time (yellow section of vertical
 
 # Optimising the effects
 
-Unforutnately, digging into the painting problems is going to require a less analytical approach. Whilst the frame-by-frame view at the top of the timeline shows a significant paint time, the flame chart is showing barely any painting time and the aggregated time at the bottom shows a very different story -
+Digging into the painting problems is going to require a less analytical approach. Whilst the frame-by-frame view at the top of the timeline shows a significant paint time, the flame chart is showing barely any painting time and the aggregated time at the bottom shows a very different story -
 
 <img src="{{ site.github.url }}/cprice/assets/svg-filters/timeline-broken.png" alt="Broken timeline? screenshot" width="878"/>
 
