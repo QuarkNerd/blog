@@ -2,7 +2,9 @@
 author: cprice
 layout: default_post
 title: An Adventure in SVG Filter Land
-categories: []
+categories: 
+  - D3
+  - Charting
 ---
 
 I've been working on an open-source charting library called [d3fc](http://scottlogic.github.io/d3fc). And [following Colin's lead](http://blog.scottlogic.com/2015/07/08/yahoo-finance-chart.html), was looking for a creative example to replicate: I think I found it...
