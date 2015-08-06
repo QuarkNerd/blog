@@ -39,12 +39,10 @@ authors:
         name: Colin Eberhardt
         email: ceberhardt@scottlogic.com
         gravatar: 458f2e0d08d4114f8b323798cfea141d
-        author-summary: A coding addict, dividing my time between iOS, C#, JavaScript and everything else. CTO @ <a href="http://www.shinobicontrols.com">ShinobiControls</a>
         feed-description: Colin Eberhardt's Technology Adventures
         twitter-url: https://twitter.com/ColinEberhardt
         twitter-handle: ColinEberhardt
-        google-plus-url: https://plus.google.com/u/0/104181672098184856535
-        author-summary: <p>I am Technology Director at Scott Logic and am a prolific technical author, blogger and speaker on a range of technologies. For a number of years I worked with the Microsoft stack of technologies, including WPF, WCF, Silverlight and <a href="../topics/windowsphone.html">Windows Phone</a>. More recently I have diversified to include HTML5, JavaScript and iOS development.</p>
+        author-summary: <p>I am Technology Director at Scott Logic and am a prolific technical author, blogger and speaker on a range of technologies. For a number of years I worked with the Microsoft stack of technologies, including WPF, WCF, Silverlight and Windows Phone. More recently I have diversified to include HTML5, JavaScript and iOS development.</p>
         author-image: /ceberhardt/assets/mugshot.jpg
     cprice:
         name: Chris Price

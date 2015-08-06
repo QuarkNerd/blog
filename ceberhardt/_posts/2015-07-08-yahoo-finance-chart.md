@@ -321,7 +321,7 @@ In my next post I'll show how d3fc legend and crosshair components can be added 
 
 Until then, if you have any questions about d3fc or this example, get in touch either via the comments field below, or [via the GitHub project](https://github.com/ScottLogic/d3fc).
 
-<b>Update:</b> The [second part of this two-part series has been published]({{ site.github.url }}/2015/07/22/yahoo-finance-chart-part-two.html, so you can see the complete example in action!
+<b>Update:</b> The [second part of this two-part series has been published]({{ site.github.url }}/2015/07/22/yahoo-finance-chart-part-two.html), so you can see the complete example in action!
 
 Regards, Colin E.
 
