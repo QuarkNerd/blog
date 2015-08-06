@@ -128,7 +128,7 @@ var ema = fc.series.line()
     .yValue(function(d) { return d.exponentialMovingAverage; });
 {% endhighlight %}
 
-Now that we have multiple series to add to the chart, rather than manually creating containers for each of them we can use a `multi` series. The `multi` series will also take care of propagating through the scales and allow us to `decorate` the created containers with appropriate class names we can use for styling -
+Now that we have multiple series to add to the chart, rather than manually creating containers for each of them we can use a `multi` series. The `multi` series will also take care of propagating through the scales and allow us to `decorate` ([more details](http://d3fc.io/components/introduction/2-decorate-pattern.html)) the created containers with appropriate class names we can use for styling -
 
 {% highlight js %}
 var multi = fc.series.multi()
@@ -356,7 +356,7 @@ We're inching closer -
 
 # Labels
 
-The only component we're missing now is the labels. Whilst the `line` annotation provides a label which we could `decorate` with the arrow graphic, in order to achieve a later effect we need the labels in a different container element. As there's no appropriate component in d3fc, we'll create one from scratch.
+The only component we're missing now is the labels. Whilst the `line` annotation provides a label which we could `decorate` ([more details](http://d3fc.io/components/introduction/2-decorate-pattern.html)) with the arrow graphic, in order to achieve a later effect we need the labels in a different container element. As there's no appropriate component in d3fc, we'll create one from scratch.
 
 Most of the d3fc components are built on top of the `dataJoin` component, it provides a couple of useful extensions to the d3 concept of data-join but can be considered identical for the purposes of this example. When each data-joined `g` element enters the document it will have a `path` element added to it for the arrow graphic and a `text` element for the label itself. Then on every update we want the transform to be updated to reflect any changes to the location calculated from the scales.
 
@@ -839,7 +839,7 @@ The `candlestick` rendering is taking a huge proportion of the frame processing 
 
 Whilst that will work well for a small number of bars, it seems an overly complicated structure for our needs. As we're rendering 150 bars, that's a significant amount of DOM nodes to manage. Luckily, the library is designed in a layered fashion so if `candlestick` isn't working for us, let's pull it apart.
 
-Peeking into the source of the component, you can see that the actual candlestick path generation is being done by a separate component `fc.svg.candlestick`. As we want to get things running as fast as possible and we don't need to `decorate` individual bars (the reason behind the g elements), let's directly use this underlying component.
+Peeking into the source of the component, you can see that the actual candlestick path generation is being done by a separate component `fc.svg.candlestick`. As we want to get things running as fast as possible and we don't need to `decorate` ([more details](http://d3fc.io/components/introduction/2-decorate-pattern.html)) individual bars (the reason behind the g elements), let's directly use this underlying component.
 
 Starting with the foundation of any component -
 
