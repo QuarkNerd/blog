@@ -30,6 +30,7 @@ layout: default
               {% endcase %}
               {{ page.date | date: "%b %Y" }}
             </div>
+            {% capture url %}{{ site.canonical.url }}{{ post.url }}{% endcapture %}
             <div class="secondary pull-right sub">{% include social.html %}</div>
           </header>
         </div>

@@ -3,7 +3,7 @@
      data-article-link="{{ site.github.url }}{{ post.url }}"
      style="background-image: url({{ site.github.url }}/{{ post.image }});">
     <div class="clipping">
-        {% capture url %}{{ site.github.url }}{{ post.url }}{% endcapture %}
+        {% capture url %}{{ site.canonical.url }}{{ post.url }}{% endcapture %}
         {% if post.oldlink %}
         {% capture url %}{{ post.oldlink }}{% endcapture %}
         {% endif %}

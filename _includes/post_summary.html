@@ -56,7 +56,7 @@
     </p>
     {% endif %}
 
-    {% capture url %}{{ site.github.url }}{{ post.url }}{% endcapture %}
+    {% capture url %}{{ site.canonical.url }}{{ post.url }}{% endcapture %}
     {% if post.oldlink %}
       {% capture url %}{{ post.oldlink }}{% endcapture %}
     {% endif %}
@@ -71,7 +71,7 @@
 
     {% if suppressSocialLinks %}
     {% else %}
-    {% include social.html black=false invered=false %}
+    {% include social.html invered=false %}
     {% endif %}
   </div>
 </article>
