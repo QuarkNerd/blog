@@ -10,7 +10,11 @@ function loadTweetCount() {
         if (elem.find(".count").is(':empty')) {
             // Get count and set it as the inner HTML of .count
             jQuery.getJSON(API_URL + "?callback=?&url=" + url, function(data) {
-                elem.find(".count").html(data.count);
+                if (data.count > 0) {
+                    elem.show()
+                        .find(".count")
+                        .html(data.count);
+                }
             });
         }
     });
