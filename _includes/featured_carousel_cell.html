@@ -3,18 +3,6 @@
      data-article-link="{{ site.github.url }}{{ post.url }}"
      style="background-image: url({{ site.github.url }}/{{ post.image }});">
     <div class="clipping">
-        {% capture url %}{{ site.canonical.url }}{{ post.url }}{% endcapture %}
-        {% if post.oldlink %}
-        {% capture url %}{{ post.oldlink }}{% endcapture %}
-        {% endif %}
-        {% if post.originalArticleLink %}
-        {% assign url = post.originalArticleLink %}
-        {% endif %}
-        {% assign disqusID = post.url %}
-        {% if post.disqus-id %}
-        {% assign disqusID = post.disqus-id %}
-        {% endif %}
-        {% assign title = post.title %}
         <div class="carousel-caption {% if post.image == null %}full-cell{% endif %}">
             <h4>
                 {% if post.title-short %}
@@ -23,7 +11,7 @@
                 {{ post.title | truncatewords: include.maximumTitleWords }}
                 {% endif %}
             </h4>
-            {% include social.html inverted=true %}
+            {% include social.html inverted=true postOrPage=post %}
             <p>
                 {% if post.summary-short %}
                 {{ post.summary-short }}

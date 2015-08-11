@@ -22,7 +22,7 @@ function loadCommentCount() {
           if (num > 0) {
             for(var j in result.response[i].identifiers) {
               jQuery('div[data-disqus-identifier="' + result.response[i].identifiers[j] + '"]')
-                .show()
+                .css("opacity", 1)
                 .find('.count')
                 .html(num);
             }

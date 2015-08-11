@@ -30,12 +30,7 @@ layout: default
               {% endcase %}
               {{ page.date | date: "%b %Y" }}
             </div>
-            {% capture url %}{{ site.canonical.url }}{{ page.url }}{% endcapture %}
-            {% assign disqusID = page.url %}
-            {% if post.disqus-id %}
-              {% assign disqusID = post.disqus-id %}
-            {% endif %}
-            <div class="secondary pull-right sub">{% include social.html %}</div>
+            <div class="secondary pull-right sub">{% include social.html inverted=false postOrPage=page %}</div>
           </header>
         </div>
       </div>

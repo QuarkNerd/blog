@@ -11,7 +11,7 @@ function loadTweetCount() {
             // Get count and set it as the inner HTML of .count
             jQuery.getJSON(API_URL + "?callback=?&url=" + url, function(data) {
                 if (data.count > 0) {
-                    elem.show()
+                    elem.css("opacity", 1)
                         .find(".count")
                         .html(data.count);
                 }

@@ -56,22 +56,8 @@
     </p>
     {% endif %}
 
-    {% capture url %}{{ site.canonical.url }}{{ post.url }}{% endcapture %}
-    {% if post.oldlink %}
-      {% capture url %}{{ post.oldlink }}{% endcapture %}
-    {% endif %}
-    {% if post.originalArticleLink %}
-      {% assign url = post.originalArticleLink %}
-    {% endif %}
-    {% assign disqusID = post.url %}
-    {% if post.disqus-id %}
-      {% assign disqusID = post.disqus-id %}
-    {% endif %}
-    {% assign title = post.title %}
-
-    {% if suppressSocialLinks %}
-    {% else %}
-    {% include social.html invered=false %}
-    {% endif %}
+    {% unless suppressSocialLinks %}
+    {% include social.html inverted=false postOrPage=post %}
+    {% endunless %}
   </div>
 </article>

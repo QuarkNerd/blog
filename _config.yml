@@ -13,8 +13,6 @@ paginate: 20
 
 excerpt_separator: ""
 
-highlighter: false
-
 exclude:
     - checkdups
     - CNAME
