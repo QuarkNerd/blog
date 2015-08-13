@@ -30,7 +30,7 @@ layout: default
               {% endcase %}
               {{ page.date | date: "%b %Y" }}
             </div>
-            <div class="secondary pull-right sub">{% include social.html %}</div>
+            <div class="secondary pull-right sub">{% include social.html inverted=false postOrPage=page %}</div>
           </header>
         </div>
       </div>

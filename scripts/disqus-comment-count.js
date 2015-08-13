@@ -19,8 +19,13 @@ function loadCommentCount() {
       success: function(result) {
         for(var i in result.response) {
           var num = result.response[i].posts;
-          for(var j in result.response[i].identifiers) {
-            jQuery('div[data-disqus-identifier="' + result.response[i].identifiers[j] + '"]').find('.count').html(num);
+          if (num > 0) {
+            for(var j in result.response[i].identifiers) {
+              jQuery('div[data-disqus-identifier="' + result.response[i].identifiers[j] + '"]')
+                .css("opacity", 1)
+                .find('.count')
+                .html(num);
+            }
           }
         }
       }
