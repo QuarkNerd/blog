@@ -18,7 +18,7 @@ This is a blog post about IE and how it handles windows running code which inter
 
 ## Test Case
 
-First, I'll explain the test case. On the main or start window we have the following, which just creates an app with a syncronous and asyncrounous callback.
+First, I'll explain the test case. On the main or start window we have the following, which just creates an app with a synchronous and asynchronous callback.
 
 {% highlight javascript %}
 window.myApp = {
@@ -55,7 +55,7 @@ makeSyncCallToMainWindow();
 
 Note that the helper functions can be found in the linked test-case.
 
-The ouput from Chrome & Firefox is the following.
+The output from Chrome & Firefox is the following.
 
 <pre>
 state is now:waiting...
@@ -99,7 +99,7 @@ and the sequences of events is (the full test case has more logs to determine th
 4. at some point whilst the popup window is doing things, the main window runs the setTimeout, but it doesn't call into the popup window because the popup window is currently running code.
 5. popup makes sync call to main window
 6. main window is busy trying to run timeout - so because IE hasn't waited till the popup has finished running JavaScript, we have a deadlock situation with the main window wanting to run code in the popup window and vice versa.
-7. IE then runs the callback from the main window to the popup window, even though the popup window is trying to make a synhronous call to the main window. The result is that the callback from the main window runs in the context that the popup window is currently in (e.g. a context that couldn't possibly have led to that function being called!).
+7. IE then runs the callback from the main window to the popup window, even though the popup window is trying to make a synchronous call to the main window. The result is that the callback from the main window runs in the context that the popup window is currently in (e.g. a context that couldn't possibly have led to that function being called!).
 8. then (or possibly at the same time) it runs the synchronous call from the popup in the current context of the main window (i.e. the context of the function inside setTimeout that was previously running in step 7!) So their stack traces and contexts are reversed.
 9. Once that has the result to send to the main window, it then continues both threads as if nothing has happened - the syncCall return runs in the popout window and the remainder of the timeout function runs on the main window.
 
@@ -140,7 +140,7 @@ function reEntrant() {
 }
 {% endhighlight %}
 
-But thats probably the least of your worries. Firstly the main window thread will create a new myResource based on new information, then once the current windows thread comes back, it will overwrite myResource with a version based on outdated information.
+But that's probably the least of your worries. Firstly the main window thread will create a new myResource based on new information, then once the current windows thread comes back, it will overwrite myResource with a version based on outdated information.
 
 A third example can be seen when using knockout computed values - Knockout ignores re-entrant calls to ko.computed (it messes up the internal ko state of that computed). But in the case of a popup window, the computed might be triggered by a completely new event (not recursive) but be ignored because the current state of that computed tells knockout that it is being called recursively.
 
@@ -174,9 +174,9 @@ function reEntrant() {
 }
 {% endhighlight %}
 
-So What can we do to fix the problem? The only way around it I can think of is to run the async callback in the popout window in a setTimeout. That fixes only one side (the main window still runs the sync function in the context of its setTimeout, but hopefully a setTimeout that calls the popout window does not have a large amount of associated state that can mess up the sync call). You could also mandate that all communication between the 2 windows goes through a post message type mechanism - thereby seperating the communication in the same way.
+So What can we do to fix the problem? The only way around it I can think of is to run the async callback in the popout window in a setTimeout. That fixes only one side (the main window still runs the sync function in the context of its setTimeout, but hopefully a setTimeout that calls the popout window does not have a large amount of associated state that can mess up the sync call). You could also mandate that all communication between the 2 windows goes through a post message type mechanism - thereby separating the communication in the same way.
 
-Unless you do write an application that is very strict in its window communication this will be a difficult bug to track down the cause of, an easy one to fix a single case of and a difficult bug to permanently work around. Heres hoping that IE fixes it in IE12!
+Unless you do write an application that is very strict in its window communication this will be a difficult bug to track down the cause of, an easy one to fix a single case of and a difficult bug to permanently work around. Here's hoping that IE fixes it in IE12!
 
 ## Further thoughts
 

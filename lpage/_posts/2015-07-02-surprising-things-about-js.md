@@ -59,7 +59,7 @@ Another thing you can do is create arbitrary blocks (I know you can do this in C
 }
 {% endhighlight %}
 
-So, we can put this together and label and break from abritrary blocks.
+So, we can put this together and label and break from arbitrary blocks.
 
 {% highlight js %}
 outer: {
@@ -168,7 +168,7 @@ var a;
 [a] = array;
 {% endhighlight %}
 
-But with objects you must surround the whole assignment in parenthsis...
+But with objects you must surround the whole assignment in parenthesis...
 
 {% highlight js %}
 var a;
@@ -201,7 +201,7 @@ var a, b, c;
 
 ## Destructuring with numbers
 
-Another aspect of destructuring you might not realise is that the property names do not have to be unqouted strings. They can be numbers..
+Another aspect of destructuring you might not realise is that the property names do not have to be unquoted strings. They can be numbers..
 
 {% highlight js %}
 var {1 : a} = { 1: true };
