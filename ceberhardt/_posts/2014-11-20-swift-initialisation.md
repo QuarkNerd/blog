@@ -50,7 +50,7 @@ class ViewController: UIViewController {
 }
 {% endhighlight %}
 
-One of Swift's rules is that you must initialise all the properties of a class before initialising the superclass. This avoids issues that can arise if a super initialiser calls a method which is overriden resulting in inconsistent state. For a simple illustration of the issue, take a look at [this gist](https://gist.github.com/qnoid/1499fb8e0e344f706e00).
+One of Swift's rules is that you must initialise all the properties of a class before initialising the superclass. This avoids issues that can arise if a super initialiser calls a method which is overridden resulting in inconsistent state. For a simple illustration of the issue, take a look at [this gist](https://gist.github.com/qnoid/1499fb8e0e344f706e00).
 
 OK ... so let's shift it before the super.init call:
 

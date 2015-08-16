@@ -20,7 +20,7 @@ The ELK stack is made up of 3 components -
 
 * Logstash - An agent which normally runs on each server you wish to harvest logs from. Its job is to read the logs (e.g. from the filesystem), normalise them (e.g. common timestamp format), optionally extract structured data from them (e.g. session IDs, resource paths, etc.) and finally push them into elasticsearch.
 
-* Elasticsearch - A distributed indexed datastore which normally runs in a single cluster. It's job is to reliably store the incomming log data across the nodes in the cluster and to service queries from Kibana.
+* Elasticsearch - A distributed indexed datastore which normally runs in a single cluster. It's job is to reliably store the incoming log data across the nodes in the cluster and to service queries from Kibana.
 
 * Kibana - A browser-based interface served up from a web server. It's job is to allow you to build tabular and graphical visualisations of the log data based on elasticsearch queries. Typically these are based on simple text queries, time-ranges or even far more complex aggregations.
 
@@ -34,7 +34,7 @@ The existing system used a batch process to harvest the logs from all of the ser
 
 The ELK implementation greatly simplified the aggregation and searching of data across these servers. Tracing problems across services or collecting metrics on bug fixes and infrastructure upgrades can all easily done in real-time through a simple web interface. It was found that log messages including correlation keys, for example session or transaction IDs were especially ripe for analysis.
 
-Simple examples of this were unique session counts over time, live concurrent session lifecycle overiews and even breakdowns of the session load by service. A particularly valuable example was a real-time conversion rate of FX quotes, showing not only how many quotes were being requested over time but the ratio of those which were eventually traded.
+Simple examples of this were unique session counts over time, live concurrent session lifecycle overviews and even breakdowns of the session load by service. A particularly valuable example was a real-time conversion rate of FX quotes, showing not only how many quotes were being requested over time but the ratio of those which were eventually traded.
 
 <img src="{{ site.github.url }}/cprice/assets/ELKSessionLifecycle.png" title="An example chart showing the concurrent session lifecyle overview in Kibana"/>
 
@@ -130,7 +130,7 @@ The above configuration defines the main field as an ```analyzed``` field and th
 
 # You know, for logs
 
-The ELK stack is an incredibly powerful tool which really can revolutionise how logs are *viewed*. Awful puns aside, it's a powerful and versitile stack that can seriously optimise the workload of operations, and at the same time expose fresh insights to business.
+The ELK stack is an incredibly powerful tool which really can revolutionise how logs are *viewed*. Awful puns aside, it's a powerful and versatile stack that can seriously optimise the workload of operations, and at the same time expose fresh insights to business.
 
 
 

@@ -1,0 +1,459 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines begining # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+programmatically
+crosshairs
+ie
+accessor
+Investopedia
+trendline
+mousemove
+textarea
+Nullable
+IntelliJ
+dataflow
+nullable
+datastructures
+iterable
+Bristech
+CrossroadsJS
+RequireJS
+scaffolded
+npm
+ajax
+debounce
+json
+ok
+Globalize
+jquery
+jquery.mockjax
+div
+setup
+e2e
+css
+minify
+minified
+minifies
+Protactor
+node.js
+webdriverjs
+webdriver-manager
+webdriver
+chromedriver
+javascript
+asp.net
+angularjs
+web.config
+SDKs
+sass
+yuck
+timeouts
+heros
+webgl
+Three.js
+PhiloGL
+shaders
+walkthrough
+JBoss
+DZone
+classloader
+servlet
+classloading
+maven
+undeployment
+microservice
+urgh
+plonk
+startup
+mixin
+mixins
+knockoutjs
+Mustache
+viewmodel
+stackoverflow
+AppsWorld
+Snappii
+AnyPresence
+TheAppBuilder
+PropertyCross
+SandwichFlow
+datasource
+datasources
+databindings
+templated
+splashscreen
+UIKit
+sourcecode
+github
+VCTransitionsLibrary
+UIView-Snapshotting
+center
+UIView
+keyframes
+keyframe
+subview
+snapshotting
+suprisingly
+CodeProject
+TasteJS
+TodoMVC
+UIs
+C#
+ActionScript
+Emy
+PhoneGap
+ReactiveCocoa
+reactive.io
+MacBook
+gyro
+readonly
+localhost
+three.js
+mrdoob
+re-useable
+Silverlight
+struct
+ExSwift
+databinding
+2x
+Flickr
+interop
+borks
+iOSDevUK
+repos
+FlappyBirds
+Dollar.Swift
+repo
+2-dimensional
+memoization
+stat
+memoize
+memoized
+hashable
+memoizing
+performant
+structs
+enums
+jScroll
+plugin
+Benoit
+Fracint
+datapoints
+datapoint
+Reddit
+variadic
+SwiftlyJSON
+failable
+nillable
+enum
+nils
+flexbox
+ReactJS
+JavaBeans
+Knockout.js
+ECMAScript
+v.Next
+React.js
+useable
+ReactView
+diff
+Xamarin
+JavaScriptCore
+transpiles
+ViewModels
+Famo.us
+Phonegap-Wrapped
+Wenderlich
+changelog
+Obj-C
+LlamaKit
+unboxing
+lifecycle
+SignalProducer
+ViewController
+KVO-alternatives
+NSObject
+WhiskyNotebook
+d3fc
+max
+gridlines
+crosshair
+overlayed
+callouts
+datajoin
+d3fc.io
+SpriteKit
+GameController
+SKView
+SKScene
+FighterGameScene
+Messerschmitt
+Supermarine
+NSTimer
+un-manageable
+iMovie
+AVFoundation
+IBOutlet
+hardcoded
+AVAssets
+CMTime
+int64
+int32
+videoCompositionTrack
+AVFoundationFramework
+fastlane
+Snapfile
+WiFi
+unoffical
+CocoaPods
+Podfile
+Wordpress
+WordPress
+filesystem
+templating
+revisioning
+plugins
+Disqus
+Livefyre
+a.k.a.
+accidently
+IEnumerable
+traverser
+Esprima
+estraverse
+escodegen
+esprima
+browserify
+Elasticsearch
+Logstash
+Kibana
+timestamp
+elasticsearch
+datastore
+wildcards
+wildcard
+inline
+regex
+grokdebug
+analyzed
+PowerShell
+AzureAD
+TechNet
+OpenID
+Microsoft.IdentityServer.Web.Protocols.OAuth.Exceptions.
+OAuthInvalidClientException
+OAuth
+n.b.
+Coinbase
+D3
+offscreen
+spec
+flamegraph
+BrisTech
+Bacon.js
+RxJS
+Heroku
+Bacon.js.
+EventTarget
+EventEmitter
+js
+iframe
+MongoDB
+CouchDB
+Node.js.
+Mongo
+QueryBuilder
+MapReduce
+modernizr
+webpages
+backend
+Spotify
+Backbone.js
+Angular.js
+EmberJS
+Rdio
+Hulu
+url-routing
+ - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
+callout
+Bostock
+line.y
+movingAverage
+ - aaiken/_posts/2014-08-28-bollinger.md
+Bostock
+ - aaiken/_posts/2014-09-29-crosshairs.md
+callout
+10pt
+stylable
+ - aaylett/_posts/2013-08-28-towtruck.md
+TowTruck
+Hastebin
+ - aaylett/_posts/2013-09-09-nullable-in-kepler.md
+JSR-305
+
+ - alee/_posts/2014-07-30-spa-angular-knockout.md
+searchModel
+rateLimit
+backEndServer
+beforeEach
+httpBackend
+MockJax
+dist
+gulp-angular-templatecache
+TemplateCache
+fadeVisible
+ - alee/_posts/2014-08-06-angular-knockout-e2e-testing.md
+HttpGet
+ - alee/_posts/2014-08-18-asp-angular-optimisation.md
+AppSettings
+testSPA
+ - alee/_posts/2014-10-27-xplatform-mobile-cordova-ionic.md
+popover
+ - alee/_posts/2014-11-25-ionic-sorter.md
+1px
+ - amorgan/_posts/2014-03-11-a-developers-intro-to-webgl.md
+Luz
+ - awallis/_posts/2015-07-06-fixing-ldap-leak-jboss.md
+PermGen
+undeployed
+OutOfMemoryError
+PoolCleaner
+LDAPLeakPreventer
+standalone.xml
+HttpClient
+JreMemoryLeakPreventionListener
+ - bmumford/_posts/2015-03-06-introduction-to-flight.md
+attachTo
+listComponent
+detailsComponent
+dataComponent
+uiItemsRequested
+dataItemsServed
+uiItemSelectionChanged
+uiItemRequested
+dataItemServed
+loggerMixin
+times##
+ - ceberhardt/_posts/2014-01-31-propertycross-1-3-released.md
+v1.3
+Remi
+Grumeau
+Phillpotts
+mitserpotes
+ - ceberhardt/_posts/2014-03-13-reactive-cocoa-tutorial.md
+Linq-to-ObjectiveC
+ - ceberhardt/_posts/2014-05-11-reactivecocoa-tableview-binding.md
+ViewModels
+UITableViews
+Wenderlich's
+init
+ - ceberhardt/_posts/2014-06-26-swift-sequences.md
+Fib#1
+ - ceberhardt/_posts/2014-07-10-statistical-analysis-ios-android.md
+3.5x
+avg
+3x
+ - ceberhardt/_posts/2014-07-24-mvvm-reactivecocoa-swift.md
+ViewController
+ViewModels
+Yusef
+Napora
+ - ceberhardt/_posts/2014-08-01-swift-vs-objectivec.md
+4x
+3x
+ - ceberhardt/_posts/2014-09-24-swift-anyobject.md
+AnyObject
+saySomething
+ - ceberhardt/_posts/2014-10-29-concurrent-functional-swift.md
+x4
+ - ceberhardt/_posts/2014-11-20-swift-initialisation.md
+super.init
+UIDynamicAnimator
+un-wrapped
+ - ceberhardt/_posts/2015-01-27-swift-exception-handling.md
+Wolverson
+ba-dum-tish
+ - ceberhardt/_posts/2015-02-02-svg-layout-flexbox.md
+Bostock
+ - ceberhardt/_posts/2015-02-05-swift-events.md
+NSNotification
+typealias
+Lammert
+Westerhoff
+Ole
+Begemann
+ - ceberhardt/_posts/2015-02-11-swift-kvo-alternatives.md
+INotifyPropertyChanged
+non-ObjC
+ - ceberhardt/_posts/2015-03-05-reactjs-in-swift.md
+Tero
+Parviainen
+200-line
+60fps
+ - ceberhardt/_posts/2015-03-26-react-native-retrospective.md
+CALayer
+Spolsky
+ - ceberhardt/_posts/2015-04-24-first-look-reactive-cocoa-3.md
+ErrorType
+
+ - ceberhardt/_posts/2015-04-28-reactive-cocoa-3-continued.md
+flatMap
+takeUntil
+ - ceberhardt/_posts/2015-05-15-mvvm-reactive-cocoa-3.md
+mtable
+ - cgrant/_posts/2013-09-25-2D-Game-Development-With-SpriteKit.md
+physicsBody's
+SKSpriteNodes
+SKSpriteNode
+sks
+ - cgrant/_posts/2014-11-10-Video-Stitching-With-AVFoundation.md
+Counsell
+mov
+mediaType
+timeRange
+layerInstructions
+frameDuration
+renderSize
+mutableComposition
+videoComposition
+mutableViewComposition
+playerView
+ - cgrant/_posts/2015-02-25-Using-Snapshot-with-Simulator-Status-Magic-to-generate-perfect-iOS-screenshots.md
+AppDelegate.m
+ - cprice/_posts/2012-12-17-jekyll-a-developers-wordpress.md
+hyde-n
+hg
+ - cprice/_posts/2014-02-28-arrow-functions-in-knockoutjs.md
+old-skool
+Simples
+ArrowFunctionExpression
+ - cprice/_posts/2014-12-19-elk-3-things-i-wish-id-known.md
+100s
+10s
+30mins
+sincedb
+inode
+ - cprice/_posts/2015-03-09-OAUTH2-Authentication-with-ADFS-3.0.md
+_id
+OAuthInvalidResourceException
+OAuthAuthorizationMissingResourceException
+ - cprice/_posts/2015-08-06-an-adventure-in-svg-filter-land.md
+fc.data.random.financial
+poor-mans
+60fps
+old-skool
+40-41ms
+webkit-based
+ - dgorst/_posts/2014-07-23-frp-with-bacon-and-d3.md
+fromEventTarget
+onValue
+newuser
+frp-with-bacon
+updatesOverTime
+Voisen's
+ - dgorst/_posts/2014-08-04-mongodb-vs-couchdb.md
+NoSQL
+mongod
+telemetryDb.js

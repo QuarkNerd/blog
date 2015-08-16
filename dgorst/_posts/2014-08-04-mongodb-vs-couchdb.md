@@ -28,7 +28,7 @@ As you can see in the diagram, MongoDB and CouchDB are built with a slightly dif
 
 CouchDB uses a replication model called *Eventual Consistency*. In this system, clients can write data to one node of the database without waiting for other nodes to come into agreement. The system incrementally copies document changes between nodes, meaning that they will eventually be in sync. More information can be found on the [Eventual Consistency page of the CouchDB documentation](http://docs.couchdb.org/en/latest/intro/consistency.html).
 
-Which system you go for would normally be determined by the priorities of your project. If your app involves trading in financial data or online commerce, you might want to ensure that all clients have a consistent view of the data. In other applications, the high availablity offered by CouchDB might be more important, even if some clients are seeing data which is slightly out of date.
+Which system you go for would normally be determined by the priorities of your project. If your app involves trading in financial data or online commerce, you might want to ensure that all clients have a consistent view of the data. In other applications, the high availability offered by CouchDB might be more important, even if some clients are seeing data which is slightly out of date.
 
 My use case is likely to only involve a single database node and I'm not expecting particularly high database traffic. With these relatively flexible constraints, I would expect that either MongoDB or CouchDB would be able to meet my use case without any problems. In the rest of this post I'll look at how easy both systems were to use and I'll make my decision based on that. 
 

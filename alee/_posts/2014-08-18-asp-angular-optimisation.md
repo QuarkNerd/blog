@@ -17,7 +17,7 @@ How to use Asp.Net's built-in bundling and optimisation feature to optimise Angu
 
 A core feature of [AngularJS](https://angularjs.org/) is the ability to put HTML templates in partial template files, and have Angular load them on demand and add them to the DOM, as shown in the tutorial: [Routing & Multiple Views](https://docs.angularjs.org/tutorial/step_07).
 
-For example, I could define a route so that when a user naviages to `#/investment/3`, Angular loads the necessary template and renders the view with the associated controller like this:
+For example, I could define a route so that when a user navigates to `#/investment/3`, Angular loads the necessary template and renders the view with the associated controller like this:
 
     {% highlight js %}
     angular.module('testSPA', [

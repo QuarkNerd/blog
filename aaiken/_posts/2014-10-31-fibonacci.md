@@ -395,7 +395,7 @@ At the top of the file we have our field declarations:
 
 ### Component function
 
-The component function is pretty trivial for this component - all we're doing is initialising each of our SVG elements in turn, giving each a unique css class and making sure they're all set to `display: none` initially.
+The component function is pretty trivial for this component - all we're doing is initialising each of our SVG elements in turn, giving each a unique CSS class and making sure they're all set to `display: none` initially.
 
 ### Event handlers
 
@@ -480,7 +480,7 @@ And with that, we're done! We've created the interactive chart you see above.
 
 ## Enhancements
 
-Perhaps a useful enhancement for this component would be to add a crosshairs element so that the user has some extra feedback about the data points they're about to clilck on. We'd probably want to set it up such that the crosshairs would only be visible when selecting points, and hidden when we're displaying the fan elements.
+Perhaps a useful enhancement for this component would be to add a crosshairs element so that the user has some extra feedback about the data points they're about to click on. We'd probably want to set it up such that the crosshairs would only be visible when selecting points, and hidden when we're displaying the fan elements.
 
 ## Conclusion
 

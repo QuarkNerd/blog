@@ -220,7 +220,7 @@ Now that's done, we have two charts, one above the other. Nothing interactive so
 
 ### The viewport on the lower chart
 
-To create our viewport we're going to use a d3 component called a `brush`. The brush component automatically handles all of the behaviour I've noted above: you can drag it, resize it, and click off it to clear it.
+To create our viewport we're going to use a D3 component called a `brush`. The brush component automatically handles all of the behaviour I've noted above: you can drag it, resize it, and click off it to clear it.
 
 The brush component provides three events:
 
@@ -278,7 +278,7 @@ The last thing to be added is the ability to zoom into / out of the main chart u
 * We don't want to let the user pan past the beginning or end of the data
 * We need to update the navigation chart's viewport when we change the data shown in the main chart
 
-Althought you might expect to need another `brush` for this, we're going to use a d3 behaviour called `zoom`. This behaviour allows for zooming in and out (as you'd expect given its name) but also provides panning, which I have to admit I hadn't expected.
+Although you might expect to need another `brush` for this, we're going to use a D3 behaviour called `zoom`. This behaviour allows for zooming in and out (as you'd expect given its name) but also provides panning, which I have to admit I hadn't expected.
 
 To use a `zoom` behaviour, we tell it about the main chart's X scale (we could also give it a Y scale if we wanted to allow interaction in that dimension as well, but we won't do that here as it doesn't really make sense in this context). It provides three events: `zoom`, `zoomstart` and `zoomend`; here we're going to handle the`zoom` event, which is called whenever the chart is zooming in, zooming out, or panning in any direction.
 

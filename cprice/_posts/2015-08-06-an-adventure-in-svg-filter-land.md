@@ -145,7 +145,7 @@ var multi = fc.series.multi()
     });
 {% endhighlight %}
 
-The styling this time is a little bit more involved becaue we need to hide the `area` and `average` elements which the `bollingerBands` component creates by default (of course another option would be to wire up two line series to the calculated values rather than use the renderer) -
+The styling this time is a little bit more involved because we need to hide the `area` and `average` elements which the `bollingerBands` component creates by default (of course another option would be to wire up two line series to the calculated values rather than use the renderer) -
 
 {% highlight css %}
 
@@ -174,7 +174,7 @@ It's not quite the same but I think it looks close enough at this stage -
 
 # Components
 
-Just before we jump in and add any more functionality, it's worth restructuring our code so that we don't end up with spaghetti. The easiest way to do this is to adopt the d3 component pattern that is also used by the d3fc library. A component is just a factory which returns a function which operates on a selection, so the existing code becomes -
+Just before we jump in and add any more functionality, it's worth restructuring our code so that we don't end up with spaghetti. The easiest way to do this is to adopt the D3 component pattern that is also used by the d3fc library. A component is just a factory which returns a function which operates on a selection, so the existing code becomes -
 
 {% highlight js %}
 // Obviously you should use ES6 modules and mutiple files for this. I'm
@@ -270,7 +270,7 @@ It's looking a little cluttered at the minute, but we're be adding in some trans
 
 # Annotations
 
-Vertical line annotations are normally used to highlight events such as relevant news stories or instrument events. However, as there isn't any context in this case and they look a little like they follow a fibonacci seqeuence, let's use that as the starting point for our version.
+Vertical line annotations are normally used to highlight events such as relevant news stories or instrument events. However, as there isn't any context in this case and they look a little like they follow a Fibonacci sequence, let's use that as the starting point for our version.
 
 Again we create a new component for the vertical lines which itself uses the `line` component -
 
@@ -360,7 +360,7 @@ We're inching closer -
 
 The only component we're missing now is the labels. Whilst the `line` annotation provides a label which we could `decorate` ([more details](http://d3fc.io/components/introduction/2-decorate-pattern.html)) with the arrow graphic, in order to achieve a later effect we need the labels in a different container element. As there's no appropriate component in d3fc, we'll create one from scratch.
 
-Most of the d3fc components are built on top of the `dataJoin` component, it provides a couple of useful extensions to the d3 concept of data-join but can be considered identical for the purposes of this example. When each data-joined `g` element enters the document it will have a `path` element added to it for the arrow graphic and a `text` element for the label itself. Then on every update we want the transform to be updated to reflect any changes to the location calculated from the scales.
+Most of the d3fc components are built on top of the `dataJoin` component, it provides a couple of useful extensions to the D3 concept of data-join but can be considered identical for the purposes of this example. When each data-joined `g` element enters the document it will have a `path` element added to it for the arrow graphic and a `text` element for the label itself. Then on every update we want the transform to be updated to reflect any changes to the location calculated from the scales.
 
 In code, this looks something like -
 
@@ -470,7 +470,7 @@ Other than the odd overlapping label, I think it's a passible approximation for 
 
 In the original you get the impression of an infinite surface. Obviously we can't do that but we can fade out the edges for a similar effect and the easiest way to do this is to use an SVG mask.
 
-A mask is just an offscreen graphics surface onto which you add elements in the normal way. Once all the elements have been rendered, the black areas are used to create the mask. In spec terms, the premultiplied greyscale value of each pixel is taken as the alpha of corresponding pixel in the image being masked.
+A mask is just an offscreen graphics surface onto which you add elements in the normal way. Once all the elements have been rendered, the black areas are used to create the mask. In spec terms, the pre-multiplied greyscale value of each pixel is taken as the alpha of corresponding pixel in the image being masked.
 
 We'll use two stacked linear gradients to get the effect we want, and for now, apply it to the whole SVG -
 
@@ -505,7 +505,7 @@ There are no code or styling changes needed. It ends up looking like this, on th
 
 # SVG blur filter
 
-A real depth of field effect would require us to track the relative depth values of all elements, z-order them and then apply the appropriate blur to each one. If we wanted to do that we'd be far better off using WebGL. However, we can achieve a poor-mans version realtively simply because we know that the camera will have a fixed focus on the center of the image.
+A real depth of field effect would require us to track the relative depth values of all elements, z-order them and then apply the appropriate blur to each one. If we wanted to do that we'd be far better off using WebGL. However, we can achieve a poor-mans version relatively simply because we know that the camera will have a fixed focus on the center of the image.
 
 Adding a blur effect in SVG requires creating a filter. A filter is in many ways like a mask, but instead of using the standard graphics elements, you use custom filter primitives. In this case we want to use `feGaussianBlur` (the `stdDeviation` attribute controls the strength of the effect) -
 
@@ -573,7 +573,7 @@ And here's the result -
 
 # SVG flare effect
 
-My favourite feature of the animation is the flare effect which follows the tip of the data and gives it a really dynamic feel. However, from my point of view it's probably also the most intimidating feature to desconstruct. There are a number of techniques at play and I've had to guess at a combination which I think look about right.
+My favourite feature of the animation is the flare effect which follows the tip of the data and gives it a really dynamic feel. However, from my point of view it's probably also the most intimidating feature to deconstruct. There are a number of techniques at play and I've had to guess at a combination which I think look about right.
 
 Let's start with the most striking feature, the intensity of the flare. As white is the brightest we can go, we'll start with a white copy of the original graphic -
 
