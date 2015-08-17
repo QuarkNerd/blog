@@ -49,7 +49,7 @@ while (it.hasNext()) {
 }
 {% endhighlight %}
 
-Java 1.5 adds an explit iteration construct, which runs off the `Iterable`
+Java 1.5 adds an explicit iteration construct, which runs off the `Iterable`
 interface:
 
 {% highlight java %}

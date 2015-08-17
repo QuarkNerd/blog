@@ -246,7 +246,7 @@ For a little bit more polish, it would be nice if the items animated to their ne
 
 This actually gets a little bit fiddly. My solution uses two `placeholder` elements as the position changes. The new placeholder starts at height zero and grows to full height, while the old placeholder shrinks to zero. There are some problems with this approach though:
 
-One problem is that the cards have a top and bottom margin. While the old placeholder shrinks down to zero height, it still leaves an extra margin between the two items that are moving together - which means the animation doesn’t quite get them close enough. My solution was to read the `topMargin()` of the dragged item, and use that as a negative margin on the placholder element, while adding the same amount to its height. That way, when the height shrinks to zero, it includes the extra margin space.
+One problem is that the cards have a top and bottom margin. While the old placeholder shrinks down to zero height, it still leaves an extra margin between the two items that are moving together - which means the animation doesn’t quite get them close enough. My solution was to read the `topMargin()` of the dragged item, and use that as a negative margin on the placeholder element, while adding the same amount to its height. That way, when the height shrinks to zero, it includes the extra margin space.
 
 A related problem is that some browsers allow space for a zero-height element with a margin, while others don’t. This leads to inconsistent behaviour. I worked around it by adding an additional pixel to the `topMargin()` adjustment above, then animating to 1px height instead.
 

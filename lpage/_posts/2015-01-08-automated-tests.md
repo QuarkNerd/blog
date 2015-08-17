@@ -28,7 +28,7 @@ Secondly, the person refactoring the boiler switches it on and the house doesn't
 
 ##Accepted level of bugs
 
-Almost all programs have bugs. Those that don't (pin number verification programs, medical software) are either simple or required to have proofs that the code works as expected. The bugs may be negligable ;- for instance chromium, the project behing chrome currently has 128,236 open issues - but you probably don't come across them as an end user very often, if at all. But still there always has to be an accepted quality level. If that quality level is required to be high, then use automated tests - at worst, then just by spending more time on a feature and thinking about it longer, you will inevitably think of new situations and possibilities and thereby raise the quality level.
+Almost all programs have bugs. Those that don't (pin number verification programs, medical software) are either simple or required to have proofs that the code works as expected. The bugs may be negligible ;- for instance chromium, the project being chrome currently has 128,236 open issues - but you probably don't come across them as an end user very often, if at all. But still there always has to be an accepted quality level. If that quality level is required to be high, then use automated tests - at worst, then just by spending more time on a feature and thinking about it longer, you will inevitably think of new situations and possibilities and thereby raise the quality level.
 
 ##Dependencies
 
@@ -58,11 +58,11 @@ Cost: Medium - Implementing for every single class and mocking every interaction
 
 Integration tests test how the small components (tested by unit tests) integrate together. Acceptance tests are focussed on acceptance criteria and will test that multiple components work together to satisfy an acceptance criteria of the project. However acceptance tests may not run all of the application at once.
 
-These two types of tests may be 2 seperate entities or the same thing, depending on the project.
+These two types of tests may be 2 separate entities or the same thing, depending on the project.
 
 Benefits:
  - High: Lifespan - The code is easier to refactor, aiding future development and future quality level.
- - Medium: Quality Level - By specifically testing acceptance criteria, you are making sure that they have the potentiol to work.
+ - Medium: Quality Level - By specifically testing acceptance criteria, you are making sure that they have the potential to work.
  - Low: Releases - these give some assurance the application is doing what you expect so can give you more certainty is releasing often with less manual testing.
 
 Cost: Low - It is generally the easiest type of test to do, testing multiple classes in a single test
@@ -84,10 +84,10 @@ Cost: Medium - Usually you only implement a few basic tests, but you usually hav
 End to end tests will test your whole application from end to end. This means that if it's a web browser, it would usually use selenium to run the application on multiple browsers and simulate the actual clicking and typing that is done by a user. If you are in a windows application you might do the same thing but test in different windows versions. These kind of tests simulate the kind of regression testing that might be done by testers before every release.
 
 Benefits:
- - High: Less manual regression testing - these tests can replace doing the same test. It is particularly economical on tests where a human would have to do alot of variations on a single test, for instance doing the same thing with every combination of application settings.
+ - High: Less manual regression testing - these tests can replace doing the same test. It is particularly economical on tests where a human would have to do a lot of variations on a single test, for instance doing the same thing with every combination of application settings.
  - High: Quality - because the end to end tests will continue to test features long after they were finished, this helps keep quality high by doing an amount of regression testing that would not be economical.
 
-Cost: High - every time I've used an automated test sofware there has been a high maintenance cost and even simple tests have been difficult to get reliably passing on all browsers. Because webdriver has bugs, selenium has bugs, chrome driver has bugs and the browser has bugs they seem to all combine to make an environment that can be quite chalenging. I believe it is quite important to know the cost benefit you are getting - so look at how much maintenance time the tests are taking up from developers, compare it to the amount of time it would take to manually regression test and see how many releases it will take to break even. Use this as a guide to help determine the tests most economical to automate.
+Cost: High - every time I've used an automated test software there has been a high maintenance cost and even simple tests have been difficult to get reliably passing on all browsers. Because webdriver has bugs, selenium has bugs, chrome driver has bugs and the browser has bugs they seem to all combine to make an environment that can be quite challenging. I believe it is quite important to know the cost benefit you are getting - so look at how much maintenance time the tests are taking up from developers, compare it to the amount of time it would take to manually regression test and see how many releases it will take to break even. Use this as a guide to help determine the tests most economical to automate.
 
 ##Other things to take into account
 
@@ -107,7 +107,7 @@ It is my experience that web applications in particular are more likely to requi
 
 ##Summary
 
-If you are managing an IT project it can be tempting to think of automated tests as an un-necessary expense - but if your project matches the factors above, you may be increasing the cost in the long term (on testers and paying for mistakes) and also making your project a less desirable one to work on in the future (an important factor if it is difficult to get good staff).
+If you are managing an IT project it can be tempting to think of automated tests as an unnecessary expense - but if your project matches the factors above, you may be increasing the cost in the long term (on testers and paying for mistakes) and also making your project a less desirable one to work on in the future (an important factor if it is difficult to get good staff).
 
 Given the cost of automated testing, it is important that you understand and acknowledge the required level of testing in each area and aim for a good balance that is providing you the benefits.
 

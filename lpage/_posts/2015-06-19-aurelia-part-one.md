@@ -21,7 +21,7 @@ After reading through [an example of porting a simple app from angular 2 to Aure
 
 ###less2css
 
-The [less2css](http://www.less2css.org) site allows you to try out less and see the resultant css. Its been a great learning and testing tool, but has been out of date a while (version 2 not available) and it's been frustrating that its not hosted on github pages (it hasn't been that reliable) and that it requires a serverside component. I thought this would be a good project to try Aurelia out on.
+The [less2css](http://www.less2css.org) site allows you to try out less and see the resultant css. Its been a great learning and testing tool, but has been out of date a while (version 2 not available) and it's been frustrating that its not hosted on github pages (it hasn't been that reliable) and that it requires a server-side component. I thought this would be a good project to try Aurelia out on.
 
 ###Creating the Skeleton
 
@@ -253,7 +253,7 @@ And now I have 2 editors, when I edit Less code in one, the CSS code in the righ
 
 ###Saving to the URL
 
-I want the less code to be saved on the url so that you can link to code examples and while playing with setting `location.hash`, I find you get a routing exception even when routing isn't configured. So, I decided to start removing routing. Aurelia is built as a very small core framework with plugins for everything (from templating to routing to http). Aurelia is generally started with [Aurelia bootstrapper](https://github.com/aurelia/bootstrapper) which imports all the modules and then you choose which ones you want to initialise. From the documentation, here is a setup example...
+I want the less code to be saved on the URL so that you can link to code examples and while playing with setting `location.hash`, I find you get a routing exception even when routing isn't configured. So, I decided to start removing routing. Aurelia is built as a very small core framework with plugins for everything (from templating to routing to http). Aurelia is generally started with [Aurelia bootstrapper](https://github.com/aurelia/bootstrapper) which imports all the modules and then you choose which ones you want to initialise. From the documentation, here is a setup example...
 
 {% highlight js %}
   aurelia.use
@@ -269,7 +269,7 @@ I want the less code to be saved on the url so that you can link to code example
 
 However, it seems that modules are always imported, you can only choose which ones are started and I don't want the source on my page at all, so I forked the bootstrapper file and adjusted it to remove dependencies to the router and history. [This seems to work well](https://github.com/less/less-preview/commit/d5b802677b82b95713af9f2c630c790a80816ab8) and I can now load the app without including any router code. Once bundling is announced I may re-visit this as it seems there should be a simpler solution.
 
-To get the url to contain the current state I first need to get the data on to the url. So, in the app element (which you might think of as the main controller), I just need to update the url when the lessSrc value changes.
+To get the URL to contain the current state I first need to get the data on to the URL. So, in the app element (which you might think of as the main controller), I just need to update the URL when the lessSrc value changes.
 
 {% highlight js %}
 set lessSrc(value) {

@@ -65,7 +65,7 @@ Backbone.js offers a flexible, minimalist solution to separating concerns in you
 
 It may appear that Backbone isn't as fully featured as the other popular MVC frameworks available. Pairing Backbone with one of its add-ons like [Marionette](http://marionettejs.com/) or [Chaplin](http://chaplinjs.org/) ensures that Backbone.js is as feature complete as other frameworks.
 
-Backbone.js has a [library of plugins and add-ons](http://backplug.io/) that can be used to provide any sort of functionality that your application requires. Its modular approach means you can fine tune Backbone.js to use a different templating engine should your application require it. Furthermore, the flexibility the modularity provides makes Backbone.js suitable when developing a web application with instable requirements.
+Backbone.js has a [library of plugins and add-ons](http://backplug.io/) that can be used to provide any sort of functionality that your application requires. Its modular approach means you can fine tune Backbone.js to use a different templating engine should your application require it. Furthermore, the flexibility the modularity provides makes Backbone.js suitable when developing a web application with unstable requirements.
 
 **Pros**: minimalist, flexible, great add-on / plugin support, un-opinionated, great [track record](http://backbonejs.org/#examples) of being used in complex web applications (WordPress, Rdio, Hulu), source code extremely simple to read, gentle learning curve
 

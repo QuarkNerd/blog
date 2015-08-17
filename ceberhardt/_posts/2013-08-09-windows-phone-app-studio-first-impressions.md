@@ -95,7 +95,7 @@ So, what did the final SandwichFlow app look like?
 
 I've recorded a brief video of the app which you can see on [YouTube](https://www.youtube.com/watch?v=nZMGrKI91ck). As you can see, it is pretty basic and uninspiring. Because I got bored of adding static data, I also included an RSS feed from my blog. The finished app works just as you would expect and looks very similar to the web-based previews. However, I did have an issue with the splashscreen image dimensions, which you can see in the video, there are no indications or hints on the web interface regarding what the dimensions should be.
 
-As a developer, I of course know the correct dimensions, and could easily fix this, although i do wonder whether the target audience for App Studio would have this knowledge? 
+As a developer, I of course know the correct dimensions, and could easily fix this, although I do wonder whether the target audience for App Studio would have this knowledge? 
 
 ## Make 'personal apps' central to App Studio 
 

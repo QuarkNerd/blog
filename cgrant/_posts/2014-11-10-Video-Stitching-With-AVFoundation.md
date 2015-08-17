@@ -31,7 +31,7 @@ To start, we must build an array that contains `AVAsset` objects.
     AVAsset *instagramAsset = [AVAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"instatall" ofType:@"mov"]]];
     AVAsset *sportAsset = [AVAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"sportTall" ofType:@"mov"]]];
     NSArray *assets = @[tennisAsset, instagramAsset, sportAsset];
-*Intialising the AVAssets to combine into a single video*
+*Initialising the AVAssets to combine into a single video*
     
 An `AVAsset` object is AVFoundation's 'model for timed audiovisual media'. Basically they just contain information about the three videos to be stitched together. In this sample, the array is hardcoded and just set to be three videos that are embedded in the application, but it could easily be an array of assets that have been loaded from an external source. To keep it simple, lets just use these three for now.
 

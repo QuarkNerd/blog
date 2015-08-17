@@ -174,7 +174,7 @@ Wiring up the renderer within a view controller results in the following UI:
 
 <img src="{{ site.github.url }}/ceberhardt/assets/ReactSwift/ReactiveTime.png" />
 
-I'd forgive you for being slightly un-impressed at this point. I've simply taken a variable, which never changes, and constructed a UIKit view via some intermediate format.
+I'd forgive you for being slightly unimpressed at this point. I've simply taken a variable, which never changes, and constructed a UIKit view via some intermediate format.
 
 Bear with me, it gets better!
 

@@ -156,7 +156,7 @@ It still seems slow, and doing a flame chart in chrome seems to suggest it is be
 
 I hope this corresponds to Rob Eisenberg's comment on my previous post.
 
- > ... a system.js bug that also affects all the transpilers: TypeScript, Babel and Tracuer. It causes exponential module lookup in certain scenarios. It's actually a problem with the spec we helped adentify a few weeks back. The fixes are being worked on, so once that hits things should load faster.
+ > ... a system.js bug that also affects all the transpilers: TypeScript, Babel and Traceur. It causes exponential module lookup in certain scenarios. It's actually a problem with the spec we helped identify a few weeks back. The fixes are being worked on, so once that hits things should load faster.
 
 ### Firefox and IE
 
@@ -175,13 +175,13 @@ Lastly, I tried IE9, which seemed incredibly slow. I couldn't profile it because
 Comparing the bundled files sizes..
 
 - Code Mirror - 171KB minified, 60KB GZip'd
-- Aurelia and dependencies (excluding the modules I removed) - 295KB minified, 71KB Gzip'd
+- Aurelia and dependencies (excluding the modules I removed) - 295KB minified, 71KB GZip'd
 - optional polyfills - 23KB minified, 7KB GZip'd
-- total less2css app bundle - 500KB minified, 139KB Gzip'd
+- total less2css app bundle - 500KB minified, 139KB GZip'd
 
-For comparison, Angular 1.4.1 is 142KB minified and 53KB Gzip'd, so looking at the Gzip'd versions, there doesn't seem to be an order of magnitude in size difference. The core-js bundle (providing es-x polyfills) on its own is 89KB minified and even with angular 1 you would probably want to include at least some es6 shims.
+For comparison, Angular 1.4.1 is 142KB minified and 53KB GZip'd, so looking at the GZip'd versions, there doesn't seem to be an order of magnitude in size difference. The core-js bundle (providing es-x polyfills) on its own is 89KB minified and even with angular 1 you would probably want to include at least some es6 shims.
 
-I do think it's a shame that we are continuing to bundle files that include alot of code and logic around systemjs - I am a fan of the [AMD Clean](https://github.com/gfranko/amdclean) utility which for requirejs removes all of the require and define calls so that you have a bundle that is pure javascript and can then be minified and modules inlined where they are used only once.
+I do think it's a shame that we are continuing to bundle files that include a lot of code and logic around systemjs - I am a fan of the [AMD Clean](https://github.com/gfranko/amdclean) utility which for requirejs removes all of the require and define calls so that you have a bundle that is pure javascript and can then be minified and modules inlined where they are used only once.
 
 ### Conclusion
 

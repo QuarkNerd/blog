@@ -175,7 +175,7 @@ case .Success(let propertyValue):
 
 Using the basic concepts outlined above it should be possible to create a shim that adapts any Objective-C API that throws exceptions.
 
-The above techniques worked just fine for me, and allowed me to get on with my current pet project (which is pretty cool, more on that another time!). However, this all feels like an un-necessary and cumbersome workaround.
+The above techniques worked just fine for me, and allowed me to get on with my current pet project (which is pretty cool, more on that another time!). However, this all feels like an unnecessary and cumbersome workaround.
 
 Which brings me onto the final part of this blog post ...
 

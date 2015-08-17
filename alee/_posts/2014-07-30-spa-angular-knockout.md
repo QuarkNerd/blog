@@ -432,7 +432,7 @@ Here's a quick taste of a Gulp task that replaces the css and JavaScript links i
         });
 {% endhighlight %}
 
-My Knockout application now only needs four minified files (the glyphicons are just there for the icon in the filter box):
+My Knockout application now only needs four minified files (the glyph-icons are just there for the icon in the filter box):
 
 <img src="{{ site.github.url }}/alee/assets/spa-an-ko/ServedFilesKO.png"/>
 

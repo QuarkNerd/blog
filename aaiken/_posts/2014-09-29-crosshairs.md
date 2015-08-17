@@ -334,7 +334,7 @@ This is pretty self-explanatory - we're just iterating through the data points i
 
 I'm using three CSS rules for this component - nice and simple. One is for the horizontal and vertical line elements, one is for the circle element, and the last is for the two text elements. If you look at the CSS you can see that the rule for the lines and the rule for the circle is identical - I'm really just setting the colour. For the text elements I'm copying the style of the axis labels (10pt sans serif).
 
-The important thing to note here is that the user *could* style each element differently if they wanted to, without having to get into the javascript, as each element has a unique set of CSS classes - this component is very stylable.
+The important thing to note here is that the user *could* style each element differently if they wanted to, without having to get into the JavaScript, as each element has a unique set of CSS classes - this component is very stylable.
 
 {% highlight css %}
 .chart line.crosshairs {

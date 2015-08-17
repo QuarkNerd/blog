@@ -115,7 +115,7 @@ class TwitterSearchViewModel {
 }
 {% endhighlight %}
 
-These represent everything the View needs to know about the current UI state, and allow it to be notified, via RAC3 bindings, of updates. The table view of tweets is 'backed' by the `tweets` mtable property which contains an array of ViewModel instances, each one backing an inidividual cell. 
+These represent everything the View needs to know about the current UI state, and allow it to be notified, via RAC3 bindings, of updates. The table view of tweets is 'backed' by the `tweets` mtable property which contains an array of ViewModel instances, each one backing an individual cell. 
 
 The `TwitterSearchService` class provides a RAC3 wrapper around the Twitter APIs, representing requests as signal producers.
 
@@ -148,7 +148,7 @@ searchService.requestAccessToTwitterSignal()
     })
 {% endhighlight %}
 
-This requests access to the user's twitter account, following this the pipeline passes control to the `searchText.producer`, i.e. it observes its own `searchText` property. You'll notice that the producer isn';'t used directly, instead it is first mapped as follows: `searchText.producer |> mapError`. This highlights a common issue with RAC3, because signals have an error type constraint, any operation that combines signals (or signal producers) requires that their error types matches. The use of `mapError` above transforms any error that `searchText.producer` might produce into an `NSError`, which is compatible with the other signals being used in this pipeline.
+This requests access to the user's twitter account, following this the pipeline passes control to the `searchText.producer`, i.e. it observes its own `searchText` property. You'll notice that the producer isn't used directly, instead it is first mapped as follows: `searchText.producer |> mapError`. This highlights a common issue with RAC3, because signals have an error type constraint, any operation that combines signals (or signal producers) requires that their error types matches. The use of `mapError` above transforms any error that `searchText.producer` might produce into an `NSError`, which is compatible with the other signals being used in this pipeline.
 
 Following this, the signal is filtered and throttled. This reduces the frequency of the signal if the `searchText` property (which is bound to the UI), changes rapidly.
 
@@ -275,7 +275,7 @@ The value of this `ConstantProperty` is that you can still use the `<~` binding 
 
 RAC3 is shaping up to be a really great framework. There are still one or two loose ends, but overall it represents is a significant step forwards.
 
-All the code for this example app is [available on GitHub](https://github.com/ColinEberhardt/ReactiveTwitterSearch). I'd also suggest taking a look at [WhiskyNotebook](https://github.com/nebhale/WhiskyNotebook), another project which makes quite a bit of ue fo RAC3.
+All the code for this example app is [available on GitHub](https://github.com/ColinEberhardt/ReactiveTwitterSearch). I'd also suggest taking a look at [WhiskyNotebook](https://github.com/nebhale/WhiskyNotebook), another project which makes quite a bit of use of RAC3.
 
 Regards, Colin E.
 

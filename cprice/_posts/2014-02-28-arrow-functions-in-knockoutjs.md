@@ -61,7 +61,7 @@ Unfortunately, browser support for ES6 just isn't there yet and short of inventi
 
 #A solution (of sorts)
 
-Adopting a fairly liberal artistic license (basically throwing any loading performance concerns out the window...), it turns out that we can use the new syntax in bindings with a small Knockout plugin. This is because bindings aren't directly interpreted as JavaScript by the browser, instead Knockout preprocesses them to support e.g. re-evaluating expressions when dependencies change. 
+Adopting a fairly liberal artistic license (basically throwing any loading performance concerns out the window...), it turns out that we can use the new syntax in bindings with a small Knockout plugin. This is because bindings aren't directly interpreted as JavaScript by the browser, instead Knockout pre-processes them to support e.g. re-evaluating expressions when dependencies change. 
 
 In Knockout 3.0 it is now very easy to hook into this preprocessing. For example we can add a preprocessor to all binding values with something like -
 

@@ -24,7 +24,7 @@ With location, Xcode does allow you to specify the location via a menu option:
 
 <img src="{{ site.github.url }}/ceberhardt/assets/xcodeLocationSelector.png"/>
 
-This is useful for apps that perform spacial searches, e.g. find restaurants in my ares, but if you are writing an app that relies on location changes, such as a running app, this isn't much good.
+This is useful for apps that perform spacial searches, e.g. find restaurants in my area, but if you are writing an app that relies on location changes, such as a running app, this isn't much good.
 
 ## Faked Location Data
 
