@@ -171,13 +171,15 @@ function createNewBasket(datum, time) {
 
 The key component of creating our Primary Chart was a fantastic and easy to use component from d3fc - [multi]( http://scottlogic.github.io/d3fc/components/series/multi.html). This gave us the ability to use multiple functions from d3fc and our own code at the same time:
  {% highlight js %}
-var gridlines = fc.annotation.gridline(); //create the gridlines for the background of the chart
-var candlestick = fc.series.candlestick(); //create the candlesticks
-var annotationLine = fc.annotation.line() //create an annotation line on the chart
+var gridlines = fc.annotation.gridline(); 
+var candlestick = fc.series.candlestick(); 
+var annotationLine = fc.annotation.line() 
 	.orient('horizontal')	
-	.value(function(d) { return d.close; }) //annotation line is set at where the last price is
+    //annotation line is set at where the last price is
+	.value(function(d) { return d.close; }) 
 	.label('');
-multi.series([gridlines, candlestick, annotationLine]); //use multi to bring everything together (see below)
+//use multi to bring everything together (see below)
+multi.series([gridlines, candlestick, annotationLine]); 
 {% endhighlight %}
 This would give us the chart with an x and y axis, gridlines in the background with the candlesticks of data in the front, and an annotation line pointing out where the last candlestick’s close point is.
 
