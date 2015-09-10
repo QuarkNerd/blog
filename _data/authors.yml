@@ -21,6 +21,7 @@
   - mjose
   - nhemley
   - nwolverson
+  - rcaulcott-cooper
   - rhendry
   - rmarcalo
   - rwilliams
@@ -272,3 +273,7 @@ authors:
         name: Tim Barclay
         gravatar: 0b06781c8c3ac7261b8bb4e5810a4004
         email: tbarclay@scottlogic.com
+    rcaulcott-cooper:
+        name: Ruth Caulcott-Cooper
+        email: rcaulcott-cooper@scottlogic.co.uk
+        gravatar: 5b7e48a7681fb7350d6fa7be0ed4e2f5
