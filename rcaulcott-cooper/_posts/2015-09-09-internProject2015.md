@@ -26,7 +26,7 @@ Our goal was to create an application similar to many commercial, mid-range char
 * Ability to load and stream real data (in this case, data about bitcoin prices)
 * Pan and zoom functionality on every visible chart
 
-<iframe src="http://scottlogic.github.io/d3fc-showcase/" width='100%' height='700px'></iframe>
+<iframe src="http://ruthc-c.github.io/d3fc-showcase/" width='100%' height='700px'></iframe>
 
 ## What is D3?
 
@@ -292,7 +292,7 @@ var point = sc.menu.option('Point', 'point', fc.series.point());
 var area = sc.menu.option('Area', 'area', fc.series.area());
 {% endhighlight %}
 
-<img src="{{ site.github.url }}/rcaulcott-cooper/assets/menu-random-data.PNG" alt="Data Random"/>
+<img src="{{ site.github.url }}/rcaulcott-cooper/assets/menu-random-data.png" alt="Data Random"/>
 
 Finally, the most important button to be added to the menu is a dropdown for changing the data stream between randomly generated data, and real time data coming in through the coinbase `websocket`. This functionality also included the ability to change which time period the chart was rendering on (either 1hr, 5mins or 1min):
 
@@ -391,7 +391,7 @@ Which would give us our original three standard charts just like they were befor
 
 During development it’s useful to be able to write unit tests for modules of code you’ve written before committing it into the shared codebase. This lets you test for sure that the code works as expected, and also forces you to define exactly what a piece of code ought to do and consider the edge cases. Often, if a piece of code is hard to unit test it’s a suggestion that the code isn’t modular enough. These tests will then provide advance warning if someone inadvertently breaks your code in the future.
 
-We also did standard test, however without any testers for our cause we had to do them all ourselves. One of the greater challenges from this was producing our chart into one with good UX and UI. This had to be determined by our own perceptions and judgement; of course in our eyes the chart looks clean, simple and concise.
+We also did standard test, however without any testers for our cause we had to do them all ourselves. One of the greater challenges from this was producing our chart into one with good UX and UI. This had to be determined by our own perceptions and judgement; of course in our eyes tOkhe chart looks clean, simple and concise.
 
 ## Project Development
 
@@ -415,7 +415,7 @@ Scott Logic has provided an incredibly supportive atmosphere in which to learn n
 It has been a fantastic learning experience, from new languages, libraries and software to the experience of working with a team in a professional company. The culture of Scott Logic is diligent, yet relaxed, and the people have been extremely welcoming.
 
 ### d3fc-showcase external links
-[Wikipedia](https://int.scottlogic.co.uk/wiki/D3fc-showcase).
+
 [GitHub](https://github.com/ScottLogic/d3fc-showcase).
 
 Chris Barrett and Ruth Caulcott-Cooper, Newcastle Interns 2015
