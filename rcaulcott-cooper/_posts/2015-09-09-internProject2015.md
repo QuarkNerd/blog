@@ -47,7 +47,7 @@ d3.select('body')
 
 {% endhighlight %}
  
-Which will select the body of your HTML document, then select any paragraph elements within it (they do not have to exist yet), and binds a set of data to them – in this case, a short array of numbers. `enter()` then selects the nodes which will need to be created – and we add a new paragraph, whose text depends on the data paired with it. By default, the nodes and data are paired by index.
+This will select the body of your HTML document, then select any paragraph elements within it, and bind a set of data to them – in this case, a short array of numbers. We use `enter()` to select the nodes which will need to be created, and add a new paragraph, whose text depends on the data paired with it. By default, the nodes and data are paired by index.
  
 The output, then, is:
 {% highlight js %}
@@ -62,7 +62,7 @@ My data is: 16
 
 ## So What is D3FC?
 
-D3FC is an open source library based on D3 and written with the influence of D3.js way. It is built with a variety of re-usable components. There are relatively low-level examples like gridlines, or very many useful chart types, such as the line, bar or area series. 
+D3FC is an open source library based on, and influenced by, D3.js. It is built with a variety of re-usable components. There are relatively low-level examples like gridlines, or very many useful chart types, such as the line, bar or area series. 
 
 There also are higher level components made out of a number of sub-components, like linearTimeSeries, and components for financial indicators In these components, algorithms calculate new data - such as that needed for a set of Bollinger bands – and a separate renderer will draw it to the screen. Each component has options for customisation and many even allow customisation of the internal logic using the [decorate pattern](http://scottlogic.github.io/d3fc/components/introduction/2-decorate-pattern.html).
  
@@ -126,9 +126,9 @@ We began by writing a large class which did everything, including the logic for 
 
 In practice the size of this class and the coupling of a few different elements made it difficult to test and hard to maintain or change, the caching especially being more trouble than it was worth - often introducing bugs when trying to change functionality.
 
-Therefore we split up the websocket class, to deal with streaming in live data and another seperate calss dealing with converting the individual transactions into a bucket of Open, High, Low and Close:
+Therefore we split up the websocket class, to deal with streaming in live data and another separate class dealing with converting the individual transactions into a bucket of Open, High, Low and Close:
 {% highlight js %}
-// Expects transactions with a price, volume and date and organizes them into candles of given periods
+// Expects transactions with a price, volume and date and organizes into candles of given periods
 // Re-call OHLC whenever you want to start collecting for a new period/product
 // In seconds
 var period = 60 * 60 * 24;
@@ -228,7 +228,8 @@ function layoutButtons(sel) {
             name: 'options',
             value: function(d, i) { return d.valueString; }
         })
-        .property('checked', function(d, i) { return (i === 0); }); //check the first button for each component
+        //check the first button for each component
+        .property('checked', function(d, i) { return (i === 0); }); 
 }
 
 function optionGenerator(selection) {
@@ -269,7 +270,7 @@ function onViewChanged(domain) {
 container.select('#reset-button').on('click', resetToLive);
 {% endhighlight %}
 
-The `indicators` are added on to the `multi.series` when their corresponsive button is active, giving a responsive interaction for the user. For both of these, a `none` button is originally checked on the menu, giving the user a wide range of options for the visualisationg of the chart. The `secondary chart` (either `RSI` or `MACD`) are included through the render function when their respective buttons are activated. 
+The `indicators` are added on to the `multi.series` when their corresponsive button is active, giving a responsive interaction for the user. For both of these, a `none` button is originally checked on the menu, giving the user a wide range of options for the visualisation of the chart. The `secondary chart` (either `RSI` or `MACD`) are included through the render function when their respective buttons are activated. 
 
 To change indicators using the buttons, we created an `option` function:
 
