@@ -11,7 +11,9 @@ categories:
 <style>
 iframe {
   border: 0;
+  padding: 0px;
 }
+
 </style>
 
 This summer we’ve been working on creating a real-time financial charting application. The application is built on top of Scott Logic’s own open source [D3FC](http://scottlogic.github.io/d3fc) library, which itself is built upon the increasingly popular [D3.js](http://d3js.org/) (Data driven documents) library for javascript.
@@ -292,7 +294,7 @@ var point = sc.menu.option('Point', 'point', fc.series.point());
 var area = sc.menu.option('Area', 'area', fc.series.area());
 {% endhighlight %}
 
-<img src="{{ site.github.url }}/rcaulcott-cooper/assets/menu-random-data.png" alt="Data Random"/>
+<img src="{{ site.github.url }}/rcaulcott-cooper/assets/menu-random-data.PNG" alt="Data Random"/>
 
 Finally, the most important button to be added to the menu is a dropdown for changing the data stream between randomly generated data, and real time data coming in through the coinbase `websocket`. This functionality also included the ability to change which time period the chart was rendering on (either 1hr, 5mins or 1min):
 
