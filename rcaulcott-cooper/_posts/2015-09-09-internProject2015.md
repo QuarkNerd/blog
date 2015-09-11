@@ -3,20 +3,17 @@ author: rcaulcott-cooper
 title: Charting Bitcoin Prices with D3FC - 2015 Intern Project
 layout: default_post
 categories: 
-  -  D3FC
-  -  D3
+  -  d3
   -  Charting
 ---
 
 <style>
 iframe {
   border: 0;
-  padding: 0px;
 }
-
 </style>
 
-This summer we’ve been working on creating a real-time financial charting application. The application is built on top of Scott Logic’s own open source [D3FC](http://scottlogic.github.io/d3fc) library, which itself is built upon the increasingly popular [D3.js](http://d3js.org/) (Data driven documents) library for javascript.
+Every year Scott Logic takes on a number of interns who spend 12 weeks writing code, working on projects and having a great time in the offices. My name is Ruth, and along with Chris Barrett, I am an intern in the Newcastle office; and this summer we’ve been working on creating a real-time financial charting application. The application is built on top of Scott Logic’s own open source [d3fc](http://scottlogic.github.io/d3fc) library, which itself is built upon the increasingly popular [d3.js](http://d3js.org/) (Data driven documents) library for javascript.
 
 
 Our goal was to create an application similar to many commercial, mid-range chart offerings, and in doing so test the approach and capability of d3fc. Our chart has a number of typical features, including:
@@ -28,22 +25,22 @@ Our goal was to create an application similar to many commercial, mid-range char
 * Ability to load and stream real data (in this case, data about bitcoin prices)
 * Pan and zoom functionality on every visible chart
 
-<iframe src="http://ruthc-c.github.io/d3fc-showcase/" width='100%' height='700px'></iframe>
+<iframe src="http://scottlogic.github.io/d3fc-showcase/" width='100%' height='700px'></iframe>
 
 ## What is D3?
 
 D3 allows us to bind data to the DOM, which can then be accessed and used to manipulate the document. A simple example would be generating a HTML table from an array of data, but it’s not much harder to use the same data to generate a bar chart!
  
-Each point of data gets paired with a DOM element, whose attributes you can set as functions of its corresponding datum. D3 also provides a neat way of dealing separately with nodes that need to be created, updated or destroyed as the data set changes (the enter, update, exit pattern).
+Each point of data gets paired with a DOM element, whose attributes you can set as functions of its corresponding datum. D3 also provides a neat way of dealing separately with nodes that need to be created, updated or destroyed as the data set changes ([the enter, update, exit pattern](http://bost.ocks.org/mike/join/)).
 
 If that sounds abstract, here’s an example using D3’s simple chainable:
 {% highlight js %}
 d3.select('body')
-	.selectAll('p')
-	.data([4, 8, 16])
-	.enter()
-	.append('p')
-	.text(function(d) { return 'My data is: ' + d; });
+  .selectAll('p')
+  .data([4, 8, 16])
+  .enter()
+  .append('p')
+  .text(function(d) { return 'My data is: ' + d; });
 
 {% endhighlight %}
  
@@ -60,21 +57,21 @@ My data is: 16
 <small>View in [jsfiddle](http://jsfiddle.net/Qh9X5/6246/).</small>
 
 
-## So What is D3FC?
+## So What is d3fc?
 
-D3FC is an open source library based on, and influenced by, D3.js. It is built with a variety of re-usable components. There are relatively low-level examples like gridlines, or very many useful chart types, such as the line, bar or area series. 
+d3fc is an open source library based on, and influenced by, D3.js. It is built with a variety of re-usable components. There are relatively low-level examples like gridlines, or very many useful chart types, such as the line, bar or area series. 
 
 There also are higher level components made out of a number of sub-components, like linearTimeSeries, and components for financial indicators In these components, algorithms calculate new data - such as that needed for a set of Bollinger bands – and a separate renderer will draw it to the screen. Each component has options for customisation and many even allow customisation of the internal logic using the [decorate pattern](http://scottlogic.github.io/d3fc/components/introduction/2-decorate-pattern.html).
  
-For an example of how simple it can be to create charts using D3FC:
+For an example of how simple it can be to create charts using d3fc:
  
 {% highlight js %}
 
 var data = fc.data.random.financial()(50);
 var chart = fc.series.candlestick();
 d3.select('#an-svg-element')
-        	.datum(data)
-        	.call(chart);
+    .datum(data)
+    .call(chart);
 
 {% endhighlight %}
 
@@ -83,14 +80,14 @@ d3.select('#an-svg-element')
 And that’s it!
  
 
-Our main reason for using D3FC was to develop upon the original code, discover improvements and criticisms as an external developer. Starting off using it was remarkably simple and accessible, with only the basic knowledge of D3.js required. One of the more miraculous properties of D3FC was the ability to handle multiple features at a time - yet still retaining the flexibility to prioritise features.
+Our main reason for using d3fc was to develop upon the original code, discover improvements and criticisms as an external developer. Starting off using it was remarkably simple and accessible, with only the basic knowledge of d3.js required. One of the more miraculous properties of d3fc was the ability to handle multiple features at a time - yet still retaining the flexibility to prioritise features.
  
 
 ## Finding a Websocket
 
  One of our tougher jobs early on in the project was finding a source to use for our historic and real-time data. The original idea was to create a websocket to the [Yahoo Finance API](https://code.google.com/p/yahoo-finance-managed/wiki/YahooFinanceAPIs), however this turned out to be an impossibility due to the privacy of the real-time information. 
  
- Finally we found a good API with the [coinbase exchange API]{https://docs.exchange.coinbase.com/} reference websocket feed, which gave us the real-time market data updates:
+ Finally we found a good API with the [coinbase exchange API](https://docs.exchange.coinbase.com/) reference websocket feed, which gave us the real-time market data updates:
 {% highlight js %}
 coinbaseSocket = new WebSocket('wss://ws-feed.exchange.coinbase.com');
 {% endhighlight %}
@@ -120,7 +117,7 @@ The websocket gave individual transactions, whereas the historic feed gave its d
 ]
  {% endhighlight %}
 
-A collection of transactions over a period of time. While this wasn’t in itself an incredibly challenging task, it highlighted the difference between the coding we’d previously done and what was expected in a professional environment. 
+In comparison to the websocket, this is a collection of transactions over a period of time. While this wasn’t in itself an incredibly challenging task, it highlighted the difference between the coding we’d previously done and what was expected in a professional environment. 
 
 We began by writing a large class which did everything, including the logic for combining individual transactions into OHLC form and combining this with the historic data, along with caching the results of historic API calls. 
 
@@ -169,7 +166,7 @@ function createNewBasket(datum, time) {
  
 ## Creating the Chart
 
-The key component of creating our Primary Chart was a fantastic and easy to use component from d3fc - [multi]( http://scottlogic.github.io/d3fc/components/series/multi.html). This gave us the ability to use multiple functions from d3fc and our own code at the same time:
+The key component of creating our Primary Chart was a fantastic and easy to use component from d3fc - [multi]( http://scottlogic.github.io/d3fc/components/series/multi.html). This gave us the ability to use multiple components from d3fc and our own code at the same time:
  {% highlight js %}
 var gridlines = fc.annotation.gridline(); 
 var candlestick = fc.series.candlestick(); 
@@ -185,7 +182,7 @@ This would give us the chart with an x and y axis, gridlines in the background w
 
 ## Multiple Series
 
-For our chart to become what we visualised at the start of the project, we needed the functionality to render, and change between, several different series. Fortunately for us, the D3FC library has a fantastic and easy to use component for this called multi:
+For our chart to become what we visualised at the start of the project, we needed the functionality to render, and change between, several different series:
 {% highlight js %}
 var candlestick = fc.series.candlestick();
 var line = fc.series.line();
@@ -402,14 +399,14 @@ We also did standard test, however without any testers for our cause we had to d
 
 We ran the project on an agile development regime (scrum). This was the first time for both us interns to work in this way, with our project being split into 4 sprints of 2 weeks long each - at the end of each sprint we would give our customer (in this case the head of development) a demonstration of our most recent release. 
 
-Each day we had a scrum - more commonly called “stand-ups” in Scott Logic. This was a 15 minute session where each person would explain what they did yesterday, what they’re doing today and any issues that they encountered. 
+Each day we had a 15 minute session (stand-up) where each person would explain what they did yesterday, what they’re doing today and any issues that they encountered. 
 The set routines of stand-ups everyday, sprint planning and reviewing, and demonstrations of the project was consistent, keeping the work at a steady rate.
 
 We had some fantastic support from members of the company, they lead us in every meeting and helped us out with any part of the project we were on. No question was too silly, and they always explained everything in full which develop our knowledge further.
 
 ## Development
 
-As far as we have come, the project has potential to develop a lot further than what we have begun. The need of a mid-range chart for developers who need something efficient, easy, flexible yet reliable is growing in this day and age of programming. Along with open source projects becoming the popular go-to, the d3fc-showcase is an excellent example of what the future for charts holds. With the ability to use d3fc to create a simple chart that can then be extended into something more complex in nature, yet simple in design.
+This project has potential to develop a lot further than what we have begun. The need of a mid-range chart for developers who need something efficient, easy, flexible yet reliable is growing in this day and age of programming. Along with open source projects becoming the popular go-to, the [d3fc-showcase](https://github.com/ScottLogic/d3fc-showcase) is an excellent example of what the future for charts holds. With the ability to use d3fc to create a simple chart that can then be extended into something more complex in nature, yet simple in design.
 
 One of the more intuitive outcomes of this project has been the inclusion of live streaming data in from an external source. We believe it would make a great additional feature to the constantly improving d3fc, and hopefully will be included in an upcoming build.
  
@@ -419,8 +416,8 @@ Scott Logic has provided an incredibly supportive atmosphere in which to learn n
 
 It has been a fantastic learning experience, from new languages, libraries and software to the experience of working with a team in a professional company. The culture of Scott Logic is diligent, yet relaxed, and the people have been extremely welcoming.
 
-### d3fc-showcase external links
-
 [GitHub](https://github.com/ScottLogic/d3fc-showcase).
+
+We'd like to give our special thanks to Drew Milley and James Leftley, for all their time and effort in helping us with the project. We'd also like to thank Tom Simmons, Simon Watson and Paul Schofield.
 
 Chris Barrett and Ruth Caulcott-Cooper, Newcastle Interns 2015
