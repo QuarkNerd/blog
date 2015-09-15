@@ -21,6 +21,7 @@
   - mjose
   - nhemley
   - nwolverson
+  - rcaulcott-cooper
   - rhendry
   - rmarcalo
   - rwilliams
@@ -272,3 +273,8 @@ authors:
         name: Tim Barclay
         gravatar: 0b06781c8c3ac7261b8bb4e5810a4004
         email: tbarclay@scottlogic.com
+    rcaulcott-cooper:
+        name: Ruth Caulcott-Cooper
+        email: rcaulcott-cooper@scottlogic.co.uk
+        gravatar: 5abeadc63cbe7be7b6538ffd4b523b3b
+        author-summary: <p>I am an intern going into my third year of Computer Science at Newcastle University, and have mainly been doing Java, javascript and C. Recently I have been working with d3.js, less.css and Scott Logic's own <a href="http://scottlogic.github.io/d3fc">d3fc</a>.</p>
