@@ -3,8 +3,9 @@ author: rcaulcott-cooper
 title: Charting Bitcoin Prices with D3FC - 2015 Intern Project
 layout: default_post
 categories: 
-  -  d3
-  -  Charting
+  - d3
+  - charting
+  - news
 ---
 
 <style>
