@@ -94,13 +94,12 @@ authors:
         name: Graham Odds
         email: godds@scottlogic.com
         gravatar: 3f5e6c753071c6a41f7f1dbb89daeb3b
-        author-summary: Designer and developer working across desktop, web and mobile, with a particular taste for data visualisation.
         twitter-url: https://twitter.com/g_odds
         twitter-handle: g_odds
         google-plus-url: https://plus.google.com/u/0/106838695703708413394
-        feed-description: Graham Odds is a designer and developer working across desktop, web and mobile, with a particular taste for data visualisation.  He likes to educate coders about the concept of users and artists about the reality of technology, or just rant and rave at whoever will read his blog.
+        feed-description: Graham Odds' thoughts about design, technology and data visualisation.
         author-image: /godds/assets/mugshot.jpg
-        author-summary: <p>I'm a designer, developer and speaker working across desktop, web and mobile, with a particular taste for data visualisation.  At Scott Logic, I work primarily with financial services and energy trading institutions, designing, building and improving their research, trading and analysis tools.  I like to educate coders about the concept of users and artists about the reality of technology, or just rant and rave at whoever will read this blog.</p>
+        author-summary: <p>I'm a designer, speaker and developer working on complex systems across desktop, web and mobile, with a particular taste for data visualisation.  As Head of User Experience at Scott Logic, I work primarily with financial services and energy trading institutions, developing and improving their research, trading and analysis tools.  I like to educate coders about the concept of users and artists about the reality of technology.</p>
     isullivan:
         name: Ian Sullivan
         email: isullivan@scottlogic.com
