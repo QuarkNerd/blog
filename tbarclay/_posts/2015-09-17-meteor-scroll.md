@@ -7,6 +7,7 @@ layout: default_post
 Recently I needed to make a site for a personal project, and although I work on dynamic web apps for a living, I hadn't had to make a proper, honest-to-goodness website for years. There are plenty of well-known options out there for making sites quickly, like Wordpress and Squarespace, but why go for the quick option, I said to myself, when there's a learning opportunity to be had (uh... right?). I enjoyed experimenting with [Meteor](https://www.meteor.com/) for a [previous blog post](/2015/07/14/meteor.html) so I decided to see what I could do with that.
 
 I had a few requirements:
+
 * I wanted to make a slick, modern, long-scrolling product marketing site
 * I wanted to use full URL paths - rather than ID hashes - for the different page sections and have jump scrolling navigation around the page
 * I should be able to add, remove and edit the page sections through a web interface
