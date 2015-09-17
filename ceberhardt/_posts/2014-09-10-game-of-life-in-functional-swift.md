@@ -345,7 +345,7 @@ override func drawRect(rect: CGRect) {
 }
 {% endhighlight %}
 
-Pulling out the logic which determines the color for a cell and the frame for a cell into local functions, makes the code a lot clearer:
+Pulling out the logic which determines the colour for a cell and the frame for a cell into local functions, makes the code a lot clearer:
 
 {% highlight csharp %}
 override func drawRect(rect: CGRect) {

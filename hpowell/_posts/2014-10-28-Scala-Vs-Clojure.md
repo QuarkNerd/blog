@@ -62,7 +62,7 @@ is simply syntactic sugar for the anonymous class
 
 While Scala allows the definition of functions anonymously and as part of class declarations it doesn't allow free floating function definitions.
 
-Clojure takes a different approach by starting you out with lists, vectors, maps and sets and a multitude of functions to act on them.  Only later are you introduced to records, which are analagous to and underpinned by Java's classes.  The idea appears to be that they should be used only when some aspect of the map collection is found to be deficient.
+Clojure takes a different approach by starting you out with lists, vectors, maps and sets and a multitude of functions to act on them.  Only later are you introduced to records, which are analogous to and underpinned by Java's classes.  The idea appears to be that they should be used only when some aspect of the map collection is found to be deficient.
 
 ### Extension vs Reinvention ###
 Scala appears to have taken a look at Java and asked itself "How can I add to this?".  This has lead to a very wide and powerful syntax.  For example, here are 4 ways to call toString on a list:

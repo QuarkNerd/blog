@@ -88,7 +88,7 @@ The fighters themselves are simply sprite images:
 
 ![Enemy Plane](https://raw.github.com/ChrisGrant/FirstSquadron/master/FirstSquadron/enemy@2x.png) ![Hero Plane](https://raw.github.com/ChrisGrant/FirstSquadron/master/FirstSquadron/spitfire@2x.png)
 
-These were created in photoshop and based on blueprints of the *Messerschmitt Bf 109* and the *Supermarine Spitfire*.
+These were created in Photoshop and based on blueprints of the *Messerschmitt Bf 109* and the *Supermarine Spitfire*.
 
 ####Launching Enemy Fighters
 
@@ -97,7 +97,7 @@ The enemy fighters are launched every 5 seconds using an NSTimer.
 	NSTimer *timer = [NSTimer timerWithTimeInterval:5.0 target:self selector:@selector(launchEnemyFighters) userInfo:nil repeats:YES];
 	[[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     
-This calls the `launchEnemyFighters` method, which instantiates and five `EnemyFighter` instances, rotates them 180 degrees, places them in different locations and then applies an impluse to all of them so they move downwards towards the bottom of the scene.
+This calls the `launchEnemyFighters` method, which instantiates and five `EnemyFighter` instances, rotates them 180 degrees, places them in different locations and then applies an impulse to all of them so they move downwards towards the bottom of the scene.
 
 ![An Enemy Exploding](https://raw.github.com/ChrisGrant/FirstSquadron/master/blog/enemyPlanes.png)
 
@@ -115,7 +115,7 @@ To control the hero plane, we instantiate a `CMMotionManager` object in the cons
 
 By doing so, the user can hold the device at any angle and all future motion updates will be relative to that.
 
-Once we have calculated the relative attitude, we move the plane by applying an impluse:
+Once we have calculated the relative attitude, we move the plane by applying an impulse:
 
 	[_heroFighter.physicsBody applyImpulse:CGVectorMake(attitude.roll * 250, -attitude.pitch * 200)];
 	

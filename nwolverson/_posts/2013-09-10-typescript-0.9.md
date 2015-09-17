@@ -141,7 +141,7 @@ This might all seem a bit academic, but I think it's huge. As an example take th
 [Underscore.js](http://underscorejs.org). This provides
 a bunch of utility functions for working on lists and collections (familiar to the functional programmer/LINQ user,
 and some of which are in some JS implementations but not present on all browsers).
-Prior to 0.9, many types would incorporate `any`, eg `rest` which returns the rest of a list after skipping the first
+Prior to 0.9, many types would incorporate `any`, e.g. `rest` which returns the rest of a list after skipping the first
 (or first n) element(s):
 
 {% highlight javascript %}
@@ -166,7 +166,7 @@ z[0].foo(); // doesn't typecheck - z[0] is number
 ### Knockout
 
 Knockout has the notion of observable properties - to create such a property we wrap it in a call to 
-`ko.observable`, eg 
+`ko.observable`, e.g. 
 
 {% highlight javascript %}
 

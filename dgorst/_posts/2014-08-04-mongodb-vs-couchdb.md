@@ -128,7 +128,7 @@ dbTelemetryInfo.save(function(err, dbTelemetryInfo) {
 
 ###Querying the database
 
-In a seperate process, we'll query the data. In a real-world app we'd probably want to see a snapshot of the latest data, and we might want to display a graph of historical data, such as altitude over time. Let's write some queries to get this information. First, let's create and open a connection to the database.
+In a separate process, we'll query the data. In a real-world app we'd probably want to see a snapshot of the latest data, and we might want to display a graph of historical data, such as altitude over time. Let's write some queries to get this information. First, let's create and open a connection to the database.
 
 {% highlight javascript %}
 'use strict';

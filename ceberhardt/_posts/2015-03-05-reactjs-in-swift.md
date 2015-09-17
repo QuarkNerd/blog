@@ -418,7 +418,7 @@ This simple little example is a good illustration of how data flows down whilst 
 
 ## Conclusions
 
-Hopefully this blogpost has given you an idea of how React works, and why it is so different from the other UI frameworks out there. The functional approach, and minimisation of mutable state, feel quite Swift-like.
+Hopefully this blog post has given you an idea of how React works, and why it is so different from the other UI frameworks out there. The functional approach, and minimisation of mutable state, feel quite Swift-like.
 
 And if it has inspired someone to port it to 'native' Swift, good luck to you, and I eagerly await the results!
 

@@ -51,7 +51,7 @@ Good examples of web applications that fulfil these criteria are [Google Docs](h
 
 Arguably the four most popular frameworks available today are [Backbone.js](http://backbonejs.org/), [Angular.js](http://angularjs.org/), [EmberJS](http://emberjs.com/) and [KnockoutJS](http://knockoutjs.com/). This section aims to provide a high level comparison of these frameworks. 
 
-The reason why it's helpful to concentrate on these frameworks is that each one has been used extensively in the wild and provides excellent documentation and community support. This means you can be confident that any framework you pick will fulfill your requirements as well as having help and support available if needed.
+The reason why it's helpful to concentrate on these frameworks is that each one has been used extensively in the wild and provides excellent documentation and community support. This means you can be confident that any framework you pick will fulfil your requirements as well as having help and support available if needed.
 
 Additionally, there is little difference in the quantity of features provided by each framework. However, their opinion and implementation differ on what approach you should take when building a web application.
 
@@ -67,9 +67,9 @@ It may appear that Backbone isn't as fully featured as the other popular MVC fra
 
 Backbone.js has a [library of plugins and add-ons](http://backplug.io/) that can be used to provide any sort of functionality that your application requires. Its modular approach means you can fine tune Backbone.js to use a different templating engine should your application require it. Furthermore, the flexibility the modularity provides makes Backbone.js suitable when developing a web application with unstable requirements.
 
-**Pros**: minimalist, flexible, great add-on / plugin support, un-opinionated, great [track record](http://backbonejs.org/#examples) of being used in complex web applications (WordPress, Rdio, Hulu), source code extremely simple to read, gentle learning curve
+**Pros**: minimalist, flexible, great add-on / plugin support, unopinionated, great [track record](http://backbonejs.org/#examples) of being used in complex web applications (WordPress, Rdio, Hulu), source code extremely simple to read, gentle learning curve
 
-**Cons**: Requires external dependencies (underscore), memory management can trip beginners up, no built in two way binding, un-opinionated, requires plugins to become as feature complete as other MVC frameworks.
+**Cons**: Requires external dependencies (underscore), memory management can trip beginners up, no built in two way binding, unopinionated, requires plugins to become as feature complete as other MVC frameworks.
 
 
 

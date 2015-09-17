@@ -153,7 +153,7 @@ These variables are private, but the first block are exposed by a set of propert
 
 ### The rsi function
 
-The `rsi()` function is passed a d3 selection as it's only parameter. The first thing we do is create the upper, centre and lower markers and this is a one off thing. These markers will be fixed for as long as the indicator persists on the chart. The code block below shows this creation. Each marker is passed a common class name and a specific class name so the style of the markers can be changed in the document CSS.
+The `rsi()` function is passed a D3 selection as it's only parameter. The first thing we do is create the upper, centre and lower markers and this is a one off thing. These markers will be fixed for as long as the indicator persists on the chart. The code block below shows this creation. Each marker is passed a common class name and a specific class name so the style of the markers can be changed in the document CSS.
 
 {% highlight javascript %}
 upper = selection.append('line')

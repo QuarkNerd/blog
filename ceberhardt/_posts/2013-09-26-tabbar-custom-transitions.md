@@ -126,7 +126,7 @@ If we rotate the viewport just a little, and make the layers opaque, you can see
 
 ## Animating the transition
 
-The animation is suprisingly  simply, within a single UIView animation, we iterate over the folds, setting the final state of each of the snapshots:
+The animation is surprisingly  simply, within a single UIView animation, we iterate over the folds, setting the final state of each of the snapshots:
 
 {% highlight objc %}
 // create the animation
