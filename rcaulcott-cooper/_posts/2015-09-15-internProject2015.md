@@ -86,15 +86,15 @@ Our main reason for using d3fc was to develop upon the original code, discover i
 
 ## Finding a Websocket
 
- One of our tougher jobs early on in the project was finding a source to use for our historic and real-time data. The original idea was to create a websocket to the [Yahoo Finance API](https://code.google.com/p/yahoo-finance-managed/wiki/YahooFinanceAPIs), however this turned out to be an impossibility due to the privacy of the real-time information. 
+ One of our tougher jobs early on in the project was finding a source to use for our historic and real-time data. The original idea was to create a Websocket to the [Yahoo Finance API](https://code.google.com/p/yahoo-finance-managed/wiki/YahooFinanceAPIs), however this turned out to be an impossibility due to the privacy of the real-time information. 
  
- Finally we found a good API with the [coinbase exchange API](https://docs.exchange.coinbase.com/) reference websocket feed, which gave us the real-time market data updates:
+ Finally we found a good API with the [Coinbase exchange API](https://docs.exchange.coinbase.com/) reference Websocket feed, which gave us the real-time market data updates:
 {% highlight js %}
 coinbaseSocket = new WebSocket('wss://ws-feed.exchange.coinbase.com');
 {% endhighlight %}
-<small>Source of [websocket](https://docs.exchange.coinbase.com/#websocket-feed)</small>
+<small>Source of [Websocket](https://docs.exchange.coinbase.com/#websocket-feed)</small>
 
-To begin the feed messages we had to send in a subscribe message to the coinbase server indicating which product type we wanted:
+To begin the feed messages we had to send in a subscribe message to the Coinbase server indicating which product type we wanted:
 {% highlight js %}
 var msg = {
     type: 'subscribe',
@@ -107,9 +107,9 @@ Unfortunately the information came through in a format that was not suitable for
 
 ## Bringing the data together
 
-One of the more problematic tasks we faced, was when working with combining the live data stream from the websocket with the [historic data](https://docs.exchange.coinbase.com/#get-historic-rates) from coinbase. 
+One of the more problematic tasks we faced, was when working with combining the live data stream from the Websocket with the [historic data](https://docs.exchange.coinbase.com/#get-historic-rates) from Coinbase. 
 
-The websocket gave individual transactions, whereas the historic feed gave its data in OHLC form: 
+The Websocket gave individual transactions, whereas the historic feed gave its data in OHLC form: 
 {% highlight js %}
 [
     [ time, low, high, open, close, volume ],
@@ -118,13 +118,13 @@ The websocket gave individual transactions, whereas the historic feed gave its d
 ]
  {% endhighlight %}
 
-In comparison to the websocket, this is a collection of transactions over a period of time. While this wasn’t in itself an incredibly challenging task, it highlighted the difference between the coding we’d previously done and what was expected in a professional environment. 
+In comparison to the Websocket, this is a collection of transactions over a period of time. While this wasn’t in itself an incredibly challenging task, it highlighted the difference between the coding we’d previously done and what was expected in a professional environment. 
 
 We began by writing a large class which did everything, including the logic for combining individual transactions into OHLC form and combining this with the historic data, along with caching the results of historic API calls. 
 
 In practice the size of this class and the coupling of a few different elements made it difficult to test and hard to maintain or change, the caching especially being more trouble than it was worth - often introducing bugs when trying to change functionality.
 
-Therefore we split up the websocket class, to deal with streaming in live data and another separate class dealing with converting the individual transactions into a bucket of Open, High, Low and Close:
+Therefore we split up the Websocket class, to deal with streaming in live data and another separate class dealing with converting the individual transactions into a bucket of Open, High, Low and Close:
 {% highlight js %}
 // Expects transactions with a price, volume and date and organizes into candles of given periods
 // Re-call OHLC whenever you want to start collecting for a new period/product
@@ -211,7 +211,7 @@ Which would look something like this:
 
 For our chart to become interactive, it has to have a menu bar. In this bar we decided to include the functionality to change the `series`, `indicators`, `secondary chart`, `data type` and `reset` the primary chart to the latest transaction. 
 
-The main functionality to change between the `series`, `indicators` and `secondary chart` was done using a button group for each created with d3:
+The main functionality to change between the `series`, `indicators` and `secondary chart` was done using a button group for each created with D3:
 
 {% highlight js %}
 function layoutButtons(sel) {
@@ -284,7 +284,7 @@ sc.menu.option = function(displayString, valueString, option) {
 };
 {% endhighlight %}
 
-This meant we could lay out every `indicator` and `series` in a similar maner, making the selection of each one simple and consistent:
+This meant we could lay out every `indicator` and `series` in a similar manner, making the selection of each one simple and consistent:
 
 {% highlight js %}
 //Use the sc.menu.option function to generate all the different series'
@@ -297,7 +297,7 @@ var area = sc.menu.option('Area', 'area', fc.series.area());
 
 <img src="{{ site.github.url }}/rcaulcott-cooper/assets/menu-random-data.PNG" alt="Data Random"/>
 
-Finally, the most important button to be added to the menu is a dropdown for changing the data stream between randomly generated data, and real time data coming in through the coinbase `websocket`. This functionality also included the ability to change which time period the chart was rendering on (either 1hr, 5mins or 1min):
+Finally, the most important button to be added to the menu is a dropdown for changing the data stream between randomly generated data, and real time data coming in through the Coinbase `websocket`. This functionality also included the ability to change which time period the chart was rendering on (either 1hr, 5mins or 1min):
 
 {% highlight js %}
 function setPeriodChangeVisibility(visible) {

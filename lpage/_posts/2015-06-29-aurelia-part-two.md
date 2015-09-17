@@ -27,7 +27,7 @@ var aurelia = require('aurelia-cli');
 aurelia.command('bundle', {
 {% endhighlight %}
 
-First we get the Aurelia cli and register a bundle command. The long-term intention seems to be that you could register multiple commands to set up parts of the project. I find this a bit strange, given the heavy use of other tools and
+First we get the Aurelia CLI and register a bundle command. The long-term intention seems to be that you could register multiple commands to set up parts of the project. I find this a bit strange, given the heavy use of other tools and
 that the example project uses gulp, I would have thought concentrating on making a `gulp-aurelia-bundler` would have made more sense.
 
 {% highlight js %}
@@ -117,7 +117,7 @@ However, this currently takes 13 seconds on my system - not something I want to 
 
 In addition, the setup seems a bit strange - JS source and HTML is transpiled into the dist folder, but then the bundle is built from the dist folder, meaning the bundled and un-bundled files end up in the same folder.
 
-I've [raised these concerns](https://github.com/aurelia/skeleton-navigation/pull/108#issuecomment-114781861) with the team and hopefully things will improve - bundling is a new thing for Aurelia cli and it will probably take some time to get the process right.
+I've [raised these concerns](https://github.com/aurelia/skeleton-navigation/pull/108#issuecomment-114781861) with the team and hopefully things will improve - bundling is a new thing for Aurelia CLI and it will probably take some time to get the process right.
 
 For now, I've created a process to copy the modified files to a new directory (for release purposes) and then run `git checkout` in order to revert my files.
 

@@ -40,8 +40,8 @@ discussed the potential pitfalls of our increasingly common attempts at designin
 often might attempt to design for the question "What time is it?", when the actual concern is "Am I late?".  He
 highlighted that the context we try to design for is always particular to the moment and that context arises from the
 activity rather than the other way round.  He delved into the work of his colleague [Joe Leech](https://twitter.com/mrjoe),
-[Psychology for Designers](http://psychologyfordesigners.com/), to clarify how context arises as a negotation between
-the involved parties and showed how an understanding of the psychology involved in this negotation process can be used
+[Psychology for Designers](http://psychologyfordesigners.com/), to clarify how context arises as a negotiation between
+the involved parties and showed how an understanding of the psychology involved in this negotiation process can be used
 to better design apps.  In effect, as Giles summarised, designing for context isn't the right approach, designing for
 relevance is.
 

@@ -121,7 +121,7 @@ The Language Service API is a wrapper on top of the TypeScript compiler APIs int
         dispose(): void;
     }
     
-As can be seen there are many methods centered around giving information at a particular source code location, eg for completion, navigation, "quick info", as
+As can be seen there are many methods centered around giving information at a particular source code location, e.g. for completion, navigation, "quick info", as
 well as for generating the compiled output, getting diagnostics, etc. So how do we get hold of a `LanguageService` instance? The interface between the language service and the environment is defined by the `LanguageServiceHost` API as below:
 
     interface Logger {

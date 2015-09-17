@@ -40,7 +40,7 @@ namespaces. This is particularly unfortunate when it comes to extension methods,
 in the full non-extension syntax with full namespace...
 
 * Intellisense is available to a degree, but is not fully usable. I can't put my finger on the differences now,
-but this seems "sometimes available" and somewhat flaky - eg completion of class names doesn't happen, but
+but this seems "sometimes available" and somewhat flaky - e.g. completion of class names doesn't happen, but
 after typing a dot things may or may not be fine.
 
 * Inability to define classes or methods - okay, you don't often want to do this. But also:
@@ -83,7 +83,7 @@ Full example source is available to download for
 ### Mono
 
 Mono was ahead of the curve in bringing in a REPL for C#. 
-[Miguel blogged about the csharp repl](http://tirania.org/blog/archive/2008/Sep-08.html) back in 2008, and you can
+[Miguel blogged about the csharp REPL](http://tirania.org/blog/archive/2008/Sep-08.html) back in 2008, and you can
 read about it [here](http://www.mono-project.com/CsharpRepl). If you install the Mono package, a csharp executable
 is available. On windows this will be available in your path automatically if you start a "Mono command prompt".
 There's also a GUI version, gsharp, but I was unable to find a simple installation of this on Windows.

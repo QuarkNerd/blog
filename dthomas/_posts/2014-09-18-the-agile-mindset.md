@@ -69,7 +69,7 @@ For this reason, although I would advocate the processes and practices that led 
 ##A final word on final words
 Kent Beck finishes Extreme Programming Explained by describing it as a toolbox, which you should pick from as you need. He describes the tools as supporting one another, and working well together, but he does not say you need to use every tool in the box to gain the benefits of XP.
 
-The Scrum Guide finishes in quite the opposite fashion. It describes Scrum as “immutable”. If you change the roles, artifacts, events or rules then you are left with something that is not Scrum.
+The Scrum Guide finishes in quite the opposite fashion. It describes Scrum as “immutable”. If you change the roles, artefacts, events or rules then you are left with something that is not Scrum.
 
 The attitude taken in the Scrum Guide seems incredibly un-Agile. It implies that the authors have foreseen every possible development project and created a one size fits all process, that cannot be modified. While I’m sure it was not the intention, I believe it discourages the sort of creative thinking used by our interns, as described earlier in the blog.
 

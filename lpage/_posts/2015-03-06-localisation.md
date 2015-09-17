@@ -17,7 +17,7 @@ Localising a web application to a high standard is difficult. Why is that? Consi
   
 There are several differences between them:
 
-* The location and type of the negative sign - it can be brackets (though of the standard windows locales, only Lao has this format), the - can be on the right side (e.g. Arabic, Persian and Tamazight) and in addition it may have a space between the `-` and the number (e.g. Croation and Cambodia).
+* The location and type of the negative sign - it can be brackets (though of the standard windows locales, only Lao has this format), the - can be on the right side (e.g. Arabic, Persian and Tamazight) and in addition it may have a space between the `-` and the number (e.g. Croatian and Cambodia).
 
 * The grouping of the numbers - in most cultures it is every 3 characters, but in some it is at the thousand marker, then hundred thousand, then 10 million (e.g. India, Mongolia) and in others the thousands marker does not repeat (e.g. Tibet, Cambodia, Lao, US-Spanish)
 
@@ -51,7 +51,7 @@ I've been unable to find out what's happened to this code - I know Microsoft has
 
 Two libraries that are very popular at the moment are the open source [momentjs](http://momentjs.com/) and [numeraljs](http://numeraljs.com/).
 
-Moment came first and covers date-time manipulation, formatting and through a [plugin, timezones](http://momentjs.com/timezone/). It has a nice API, but for use in complex web applications it has a few issues:
+Moment came first and covers date-time manipulation, formatting and through a [plugin, time-zones](http://momentjs.com/timezone/). It has a nice API, but for use in complex web applications it has a few issues:
 
  * The locales are user contributed, meaning there may be some missing and the data may not be perfect.
 
@@ -70,7 +70,7 @@ To elaborate on the problems for date formats - moment has its own code for date
  * LLL  6 March 2015 05:34
  * LLLL Friday, 6 March 2015 05:34
 
-You can combine, so `LL LTS` gives you the same as `LL` but with seconds, however, notice there is no format for a 3 letter month name or a time with milli-seconds. This means that if you want formats not above, you have to create them yourself or else decide that cultures are not going to get a culture specific date format - just translations.
+You can combine, so `LL LTS` gives you the same as `LL` but with seconds, however, notice there is no format for a 3 letter month name or a time with milliseconds. This means that if you want formats not above, you have to create them yourself or else decide that cultures are not going to get a culture specific date format - just translations.
 
 The other libraries all base themselves on CLDR formats, which for en-gb looks like this
 

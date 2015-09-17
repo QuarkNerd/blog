@@ -37,7 +37,7 @@ interactive environment - but I'm not going to evangelise this here. You can
 take this to different degrees, but the basic idea is that you will be executing
 code in the REPL frequently during the development of your program - more
 frequently than you would recompile and run an entire app. The code being run in
-the REPL will tend to be a mix of updated definitions (eg new version of a
+the REPL will tend to be a mix of updated definitions (e.g. new version of a
 function) and interaction with existing entities (more like testing).
 
 2. *API exploration*
@@ -90,7 +90,7 @@ it now seems that IronPython is going strong but IronRuby is looking rather dead
 ### IronPython
 
 [IronPython](http://http://ironpython.net/) comes out of the box with "IronPython Console",
-the IronPython repl in a console window:
+the IronPython REPL in a console window:
 
 ![IronPython Console screenshot]({{ site.github.url }}/nwolverson/assets/interactive.net/ipy-interactive.png)
 
@@ -413,7 +413,7 @@ sorted |> Seq.take 5
 
 ## The rest
 
-Various other .NET languages [exist](http://en.wikipedia.org/wiki/Microsoft_.NET_Languages), eg
+Various other .NET languages [exist](http://en.wikipedia.org/wiki/Microsoft_.NET_Languages), e.g.
 C++/CLI, [Boo](http://boo.codehaus.org/), various 
 [Lisp](http://en.wikipedia.org/wiki/IronLisp)/[Scheme](http://en.wikipedia.org/wiki/IronScheme), 
 JavaScript implementations - some of which may or may not have interactive environments, but this web page is only so long, so you're on your own.

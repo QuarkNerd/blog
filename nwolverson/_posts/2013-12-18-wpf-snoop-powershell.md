@@ -86,7 +86,7 @@ Delete-Visual($selected)
 
 {% endhighlight %}
 
-And voila (note that the Snoop tree view needs to be refreshed to reflect the updated UI):
+And voilà (note that the Snoop tree view needs to be refreshed to reflect the updated UI):
 
 ![Snoop after deleting item]({{ site.github.url }}/nwolverson/assets/snoop/snoop-ps-deleted.png)
 
@@ -171,7 +171,7 @@ function Get-TreeItems {
 
 {% endhighlight %}
 
-In order to add a context menu to these items, we're going to associate a command with the menu item, which will run some powershell code. 
+In order to add a context menu to these items, we're going to associate a command with the menu item, which will run some Powershell code. 
 Without referencing some existing library, what I've done here is create a simple `DelegateCommand` by using PowerShell's ability to define C# 
 code inline:
 

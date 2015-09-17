@@ -3,7 +3,6 @@
 # global dictionary is at the start, file overrides afterwards
 # one word per line, to define a file override use ' - filename'
 # where filename is relative to this configuration file
-programmatically
 crosshairs
 ie
 accessor
@@ -95,7 +94,6 @@ keyframes
 keyframe
 subview
 snapshotting
-suprisingly
 CodeProject
 TasteJS
 TodoMVC
@@ -218,7 +216,6 @@ plugins
 Disqus
 Livefyre
 a.k.a.
-accidently
 IEnumerable
 traverser
 Esprima
@@ -318,13 +315,116 @@ polyfills
 inlined
 JSHint
 elses
+Bostock
+catalogs
+intraday
+midground
+unopinionated
+Eberhardt
+pigeonholed
+NuGet
+DefinitelyTyped
+params
+viewmodels
+SignalR
+End2End
+CommonJS
+unicity
+minification
+Salesforce
+makeup
+ScrumMaster
+runtimes
+dotnet
+IntelliSense
+TFMs
+dropdown
+URL
+Ctrl
+NodeJS
+Clojure
+MicroSoft
+thusly
+spandex
+ASCII
+frontend
+mutexes
+Emscripten
+toolset
+toolchain
+mousewheel
+CLI
+programmatically
+no-brainer
+Umbraco
+Ninject
+Screenhero
+WebStorm
+JetBrains
+polyfilled
+async
+transpile
+Minecraft
+AudioNode
+WebKit
+proxying
+regexes
+ScalaTest
+OpenWeatherMap
+webservice
+WebSocket
+Akka
+sharded
+D3
+ShinobiControls
+Animate.css
+QUnit
+Eval
+WorldBank
+IronPython
+IronRuby
+REPL
+Powershell
+usings
+lamdba
+CodeDom
+LinqPad
+MonoDevelop
+noodling
+textbox
+Underscore.js
+typings
+ctrl
+treeview
+textblock
+WebSockets
+FunScript
+typechecking
+typechecks
+hacky
+Damian
+transpiler
+typechecked
+D3.js
+PhantomJS
+FSSnip
+WebWorker
+globals
+config
+WebWorkers
+typecheck
+Webpack
+diffing
+chainable
+Websocket
+foosball
+Milley
+Leftley
+Caulcott-Cooper
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
-Bostock
 line.y
 movingAverage
- - aaiken/_posts/2014-08-28-bollinger.md
-Bostock
  - aaiken/_posts/2014-09-29-crosshairs.md
 callout
 10pt
@@ -334,7 +434,6 @@ TowTruck
 Hastebin
  - aaylett/_posts/2013-09-09-nullable-in-kepler.md
 JSR-305
-
  - alee/_posts/2014-07-30-spa-angular-knockout.md
 searchModel
 rateLimit
@@ -527,7 +626,6 @@ contentsIgnoredChars
  - lpage/_posts/2015-03-06-localisation.md
 Lao
 Tamazight
-Croation
 latin
 es-US
 v2
@@ -535,8 +633,6 @@ winforms
 ASP.net.
 momentjs
 numeraljs
-timezones
-milli-seconds
 en-gb
 Formatjs
 globalize
@@ -555,7 +651,6 @@ dom
 lessSrc
  - lpage/_posts/2015-06-29-aurelia-part-two.md
 Eisenberg
-cli
 dist
 index.html
 es6-module-loader
@@ -566,3 +661,289 @@ es6
  - lpage/_posts/2015-07-02-surprising-things-about-js.md
 typeof
 const
+ - dmcnamee/_drafts/SchoolofTesting.md
+iSQI
+Cem
+Kaner
+iSTQB
+ColinEberhardt
+katrina
+_tester
+hellstew
+ - dpizzi/_posts/02-06-2015-StrongTypingWithKnockoutJSAndRequireJS.md
+app.css
+app.ts
+requirejs.TypeScript.DefinitelyTyped
+Jarrett
+knockout.TypeScript.DefinitelyTyped
+index.html
+requireConfig.ts
+ko.applyBindings
+main.ts
+PersonTable
+IPerson.ts
+Person.ts
+PersonViewModel.ts
+PersonViewModel
+PersonTableViewModel.ts
+PersonTableView.html
+ko.components.register
+PageViewModel.ts
+ - dpizzi/_posts/26-08-2014-StrongTypingWithAngularJS.md
+d.ts
+angular.d.ts
+AppStorage.ts
+app.js
+appStorage
+appCtrl
+AppStorage
+AppCtrl
+AppCtrl.ts
+ng.IScope
+changeName
+ng.IDirective
+changeName.ts
+IAppCtrlScope
+mouseenter
+mouseleave
+ngResource
+Iffland
+ - dthomas/_posts/2014-08-11-a-piecemeal-approach-to-introducing-agile.md
+un-Agile
+ - ceberhardt/_posts/2015-07-08-yahoo-finance-chart.md
+bl.ocks.
+ - dthomas/_posts/2014-09-18-the-agile-mindset.md
+VersionOne’s
+Scrum-lite
+Scrum.org
+Scrumbut
+VersionOne’s
+VersionOne’s
+ - ekouri/_posts/2015-05-14-aspnet50-intro.md
+CoreCLR
+dnvm
+cmd
+dnx
+dnu
+kvm
+kpm
+sln
+global.json
+src
+wwwroot
+csproj
+xproj
+project.json
+prebuild
+postbuild
+postpack
+endif
+project.json.
+bower.json
+_components
+_modules
+gulpfile.js
+ApiController
+Startup.cs
+Global.asax
+ConfigureServices
+IServiceCollection
+IApplicationBuilder
+Microsoft.AspNet.Mvc
+Mvc
+services.AddMvc
+AddMvc
+ef
+ - godds/_posts/2013-06-24-ux-scotland.md
+Gothelf
+Colborne
+Avi
+Itzkovitch
+Nealon
+ish
+Chui
+es
+ - godds/_posts/2013-08-09-the-science-behind-data-visualisation.md
+Bloq
+ - godds/_posts/2015-05-08-making-technology-disappear.md
+Whac-A-Mole
+ - hpowell/_posts/2014-10-28-Scala-Vs-Clojure.md
+Read-Eval-Print-Loop
+core.typed
+toString
+DSLs
+ - hpowell/_posts/2015-01-07-Scala-Vs-Clojure-Pt2.md
+Clojures
+Perlis
+defrecords
+deftype
+TweetSet
+TweetList
+ISeq
+IPersistentSet
+deftypes
+Clojurians
+ISequable
+seqs
+Webtreats
+webtreats
+Tambako
+lazy-seq
+CodeTree
+ - hpowell/_posts/2015-03-20-ZeroMQ-Quick-Intro.md
+ZeroMQ
+1950-era
+ØMQ
+20-odd
+NetMQ
+JeroMQ
+pom.xml
+zeromq.node
+iMatix
+cc-by-sa
+HelloWorld
+Hintjens
+mori
+immutable.js
+ - ilopatkin/_posts/2014-03-12-native-code-emscripten-webgl-simmer-gently.md
+simplegl
+webapp
+LLVM-to-Javascript
+bytecode-level
+ffmpeg
+emcc
+MinGW
+1Mb
+2m
+40s
+VBOs
+chrowser
+loc
+ - ceberhardt/_posts/2014-10-14-jekyll-pagination-and-infinite-scrolling.md
+unwantedtext
+ - isullivan/_posts/2014-09-10-node-webkit.md
+node-webkit
+ - isullivan/_posts/2014-11-28-bramble-mvc.md
+landjaeger
+ - isullivan/_posts/2015-04-03-generating-type-safe-emails.md
+SFGs
+OrderConfirmation.txt
+EmailGenerator
+OrderConfirmation.cs
+visx
+cs
+vb
+ - isullivan/_posts/2015-07-31-what-makes-a-good-cms.md
+CMSs
+150ms
+100ms
+BlogHome
+BlogPost
+BlogHome.cshtml
+ - jbandenburg/_posts/2014-09-25-screenhero.md
+cjsmithie
+ - jbandenburg/_posts/2015-02-02-generators.md
+Promise.then
+task.js
+ES5-compatible
+Huzzah
+Async
+ - jhill/_posts/2014-08-20-starting-from-scratch-2014-intern-project.md
+22050Hz
+44100Hz
+48000Hz
+25ms
+33.3ms
+globalCompositeOperation
+drawImage
+getImageData
+lolwel21
+TheSaint
+WPFerg
+ - jphillpotts/_posts/2013-06-06-scala-macros-part-2.md
+def
+Burmako
+ - jphillpotts/_posts/2013-06-07-scala-macros-part-3.md
+supertrait
+ReadAll
+ReplaceAll
+DeleteAll
+parse.json
+Json.toJson
+classpath
+ - jphillpotts/_posts/2013-06-17-scala-macros-part-4.md
+Salat
+Play-Salat's
+DAOs
+dao
+ - jphillpotts/_posts/2013-07-18-betamax-in-scala.md
+Slifka
+Sharethrough
+JUnit
+specs2
+ - jphillpotts/_posts/2013-07-29-spark-stream-analysis.md
+Hadoop
+scalawebsocket
+sbt
+un-reduce
+ - mjose/_posts/2014-11-14-d3_chartcomponents_rsi.md
+README.md
+rsi
+ - mkirova/_posts/2014-08-29-foyer-screen.md
+ejs
+Impress.js
+ - nwolverson/_posts/2013-08-08-interactive-dotnet-1.md
+EN.URB.LCTY
+cmdlet
+pipelining
+FSharp.Data
+XmlProvider
+typedef
+ - nwolverson/_posts/2013-08-15-interactive-dotnet-2.md
+LINQ-like
+ - nwolverson/_posts/2013-09-10-typescript-0.9.md
+noImplicitAny
+any.ts
+Enumerable.Repeat
+ - nwolverson/_posts/2013-12-18-wpf-snoop-powershell.md
+DataContext
+appdomains
+non-wpf
+snoopui
+datacontext
+ - nwolverson/_posts/2014-08-08-signalr-typed.md
+Hubs.tt
+F#-to-JavaScript
+SignalRProvider
+ - nwolverson/_posts/2015-01-20-typescript-compiler-api.md
+_
+val
+int
+Test.factorial
+System.IComparable
+System.IFormattable
+System.IConvertible
+System.IEquatable
+System.ValueType
+getNodes
+ts.SourceFile
+ts.Node
+allNodes
+ts.forEachChild
+nodes.push
+ - nwolverson/_posts/2015-08-10-ts-vs-proj.md
+_references.ts
+NoLib
+tsconfig.json
+TypeScriptEnabled
+ - nwolverson/_posts/2015-09-03-d3-without-d3.md
+react.animate
+tweening
+ - rcaulcott-cooper/_posts/2015-09-15-internProject2015.md
+jsfiddle
+linearTimeSeries
+1hr
+5mins
+1min
+main.js
+navbar

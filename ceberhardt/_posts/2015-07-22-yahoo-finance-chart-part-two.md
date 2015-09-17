@@ -285,7 +285,7 @@ With this discontinuity provider in place, the gaps between the days are removed
 
 ## Out of hours bands
 
-The final feature that needs to be added to this chart is the light gray vertical bands that indicate the out-of-hours trading activity.
+The final feature that needs to be added to this chart is the light grey vertical bands that indicate the out-of-hours trading activity.
 
 The custom discontinuity provider that removes non-trading hours conveniently exposes the trading hours for each day within the dataset, so becomes a suitable source of data. d3fc has a band annotation component with properties that define the x and y range. Any values that are omitted are set to match the range of the associated scale.
 

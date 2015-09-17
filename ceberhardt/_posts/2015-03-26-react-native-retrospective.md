@@ -19,7 +19,7 @@ I was lucky enough to be part of the beta program, and have been developing a Re
 
 Since publishing, a number of people have asked me to share my thoughts on the framework, and the overall development experience. Hence, this retrospective!
 
-Mobile development is a complex business, with multiple platforms (iOS, Android, Windows) and many more frameworks (Titanium, Xamarin, and a bucketload of HTML5!). I am firmly of the opinion that there is no silver-bullet, no one framework that is right for everyone. For that reason, this article is split into two sections, the first discussed the pros and cons of React Native, and the second discussing how it affects the various communities (e.g. native iOS devs, Xamarin devs etc ...)
+Mobile development is a complex business, with multiple platforms (iOS, Android, Windows) and many more frameworks (Titanium, Xamarin, and a bucket-load of HTML5!). I am firmly of the opinion that there is no silver-bullet, no one framework that is right for everyone. For that reason, this article is split into two sections, the first discussed the pros and cons of React Native, and the second discussing how it affects the various communities (e.g. native iOS devs, Xamarin devs etc ...)
 
 ## React Native The Good Parts
 

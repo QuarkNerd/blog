@@ -48,7 +48,7 @@ In Jekyll, there isn't any facility for hosting dynamic content so none of these
 
 There's no doubting that Wordpress is a far more powerful and feature-rich offering when you consider the average user and the average blog. However, as a developer I spend most of my days manipulating files in complex text editors, scripting together command line programs and using an unhealthy amount of git (a.k.a. we're not normal!). And for that reason I just can't help but like the simplicity of Jekyll.
 
-I don't use Wordpress's WYSIWYG editor and find myself frustrated by the simplistic HTML editor ([turns out I'm not alone](http://wpmu.org/why-you-hate-the-wordpress-text-editor)). Common keyboard shortcuts you expect to work don't, syntax highlighting is often flaky and heaven-forbid you accidently swap back to the WYSIWYG editor! The Jekyll approach of offline, file based editing in your favourite text editor is much more appealing.
+I don't use Wordpress's WYSIWYG editor and find myself frustrated by the simplistic HTML editor ([turns out I'm not alone](http://wpmu.org/why-you-hate-the-wordpress-text-editor)). Common keyboard shortcuts you expect to work don't, syntax highlighting is often flaky and heaven-forbid you accidentally swap back to the WYSIWYG editor! The Jekyll approach of offline, file based editing in your favourite text editor is much more appealing.
 
 I don't share Wordpress's requirement for the content and templates to be well separated, with content in the database and templates on the filesystem. I'm comfortable with markup and in fact I consider it an advantage of Jekyll to be able to manipulate both at the same time and in the same way.
 

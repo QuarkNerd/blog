@@ -130,7 +130,7 @@ inproc
 : thread to thread within a single process
 
 ipc
-: inter-process communication (linux only and not available in any of the native ports as yet)
+: inter-process communication (Linux only and not available in any of the native ports as yet)
 
 tcp
 : box to box communication and inter-process when "ipc" isn't available
@@ -141,10 +141,10 @@ epgm, pgm
 Once you've decided on a transport you need to define an endpoint as follows:
 
 inproc
-: unique (enough) ascii string
+: unique (enough) ASCII string
 
 ipc
-: unique (enough) ascii string (usually postfixed with ".ipc")
+: unique (enough) ASCII string (usually postfixed with ".ipc")
 
 tcp
 : internet address and port number

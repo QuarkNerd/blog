@@ -31,7 +31,7 @@ For this tutorial, we use a Visual Studio (VS) template project of type _HTML Ap
 
 _NOTE: The [version 1.4 of TypeScript](https://visualstudiogallery.msdn.microsoft.com/2d42d8dc-e085-45eb-a30b-3f7d50d55304) is also needed for the latest KnockoutJS TypeScript declaration file._ 
 
-Once created, simply remove the files _app.css_ and _app.ts_ from the project as they won't be needed anymore. 
+Once created, simply remove the files _app.css_ and _app.ts_ from the project as they won't be needed any more. 
 
 This tutorial makes use of AMD modules (e.g. we will use `export` and `import` keywords) that we will be loaded asynchronously when needed at runtime. 
 In order to support this, TypeScript requires the `--module` flag on compilation which you can specify on the _TypeScript Build_ settings on the project properties by choosing _AMD_ in _Module system_.
@@ -50,7 +50,7 @@ We will [install them via NuGet](https://docs.nuget.org/consume/installing-nuget
  * __knockout.TypeScript.DefinitelyTyped__ (Current version 0.8.2 by Jason Jarrett)
  * __jQuery__ (Current version 2.1.4)
  
-The corresponding files will be added into the `/Scripts/` folder with the exception of the DefnitielyTyped packages that are added to the folder `/Scripts/Typing/`.
+The corresponding files will be added into the `/Scripts/` folder with the exception of the DefinitelyTyped packages that are added to the folder `/Scripts/Typing/`.
 
 ### RequireJS Configuration
 

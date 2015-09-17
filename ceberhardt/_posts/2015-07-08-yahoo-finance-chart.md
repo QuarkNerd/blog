@@ -285,7 +285,7 @@ This results in the following chart:
 
 <small>View the [full code for this example](http://bl.ocks.org/ColinEberhardt/c806028e47281b8dbb1d) via D3 bl.ocks.</small>
 
-## Coloring the volume bars
+## Colouring the volume bars
 
 The final step in this example is to colour each bar of the volume chart based on whether the price has risen or fallen within the time period represented by the given bar.
 

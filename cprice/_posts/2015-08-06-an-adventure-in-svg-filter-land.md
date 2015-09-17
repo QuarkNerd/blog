@@ -636,7 +636,7 @@ So far everything's been rendered to a flat surface but to achieve the camera mo
 We'll go with 3 layers -
 
 * Background: vertical lines
-* Midgroud: gridlines and series
+* Midground: gridlines and series
 * Foreground: labels
 
 Each layer will be positioned in 3D space using CSS transforms. Unfortunately, we can't apply CSS transforms directly to the graphics elements themselves so we must create an SVG for each layer and apply the transforms to them. The layers will then be placed within an inner container which we'll use to position the camera relative to the elements and an outer one to act as a viewport.
@@ -819,7 +819,7 @@ Times like these call for the Chrome Timeline view. In this case it really doesn
 
 There are a number of things we can see from the results -
 
-* Our per-frame JavaScript processing time (the yellow section of the vertical bars at the top) is eating, and often exceeding, our 60fps time budget (the lower horizontal black line). In fact the loop is so slow Chrome is choosing to occassionally skip it to bump the CSS animation frame rate...
+* Our per-frame JavaScript processing time (the yellow section of the vertical bars at the top) is eating, and often exceeding, our 60fps time budget (the lower horizontal black line). In fact the loop is so slow Chrome is choosing to occasionally skip it to bump the CSS animation frame rate...
 * There is also a huge painting time associated with each frame (the green section of the vertical bars at the top).
 * There's some good news in the memory stats, we don't appear to have a memory leak (the blue line series). Although we are creating and disposing of ~250 nodes every ~8 seconds (the green line series), it would be good to bring that down to speed up GC.
 

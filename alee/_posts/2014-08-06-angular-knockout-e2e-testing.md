@@ -353,8 +353,6 @@ I've shown how to implement e2e tests for an SPA created with either Angular or 
 
 I promised to talk about the 'value' of e2e tests, and the 'cost' of creating and maintaining them, due to their often brittle nature. Of course, this boils down to the question of whether you should be writing e2e tests for your application. I won't presume to answer that for you, but I've tried to show how they can be made as robust as unit tests, and nearly as easy to write. Hopefully when you next ask yourself that question, you'll be more inclined to answer "yes".
 
-foog
-
 {% include ads/html5-white-paper.html %}
 
 
