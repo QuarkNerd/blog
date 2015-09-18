@@ -31,7 +31,7 @@ First I'll set up a project in Meteor:
 
     meteor add orionjs:core
 
-To use Orion, I'll [also need](http://orionjs.org/docs/introduction) a front end framework - [Boostrap](http://getbootstrap.com/), [Materialize](http://materializecss.com/) and [Foundation](http://foundation.zurb.com/) are all supported - and a routing package - with a choice between [Iron Router](https://github.com/iron-meteor/iron-router) and [Flow Router](https://github.com/kadirahq/flow-router):
+To use Orion, I'll [also need](http://orionjs.org/docs/introduction) a front end framework - [Bootstrap](http://getbootstrap.com/), [Materialize](http://materializecss.com/) and [Foundation](http://foundation.zurb.com/) are all supported - and a routing package - with a choice between [Iron Router](https://github.com/iron-meteor/iron-router) and [Flow Router](https://github.com/kadirahq/flow-router):
 
     meteor add twbs:bootstrap fortawesome:fontawesome orionjs:bootstrap
     meteor add iron:router
@@ -523,4 +523,4 @@ Now, after a quick trip to [pexels.com](https://www.pexels.com/), I can make Spl
 
 <img src='{{ site.github.url }}/tbarclay/assets/meteor/section-with-bg.png' title="A section with a background image" alt="A section with a background image" />
 
-And now all that remains is to set up a million dollar Kickstarter campagin...
+And now all that remains is to set up a million dollar Kickstarter campaign...
