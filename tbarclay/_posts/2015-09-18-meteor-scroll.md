@@ -1,6 +1,10 @@
 ---
 author: tbarclay
 title: "Building a Jump Scroll Marketing Page with Meteor and OrionJS"
+categories:
+  - HTML5
+  - Web
+summary: "Recently I needed to make a site for a personal project, and although I work on dynamic web apps for a living, I hadn't had to make a proper, honest-to-goodness website for years. There are plenty of well-known options out there for making sites quickly, like Wordpress and Squarespace, but why go for the quick option, I said to myself, when there's a learning opportunity to be had!"
 layout: default_post
 ---
 
