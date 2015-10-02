@@ -14,6 +14,7 @@ tags:
 categories:
   - iOS
   - Swift
+  - Mobile
 ---
 
 A few months ago Facebook announced React Native, a framework that lets you build native iOS applications with JavaScript – and the official repository just came out of beta today!
