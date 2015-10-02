@@ -15,13 +15,14 @@ disqus-id: /2014/11/20/swift-initialisation.html
 categories:
   - Swift
   - iOS
+  - Mobile
 ---
 
-Swift's strict initialisation process results in a number of practical issues, leaving developers scratching their heads. This post explores a few solutions including two-phase initialisation, the use of optionals and lazy properties. 
+Swift's strict initialisation process results in a number of practical issues, leaving developers scratching their heads. This post explores a few solutions including two-phase initialisation, the use of optionals and lazy properties.
 
 ## Introduction
 
-Swift is an opinionated language. It is clear that it was designed with strictness and safety in mind. 
+Swift is an opinionated language. It is clear that it was designed with strictness and safety in mind.
 
 One of the more radical features of this language is that it doesn't permit nil references.
 
@@ -41,7 +42,7 @@ When you first start programming in Swift you will no doubt discover that it is 
 {% highlight csharp %}
 class ViewController: UIViewController {
   private let animator: UIDynamicAnimator
-  
+
   required init(coder aDecoder: NSCoder) {
     // ERROR: Property 'self.animator' not initialized at super.init call
     super.init(coder: aDecoder)
@@ -57,7 +58,7 @@ OK ... so let's shift it before the super.init call:
 {% highlight csharp %}
 class ViewController: UIViewController {
   private let animator: UIDynamicAnimator
-  
+
   required init(coder aDecoder: NSCoder) {
     // use of property 'view' in base object before super.init initializes it
     animator = UIDynamicAnimator(referenceView: self.view)
@@ -75,7 +76,7 @@ So, what next? How about taking a two-phase approach; first initialising the UID
 {% highlight csharp %}
 class ViewController: UIViewController {
   private let animator: UIDynamicAnimator
-  
+
   required init(coder aDecoder: NSCoder) {
     animator = UIDynamicAnimator()
     super.init(coder: aDecoder)
@@ -112,11 +113,11 @@ Swift doesn't allow nil references, but similar behaviour is possible via option
 {% highlight csharp %}
 class ViewController: UIViewController {
   private var animator: UIDynamicAnimator?
-  
+
   required init(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
     animator = UIDynamicAnimator(referenceView: self.view)
@@ -131,7 +132,7 @@ This works, but is not an ideal solution. We've gone from a constant property to
 {% highlight csharp %}
 if let actualAnimator = animator {
   actualAnimator.addBehavior(UIGravityBehavior())
-} 
+}
 {% endhighlight %}
 
 You could of course use a forced unwrapping:
@@ -155,11 +156,11 @@ Another potential solution is to change the property type to an implicitly unwra
 {% highlight csharp %}
 class ViewController: UIViewController {
   private var animator: UIDynamicAnimator!
-  
+
   required init(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
     animator = UIDynamicAnimator(referenceView: self.view)
@@ -202,11 +203,11 @@ class ViewController: UIViewController {
   lazy private var animator: UIDynamicAnimator = {
     return UIDynamicAnimator(referenceView: self.view)
   }()
-  
+
   required init(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
     animator.addBehavior(UIGravityBehavior())
@@ -231,28 +232,3 @@ I do feel that lazy properties provide a slightly more palatable solution, altho
 I am sure there are other techniques that can be employed to overcome this issue. If you have any ideas, please share them in the comments below.
 
 Regards, Colin E.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

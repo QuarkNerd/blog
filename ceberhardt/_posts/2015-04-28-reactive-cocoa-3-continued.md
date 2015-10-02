@@ -6,6 +6,7 @@ summary: "My previous blog post took a first look at ReactiveCocoa 3.0 (RC3), wh
 categories:
   - iOS
   - Swift
+  - Mobile
 ---
 
 
@@ -62,8 +63,8 @@ But don't actually add any observers, you'll find that it is created and emits e
 {% highlight text %}
 Creating the timer signal
 Emitting a next event
-Emitting a next event 
-Emitting a next event 
+Emitting a next event
+Emitting a next event
 ...
 {% endhighlight %}
 
@@ -85,7 +86,7 @@ func createSignalProducer() -> SignalProducer<String, NoError> {
 }
 {% endhighlight %}
 
-The differences are pretty subtle, `SignalProducer` shares the same generic type parameters as `Signal`, one for the next event type, the other for the error type. It is also typically initialised via a closure expression, however this time rather than returning a disposable, the closure expression is supplied with a composite-disposable instance. 
+The differences are pretty subtle, `SignalProducer` shares the same generic type parameters as `Signal`, one for the next event type, the other for the error type. It is also typically initialised via a closure expression, however this time rather than returning a disposable, the closure expression is supplied with a composite-disposable instance.
 
 If you create a signal producer, but do not subscribe:
 
@@ -110,7 +111,7 @@ Signal producers are used to represents operations or tasks, where the act of st
 
 ##Signal Producer Operations
 
-The operations that can be performed on signal producers are defined as curried free functions, in exactly the same way as they are for signals. 
+The operations that can be performed on signal producers are defined as curried free functions, in exactly the same way as they are for signals.
 
 For example, here is the `on` operation, which injects side effects into a pipeline:
 
@@ -230,7 +231,7 @@ The RC3 APIs contain some really clever concepts and are a great example of 'fun
 
 RC3 also has some very real functional benefits. The use of generics means that signals are now strongly typed, eliminating a whole class of runtime errors, and allowing for more concise code. Furthermore, the distinction between signal and signal producer is quite clear.
 
-However, I can't help thinking that this API is just a bit too clever! 
+However, I can't help thinking that this API is just a bit too clever!
 
 In my [previous talks on ReactiveCocoa](http://www.slideshare.net/colineberhardt/reactive-cocoa-made-simple-with-swift) I have always tried to present the subject in a clear and simple fashion, showing the audience that the core concepts are easy to grasp. I've had some great feedback from people in the audience, and have had a number of people approach me after the talk to say that they now 'get it'. I do wonder whether the new RC3 APIs might confuse those same people who have struggled to understand ReactiveCocoa in the past?
 
@@ -254,42 +255,3 @@ This concludes my second look at RC3, I'll probably write one final blog post on
 If you've tried RC3 I'd be interested in hearing your experiences via the comments below.
 
 Regards, Colin E.
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

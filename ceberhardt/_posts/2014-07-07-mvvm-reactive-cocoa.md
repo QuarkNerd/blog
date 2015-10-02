@@ -4,6 +4,7 @@ title: MVVM with ReactiveCocoa
 image: ceberhardt/assets/featured/reactive-mvvm.jpg
 categories:
   - iOS
+  - Mobile
 tags:
   - author-featured
 summary: "I've recently had a two-part tutorial published on Ray Wenderlich's website that details how ReactiveCocoa can be used to implement the MVVM pattern within iOS applications. "
@@ -26,28 +27,3 @@ Recently I have been doing quite a bit of iOS development. The UIKit frameworks 
 I'm looking forward to making this code even more lovely when I convert it over to Swift.
 
 Regards, Colin E.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

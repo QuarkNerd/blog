@@ -6,6 +6,7 @@ image: ceberhardt/assets/featured/android-ios-stats.png
 categories:
   - Android
   - iOS
+  - Mobile
 summary: "A few months ago I published a blog post which showed the results of analysing the meta-data of 75,000 apps from the iTunes App Store. This blog post continues the analysis by adding 60,000 Android apps into the mix."
 summary-short: "Comparing 75,000 iOS apps with 60,000 Android apps."
 layout: default_post
@@ -28,28 +29,3 @@ For those of you that like their information presented in tweet-sized portions, 
 - The Apple store has 3x more apps with zero user ratings.
 
 &gt; &gt; &gt; [Read the rest of this article over on the ShinobiControls website](http://www.shinobicontrols.com/blog/posts/2014/07/09/a-statistical-comparison-of-the-ios-and-android-stores).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

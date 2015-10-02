@@ -8,6 +8,7 @@ disqus-id: /2015/02/11/swift-kvo-alternatives.html
 categories:
   - Swift
   - iOS
+  - Mobile
 ---
 
 Swift has access to all of the Objective-C APIs, which means that anything you could do with Objective-C you can now do with Swift. However, there are times when it is worth exploring a better, pure-Swift, alternative. This post explores the pros and cons of KVO versus a couple of Swift alternatives.
@@ -45,18 +46,18 @@ The code required to observe changes is pretty horrible too. The following class
 
 {% highlight csharp %}
 class CarObserver: NSObject {
-  
+
   private var kvoContext: UInt8 = 1
-  
+
   private let car: Car
-  
+
   init(_ car: Car) {
     self.car = car
     super.init()
     car.addObserver(self, forKeyPath: "miles",
        options: NSKeyValueObservingOptions.New, context: &kvoContext)
   }
-  
+
   override func observeValueForKeyPath(keyPath: String,
        ofObject object: AnyObject, change: [NSObject : AnyObject],
        context: UnsafeMutablePointer<Void>) {
@@ -64,7 +65,7 @@ class CarObserver: NSObject {
       println("Change at keyPath = \(keyPath) for \(object)")
     }
   }
-  
+
   deinit {
     car.removeObserver(self, forKeyPath: "miles")
   }
@@ -78,12 +79,12 @@ Boring it down to a quick list of pros and cons:
 **PROS**
 
  + Marking a property as `dynamic` is all you need to do in order to support change notifications
- 
+
 **CONS**
- 
+
  + This drags you back into the Objective-C world via `NSObject`
  + It does not support [observing all the properties of an object](http://stackoverflow.com/questions/13491454/key-value-observing-how-to-observe-all-the-properties-of-an-object).
- + The code required to observe property changes is really ... *really* horrible! 
+ + The code required to observe property changes is really ... *really* horrible!
 
 It would be possible to address the last point by adding a simple adapter around the KVO interfaces. The other cons are inextricably linked to the design of KVO itself.
 
@@ -95,7 +96,7 @@ If you just want to grab the event code, [take a look at this gist](https://gist
 
 ## Observable Objects
 
-The first implementation we'll explore is similar to KVO in that it is the object itself that is observable. 
+The first implementation we'll explore is similar to KVO in that it is the object itself that is observable.
 
 In order to make an object observable, it adopts the following protocol:
 
@@ -118,13 +119,13 @@ enum CarProperty {
 class Car: PropertyObservable {
   typealias PropertyType = CarProperty
   let propertyChanged = Event<CarProperty>()
-  
+
   dynamic var miles: Int = 0 {
     didSet {
       propertyChanged.raise(.Miles)
     }
   }
-  
+
   dynamic var name: String = "Turbo" {
     didSet {
       propertyChanged.raise(.Name)
@@ -151,7 +152,7 @@ func onPropertyChanged(property: CarProperty) {
 {% endhighlight %}
 
 Those of you who have written any C# code will recognise this pattern from [INotifyPropertyChanged](https://msdn.microsoft.com/en-us/library/system.componentmodel.inotifypropertychanged.aspx).
-  
+
 When a property changes it can be quite useful to look at the difference between the old and new value. It should be easy to add this to the `propertyChanged` event:
 
 {% highlight csharp %}
@@ -163,13 +164,13 @@ protocol PropertyObservable {
 class Car: PropertyObservable {
   typealias PropertyType = CarProperty
   let propertyChanged = Event<(CarProperty, Any)>()
-  
+
   dynamic var miles: Int = 0 {
     didSet {
       propertyChanged.raise(.Miles, oldValue as Any)
     }
   }
-  
+
   dynamic var name: String = "Turbo" {
     didSet {
       propertyChanged.raise(.Name, oldValue as Any)
@@ -190,7 +191,7 @@ Here's a quick run down of the pros and cons of this approach:
 
  + This is a pure-Swift implementation, so doesn't interfere with the use of structs, generics and other non-ObjC concepts.
  + It allows you to observe all of the properties of an object with minimal effort.
- 
+
 **CONS**
 
  + You have to implement `didSet` for each property you wish to observe.
@@ -205,20 +206,20 @@ The following is a simple implementation for `Observable`, a generic class that 
 
 {% highlight csharp %}
 class Observable<T> {
-  
+
   let didChange = Event<(T, T)>()
   private var value: T
-  
+
   init(_ initialValue: T) {
     value = initialValue
   }
-  
+
   func set(newValue: T) {
     let oldValue = value
     value = newValue
     didChange.raise(oldValue, newValue)
   }
-  
+
   func get() -> T {
     return value
   }
@@ -283,42 +284,19 @@ Here's a quick run-down of the pros and cons:
  + This is a pure-Swift implementation, so doesn't interfere with the use of structs, generics and other non-ObjC concepts.
  + There is no need to implement `didSet` for observable properties
  + The events are strongly typed (i.e. `T` for the old / new value as opposed to `Any`)
- 
+
 **CONS**
 
  + It does not allows you to observe all of the properties of an object
  + It adds a cumbersome extra layer for each and every property.
- 
- 
+
+
 ## Conclusions
 
-I've shown three different approaches to creating observable properties and objects, none of which are perfect. 
+I've shown three different approaches to creating observable properties and objects, none of which are perfect.
 
 I'd be interested to know which approach you use? and why?
 
 Personally, my feeling is that any modern language should have built-in support for observing property changes. In JavaScript this is on its way, in the form of `Object.observe`, [as part of ECMAScript 7](http://www.html5rocks.com/en/tutorials/es7/observe/). I'd really like to see Swift v.Next include a built-in alternative to KVO.
 
 Regards, Colin E.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
