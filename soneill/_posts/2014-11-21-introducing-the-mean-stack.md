@@ -273,7 +273,7 @@ This means that if a user is provided, the function should remove articles that 
 
 ###6. update the styling
 
-Now that we have some new functionality, let’s be a real full stack developer and update the UI. Bootstrap comes with MEAN.IO so let’s override the default values and make the heading a bright color. You’ll find the index page’s CSS in `packages/system/public/assets/css/common.css`. Just add the following and use your favorite color as the heading background
+Now that we have some new functionality, let’s be a real full stack developer and update the UI. Bootstrap comes with MEAN.IO so let’s override the default values and make the heading a bright colour. You’ll find the index page’s CSS in `packages/system/public/assets/css/common.css`. Just add the following and use your favourite colour as the heading background
 
 {% highlight css %}
   .navbar-inverse {

@@ -54,7 +54,7 @@ Let’s try adding some affordance.
 
 *Hinges offer certain contextual clues as to how a door works*
 
-Et voila: hinges. These hinges instantly change the understanding of this door and its behaviour. Through subconscious and real-life understanding of how material behaves when it is fixed to other material, we are afforded the knowledge that should we wish to open this door, we’d find more luck with the side that’s not fixed.
+Et voilà: hinges. These hinges instantly change the understanding of this door and its behaviour. Through subconscious and real-life understanding of how material behaves when it is fixed to other material, we are afforded the knowledge that should we wish to open this door, we’d find more luck with the side that’s not fixed.
 
 Even though we’re offered much more in the way of clues as to how to use the door with hinges (as contrasted with the plain sheet of material) we still don’t necessarily know how to open it. The clues may be a bit too subtle yet.
 

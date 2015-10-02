@@ -461,8 +461,6 @@ draggable
 gotchas
 foreach
 github.com
-wishlist
-behavior
 typesafe
 deserialize
 datatype
@@ -471,7 +469,6 @@ IoC
 sam
 affordance
 affordances
-voila
 automobile
 ideating
 repurposing
@@ -489,8 +486,6 @@ websockets
 auth
 ui
 gruntfile.js
-color
-favorite
 mongo
 heroku
 linux
@@ -500,7 +495,6 @@ router.js
 spacebars
 standups
 burndown
-ohlc
 svg
 clippath
 zoomable
@@ -814,6 +808,7 @@ VersionOne’s
 VersionOne’s
 VersionOne’s
 un-Agile
+VersionOne’s
 VersionOne’s
  - ekouri/_posts/2015-05-14-aspnet50-intro.md
 CoreCLR
@@ -1132,6 +1127,7 @@ shinobicontrols.com
 iOS8
  - sduncan/_posts/2014-02-04-intro-to-ixd.md
 ’content
+’content
  - sduncan/_posts/2014-07-31-hiphop.md
 Homies
 Disses
@@ -1194,6 +1190,7 @@ pexels.com
 xScale
 yScale
 plotArea
+ohlc-series
  - tsimmons/_posts/2014-09-19-d3-svg-chart-performance.md
 plotArea
 moveTo
@@ -1208,5 +1205,7 @@ Slippy
 Matthaeus
 Krenn’s
 slippy
+Krenn’s
+star-trek-esk
  - wreilly/_posts/2014-11-07-http-2-a-quick-look.md
 HTTPbis
