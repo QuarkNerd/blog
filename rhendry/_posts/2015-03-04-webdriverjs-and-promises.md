@@ -11,7 +11,7 @@ image-attribution: "image courtesy of <a href='https://www.flickr.com/photos/324
 summary-short: Avoiding broken promises with WebDriverJS - a quick guide to avoiding some of the framework pitfalls.
 categories: []
 ---
-Recently I have been working with WebdriverJS to fulfill a need for browser testing on a project. Although I've used
+Recently I have been working with WebdriverJS to fulfil a need for browser testing on a project. Although I've used
 Selenium for Java in the past, this was my first time using the JavaScript version. While broadly similar to what I
 remembered about the Java API, WebDriverJS returns Promises from all of its browser interactions, which can lead to some
 confusing behaviour.
