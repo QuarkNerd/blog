@@ -4,7 +4,7 @@ title: "A Master Detail layout for Ionic"
 tags:
   - blog
 categories:
-  - Web
+  - Mobile
 layout: default_post
 source: site
 summary: "Ionic is a framework built on angular-js, targeted at creating mobile applications. However, one useful component that isn't part of the standard controls is the master detail layout, and this post describes the solution I used when creating this control."
@@ -16,7 +16,7 @@ A recent project I worked on required this type of layout, so I spent some time 
 
 ## What is a Master Detail layout? ##
 
-A master detail layout is a responsive layout for tablets and phones, that allows users to view a list of items (the master view), and drill down into each item for more details (the detail view). 
+A master detail layout is a responsive layout for tablets and phones, that allows users to view a list of items (the master view), and drill down into each item for more details (the detail view).
 
 On small devices (i.e. phones), the control should behave similar to a navigation control, where the user only sees one screen at a time and has the ability to navigate forwards backwards between the master and detail views. On larger devices (i.e. tablets), the control should be a split-screen view so the user sees the master view down the left edge of the screen with the detail view filling the remaining space.
 
