@@ -91,7 +91,7 @@ And to associate the master state with data, they simply need to call the base m
 
 ## Limitations ##
 
-While this control ended up fitting our needs very well, there are some parts of the implementation I am unhappy width. In particular, I dislike how I have ended up having some of the logic for deciding whether to show split-mode being a mix of JS and CSS, especially the magic number for the width to switch layout modes existing in both CSS and JS.
+While this control ended up fitting our needs very well, there are some parts of the implementation I am unhappy with. In particular, I dislike how I have ended up having some of the logic for deciding whether to show split-mode being a mix of JS and CSS, especially the magic number for the width to switch layout modes existing in both CSS and JS.
 
 If I was going to write this again, or spend a fair chunk of time re-factoring this, I would probably attempt to pull more logic into JS and simply add/remove CSS classes to do the actual layout and animations.
 
