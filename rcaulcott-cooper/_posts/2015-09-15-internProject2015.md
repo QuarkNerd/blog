@@ -270,7 +270,7 @@ function onViewChanged(domain) {
 container.select('#reset-button').on('click', resetToLive);
 {% endhighlight %}
 
-The `indicators` are added on to the `multi.series` when their corresponsive button is active, giving a responsive interaction for the user. For both of these, a `none` button is originally checked on the menu, giving the user a wide range of options for the visualisation of the chart. The `secondary chart` (either `RSI` or `MACD`) are included through the render function when their respective buttons are activated. 
+The `indicators` are added on to the `multi.series` when their corresponding button is active, giving a responsive interaction for the user. For both of these, a `none` button is originally checked on the menu, giving the user a wide range of options for the visualisation of the chart. The `secondary chart` (either `RSI` or `MACD`) are included through the render function when their respective buttons are activated. 
 
 To change indicators using the buttons, we created an `option` function:
 
@@ -362,7 +362,7 @@ global.sc = {
 };
 {% endhighlight %}
 
-We created a key rendering function in oue `main.js` to bring the main components together. Namely the primary and secondary charts, the nav chart and their axis which was shared by all three:
+We created a key rendering function in our `main.js` to bring the main components together. Namely the primary and secondary charts, the nav chart and their axis which was shared by all three:
 
 {% highlight js %}
 var primaryChart = sc.chart.primaryChart();
@@ -394,7 +394,7 @@ Which would give us our original three standard charts just like they were befor
 
 During development it’s useful to be able to write unit tests for modules of code you’ve written before committing it into the shared codebase. This lets you test for sure that the code works as expected, and also forces you to define exactly what a piece of code ought to do and consider the edge cases. Often, if a piece of code is hard to unit test it’s a suggestion that the code isn’t modular enough. These tests will then provide advance warning if someone inadvertently breaks your code in the future.
 
-We also did standard test, however without any testers for our cause we had to do them all ourselves. One of the greater challenges from this was producing our chart into one with good UX and UI. This had to be determined by our own perceptions and judgement; of course in our eyes tOkhe chart looks clean, simple and concise.
+We also did standard test, however without any testers for our cause we had to do them all ourselves. One of the greater challenges from this was producing our chart into one with good UX and UI. This had to be determined by our own perceptions and judgement; of course in our eyes the chart looks clean, simple and concise.
 
 ## Project Development
 

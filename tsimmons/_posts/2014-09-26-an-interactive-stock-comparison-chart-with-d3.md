@@ -238,7 +238,7 @@ plotArea.append('g')
     .call(series);
 {% endhighlight %}
 
-We'll get zooming and panning working by using a D3 zoom behavior. We'll implement <a href="{{site.github.url}}{% post_url 2014-09-19-d3-svg-chart-performance %}">semantic zooming</a>, and we'll use <a href="{{site.github.url}}{% post_url 2014-09-19-interactive %}">Andy Aiken's trick</a> of limiting the panning extent by compensating for any overshoot of the zoom behavior's x translation. Our `zoomed` listener looks like this:
+We'll get zooming and panning working by using a D3 zoom behaviour. We'll implement <a href="{{site.github.url}}{% post_url 2014-09-19-d3-svg-chart-performance %}">semantic zooming</a>, and we'll use <a href="{{site.github.url}}{% post_url 2014-09-19-interactive %}">Andy Aiken's trick</a> of limiting the panning extent by compensating for any overshoot of the zoom behaviour's x translation. Our `zoomed` listener looks like this:
 
 {% highlight javascript %}
 function zoomed() {

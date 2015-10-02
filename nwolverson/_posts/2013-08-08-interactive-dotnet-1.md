@@ -133,7 +133,7 @@ wb = XNamespace.Get("http://www.worldbank.org");
 
 We can then define some utilities to extract the bits we're interested from the XML.
 The result of the `DescendantsAndSelf` method is an `IEnumerable`, this is exposed
-as a python interable, which we can use in a list comprehension to construct a list of value/country pairs. 
+as a python iterable, which we can use in a list comprehension to construct a list of value/country pairs. 
 
 {% highlight python %}
 

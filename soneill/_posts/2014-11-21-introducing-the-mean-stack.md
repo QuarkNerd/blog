@@ -36,7 +36,7 @@ In this post I’ll go over what the MEAN stack is and how easy it is to setup a
 <h2 style="text-indent: -9999px; background-image:url('{{ site.github.url }}/soneill/assets/2014-11-21-introducing-the-mean-stack/what-header.png'); height:265px; background-repeat: no-repeat; background-position: center;" class="aligncenter">What is MEAN.IO</h2>
 
 
-Mean.io is a full stack, Javascript, [web application framework](http://en.wikipedia.org/wiki/Web_application_framework). Full stack means that we're involved in each level of the application, so that's database + server + front end + UI. There are other stacks but MEAN.IO stands out in it's use of Javascript at every level. This means that you can reduce context switching, use a common data format and common tools. The name mean.io is an acronym of its consituent parts:
+Mean.io is a full stack, Javascript, [web application framework](http://en.wikipedia.org/wiki/Web_application_framework). Full stack means that we're involved in each level of the application, so that's database + server + front end + UI. There are other stacks but MEAN.IO stands out in it's use of Javascript at every level. This means that you can reduce context switching, use a common data format and common tools. The name mean.io is an acronym of its constituent parts:
 
 - MongoDB
 - Express.js
@@ -273,7 +273,7 @@ This means that if a user is provided, the function should remove articles that 
 
 ###6. update the styling
 
-Now that we have some new functionality, let’s be a real full stack developer and update the UI. Bootstrap comes with MEAN.IO so let’s override the default values and make the heading a bright color. You’ll find the index page’s CSS in `packages/system/public/assets/css/common.css`. Just add the following and use your favorite color as the heading background
+Now that we have some new functionality, let’s be a real full stack developer and update the UI. Bootstrap comes with MEAN.IO so let’s override the default values and make the heading a bright colour. You’ll find the index page’s CSS in `packages/system/public/assets/css/common.css`. Just add the following and use your favourite colour as the heading background
 
 {% highlight css %}
   .navbar-inverse {
