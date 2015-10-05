@@ -8,13 +8,13 @@ categories:
   - Web
 ---
 
-Many years ago when I first tried my hand at web development the rapid development cycles were a refreshing change, simply save your changes and hit refresh. I contrast the C++ work I was also doing at the time was quite tedious, waiting for the code to compile. link and eventually execute.
+Many years ago, when I first tried my hand at web development, the rapid development cycles were a welcome change; simply save your changes and hit refresh. This was in contrast to the C++ work I was also doing which was quite tedious, waiting for the code to compile, link and eventually execute after each and every change.
 
 How things have changed.
 
-These days JavaScript and web-app builds are often more complex than C++ builds I worked with in the past. Our code is transpiled, linted, module dependencies resolved, tested, minified ... and that's just the JavaScript!
+These days JavaScript and web-app builds are often more complex than the C++ builds I worked with in the past. Our code is transpiled, linted, module dependencies resolved, tested, minified ... and that's just the JavaScript!
 
-I've recently been working on an open source project, [d3fc](https://github.com/ScottLogic/d3fc), which has a fairly typical grunt build. Over time we've added more steps to the build and more code to the project and things have started to get slow. I'd really like to get back to the almost instant feedback that we know is possible with these technologies.
+I've recently been working on an open source project, [d3fc](https://github.com/ScottLogic/d3fc), which has a fairly typical grunt build. Over time we've added more steps to the build and more code to the project and things have started to get pretty slow. I'd really like to get back to the almost instant feedback that we know is possible with these technologies.
 
 This blog post shares a few steps I took to improve the performance of our grunt build, hopefully some of the tools I used will be of use to others.
 
@@ -256,6 +256,6 @@ Interestingly I found out that the ESLint team are [currently working on an auto
 
 With all these changes in place the overall build time was reduced from 14 to 6.5 seconds. This might not sound like much, but for developer productivity it is a *big* improvement.
 
-It's probably about time I stopped fiddling around with the build an got some real work done ...
+It's probably about time I stopped fiddling around with the build and got some real work done ...
 
 Regards, Colin E.
