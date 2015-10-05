@@ -104,7 +104,7 @@ Running "jscs:components" (jscs) task
     loading tasks      1.6s  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 44%
     jshint:components    2s  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 56%
     Total 3.6s
- {% endhighlight %}
+{% endhighlight %}
 
 Each concurrent task is loading all of the grunt tasks required by the Gruntfile. Looking at the implementation of `time-grunt` you can [see why this is the case](https://github.com/sindresorhus/grunt-concurrent/blob/master/tasks/concurrent.js#L27), it uses `grunt.util.spawn` to spawn a new process for each tasks, each executing grunt. Clearly this approach doesn't make sense for parallelising a small number of relatively rapid tasks.
 
@@ -125,7 +125,6 @@ require('jit-grunt')(grunt);
 {% endhighlight %}
 
 For our project build this gave an immediate improvement of ~2.5 seconds:
-
 
 {% highlight bash %}
 Execution Time (2015-10-03 10:29:14 UTC)
@@ -240,12 +239,14 @@ loading grunt-contrib-jshint  246ms  ▇▇ 3%
 jshint:components              2.2s  ▇▇▇▇▇▇▇▇▇▇ 30%
 loading grunt-jscs            186ms  ▇ 3%
 jscs:components                  1s  ▇▇▇▇▇ 14%
+{% endhighlight %}
 
 And Here's ESLint:
 
 {% highlight bash %}
 loading grunt-eslint          525ms  ▇▇▇ 9%
 eslint:components              2.1s  ▇▇▇▇▇▇▇▇▇▇▇▇ 35%
+{% endhighlight %}
 
 Around 3.6 seconds, versus 2.6 seconds. A small improvement, but worthwhile. Also, it does make your build simpler, and your associated tooling (i.e. your editor only needs one plugin for code style checking).
 
