@@ -24,13 +24,13 @@ We all know that the first step in improving performance is to instrument. You n
 
 Thankfully with grunt this is really quite simple, just add the `time-grunt` plugin to your build:
 
-```
+{% highlight javascript %}
 require('time-grunt')(grunt);
-```
+{% endhighlight %}
 
 When the build has finished you get a neat little summary of the execution time for each task:
 
-```
+{% highlight bash %}
 Execution Time (2015-10-02 16:44:06 UTC)
 loading tasks          1.9s  ▇▇▇▇▇▇ 14%
 jshint:components      2.4s  ▇▇▇▇▇▇▇▇ 18%
@@ -43,7 +43,7 @@ jshint:visualTests     1.1s  ▇▇▇▇ 8%
 jscs:visualTests      407ms  ▇▇ 3%
 assemble:visualTests   3.8s  ▇▇▇▇▇▇▇▇▇▇▇▇ 28%
 Total 14s
-```
+{% endhighlight %}
 
 As you can see the build takes 14s, which is fine for a CI or release build, but for development I want much more rapid feedback, ultimately as a way to support work in small iterations.
 
@@ -64,25 +64,25 @@ One of the reasons people favour gulp over grunt is its built-in support for par
 
 Setting up `grunt-concurrent` is very easy, just configure the task with an array of sub-tasks to run in parallel:
 
-```
+{% highlight javascript %}
 concurrent: {
     componentCheck: ['jshint:components', 'jscs:components']
 }
-```
+{% endhighlight %}
 
 The use the `concurrent:componentCheck` task in place of the ones it replaces.
 
 However, with the above tasks running in parallel, the build was actually slower by ~1.5 seconds!
 
-```
+{% highlight bash %}
 Total 15.4s
-```
+{% endhighlight %}
 
 Thankfully `time-grunt` also produces a report for concurrent tasks, immediately revealing the issue:
 
 Running "concurrent:componentCheck" (concurrent) task
 
-```
+{% highlight bash %}
 Running "jscs:components" (jscs) task
     >> 74 files without code style errors.
 
@@ -104,15 +104,15 @@ Running "jscs:components" (jscs) task
     loading tasks      1.6s  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 44%
     jshint:components    2s  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 56%
     Total 3.6s
- ```
+ {% endhighlight %}
 
 Each concurrent task is loading all of the grunt tasks required by the Gruntfile. Looking at the implementation of `time-grunt` you can [see why this is the case](https://github.com/sindresorhus/grunt-concurrent/blob/master/tasks/concurrent.js#L27), it uses `grunt.util.spawn` to spawn a new process for each tasks, each executing grunt. Clearly this approach doesn't make sense for parallelising a small number of relatively rapid tasks.
 
 Grunt loads _all_ the referenced tasks regardless of whether they are used or not, this is a [known issue](https://github.com/gruntjs/grunt/issues/975). It's also exacerbated by `matchdep`, the plugin that loads tasks which are referenced in your `package.json`, e.g.:
 
-```
+{% highlight javascript %}
 require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-```
+{% endhighlight %}
 
 It's very easy to forget to clean up your `package.json` resulting in your grunt build loading tasks unnecessarily.
 
@@ -120,14 +120,14 @@ It's very easy to forget to clean up your `package.json` resulting in your grunt
 
 As ever, when grunt doesn't support something, you can almost guarantee that there will be a plugin that does! In this case it's `jit-grunt`, a just-in-time plugin loader. Simply replace the manual `loadNpmTasks` or `matchdep` step and replace with the following:
 
-```
+{% highlight javascript %}
 require('jit-grunt')(grunt);
-```
+{% endhighlight %}
 
 For our project build this gave an immediate improvement of ~2.5 seconds:
 
 
-```
+{% highlight bash %}
 Execution Time (2015-10-03 10:29:14 UTC)
 loading grunt-contrib-jshint  217ms  ▇ 2%
 jshint:components              1.8s  ▇▇▇▇▇▇ 16%
@@ -144,11 +144,11 @@ copy:visualTests              145ms  ▇ 1%
 loading assemble              353ms  ▇ 3%
 assemble:visualTests           3.5s  ▇▇▇▇▇▇▇▇▇▇ 30%
 Total 11.6s
-```
+{% endhighlight %}
 
 It also has the added benefit that if you want to execute a single task, it is also very fast:
 
-```
+{% highlight bash %}
 $ grunt jscs:components
 
 Running "jscs:components" (jscs) task
@@ -161,7 +161,7 @@ loading tasks        87ms  ▇▇▇▇ 8%
 loading grunt-jscs  175ms  ▇▇▇▇▇▇▇ 16%
 jscs:components     854ms  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 76%
 Total 1.1s
-```
+{% endhighlight %}
 
 Unfortunately `jit-grunt` doesn't support `grunt.renameTask`, I've [raised an issue](https://github.com/shootaroo/jit-grunt/issues/39) and might look into a a fix for this.
 
@@ -169,15 +169,15 @@ Unfortunately `jit-grunt` doesn't support `grunt.renameTask`, I've [raised an is
 
 With the task loading optimised it was time to return to running tasks in parallel. With this project a much better split is to run the tasks relating to the two logic components (library code, visual test harness) in parallel:
 
-```
+{% highlight javascript %}
 concurrent: {
     visual: ['components', 'visualTests']
 }
-```
+{% endhighlight %}
 
 This gives a significant improvement, bringing the build time down to around 8 seconds:
 
-```
+{% highlight bash %}
 $ grunt visualTests:serve
 
     [...]
@@ -215,7 +215,7 @@ Done, without errors.
 
 Execution Time (2015-10-03 10:37:49 UTC)
 Total 8.4s
-```
+{% endhighlight %}
 
 ##From JSHint+JSCS to ESLINT
 
@@ -235,16 +235,17 @@ So how does it compare?
 
 Here's JSCS + JSHint:
 
-
-    loading grunt-contrib-jshint  246ms  ▇▇ 3%
-    jshint:components              2.2s  ▇▇▇▇▇▇▇▇▇▇ 30%
-    loading grunt-jscs            186ms  ▇ 3%
-    jscs:components                  1s  ▇▇▇▇▇ 14%
+{% highlight bash %}
+loading grunt-contrib-jshint  246ms  ▇▇ 3%
+jshint:components              2.2s  ▇▇▇▇▇▇▇▇▇▇ 30%
+loading grunt-jscs            186ms  ▇ 3%
+jscs:components                  1s  ▇▇▇▇▇ 14%
 
 And Here's ESLint:
 
-    loading grunt-eslint          525ms  ▇▇▇ 9%
-    eslint:components              2.1s  ▇▇▇▇▇▇▇▇▇▇▇▇ 35%
+{% highlight bash %}
+loading grunt-eslint          525ms  ▇▇▇ 9%
+eslint:components              2.1s  ▇▇▇▇▇▇▇▇▇▇▇▇ 35%
 
 Around 3.6 seconds, versus 2.6 seconds. A small improvement, but worthwhile. Also, it does make your build simpler, and your associated tooling (i.e. your editor only needs one plugin for code style checking).
 
