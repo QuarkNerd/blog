@@ -1,8 +1,11 @@
 ---
 author: ekouri
-title: "Introduction to ASP.NET 5"
+title: Introduction to ASP.NET 5
 layout: default_post
 summary: "This blog post discusses the changes to the .NET framework, the solution layout / configuration and serves as an introduction to the recommended programming style encouraged by Microsoft going forwards."
+categories:
+  - .NET
+  - Server
 ---
 The [Build Conference](https://www.build15.com/) is now behind us where lots of exciting things were announced, among them the release of Visual Studio 2015 RC1. This blog post discusses the changes to the .NET framework, the solution layout / configuration and serves as an introduction to the recommended programming style encouraged by Microsoft going forwards. If you haven't downloaded Visual Studio 2015, [grab it now](https://www.visualstudio.com/en-us/downloads/visual-studio-2015-downloads-vs.aspx)!
 
@@ -78,14 +81,14 @@ As before, you can add framework specific code if you wrap it in #if #endif as s
 
 <img alt="Framework Symbols" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/framesymbols.png" />
 
-You can also change the targeted framework when you edit a file from the dropdown list at the top. This will gray out any code that will not run with the selected framework which makes it easier to read.
+You can also change the targeted framework when you edit a file from the dropdown list at the top. This will grey out any code that will not run with the selected framework which makes it easier to read.
 
 ### Commands
 You can setup various commands in the project.json file under the "commands" section. Common examples are the `web` command which will self-host your application as well as the `ef` command which enables the use of entity framework commands such as migrations. Any NuGet package can include commands and you can also create your own. The command names could be anything, they don't have to be web and ef but that's how these two are typically named.
 
 <img alt="Commands" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/command.PNG" />
 
-We can run the web command from a cmd using dnx: **dnx <path to where the project.json lives\> web**. If we then open our browser and navigate to [http://localhost:5000](http://localhost:5000) (or the url specified in the web command), we should see our application running. The ef command has further options but the help will be displayed if more commands need to be provided.
+We can run the web command from a cmd using dnx: **dnx <path to where the project.json lives\> web**. If we then open our browser and navigate to [http://localhost:5000](http://localhost:5000) (or the URL specified in the web command), we should see our application running. The ef command has further options but the help will be displayed if more commands need to be provided.
 
 <img alt="EF" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/ef.PNG" />
 
@@ -130,7 +133,7 @@ For example, to add support for MVC, we first need to add the dependency to Micr
 In 2014 Microsoft announced the .NET foundation initiative which will oversee the open sourcing of the .NET platform. Several components have already been made [available on GitHub](https://github.com/dotnet) including the [Core CLR](https://github.com/dotnet/coreclr), [Roslyn compiler](https://github.com/dotnet/roslyn) and [ASP.NET](https://github.com/aspnet/home). Microsoft seem to have taken this very seriously and even have issues that are [Up for Grabs](http://up-for-grabs.net/#/) for anyone that would like to contribute.
 
 ## Conclusion
-A lot of big changes were introduced in this release with many ideas coming from the open source development platforms such as nodeJS. It's a no brainer that refactoring the web stack and going open source is a step towards the right direction. The new solution structure though and the tools that come with it are more open to different interpretation. Developers who prefer to work outside Visual Studio will certainly welcome these changes. It remains to be seen though if it will be appreciated by the existing .NET developers who admittedly have been spoiled for many years by the tooling that just works out of the box. It certainly is a very exciting time to be a developer!
+A lot of big changes were introduced in this release with many ideas coming from the open source development platforms such as NodeJS. It's a no-brainer that refactoring the web stack and going open source is a step towards the right direction. The new solution structure though and the tools that come with it are more open to different interpretation. Developers who prefer to work outside Visual Studio will certainly welcome these changes. It remains to be seen though if it will be appreciated by the existing .NET developers who admittedly have been spoiled for many years by the tooling that just works out of the box. It certainly is a very exciting time to be a developer!
 
 ## Summary
 In this post, all the major changes and new concepts introduced in ASP.NET 5 were discussed as well as layout changes to the project structure. The following videos and posts are good starting points:
@@ -140,3 +143,26 @@ In this post, all the major changes and new concepts introduced in ASP.NET 5 wer
 * [http://docs.asp.net/en/latest/conceptual-overview/aspnet.html](http://docs.asp.net/en/latest/conceptual-overview/aspnet.html)
 * [http://weblogs.asp.net/scottgu/introducing-asp-net-5](http://weblogs.asp.net/scottgu/introducing-asp-net-5)
 * [http://www.hanselman.com/blog/IntroducingASPNETVNext.aspx](http://www.hanselman.com/blog/IntroducingASPNETVNext.aspx)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

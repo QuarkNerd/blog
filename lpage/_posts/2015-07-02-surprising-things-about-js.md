@@ -1,15 +1,15 @@
 ---
 author: lpage
 title: "Seven Surprising JavaScript 'Features'"
+title-short: Surprising JavaScript
 featured-overlay-inverted: true
 categories:
- - lpage
-tags: 
-layout: default_post
-summary: A look at some of the more unusual parts of JavaScript by examining seven things I've learnt recently.
-image: lpage/assets/featured/javascript.jpg
+  - JavaScript
 tags:
   - featured
+layout: default_post
+summary: "A look at some of the more unusual parts of JavaScript by examining seven things I've learnt recently."
+image: lpage/assets/featured/javascript.jpg
 ---
 
 Over the last couple of months I've made a few enhancements to JSHint, mainly as a way of learning ES6
@@ -59,7 +59,7 @@ Another thing you can do is create arbitrary blocks (I know you can do this in C
 }
 {% endhighlight %}
 
-So, we can put this together and label and break from abritrary blocks.
+So, we can put this together and label and break from arbitrary blocks.
 
 {% highlight js %}
 outer: {
@@ -168,7 +168,7 @@ var a;
 [a] = array;
 {% endhighlight %}
 
-But with objects you must surround the whole assignment in parenthsis...
+But with objects you must surround the whole assignment in parenthesis...
 
 {% highlight js %}
 var a;
@@ -201,7 +201,7 @@ var a, b, c;
 
 ## Destructuring with numbers
 
-Another aspect of destructuring you might not realise is that the property names do not have to be unqouted strings. They can be numbers..
+Another aspect of destructuring you might not realise is that the property names do not have to be unquoted strings. They can be numbers..
 
 {% highlight js %}
 var {1 : a} = { 1: true };
@@ -369,3 +369,26 @@ arr.length = 10;
 ## Other gems
 
 Mozilla's developer blog has [a great post on arrow functions](https://hacks.mozilla.org/2015/06/es6-in-depth-arrow-functions/), which includes details of using `<!--` as an official ES6 comment token. It is worth checking out the [whole blog series](https://hacks.mozilla.org/category/es6-in-depth/) too.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

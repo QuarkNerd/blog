@@ -1,13 +1,15 @@
 ---
 author: alee
-title: Cross-platform mobile with Cordova and Ionic Framework 
-tags: 
-categories: 
+title: Cross-platform mobile with Cordova and Ionic Framework
+tags: null
+categories:
+  - Mobile
 summary: Using Cordova and Ionic Framework to turn an AngularJS web application into a cross-platform mobile application.
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2014/10/27/xplatform-mobile-cordova-ionic.html
+oldlink: "http://www.scottlogic.com/blog/2014/10/27/xplatform-mobile-cordova-ionic.html"
 disqus-id: /2014/10/27/xplatform-mobile-cordova-ionic.html
 ---
+
 
 Using [Cordova](http://cordova.apache.org/) and [Ionic Framework](http://ionicframework.com/) to turn  an AngularJS web application into a cross-platform mobile application.
 
@@ -164,3 +166,26 @@ Deploying a Single Page Application as a cross-platform app using Cordova turned
 I wanted to improve the mobile experience though, so that meant putting in the extra effort to develop a new mobile-centric View. Ionic's use of Angular made that relatively easy. It does mean more code to develop and maintain in addition to the original application, but most of the code is shared.
 
 I think this is a good approach to building a mobile version of a desktop SPA, but only if the mobile version needs to do the same things as the desktop version. After all, there are limits to what you can do simply by replacing the View in a Model-View-Whatever framework. Often, mobile apps need to do different things - for example, you may not want detailed analyses and reports, but instead have at-a-glance summary screens and quick-response input. Those sort of differences can be coded into the controllers (like I did with the search box pop-over), but at some point you'll need to consider whether it's better to build the mobile version as a separate application.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

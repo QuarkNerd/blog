@@ -1,39 +1,52 @@
-<article class="summary">
-  <header>
-    {% if showTechs %}
-      <div style="float: right;margin-top: 5px;">
-      {% for tech in post.techs %}
-        <img src="{{ site.github.url }}/labs/assets/labs_{{ tech }}.png"/>
-      {% endfor %}
-      </div>
-    {% endif %}
-    <h3>
-      <a href="{{ site.github.url }}{{ post.url }}">
-          {{ post.title }}
-      </a>
-    </h3>
-    <h5 class="sub author">
-    {% assign author = site.data.authors.authors[post.author] %}
+{% assign showPostSummary = include.showPostSummary %}
+{% assign suppressSocialLinks = include.suppressSocialLinks %}
+{% assign showAuthorInfo = include.showAuthorInfo %}
+{% assign postDetailLimit = include.postDetailLimit %}
+{% assign showTechs = include.showTechs %}
+{% assign suppressPostDate = include.suppressPostDate %}
+{% assign post = include.post %}
+{% assign author = site.data.authors.authors[post.author] %}
 
-    {% if showAuthorInfo %}
-      by <a href="{{ site.github.url }}/{{ post.author }}">{{ author.name }}</a>,
-    {% endif %}
+<article class="summary row">
+  {% if showAuthorInfo %}
+  <div class="hidden-xs col-sm-2 imageContainer">
 
-    {% if suppressPostDate %}
+    {% if author.gravatar %}
+    <img src="//www.gravatar.com/avatar/{{ author.gravatar }}" alt="{{ author.name }}" class="img-circle hidden-small" />
     {% else %}
-      on {{ post.date | date: "%d %b %Y" }}
+    <img src="{{ site.github.url }}/images/avatar.png" alt="{{ author.name }}" class="img-circle hidden-small" />
     {% endif %}
 
-    {% if showAuthorInfo %}
-      {% if author.gravatar %}
-      <img src="//www.gravatar.com/avatar/{{ author.gravatar }}" alt="{{ author.name }}" class="img-circle hidden-small" />
-      {% else %}
-      <img src="{{ site.github.url }}/images/avatar.png" alt="{{ author.name }}" class="img-circle hidden-small" />
+  </div>
+  {% endif %}
+  <div class="col-xs-12 {% if showAuthorInfo %}col-sm-10{% else %}col-sm-12{% endif %}">
+    <header>
+      {% if showTechs %}
+        <div style="float: right;margin-top: 5px;">
+        {% for tech in post.techs %}
+          <img src="{{ site.github.url }}/labs/assets/labs_{{ tech }}.png"/>
+        {% endfor %}
+        </div>
       {% endif %}
-    {% endif %}
-    </h5>
-  </header>
-{% if showPostSummary %}
+      <h3>
+        <a href="{{ site.github.url }}{{ post.url }}">
+            {{ post.title }}
+        </a>
+      </h3>
+      <h5 class="sub">
+      {% if showAuthorInfo %}
+        by <a href="{{ site.github.url }}/{{ post.author }}">{{ author.name }}</a>,
+      {% endif %}
+
+      {% if suppressPostDate %}
+      {% else %}
+        on {{ post.date | date: "%d %b %Y" }}
+      {% endif %}
+
+
+      </h5>
+    </header>
+    {% if showPostSummary %}
     <p>
         {% if post.summary %}
         {{ post.summary }}
@@ -41,26 +54,10 @@
         {{ post.content | truncatewords:50 | strip_html }}
         {% endif %}
     </p>
-{% endif %}
+    {% endif %}
 
-  {% capture url %}{{ site.github.url }}{{ post.url }}{% endcapture %}
-  {% if post.oldlink %}
-    {% capture url %}{{ post.oldlink }}{% endcapture %}
-  {% endif %}
-  {% if post.originalArticleLink %}
-    {% assign url = post.originalArticleLink %}
-  {% endif %}
-  {% assign disqusID = post.url %}
-  {% if post.disqus-id %}
-    {% assign disqusID = post.disqus-id %}
-  {% endif %}
-  {% assign title = post.title %}
-
-  {% if suppressSocialLinks %}
-  {% else %}
-  {% assign inverted = false %}
-  {% assign black = false %}
-  {% include social.html %}
-  {% endif %}
-
+    {% unless suppressSocialLinks %}
+    {% include social.html inverted=false postOrPage=post %}
+    {% endunless %}
+  </div>
 </article>

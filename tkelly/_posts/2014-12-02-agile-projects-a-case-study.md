@@ -2,16 +2,16 @@
 author: tkelly
 title: "Agile Projects: A Case Study"
 summary: "Over the past year, I worked on a large project which saw a dramatic shift towards a more Agile way of working. In this post, I will run through exactly what changed, how it made our project better, and what you can do to become more Agile."
-tags: 
+tags:
   - agile
-image: "tkelly/assets/featured/agile-case-study.png"
-categories: 
-  - tkelly
+image: tkelly/assets/featured/agile-case-study.png
+categories:
+  - Agile
 layout: default_post
 source: site
 title-short: "Agile: Case Study"
-summary-short: "A brief look into how and why a big project became more agile."
-oldlink: http://www.scottlogic.com/blog/2014/12/02/agile-projects-a-case-study.html
+summary-short: A brief look into how and why a big project became more agile.
+oldlink: "http://www.scottlogic.com/blog/2014/12/02/agile-projects-a-case-study.html"
 disqus-id: /2014/12/02/agile-projects-a-case-study.html
 ---
 
@@ -80,3 +80,26 @@ Had it been imposed on the team without them wanting it, there could have been q
 We picked a number of standard Agile processes, but not every process will be suitable for every project. Agile is a toolbox, and you need to pick the right tool for the job. It can help to introduce a number of new processes to begin with, before iteratively introducing new processes and removing redundant ones. The important thing is to keep evolving the process, discovering what works best for you.
 
 __Tom__
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

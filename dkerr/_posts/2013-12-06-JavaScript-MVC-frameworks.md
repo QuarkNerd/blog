@@ -2,19 +2,13 @@
 author: dkerr
 title: An introduction to MVC frameworks
 layout: default_post
-categories:
- - JavaScript
- - MVC
- - Frameworks
- - Backbone
- - KnockoutJS
- - Angular
- - EmberJS
+categories: []
 summary: The recent rise of web applications that have all the functionality of their desktop counterparts has highlighted the fact that JavaScript MVC Frameworks are now an essential part of any modern web developers toolkit.
 suppress-careers-add: true
-oldlink: http://www.scottlogic.com/blog/2013/12/06/JavaScript-MVC-frameworks.html
+oldlink: "http://www.scottlogic.com/blog/2013/12/06/JavaScript-MVC-frameworks.html"
 disqus-id: /2013/12/06/JavaScript-MVC-frameworks.html
 ---
+
 Web development has changed significantly in the past few years; it hasn't been long since deploying a web project simply involved uploading static HTML, CSS and JavaScript files to a HTTP server. The growing popularity with providing software as a service has meant that applications which have resided on the desktop are being transferred to the browser.
 
 Some of these web applications are large scale and complex, JavaScript alone cannot be used to provide a stable foundation to write quality, maintainable code. As a result, new MVC frameworks have appeared that offer to provide structure and guidance when developing these applications.
@@ -57,7 +51,7 @@ Good examples of web applications that fulfil these criteria are [Google Docs](h
 
 Arguably the four most popular frameworks available today are [Backbone.js](http://backbonejs.org/), [Angular.js](http://angularjs.org/), [EmberJS](http://emberjs.com/) and [KnockoutJS](http://knockoutjs.com/). This section aims to provide a high level comparison of these frameworks. 
 
-The reason why it's helpful to concentrate on these frameworks is that each one has been used extensively in the wild and provides excellent documentation and community support. This means you can be confident that any framework you pick will fulfill your requirements as well as having help and support available if needed.
+The reason why it's helpful to concentrate on these frameworks is that each one has been used extensively in the wild and provides excellent documentation and community support. This means you can be confident that any framework you pick will fulfil your requirements as well as having help and support available if needed.
 
 Additionally, there is little difference in the quantity of features provided by each framework. However, their opinion and implementation differ on what approach you should take when building a web application.
 
@@ -71,11 +65,11 @@ Backbone.js offers a flexible, minimalist solution to separating concerns in you
 
 It may appear that Backbone isn't as fully featured as the other popular MVC frameworks available. Pairing Backbone with one of its add-ons like [Marionette](http://marionettejs.com/) or [Chaplin](http://chaplinjs.org/) ensures that Backbone.js is as feature complete as other frameworks.
 
-Backbone.js has a [library of plugins and add-ons](http://backplug.io/) that can be used to provide any sort of functionality that your application requires. Its modular approach means you can fine tune Backbone.js to use a different templating engine should your application require it. Furthermore, the flexibility the modularity provides makes Backbone.js suitable when developing a web application with instable requirements.
+Backbone.js has a [library of plugins and add-ons](http://backplug.io/) that can be used to provide any sort of functionality that your application requires. Its modular approach means you can fine tune Backbone.js to use a different templating engine should your application require it. Furthermore, the flexibility the modularity provides makes Backbone.js suitable when developing a web application with unstable requirements.
 
-**Pros**: minimalist, flexible, great add-on / plugin support, un-opinionated, great [track record](http://backbonejs.org/#examples) of being used in complex web applications (WordPress, Rdio, Hulu), source code extremely simple to read, gentle learning curve
+**Pros**: minimalist, flexible, great add-on / plugin support, unopinionated, great [track record](http://backbonejs.org/#examples) of being used in complex web applications (WordPress, Rdio, Hulu), source code extremely simple to read, gentle learning curve
 
-**Cons**: Requires external dependencies (underscore), memory management can trip beginners up, no built in two way binding, un-opinionated, requires plugins to become as feature complete as other MVC frameworks.
+**Cons**: Requires external dependencies (underscore), memory management can trip beginners up, no built in two way binding, unopinionated, requires plugins to become as feature complete as other MVC frameworks.
 
 
 
@@ -157,3 +151,26 @@ The discussion above illustrates how there isn't a one-size-fits-all framework t
 Finally, try to build some proof of concept prototypes in each framework and compare the implementations. This is similar to what the authors behind [TodoMVC](http://www.todomvc.com) started which highlights the differences between a huge number of MVC frameworks by implementing a simple TODO application in each one.
 
 {% include ads/html5-white-paper.html %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

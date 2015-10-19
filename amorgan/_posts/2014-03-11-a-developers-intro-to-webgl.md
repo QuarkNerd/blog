@@ -2,11 +2,12 @@
 author: amorgan
 title: "A Developer's intro to WebGL"
 categories:
-- amorgan
+  - HTML5
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2014/03/11/a-developers-intro-to-webgl.html
+oldlink: "http://www.scottlogic.com/blog/2014/03/11/a-developers-intro-to-webgl.html"
 disqus-id: /2014/03/11/a-developers-intro-to-webgl.html
 ---
+
 Recently, I have been starting to get to grips with WebGL. Having little to no real previous experience with 3D graphics, there was a reasonably steep learning curve to overcome. So I thought I'd touch on a few of the basics here and share some resources that I found really useful.
 
 ##WEBGL OVERVIEW
@@ -42,3 +43,26 @@ Check out [Paul Lewis’ tutorials](http://www.aerotwist.com/tutorials/) for mor
 ##SPINNING SQUARES AND TRIANGLES
 
 For a far more detailed walkthrough the principles behind WebGL and creating your first 3D graphics, I strongly recommend Giles Thomas’ ["Learning WebGL"]( http://learningwebgl.com/blog/) blog. The lessons are adapted from a popular series based around game development in OpenGL, and they cover everything from spinning squares to nicely lit, interactive globes and more.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,12 +1,12 @@
 ---
 author: dgorst
-title: "MongoDB vs CouchDB"
-categories: 
-tags:
-
+title: MongoDB vs CouchDB
+categories:
+  - NoSQL
+tags: null
 summary: "As part of a project I'm working on, I have a requirement for a NoSQL database. There are numerous offerings out there, of which MongoDB and CouchDB appear to be the most popular. So which system should I choose?"
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2014/08/04/mongodb-vs-couchdb.html
+oldlink: "http://www.scottlogic.com/blog/2014/08/04/mongodb-vs-couchdb.html"
 disqus-id: /2014/08/04/mongodb-vs-couchdb.html
 ---
 As part of a project I'm working on, I have a requirement for a NoSQL database. There are numerous offerings out there, of which [MongoDB](http://www.mongodb.org/) and [CouchDB](http://couchdb.apache.org/) appear to be the most popular. So which system should I choose?
@@ -28,7 +28,7 @@ As you can see in the diagram, MongoDB and CouchDB are built with a slightly dif
 
 CouchDB uses a replication model called *Eventual Consistency*. In this system, clients can write data to one node of the database without waiting for other nodes to come into agreement. The system incrementally copies document changes between nodes, meaning that they will eventually be in sync. More information can be found on the [Eventual Consistency page of the CouchDB documentation](http://docs.couchdb.org/en/latest/intro/consistency.html).
 
-Which system you go for would normally be determined by the priorities of your project. If your app involves trading in financial data or online commerce, you might want to ensure that all clients have a consistent view of the data. In other applications, the high availablity offered by CouchDB might be more important, even if some clients are seeing data which is slightly out of date.
+Which system you go for would normally be determined by the priorities of your project. If your app involves trading in financial data or online commerce, you might want to ensure that all clients have a consistent view of the data. In other applications, the high availability offered by CouchDB might be more important, even if some clients are seeing data which is slightly out of date.
 
 My use case is likely to only involve a single database node and I'm not expecting particularly high database traffic. With these relatively flexible constraints, I would expect that either MongoDB or CouchDB would be able to meet my use case without any problems. In the rest of this post I'll look at how easy both systems were to use and I'll make my decision based on that. 
 
@@ -128,7 +128,7 @@ dbTelemetryInfo.save(function(err, dbTelemetryInfo) {
 
 ###Querying the database
 
-In a seperate process, we'll query the data. In a real-world app we'd probably want to see a snapshot of the latest data, and we might want to display a graph of historical data, such as altitude over time. Let's write some queries to get this information. First, let's create and open a connection to the database.
+In a separate process, we'll query the data. In a real-world app we'd probably want to see a snapshot of the latest data, and we might want to display a graph of historical data, such as altitude over time. Let's write some queries to get this information. First, let's create and open a connection to the database.
 
 {% highlight javascript %}
 'use strict';
@@ -269,3 +269,26 @@ If you need dynamic queries MongoDB will be the better option, as CouchDB requir
 If you have any questions, thoughts or feedback on this post, let me know! The full source code is up on my GitHub page, as part of the Project Latex project: [https://github.com/DanGorst/project-latex](https://github.com/DanGorst/project-latex)
 
 Dan G
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

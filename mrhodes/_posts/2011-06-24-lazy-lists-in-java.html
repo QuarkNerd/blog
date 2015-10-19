@@ -8,7 +8,7 @@ tags:
   - Java
   - blog
 categories:
-  - mrhodes
+  - Java
 layout: default_post
 source: site
 disqus-id: /2011/06/lazy-lists-in-java/
@@ -290,3 +290,26 @@ public void fix(){
 <p>This method works by creating a new <code>ArrayList</code>, which will form the new "fixed" backing list, then filling in the elements by iterating over the <code>AlterationList</code>, rather than the backing list itself.  This is crucial in order to keep the process linear.  The method ends with simply switching the backing list for the new list and resetting the alterations.  The call to increment <code>modCount</code> enables iterators going through this <code>PatchWorkArray</code> to fail on a best effort basis, for more information see <a href="http://download.oracle.com/javase/6/docs/api/java/util/AbstractList.html"><code>AbstractList</code></a>, which is an ancestor of the <code>PatchWorkArray</code> class. </p>
 <p>In the next post, I'll go through how to use effectively subclass and use the <code>PatchWorkArray</code> class and show how it compares in empirical tests to other <code>List</code> implementations.  Meanwhile, feel free to try it out and let me know what you think.  I've written a fair number of unit tests, which are included in the download, so hopefully it's all working asexpected (especially as it really isn't the easiest thing to debug!), but if you come across an issue please let me know.</p>
 <p>Mark Rhodes</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

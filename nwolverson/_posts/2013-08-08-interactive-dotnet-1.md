@@ -1,14 +1,14 @@
 ---
 author: nwolverson
-title: "Interactive.NET (1)"
-tags: 
+title: Interactive.NET (1)
+tags:
   - blog
-categories: 
-  - nwolverson
+categories:
+  - .NET
 layout: default_post
 source: site
-summary: In the first part of a series on running an interactive environment (REPL) on .NET, I talk a little about why you might want one, and cover the non-C# options.
-oldlink: http://www.scottlogic.com/blog/2013/08/08/interactive-dotnet-1.html
+summary: "In the first part of a series on running an interactive environment (REPL) on .NET, I talk a little about why you might want one, and cover the non-C# options."
+oldlink: "http://www.scottlogic.com/blog/2013/08/08/interactive-dotnet-1.html"
 disqus-id: /2013/08/08/interactive-dotnet-1.html
 ---
 If you ever programmed in a functional language, a dynamic language like Python
@@ -37,7 +37,7 @@ interactive environment - but I'm not going to evangelise this here. You can
 take this to different degrees, but the basic idea is that you will be executing
 code in the REPL frequently during the development of your program - more
 frequently than you would recompile and run an entire app. The code being run in
-the REPL will tend to be a mix of updated definitions (eg new version of a
+the REPL will tend to be a mix of updated definitions (e.g. new version of a
 function) and interaction with existing entities (more like testing).
 
 2. *API exploration*
@@ -90,7 +90,7 @@ it now seems that IronPython is going strong but IronRuby is looking rather dead
 ### IronPython
 
 [IronPython](http://http://ironpython.net/) comes out of the box with "IronPython Console",
-the IronPython repl in a console window:
+the IronPython REPL in a console window:
 
 ![IronPython Console screenshot]({{ site.github.url }}/nwolverson/assets/interactive.net/ipy-interactive.png)
 
@@ -133,7 +133,7 @@ wb = XNamespace.Get("http://www.worldbank.org");
 
 We can then define some utilities to extract the bits we're interested from the XML.
 The result of the `DescendantsAndSelf` method is an `IEnumerable`, this is exposed
-as a python interable, which we can use in a list comprehension to construct a list of value/country pairs. 
+as a python iterable, which we can use in a list comprehension to construct a list of value/country pairs. 
 
 {% highlight python %}
 
@@ -413,7 +413,7 @@ sorted |> Seq.take 5
 
 ## The rest
 
-Various other .NET languages [exist](http://en.wikipedia.org/wiki/Microsoft_.NET_Languages), eg
+Various other .NET languages [exist](http://en.wikipedia.org/wiki/Microsoft_.NET_Languages), e.g.
 C++/CLI, [Boo](http://boo.codehaus.org/), various 
 [Lisp](http://en.wikipedia.org/wiki/IronLisp)/[Scheme](http://en.wikipedia.org/wiki/IronScheme), 
 JavaScript implementations - some of which may or may not have interactive environments, but this web page is only so long, so you're on your own.
@@ -421,3 +421,26 @@ JavaScript implementations - some of which may or may not have interactive envir
 As for C#, that shall be the subject of my next post, where I'll cover various options, both "Open Source" and "Official".
 
 You can download the full source for the examples above [from this repository](https://github.com/nwolverson/blog-interactivenet).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

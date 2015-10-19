@@ -9,7 +9,7 @@ permalink: /:year/:month/:day/:title.html
 safe: true
 twitter_handle: Scott_Logic
 
-paginate: 5
+paginate: 20
 
 excerpt_separator: ""
 
@@ -24,6 +24,7 @@ exclude:
     - node_modules
     - package.json
     - README.md
+    - .spelling
     # N.B. Not all scripts are excluded, as some are directly referenced, because:
     # - jquery-1.9.1.js - some posts make use of this
     # - disqus-comment-thread.js - only required on the post pages

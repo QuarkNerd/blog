@@ -2,7 +2,9 @@
 author: rwilliams
 title: Applying styles to parent elements before children in AngularJS
 layout: default_post
-summary: Sizing advanced components such as grids using ng-style can leave you with rendering problems. Here, I create a variant of ng-style with some small tweaks to avoid this problem.
+summary: "Sizing advanced components such as grids using ng-style can leave you with rendering problems. Here, I create a variant of ng-style with some small tweaks to avoid this problem."
+categories:
+  - Web
 ---
 
 The ng-style directive is used to apply inline styles to an element. Using it to apply a width and a height to an element containing a [ui-grid](http://ui-grid.info/) will cause the grid to be incorrectly sized. The container element is the one with the red border below.
@@ -56,3 +58,25 @@ After replacing `ng-style` with `sl-ng-style-prelink` in our view, the grid now 
 Take a look at [this Plunker](http://plnkr.co/edit/67VByRQK65GoLdAlkZb2?p=preview) for the surrounding code and live demo.
 
 I've only encountered this problem when using ng-style, but there will be cases where the same behaviour of directives such as ng-class cause the same problem. I don't see a reason why the shipped versions of these directives couldn't work in the way described in this post.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

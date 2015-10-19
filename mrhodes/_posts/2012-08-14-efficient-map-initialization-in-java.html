@@ -6,7 +6,7 @@ oldlink: "http://www.scottlogic.co.uk/2012/08/efficient-map-initialization-in-ja
 tags:
   - blog
 categories:
-  - mrhodes
+  - Java
 layout: default_post
 source: site
 disqus-id: /2012/08/efficient-map-initialization-in-java/
@@ -139,3 +139,26 @@ public HashMap<Integer, Integer> createTestInstance(int requiredCapacity, float 
 }
 {% endhighlight %}
 <p>which is effectively what is used within the <code>HashCode</code> source, the test code fails in the case that <code>requiredCapacity / loadFactor</code> is an exact power of two, as it allocates twice the required memory for the backing array.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

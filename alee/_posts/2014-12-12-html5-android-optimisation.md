@@ -1,13 +1,16 @@
 ---
 author: alee
-title: HTML5 Mobile - Optimising for older or slower devices 
-tags: 
-categories: 
-summary: Some lessons I've learned trying to optimise a HTML5 mobile App so that it's fast and responsive even on old or budget phones with limited performance.
+title: HTML5 Mobile - Optimising for older or slower devices
+tags: null
+categories:
+  - Mobile
+  - HTML5
+summary: "Some lessons I've learned trying to optimise a HTML5 mobile App so that it's fast and responsive even on old or budget phones with limited performance."
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2014/12/12/html5-android-optimisation.html
+oldlink: "http://www.scottlogic.com/blog/2014/12/12/html5-android-optimisation.html"
 disqus-id: /2014/12/12/html5-android-optimisation.html
 ---
+
 
 Recently I built a proof of concept HTML5 cross-platform Mobile App, which we intended to use as a technology showcase running on both iPhones and Android phones. I used animated transitions to give the user good feedback when moving between screens and interacting with the App. For example, screens would slide in from the left, and "Hero" elements would move to new positions and change shape/style.
 
@@ -211,3 +214,26 @@ The `dataService` class also gets `callbackService` injected, and uses it to wra
 The optimisations I've tried have noticeably improved the User Experience on high performance devices like the Nexus 5, which has fewer dropped animation frames and feels smoother and more responsive. More importantly, it has made a dramatic improvement on the lower end devices. Where the transition was previously slow and jerky, it is now a simple slide-left with nothing else competing for CPU time.   
 
 As a developer, it's easy to focus on high-end devices like iPhones and premium Android handsets, but providing a good user experience for all Android users requires a little optimisation and lots of testing.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

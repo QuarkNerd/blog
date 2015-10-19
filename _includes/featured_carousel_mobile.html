@@ -1,0 +1,11 @@
+{% assign featuredPosts = include.featuredPosts %}
+{% assign maxPosts = include.maxPosts %}
+
+<div class="small-carousel carousel">
+    {% assign showPostSummary = true %}
+    {% for post in featuredPosts %}
+        {% if forloop.index0 < maxPosts %}
+            {% include featured_carousel_cell.html post=post maximumTitleWords=3%}
+        {% endif %}
+    {% endfor %}
+</div>

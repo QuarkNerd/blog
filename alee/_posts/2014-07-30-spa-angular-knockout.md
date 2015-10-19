@@ -1,15 +1,17 @@
 ---
 author: alee
 title: Single Page Applications - Angular vs Knockout
-image: "alee/assets/featured/chess.jpg"
-categories: 
-summary: A comparison of Angular and Knockout in an enterprise scale single page application, by building the same sample application with both tools.
+image: alee/assets/featured/chess.jpg
+categories:
+  - HTML5
+summary: "A comparison of Angular and Knockout in an enterprise scale single page application, by building the same sample application with both tools."
 layout: default_post
 featured-overlay-inverted: true
 suppress-careers-add: true
-oldlink: http://www.scottlogic.com/blog/2014/07/30/spa-angular-knockout.html
+oldlink: "http://www.scottlogic.com/blog/2014/07/30/spa-angular-knockout.html"
 disqus-id: /2014/07/30/spa-angular-knockout.html
 ---
+
 
 A few weeks ago I finished working on a project that made extensive use of Knockout. It wasn't a Single Page Application (SPA), but Knockout allowed us to create a very rich and engaging user experience. During my time on the project, I had seen blogs and posts mentioning Angular as an alternative to Knockout, and colleagues had asked me whether I would consider Angular in future projects. It was time for me to learn more about Angular.
 
@@ -430,7 +432,7 @@ Here's a quick taste of a Gulp task that replaces the css and JavaScript links i
         });
 {% endhighlight %}
 
-My Knockout application now only needs four minified files (the glyphicons are just there for the icon in the filter box):
+My Knockout application now only needs four minified files (the glyph-icons are just there for the icon in the filter box):
 
 <img src="{{ site.github.url }}/alee/assets/spa-an-ko/ServedFilesKO.png"/>
 
@@ -459,3 +461,26 @@ If you don't like having Knockout's observables all over your JavaScript code, t
 While there are pros and cons to both solutions, I still don't have a clear preference for either Angular or Knockout. At least I can be confident that neither one would be the wrong choice.
 
 {% include ads/html5-white-paper.html %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

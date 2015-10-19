@@ -5,10 +5,11 @@ tags:
   - UX design
   - conferences
 categories:
-  - godds
+  - UX
+  - Events
 layout: default_post
 source: site
-oldlink: http://www.scottlogic.com/blog/2013/06/24/ux-scotland.html
+oldlink: "http://www.scottlogic.com/blog/2013/06/24/ux-scotland.html"
 disqus-id: /2013/06/24/ux-scotland.html
 ---
 Last week I spoke at and attended [UX Scotland 2013](http://uxscotland.net/), a new user experience design conference
@@ -39,8 +40,8 @@ discussed the potential pitfalls of our increasingly common attempts at designin
 often might attempt to design for the question "What time is it?", when the actual concern is "Am I late?".  He
 highlighted that the context we try to design for is always particular to the moment and that context arises from the
 activity rather than the other way round.  He delved into the work of his colleague [Joe Leech](https://twitter.com/mrjoe),
-[Psychology for Designers](http://psychologyfordesigners.com/), to clarify how context arises as a negotation between
-the involved parties and showed how an understanding of the psychology involved in this negotation process can be used
+[Psychology for Designers](http://psychologyfordesigners.com/), to clarify how context arises as a negotiation between
+the involved parties and showed how an understanding of the psychology involved in this negotiation process can be used
 to better design apps.  In effect, as Giles summarised, designing for context isn't the right approach, designing for
 relevance is.
 
@@ -77,3 +78,26 @@ actually made a lot of sense.
 Thank you to everyone who came along to [my talk](http://lanyrd.com/2013/uxscot/schcrf/)!  It was lovely that there were
  so many of you.  I hope it was useful to you in some way.  The presentation slides are available [here](http://godds.github.io/the-minds-eye)
  (Chrome, Safari and FF only!) and my accompanying notes and references are available [here](https://github.com/godds/the-minds-eye/blob/master/TheMindsEye.pdf).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

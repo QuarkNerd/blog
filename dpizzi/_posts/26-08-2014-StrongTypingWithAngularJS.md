@@ -1,12 +1,16 @@
 ---
 author: dpizzi
-title: "Strong Typing With AngularJS"
+title: Strong Typing With AngularJS
+title-short: TypingScript & AngularJS
 layout: default_post
-summary: "This article demonstrates a successful integration of TypeScript with AngularJS to provide a strongly-typed environment for development of HTML5 apps."
-tags:
-image: "dpizzi/assets/featured/Strong.png"
-oldlink: http://www.scottlogic.com/blog/2014/08/26/StrongTypingWithAngularJS.html
+summary: This article demonstrates a successful integration of TypeScript with AngularJS to provide a strongly-typed environment for development of HTML5 apps.
+tags: featured
+image: dpizzi/assets/featured/Strong.png
+oldlink: "http://www.scottlogic.com/blog/2014/08/26/StrongTypingWithAngularJS.html"
 disqus-id: /2014/08/26/StrongTypingWithAngularJS.html
+categories:
+  - Web
+  - TypeScript
 ---
 
 A few weeks ago my colleague presented a detailed article about [strong typing for SignalR]({{ site.github.url }}/2014/08/08/signalr-typed.html). This article presents the integration of TypeScript with the AngularJS framework. Whilst both technologies are widely adopted, and thoroughly documented, their integration seems however to rather lack documentation.
@@ -274,3 +278,26 @@ The [usage notes](https://github.com/borisyankov/DefinitelyTyped/tree/master/ang
 This [blog](http://notebookheavy.com/2013/05/22/angularjs-and-typescript/) post, by David Iffland, on using AngularJS and TypeScript together with MVC and .NET also presents similar content together with links to other resources.
 
 Finally, an example of integration can also be found on the [TodoMVC](http://todomvc.com/labs/architecture-examples/typescript-angular/#/) project website which has the overall goal of comparing different JavaScript MV* framework by implementing the same application with each.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

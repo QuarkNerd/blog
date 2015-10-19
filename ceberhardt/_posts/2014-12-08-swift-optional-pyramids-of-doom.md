@@ -2,9 +2,13 @@
 author: ceberhardt
 title: "Tearing Down Swift's Optional Pyramid of Doom"
 layout: default_post
-summary: "This blog post looks at a few techniques that can be used to remove the deeply nested if-let statements that are a common sight in Swift code."
-oldlink: http://www.scottlogic.com/blog/2014/12/08/swift-optional-pyramids-of-doom.html
+summary: This blog post looks at a few techniques that can be used to remove the deeply nested if-let statements that are a common sight in Swift code.
+oldlink: "http://www.scottlogic.com/blog/2014/12/08/swift-optional-pyramids-of-doom.html"
 disqus-id: /2014/12/08/swift-optional-pyramids-of-doom.html
+categories:
+  - Swift
+  - iOS
+  - Mobile
 ---
 This blog post looks at a few techniques that can be used to remove the deeply nested if-let statements that are a common sight in Swift code.
 
@@ -34,7 +38,7 @@ if let aUnwrapped = a {
 }
 {% endhighlight %}
 
-In the above code, the `println` statement will only be executed if all three of the optional variable `a`, `b`, and `c` are non nil. The more optionals your code relies on, the deeper the nesting becomes. 
+In the above code, the `println` statement will only be executed if all three of the optional variable `a`, `b`, and `c` are non nil. The more optionals your code relies on, the deeper the nesting becomes.
 
 This becomes such an eye-sore that I've seen some developers [suggest nil-checking then forced unwrapping to flatten the code](https://github.com/raywenderlich/swift-style-guide/issues/63#issuecomment-65521081). Not something I'd recommend.
 
@@ -53,7 +57,7 @@ func if_let<T, U>(a: Optional<T>, b: Optional<U>, fn: (T, U) -> ()) {
   }
 }
 {% endhighlight %}
-  
+
 The above function unwraps the optional parameters and invokes the given function with the unwrapped results. Notice that the unwrapped variables have the same name, and shadow, the optional parameters, [a naming convention proposed by Sam Davies](https://github.com/raywenderlich/swift-style-guide/issues/64#issuecomment-64116223), which I quite like.
 
 The above function only takes two optional parameters, however the example above uses three. Unfortunately variadic parameters don't work in this context, so you have to overload the `if_let` function in order to vary the number of optional parameters:
@@ -70,7 +74,7 @@ func if_let<T, U, V>(a: Optional<T>, b: Optional<U>,
   }
 }
 {% endhighlight %}
-  
+
 Using the above tears down the pyramid, giving the following code:
 
 {% highlight csharp %}
@@ -79,7 +83,7 @@ if_let(a, b, c) {
   println("\(a) - \(b) - \(c)")
 }
 {% endhighlight %}
-  
+
 Much better!
 
 (If you want to test the `if_let` function, have a go via this online [Swift Stub](http://swiftstub.com/306740405/))
@@ -105,7 +109,7 @@ if let aUnwrapped = a {
   println("Something was nil!")
 }
 {% endhighlight %}
-  
+
 Although, that's not quite right is it - the 'else' logic is only executed if the first 'if' fails.
 
 What you actually need is something more like this:
@@ -125,7 +129,7 @@ if let aUnwrapped = a {
   println("Something was nil!")
 }
 {% endhighlight %}
-  
+
 Yuck, I think I just spat out that medicine!
 
 The `if_let` function can be extended to add an else argument as follows:
@@ -147,7 +151,7 @@ func if_let<T, U, V>(a: Optional<T>, b: Optional<U>,
   }
 }
 {% endhighlight %}
-  
+
 Yes, I know, it uses a variable to avoid the need to check each if-let statements, but variables are just fine if you use them to create higher-order functions ;-)
 
 Putting this into action, gives the following:
@@ -179,7 +183,7 @@ let dictionary: [String:Any] = [
   "surname" : "Lattner"
 ]
 {% endhighlight %}
-  
+
 Let's say you want to create a strongly typed model:
 
 {% highlight csharp %}
@@ -189,7 +193,7 @@ struct Person {
   age: Int
 }
 {% endhighlight %}
-  
+
 You're going to need this code:
 
 {% highlight csharp %}
@@ -202,8 +206,8 @@ if let forename = dictionary["forename"] as? String {
   }
 }
 {% endhighlight %}
-  
-In this case the pyramid is caused because the dictionary subscript (i.e. the `[]` part) returns an optional result, furthermore a failable cast, `as?`, is required. 
+
+In this case the pyramid is caused because the dictionary subscript (i.e. the `[]` part) returns an optional result, furthermore a failable cast, `as?`, is required.
 
 This can be replaced with an `if_let` overload that uses the type information from the supplied function in order to perform the required cast:
 
@@ -221,7 +225,7 @@ func if_let<T, U, V>(a: Optional<Any>, b: Optional<Any>,
   return false
 }
 {% endhighlight %}
-  
+
 Which is used as follows:
 
 {% highlight csharp %}
@@ -231,7 +235,7 @@ if_let(dictionary["forename"], dictionary["age"], dictionary["surname"]) {
     surname: surname, age: age)
 }
 {% endhighlight %}
-  
+
 Again, removing the pyramid (here's a [Swift Stub](http://swiftstub.com/773581102/)). Note that in this instance you must provide type annotations for the closure variables, because this type information is used by `if_let` in order to cast the values of type `Any` returned by the dictionary.
 
 This technique probably isn't as elegant as SwiftlyJSON, but it's an interesting alternative.
@@ -245,4 +249,3 @@ I'm sure there are more interesting extensions possible, perhaps using custom op
 If you come up with any good ideas, please share!
 
 Regards, Colin E.
-

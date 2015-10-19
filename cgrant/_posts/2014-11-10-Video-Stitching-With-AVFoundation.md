@@ -1,11 +1,12 @@
 ---
 author: cgrant
 title: Video Stitching with AVFoundation
-tags: 
-categories: 
+tags: null
+categories:
+  - iOS
 summary: Explaining the very basics of AVFoundation while building a Mac Application that stitches 3 .mov files together.
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2014/11/10/Video-Stitching-With-AVFoundation.html
+oldlink: "http://www.scottlogic.com/blog/2014/11/10/Video-Stitching-With-AVFoundation.html"
 disqus-id: /2014/11/10/Video-Stitching-With-AVFoundation.html
 ---
 
@@ -30,7 +31,7 @@ To start, we must build an array that contains `AVAsset` objects.
     AVAsset *instagramAsset = [AVAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"instatall" ofType:@"mov"]]];
     AVAsset *sportAsset = [AVAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"sportTall" ofType:@"mov"]]];
     NSArray *assets = @[tennisAsset, instagramAsset, sportAsset];
-*Intialising the AVAssets to combine into a single video*
+*Initialising the AVAssets to combine into a single video*
     
 An `AVAsset` object is AVFoundation's 'model for timed audiovisual media'. Basically they just contain information about the three videos to be stitched together. In this sample, the array is hardcoded and just set to be three videos that are embedded in the application, but it could easily be an array of assets that have been loaded from an external source. To keep it simple, lets just use these three for now.
 
@@ -132,3 +133,26 @@ And that's it! The API can seem a little complicated at first, and you have to b
 <img src="{{ site.github.url }}/cgrant/assets/player.png" />
 
 If you are interested in learning more, I recommend starting with the [AVFoundationFramework docs from Apple](https://developer.apple.com/library/ios/documentation/AVFoundation/Reference/AVFoundationFramework/). If you have noticed any issues with the code, please raise an issue or create a pull request over at [GitHub](https://github.com/ChrisGrant/AVFoundation-Video-Stitching "AVFoundation Video Stitching Repository").
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

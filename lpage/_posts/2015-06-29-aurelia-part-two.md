@@ -3,10 +3,12 @@ author: lpage
 title: "Aurelia, less2css and bundling"
 featured-overlay-inverted: true
 categories:
- - lpage
-tags: 
+  - HTML5
+  - Web
+  - CSS
+tags: null
 layout: default_post
-summary: In the second post of my series on the Aurelia framework I walkthrough bundling the less2css project. The result of which significantly reduced the load time, but did uncover a few aspects of the Aurelia bundling process that do not yet feel fully formed.
+summary: "In the second post of my series on the Aurelia framework I walkthrough bundling the less2css project. The result of which significantly reduced the load time, but did uncover a few aspects of the Aurelia bundling process that do not yet feel fully formed."
 ---
 
 Please read [my first post](http://blog.scottlogic.com/2015/06/19/aurelia-part-one.html) for an introduction.
@@ -25,7 +27,7 @@ var aurelia = require('aurelia-cli');
 aurelia.command('bundle', {
 {% endhighlight %}
 
-First we get the Aurelia cli and register a bundle command. The long-term intention seems to be that you could register multiple commands to set up parts of the project. I find this a bit strange, given the heavy use of other tools and
+First we get the Aurelia CLI and register a bundle command. The long-term intention seems to be that you could register multiple commands to set up parts of the project. I find this a bit strange, given the heavy use of other tools and
 that the example project uses gulp, I would have thought concentrating on making a `gulp-aurelia-bundler` would have made more sense.
 
 {% highlight js %}
@@ -115,7 +117,7 @@ However, this currently takes 13 seconds on my system - not something I want to 
 
 In addition, the setup seems a bit strange - JS source and HTML is transpiled into the dist folder, but then the bundle is built from the dist folder, meaning the bundled and un-bundled files end up in the same folder.
 
-I've [raised these concerns](https://github.com/aurelia/skeleton-navigation/pull/108#issuecomment-114781861) with the team and hopefully things will improve - bundling is a new thing for Aurelia cli and it will probably take some time to get the process right.
+I've [raised these concerns](https://github.com/aurelia/skeleton-navigation/pull/108#issuecomment-114781861) with the team and hopefully things will improve - bundling is a new thing for Aurelia CLI and it will probably take some time to get the process right.
 
 For now, I've created a process to copy the modified files to a new directory (for release purposes) and then run `git checkout` in order to revert my files.
 
@@ -154,7 +156,7 @@ It still seems slow, and doing a flame chart in chrome seems to suggest it is be
 
 I hope this corresponds to Rob Eisenberg's comment on my previous post.
 
- > ... a system.js bug that also affects all the transpilers: TypeScript, Babel and Tracuer. It causes exponential module lookup in certain scenarios. It's actually a problem with the spec we helped adentify a few weeks back. The fixes are being worked on, so once that hits things should load faster.
+ > ... a system.js bug that also affects all the transpilers: TypeScript, Babel and Traceur. It causes exponential module lookup in certain scenarios. It's actually a problem with the spec we helped identify a few weeks back. The fixes are being worked on, so once that hits things should load faster.
 
 ### Firefox and IE
 
@@ -173,16 +175,39 @@ Lastly, I tried IE9, which seemed incredibly slow. I couldn't profile it because
 Comparing the bundled files sizes..
 
 - Code Mirror - 171KB minified, 60KB GZip'd
-- Aurelia and dependencies (excluding the modules I removed) - 295KB minified, 71KB Gzip'd
+- Aurelia and dependencies (excluding the modules I removed) - 295KB minified, 71KB GZip'd
 - optional polyfills - 23KB minified, 7KB GZip'd
-- total less2css app bundle - 500KB minified, 139KB Gzip'd
+- total less2css app bundle - 500KB minified, 139KB GZip'd
 
-For comparison, Angular 1.4.1 is 142KB minified and 53KB Gzip'd, so looking at the Gzip'd versions, there doesn't seem to be an order of magnitude in size difference. The core-js bundle (providing es-x polyfills) on its own is 89KB minified and even with angular 1 you would probably want to include at least some es6 shims.
+For comparison, Angular 1.4.1 is 142KB minified and 53KB GZip'd, so looking at the GZip'd versions, there doesn't seem to be an order of magnitude in size difference. The core-js bundle (providing es-x polyfills) on its own is 89KB minified and even with angular 1 you would probably want to include at least some es6 shims.
 
-I do think it's a shame that we are continuing to bundle files that include alot of code and logic around systemjs - I am a fan of the [AMD Clean](https://github.com/gfranko/amdclean) utility which for requirejs removes all of the require and define calls so that you have a bundle that is pure javascript and can then be minified and modules inlined where they are used only once.
+I do think it's a shame that we are continuing to bundle files that include a lot of code and logic around systemjs - I am a fan of the [AMD Clean](https://github.com/gfranko/amdclean) utility which for requirejs removes all of the require and define calls so that you have a bundle that is pure javascript and can then be minified and modules inlined where they are used only once.
 
 ### Conclusion
 
 Aurelia is still preview and performance optimisation will be left to the end, so don't take this as a no for production sites, but I think its probably a "not yet". That may change soon though, if the problems are down to systemjs.
 
 You can see the live site at [http://lesscss.org/less-preview/](http://lesscss.org/less-preview/) and I will try to keep it updated with performance fixes as they get released. Also note that it uses code mirror and less, which are both large javascript libraries, so please don't make performance assumptions!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

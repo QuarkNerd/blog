@@ -9,18 +9,18 @@ These certificates should be an indicator to companies that the person they are 
 
 <a href="http://dilbert.com/strips/comic/2000-08-31/" title="Dilbert.com"><img align="middle" src="http://dilbert.com/dyn/str_strip/000000000/00000000/0000000/000000/00000/6000/800/6858/6858.strip.gif" border="0" alt="Dilbert.com"/></a>
 
-This is the same with other industry certifcation. 
+This is the same with other industry certification. 
 <a href="http://dilbert.com/strips/comic/1996-10-04/" title="Dilbert.com"><img align="middle" src="http://dilbert.com/dyn/str_strip/000000000/00000000/0000000/000000/10000/8000/300/18397/18397.strip.gif" border="0" alt="Dilbert.com" /></a>
 
 
 **Certification does not guarantee excellence.** 
-Certified Scrum Master is something I see alot of testers touting nowadays. It has supplemented the iSTQB Foundation as the certificate to have.
+Certified Scrum Master is something I see a lot of testers touting nowadays. It has supplemented the iSTQB Foundation as the certificate to have.
 However, the <a href="http://www.agilealliance.org/">Agile Alliance</a> directs people towards skill based certificates, such as the Certified Scrum Practitioner instead. So why are testers taking the Certified Scrum Master certificate?
 This quote below highlights a key idea behind certification:
 <blockquote>
 The Agile Advanced Practitioner Examination addresses the needs of those working in an Agile project environment who want to attain formal recognition of their knowledge, understanding and application of Agile Leadership practices.</blockquote>
 
-Certifcates, in IT at least, are predominantly about recognition, not competence. This is something you can sell, either for yourself, or your company. 
+Certificates, in IT at least, are predominantly about recognition, not competence. This is something you can sell, either for yourself, or your company. 
 
 And this recognition is eternal. Once you've passed, it's yours forever. Most certificates in the IT industry aren't ever retaken. So a certificate from 7 years ago is just as valid as someone that took theirs yesterday, regardless of whether the industry, techniques or methods have changed, moved on, or been updated since then. 
 

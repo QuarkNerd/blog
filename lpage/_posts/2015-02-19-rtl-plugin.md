@@ -1,12 +1,13 @@
 ---
 author: lpage
-title: "Making a RTL plugin in less"
+title: Making a RTL plugin in less
 featured-overlay-inverted: true
 categories:
- - lpage
-tags: 
+  - Web
+  - CSS
+tags: null
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2015/02/19/rtl-plugin.html
+oldlink: "http://www.scottlogic.com/blog/2015/02/19/rtl-plugin.html"
 disqus-id: /2015/02/19/rtl-plugin.html
 ---
 I mentioned in the previous post that I would create a plugin for less which converted from LTR to RTL. Here is a tutorial post on creating that plugin.
@@ -211,3 +212,26 @@ We update the contentsIgnoredChars in order that the sourcemap offset is correct
 I have no doubt there are CSS rules I have missed, but I hope this takes some of the mystery out of less and creates something that with a little bit of polishing and bug-fixing can be a useful plugin.
 
 There is also a change we need to make soon which makes extensions like this easier. At the moment comment nodes are added as nodes to the AST, which means that the code that reverses shorthands might not always work if there is a comment in the middle of the value. We need to move comments and white-space inside the nodes and then create a better mechanism for cloning so that plugins can be forward compatible. Its also clear there is boiler plate code in this plugin that could be taken back into the less project, when someone has time.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

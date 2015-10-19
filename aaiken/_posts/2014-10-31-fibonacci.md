@@ -1,17 +1,17 @@
 ---
 author: aaiken
 title: A Fibonacci fan component for D3
-title-short: "A D3 Fibonacci Fan"
-summary: In this article I'm going to create an interactive Fibonacci fan D3 component, and show you how to add it to a chart in just 6 lines of code.
+title-short: A D3 Fibonacci Fan
+summary: "In this article I'm going to create an interactive Fibonacci fan D3 component, and show you how to add it to a chart in just 6 lines of code."
 image: aaiken/assets/featured/fibonacci.png
 featured-overlay-black: true
-tags: 
+tags:
   - d3
   - featured
-categories: 
-  - aaiken
+categories:
+  - D3
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2014/10/31/fibonacci.html
+oldlink: "http://www.scottlogic.com/blog/2014/10/31/fibonacci.html"
 disqus-id: /2014/10/31/fibonacci.html
 ---
 <link rel="stylesheet" href="{{ site.github.url }}/aaiken/assets/fibonacci/style/style.css" />
@@ -395,7 +395,7 @@ At the top of the file we have our field declarations:
 
 ### Component function
 
-The component function is pretty trivial for this component - all we're doing is initialising each of our SVG elements in turn, giving each a unique css class and making sure they're all set to `display: none` initially.
+The component function is pretty trivial for this component - all we're doing is initialising each of our SVG elements in turn, giving each a unique CSS class and making sure they're all set to `display: none` initially.
 
 ### Event handlers
 
@@ -480,8 +480,31 @@ And with that, we're done! We've created the interactive chart you see above.
 
 ## Enhancements
 
-Perhaps a useful enhancement for this component would be to add a crosshairs element so that the user has some extra feedback about the data points they're about to clilck on. We'd probably want to set it up such that the crosshairs would only be visible when selecting points, and hidden when we're displaying the fan elements.
+Perhaps a useful enhancement for this component would be to add a crosshairs element so that the user has some extra feedback about the data points they're about to click on. We'd probably want to set it up such that the crosshairs would only be visible when selecting points, and hidden when we're displaying the fan elements.
 
 ## Conclusion
 
 We now have a D3 Fibonacci fan component which can be added to a chart with only 6 lines of code. It's an interactive component, using mouse move / click events to move between the different phases of placing the first point, placing the second point, and viewing the fan. We also use transitions to make the appearance of the fan a little more visually appealing.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

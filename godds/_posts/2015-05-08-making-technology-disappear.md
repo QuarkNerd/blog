@@ -1,14 +1,14 @@
 ---
 author: godds
 title: White Paper – Making Technology Disappear
-image: "godds/assets/featured/making-technology-disappear.jpg"
-summary-short: "Building omni-channel systems for Capital Markets."
+image: godds/assets/featured/making-technology-disappear.jpg
+summary-short: Building omni-channel systems for Capital Markets.
 tags:
   - author-featured
 categories:
-  - godds
+  - News
 layout: default_post
-summary: "Creating omni-channel experiences in enterprise is more often than not a challenge in terms of strategy and mindset rather than technology. This white paper outlines a twinned design and technical approach that ensures focus is squarely on users and the contexts within they use a system."
+summary: Creating omni-channel experiences in enterprise is more often than not a challenge in terms of strategy and mindset rather than technology. This white paper outlines a twinned design and technical approach that ensures focus is squarely on users and the contexts within they use a system.
 suppress-careers-add: true
 ---
 
@@ -23,3 +23,26 @@ To make matters worse, customers increasingly expect an omni-channel system, whe
 [Colin Eberhardt](http://blog.scottlogic.com/ceberhardt) and I have written a [white paper](http://info.scottlogic.com/building-omni-channel-systems-capital-markets) outlining our thoughts and recommendations on how to achieve this both in terms of design and technology, tailored towards a business area we think it is particular pertinent: Capital Markets.  The overarching theme of our argument is that technology should play a supporting role to users' tasks and contexts.  Technology is at its very best not when it wows, or amazes, but when it becomes so natural that it disappears: it just works.
 
 If you are interested in reading more, it can be freely downloaded via an [online form](http://info.scottlogic.com/building-omni-channel-systems-capital-markets).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,10 +1,10 @@
 ---
 author: lpage
-title: "State of localisation on the web"
+title: State of localisation on the web
 featured-overlay-inverted: true
 categories:
- - lpage
-tags: 
+  - Web
+tags: null
 layout: default_post
 ---
 
@@ -17,17 +17,17 @@ Localising a web application to a high standard is difficult. Why is that? Consi
   
 There are several differences between them:
 
-* The location and type of the negative sign - it can be brackets (though of the standard windows locales, only Lao has this format), the - can be on the right side (e.g. Arabic, Persian and Tamazight) and in addition it may have a space between the `-` and the number (e.g. Croation and Cambodia).
+* The location and type of the negative sign - it can be brackets (though of the standard windows locales, only Lao has this format), the - can be on the right side (e.g. Arabic, Persian and Tamazight) and in addition it may have a space between the `-` and the number (e.g. Croatian and Cambodia).
 
 * The grouping of the numbers - in most cultures it is every 3 characters, but in some it is at the thousand marker, then hundred thousand, then 10 million (e.g. India, Mongolia) and in others the thousands marker does not repeat (e.g. Tibet, Cambodia, Lao, US-Spanish)
 
-* The obvious difference between the group seperators and decimal seperator.
+* The obvious difference between the group separators and decimal separator.
 
 * Lastly you get languages which do not represent numbers using the latin characters - and these might also be read right to left.
   
 With datetimes you get a whole new set of problems:
 
-Do you allow language and locale to be set seperately or do you disallow e.g. norwegian language to be used with american style dates - no-US is not a common locale format (as opposed to es-US).
+Do you allow language and locale to be set separately or do you disallow e.g. Norwegian language to be used with American style dates - no-US is not a common locale format (as opposed to es-US).
 
 How do you configure date formats for each locale and yet still be configurable for different parts of your app (e.g. date only, long date, with time, with time and seconds etc.)
 
@@ -41,9 +41,9 @@ Natively, older browsers did not have any support for different number formats a
 
 ### Microsoft ASP.net Ajax (v2)
 
-In the begining, Microsoft tried with ASP.net Ajax to simulate a .net winforms environment in JavaScript. This means that you had shimmed classes, inheritance and the javascript patterns mirrored the server. [They also did that with the globalisation](https://msdn.microsoft.com/en-us/library/bb386581%28v=vs.140%29.aspx), meaning you set the culture of the page when the server was rendering the html and the [culture info](https://msdn.microsoft.com/en-us/library/system.globalization.cultureinfo%28v=vs.110%29.aspx) was then serialised into the page and used by the JavaScript. This gave very good localisation and allowed web apps to have almost as good localisation support as windows.
+In the beginning, Microsoft tried with ASP.net Ajax to simulate a .net winforms environment in JavaScript. This means that you had shimmed classes, inheritance and the javascript patterns mirrored the server. [They also did that with the globalisation](https://msdn.microsoft.com/en-us/library/bb386581%28v=vs.140%29.aspx), meaning you set the culture of the page when the server was rendering the html and the [culture info](https://msdn.microsoft.com/en-us/library/system.globalization.cultureinfo%28v=vs.110%29.aspx) was then serialised into the page and used by the JavaScript. This gave very good localisation and allowed web apps to have almost as good localisation support as windows.
 
-I've been unable to find out whats happened to this code - I know Microsoft has allowed jQuery to use it as the basis for Globalize (more on that later), but I can't find any references to it in modern versions of ASP.net.
+I've been unable to find out what's happened to this code - I know Microsoft has allowed jQuery to use it as the basis for Globalize (more on that later), but I can't find any references to it in modern versions of ASP.net.
 
 ## The Current
 
@@ -51,7 +51,7 @@ I've been unable to find out whats happened to this code - I know Microsoft has 
 
 Two libraries that are very popular at the moment are the open source [momentjs](http://momentjs.com/) and [numeraljs](http://numeraljs.com/).
 
-Moment came first and covers date-time manipulation, formatting and through a [plugin, timezones](http://momentjs.com/timezone/). It has a nice API, but for use in complex web applications it has a few issues:
+Moment came first and covers date-time manipulation, formatting and through a [plugin, time-zones](http://momentjs.com/timezone/). It has a nice API, but for use in complex web applications it has a few issues:
 
  * The locales are user contributed, meaning there may be some missing and the data may not be perfect.
 
@@ -70,7 +70,7 @@ To elaborate on the problems for date formats - moment has its own code for date
  * LLL  6 March 2015 05:34
  * LLLL Friday, 6 March 2015 05:34
 
-You can combine, so `LL LTS` gives you the same as `LL` but with seconds, however, notice there is no format for a 3 letter month name or a time with milli-seconds. This means that if you want formats not above, you have to create them yourself or else decide that cultures are not going to get a culture specific date format - just translations.
+You can combine, so `LL LTS` gives you the same as `LL` but with seconds, however, notice there is no format for a 3 letter month name or a time with milliseconds. This means that if you want formats not above, you have to create them yourself or else decide that cultures are not going to get a culture specific date format - just translations.
 
 The other libraries all base themselves on CLDR formats, which for en-gb looks like this
 
@@ -98,7 +98,7 @@ Comparing the CLDR date formats with moment, this is en-gb
 
 ### numeraljs
 
-numeraljs suffers from the same problem, it has user contributed locales and it doesn't support the breadth of configurations that you need. I found quite a few problems with it, [even just using it for locale in a few european countries](https://github.com/adamwdraper/Numeral-js/issues/created_by/lukeapage).
+numeraljs suffers from the same problem, it has user contributed locales and it doesn't support the breadth of configurations that you need. I found quite a few problems with it, [even just using it for locale in a few European countries](https://github.com/adamwdraper/Numeral-js/issues/created_by/lukeapage).
 
 ### React / Formatjs
 
@@ -136,14 +136,37 @@ There is a [polyfill for Intl](https://github.com/andyearnshaw/Intl.js) which co
 
 ## Custom Controls
 
-You also need to consider what controls your app is going to need when showing localised dates and numbers and how the user is going to edit them. For instance, if you want an input box that shows group separators (which can be handy to re-enforce which character is the decimal seperator) then you either listen to the blur event and re-format at that point (which is not ideal) or you use a templated input in order to format as you type. The problem then, is working out what the template is, for the language you are localising, without re-implementing all of the localisation code.
+You also need to consider what controls your app is going to need when showing localised dates and numbers and how the user is going to edit them. For instance, if you want an input box that shows group separators (which can be handy to re-enforce which character is the decimal separator) then you either listen to the blur event and re-format at that point (which is not ideal) or you use a templated input in order to format as you type. The problem then, is working out what the template is, for the language you are localising, without re-implementing all of the localisation code.
 
 The same argument applies to the date picker, though in that case, the jQuery UI team are re-writing their date picker to work with their globalize library, which should provide a very useful and powerful control.
 
 ## Conclusion
 
-momentjs is good for its timezone and date handling, but I would not reccommend using it for date formatting. It's a shame that moment isn't split up into a small library that does date time handling and another which does the formatting.
+momentjs is good for its timezone and date handling, but I would not recommend using it for date formatting. It's a shame that moment isn't split up into a small library that does date time handling and another which does the formatting.
 
 If your app *only* has to output numbers and dates localised, then look at polyfilling Intl - by picking a technology that has already been adopted in Firefox and Chrome, you are future protecting yourself better than picking a library which might get abandoned in the future. It also looks like one of the best libraries for formatting.
 
-If you need to parse the numbers too (and you are not using Angular), I'd consider globalise as the best option, but it should be tested first and you should bear in mind it is not very mature.
+If you need to parse the numbers too (and you are not using Angular), I'd consider globalize as the best option, but it should be tested first and you should bear in mind it is not very mature.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

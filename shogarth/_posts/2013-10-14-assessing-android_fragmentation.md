@@ -2,16 +2,17 @@
 author: shogarth
 title: Assessing Android Fragmentation
 featured-overlay-inverted: true
-image: "shogarth/assets/featured/fragmentation.png"
-image-attribution: "image courtesy of YoLaGringo"
-tags: 
+image: shogarth/assets/featured/fragmentation.png
+image-attribution: image courtesy of YoLaGringo
+tags: null
 layout: default_post
 categories:
- - android
+  - Android
 summary: "Android is fragmented. This is a feature, not a bug. Embrace this and you embrace the future."
-oldlink: http://www.scottlogic.com/blog/2013/10/14/assessing-android_fragmentation.html
+oldlink: "http://www.scottlogic.com/blog/2013/10/14/assessing-android_fragmentation.html"
 disqus-id: /2013/10/14/assessing-android_fragmentation.html
 ---
+
 Android targets a wide user base. It runs on budget to high-end phones and tablets, digital cameras and even refrigerators! In its short lifetime, several major versions have been shipped. This proliferation has been described as the 'fragmentation' of the platform.
 
 Looking at the numbers; [OpenSignal](http://opensignal.com/reports/fragmentation-2013/) detected 11,868 distinct Android devices this year, up 200% from 2012. Gingerbread (an Android version that is 2 &frac12; years old), still accounts for 30% of devices. Whilst these numbers can be considered rock-solid, they're only really painting a picture of what’s intended by design - Android is fragmented. It's a feature, not a bug!
@@ -76,3 +77,26 @@ When fragmentation issues do pop up, a tailored cost-benefit analysis approach m
 
 Android embraces fragmentation. You should too! A more open operating system results in more innovation and a wide uptake of devices. Embracing fragmentation means your application is ready to handle whatever device the market produces, and works to a high degree of quality. Maximising the amount of devices your application is compatible with ensures you are well-placed in an increasingly lucrative marketplace.
 <a href="http://www.shinobicontrols.com/android"><img src="{{ site.github.url }}/shogarth/assets/shinobi_android_ad.jpg"/></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,8 +1,12 @@
 ---
 author: ceberhardt
-title: "Implementing React.js in Swift"
+title: Implementing React.js in Swift
 layout: default_post
 summary: "This blog post explores the novel approach taken by the React.js team, where the UI is expressed as a function of the current application state, and re-implements it with Swift."
+categories:
+  - Swift
+  - iOS
+  - Mobile
 ---
 
 This blog post explores the novel approach taken by the [React.js](http://facebook.github.io/react/) team, where the UI is expressed as a function of the current application state, and re-implements it with Swift.
@@ -20,7 +24,7 @@ Hopefully this post will draw your attention to something new and exciting, and 
 ## Battling UI State
 
 The Swift language features (an expressive closure syntax, structs, let, etc ...), have allowed us to minimise mutable application state, which results in simpler, more expressive code.
-  
+
 However, that beauty ends when you encounter the UI!
 
 The problem with user interfaces (in pretty much any technology) is that they are heavyweight. There is a significant cost associated with constructing `UIView` instances, which is why as the state of the application changes, we update the state of the current views, rather than having immutable view objects which are thrown away and replaced with new ones. This is also why table and collection views recycle cells.
@@ -41,7 +45,7 @@ Or more recent concepts such as [Bond](https://github.com/SwiftBond/Bond):
 textField ->> label
 {% endhighlight %}
 
-However, regardless of the mechanism you use to keep your view synchronised with your model, it will always involve replication of state. One copy in your model, and another copy in your view. 
+However, regardless of the mechanism you use to keep your view synchronised with your model, it will always involve replication of state. One copy in your model, and another copy in your view.
 
 Surely there is a better way.
 
@@ -67,7 +71,7 @@ enum ReactView: ReactComponent {
   case Button(CGRect, String, Invocable)
   case Text(CGRect, String)
   case TextField(CGRect, String, Invocable)
-  
+
   func render() -> ReactView {
     return self
   }
@@ -92,13 +96,13 @@ The following is a very simple app, defined as a component, that simply renders 
 
 {% highlight csharp %}
 class TimerApp: NSObject, ReactComponent {
-  
+
   var time = NSDate()
-  
+
   func render() -> ReactView {
     let formatter = NSDateFormatter()
     formatter.dateFormat = "hh:mm:ss"
-    
+
     return ReactView.View(timerFrame, [
         ReactView.Text(textFrame, "\(formatter.stringFromDate(time))")
       ])
@@ -118,20 +122,20 @@ In order to render this component, we need a way of taking this lightweight view
 class ReactViewRenderer {
   let hostView: UIView
   let component: ReactComponent
-  
+
   init(hostView: UIView, component: ReactComponent) {
     self.hostView = hostView
     self.component = component
     render()
   }
-  
+
   func render() {
     // render the component, providing the current view state
     let reactView = component.render()
-    
+
     // convert to a UIKit view
     let uiView = createUIKitView(reactView);
-    
+
     // send this the host
     for subview in hostView.subviews {
       subview.removeFromSuperview()
@@ -153,12 +157,12 @@ func createUIKitView(virtualView: ReactView) -> UIView {
       view.addSubview(createUIKitView(child.render()))
     }
     return view
-    
+
   case let .Text(frame, text):
     let view = UILabel(frame: frame)
     view.text = text
     return view
-    
+
   case let .TextField(frame, text, invocable):
     // ... more UI Kit construction code ....
   }
@@ -171,7 +175,7 @@ Wiring up the renderer within a view controller results in the following UI:
 
 <img src="{{ site.github.url }}/ceberhardt/assets/ReactSwift/ReactiveTime.png" />
 
-I'd forgive you for being slightly un-impressed at this point. I've simply taken a variable, which never changes, and constructed a UIKit view via some intermediate format.
+I'd forgive you for being slightly unimpressed at this point. I've simply taken a variable, which never changes, and constructed a UIKit view via some intermediate format.
 
 Bear with me, it gets better!
 
@@ -181,25 +185,25 @@ The app displays the time, but is a pretty useless clock at the moment, time to 
 
 {% highlight csharp %}
 class TimerApp: NSObject, ReactComponent {
-  
+
   var time = NSDate()
-  
+
   override init() {
     super.init()
-    
+
     // update the time every second
     NSTimer.scheduledTimerWithTimeInterval(1.0, target: self,
       selector: "tick", userInfo: nil, repeats: true)
   }
-  
+
   func tick() {
     time = NSDate()
   }
-  
+
   func render() -> ReactView {
     let formatter = NSDateFormatter()
     formatter.dateFormat = "hh:mm:ss"
-    
+
     return ReactView.View(timerFrame, [
         ReactView.Text(textFrame, "\(formatter.stringFromDate(time))")
       ])
@@ -209,13 +213,13 @@ class TimerApp: NSObject, ReactComponent {
 
 Simple. Our application state is now dynamic, yet the UI is still expressed as a simple function of the current state.
 
-But how do we update the *real* UI? 
+But how do we update the *real* UI?
 
 One way could be to create some form of notification that informs the renderer that something has changed. But there's a much easier solution. By adding the following timer to the renderer, the `render` method is invoked at approximately 60fps:
 
 {% highlight csharp %}
 NSTimer.scheduledTimerWithTimeInterval(0.02, target: self,
-  selector: "render", userInfo: nil, repeats: true) 
+  selector: "render", userInfo: nil, repeats: true)
 {% endhighlight %}
 
 This repeatedly tears down the UI then re-creates it. As a result the time now updates quite nicely:
@@ -243,15 +247,15 @@ The following code constructs a simple (and ugly) app where a number can be shif
 
 {% highlight csharp %}
 class CounterApp: ReactComponent {
-  
+
   var count: Int = 0
-  
+
   func changeNumber(newValue: Int) {
     count = newValue
-    
+
     _youCannotSeeMe.render()
   }
-  
+
   func render() -> ReactView {
     return ReactView.View(outerFrame,
       [
@@ -262,23 +266,23 @@ class CounterApp: ReactComponent {
 }
 
 struct Toolbar: ReactComponent {
-  
+
   let frame: CGRect
   let count: Int
   let updateFunc: Int -> ()
-  
+
   func up() {
     updateFunc(count + 1)
   }
-  
+
   func down() {
     updateFunc(count - 1)
   }
-  
+
   func render() -> ReactView {
     let upHandler = EventHandlerWrapper(target: self, handler: Toolbar.up)
     let downHandler = EventHandlerWrapper(target: self, handler: Toolbar.down)
-    
+
     return ReactView.View(frame,
       [ReactView.Button(upButtonFrame, "up", upHandler),
       ReactView.Button(downButtonFrame, "down", downHandler),
@@ -293,15 +297,15 @@ Here's the app in action:
 
 In this more complex example you can see that the `CounterApp` render function makes use of the ReactView primitives as well as another component, `Toolbar`. Whilst `Toolbar` knows the current count, so that it can increment or decrement it, within this component it is a constant.
 
-The `EventHandlerWrapper` class is from [a previous blog post I wrote about eventing in Swift](http://www.scottlogic.com/blog/2015/02/05/swift-events.html), it provides a mechanism for loosely coupled events without target-action or other UIKit specific concepts. 
+The `EventHandlerWrapper` class is from [a previous blog post I wrote about eventing in Swift](http://www.scottlogic.com/blog/2015/02/05/swift-events.html), it provides a mechanism for loosely coupled events without target-action or other UIKit specific concepts.
 
 You might have noticed the line `_youCannotSeeMe.render()` - as you might have guessed, you weren't supposed to see that ;-) While the 60fps render-loop works fine for the timer app, it causes issues that interfere with `UIButton` taps, so I had to add this more manual approach. Please pretend you didn't see that code!
- 
-The simpler app, as well as showing the composition and components, demonstrates the simple process of data flowing down from one component to the next, and events flowing up. 
+
+The simpler app, as well as showing the composition and components, demonstrates the simple process of data flowing down from one component to the next, and events flowing up.
 
 ### Collections
 
-The previous example still feels a little trivial, how do you render a collection of items? With most UI framework this requires special treatment, concepts such as list views, repeaters, table views crop up everywhere. 
+The previous example still feels a little trivial, how do you render a collection of items? With most UI framework this requires special treatment, concepts such as list views, repeaters, table views crop up everywhere.
 
 The final example is a simple to-do list app:
 
@@ -311,31 +315,31 @@ The top-level component contains a mutable array of strings, and a variable whic
 
 {% highlight csharp %}
 class ToDoApp: ReactComponent {
-  
+
   var items = ["Make a cup of tea",
     "Embrace swift",
     "Be inspired by React"]
-  
+
   var newItem = ""
-  
+
   func textChanged(value: String) {
     newItem = value
   }
-  
+
   func itemDeleted(index: Int) {
     items.removeAtIndex(index)
     _youCannotSeeMe.render()
   }
-  
+
   func addItem() {
     items.append(newItem)
     _youCannotSeeMe.render()
   }
-  
+
   func render() -> ReactView {
     let textChangedHandler = EventHandlerWrapper(target: self, handler: ToDoApp.textChanged)
     let addItemHandler = EventHandlerWrapper(target: self, handler: ToDoApp.addItem)
-    
+
     return ReactView.View(outerFrame,
       [
         ReactView.TextField(textFieldFrame, "", textChangedHandler),
@@ -351,22 +355,22 @@ When the Add button is tapped, the text from `newItem` is added to the to-do lis
 
 {% highlight csharp %}
 class ListItems: ReactComponent {
-  
+
   let items: [String]
   let frame: CGRect
   let deleteAction: (Int) -> ()
-  
+
   init(frame: CGRect, items: [String], deleteAction: (Int) -> ()) {
     self.frame = frame
     self.items = items
     self.deleteAction = deleteAction
   }
-  
+
   func rectForIndex(index: Int) -> CGRect {
     return CGRect(x: 0, y: 50.0 * CGFloat(index), width: frame.width, height: 50)
   }
 
-  
+
   func render() -> ReactView {
     return ReactView.View(frame,
       map(enumerate(items)) { (index, item) in
@@ -387,21 +391,21 @@ class ListItem: ReactComponent {
   let item: String
   let frame: CGRect
   let deleteAction: () -> ()
-  
+
   init(frame: CGRect, item: String, deleteAction: () -> ()) {
     self.frame = frame
     self.item = item
     self.deleteAction = deleteAction
   }
-  
+
   func deleteItem() {
     deleteAction()
   }
-  
+
   func render() -> ReactView {
-    
+
     let addItemHandler = EventHandlerWrapper(target: self, handler: ListItem.deleteItem)
-    
+
     return ReactView.View(frame,
       [
         ReactView.Text(textFrame, item),
@@ -415,7 +419,7 @@ This simple little example is a good illustration of how data flows down whilst 
 
 ## Conclusions
 
-Hopefully this blogpost has given you an idea of how React works, and why it is so different from the other UI frameworks out there. The functional approach, and minimisation of mutable state, feel quite Swift-like.
+Hopefully this blog post has given you an idea of how React works, and why it is so different from the other UI frameworks out there. The functional approach, and minimisation of mutable state, feel quite Swift-like.
 
 And if it has inspired someone to port it to 'native' Swift, good luck to you, and I eagerly await the results!
 

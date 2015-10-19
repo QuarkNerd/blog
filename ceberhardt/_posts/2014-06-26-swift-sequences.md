@@ -1,18 +1,22 @@
 ---
 author: ceberhardt
-title: "Swift Sequences and Lazy Evaluation"
-image: "ceberhardt/assets/featured/sequence.jpg"
-categories: 
+title: Swift Sequences and Lazy Evaluation
+image: ceberhardt/assets/featured/sequence.jpg
+categories:
+  - Swift
+  - iOS
+  - Mobile
 tags:
   - author-featured
 summary: "In this blog post I want to take a quick look at the Swift Sequence protocol, which forms the basis for the for-in loop, and see how this allows you to write code that performs sequence operations that are only evaluated on-demand."
-summary-short: "An exploration of lazy evaluation via Swift generators"
+summary-short: An exploration of lazy evaluation via Swift generators
 layout: default_post
 featured-overlay-inverted: true
 suppress-careers-add: true
-oldlink: http://www.scottlogic.com/blog/2014/06/26/swift-sequences.html
+oldlink: "http://www.scottlogic.com/blog/2014/06/26/swift-sequences.html"
 disqus-id: /2014/06/26/swift-sequences.html
 ---
+
 
 I've had a lot of fun poking around the Swift APIs over the past few weeks. The lack of documentation means that there are a some real gems hidden among the more mundane API and language features.
 
@@ -28,7 +32,7 @@ for i in 1...5 {
 }
 {% endhighlight %}
 
-The above code iterates over the integers in the range 1 through to 5. 
+The above code iterates over the integers in the range 1 through to 5.
 
 The funky range operator (`...`) is a simple shorthand for creating `Range` instances. As a result, the following code is entirely equivalent:
 
@@ -78,7 +82,7 @@ Here is a simple implementation using a Swift sequence:
 {% highlight csharp %}
 class Fibonacci : Sequence {
   typealias GeneratorType = FibonacciGenerator
-  
+
   func generate() -> FibonacciGenerator {
     return FibonacciGenerator()
   }
@@ -86,9 +90,9 @@ class Fibonacci : Sequence {
 
 class FibonacciGenerator : Generator {
   var current = 0, nextValue = 1
-  
+
   typealias Element = Int
-  
+
   func next() -> Int? {
     let ret = current
     current = nextValue
@@ -127,10 +131,10 @@ There is actually a slightly simpler way to implement a sequence, that removes t
 
 {% highlight csharp %}
 class Fibonacci : Sequence {
-  
+
   func generate() -> GeneratorOf<Int> {
     var current = 0, next = 1
-    
+
     return GeneratorOf<Int> {
       var ret = current
       current = next
@@ -147,15 +151,15 @@ In order to aid understanding the next set of examples, the following adds a sim
 
 {% highlight csharp %}
 class Fibonacci : Sequence {
-  
+
   let id:String
   init(_ id: String) {
     self.id = id;
   }
-  
+
   func generate() -> GeneratorOf<Int> {
     var current = 0, next = 1
-    
+
     return GeneratorOf<Int> {
       var ret = current
       current = next
@@ -206,7 +210,7 @@ The `filter` method returns a new sequence which contains the items within the s
 
 As a result of deferred execution you can perform operations on sequences, but nothing will be generated until something starts 'pulling' data from one of the sequences.
 
-To see this in action, iterate over the first few items in the sequence: 
+To see this in action, iterate over the first few items in the sequence:
 
 {% highlight csharp %}
 var generator = evenNumbers.generate()
@@ -328,8 +332,6 @@ Because I think sequences show a lot of potential, I plan to contribute a suite 
 
 ## Conclusions
 
-Swift sequences are really cool and show a lot of potential. The examples in this blog post have been a little contrived, it is unlikely you will find yourself performing operations on the Fibonacci sequence! However, I could certainly see myself operating on sequences generated from streams, or perhaps paging network requests. 
+Swift sequences are really cool and show a lot of potential. The examples in this blog post have been a little contrived, it is unlikely you will find yourself performing operations on the Fibonacci sequence! However, I could certainly see myself operating on sequences generated from streams, or perhaps paging network requests.
 
 Regards, Colin E.
-
-{% include ads/swift_by_tutorials.html %}

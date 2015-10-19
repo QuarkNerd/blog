@@ -1,10 +1,12 @@
 ---
 author: dthomas
-title: "Introducing Agile development to client projects"
+title: Introducing Agile development to client projects
 layout: default_post
 summary: "As Agile methodologies gain more acceptance in the software development world, should Scott Logic look at introducing Agile to our client projects? And if so how?"
-oldlink: http://www.scottlogic.com/blog/2014/08/04/introducing-agile-development-to-client-projects.html
+oldlink: "http://www.scottlogic.com/blog/2014/08/04/introducing-agile-development-to-client-projects.html"
 disqus-id: /2014/08/04/introducing-agile-development-to-client-projects.html
+categories:
+  - Agile
 ---
 Since I joined Scott Logic I’ve worked on three separate teams which have, in one way or another, made a transition to Agile. This has meant either introducing development processes such as Scrum, technical practices such as TDD and iterative development, or indeed both. On top of this I’ve always tried to bring an Agile mindset to the development work I’ve been involved in, as well as promoting this approach within Scott Logic as a whole. This has involved trying to spread an understanding of the principles behind the Agile Manifesto, and encouraging teams and developers to refine their own best practice based on this.
 
@@ -55,3 +57,26 @@ This is a common feature of Agile teams. The close collaboration between all sta
 On top of this there is the satisfaction that any professional gets from doing high quality work. My experience of Agile teams is that they produce higher quality work, with fewer bugs, and this is a great source of pride to me. Having someone else put in charge of the way I develop usually results in that person asking you to cut corners to get work done to a deadline. This is hugely unsatisfying.
 
 All of these factors make us feel like it is worth taking the risk and trying to sell Agile to our clients. If they are not keen then we need to be willing to work with that. Buy in is an important part of Agile, and if our clients are not keen then there is no point in pushing them. But as far as possible I think we should try to work in an Agile way with our clients. In the <a href="{{site.github.url}}{% post_url 2014-08-11-a-piecemeal-approach-to-introducing-agile %}">next</a> part of the blog, we'll have a look at how we might go about introducing Agile to our clients.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

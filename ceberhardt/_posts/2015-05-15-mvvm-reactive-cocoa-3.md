@@ -1,9 +1,14 @@
 ---
 author: ceberhardt
-title: "MVVM With ReactiveCocoa 3.0"
+title: MVVM With ReactiveCocoa 3.0
 layout: default_post
 summary: "This is my final article on ReactiveCocoa 3.0 (RAC3), where I demonstrate some more complex RAC3 usages within the context of an application built using the Model-View-ViewModel (MVVM) pattern."
+categories:
+  - iOS
+  - Swift
+  - Mobile
 ---
+
 
 This is my final article on ReactiveCocoa 3.0 (RAC3), where I demonstrate some more complex RAC3 usages within the context of an application built using the Model-View-ViewModel (MVVM) pattern.
 
@@ -45,7 +50,7 @@ RAC3 does away with macros, and KVO, replacing them both with a pure Swift imple
 
 ## RAC3 Properties
 
-I wrote a blog post a few months back which looked at [KVO and a few KVO-alternatives with Swift](http://blog.scottlogic.com/2015/02/11/swift-kvo-alternatives.html), the lack of strong-typing, dependence on NSObject and a rather clumsy syntax mean that KVO feels quite uncomfortable within the swift world. 
+I wrote a blog post a few months back which looked at [KVO and a few KVO-alternatives with Swift](http://blog.scottlogic.com/2015/02/11/swift-kvo-alternatives.html), the lack of strong-typing, dependence on NSObject and a rather clumsy syntax mean that KVO feels quite uncomfortable within the swift world.
 
 With RAC3, properties (or at least properties which you wish to observe),are represented by the generic `MutableProperty` type:
 
@@ -99,19 +104,19 @@ The ViewModel that backs the application has the following properties:
 
 {% highlight swift %}
 class TwitterSearchViewModel {
-  
+
   let searchText = MutableProperty<String>("")
   let queryExecutionTime = MutableProperty<String>("")
   let isSearching = MutableProperty<Bool>(false)
   let tweets = MutableProperty<[TweetViewModel]>([TweetViewModel]())
-  
+
   private let searchService: TwitterSearchService
-  
+
   ...
 }
 {% endhighlight %}
 
-These represent everything the View needs to know about the current UI state, and allow it to be notified, via RAC3 bindings, of updates. The table view of tweets is 'backed' by the `tweets` mtable property which contains an array of ViewModel instances, each one backing an inidividual cell. 
+These represent everything the View needs to know about the current UI state, and allow it to be notified, via RAC3 bindings, of updates. The table view of tweets is 'backed' by the `tweets` mtable property which contains an array of ViewModel instances, each one backing an individual cell.
 
 The `TwitterSearchService` class provides a RAC3 wrapper around the Twitter APIs, representing requests as signal producers.
 
@@ -144,7 +149,7 @@ searchService.requestAccessToTwitterSignal()
     })
 {% endhighlight %}
 
-This requests access to the user's twitter account, following this the pipeline passes control to the `searchText.producer`, i.e. it observes its own `searchText` property. You'll notice that the producer isn';'t used directly, instead it is first mapped as follows: `searchText.producer |> mapError`. This highlights a common issue with RAC3, because signals have an error type constraint, any operation that combines signals (or signal producers) requires that their error types matches. The use of `mapError` above transforms any error that `searchText.producer` might produce into an `NSError`, which is compatible with the other signals being used in this pipeline.
+This requests access to the user's twitter account, following this the pipeline passes control to the `searchText.producer`, i.e. it observes its own `searchText` property. You'll notice that the producer isn't used directly, instead it is first mapped as follows: `searchText.producer |> mapError`. This highlights a common issue with RAC3, because signals have an error type constraint, any operation that combines signals (or signal producers) requires that their error types matches. The use of `mapError` above transforms any error that `searchText.producer` might produce into an `NSError`, which is compatible with the other signals being used in this pipeline.
 
 Following this, the signal is filtered and throttled. This reduces the frequency of the signal if the `searchText` property (which is bound to the UI), changes rapidly.
 
@@ -160,7 +165,7 @@ In another side project I have been messing about with I created a utility funct
 func lazyAssociatedProperty<T: AnyObject>(host: AnyObject,
                        key: UnsafePointer<Void>, factory: ()->T) -> T {
   var associatedProperty = objc_getAssociatedObject(host, key) as? T
-  
+
   if associatedProperty == nil {
     associatedProperty = factory()
     objc_setAssociatedObject(host, key, associatedProperty,
@@ -198,7 +203,7 @@ extension UIView {
   public var rac_alpha: MutableProperty<CGFloat> {
     return lazyMutableProperty(self, &AssociationKey.alpha, { self.alpha = $0 }, { self.alpha  })
   }
-  
+
   public var rac_hidden: MutableProperty<Bool> {
     return lazyMutableProperty(self, &AssociationKey.hidden, { self.hidden = $0 }, { self.hidden  })
   }
@@ -215,9 +220,9 @@ It is of course a little more complicated for controls where they also mutate th
 extension UITextField {
   public var rac_text: MutableProperty<String> {
     return lazyAssociatedProperty(self, &AssociationKey.text) {
-      
+
       self.addTarget(self, action: "changed", forControlEvents: UIControlEvents.EditingChanged)
-      
+
       var property = MutableProperty<String>(self.text ?? "")
       property.producer
         .start(next: {
@@ -227,7 +232,7 @@ extension UITextField {
       return property
     }
   }
-  
+
   func changed() {
     rac_text.value = self.text
   }
@@ -256,7 +261,7 @@ Interestingly, RAC3 also has a `ConstantProperty` class, which might seem a litt
 
 {% highlight swift %}
 class TweetViewModel: NSObject {
-  
+
   let status: ConstantProperty<String>
   let username: ConstantProperty<String>
   let profileImageUrl: ConstantProperty<String>
@@ -271,8 +276,6 @@ The value of this `ConstantProperty` is that you can still use the `<~` binding 
 
 RAC3 is shaping up to be a really great framework. There are still one or two loose ends, but overall it represents is a significant step forwards.
 
-All the code for this example app is [available on GitHub](https://github.com/ColinEberhardt/ReactiveTwitterSearch). I'd also suggest taking a look at [WhiskyNotebook](https://github.com/nebhale/WhiskyNotebook), another project which makes quite a bit of ue fo RAC3.
+All the code for this example app is [available on GitHub](https://github.com/ColinEberhardt/ReactiveTwitterSearch). I'd also suggest taking a look at [WhiskyNotebook](https://github.com/nebhale/WhiskyNotebook), another project which makes quite a bit of use of RAC3.
 
 Regards, Colin E.
-
-

@@ -1,10 +1,5 @@
-aside.author {
-  text-align: right;
+.author {
   font-size: @smallFontSize;
-  
-  .asideContainer {
-    margin-right: 20px;
-  }
   
   img {
     margin-bottom: (@baseLineHeight * 0.5)
@@ -18,11 +13,16 @@ aside.author {
 
   .authorSummary {
     line-height: @tightLineHeight;
+    margin-bottom: 5px;
+
+    // Links in author summary should be displayed inline.
+    a {
+      display: initial;
+    }
   }
 
-  div.sub {
-    line-height: @tightLineHeight;
-    margin: (@baseLineHeight * 0.5) 0 @baseLineHeight 0;
+  a {
+    display: block;
   }
 }
 

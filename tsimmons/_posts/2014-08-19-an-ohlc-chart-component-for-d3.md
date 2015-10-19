@@ -1,25 +1,28 @@
 ---
 author: tsimmons
 title: An OHLC Chart Component for D3
-title-short: "An OHLC Chart with D3"
-summary-short: "a reusable D3 component for OHLC series"
-summary: An open-high-low-close chart is a type of financial chart used to show price movements in a financial instrument over time. In this post, we'll make a reusable D3 component for an OHLC chart series.
+title-short: An OHLC Chart with D3
+summary-short: a reusable D3 component for OHLC series
+summary: "An open-high-low-close chart is a type of financial chart used to show price movements in a financial instrument over time. In this post, we'll make a reusable D3 component for an OHLC chart series."
 layout: default_post
-tags:
-image: "tsimmons/assets/featured/chart.png"
+tags: null
+image: tsimmons/assets/featured/chart.png
 featured-overlay-inverted: true
-oldlink: http://www.scottlogic.com/blog/2014/08/19/an-ohlc-chart-component-for-d3.html
+oldlink: "http://www.scottlogic.com/blog/2014/08/19/an-ohlc-chart-component-for-d3.html"
 disqus-id: /2014/08/19/an-ohlc-chart-component-for-d3.html
+categories:
+  - D3
+  - Charting
 ---
 
 An open-high-low-close (OHLC) chart is a type of financial chart used to show price movements and help identify trends in a financial instrument over time. For each unit of time, a vertical line is plotted showing the highest and lowest prices reached in that time. Horizontal tick marks are plotted on each side of the line - the opening price for that time period on the left, and the closing price on the right. Usually an OHLC line will be coloured green if on that day the closing price exceeded the opening price (an 'up day'), and coloured red if not (a 'down day').
 
 [D3](http://d3js.org/) is a javascript library for data visualisation on the web. It is not a charting library. Instead, it gives us the flexibility to bind data to web graphics, utilising modern web standards such as SVG, HTML5 and CSS3. Charts are just one type of visualisation we can make with it. This post assumes some familiarity with D3. There are already lots of great introductory tutorials available on the [D3 wiki](https://github.com/mbostock/d3/wiki/Tutorials) if you need to get up to speed. 
 
-While D3 does have a component to draw a line series on a chart ([see here](http://bl.ocks.org/mbostock/3883245)), it does not have an inbuilt component we can use to render an ohlc series. In this post, we'll make one.
+While D3 does have a component to draw a line series on a chart ([see here](http://bl.ocks.org/mbostock/3883245)), it does not have an inbuilt component we can use to render an OHLC series. In this post, we'll make one.
 
 ## Reusable Chart Components
-We'll use D3 creator Mike Bostock's [convention for creating reusable components](http://bost.ocks.org/mike/chart/) in D3. Essentially this means our component will be a closure with getter-setter methods. This follows the same pattern used by other D3 components and plugins, so will allow us to treat our ohlc component just like any other D3 component.
+We'll use D3 creator Mike Bostock's [convention for creating reusable components](http://bost.ocks.org/mike/chart/) in D3. Essentially this means our component will be a closure with getter-setter methods. This follows the same pattern used by other D3 components and plugins, so will allow us to treat our OHLC component just like any other D3 component.
 
 We'll assume our data is an array of objects that look like this:
 {% highlight javascript %}
@@ -32,7 +35,7 @@ We'll assume our data is an array of objects that look like this:
 }
 {% endhighlight %}
 
-Here's what the ohlc component will look like internally:
+Here's what the OHLC component will look like internally:
 {% highlight javascript %}
 sl.series.ohlc = function () {
 
@@ -65,9 +68,9 @@ Here, we are attaching our component to the `sl.series` namespace object. This g
 
 Internally, we have 2 scales, `xScale` and `yScale`. We'll need these to map the dates and prices of our input to pixel positions on our chart. The scales are initialised to be default D3 scales. This allows us to use the component without attaching scales, although typically we'll set them to the scales used by our axes.
 
-These scales are exposed to users of the component using getter/setter functions. For example, calling the `xScale` function with no arguments returns the internal `xScale`, and calling it with one or more arguments sets the internal `xScale` to the first argument. When called with arguments, these functions return the ohlc function. This allows setter calls to be chained together.
+These scales are exposed to users of the component using getter/setter functions. For example, calling the `xScale` function with no arguments returns the internal `xScale`, and calling it with one or more arguments sets the internal `xScale` to the first argument. When called with arguments, these functions return the OHLC function. This allows setter calls to be chained together.
 
-We'll draw the ohlc bars in the `ohlc` function returned by the component. We'll use D3's [General Update Pattern](http://bl.ocks.org/mbostock/3808218). This is an important D3 concept. In simple terms, we `select` page elements that may or may not exist, and bind data to these elements. Page elements are then created, updated or removed as necessary to reflect the data. Creation happens in the `enter()` selection, updating in the update selection, and removal in the `exit()` selection. This is nice because we can use the same function to both create and update our component to reflect changes in the bound data or in configuration.
+We'll draw the OHLC bars in the `ohlc` function returned by the component. We'll use D3's [General Update Pattern](http://bl.ocks.org/mbostock/3808218). This is an important D3 concept. In simple terms, we `select` page elements that may or may not exist, and bind data to these elements. Page elements are then created, updated or removed as necessary to reflect the data. Creation happens in the `enter()` selection, updating in the update selection, and removal in the `exit()` selection. This is nice because we can use the same function to both create and update our component to reflect changes in the bound data or in configuration.
 
 To use an instance of the component, we'll set an xScale and a yScale, bind data to a selection, then call the component on the selection. This will draw the series on the selection. This is how we'll use our component when we come to drawing the chart.
 
@@ -100,7 +103,7 @@ var ohlc = function (selection) {
 
 {% endhighlight %}
 
-Next we need a group for each ohlc bar of our series. We will select all the elements with class 'bar' and bind a price object to each one. This time, we'll also include a *key function* which returns the price object's date. While not really necessary for this example, if we wanted to use D3's transitions to animate updates to the data, this would ensure that D3 can match up existing bars with their new data, making for smooth animation. This idea is called [Object Constancy](http://bost.ocks.org/mike/constancy/).
+Next we need a group for each OHLC bar of our series. We will select all the elements with class 'bar' and bind a price object to each one. This time, we'll also include a *key function* which returns the price object's date. While not really necessary for this example, if we wanted to use D3's transitions to animate updates to the data, this would ensure that D3 can match up existing bars with their new data, making for smooth animation. This idea is called [Object Constancy](http://bost.ocks.org/mike/constancy/).
 
 With the series data bound, we can create the bar groups in the `enter()` selection. In the update selection, we will give them a the css class 'up-day' or 'down-day' depending on the difference in opening and closing price. This means that we will be able to give colours to the up-day and down-day bars with CSS.
 
@@ -139,7 +142,7 @@ For each line, we'll select a path element by its class and then append a path e
 
 In this case we want to bind the price object that's already bound to the the parent bar group element. It turns out that for this type of multiple selection we need to give a *function* to `selection.data` which returns an array containing the elements to bind ([see here](https://github.com/mbostock/d3/wiki/Selections#data)). In the update selection, we will draw the line, scaling all x and y coordinates with the xScale and yScale respectively.
 
-We'll put the high low line create/update code in a function of its own which we will call from the ohlc create/update function. It looks like this:
+We'll put the high low line create/update code in a function of its own which we will call from the OHLC create/update function. It looks like this:
 
 {% highlight javascript %}
 var highLowLines = function (bars) {
@@ -225,7 +228,7 @@ var series = sl.series.ohlc()
     .yScale(yScale);
 {% endhighlight %}
 
-Next, we will create an svg element. We'll assume that our html page has a `div` with id 'chart' to draw this inside. Following the usual D3 [margin convention](http://bl.ocks.org/mbostock/3019563), we'll draw our chart in a group element that translates the origin to the top left corner of the chart area. Our series will be drawn in the 'plotArea' - a group element which references a clipPath. The clipPath contains a `rect` with dimensions equal to the inner dimensions of our chart. This will ensure that ohlc bars for dates that lie outside domain of the axes are not shown.
+Next, we will create an svg element. We'll assume that our html page has a `div` with id 'chart' to draw this inside. Following the usual D3 [margin convention](http://bl.ocks.org/mbostock/3019563), we'll draw our chart in a group element that translates the origin to the top left corner of the chart area. Our series will be drawn in the 'plotArea' - a group element which references a clipPath. The clipPath contains a `rect` with dimensions equal to the inner dimensions of our chart. This will ensure that OHLC bars for dates that lie outside domain of the axes are not shown.
 
 {% highlight javascript %}
 // Create svg element
@@ -313,7 +316,7 @@ Here's the end result:
 <iframe src="http://tlsim.github.io/sl-blog-d3/ohlc.html" width="680" height="430" scrolling="no" frameborder="0"> </iframe>
 
 ## Candlestick Component
-Candlestick charts are very similar to ohlc charts, so with a small modification we can turn our ohlc component into a candlestick component. All that's needed is to draw a rectangle between the open and close price instead of the open close ticks. The rectangle create/update function looks like this:
+Candlestick charts are very similar to OHLC charts, so with a small modification we can turn our OHLC component into a candlestick component. All that's needed is to draw a rectangle between the open and close price instead of the open close ticks. The rectangle create/update function looks like this:
 
 {% highlight javascript %}
 var rectangles = function (bars) {
@@ -345,7 +348,7 @@ We'll need to style the `fill` property of the rectangles to get the right colou
 
 The `sl.series.candlestick` component is identical to the `sl.series.ohlc` component, but its create/update function calls `rectangle` instead of `openCloseTicks`. Since the components share a lot of code, we could have a function which contains the common code, takes `rectangle` or `openCloseTicks` as input, and produces the required component (we'll leave out the details for now).
 
-We can use the same code we used to create the ohlc chart. We just have to replace `sl.series.ohlc` with `sl.series.candlestick` when creating the series. Here's what our candlestick chart looks like:
+We can use the same code we used to create the OHLC chart. We just have to replace `sl.series.ohlc` with `sl.series.candlestick` when creating the series. Here's what our candlestick chart looks like:
 
 <iframe src="http://tlsim.github.io/sl-blog-d3/candlestick.html" width="680" height="430" scrolling="no" frameborder="0"> </iframe>
 
@@ -353,3 +356,26 @@ We can use the same code we used to create the ohlc chart. We just have to repla
 We have made 2 reusable components for financial charts with D3. This is really just the beginning of what we would need for a fully featured financial chart. There are many components we could make using this pattern, including technical studies, comparison series and chart navigators. However, with these simple examples, we can already see the power of breaking chart features into reusable components. It would also be important to see how well these charts perform for large data sets. Ideally, we should be able to smoothly pan and zoom an OHLC chart which shows multiple years of prices. We'll look at that <a href="{{site.github.url}}{% post_url 2014-09-19-d3-svg-chart-performance %}">in another post</a>, where we'll improve our OHLC component so that it is optimised for panning and zooming.
 
 Code for these examples is available on [GitHub](https://github.com/tlsim/sl-blog-d3).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

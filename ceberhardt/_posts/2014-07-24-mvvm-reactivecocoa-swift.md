@@ -1,15 +1,18 @@
 ---
 author: ceberhardt
 title: "MVVM, Swift and ReactiveCocoa - It's all good!"
-categories: 
-tags:
-
-summary: "This blog post looks out how Swift makes the combination of ReactiveCocoa and MVVM even better ..."
+categories:
+  - Swift
+  - iOS
+  - Mobile
+tags: null
+summary: This blog post looks out how Swift makes the combination of ReactiveCocoa and MVVM even better ...
 layout: default_post
 suppress-careers-add: true
-oldlink: http://www.scottlogic.com/blog/2014/07/24/mvvm-reactivecocoa-swift.html
+oldlink: "http://www.scottlogic.com/blog/2014/07/24/mvvm-reactivecocoa-swift.html"
 disqus-id: /2014/07/24/mvvm-reactivecocoa-swift.html
 ---
+
 
 Around one month ago my [two-part tutorial series](http://www.raywenderlich.com/74106/mvvm-tutorial-with-reactivecocoa-part-1) on how to use the MVVM pattern with ReactiveCocoa was published on Ray Wenderlich's website. Unfortunately just before the publication date Apple launched the Swift beta, a language which is much better suited to functional programming than Objective-C.
 
@@ -27,7 +30,7 @@ This app uses the Model-View-ViewModel ([MVVM](http://en.wikipedia.org/wiki/Mode
 
 <img src="{{ site.github.url }}/ceberhardt/assets/MVVMSwift/MVVMPattern.png" />
 
-Looking at the MVVM pattern specifically from the perspective of iOS development, the View is composed of the ViewController plus its associated UI (whether that is a nib, storyboard or constructed though code): 
+Looking at the MVVM pattern specifically from the perspective of iOS development, the View is composed of the ViewController plus its associated UI (whether that is a nib, storyboard or constructed though code):
 
 <img src="{{ site.github.url }}/ceberhardt/assets/MVVMSwift/MVVMReactiveCocoa.png" />
 
@@ -37,7 +40,7 @@ ReactiveCocoa holds a special role in implementing MVVM applications, providing 
 
 ## ReactiveCocoa and Swift
 
-Swift was designed to interop with Objective-C, and as a result, you should be able to use ReactiveCocoa directly within a Swift application. 
+Swift was designed to interop with Objective-C, and as a result, you should be able to use ReactiveCocoa directly within a Swift application.
 
 However the Swift compiler borks on the 'and', 'or' and 'not' methods (despite the fact that they are not reserved keywords). To side-step this issue, I am using [Yusef Napora's fork of ReactiveCocoa](https://github.com/yusefnapora/ReactiveCocoa/tree/de3c9a76666b1bf847f3f50df6a3791035defd9a) which simply changes these methods to AND, OR and NOT.
 
@@ -154,13 +157,13 @@ struct RAC  {
   var target : NSObject!
   var keyPath : String!
   var nilValue : AnyObject!
-  
+
   init(_ target: NSObject!, _ keyPath: String, nilValue: AnyObject? = nil) {
     self.target = target
     self.keyPath = keyPath
     self.nilValue = nilValue
   }
-  
+
   func assignSignal(signal : RACSignal) {
     signal.setKeyPath(self.keyPath, onObject: self.target, nilValue: self.nilValue)
   }
@@ -217,6 +220,3 @@ Migrating this app from Objective-C to Swift was basically a fun exercise that I
 Keep your eye on [this branch](https://github.com/ReactiveCocoa/ReactiveCocoa/pull/1382) for the official re-implementation of ReactiveCocoa with Swift, this will no doubt tidy up some of the friction that necessarily exists when bridging Objective-C APIs into Swift.
 
 Regards, Colin E.
-
-{% include ads/swift_by_tutorials.html %}
-

@@ -3,6 +3,54 @@ img.aligncenter {
   margin: 0 auto;
 }
 
-.container.wide {
-  width: 1140px;
+// A container that spans full screen and removes spacing from columns & rows.
+.container.full-screen {
+  padding: 0px;
+
+  .row {
+    margin: 0px;
+  }
+
+  [class*="col-"] {
+    padding: 0px;
+  }
+}
+
+.secondary {
+  color: #999;
+  font-size: @baseFontSize * 0.75;
+  line-height: @baseLineHeight * 0.65;
+}
+
+.page-content-background {
+  background-repeat: repeat-y;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -9999;
+
+  &.right {
+    top: -170px;
+    background-image: url(assets/bg-50percent-opacity.png);
+    background-position: 75% 0%;
+  }
+
+  &.left {
+    top: 480px;
+    background-position: 30% 0%;
+    background-image: url(assets/bg-mirror-50percent-opacity.png);
+
+  }
+}
+
+.align-center {
+  text-align: center;
+}
+
+.sub {
+  line-height: @baseLineHeight;
+  color: @grey;
+  display: inline;
 }

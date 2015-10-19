@@ -2,12 +2,15 @@
 author: sdavies
 title: Swift JSON Shoot-Out
 layout: default_post
-summary: For some reason, everybody and their dog has written about how to parse JSON in Swift. Not wishing to be left out, I thought I'd throw my hat into the ring.
+summary: "For some reason, everybody and their dog has written about how to parse JSON in Swift. Not wishing to be left out, I thought I'd throw my hat into the ring."
 tags:
   - featured
-image: "sdavies/assets/featured/json.jpg"
+image: sdavies/assets/featured/json.jpg
 title-short: JSON in Swift
-summary-short: What's the _best_ way to parse JSON in Swift?
+summary-short: "What's the _best_ way to parse JSON in Swift? Sam explores a number of options."
+categories:
+  - Swift
+  - iOS
 ---
 
 ## Introduction
@@ -50,7 +53,7 @@ for the playgrounds to pick them up.
 > libraries used in this blog post. The code works at the time of writing, using
 > Swift 1.2, with Xcode 6.3β2.
 
-### Wishlist
+### Wish list
 
 JSON is a great serialization technology due to its simple specification, and
 accessibility to both humans and machines. However, it quickly becomes unwieldy
@@ -79,7 +82,7 @@ to review how other languages handle JSON.
 
 C# offers an approach which uses dynamic objects. That is to say that the
 structure of the objects is not known at compile time, but instead they are
-created at runtime. In some respects, this is a lot like the behavior of
+created at runtime. In some respects, this is a lot like the behaviour of
 `NSJSONSerialization`, with the extension of using properties on a dynamic
 objects instead of a dictionary keyed on strings. This approach is not typesafe,
 in that the type-checker has no knowledge of the dynamic objects, and therefore
@@ -550,4 +553,27 @@ copy, head on over to the ShinobiControls site at
 [shinobicontrols.com/iOS8](http://shinobicontrols.com/iOS8).
 
 sam
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

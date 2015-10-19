@@ -1,15 +1,20 @@
 ---
 author: ceberhardt
 title: "Introducing React Native"
+title-short: "React Native Intro"
 layout: default_post
-summary: "A few months ago Facebook announced React Native, a framework that lets you build native iOS applications with JavaScript. I've been spending the past couple of months building am app with this 
+summary: "A few months ago Facebook announced React Native, a framework that lets you build native iOS applications with JavaScript. I've been spending the past couple of months building am app with this
 framework, which I have finally been able to share!"
-summary-short: "Building an app with Facebook's React Native"
+summary-short: "I've been spending the past couple of months building am app with this framework, which I have finally been able to share!"
 originalArticleLink: http://www.raywenderlich.com/99473/introducing-react-native-building-apps-javascript
 image: ceberhardt/assets/featured/react.jpg
 tags:
   - featured
   - author-featured
+categories:
+  - iOS
+  - Swift
+  - Mobile
 ---
 
 A few months ago Facebook announced React Native, a framework that lets you build native iOS applications with JavaScript – and the official repository just came out of beta today!

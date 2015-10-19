@@ -1,18 +1,19 @@
 ---
 author: mjose
 title: An RSI component for D3 charts
-title-short: "An RSI component for D3 charts"
-summary: An RSI (Relative Strength Index) D3 component which can be added to a D3 chart. In the blog I've also tried to explain a little bit about RSI and it's uses in calculating risk when trading markets.
-tags: 
+title-short: An RSI component for D3 charts
+summary: "An RSI (Relative Strength Index) D3 component which can be added to a D3 chart. In the blog I've also tried to explain a little bit about RSI and it's uses in calculating risk when trading markets."
+tags:
   - d3
   - RSI
   - charts
   - risk
-categories: 
-  - mjose
+categories:
+  - D3
+  - Charting
 layout: default_post
 source: site
-oldlink: http://www.scottlogic.com/blog/2014/11/14/d3_chartcomponents_rsi.html
+oldlink: "http://www.scottlogic.com/blog/2014/11/14/d3_chartcomponents_rsi.html"
 disqus-id: /2014/11/14/d3_chartcomponents_rsi.html
 ---
 Among the plethora of financial charting applications on the market, if you take a read through their functionality list, you'll find one of the most common indicators implemented is the Relative Strength Index (RSI). 
@@ -152,7 +153,7 @@ These variables are private, but the first block are exposed by a set of propert
 
 ### The rsi function
 
-The `rsi()` function is passed a d3 selection as it's only parameter. The first thing we do is create the upper, centre and lower markers and this is a one off thing. These markers will be fixed for as long as the indicator persists on the chart. The code block below shows this creation. Each marker is passed a common class name and a specific class name so the style of the markers can be changed in the document CSS.
+The `rsi()` function is passed a D3 selection as it's only parameter. The first thing we do is create the upper, centre and lower markers and this is a one off thing. These markers will be fixed for as long as the indicator persists on the chart. The code block below shows this creation. Each marker is passed a common class name and a specific class name so the style of the markers can be changed in the document CSS.
 
 {% highlight javascript %}
 upper = selection.append('line')
@@ -232,3 +233,26 @@ I hope this gives a detailed overview of the RSI component and some insight in t
 ## The complete code
 
 All of the components are available on [GitHub](https://github.com/ScottLogic/d3-financial-components) with the RSI component being located in the /components/indicators/ folder.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

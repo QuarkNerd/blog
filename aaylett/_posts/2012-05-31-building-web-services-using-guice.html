@@ -3,11 +3,12 @@ id: 152124
 author: aaylett
 title: "Building Web-Services Using Guice "
 oldlink: "http://www.scottlogic.co.uk/2012/05/building-web-services-using-guice/"
-tags: 
+tags:
   - Java
   - blog
-categories: 
-  - aaylett
+categories:
+  - Java
+  - Web
 layout: default_post
 source: site
 disqus-id: /2012/05/building-web-services-using-guice/
@@ -66,3 +67,26 @@ public class TestServlet extends HttpServlet {
 <p>Here, we have a bit more Guice in evidence: we're going to inject our greeting, and the class is marked as a singleton.  The singleton annotation means that Guice will only create a single instance of the servlet, no matter how often the servlet is injected.  The greeting is only injected when the class is created -- usually, we'd inject a class with actual behaviour (or even a provider of a class) rather than a string, or we'd tag the injection site to make sure we get the right string, but for the purposes of the example you can add <code>bind(String.class).toInstance("Hello, World!");</code> to <code>configureServlets()</code> in <code>ServletConfig</code> to always inject a cheerful greeting.</p>
 <p>We've now got enough code to serve our test string: if you've cloned the git repository, you should have an Eclipse project and a Maven pom to play with: the latter will build you a <code>war</code>, the former should be able to deploy to a Tomcat server if you set one up -- you may need to install the Java EE tools first.</p>
 <p>In later instalments we'll look at injection scopes and testing using dependency injection.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

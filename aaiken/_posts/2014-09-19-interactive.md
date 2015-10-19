@@ -1,14 +1,15 @@
 ---
 author: aaiken
 title: Creating an interactive chart with D3
-summary: Recently I've been looking at various D3 components, which has been a fun project. I haven't yet had the chance to develop an interactive, dynamic component though, which has meant that the resulting charts have been sadly static. For this article I wanted to use what I've learned to build a fully interactive chart - something that wouldn't look out of place on a financial app.
+summary: "Recently I've been looking at various D3 components, which has been a fun project. I haven't yet had the chance to develop an interactive, dynamic component though, which has meant that the resulting charts have been sadly static. For this article I wanted to use what I've learned to build a fully interactive chart - something that wouldn't look out of place on a financial app."
 image: aaiken/assets/featured/none.jpg
-tags: 
+tags:
   - d3
-categories: 
-  - aaiken
+categories:
+  - D3
+  - Charting
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2014/09/19/interactive.html
+oldlink: "http://www.scottlogic.com/blog/2014/09/19/interactive.html"
 disqus-id: /2014/09/19/interactive.html
 ---
 <link rel="stylesheet" href="{{ site.github.url }}/aaiken/assets/interactive/style/style.css" />
@@ -219,7 +220,7 @@ Now that's done, we have two charts, one above the other. Nothing interactive so
 
 ### The viewport on the lower chart
 
-To create our viewport we're going to use a d3 component called a `brush`. The brush component automatically handles all of the behaviour I've noted above: you can drag it, resize it, and click off it to clear it.
+To create our viewport we're going to use a D3 component called a `brush`. The brush component automatically handles all of the behaviour I've noted above: you can drag it, resize it, and click off it to clear it.
 
 The brush component provides three events:
 
@@ -277,7 +278,7 @@ The last thing to be added is the ability to zoom into / out of the main chart u
 * We don't want to let the user pan past the beginning or end of the data
 * We need to update the navigation chart's viewport when we change the data shown in the main chart
 
-Althought you might expect to need another `brush` for this, we're going to use a d3 behaviour called `zoom`. This behaviour allows for zooming in and out (as you'd expect given its name) but also provides panning, which I have to admit I hadn't expected.
+Although you might expect to need another `brush` for this, we're going to use a D3 behaviour called `zoom`. This behaviour allows for zooming in and out (as you'd expect given its name) but also provides panning, which I have to admit I hadn't expected.
 
 To use a `zoom` behaviour, we tell it about the main chart's X scale (we could also give it a Y scale if we wanted to allow interaction in that dimension as well, but we won't do that here as it doesn't really make sense in this context). It provides three events: `zoom`, `zoomstart` and `zoomend`; here we're going to handle the`zoom` event, which is called whenever the chart is zooming in, zooming out, or panning in any direction.
 
@@ -402,3 +403,26 @@ Done!
 ## Conclusion
 
 We set out to create a simple interactive chart, and that's exactly what we've accomplished. The chart offers lots of ways to interact with it, either by mouse or touch gestures, and with the navigation chart you can quickly see the relationship between the data shown in the main chart and the entire dataset.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

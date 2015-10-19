@@ -1,32 +1,49 @@
 ---
 layout: default
 ---
-<section class="row blog-post-container">
-  <h1 class="offset2 span8">{{ site.data.authors.authors[page.author].name }}</h1>
-  {% if content %}
-  <section class="container">
-  {{ content }}
-  </section>
-  {% endif %}
-</section>
 
+{% assign author = site.data.authors.authors[page.author] %}
+<section class="container">
+  <div class="row">
+    <h1 class="col-xs-12 align-center">{{ site.data.authors.authors[page.author].name }}</h1>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 align-center">
+      {% include author.html author=author suppressSummary=true suppressName=true %}
+    </div>
+    {% capture author_summary %}{{ site.data.authors.authors[page.author].author-summary }}{% endcapture %}
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <p>{{ author_summary }}</p>
+    </div>
+  </div>
+</section>
+{% comment %} If there's an author summary then we can display the carousel with author's articles underneath. {% endcomment%}
 {% assign featuredPosts = site.tags["author-featured"] | where:"author",page.author %}
 {% assign numPosts = featuredPosts | size %}
 {% if numPosts > 0 %}
-{% include featured_carousel.html maxPosts=10 featuredPosts=featuredPosts %}
+<section>
+  <div class="container">
+    <div class="row hidden-xs">
+      <div class="col-xs-12">
+        {% include featured_carousel.html maxPosts=10 featuredPosts=featuredPosts %}
+      </div>
+    </div>
+  </div>
+  <div class="container full-screen">
+    <div class="row visible-xs visible-xs">
+      <div class="col-xs-12">
+        {% include featured_carousel_mobile.html maxPosts=10 featuredPosts=featuredPosts %}
+      </div>
+    </div>
+  </div>
+</section>
 {% endif %}
-
-<div class="row blog-post-container">
-  <section class="offset2 span8">
-    <h2>Articles</h2>
-    {% assign showPostSummary = true %}
-    {% assign includeSocialLinks = true %}
-    {% assign showAuthorInfo = false %}
-    {% for post in site.categories[page.author] %}
-      {% if  forloop.index > 20 %}
-         {% assign showPostSummary = false %}
-      {% endif %}
-      {% include post_summary.html %}
-    {% endfor %}
-  </section>
-</div>
+<section class="container">
+  <div class="row">
+    <h2 class="col-xs-12 col-sm-8 col-sm-offset-2">Articles</h2>
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      {% assign posts = site.categories[page.author] %}
+      {% include post_list.html showPostSummary=true showAuthorInfo=false posts=posts postDetailLimit=20 %}
+    </div>
+  </div>
+</section>

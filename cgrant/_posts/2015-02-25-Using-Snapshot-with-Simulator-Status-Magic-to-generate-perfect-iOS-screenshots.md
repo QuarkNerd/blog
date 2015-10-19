@@ -55,7 +55,7 @@ The easiest way to install Simulator Status Magic is with [CocoaPods](http://coc
 
 	pod 'SimulatorStatusMagic'
 
-This will install Simulator Status Magic into your CococaPods library, and you can access it in your code by adding the following import to the top of your AppDelegate.m file.
+This will install Simulator Status Magic into your CocoaPods library, and you can access it in your code by adding the following import to the top of your AppDelegate.m file.
 
 	#import <SDStatusBarManager.h>
 
@@ -65,7 +65,7 @@ Once you have imported the library, add the following line at the top of your `a
 
 Now, whenever you launch the simulator, the time will be displayed as 9:41 AM, the battery will be full, and the carrier text will be set to "iPad" when launched on an iPad simulator, which matches the Apple marketing materials.
 
-##Conditional Compiliation
+##Conditional Compilation
 This works great, but you definitely don't want to leave this in your production code! Thankfully however, there is a way around this. In your Snapfile, you can specify `custom_args` that are passed to the project when it is build in preparation for taking the screenshots. By specifying a `SCREENSHOTS` preprocessor definition in your Snapfile, like so.
 	
 	custom_args "GCC_PREPROCESSOR_DEFINITIONS='SCREENSHOTS'"
@@ -82,4 +82,4 @@ You can then surround the import and the `enableOverrides` call in your AppDeleg
     [[SDStatusBarManager sharedInstance] enableOverrides];
 	#endif
 	
-Your status bar will now only be overriden when `SCREENSHOTS` is specified. This short piece of code used in combination with snapshot and simulator status magic should give you a perfect status bar in all of your screenshots for your iOS App Store applications!
+Your status bar will now only be overridden when `SCREENSHOTS` is specified. This short piece of code used in combination with snapshot and simulator status magic should give you a perfect status bar in all of your screenshots for your iOS App Store applications!

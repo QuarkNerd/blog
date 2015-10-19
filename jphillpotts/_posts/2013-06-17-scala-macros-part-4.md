@@ -6,13 +6,14 @@ tags:
   - Web Services
   - blog
 categories:
-  - jphillpotts
+  - Scala
 layout: default_post
 source: site
-summary: In the final article in the series, we take the RESTful API we've created and integrate it with MongoDB for persistence using the Salat library.
-oldlink: http://www.scottlogic.com/blog/2013/06/17/scala-macros-part-4.html
+summary: "In the final article in the series, we take the RESTful API we've created and integrate it with MongoDB for persistence using the Salat library."
+oldlink: "http://www.scottlogic.com/blog/2013/06/17/scala-macros-part-4.html"
 disqus-id: /2013/06/17/scala-macros-part-4.html
 ---
+
 
 In <a href="{{site.github.url}}{% post_url 2013-06-05-scala-macros-part-1 %}">the</a>
 <a href="{{site.github.url}}{% post_url 2013-06-06-scala-macros-part-2 %}">previous</a>
@@ -131,6 +132,29 @@ So that's it - a RESTful API backed by MongoDB with the minimum of code using Sc
 def macros. I hope you've found this introduction interesting, and if you would like
 to browse the source code, please head over to 
 [Github](https://github.com/mrpotes/playful-rest).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

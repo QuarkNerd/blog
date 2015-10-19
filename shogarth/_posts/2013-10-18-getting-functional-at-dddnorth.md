@@ -5,8 +5,10 @@ tags:
   - Conferences
   - DeveloperDeveloperDeveloper
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2013/10/18/getting-functional-at-dddnorth.html
+oldlink: "http://www.scottlogic.com/blog/2013/10/18/getting-functional-at-dddnorth.html"
 disqus-id: /2013/10/18/getting-functional-at-dddnorth.html
+categories:
+  - Events
 ---
 
 Last weekend I had the pleasure of attending this year's [DDDNorth](http://dddnorth.co.uk/) conference at Sunderland University. DDD events are organised by the community, so anyone is free to submit a session. The community votes on which sessions they would like to see at the event. This year's event took on a distinctly functional feel - advocates of wisdom of the crowds, feel free to interpret this as a sign of things to come. I'd like to reflect upon the excellent sessions I attended.
@@ -21,7 +23,7 @@ This then becomes an architectural issue: recognizing that brittle tests are tig
 Ian's talk was a great start to the day. Hexagonal architecture reminded me to be wary of allowing domain logic to cross your API boundary into adapters. Keep it nicely wrapped up and you can write maintainable test cases against it.
 
 ## Scaling Systems Architectures - Kendall Miller
-Scaling - the ability to perform and cope under an increasing workload. Kendall Miller is adept at breaking down complex topics into transferrable chunks of knowledge, with enthusiasm and theatrics. The audience loved his amusing anecdotes about vanishing heavy machinery and an interpretation of the 'SQL Walk of Shame'. How much work is actually involved to say "Hi, Bob!" at the top of a webpage? Quite a lot, it turns out!
+Scaling - the ability to perform and cope under an increasing workload. Kendall Miller is adept at breaking down complex topics into transferable chunks of knowledge, with enthusiasm and theatrics. The audience loved his amusing anecdotes about vanishing heavy machinery and an interpretation of the 'SQL Walk of Shame'. How much work is actually involved to say "Hi, Bob!" at the top of a webpage? Quite a lot, it turns out!
 
 Scaling systems comes down to four core concepts; the first three which aid scalability, the fourth hampers it:
 + **Asynchrony** - taking work out of the critical path and doing it later.
@@ -55,5 +57,28 @@ Ian's talk took a deep dive into F#, to show how it can aid developers quickly c
 
 ## Summary
 DDD events are always high quality. This year's DDDNorth was no exception! My thanks go out to Andrew Westgarth and co for organising the event. As a developer, DDD events around the country are a great way to delve into concepts you may not normally have the time to investigate, network with developers around the country and eat far too much food at the Geek Dinner. I always come home brimming with ideas, but also with great insights on everyday practice. I highly recommend that you come along next year - remember to say hi!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

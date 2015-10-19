@@ -3,10 +3,10 @@ author: lpage
 title: "var, multi-var or anywhere var?"
 featured-overlay-inverted: true
 categories:
- - lpage
-tags: 
+  - JavaScript
+tags: null
 layout: default_post
-summary: When it comes to coding style in JavaScript, what makes most sense - one var declaration, multiple at the start or scoped?
+summary: "When it comes to coding style in JavaScript, what makes most sense - one var declaration, multiple at the start or scoped?"
 ---
 Anyone familiar with Crockford and jshint will be familiar with the onevar rule: all variables must be declared in a single var statement at the top of the file.
 
@@ -61,4 +61,27 @@ It is one less line of code (more if you have a var on each line) and you can te
 
 So, it's simpler. What about reusing a variable and all the hoisting quirks? [If you have jshint set up correctly](http://jshint.com/docs/options/#shadow) and you use a variable outside its scope you get an error 'variable' used out of scope. So, you are protected from creating a situation where the code is confusing or buggy through the use of hoisted variables. Developers who don't understand hoisting will learn through jshint rejections (assuming your build rejects if jshint does not pass - it should) and developers who do understand won't do it, unless by mistake.
 
-That, by itself, may not be enough. But consider that ES6 has the `let` keyword, which gives you scoped variables. If you agree that the code is easier to understand with scoped variables, shouldn't you use `let` in all cases? If you accept that, then code of the future will use let everywhere and won't have a single var declaration at the begining of the function. Wouldn't it be nice to be able to replace all `var` with `let` and for it to look like the JavaScript of the future and not a new keyword combined with an old style rule?
+That, by itself, may not be enough. But consider that ES6 has the `let` keyword, which gives you scoped variables. If you agree that the code is easier to understand with scoped variables, shouldn't you use `let` in all cases? If you accept that, then code of the future will use let everywhere and won't have a single var declaration at the beginning of the function. Wouldn't it be nice to be able to replace all `var` with `let` and for it to look like the JavaScript of the future and not a new keyword combined with an old style rule?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,10 +1,14 @@
 ---
 author: ceberhardt
-title: "Swift By Tutorials is Published"
+title: Swift By Tutorials is Published
 layout: default_post
 summary: "Apple released the first public beta of the Swift programming language just over three months ago. Within days of the release myself and Matt Galloway started working on our book Swift by Tutorials, which as of yesterday is finally finished and shipping!"
-oldlink: http://www.scottlogic.com/blog/2014/09/18/swift-by-tutorials.html
+oldlink: "http://www.scottlogic.com/blog/2014/09/18/swift-by-tutorials.html"
 disqus-id: /2014/09/18/swift-by-tutorials.html
+categories:
+  - Swift
+  - iOS
+  - Mobile
 ---
 
 Apple released the first public beta of the Swift programming language just over three months ago. Within days of the release myself and Matt Galloway (author of [Effective Objective-C](http://www.effectiveobjectivec.com/)) started working on our book <a href="http://www.raywenderlich.com/store/swift-by-tutorials?source=ceberhardt">Swift by Tutorials</a>.

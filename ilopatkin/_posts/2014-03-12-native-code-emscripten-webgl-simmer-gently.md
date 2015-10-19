@@ -1,15 +1,15 @@
 ---
 author: ilopatkin
 title: Native code + Emscripten + WebGL. Simmer gently.
-image: "ilopatkin/assets/featured/debug.png"
+image: ilopatkin/assets/featured/debug.png
 categories:
-- ilopatkin
+  - HTML5
 layout: default_post
 tags:
- - blog
-summary: "An emeging recipe that can change the way we make rich web apps."
+  - blog
+summary: An emeging recipe that can change the way we make rich web apps.
 suppress-careers-add: true
-oldlink: http://www.scottlogic.com/blog/2014/03/12/native-code-emscripten-webgl-simmer-gently.html
+oldlink: "http://www.scottlogic.com/blog/2014/03/12/native-code-emscripten-webgl-simmer-gently.html"
 disqus-id: /2014/03/12/native-code-emscripten-webgl-simmer-gently.html
 ---
 Yep, it's WebGL and Native together. This is a short tutorial on using [Emscripten](https://github.com/kripken/emscripten) to integrate a C++/OpenGL code with JS environment. There are some other tutorials on the net you might want to have a look at if you want to simply convert an existing native app and not bother with web-specific input events or render loops ([gears](http://ehsanakhgari.org/blog/2012-01-25/porting-opengl-application-web),[simplegl](http://www.joshuagranick.com/blog/2013/04/21/deploying-cpp-to-javascript-using-emscripten/)). If you have some native code you want to use within a bigger webapp, e.g., write a JS API around your existing library, read on. Also there are some conclusions regarding performance and maturity of Emscripten+WebGL solutions closer to the end of this page.
@@ -52,7 +52,7 @@ Download the project files manually from [here](https://github.com/ilyalopatkin/
 git clone https://github.com/ilyalopatkin/emscripten_webgl_simmer_gently
 {% endhighlight %}
 
-There are three files containing native C code, but let's pretend there are hundreds of classes and millions of loc :-) If you don't want to download anything and just skim through, I give here some bits of code and a general picture of what's happenning.
+There are three files containing native C code, but let's pretend there are hundreds of classes and millions of loc :-) If you don't want to download anything and just skim through, I give here some bits of code and a general picture of what's happening.
 
 The `shaders` couple of files have functions for compiling shaders and linking GL programs:
 
@@ -277,7 +277,7 @@ emcc main.cpp shaders.cpp -s FULL_ES2=1 -s EXPORTED_FUNCTIONS=['_initGL','_drawT
 
 You can read more details about name mangling and interaction with the native code [here](https://github.com/kripken/emscripten/wiki/Interacting-with-code)
 
-Now build the library and open `index.html`. You should see a nicely colored triangle which we can actually move around and zoom with a mouse.
+Now build the library and open `index.html`. You should see a nicely coloured triangle which we can actually move around and zoom with a mouse.
 
 <a href="http://ilyalopatkin.github.io/emscripten_webgl_simmer_gently"><img src="{{ site.github.url }}/ilopatkin/assets/emscripten_screenshot.png" alt="Emscripten WebGL screenshot"/></a>
 
@@ -347,8 +347,8 @@ Refresh your `index.html`, open the developer console (in Chrome press F12), go 
 
 There are two levels of optimisation available with the Emscripten tool chain. The first one is LLVM compiler optimisation which is triggered by setting the `--llvm-opts` level of `emcc` command, and the second is emcc optimisation set by `-O` level which works at the JavaScript level. There are 4 levels of each ranging from 0 (no optimisation) to 3 (heavy optimisation). We tried different optimisation flags and measured performance on different platforms and here are some conclusions:
 * Emcc optimisation `-O3` can sometimes over-optimise things and throw out relevant code, so use with care.
-* `-O2 --llvm-opts 2` seems to be the most reasonable in terms of performance and stabilily combination. Emcc optimises for performance and size in one shot, so a difference between `-O2` and `-O0` can be of a factor up to 3.
-* Emcc optimisation flag `-O` makes a noticable difference in performance (up to a factor of 3 again) whereas `--llvm-opts` not so much.
+* `-O2 --llvm-opts 2` seems to be the most reasonable in terms of performance and stability combination. Emcc optimises for performance and size in one shot, so a difference between `-O2` and `-O0` can be of a factor up to 3.
+* Emcc optimisation flag `-O` makes a noticeable difference in performance (up to a factor of 3 again) whereas `--llvm-opts` not so much.
 * Emscripten-generated JavaScript code is 2 to 20 times slower than its equivalent native code. This heavily depends on language features being used and is quite close to measurements done by other developers you could find on the net.
 
 ##Other considerations
@@ -360,3 +360,26 @@ The only issue that might arise in a commercial project is the final size of the
 The story of WebGL is not so bright though. Since it is a standard and not a particular implementation, browser vendors need to actually make efforts to support it and not all do. You can have a look to what extent different browsers support WebGL (e.g. [http://caniuse.com/webgl](http://caniuse.com/webgl)), but in our experience, recent Chrome and Opera (which is Chrome's clone feature-wise) are the only browsers capable of rendering whatever we render natively. Others either do not support WebGL at all or produce visual artefacts given the same sequence of GL commands that we feed to GLES 2.0 capable devices. The example given in this tutorial does produce artefacts in Firefox 27, and we had artefacts in IE 11 with some of our other examples when we used VBOs. So, unless you can "suggest" your customers to only use Chrome, WebGL is not there yet for commercial products (as of March 2014) but it as well may be there in a couple of years if Firefox, IE and Safari catch up.
 
 {% include ads/html5-white-paper.html %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

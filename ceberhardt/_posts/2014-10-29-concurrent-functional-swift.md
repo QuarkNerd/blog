@@ -1,15 +1,18 @@
 ---
 author: ceberhardt
-title: "Mandelbrot Generation With Concurrent Functional Swift"
-title-short: "Concurrent Functional Swift"
+title: Mandelbrot Generation With Concurrent Functional Swift
+title-short: Concurrent Functional Swift
 layout: default_post
-summary: "This post show how the simple task of computing a Mandelbrot set can be split up across multiple threads (and processors) using functional techniques."
+summary: This post show how the simple task of computing a Mandelbrot set can be split up across multiple threads (and processors) using functional techniques.
 image: ceberhardt/assets/featured/concurrent.png
 featured-overlay-black: true
 tags:
   - featured
-oldlink: http://www.scottlogic.com/blog/2014/10/29/concurrent-functional-swift.html
+oldlink: "http://www.scottlogic.com/blog/2014/10/29/concurrent-functional-swift.html"
 disqus-id: /2014/10/29/concurrent-functional-swift.html
+categories:
+  - Swift
+  - iOS
 ---
 
 In my previous blog posts on the [Game of Life]({{ site.github.url }}/2014/09/10/game-of-life-in-functional-swift.html) I explored how functional programming techniques can result in clear and concise code. However, the benefits of functional programming are more than just cosmetic. You've probably heard that functions and the use of constants make it easier to write applications that make use of concurrency. In this post I put this theory into practice!
@@ -358,3 +361,26 @@ As you can see, for very small numbers of iterations the non-concurrent implemen
 You can find the source code for this example application on [GitHub](https://github.com/ColinEberhardt/SwiftMandelbrot).
 
 Regards, Colin E.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

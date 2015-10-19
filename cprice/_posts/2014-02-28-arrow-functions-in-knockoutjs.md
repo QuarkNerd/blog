@@ -1,15 +1,15 @@
 ---
 author: cprice
-title: "Arrow functions in Knockout.js"
-image: "cprice/assets/featured/arrows.jpg"
-image-attribution: 'image courtesy of <a href="http://www.flickr.com/photos/byronj/12637612753/sizes/z/">Byron James</a>'
+title: Arrow functions in Knockout.js
+image: cprice/assets/featured/arrows.jpg
+image-attribution: "image courtesy of <a href=\"http://www.flickr.com/photos/byronj/12637612753/sizes/z/\">Byron James</a>"
 featured-overlay-inverted: true
 categories:
- - cprice
-tags: 
+  - JavaScript
+tags: null
 layout: default_post
 suppress-careers-add: true
-oldlink: http://www.scottlogic.com/blog/2014/02/28/arrow-functions-in-knockoutjs.html
+oldlink: "http://www.scottlogic.com/blog/2014/02/28/arrow-functions-in-knockoutjs.html"
 disqus-id: /2014/02/28/arrow-functions-in-knockoutjs.html
 ---
 
@@ -61,7 +61,7 @@ Unfortunately, browser support for ES6 just isn't there yet and short of inventi
 
 #A solution (of sorts)
 
-Adopting a fairly liberal artistic license (basically throwing any loading performance concerns out the window...), it turns out that we can use the new syntax in bindings with a small Knockout plugin. This is because bindings aren't directly interpreted as JavaScript by the browser, instead Knockout preprocesses them to support e.g. re-evaluating expressions when dependencies change. 
+Adopting a fairly liberal artistic license (basically throwing any loading performance concerns out the window...), it turns out that we can use the new syntax in bindings with a small Knockout plugin. This is because bindings aren't directly interpreted as JavaScript by the browser, instead Knockout pre-processes them to support e.g. re-evaluating expressions when dependencies change. 
 
 In Knockout 3.0 it is now very easy to hook into this preprocessing. For example we can add a preprocessor to all binding values with something like -
 
@@ -187,3 +187,26 @@ You can see a really basic [example in action here](http://chrisprice.io/knockou
 So whilst not the most practical end result i.e. you probably don't want to be loading a full-blown ES6 parser, tree traversal and code generation logic along with your app. I do think it gives a glimpse of the future of bindings in the browser. I look forward to the day that all of this comes for free but until then I'll happily buy a beer for the first person to turn this into a build-time grunt task.
 
 {% include ads/html5-white-paper.html %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

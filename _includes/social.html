@@ -1,15 +1,29 @@
-<aside class="social">
-  <a href="#"
-     class="tweet{% if inverted %} inverted{% endif %}{% if black %} black{% endif %}"
-     data-text="{{ title }}"
-     data-url="{{ url }}"
-  >
-    <span class="count"></span>
-  </a>
+{% assign inverted = include.inverted %}
+{% assign postOrPage = include.postOrPage %}
+
+{% capture url %}{{ site.canonical.url }}{{ postOrPage.url }}{% endcapture %}
+{% if postOrPage.oldlink %}
+  {% capture url %}{{ postOrPage.oldlink }}{% endcapture %}
+{% endif %}
+{% if postOrPage.originalArticleLink %}
+  {% assign url = postOrPage.originalArticleLink %}
+{% endif %}
+{% assign disqusID = postOrPage.url %}
+{% if postOrPage.disqus-id %}
+  {% assign disqusID = postOrPage.disqus-id %}
+{% endif %}
+
+<aside class="secondary social">
   <div
-     class="dq-comment-count{% if inverted %} inverted{% endif %}{% if black %} black {% endif %}"
+     class="tweet{% if inverted %} inverted{% endif %}"
+     data-url="{{ url }}"
+     style="opacity: 0">
+    <span class="count"></span>
+  </div>
+  <div
+     class="dq-comment-count{% if inverted %} inverted{% endif %}"
      data-disqus-identifier="{{ disqusID }}"
-  >
+     style="opacity: 0">
     <span class="count"></span>
   </div>
 </aside>

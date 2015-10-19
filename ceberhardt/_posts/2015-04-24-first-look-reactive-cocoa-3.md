@@ -1,14 +1,17 @@
 ---
 author: ceberhardt
-title: "A First Look at ReactiveCocoa 3.0"
+title: A First Look at ReactiveCocoa 3.0
 layout: default_post
 summary: "This blog post takes a look at the new ReactiveCocoa 3.0 swift interface, which introduces generics, a pipe-forward operator and an interesting use of curried functions."
 image: ceberhardt/assets/featured/reactive-cocoa.png
-summary-short: "This blog post takes a look at the new ReactiveCocoa 3.0 swift interface"
-title-short: "ReactiveCocoa 3.0"
+title-short: ReactiveCocoa 3.0
 tags:
   - featured
   - author-featured
+categories:
+  - iOS
+  - Swift
+  - Mobile
 ---
 
 This blog post takes a look at the new ReactiveCocoa 3.0 swift interface, which introduces generics, a pipe-forward operator and an interesting use of curried functions.
@@ -21,7 +24,7 @@ I've been a big fan of ReactiveCocoa for a long time, having written a [number o
 
 When Swift first came out it was possible to bridge the Objective-C ReactiveCocoa API to Swift which results in some [significant syntactic improvements to ReactiveCocoa](http://blog.scottlogic.com/2014/07/24/mvvm-reactivecocoa-swift.html). However with features such as generics, a pure Swift implementation or ReactiveCocoa could be so much better!
 
-Thankfully the ReactiveCocoa team have been working on a brand new Swift API for many months. Just over a week ago they had their first beta release, which is the subject of this blog post. 
+Thankfully the ReactiveCocoa team have been working on a brand new Swift API for many months. Just over a week ago they had their first beta release, which is the subject of this blog post.
 
 This post assumes that you are already familiar with ReactiveCocoa, although you certainly don't have to be an expert!
 
@@ -33,7 +36,7 @@ The easiest way to add ReactiveCocoa to a project is to use [Carthage](https://g
 
 Then run `carthage update` as described in the documentation.
 
-ReactiveCocoa 3.0 contains an all-new Swift API, but also has supported for Objective-C, as described by the [detailed changelog](https://github.com/ReactiveCocoa/ReactiveCocoa/blob/swift-development/CHANGELOG.md). As a result, you'll find two different types of signal, the Obj-C `RACSignal`, and the new Swift `Signal`. 
+ReactiveCocoa 3.0 contains an all-new Swift API, but also has supported for Objective-C, as described by the [detailed changelog](https://github.com/ReactiveCocoa/ReactiveCocoa/blob/swift-development/CHANGELOG.md). As a result, you'll find two different types of signal, the Obj-C `RACSignal`, and the new Swift `Signal`.
 
 A very important feature of the Swift signal is that it is generic:
 
@@ -78,7 +81,7 @@ Here's a simple example where the next event is observed:
 let signal = createSignal()
 signal.observe(next: { println($0) })
 {% endhighlight %}
-  
+
 Which outputs the following:
 
 {% highlight swift %}
@@ -105,7 +108,7 @@ createSignal().observe(SinkOf {
 
 The `Event` type is an enumeration, with associated values for next and error event types. The `SinkOf` initialiser in the above code constructs a sink of type `SinkOf<Event<String, NoError>>`, again a trailing closure expression is passed to the initialiser.
 
-The data that the `Event` enumeration encapsulates (within next and error events) is boxed, using the [LlamaKit Box class](https://github.com/LlamaKit/LlamaKit/blob/e28d7f6e82fbd5dcd5388b36e2acf4eedb44b4e8/LlamaKit/Result.swift#L156) which is required due to a Swift language limitation. As a user of RC3 you rarely have to deal with the `Event` type directly, and the various API methods take care of the boxing / unboxing on your behalf. 
+The data that the `Event` enumeration encapsulates (within next and error events) is boxed, using the [LlamaKit Box class](https://github.com/LlamaKit/LlamaKit/blob/e28d7f6e82fbd5dcd5388b36e2acf4eedb44b4e8/LlamaKit/Result.swift#L156) which is required due to a Swift language limitation. As a user of RC3 you rarely have to deal with the `Event` type directly, and the various API methods take care of the boxing / unboxing on your behalf.
 
 The simple code examples above show some of the benefits that Swift brings to ReactiveCocoa. The use of generics for defining signals means that you get type safety when observing events. Furthermore, type inference means that while some of the types you are dealing with are pretty complex, involving nested generics, you don't have to explicitly declare the generic types.
 
@@ -126,7 +129,7 @@ However, the map function and all other operations that can be applied to signal
 
 {% highlight swift %}
 class Signal<T, E: ErrorType> {
-  
+
 }
 
 func map(signal: Signal, transform: ...) -> Signal
@@ -146,7 +149,7 @@ The Swift map operation is actually a curried free function:
 {% highlight swift %}
 public func map<T, U, E>(transform: T -> U)
                         (signal: Signal<T, E>) -> Signal<U, E> {
-  
+
 }
 {% endhighlight %}
 
@@ -247,4 +250,4 @@ One advantage that free functions have over instance methods is that they are no
 
 In [my next blog post](http://blog.scottlogic.com/2015/04/28/reactive-cocoa-3-continued.html) I introduce some of the other new concepts, including signal producers, which are a replacement for cold signals!
 
-Regards, Colin E. 
+Regards, Colin E.

@@ -1,0 +1,23 @@
+{% assign author = include.author %}
+{% assign maxPosts = include.maxPosts %}
+{% comment %} Gives ability to skip post, i.e current post if listing other articles on a blog page. {% endcomment %}
+{% assign skipPostTitled = include.skipPostTitled %}
+{% assign minimumToShow = 1 %}
+{% if skipPostTitled != null %}
+    {% comment %} If we're hiding a post then we'll need to add one more to our max posts! {% endcomment%}
+    {% assign maxPosts = maxPosts | plus: 1 %}
+    {% assign minimumToShow = minimumToShow | plus: 1 %}
+{% endif%}
+{% assign showPostSummary = false %}
+<div class="author-post-list">
+    {% assign postsToList = site.categories[page.author] %}
+    {% assign postCount = postsToList | size %}
+    {% if postCount  > minimumToShow) %}
+        <h2>MORE BY {{ author.name | split:' ' | first | upcase }}</h2>
+        {% for post in postsToList %}
+            {% if  forloop.index <= maxPosts and skipPostTitled != post.title %}
+                {% include post_summary.html %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+</div>

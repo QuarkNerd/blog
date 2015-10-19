@@ -1,17 +1,20 @@
 ---
 author: tsimmons
 title: D3 SVG chart performance
-summary: In this post, we'll take a look at some of the performance issues you might encounter when making interactive charts using SVG, and how you might go about fixing them.
+summary: "In this post, we'll take a look at some of the performance issues you might encounter when making interactive charts using SVG, and how you might go about fixing them."
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2014/09/19/d3-svg-chart-performance.html
+oldlink: "http://www.scottlogic.com/blog/2014/09/19/d3-svg-chart-performance.html"
 disqus-id: /2014/09/19/d3-svg-chart-performance.html
+categories:
+  - D3
+  - Charting
 ---
 In this post, we'll take a look at some of the performance issues you might encounter when making interactive charts using SVG, and how you might go about fixing them. We'll use the chart component developed in <a href="{{site.github.url}}{% post_url 2014-08-19-an-ohlc-chart-component-for-d3 %}">this post</a> to make a basic OHLC stock chart with zooming/panning. While the chart will be implemented using the [D3](http://d3js.org/) library, the performance considerations are the same for any interactive chart using SVG. We're aiming to be able to smoothly pan and zoom an OHLC chart which shows multiple years of OHLC bars.
 
 ## Zooming and Panning
 There are 2 general approaches we can take to get our chart series to zoom (and pan). They are *Semantic* zooming and *Geometric* zooming. With Geometric zooming, we'll apply a single transformation to the element which contains the OHLC bars. Zooming in will (without steps to prevent it) make the OHLC bars thicker. Semantic zooming on the other hand means that we will transform the position of each OHLC bar individually. Zooming in will keep the OHLC bars the same thickness, and the bars will spread out to reflect their recalculated positions.
 
-We'll use D3's inbuilt 'zoom behavior' component to set up zooming on our chart. It automatically creates event listeners to handle zooming and panning gestures on a container element. Better still, it works for both mouse and touch events, so in a few lines of code we can take a static chart and make it zoomable on desktop and mobile devices. Here's the set up:
+We'll use D3's inbuilt 'zoom behaviour' component to set up zooming on our chart. It automatically creates event listeners to handle zooming and panning gestures on a container element. Better still, it works for both mouse and touch events, so in a few lines of code we can take a static chart and make it zoomable on desktop and mobile devices. Here's the set up:
 
 {% highlight javascript %}
 var zoom = d3.behavior.zoom()
@@ -19,9 +22,9 @@ var zoom = d3.behavior.zoom()
     .on('zoom', zoomed);
 {% endhighlight %}
 
-Here, we're passing in the time scale of our chart (`xScale`) as the scale that the zoom behavior should operate on. The zoom behavior will automatically adjust the domain of the scale when zooming. We'll handle the zooming itself in the `zoomed` function.
+Here, we're passing in the time scale of our chart (`xScale`) as the scale that the zoom behaviour should operate on. The zoom behaviour will automatically adjust the domain of the scale when zooming. We'll handle the zooming itself in the `zoomed` function.
 
-In the <a href="{{site.github.url}}{% post_url 2014-08-19-an-ohlc-chart-component-for-d3 %}">earlier OHLC post</a>, we set up a static chart with an OHLC series in a group element which we called the 'plotArea'. Now we'll put another element in this group - a `rect` element with the same width and height as the 'plotArea'. We'll call the zoom behavior on this element.
+In the <a href="{{site.github.url}}{% post_url 2014-08-19-an-ohlc-chart-component-for-d3 %}">earlier OHLC post</a>, we set up a static chart with an OHLC series in a group element which we called the 'plotArea'. Now we'll put another element in this group - a `rect` element with the same width and height as the 'plotArea'. We'll call the zoom behaviour on this element.
 
 {% highlight javascript %}
 plotArea.append('rect')
@@ -34,7 +37,7 @@ plotArea.append('rect')
 This will allow us to pan and zoom the chart by using mouse or touch gestures inside the plotArea. First though we need to implement the `zoomed` listener, which is where we'll specify how the chart is zoomed.
 
 ## Semantic Zooming
-Implementing semantic zooming with D3 is simple. Since the domain of the time scale is automatically modified by the zoom behavior, and our series shares this scale, we just have to call the series component on its original selection. This updates the positions of the bars to reflect the new scale domain. 
+Implementing semantic zooming with D3 is simple. Since the domain of the time scale is automatically modified by the zoom behaviour, and our series shares this scale, we just have to call the series component on its original selection. This updates the positions of the bars to reflect the new scale domain. 
 
 Here, `series` is an instance of `sl.series.ohlc` from the earlier post, but it could be any series component e.g. a `d3.svg.line`. We'll use the same pattern to update the chart's axes on zoom.
 
@@ -151,7 +154,7 @@ This is an improvement - if we zoom so that fewer bars are visible, then panning
 ## Geometric Zooming
 Now let's turn to Geometric zooming, where we'll apply a transformation to the series as a whole. SVG makes this really simple - we just set the 'transform' attribute on the group element that contains the OHLC bars.
 
-In our `zoomed` listener, we can obtain the zoom scale and translation vector of the zoom behavior from the `d3.event` object. We can pass these values directly to the transform attribute. Our new `zoomed` listener looks like this:
+In our `zoomed` listener, we can obtain the zoom scale and translation vector of the zoom behaviour from the `d3.event` object. We can pass these values directly to the transform attribute. Our new `zoomed` listener looks like this:
 
 {% highlight javascript %}
 function zoomed() {
@@ -176,7 +179,7 @@ Compared to semantic zooming, geometric zooming is faster.
 ### Transform for changing Y Scale
 One nice feature for zooming stock charts is an automatically updating y-scale. Zooming and panning should change the y-scale domain to extend from the lowest to highest prices for the days included in the time-scale domain. This was easy with semantic zoom - the series updates to reflect the new scale domains automatically. With geometric zoom, we will have to think a bit more!
 
-We want a transformation in y of the series group element to reflect the changing y-scale (the transformation in x is given to us by the zoom behavior). We can visualise the zooming process as drawing a box on our plotted series and replacing the visible plot area with the contents of the box. The transformation we want does that replacement. 
+We want a transformation in y of the series group element to reflect the changing y-scale (the transformation in x is given to us by the zoom behaviour). We can visualise the zooming process as drawing a box on our plotted series and replacing the visible plot area with the contents of the box. The transformation we want does that replacement. 
 
 We'll get this transformation with scale `s` and translate `t` by comparing the y-scale domain of this window to the y-scale domain of the original plotted series. The transformation's scale is the ratio of the lengths of extents of the domains: `s = y0/y1`.
 
@@ -215,3 +218,26 @@ We've looked at some of the performance issues of SVG charts, and how we might s
 ### Further Reading
 * [https://www.mapbox.com/osmdev/2012/11/20/getting-serious-about-svg/](https://www.mapbox.com/osmdev/2012/11/20/getting-serious-about-svg/)
 * [http://stackoverflow.com/a/12335448](http://stackoverflow.com/a/12335448)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

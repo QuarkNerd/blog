@@ -1,10 +1,11 @@
 ---
 author: ceberhardt
 title: iOS 7 By Tutorials In Print
-categories: 
-summary: The book, iOS 7 By Tutorials, which I contributed four chapters to, is now in print.
+categories:
+  - iOS
+summary: "The book, iOS 7 By Tutorials, which I contributed four chapters to, is now in print."
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2014/01/29/ios7-by-tutorials-in-print.html
+oldlink: "http://www.scottlogic.com/blog/2014/01/29/ios7-by-tutorials-in-print.html"
 disqus-id: /2014/01/29/ios7-by-tutorials-in-print.html
 ---
 
@@ -22,6 +23,29 @@ Writing these chapters whilst iOS 7 was still in beta was quite a challenge, but
 You can buy the paper copy book via <a href="http://www.amazon.co.uk/iOS-By-Tutorials-Christine-Abernathy/dp/0989675106">Amazon</a>, or the electronic copy via Ray Wenderlich's <a href="http://www.raywenderlich.com/store/ios-7-by-tutorials">website</a>.
 
 Regards, Colin E.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

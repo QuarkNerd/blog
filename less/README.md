@@ -10,13 +10,6 @@ Install development dependencies:
 npm install
 ```
 
-Make sure you initialise the `less/twitter-bootstrap` submodule:
-
-```
-git submodule init
-git submodule update
-```
-
 To build the styles, run:
 
 ```
@@ -31,4 +24,4 @@ grunt styles:dev
 
 ---
 
-N.B. As a relatively old version of Twitter Bootstrap is used, the latest version of LESS cannot be used due to compatibilty issues.
+N.B. As a relatively old version of Twitter Bootstrap is used, the latest version of LESS cannot be used due to compatibility issues.

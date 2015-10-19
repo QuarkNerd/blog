@@ -1,0 +1,28 @@
+{% assign paginate = include.paginate %}
+{% assign posts = include.posts %}
+{% assign categoryIndex = include.categoryIndex %}
+
+<section>
+    <div class="container blog-post-container">
+        <div class="row">
+            <div class="col-xs-12 col-md-2">
+                {% include categories_menu.html selectedIndex=categoryIndex %}
+                {% include authors_menu.html %}
+            </div>
+            <div class="col-xs-12 col-md-9">
+                <h2 class="visible-md visible-lg col-sm-offset-2">{{ site.data.categories[categoryIndex].title }}</h2>
+                {% comment %} This container is used by jScroll. When the next page is fetched, the contents of this div are added to the bottom of the page {% endcomment %}
+                <div class="content">
+
+                    {% include post_list.html showPostSummary=true showAuthorInfo=true posts=posts postDetailLimit=20 %}
+
+                    {% if paginate %}
+                        {% include pagination.html %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

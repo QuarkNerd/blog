@@ -15,20 +15,11 @@ module.exports = function(grunt) {
         'scripts/disqus-comment-count.js',
         'scripts/modernizr.custom.js',
         'scripts/app.js',
-        'less/twitter-bootstrap/js/bootstrap-transition.js',
-        'less/twitter-bootstrap/js/bootstrap-carousel.js'
+        'scripts/carousel.js',
+        'node_modules/bootstrap/js/carousel.js',
+        'node_modules/bootstrap/js/transition.js'
       ],
       jsDest: 'script.js',
-    },
-
-    copy: {
-      main: {
-        files: [
-          {expand: true, cwd: '<%= paths.sharedAssets %>/less', src: ['*.less'], dest: 'less'},
-          {expand: true, cwd: '<%= paths.sharedAssets %>/_includes', src: ['*'], dest: '_includes'},
-          {expand: true, cwd: '<%= paths.sharedAssets %>/assets', src: ['*'], dest: 'assets'}
-        ]
-      }
     },
 
     clean: {
@@ -89,9 +80,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('build', ['copy', 'styles', 'scripts']);
+  grunt.registerTask('build', ['styles', 'scripts']);
   grunt.registerTask('styles', ['clean:styleMap', 'less:production']);
   grunt.registerTask('scripts', ['clean:scriptMap', 'uglify:production']);
 

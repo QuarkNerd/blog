@@ -9,8 +9,10 @@ tags:
   - HTML 5
   - Javascript
 title-short: Starting from Scratch
-oldlink: http://www.scottlogic.com/blog/2014/08/20/starting-from-scratch-2014-intern-project.html
+oldlink: "http://www.scottlogic.com/blog/2014/08/20/starting-from-scratch-2014-intern-project.html"
 disqus-id: /2014/08/20/starting-from-scratch-2014-intern-project.html
+categories:
+  - HTML5
 ---
 
 We're the Scott Logic interns for Newcastle in 2014, and our project was to make a mobile-compatible version of the Scratch HTML5 player that allows offline access, and app-like immersion. This blog post is an overview of what we managed to achieve ...
@@ -36,11 +38,11 @@ Many bugfixes have been applied on the player. Deprecated audio API calls have b
 
 One of the more curious bugs was that audio was playing back at a slightly higher frequency than what was expected. The project we were using as a base, [Dot Art](http://scratch.mit.edu/projects/23889125/), remained in sync to the slightly higher-pitched music, so it appeared to just be a frequency issue. Upon investigation, it appeared that the music *and* the Scratch player itself was running too quickly (yet intriguingly, at the same rate). The audio turned out to be pretty straightforward -- the original sample rate returned by the Scratch API was 22050Hz, which was interpolated to 44100Hz by the web browser. However, the Web Audio API in the browser was at 48000Hz. This meant that the AudioNode was playing 8% faster than it should have been, which was easily fixed by adjusting the playback rate to fit the expected duration by using sample rate and number of samples, since the frequency was a read-only object.
 
-<iframe width="560" height="315" src="//www.youtube.com/embed/HjD13hXOY8E" frameborder="0"> </iframe>
+<iframe width="560" height="315" src="//www.youtube.com/embed/E00iQkXyz_8" frameborder="0"> </iframe>
 
 This then meant that the playback rate of the player itself was out of sync with the audio. This turned out to be the fact that in the Scratch player, threads are only executed for 75% of the time between frames (so 25ms out of 33.3ms for 30 FPS), which hadn't yet been added to the HTML5 player. Have a look at the before and after video for the Surface Pro 2 to see this in action (turn your audio up):
 
-<iframe width="560" height="315" src="//www.youtube.com/embed/BJcYRWh6rgE" frameborder="0"> </iframe>
+<iframe width="560" height="315" src="//www.youtube.com/embed/W5Y4JFqLSLQ" frameborder="0"> </iframe>
 
 We've performed optimisations to the player itself. For example, when two sprites were colliding, an off-screen HTML5 canvas was created that was the size of the stage, and that whole canvas was sampled for collision detection. Now, the canvas is just the size of the intersection between the sprites' rectangles, and samples only that intersection for collisions, which reduced the time required for collision detection by 66%. Have a look at the before and after on the Galaxy Note 10.1 to see the rather hefty performance improvements we've been able to bring.
 
@@ -127,7 +129,7 @@ Alongside that, many other optimisations were made, including changing less opti
 
 A few functions have also been implemented with the player, for example `stopScripts`, `call`, `createCloneOf`, alongside various volume setting and getting functions, making the HTML5 player more versatile and usable, and making more projects work with the player. Have a look at these new features of the Scratch player in the comparison of a game of Breakout, which utilises cloning and calling:
 
-<iframe width="560" height="315" src="//www.youtube.com/embed/WSplX4ODRlQ" frameborder="0"> </iframe>
+<iframe width="560" height="315" src="//www.youtube.com/embed/Ml7XtjCblmA" frameborder="0"> </iframe>
 
 The server was powered by [Node.js](http://nodejs.org/), with various plugins to help achieve our aim. The server's primary jobs were to serve files to the client, generate application cache manifests for projects, and scrape the Scratch website for a user's projects and followers.
 
@@ -166,3 +168,26 @@ Our code (and struggles with Git) is available for all to see on [GitHub](http:/
 * Scratch HTML5 Player by LLK: [https://github.com/LLK/scratch-html5/](https://github.com/LLK/scratch-html5/)
 
 Will Ferguson & James Hill
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,10 +2,13 @@
 author: tsimmons
 title: An interactive Stock Comparison Chart with D3
 title-short: A Comparison Chart with D3
-summary: Comparison charts, as their name suggests, are great for comparing the percentage price change of multiple stocks in time. In this post, we'll make one using D3.
+summary: "Comparison charts, as their name suggests, are great for comparing the percentage price change of multiple stocks in time. In this post, we'll make one using D3."
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2014/09/26/an-interactive-stock-comparison-chart-with-d3.html
+oldlink: "http://www.scottlogic.com/blog/2014/09/26/an-interactive-stock-comparison-chart-with-d3.html"
 disqus-id: /2014/09/26/an-interactive-stock-comparison-chart-with-d3.html
+categories:
+  - D3
+  - Charting
 ---
 Comparison charts, as their name suggests, are great for comparing the percentage price change of multiple stocks in time. In this post, we'll make one using [D3](http://d3js.org/).
 
@@ -235,7 +238,7 @@ plotArea.append('g')
     .call(series);
 {% endhighlight %}
 
-We'll get zooming and panning working by using a D3 zoom behavior. We'll implement <a href="{{site.github.url}}{% post_url 2014-09-19-d3-svg-chart-performance %}">semantic zooming</a>, and we'll use <a href="{{site.github.url}}{% post_url 2014-09-19-interactive %}">Andy Aiken's trick</a> of limiting the panning extent by compensating for any overshoot of the zoom behavior's x translation. Our `zoomed` listener looks like this:
+We'll get zooming and panning working by using a D3 zoom behaviour. We'll implement <a href="{{site.github.url}}{% post_url 2014-09-19-d3-svg-chart-performance %}">semantic zooming</a>, and we'll use <a href="{{site.github.url}}{% post_url 2014-09-19-interactive %}">Andy Aiken's trick</a> of limiting the panning extent by compensating for any overshoot of the zoom behaviour's x translation. Our `zoomed` listener looks like this:
 
 {% highlight javascript %}
 function zoomed() {
@@ -285,3 +288,26 @@ The chart below uses geometric zooming for the series lines, and should perform 
 <iframe src="http://tlsim.github.io/sl-blog-d3/comparisonGeometricZoom.html" width="680" height="430" scrolling="no" frameborder="0"> </iframe>
 
 For full code of the components, see [GitHub](https://github.com/tlsim/sl-blog-d3/tree/gh-pages/js/components).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

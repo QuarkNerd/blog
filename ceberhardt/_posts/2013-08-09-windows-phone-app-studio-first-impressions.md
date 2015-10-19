@@ -1,11 +1,12 @@
 ---
 author: ceberhardt
 title: Windows Phone App Studio - Shows Potential ...
-tags: 
-categories: 
-summary: A couple of days ago Microsoft announced Windows Phone App Studio, a web based tool for the rapid creation of Windows Phone applications. In this blog post I take this new technology for a spin to see what it's capable of, and the interesting potential it has for creating 'personal' apps.
+tags: null
+categories:
+  - Mobile
+summary: "A couple of days ago Microsoft announced Windows Phone App Studio, a web based tool for the rapid creation of Windows Phone applications. In this blog post I take this new technology for a spin to see what it's capable of, and the interesting potential it has for creating 'personal' apps."
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2013/08/09/windows-phone-app-studio-first-impressions.html
+oldlink: "http://www.scottlogic.com/blog/2013/08/09/windows-phone-app-studio-first-impressions.html"
 disqus-id: /2013/08/09/windows-phone-app-studio-first-impressions.html
 ---
 A couple of days ago Microsoft announced [Windows Phone App Studio](http://blogs.windows.com/windows_phone/b/wpdev/archive/2013/08/06/making-it-easier-to-get-started-with-windows-phone-app-studio-beta-simplified-phone-registration-support-options-amp-more-payout-markets.aspx), a web based tool for the rapid creation of Windows Phone applications. Whilst the graphical app-builder idea is not a new one, the App Studio has a few interesting features, such as the ability to distribute your apps outside of the Windows Phone Marketplace. This allows you to create much more 'personal' apps.
@@ -94,7 +95,7 @@ So, what did the final SandwichFlow app look like?
 
 I've recorded a brief video of the app which you can see on [YouTube](https://www.youtube.com/watch?v=nZMGrKI91ck). As you can see, it is pretty basic and uninspiring. Because I got bored of adding static data, I also included an RSS feed from my blog. The finished app works just as you would expect and looks very similar to the web-based previews. However, I did have an issue with the splashscreen image dimensions, which you can see in the video, there are no indications or hints on the web interface regarding what the dimensions should be.
 
-As a developer, I of course know the correct dimensions, and could easily fix this, although i do wonder whether the target audience for App Studio would have this knowledge? 
+As a developer, I of course know the correct dimensions, and could easily fix this, although I do wonder whether the target audience for App Studio would have this knowledge? 
 
 ## Make 'personal apps' central to App Studio 
 
@@ -107,3 +108,26 @@ Personally I think the most powerful and interesting feature of the App Studio i
 The templates should be changed so that they do not just pre-populate the layout / content. Instead, each template should produce a distinct 'type' of application. For example; A 'Photo Album' template that makes it very easy for people to bulk-upload images, with an application that allows pinch-zoom and social media sharing. A "My Trip", template which allows you to share memories of a holiday, with a travel-blog style interface.
 
 If Microsoft make it really easy to create and share personal apps, they might be onto a winner. At the moment App Studio tries to be too generic and versatile. Unfortunately the end result is an interface that makes it hard to create a decent application of any type.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

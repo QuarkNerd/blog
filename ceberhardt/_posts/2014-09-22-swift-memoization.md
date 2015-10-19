@@ -1,15 +1,19 @@
 ---
 author: ceberhardt
-title: "Functional Swift and Memoization"
+title: Functional Swift and Memoization
 layout: default_post
-summary: "This post is a continuation of my previous which looked at implementing Conway’s Game of Life using functional techniques. Here I look at how memoization can be used to cache the return value of a function in order to improve performance."
+summary: This post is a continuation of my previous which looked at implementing Conway’s Game of Life using functional techniques. Here I look at how memoization can be used to cache the return value of a function in order to improve performance.
 image: ceberhardt/assets/featured/memoization.png
 featured-overlay-black: true
-tags: 
+tags:
   - author-featured
 suppress-careers-add: true
-oldlink: http://www.scottlogic.com/blog/2014/09/22/swift-memoization.html
+oldlink: "http://www.scottlogic.com/blog/2014/09/22/swift-memoization.html"
 disqus-id: /2014/09/22/swift-memoization.html
+categories:
+  - Swift
+  - iOS
+  - Mobile
 ---
 This post is a [continuation of my previous]({{ site.github.url }}/2014/09/10/game-of-life-in-functional-swift.html) which looked at implementing Conway's Game of Life using functional techniques. Here I look at how memoization can be used to cache the return value of a function in order to improve performance.
 
@@ -19,8 +23,8 @@ In my previous post I discussed an implementation of  Life which was free from f
 
 {% highlight javascript %}
 func iterate() {
-  
-  // utility functions 
+
+  // utility functions
   // local function, hence defined as constant closures
   let cellsAreNeighbours = {
     (op1: Cell, op2: Cell) -> Bool in
@@ -32,31 +36,31 @@ func iterate() {
       return false
     }
   }
-  
+
   let neighboursForCell = {
     (cell: Cell) -> [Cell] in
     return self.cells.filter { cellsAreNeighbours(cell, $0)}
   }
-  
+
   let livingNeighboursForCell = {
     (cell: Cell) -> Int in
     neighboursForCell(cell).filter{ $0.state == State.Alive }.count
   }
-  
+
   // rules of life
   let liveCells = cells.filter { $0.state == .Alive }
   let deadCells = cells.filter { $0.state != .Alive }
-  
+
   let dyingCells = liveCells.filter { livingNeighboursForCell($0) !~= 2...3 }
   let newLife =  deadCells.filter { livingNeighboursForCell($0) == 3 }
-  
+
   // updating the world state
   newLife.each { (cell: Cell) in cell.state = .Alive }
   dyingCells.each { (cell: Cell) in cell.state = .Dead }
 }
 dyingCells.each { (cell: Cell) in cell.state = .Dead }
 {% endhighlight %}
- 
+
 The `iterate` function is roughly split into three sections:
 
 1. Local utility functions, defined as closure expressions.
@@ -88,10 +92,10 @@ The simplest approach is to make this function a lazy property:
 {% highlight csharp %}
 class World {
   ...
-  
+
   lazy var neighboursForCell: (cell: Cell) -> [Cell] = {
     (cell: Cell) -> [Cell] in
-    
+
     let cellsAreNeighbours = {
       (op1: Cell, op2: Cell) -> Bool in
       let delta = (abs(op1.x - op2.x), abs(op1.y - op2.y))
@@ -102,10 +106,10 @@ class World {
         return false
       }
     }
-    
+
     return self.cells.filter { cellsAreNeighbours(cell, $0)}
   }
-  
+
   ...
 }
 dyingCells.each { (cell: Cell) in cell.state = .Dead }
@@ -143,7 +147,7 @@ So now that we have a mechanism for memoizing functions, how is it used? Simple,
 {% highlight csharp %}
 lazy var neighboursForCell: (cell: Cell) -> [Cell] = memoize {
   // see the earlier implementation
-} 
+}
 dyingCells.each { (cell: Cell) in cell.state = .Dead }
 {% endhighlight %}
 
@@ -151,17 +155,17 @@ The trailing closure syntax is highly effective in this context.
 
 ##Memoization in action
 
-Unfortunately the above code will not compile because `Cell` does not adopt the `Hashable` protocol (and by inheritance the `Equatable` protocol as well). This is easily rectified as follows: 
+Unfortunately the above code will not compile because `Cell` does not adopt the `Hashable` protocol (and by inheritance the `Equatable` protocol as well). This is easily rectified as follows:
 
 {% highlight csharp %}
 class Cell: Hashable {
   let x: Int, y: Int
   ...
-  
+
   var hashValue: Int {
     return x + y * 1_000;
   }
-  
+
   ...
 }
 
@@ -173,7 +177,7 @@ dyingCells.each { (cell: Cell) in cell.state = .Dead }
 
 The `Hashable` protocol is used to create a hash-value for an instance of an object. This value is used to partition values within dictionaries in order to improve look-up times. A good hash-value implementation minimises collisions resulting in improved look-up performance. These cells are occupy an `n x n` grid, so the above implementation will ensure unique hash codes for cells used in grids of up to 1,000 rows or columns. That'll do quite nicely!
 
-Now that function that finds the neighbours for a cell is memoized, it's time to test performance once again: 
+Now that function that finds the neighbours for a cell is memoized, it's time to test performance once again:
 
 <img src="{{ site.github.url }}/ceberhardt/assets/memoization/memoisedSlow.png" />
 
@@ -213,7 +217,7 @@ Rather than going to all this trouble of caching function value, each cell could
 class Cell: Hashable {
   ...
   var neighbours: [Cell]
-  
+
   ...
 }
 dyingCells.each { (cell: Cell) in cell.state = .Dead }
@@ -224,14 +228,14 @@ With this new property being pre-populated when the `World` is initialised:
 {% highlight csharp %}
 init() {
   cells = [Cell]()
-  
+
   // create the cells
   for x in 0..<dimensions {
     for y in 0..<dimensions {
       cells.append(Cell(x: x, y: y))
     }
   }
-  
+
   // find their neighbours
   for cell in cells {
     cell.neighbours = self.neighboursForCell(cell: cell)
@@ -261,7 +265,7 @@ A simple struct will do the trick:
 {% highlight csharp %}
 struct FunctionParams<T:Hashable, S:Hashable> : Hashable {
   let x: T, y: S
-  
+
   var hashValue: Int {
     var hash = 17;
       hash = hash * 23 + x.hashValue
@@ -304,7 +308,7 @@ let cellsAreNeighbours = memoize {
 dyingCells.each { (cell: Cell) in cell.state = .Dead }
 {% endhighlight %}
 
-Awesome! 
+Awesome!
 
 ##Conclusions (And the elephant in the room)
 
@@ -316,9 +320,9 @@ The function being memoized find all the neighbours for a given cell by checking
 {% highlight csharp %}
 lazy var neighboursForCell: (cell: Cell) -> [Cell] = memoize {
   (cell: Cell) -> [Cell] in
-  
+
   ...
-  
+
   return self.cells.filter { cellsAreNeighbours(cell, $0)}
 }
 dyingCells.each { (cell: Cell) in cell.state = .Dead }
@@ -329,5 +333,3 @@ This is of course a tremendously slow way of finding the neighbours in the first
 But if I had presented a fast implementation originally (and one that was possibly less functional  - *_gasps!_*), this blog post about memoization would never have been written ;-)
 
 Regards, Colin E.
-
-{% include ads/swift_by_tutorials.html %}

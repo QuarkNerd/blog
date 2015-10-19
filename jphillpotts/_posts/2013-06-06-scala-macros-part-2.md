@@ -6,13 +6,14 @@ tags:
   - Web Services
   - blog
 categories:
-  - jphillpotts
+  - Scala
 layout: default_post
 source: site
-summary: In this article we'll look at ways to overcome one of the main restrictions of def macros - the ability to only generate functions.
-oldlink: http://www.scottlogic.com/blog/2013/06/06/scala-macros-part-2.html
+summary: "In this article we'll look at ways to overcome one of the main restrictions of def macros - the ability to only generate functions."
+oldlink: "http://www.scottlogic.com/blog/2013/06/06/scala-macros-part-2.html"
 disqus-id: /2013/06/06/scala-macros-part-2.html
 ---
+
 
 ## Where next?
 
@@ -46,9 +47,9 @@ qualifier) is unique, so we can use the class name to generate the variable name
 
 ## Code organisation
 
-Our macro code is getting bigger, and I don't want it to end up as a pair of unmanageble
+Our macro code is getting bigger, and I don't want it to end up as a pair of unmanageable
 functions that go on for page after page - so I'm going to split the code up into two
-classes - the one that has the macro definitons in it and builds the resultant AST for
+classes - the one that has the macro definitions in it and builds the resultant AST for
 the generated code, and another class that contains all the logic for analysing the
 compilation environment.
 
@@ -62,7 +63,7 @@ so we've got a new class:
 </script>
 
 And obviously we can initialise this just like any other class from within our macro
-implementations using `val helper = new Helper(c)`. If, for tidyness, you want to
+implementations using `val helper = new Helper(c)`. If, for tidiness, you want to
 import the functions defined in Helper, you can then do `import helper.{c => cc, _}`,
 which renames the `c` value from Helper so that it doesn't collide with the `c`
 parameter from our function signature.
@@ -123,3 +124,26 @@ So now we've got our pattern matching working well, in
 <a href="{{site.github.url}}{% post_url 2013-06-07-scala-macros-part-3 %}">the next article</a> 
 we can start calling an API to produce our endpoints.
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,14 +1,14 @@
 ---
 id: 131101
 author: mrhodes
-title: "Lazy Lists In Java - Part 2"
+title: Lazy Lists In Java - Part 2
 oldlink: "http://www.scottlogic.co.uk/2011/10/lazy-lists-in-java-part-2/"
 tags:
   - Data Structures
   - Java
   - blog
 categories:
-  - mrhodes
+  - Java
 layout: default_post
 source: site
 disqus-id: /2011/10/lazy-lists-in-java-part-2/
@@ -150,3 +150,26 @@ private long iterateThroughAlteratingPerformanceTest(
 <p><a href="{{ site.github.url }}/archive/2011/10/iteratorOps.png"><img src="{{ site.github.url }}/archive/2011/10/iteratorOps.png" alt="" title="iteratorOps" width="485" height="321" class="aligncenter size-full wp-image-131572" style="border: 1px solid gray; margin-left: 100px;" /></a></p>
 <p>The results show, as you'd expect, that data structure choice can have a significant effect on application performance.  Whilst the <code>UnsortedList</code> works well in the case that there are many alterations, the <code>LinkedList</code> when used via an iterator and the <code>ArrayList</code> when no alterations are made, the <code>PatchWorkArray</code> offers all-round good performance across all cases tested.  Due to the relatively large size of the lists compared to the number of operations, the difference between the <code>PatchWorkArray</code> and <code>AutoFixingPatchWorkArray</code> is negligible.  When I tested it over more operations the latter performed better; however, it really depends on how the list is to be used as to which is the most efficient, as there is a trade off between the time it takes to fix the list and the time saved per individual operation when their are fewer alterations to the backing list.</p>
 <p>As I mentioned in the previous post, it's likely that with further development the performance of the <code>PatchWorkArray</code> could be improved, even so however, it demonstrates that the effect of lazily performing alterations to a backing list is potentially a useful tool in providing fast data access and manipulation. </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

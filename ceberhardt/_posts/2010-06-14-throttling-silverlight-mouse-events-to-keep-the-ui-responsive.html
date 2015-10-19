@@ -6,7 +6,7 @@ oldlink: "http://www.scottlogic.co.uk/blog/colin/2010/06/throttling-silverlight-
 tags:
   - codeproject
 categories:
-  - ceberhardt
+  - Web
 layout: default_post
 source: wordpress
 disqus-id: /blog/colin/2010/06/throttling-silverlight-mouse-events-to-keep-the-ui-responsive/
@@ -254,3 +254,26 @@ public class ThrottledMouseWheelEventArgs : EventArgs
 <p><script type="text/javascript">function hookEvent(element, eventName, callback){  if(typeof(element) == "string")    element = document.getElementById(element);  if(element == null)    return;  if(element.addEventListener)  {    if(eventName == 'mousewheel')      element.addEventListener('DOMMouseScroll', callback, false);      element.addEventListener(eventName, callback, false);  }  else if(element.attachEvent)    element.attachEvent("on" + eventName, callback);}function cancel(e){    e.preventDefault();}hookEvent('slPluginHost3', 'mousewheel', cancel);</script></p>
 <p>You can download the full source for this blog post: <a href='{{ site.github.url }}/archive/2010/06/SilverlightEventThrottling.zip'>SilverlightEventThrottling.zip</a></p>
 <p>Regards, Colin E.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

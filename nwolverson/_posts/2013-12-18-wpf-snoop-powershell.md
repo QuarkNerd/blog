@@ -2,12 +2,13 @@
 author: nwolverson
 title: "Snooping WPF: Tips and PowerShell tricks"
 image: ""
-tags: 
+tags:
   - blog
-categories: 
-  - nwolverson
+categories:
+  - WPF
+  - .NET
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2013/12/18/wpf-snoop-powershell.html
+oldlink: "http://www.scottlogic.com/blog/2013/12/18/wpf-snoop-powershell.html"
 disqus-id: /2013/12/18/wpf-snoop-powershell.html
 ---
 When moving back from web to desktop development, it's easy to miss the quick feedback and update cycle enabled by the developer tools in modern 
@@ -85,7 +86,7 @@ Delete-Visual($selected)
 
 {% endhighlight %}
 
-And voila (note that the Snoop tree view needs to be refreshed to reflect the updated UI):
+And voilà (note that the Snoop tree view needs to be refreshed to reflect the updated UI):
 
 ![Snoop after deleting item]({{ site.github.url }}/nwolverson/assets/snoop/snoop-ps-deleted.png)
 
@@ -170,7 +171,7 @@ function Get-TreeItems {
 
 {% endhighlight %}
 
-In order to add a context menu to these items, we're going to associate a command with the menu item, which will run some powershell code. 
+In order to add a context menu to these items, we're going to associate a command with the menu item, which will run some Powershell code. 
 Without referencing some existing library, what I've done here is create a simple `DelegateCommand` by using PowerShell's ability to define C# 
 code inline:
 
@@ -306,3 +307,26 @@ does make a powerful addition to Snoop, both for extension as discussed in this 
 
 My one annoyance in writing this post was the lack of tab-completion in Snoop's PS console - so I will be contributing a patch for this shortly.
 The functions described above are part of my Snoop PowerShell profile available [here](https://gist.github.com/nwolverson/8003100).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

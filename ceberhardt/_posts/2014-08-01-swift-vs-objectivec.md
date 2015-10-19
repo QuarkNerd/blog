@@ -1,17 +1,20 @@
 ---
 author: ceberhardt
-title: "Swift Adoption Statistics"
-categories: 
-tags:
-
-summary: "It was just two months ago that Apple took us by surprise in releasing the Swift programming language. This blog post reflects on the first few months of Swift adoption."
+title: Swift Adoption Statistics
+categories:
+  - Swift
+  - iOS
+  - Mobile
+tags: null
+summary: It was just two months ago that Apple took us by surprise in releasing the Swift programming language. This blog post reflects on the first few months of Swift adoption.
 layout: default_post
 suppress-careers-add: true
-oldlink: http://www.scottlogic.com/blog/2014/08/01/swift-vs-objectivec.html
+oldlink: "http://www.scottlogic.com/blog/2014/08/01/swift-vs-objectivec.html"
 disqus-id: /2014/08/01/swift-vs-objectivec.html
 ---
 
-It was just two months ago that Apple took developers by surprise in releasing the Swift programming language. Ever since I've been spending my evenings thoroughly immersed in the 'all new' Swift programming language. 
+
+It was just two months ago that Apple took developers by surprise in releasing the Swift programming language. Ever since I've been spending my evenings thoroughly immersed in the 'all new' Swift programming language.
 
 In just over a month I will be giving a couple of Swift talks at the [iOSDevUK conference](http://www.iosdevuk.com/), and for the past few days I have been debating what level to pitch these talks at. Do I assume familiarity with Swift? Or start at a more basic level?
 
@@ -54,11 +57,3 @@ The above results indicate that iOS development activity is still predominantly 
 Based on this result, when talking with a group of iOS developers I certainly wouldn't assume familiarity with Swift, at least not yet! It will be interesting to see how quickly Swift is adopted once it is officially released.
 
 Regards, Colin E.
-
-{% include ads/swift_by_tutorials.html %}
-
-
-
-
-
-

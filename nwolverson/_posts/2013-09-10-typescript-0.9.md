@@ -1,15 +1,15 @@
 ---
 author: nwolverson
 title: "Typescript 0.9: Any improvement"
-image: "nwolverson/assets/featured/typescript.jpg"
+image: nwolverson/assets/featured/typescript.jpg
 featured-overlay-inverted: true
-tags: 
+tags:
   - blog
-categories: 
-  - nwolverson
+categories:
+  - TypeScript
 layout: default_post
-summary: Version 0.9 of Typescript was recently released with support for generic types. In this post I discuss the features of 0.9 and 0.9.1, particularly generics and the "no implicit any" option.
-oldlink: http://www.scottlogic.com/blog/2013/09/10/typescript-0.9.html
+summary: "Version 0.9 of Typescript was recently released with support for generic types. In this post I discuss the features of 0.9 and 0.9.1, particularly generics and the \"no implicit any\" option."
+oldlink: "http://www.scottlogic.com/blog/2013/09/10/typescript-0.9.html"
 disqus-id: /2013/09/10/typescript-0.9.html
 ---
 I've been "noodling around" with [Typescript](http://www.typescriptlang.org/) for a while, and enjoying the various improvements over standard Javascript. 
@@ -141,7 +141,7 @@ This might all seem a bit academic, but I think it's huge. As an example take th
 [Underscore.js](http://underscorejs.org). This provides
 a bunch of utility functions for working on lists and collections (familiar to the functional programmer/LINQ user,
 and some of which are in some JS implementations but not present on all browsers).
-Prior to 0.9, many types would incorporate `any`, eg `rest` which returns the rest of a list after skipping the first
+Prior to 0.9, many types would incorporate `any`, e.g. `rest` which returns the rest of a list after skipping the first
 (or first n) element(s):
 
 {% highlight javascript %}
@@ -166,7 +166,7 @@ z[0].foo(); // doesn't typecheck - z[0] is number
 ### Knockout
 
 Knockout has the notion of observable properties - to create such a property we wrap it in a call to 
-`ko.observable`, eg 
+`ko.observable`, e.g. 
 
 {% highlight javascript %}
 
@@ -220,3 +220,26 @@ doing so, particularly if your favourite JS libraries have typing definitions av
 in these recent releases ([0.9](http://blogs.msdn.com/b/typescript/archive/2013/06/18/announcing-typescript-0-9.aspx) /
  [0.9.1](http://blogs.msdn.com/b/typescript/archive/2013/08/06/announcing-0-9-1.aspx)) - overloading on constants is also
  quite funky. It's also worth trying `--noImplicitAny`, though you might well decide it's not for you.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

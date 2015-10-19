@@ -1,14 +1,15 @@
 ---
 author: cgrant
 title: 2D Game Development with SpriteKit
-image: "cgrant/assets/featured/FirstSquadron.png"
-tags: 
-categories: 
+image: cgrant/assets/featured/FirstSquadron.png
+tags: null
+categories: []
 summary: Explaining the very basics of getting a simple 2D fighter plane game up and running with SpriteKit
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2013/09/25/2D-Game-Development-With-SpriteKit.html
+oldlink: "http://www.scottlogic.com/blog/2013/09/25/2D-Game-Development-With-SpriteKit.html"
 disqus-id: /2013/09/25/2D-Game-Development-With-SpriteKit.html
 ---
+
 
 When Apple announced iOS 7 back in June at WWDC, they also announced a number of exciting new APIs for developers. The API that caught my attention the most was SpriteKit. This is a new 2D rendering engine built primarily for game development. It allows you to compile the same code for iOS and OSX, meaning with just a few tweaks you can build a game that is available on Mac, iPad, iPod and iPhone! Combine this with the new GameController API, the rumours of a new Apple TV and the rapid level of iOS 7 adoption and you have something pretty exciting!
 
@@ -67,7 +68,7 @@ This will give us the "red box" shown in the illustration above.
 
 ##### Adding the visual Layers
 
-To add some depth the scene there are multiple SKSpriteNodes in the scene's heirarchy. The ground represents the sea - it's just a blue SKSpriteNode. The first Cloud layer is placed on top of the ground layer. The next layer added to the scene is the Fighter layer. This is where all of the fighters will be placed and will interact with each other. Finally, we add another Cloud layer to the scene. This results in the following heirarchy:
+To add some depth the scene there are multiple SKSpriteNodes in the scene's hierarchy. The ground represents the sea - it's just a blue SKSpriteNode. The first Cloud layer is placed on top of the ground layer. The next layer added to the scene is the Fighter layer. This is where all of the fighters will be placed and will interact with each other. Finally, we add another Cloud layer to the scene. This results in the following hierarchy:
 
 - FighterGameScene
 - Ground
@@ -87,7 +88,7 @@ The fighters themselves are simply sprite images:
 
 ![Enemy Plane](https://raw.github.com/ChrisGrant/FirstSquadron/master/FirstSquadron/enemy@2x.png) ![Hero Plane](https://raw.github.com/ChrisGrant/FirstSquadron/master/FirstSquadron/spitfire@2x.png)
 
-These were created in photoshop and based on blueprints of the *Messerschmitt Bf 109* and the *Supermarine Spitfire*.
+These were created in Photoshop and based on blueprints of the *Messerschmitt Bf 109* and the *Supermarine Spitfire*.
 
 ####Launching Enemy Fighters
 
@@ -96,7 +97,7 @@ The enemy fighters are launched every 5 seconds using an NSTimer.
 	NSTimer *timer = [NSTimer timerWithTimeInterval:5.0 target:self selector:@selector(launchEnemyFighters) userInfo:nil repeats:YES];
 	[[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     
-This calls the `launchEnemyFighters` method, which instantiates and five `EnemyFighter` instances, rotates them 180 degrees, places them in different locations and then applies an impluse to all of them so they move downwards towards the bottom of the scene.
+This calls the `launchEnemyFighters` method, which instantiates and five `EnemyFighter` instances, rotates them 180 degrees, places them in different locations and then applies an impulse to all of them so they move downwards towards the bottom of the scene.
 
 ![An Enemy Exploding](https://raw.github.com/ChrisGrant/FirstSquadron/master/blog/enemyPlanes.png)
 
@@ -114,7 +115,7 @@ To control the hero plane, we instantiate a `CMMotionManager` object in the cons
 
 By doing so, the user can hold the device at any angle and all future motion updates will be relative to that.
 
-Once we have calculated the relative attitude, we move the plane by applying an impluse:
+Once we have calculated the relative attitude, we move the plane by applying an impulse:
 
 	[_heroFighter.physicsBody applyImpulse:CGVectorMake(attitude.roll * 250, -attitude.pitch * 200)];
 	
@@ -133,7 +134,7 @@ The only collisions we are interested in with the hero are with enemy missiles a
 	if((contact.bodyA.categoryBitMask == heroFighterCategory || contact.bodyB.categoryBitMask == heroFighterCategory) &&
        (contact.bodyA.categoryBitMask == enemyMissleCategory || contact.bodyB.categoryBitMask == enemyMissleCategory)) {
 
-If the hero does collide with an enemy missle and we do enter this if statement, we immediately remove the missile and decrement the hero's health by 0.05. 
+If the hero does collide with an enemy missile and we do enter this if statement, we immediately remove the missile and decrement the hero's health by 0.05. 
 
 ####Enemy Collision
 
@@ -159,13 +160,13 @@ This just adds an explosion particle emitter where the collision occurred, fades
 
 ####Missile Collision
 
-If a missle collides with anything, we want to remove it, regardless of what it was. We do this last as if it colldies with a plane, we want to check that above.
+If a missile collides with anything, we want to remove it, regardless of what it was. We do this last as if it collides with a plane, we want to check that above.
 
 ##Hints and Tips
 
 -	**Keep it simple**
 
-	I originally had the vast majority of my code in `FighterGameScene` when I started out. I was creating sprites and managing them from inside of this class. It's easier at first but as soon as you start adding any complexity it becomes unmanagable. So make sure that your code belongs in the scene and that it has to be there. 
+	I originally had the vast majority of my code in `FighterGameScene` when I started out. I was creating sprites and managing them from inside of this class. It's easier at first but as soon as you start adding any complexity it becomes un-manageable. So make sure that your code belongs in the scene and that it has to be there. 
 
 -	**Debugging Collisions**
 
@@ -173,3 +174,26 @@ If a missle collides with anything, we want to remove it, regardless of what it 
 	
 	
 If you have noticed any issues with the app or want to help develop it further, please raise an issue or create a pull request over at [GitHub](https://github.com/ChrisGrant/FirstSquadron "GitHub First Squadron Repository").
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -3,14 +3,14 @@ id: 106961
 author: shall
 title: Handling Validation Error Messages in Struts2
 oldlink: "http://www.scottlogic.co.uk/2011/02/handling-validation-error-messages-in-struts2/"
-tags: 
+tags:
   - Javascript
   - validation
   - JQuery
   - Struts2
   - blog
-categories: 
-  - shall
+categories:
+  - Java
 layout: default_post
 source: site
 disqus-id: /2011/02/handling-validation-error-messages-in-struts2/
@@ -139,3 +139,26 @@ if(e.errors) {
 <h2>Conclusion</h2>
 <p>My aim was to utilize the Struts built-in validation with a more flexible error message framework, which I believe I have achieved. I didn't want to go into the interceptors that handle the validation as they already work so well, I was mainly concerned with the error messages. The final stage, wherein you define a function for each form, is by no means perfect, and I am still looking for improvements to defining individual form submission behaviour.</p>
 <p>The important thing to note is that, even though we're doing quite a lot on the client-side, all of the validation is done by the server. It's essentially safe behind closed doors, where it can evaluate the input and choose to execute the action or not. So even if there is a problem in the implementation of error messages being shown, you can be safe in the knowledge that your forms will still be validated by Struts. An interesting extension would be mixing in some client-side validation too.. but that's another blog post!</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

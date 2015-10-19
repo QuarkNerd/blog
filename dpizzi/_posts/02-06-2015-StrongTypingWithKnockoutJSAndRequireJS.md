@@ -1,12 +1,14 @@
 ---
 author: dpizzi
-title: "Strong Typing With KnockoutJS and RequireJS"
+title: Strong Typing With KnockoutJS and RequireJS
 layout: default_post
-summary: "This article demonstrates a successful integration of TypeScript with KnockoutJS and RequireJS to provide a strongly-typed environment for development of HTML5 apps."
-tags: featured
-image: "dpizzi/assets/featured/Strong.png"
-oldlink: http://www.scottlogic.com/blog/2015/06/02/StrongTypingWithKnockoutJSAndRequireJS.html
+summary: This article demonstrates a successful integration of TypeScript with KnockoutJS and RequireJS to provide a strongly-typed environment for development of HTML5 apps.
+image: dpizzi/assets/featured/Strong.png
+oldlink: "http://www.scottlogic.com/blog/2015/06/02/StrongTypingWithKnockoutJSAndRequireJS.html"
 disqus-id: /2015/06/02/StrongTypingWithKnockoutJSAndRequireJS.html
+categories:
+  - TypeScript
+  - Web
 ---
 
 Following my previous post on [Strong Typing With AngularJS]({{ site.github.url }}/2014/08/26/StrongTypingWithAngularJS.html), this article presents the integration of TypeScript with an other client MVC framework: _KnockoutJS_. We will also integrate RequireJS that allows the use of the [Asynchronous Module Definition](https://github.com/amdjs/amdjs-api/wiki/AMD) (AMD) API.  
@@ -29,7 +31,7 @@ For this tutorial, we use a Visual Studio (VS) template project of type _HTML Ap
 
 _NOTE: The [version 1.4 of TypeScript](https://visualstudiogallery.msdn.microsoft.com/2d42d8dc-e085-45eb-a30b-3f7d50d55304) is also needed for the latest KnockoutJS TypeScript declaration file._ 
 
-Once created, simply remove the files _app.css_ and _app.ts_ from the project as they won't be needed anymore. 
+Once created, simply remove the files _app.css_ and _app.ts_ from the project as they won't be needed any more. 
 
 This tutorial makes use of AMD modules (e.g. we will use `export` and `import` keywords) that we will be loaded asynchronously when needed at runtime. 
 In order to support this, TypeScript requires the `--module` flag on compilation which you can specify on the _TypeScript Build_ settings on the project properties by choosing _AMD_ in _Module system_.
@@ -48,7 +50,7 @@ We will [install them via NuGet](https://docs.nuget.org/consume/installing-nuget
  * __knockout.TypeScript.DefinitelyTyped__ (Current version 0.8.2 by Jason Jarrett)
  * __jQuery__ (Current version 2.1.4)
  
-The corresponding files will be added into the `/Scripts/` folder with the exception of the DefnitielyTyped packages that are added to the folder `/Scripts/Typing/`.
+The corresponding files will be added into the `/Scripts/` folder with the exception of the DefinitelyTyped packages that are added to the folder `/Scripts/Typing/`.
 
 ### RequireJS Configuration
 
@@ -320,3 +322,26 @@ Then, we implemented a component that allows re-usability and asynchronous loadi
 Finally, we integrated everything together and explained how data can be passed between viewmodels.
 
 What to do from here? Well, the [DefinitelyTyped](http://definitelytyped.org/) type definitions from KnockoutJS and its [GitHub repository](https://github.com/borisyankov/DefinitelyTyped) presents further examples that might (definitely) be worth a read.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

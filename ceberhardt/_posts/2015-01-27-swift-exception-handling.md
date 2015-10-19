@@ -1,9 +1,13 @@
 ---
 author: ceberhardt
-title: "Exception Handling in Swift"
+title: Exception Handling in Swift
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2015/01/27/swift-exception-handling.html
+oldlink: "http://www.scottlogic.com/blog/2015/01/27/swift-exception-handling.html"
 disqus-id: /2015/01/27/swift-exception-handling.html
+categories:
+  - Swift
+  - iOS
+  - Mobile
 ---
 
 Swift doesn't support throwing exceptions, nor does it support catching them. This wouldn't be a problem if you could develop iOS apps in pure Swift, but unfortunately at the moment you cannot. When developing an app most of the APIs you'll be working with are Objective-C APIs that have been bridged to Swift. These APIs can, and do throw exceptions. So how do you catch them?
@@ -36,9 +40,9 @@ var person = Person()
 person.addObserver(self, forKeyPath: "name", options:nil, context:nil)
 {% endhighlight %}
 
-However, this method throws an `NSUnknownKeyException` exception if the given key is not valid for the object being observed. 
+However, this method throws an `NSUnknownKeyException` exception if the given key is not valid for the object being observed.
 
-Various other KVC API methods throw exceptions also, for example `removeObserver` helpfully throws `NSRangeException` if you try to remove an object that isn't actually a current observer; `valueForKeyPath` and `setValue(_:forKey:)` can also throw exceptions. 
+Various other KVC API methods throw exceptions also, for example `removeObserver` helpfully throws `NSRangeException` if you try to remove an object that isn't actually a current observer; `valueForKeyPath` and `setValue(_:forKey:)` can also throw exceptions.
 
 So if you want to avoid the possibility of your application blowing up at runtime, what do you do?
 
@@ -48,7 +52,7 @@ This had me scratching my head for a while, until thankfully a colleague of mine
 
 The simple solution to the problem is to create a small Objective-C 'shim' that catches any exceptions that might be thrown, returning them via the method signature directly.
 
-Here's a category that adds a `tryAddObserver` method to `NSObject`: 
+Here's a category that adds a `tryAddObserver` method to `NSObject`:
 
     @interface NSObject (KVOHelper)
 
@@ -109,7 +113,7 @@ This is a nice simple solution, which can also be rolled out to `removeObserver`
 
 ## The messy bits ...
 
-Unfortunately things get a bit messier with `valueForKeyPath`; this method 
+Unfortunately things get a bit messier with `valueForKeyPath`; this method
 already returns a value, so in order to add exception reporting it would either have to be adapted to include an in-out parameter (yuck), or multiple returns values.
 
 Opting for the later, the following type holds either the return value, or the exception that was thrown:
@@ -136,7 +140,7 @@ Which can be used to build a shim for `getValueForKeyPath`:
 
 Whilst this solves the problem, it results in a pretty nasty method signature! Multiple returns values are widely considered a 'code smell'
 
-Fortunately Swift enums types, with their associated values, are an excellent way to represent multiple return values. 
+Fortunately Swift enums types, with their associated values, are an excellent way to represent multiple return values.
 
 Renaming the above method to `_tryGetValueForKeyPath` (which of course means other developers can't see it :-P), allows the bridges method to be further adapted as follows:
 
@@ -172,7 +176,7 @@ case .Success(let propertyValue):
 
 Using the basic concepts outlined above it should be possible to create a shim that adapts any Objective-C API that throws exceptions.
 
-The above techniques worked just fine for me, and allowed me to get on with my current pet project (which is pretty cool, more on that another time!). However, this all feels like an un-necessary and cumbersome workaround.
+The above techniques worked just fine for me, and allowed me to get on with my current pet project (which is pretty cool, more on that another time!). However, this all feels like an unnecessary and cumbersome workaround.
 
 Which brings me onto the final part of this blog post ...
 
@@ -206,7 +210,7 @@ if let a = a {
 Although if you're feeling reckless you can use forced unwrapping, but this will result in a non-recoverable runtime error should any of the optionals be nil:
 
 {% highlight csharp %}
-println("\(a!) - \(b!) - \(c!)") 
+println("\(a!) - \(b!) - \(c!)")
 {% endhighlight %}
 
 Things get even worse if you want to execute some logic if any of the values are nil ...
@@ -272,5 +276,3 @@ I feel there are other benefits that exceptions provide, such as their ability t
 Put simply, I believe that exceptions would allow us to write simpler, more readable code with fewer branches, whilst maintaining all the security that optionals currently offer.
 
 Regards, Colin E.
-
-

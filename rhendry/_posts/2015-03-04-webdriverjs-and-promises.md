@@ -1,15 +1,17 @@
 ---
 author: rhendry
 title: WebdriverJS and Promises
+title-short: WebdriverJS and Promises
 layout: default_post
 featured-overlay-inverted: true
-tags: 
+tags:
   - featured
-image: "rhendry/assets/featured/promise.jpg"
+image: rhendry/assets/featured/promise.jpg
 image-attribution: "image courtesy of <a href='https://www.flickr.com/photos/32490173@N05/'>galleryquantum</a>"
-summary-short: Avoiding broken promises with WebDriverJS
+summary-short: Avoiding broken promises with WebDriverJS - a quick guide to avoiding some of the framework pitfalls.
+categories: []
 ---
-Recently I have been working with WebdriverJS to fulfill a need for browser testing on a project. Although I've used
+Recently I have been working with WebdriverJS to fulfil a need for browser testing on a project. Although I've used
 Selenium for Java in the past, this was my first time using the JavaScript version. While broadly similar to what I
 remembered about the Java API, WebDriverJS returns Promises from all of its browser interactions, which can lead to some
 confusing behaviour.
@@ -249,3 +251,26 @@ I can understand why WebdriverJS has gone with Promises; browser interaction is 
 modern webapps using AJAX calls as opposed to testing older applications where you could just wait for a browser
 refresh. However, hiding those Promises away, in my opinion, confuses matters, making it more difficult to get into a
 flow when writing the tests. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

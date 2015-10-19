@@ -126,6 +126,11 @@ When adding your details to authors you'll need to add the following:
 * **author-summary** - A paragraph of two about the author that will be displayed on their author page.
 * **feed-description** - A short description that will be added to the description of the author's Atom and RSS feed.
 * **gravatar** - The author's [gravatar hash](https://en.gravatar.com/site/implement/hash/). This is an [md5 hash](http://www.miraclesalad.com/webtools/md5.php) of your email address in lower case. If you don't have a gravatar account you'll need to [sign up](https://en.gravatar.com/) for one.
+* **twitter-url** - The author's Twitter account.
+* **twitter-handle** - The author's Twitter handle.
+* **google-plus-url** - The author's Google+ url.
+* **author-image** - A relative URL to the author's image. For example (/ceberhardt/assets/mugshot.jpg).
+* **author-summary** - A short paragraph introducing the author.
 
 ### Testing
 To test that your post works and looks as expected, push your changes to your GitHub repository, entering your username/password when prompted:
@@ -182,16 +187,6 @@ Ensure [Node.js](http://nodejs.org/) is installed.
 Install development dependencies:
 ```
 npm install
-```
-
-This project uses a number of shared assets (less, images, etc...) from the [knowledge-unleashed-assets](https://github.com/ScottLogic/knowledge-unleashed-assets) project. This is included as a git submodule, with this projects grunt build unpacking the various files into their required location.
-
-NOTE: These shared files also need to be committed into their 'unpacked' location, GitHub's gh-pages does not run the projects guntfile!
-
-To build both scripts and styles, initialise the `less/twitter-bootstrap` and `shared-assets` submodules:
-```
-git submodule init
-git submodule update
 ```
 
 Build production versions of CSS and Scripts:

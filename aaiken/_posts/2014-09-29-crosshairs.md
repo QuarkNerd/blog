@@ -1,15 +1,15 @@
 ---
 author: aaiken
 title: An interactive crosshairs component for D3
-summary: In my last article I put together an interactive chart that could be panned and zoomed, but there was one obvious omission - crosshairs. In this article I'm going to create a D3 crosshairs component, and show you how to add it to a chart.
+summary: "In my last article I put together an interactive chart that could be panned and zoomed, but there was one obvious omission - crosshairs. In this article I'm going to create a D3 crosshairs component, and show you how to add it to a chart."
 image: aaiken/assets/featured/crosshairFeatured.jpg
-image-attribution: 'image courtesy of <a href="https://www.flickr.com/photos/natureindyablogspotcom/">Vivek Raj</a>'
-tags: 
+image-attribution: "image courtesy of <a href=\"https://www.flickr.com/photos/natureindyablogspotcom/\">Vivek Raj</a>"
+tags:
   - d3
-categories: 
-  - aaiken
+categories:
+  - D3
 layout: default_post
-oldlink: http://www.scottlogic.com/blog/2014/09/29/crosshairs.html
+oldlink: "http://www.scottlogic.com/blog/2014/09/29/crosshairs.html"
 disqus-id: /2014/09/29/crosshairs.html
 ---
 <link rel="stylesheet" href="{{ site.github.url }}/aaiken/assets/crosshairs/style/style.css" />
@@ -334,7 +334,7 @@ This is pretty self-explanatory - we're just iterating through the data points i
 
 I'm using three CSS rules for this component - nice and simple. One is for the horizontal and vertical line elements, one is for the circle element, and the last is for the two text elements. If you look at the CSS you can see that the rule for the lines and the rule for the circle is identical - I'm really just setting the colour. For the text elements I'm copying the style of the axis labels (10pt sans serif).
 
-The important thing to note here is that the user *could* style each element differently if they wanted to, without having to get into the javascript, as each element has a unique set of CSS classes - this component is very stylable.
+The important thing to note here is that the user *could* style each element differently if they wanted to, without having to get into the JavaScript, as each element has a unique set of CSS classes - this component is very stylable.
 
 {% highlight css %}
 .chart line.crosshairs {
@@ -409,3 +409,26 @@ Luckily there's an easy fix for this issue - all we'd have to do would be to ref
 ## Conclusion
 
 I wanted to create a D3 component to add crosshairs to a chart. The component is comprised of five SVG elements, which are updated on `mousemove` and `mouseout` events. The component can be styled in whatever way the user needs.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
