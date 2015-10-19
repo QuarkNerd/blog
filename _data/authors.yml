@@ -22,6 +22,7 @@
   - nhemley
   - nwolverson
   - rcaulcott-cooper
+  - rhamilton
   - rhendry
   - rmarcalo
   - rwilliams
@@ -277,3 +278,12 @@ authors:
         email: rcaulcott-cooper@scottlogic.co.uk
         gravatar: 5abeadc63cbe7be7b6538ffd4b523b3b
         author-summary: <p>I am an intern going into my third year of Computer Science at Newcastle University, and have mainly been doing Java, javascript and C. Recently I have been working with d3.js, less.css and Scott Logic's own <a href="http://scottlogic.github.io/d3fc">d3fc</a>.</p>
+    rhamilton:
+        name: Rosie Hamilton
+        email: rhamilton@scottlogic.com
+        gravatar: 3353c71097ec03a671be49239d8c9574
+        twitter-url: https://twitter.com/Rosicadia
+        twitter-handle: Rosicadia
+        feed-description: A collection of Rosie Hamilton's thoughts on software testing.
+        author-image: /rhamilton/assets/thisisme.jpg
+        author-summary: <p>I have been breaking software since 2005. I am the Author of <a href="http://testingfuntime.blogspot.co.uk/"> Mega Ultra Super Happy Software Testing Fun Time </a>. I currently work at Scott Logic as a Test Engineer.</p>
