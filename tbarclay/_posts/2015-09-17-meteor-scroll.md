@@ -511,7 +511,7 @@ Template.section.helpers({
 `background` returns a CSS property, so now I can use that in my template. In  client/templates/section.html:
 
 {% highlight html %}
-<div id="{% raw %}{{id}}{% endraw %}" class="section {{#if hasBackgroundImage}}overlay{{/if}}"
+<div id="{% raw %}{{id}}{% endraw %}" class="section {% raw %}{{#if hasBackgroundImage}}{% endraw %}overlay{% raw %}{{/if}}{% endraw %}"
     style="{% raw %}{{background}}{% endraw %}">
     <!-- content -->
   </div>
