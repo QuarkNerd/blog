@@ -2,7 +2,12 @@
 author: cprice
 layout: default_post
 title: An Adventure in SVG Filter Land
-categories: 
+title-short: Adventures with SVG Filters
+summary-short: This post looks at a creative application of our d3fc charting library, creating a streaming 3D SVG chart.
+image: cprice/assets/featured/bitcoin.jpg
+tags:
+  - main_featured
+categories:
   - D3
   - Charting
 ---

@@ -6,8 +6,6 @@ layout: default_post
 summary: "Most charting libraries are monoliths. The more features they support, the more unwieldy their APIs tend to become. With the d3fc project we have been exploring an alternative approach, constructing charts from a set of small components, using the D3 library."
 summary-short: Exploring the d3fc component approach to building charts.
 image: ceberhardt/assets/featured/yahoo.png
-tags:
-  - main
 categories:
   - D3
   - Charting
@@ -22,7 +20,7 @@ iframe {
 
 Most charting libraries are monoliths. The more features they support, the more unwieldy their APIs tend to become. With the [d3fc](http://scottlogic.github.io/d3fc/) project we have been exploring an alternative approach, constructing charts from a set of small components, using the D3 library.
 
-In this post I want to demonstrate the power of both d3fc and D3 by re-creating the [rather complex Yahoo Finance chart](http://finance.yahoo.com/echarts?s=yhoo+Interactive#{"showEma":true,"emaColors":"#cc0000","emaPeriods":"50","emaWidths":"1","emaGhosting":"0","range":"5d","allowChartStacking":true}). 
+In this post I want to demonstrate the power of both d3fc and D3 by re-creating the [rather complex Yahoo Finance chart](http://finance.yahoo.com/echarts?s=yhoo+Interactive#{"showEma":true,"emaColors":"#cc0000","emaPeriods":"50","emaWidths":"1","emaGhosting":"0","range":"5d","allowChartStacking":true}).
 
 <img src="{{ site.github.url }}/ceberhardt/assets/yahoo-finance.png" />
 
@@ -225,7 +223,7 @@ With the EMA series added to the multi-series the chart looks like the following
 
 ## Adding a volume chart
 
-The Yahoo Finance chart shows the traded volume in the bottom half of the plot area, this is a pretty standard financial charting layout. 
+The Yahoo Finance chart shows the traded volume in the bottom half of the plot area, this is a pretty standard financial charting layout.
 
 In order to render the volume chart, a secondary y-scale is required, with the domain based on the data's volume, and the range set to half the height of the plot area. The `linearTimeSeries` doesn't have a volume scale as part of its layout, this is something that has to be added manually.
 
@@ -311,7 +309,7 @@ The chart is now starting to look quite like the Yahoo Finance chart:
 
 <iframe src='http://bl.ocks.org/ColinEberhardt/raw/b46affe9af05aec55c67/' width='100%' height='300px'></iframe>
 
-<small>View the [full code for this example](http://bl.ocks.org/ColinEberhardt/b46affe9af05aec55c67) via D3 bl.ocks.</small> 
+<small>View the [full code for this example](http://bl.ocks.org/ColinEberhardt/b46affe9af05aec55c67) via D3 bl.ocks.</small>
 
 ## Conclusions
 
@@ -324,29 +322,3 @@ Until then, if you have any questions about d3fc or this example, get in touch e
 <b>Update:</b> The [second part of this two-part series has been published]({{ site.github.url }}/2015/07/22/yahoo-finance-chart-part-two.html), so you can see the complete example in action!
 
 Regards, Colin E.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

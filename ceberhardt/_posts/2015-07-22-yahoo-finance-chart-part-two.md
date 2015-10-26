@@ -9,8 +9,6 @@ image: ceberhardt/assets/featured/yahoo.png
 categories:
   - D3
   - Charting
-tags:
-  - main_featured
 ---
 
 
@@ -22,7 +20,7 @@ iframe {
 
 Most charting libraries are monoliths. The more features they support, the more unwieldy their APIs tend to become. With the [d3fc](http://scottlogic.github.io/d3fc/) project we have been exploring an alternative approach, constructing charts from a set of small components, that complement the popular D3 library.
 
-In this two-part blog series I want to demonstrate the power of both d3fc and D3 by re-creating the [rather complex Yahoo Finance chart](http://finance.yahoo.com/echarts?s=yhoo+Interactive#{"showEma":true,"emaColors":"#cc0000","emaPeriods":"50","emaWidths":"1","emaGhosting":"0","range":"5d","allowChartStacking":true}). 
+In this two-part blog series I want to demonstrate the power of both d3fc and D3 by re-creating the [rather complex Yahoo Finance chart](http://finance.yahoo.com/echarts?s=yhoo+Interactive#{"showEma":true,"emaColors":"#cc0000","emaPeriods":"50","emaWidths":"1","emaGhosting":"0","range":"5d","allowChartStacking":true}).
 
 <img src="{{ site.github.url }}/ceberhardt/assets/yahoo-finance.png" />
 
@@ -32,7 +30,7 @@ This post picks up [from where the first left off](http://blog.scottlogic.com/20
 
 <iframe src='http://bl.ocks.org/ColinEberhardt/raw/b46affe9af05aec55c67/' width='100%' height='300px'></iframe>
 
-<small>View the [full code for this example](http://bl.ocks.org/ColinEberhardt/b46affe9af05aec55c67) via D3 bl.ocks.</small> 
+<small>View the [full code for this example](http://bl.ocks.org/ColinEberhardt/b46affe9af05aec55c67) via D3 bl.ocks.</small>
 
 This post completed the example by adding a legend, line annotations, crosshairs and a discontinuous date axis.
 
@@ -255,7 +253,7 @@ By grabbing a copy of the json data used by the Yahoo Finance chart, it was poss
 
 Exchanges only trade within certain hours, for the London Stock Exchange this is from 8:00-16:30 during weekdays, although a small amount of activity does occur out-of-hours. This explains the big gaps in data in the above chart.
 
-The d3fc date scale supports the concepts of 'discontinuities', which allow the specification of gaps in an otherwise continuous scale. These discontinuities are supplied to the scale via a provider and the d3fc library contains an example provider that skips weekends `fc.scale.discontinuity.skipWeekends`. 
+The d3fc date scale supports the concepts of 'discontinuities', which allow the specification of gaps in an otherwise continuous scale. These discontinuities are supplied to the scale via a provider and the d3fc library contains an example provider that skips weekends `fc.scale.discontinuity.skipWeekends`.
 
 For this chart a more complex discontinuity provider is required, which determines the visible time range for each day based on the trading activity itself.
 
@@ -314,6 +312,3 @@ I think it is also a great demonstration of the approach we have adopted with d3
 If you are interested in finding out more about d3fc, pop over to the website, [d3fc.io](http://d3fc.io), its currently in its infancy, but we are very pleased with what has been achieved so far and are looking to grow it.
 
 Regards, Colin E.
-
-
-
