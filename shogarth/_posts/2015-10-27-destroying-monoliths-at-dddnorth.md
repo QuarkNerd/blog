@@ -9,9 +9,9 @@ categories:
 layout: default_post
 ---
 
-Saturday marked the fifth annual DDD North conference, held once again at the University of Sunderland. DeveloperDeveloperDeveloper! events are volunteer-organised conferenced where members of the community propose and vote on the agenda. ScottLogic took part this year as a Platinum-level sponsor. We had many fantastic conversations with developers from all across the country, plus our squishy rugby ball giveaways were very popular!
+Saturday marked the fifth annual DDD North conference, held once again at the University of Sunderland. DeveloperDeveloperDeveloper! events are volunteer-organised conferences where members of the community propose and vote on the agenda. ScottLogic took part this year as a Platinum-level sponsor. We had many fantastic conversations with developers from all across the country, plus our squishy rugby ball giveaways were very popular!
 
-Luckily, I managed to slack off from our recruitment stand and attend some of the great talks. As always I like to write up my impressions and pay compliments to the speakers. Overall this is one of the most diverse lineups that I've seen at a DDD event. This year's prominent topic was microservice architectures, rapidly taking the developer world by storm. But there were also talks on sketchnoting, fun things to do with Raspberry Pi 2s, Deep Learning, DevOps and Usability. As the agenda is decided upon by community votes, it's always interesting to see which of the many competing ideas out there stand out from the crowd. Hopefully in the future we'll see fewer monolithic applications. Anyways, onto the talks: 
+Luckily, I managed to slack off from our recruitment stand and attend some of the great talks. As always I like to write up my impressions and pay compliments to the speakers. Overall this is one of the most diverse lineups that I've seen at a DDD event. This year's prominent topic was microservice architectures, that have been rapidly taking the developer world by storm. But there were also talks on sketchnoting, fun things to do with Raspberry Pi 2s, Deep Learning, DevOps and Usability. As the agenda is decided upon by community votes, it's always interesting to see which of the many competing ideas out there stand out from the crowd. Hopefully in the future we'll see fewer monolithic applications. Anyways, onto the talks: 
 
 ## How I became Less Terrible at JavaScript - Steve Higgs
 
@@ -47,7 +47,7 @@ React is currently my favourite JavaScript view engine. It's the first since Kno
 
 Macs' talk aimed to introduce React to .NET developers, most likely for use within the client-side of their ASP.NET applications. Macs justified this by looking into ASP's long history and seeing an increasing demand for rich, interactive client-side functionality, with fast load times. Admittedly, a trend not unique to .NET. Macs provided a comprehensive introduction to React, which you can do because its functionality is so incredibly specific. From creating and rendering a React component, he introduced the scary-looking-but-totally-not-scary JSX, looked at React component properties and internal state. What most impressed me was Macs' demonstration of how fast React can be, by rendering thousands of numbers (and applying CSS styles) on-screen and changing them at customisable intervals.
 
-Because Microsoft, Macs showed how well React works in Visual Studio. It's nice! I enjoyed learning about [ReactJS.NET](http://reactjs.net/) - a tool for server-side JSX compilation in ASP.NET MVC, so that applications can benefit from server-side rendering. Hooray SEO! Finally, TypeScript 1.6 supports JSX. Macs showed that React and TypeScript in Visual Studio is a pleasant setup. A great talk to end the day.
+Macs showed how well React works in Visual Studio. It's nice! I enjoyed learning about [ReactJS.NET](http://reactjs.net/) - a tool for server-side JSX compilation in ASP.NET MVC, so that applications can benefit from server-side rendering. Hooray SEO! Finally, TypeScript 1.6 supports JSX. Macs showed that React and TypeScript in Visual Studio is a pleasant setup. A great talk to end the day.
 
 ## Summary
 
