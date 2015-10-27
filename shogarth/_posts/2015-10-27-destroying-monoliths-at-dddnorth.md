@@ -6,6 +6,7 @@ tags:
   - DeveloperDeveloperDeveloper
 categories:
   - Events
+layout: default_post
 ---
 
 Saturday marked the fifth annual DDD North conference, held once again at the University of Sunderland. DeveloperDeveloperDeveloper! events are volunteer-organised conferenced where members of the community propose and vote on the agenda. ScottLogic took part this year as a Platinum-level sponsor. We had many fantastic conversations with developers from all across the country, plus our squishy rugby ball giveaways were very popular!
