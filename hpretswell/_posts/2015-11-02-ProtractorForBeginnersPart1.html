@@ -13,7 +13,18 @@ layout: default_post
 
 <style>
     li {
-    margin-bottom: 30px
+        margin-bottom: 10px
+    }
+    pre {
+        font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; 
+        color: #000000; background-color: #eee;
+        font-size: 12px; border: 1px dashed #999999;
+        line-height: 14px; padding: 5px; 
+        overflow: auto; width: 100%"
+    }
+    code {
+        color:#000000;
+        word-wrap:normal;
     }
 </style>
 
@@ -42,21 +53,16 @@ Note: if you get stuck at any point, the entire code can be found in <a href="ht
  
 <p>    
 Page objects model the UI objects that your test interacts with inside your tests code. Using page objects keeps the tests easier to maintain (since if anything changes, you only have to change the page objects rather than change every single test). To find these UI objects, open up the browser developer tools by pressing f12 and select the 'elements' tab, or find the element (e.g. a button), right click and select 'Inspect element' from the dropdown list. For this example, use the <a href= "https://angularjs.org/">angularjs site</a>. Right click on the 'View on Github' button and select 'Inspect element'. Observe the line
- <pre style="font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; 
-                color: #000000; background-color: #eee;
-                font-size: 12px; border: 1px dashed #999999;
-                line-height: 14px; padding: 5px; 
-                overflow: auto; width: 100%"><code style="color:#000000;word-wrap:normal;"><xmp>   <a class="btn btn-large" href="https://github.com/angular/angular.js">
+    
+ <pre><code><xmp>   <a class="btn btn-large" href="https://github.com/angular/angular.js">
       <i class="icon-github-sign"></i>
          "View on GitHub"
-   </a></xmp></code></pre> Is highlighted. For this element (or page object) you can see the classname is “btn btn-large”, so when you write the page object, write it like this:
+   </a></xmp></code></pre> 
+
+Is highlighted. For this element (or page object) you can see the classname is “btn btn-large”, so when you write the page object, write it like this:
  
- <pre style="font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; 
-                color: #000000; background-color: #eee;
-                font-size: 12px; border: 1px dashed #999999;
-                line-height: 14px; padding: 5px; 
-                overflow: auto; width: 100%">
-       <code style="color:#000000;word-wrap:normal;">
+ <pre>
+       <code>
     var pageObjectName = element(by.css(“.btn.btn-large”));
        </code></pre>
  </p>
@@ -75,12 +81,8 @@ To disable and enable suites and specs, simply place an x in front of the descri
 Open up <a href= "https://angularjs.org/">https://angularjs.org/</a>.
 Create a new folder where you want to keep your project. Open up Brackets, and open up the folder that you have just created. Create a new .js file called “homePageSpec.js” and create a config file called 'conf.js' and paste in this code:
 
- <pre style="font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; 
-                color: #000000; background-color: #eee;
-                font-size: 12px; border: 1px dashed #999999;
-                line-height: 14px; padding: 5px; 
-                overflow: auto; width: 100%">
-       <code style="color:#000000;word-wrap:normal;">
+ <pre>
+       <code>
    exports.config = {
       seleniumAddress: 'http://localhost:4444/wd/hub',
       specs: ['HomePageObjectSpec.js'],
@@ -95,8 +97,9 @@ Right click on the button that says ‘View on GitHub’ and select ‘Inspect e
 <h2>Task 1.1: Describe “angularjs.org should have three Center Stage buttons”</h2>
 
 <p>
-    <ul>
-What will you learn from this task?
+    
+<p>What will you learn from this task?</p>
+<ul>
 <li>How to set up a describe suite and it spec.</li>
 <li>How to create page objects.</li>
 <li>How to check that something is displayed on the screen or present in the DOM using isDisplayed()</li></ul></p>
@@ -109,49 +112,45 @@ You will see how to use these matchers in practice below.</p>
 
 <ol>
     <li>      Open up angularjs.org</li>
+    
     <li>      Right click on the “View on GitHub” button, and select ‘Inspect element’ to bring up the html in the developer console.</li>
+    
     <li>      Find the code that relates to the “View on GitHub” button (if you hover over  
-<pre style="font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; 
-                color: #000000; background-color: #eee;
-                font-size: 12px; border: 1px dashed #999999;
-                line-height: 14px; padding: 5px; 
-                overflow: auto; width: 100%"><code style="color:#000000;word-wrap:normal;"><xmp>   <a class="btn btn-large" href="https://github.com/angular/angular.js"></xmp></code></pre> 
+        
+        <pre><code><xmp>   
+            <a class="btn btn-large" href="https://github.com/angular/angular.js">
+        </xmp></code></pre> 
 you will be able to see the button highlight).</li>
+        
     <li>      If you navigate up through the divs, you will be able to find the html code that contains all three elements. The class for this is “center stage-buttons”.</li>
+    
     <li>      In your text editor, open up your “homePageSpec.js” file, and create a variable called HomePage like this:
- <pre style="font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; 
-                color: #000000; background-color: #eee;
-                font-size: 12px; border: 1px dashed #999999;
-                line-height: 14px; padding: 5px; 
-                overflow: auto; width: 100%">
-       <code style="color:#000000;word-wrap:normal;">
+        
+ <pre>
+       <code>
    var HomePage = function() {
  
    }
        </code></pre></li>
 
     <li>      This HomePage variable contains page objects, which are the elements on the page. Different page objects will be used for different sections that are tested on. </li>
+    
     <li>     Create page objects for the center stage buttons like so:
- <pre style="font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; 
-                color: #000000; background-color: #eee;
-                font-size: 12px; border: 1px dashed #999999;
-                line-height: 14px; padding: 5px; 
-                overflow: auto; width: 100%">
-       <code style="color:#000000;word-wrap:normal;">
+        
+ <pre>
+       <code>
    this.centerStageButtons = element(by.css(".center.stage-buttons"));
   
    this.viewOnGitHubButton = this.centerStageButtons.all(by.css(".btn.btn-large")).get(0);
    this.downloadButton = this.centerStageButtons.element(by.css(".btn-primary"));
    this.designDocsButton = this.centerStageButtons.element(by.css(".btn-warning"));
        </code></pre>
+        
 You can see that there has been a page object created for “centerStageButtons”. It is good practice to write the elements as they match the code in DOM as quite often there will be multiple elements with the same name. Chaining the page objects (as above) creates more readable code as it (most of the time) eliminates the need for using .get(index). </li>
+    
     <li>      Underneath the HomePage variable, create the test suite and spec like this:
- <pre style="font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; 
-                color: #000000; background-color: #eee;
-                font-size: 12px; border: 1px dashed #999999;
-                line-height: 14px; padding: 5px; 
-                overflow: auto; width: 100%">
-       <code style="color:#000000;word-wrap:normal;">
+        
+ <pre><code>
    describe('angularjs.org', function() {
 
       beforeEach(function() {
@@ -163,14 +162,12 @@ You can see that there has been a page object created for “centerStageButtons�
       });
    });
        </code></pre></li>
+    
     <li>      Since the check that you want to run is simply that these elements are displayed, it is best to use ‘isDisplayed’, since this shows that the element is both present in the DOM and on screen. However you can also use isPresent to practice getting use to writing tests.</li>
+    
     <li>  In the describe, create a new HomePage object and in the it spec write the expected result of the test as below:
- <pre style="font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; 
-                color: #000000; background-color: #eee;
-                font-size: 12px; border: 1px dashed #999999;
-                line-height: 14px; padding: 5px; 
-                overflow: auto; width: 100%">
-       <code style="color:#000000;word-wrap:normal;">
+ <pre style>
+       <code>
    describe('angularjs.org', function() {
       var homePage = new HomePage();
 
@@ -183,17 +180,17 @@ You can see that there has been a page object created for “centerStageButtons�
       });
    });
        </code></pre></li>
+    
     <li>  Run the test by opening up the command line, navigating to the folder where the config file is located. Type in protractor conf.js and press Enter for the code to start running (make sure you have started the selenium webdriver by typing in “webdriver-manager start” and pressing enter in the command line).</li>
+    
     <li>  Did it pass? Yes? Great! No? Double check you have the code written correctly in step 10.</li>
+    
     <li>  Now that this test has passed, it is always best to check that it fails if set to ‘false’, so underneath the first ‘expect’, create another one set to false like this:
- <pre style="font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; 
-                color: #000000; background-color: #eee;
-                font-size: 12px; border: 1px dashed #999999;
-                line-height: 14px; padding: 5px; 
-                overflow: auto; width: 100%">
-       <code style="color:#000000;word-wrap:normal;">
+ <pre>
+       <code>
    expect(homePage.viewOnGitHubButton.isDisplayed()).toBe(false);
        </code></pre></li>
+    
     <li>  Run the test. Observe the expect set to false fails. This ensures that it isn’t a false positive, and is always a good practice to ensure that you haven't missed anything in your code. </li>
 </ol>
 
