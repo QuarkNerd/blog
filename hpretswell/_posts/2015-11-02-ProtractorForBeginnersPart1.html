@@ -94,7 +94,7 @@ Create a new folder where you want to keep your project. Open up Brackets, and o
 
 Right click on the button that says ‘View on GitHub’ and select ‘Inspect element’ from the list of options.</p>
 
-<h2>Task 1.1: Describe “angularjs.org should have three Center Stage buttons”</h2>
+<h3>Task 1.1: Describe “angularjs.org should have three Center Stage buttons”</h3>
 
 <p>
     
@@ -146,7 +146,7 @@ you will be able to see the button highlight).</li>
    this.designDocsButton = this.centerStageButtons.element(by.css(".btn-warning"));
        </code></pre>
         
-You can see that there has been a page object created for “centerStageButtons”. It is good practice to write the elements as they match the code in DOM as quite often there will be multiple elements with the same name. Chaining the page objects (as above) creates more readable code as it (most of the time) eliminates the need for using .get(index). </li>
+You can see that there has been a page object created for “centerStageButtons”. It is good practice to write the elements as they match the code in DOM as quite often there will be multiple elements with the same name. Chaining the page objects (as above) creates more readable code as it (most of the time) eliminates the need for using .get(index). I say most of the time, since sometimes having to use .get(index) is inevitable: so if you enter in to the browser console <code>$(".btn.btn-large")</code> you will be able to see multiple results are returned, which is why we use .get(0) for the viewOnGitHubButton example above. </li>
     
     <li>      Underneath the HomePage variable, create the test suite and spec like this:
         
@@ -183,7 +183,7 @@ You can see that there has been a page object created for “centerStageButtons�
     
     <li>  Run the test by opening up the command line, navigating to the folder where the config file is located. Type in protractor conf.js and press Enter for the code to start running (make sure you have started the selenium webdriver by typing in “webdriver-manager start” and pressing enter in the command line).</li>
     
-    <li>  Did it pass? Yes? Great! No? Double check you have the code written correctly in step 10.</li>
+    <li>  Did it pass? Yes? Great! No? Double check you have the code written correctly by looking at the code inside the Spec folder here: <a href="https://github.com/hannimator/angularjs.org_protractor">https://github.com/hannimator/angularjs.org_protractor</a> .</li>
     
     <li>  Now that this test has passed, it is always best to check that it fails if set to ‘false’, so underneath the first ‘expect’, create another one set to false like this:
  <pre>
