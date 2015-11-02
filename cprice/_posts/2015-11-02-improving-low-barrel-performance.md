@@ -8,8 +8,6 @@ categories:
   - Flux
 ---
 
-Improving D3 Performance by Embracing the Flux
-
 While d3fc embraces the philosophy of simplicity over performance, there's no point in a chart with lousy performance. In this post I'll run through some of the tips and tricks for squeezing the best performance out of d3fc without compromising on its flexibility.
 
 # What are we aiming for?
