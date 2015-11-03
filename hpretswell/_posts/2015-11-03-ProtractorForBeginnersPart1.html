@@ -37,23 +37,22 @@ layout: default_post
 <p>
 This tutorial will be broken down into bite sized chunks, with each new blog post as a new task, and it is aimed for people with little to no experience of programming. </p>
 
-<p>
-To begin with, follow this tutorial <a href="https://github.com/angular/protractor/blob/master/docs/tutorial.md">https://github.com/angular/protractor/blob/master/docs/tutorial.md</a>. It will run through how to setup protractor and jasmine, and the basics of running tests. Another good read is <a href="https://github.com/angular/protractor/blob/master/docs/toc.md">https://github.com/angular/protractor/blob/master/docs/toc.md</a>, which has some more in depth information about protractor and jasmine.
-Once you have completed the above tutorials, follow the steps below. </p>
-
- 
 <h2>Introduction:</h2>
+
+<p>
+To begin with, follow this tutorial <a href="https://github.com/angular/protractor/blob/master/docs/tutorial.md">https://github.com/angular/protractor/blob/master/docs/tutorial.md</a>. It will run through how to setup protractor and jasmine, and the basics of running some simple tests. Another good read, but not necessary for this tutorial is <a href="https://github.com/angular/protractor/blob/master/docs/toc.md">https://github.com/angular/protractor/blob/master/docs/toc.md</a>, which has some more in depth information about protractor and jasmine.
+Once you have completed the above tutorials, follow the steps below. </p>
  
 <p>
 For this tutorial, you will be writing the tests for the <a href= "https://angularjs.org/">angularjs site</a> itself. This is a good site for practising writing protractor tests for, as it is written in Angular.js: the JavaScript framework that protractor runs tests against.</p>
     
 <p>    
-This tutorial is simply a guide for testing, and is by no means something to follow exactly. Every project is different, and every development team is different, so use and adapt the following information to best suit your needs. It is to be used as either a tutorial to completely follow or as a reference guide. At the start of each blog the topics that are covered in the following task are listed for easy reference. </p>
+This tutorial is simply a guide for working with protractor, and is by no means something to follow exactly. Every project and webpage is different, and every development team is different, so use and adapt the following information to best suit your needs. At the start of each blog the topics that are covered in the following task are listed for easy reference. </p>
 
 <p>
 Note: if you get stuck at any point, the entire code can be found in <a href="https://github.com/hannimator/angularjs.org_protractor">https://github.com/hannimator/angularjs.org_protractor</a>  for use as reference. Snippets of the code will be shown as examples throughout.</p>
  
-<h3>Page Objects and Developer Tools</h3>
+<h3>Page Objects, Developer Tools and the DOM</h3>
  
 <p>    
 Page objects model the UI objects that your test interacts with inside your tests code. Using page objects keeps the tests easier to maintain (since if anything changes, you only have to change the page objects rather than change every single test). To find these UI objects, open up the browser developer tools by pressing f12 and select the 'elements' tab, or find the element (e.g. a button), right click and select 'Inspect element' from the dropdown list. For this example, use the <a href= "https://angularjs.org/">angularjs site</a>. Right click on the 'View on Github' button and select 'Inspect element'. Observe the line
@@ -69,10 +68,16 @@ Is highlighted. For this element (or page object) you can see the classname is �
        <code>
     var pageObjectName = element(by.css(“.btn.btn-large”));
        </code></pre>
+
+The reason it is written as <code>".btn.btn-large"</code> rather than <code>"btn btn-large"</code> is down to locators, which are what tell protrator where to find certain elements. A CSS locator would look like this: <code>".someCSS"</code>, whereas an ID locator would look like this: <code>"#someID"</code>. Some more information on this can be found in the <a href="https://github.com/angular/protractor/blob/master/docs/locators.md">protractor documentation</a>
  </p>
 
 <p>
 If you move the mouse up to the line above, you can see that the element is contained within a div with the classname “center stage-buttons”. You can use these elements, either by the class, id, repeater, tagName, buttonText or model to create page objects which protractor will use to run the tests with.</p>
+
+<p>
+If you want to learn a little bit more about the DOM which is mentioned throughout this tutorial, I have found <a href="https://css-tricks.com/dom/">https://css-tricks.com/dom/</a> to be a very useful and concise explanation.
+</p>
 
 <h3>Disabling Suites and Specs</h3>
 
@@ -95,8 +100,7 @@ Create a new folder where you want to keep your project. Open up Brackets, and o
       },
    }
        </code></pre>
-
-Right click on the button that says ‘View on GitHub’ and select ‘Inspect element’ from the list of options.</p>
+</p>
 
 <h3>Task 1.1: Describe “angularjs.org should have three Center Stage buttons”</h3>
 
@@ -134,20 +138,22 @@ you will be able to see the button highlight).</li>
        <code>
    var HomePage = function() {
  
-   }
-       </code></pre></li>
+   };
+       </code></pre>
 
-    <li>      This HomePage variable contains page objects, which are the elements on the page. Different page objects will be used for different sections that are tested on. </li>
+    This HomePage variable contains page objects, which are the elements on the page. Different page objects will be used for different sections that are tested on.</li>
     
-    <li>     Create page objects for the center stage buttons like so:
+    <li>     Create page objects for the center stage buttons with the HomePage variable, like so:
         
  <pre>
        <code>
-   this.centerStageButtons = element(by.css(".center.stage-buttons"));
-  
-   this.viewOnGitHubButton = this.centerStageButtons.all(by.css(".btn.btn-large")).get(0);
-   this.downloadButton = this.centerStageButtons.element(by.css(".btn-primary"));
-   this.designDocsButton = this.centerStageButtons.element(by.css(".btn-warning"));
+   var HomePage = function() { 
+      this.centerStageButtons = element(by.css(".center.stage-buttons"));
+
+      this.viewOnGitHubButton = this.centerStageButtons.all(by.css(".btn.btn-large")).get(0);
+      this.downloadButton = this.centerStageButtons.element(by.css(".btn-primary"));
+      this.designDocsButton = this.centerStageButtons.element(by.css(".btn-warning"));
+   };
        </code></pre>
         
 You can see that there has been a page object created for “centerStageButtons”. It is good practice to write the elements as they match the code in DOM as quite often there will be multiple elements with the same name. Chaining the page objects (as above) creates more readable code as it (most of the time) eliminates the need for using .get(index). I say most of the time, since sometimes having to use .get(index) is inevitable: so if you enter in to the browser console <code>$(".btn.btn-large")</code> you will be able to see multiple results are returned, which is why we use .get(0) for the viewOnGitHubButton example above. </li>
