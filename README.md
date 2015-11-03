@@ -20,6 +20,9 @@ N.B. Changes can also be made [directly in GitHub](https://help.github.com/artic
 
 Blog posts can be written in either HTML or markdown. Markdown is processed via Kramdown, with the the details of the (very simple) formatting found on [Kramdown website](http://kramdown.gettalong.org/index.html)
 
+The post name should be formatted as: [Current date: YYYY-MM-DD]-[post name]
+For example: 2015-11-05-how-to-name-things
+
 The post meta-data should be located at the top of each as follows:
 ```
 ---
