@@ -35,22 +35,16 @@ layout: default_post
 <p>When I started writing automated tests in Protractor, I had never programmed anything before (unless you count learning enough html/css on codecademy to create an incredibly basic, 90’s style webpage). Some of the problems I encountered whilst learning protractor were very hard to find on Google, which did make my learning a lot slower than I would have liked. Luckily I work with amazing people who are more than happy to share their knowledge which has saved me countless times, but unfortunately there are many people out there who do not have access to such resources. So, I have decided to create a tutorial which documents as many issues as possible that I encountered whilst learning.</p>
 
 <p>
-This tutorial will be broken down into bite sized chunks, with each new blog post as a new task, and it is aimed for people with little to no experience of programming. </p>
+This tutorial will be broken down into bite sized chunks, with each new blog post as a new task, and it is aimed for people with little to no experience of programming. You will be writing the tests for the <a href= "https://angularjs.org/">angularjs site</a> itself, since his is a good site for practising writing protractor tests for as it is written in Angular.js; the JavaScript framework that protractor runs tests against.</p>
+
+<p>
+Note: if you get stuck at any point, the entire code can be found in <a href="https://github.com/hannimator/angularjs.org_protractor">https://github.com/hannimator/angularjs.org_protractor</a>  for use as reference. Snippets of the code will be shown as examples throughout.</p>
 
 <h2>Introduction:</h2>
 
 <p>
 To begin with, follow this tutorial <a href="https://github.com/angular/protractor/blob/master/docs/tutorial.md">https://github.com/angular/protractor/blob/master/docs/tutorial.md</a>. It will run through how to setup protractor and jasmine, and the basics of running some simple tests. Another good read, but not necessary for this tutorial is <a href="https://github.com/angular/protractor/blob/master/docs/toc.md">https://github.com/angular/protractor/blob/master/docs/toc.md</a>, which has some more in depth information about protractor and jasmine.
 Once you have completed the above tutorials, follow the steps below. </p>
- 
-<p>
-For this tutorial, you will be writing the tests for the <a href= "https://angularjs.org/">angularjs site</a> itself. This is a good site for practising writing protractor tests for, as it is written in Angular.js: the JavaScript framework that protractor runs tests against.</p>
-    
-<p>    
-This tutorial is simply a guide for working with protractor, and is by no means something to follow exactly. Every project and webpage is different, and every development team is different, so use and adapt the following information to best suit your needs. At the start of each blog the topics that are covered in the following task are listed for easy reference. </p>
-
-<p>
-Note: if you get stuck at any point, the entire code can be found in <a href="https://github.com/hannimator/angularjs.org_protractor">https://github.com/hannimator/angularjs.org_protractor</a>  for use as reference. Snippets of the code will be shown as examples throughout.</p>
  
 <h3>Page Objects, Developer Tools and the DOM</h3>
  
@@ -88,7 +82,7 @@ To disable and enable suites and specs, simply place an x in front of the descri
 
 <p>
 Open up <a href= "https://angularjs.org/">https://angularjs.org/</a>.
-Create a new folder where you want to keep your project. Open up Brackets, and open up the folder that you have just created. Create a new .js file called “homePageSpec.js” and create a config file called 'conf.js' and paste in this code:
+Create a new folder where you want to keep your project. Open up Brackets, and open up the folder that you have just created. Create a new .js file called 'HomePageSpec.js' and create a config file called 'protractorConf.js'. Paste in this code in to the 'protractorConf.js' file:
 
  <pre>
        <code>
@@ -132,7 +126,7 @@ you will be able to see the button highlight).</li>
         
     <li>      If you navigate up through the divs, you will be able to find the html code that contains all three elements. The class for this is “center stage-buttons”.</li>
     
-    <li>      In your text editor, open up your “homePageSpec.js” file, and create a variable called HomePage like this:
+    <li>      In your text editor, open up your “HomePageSpec.js” file, and create a variable called HomePage like this:
         
  <pre>
        <code>
