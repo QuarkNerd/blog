@@ -101,7 +101,7 @@ Create a new folder where you want to keep your project. Open up Brackets, and o
 <ul>
 <li>How to set up a describe suite and it spec.</li>
 <li>How to create page objects.</li>
-<li>How to check that something is displayed on the screen or present in the DOM using isDisplayed()</li></ul></p>
+<li>How to check that something is displayed on the screen or present in the DOM using <code>isDisplayed</code></li></ul></p>
 
 <p>
 In this task you will test that elements are present and visible on the page using the three center stage buttons on the home page of angularjs.org and the Jasmine matcher <code>.isDisplayed</code> (read more about Jasmine matchers <a href="http://jasmine.github.io/2.0/introduction.html">here</a>. <code>isDisplayed</code> checks to see if the element is actually present on the page: if the element is not in the DOM whilst using <code>isDisplayed</code>, it will throw an exeption error. See how to use <code>isDisplayed</code> below.
@@ -117,7 +117,7 @@ In this task you will test that elements are present and visible on the page usi
         </xmp></code></pre> 
 you will be able to see the button highlight).</li>
         
-    <li>      If you navigate up through the divs, you will be able to find the html code that contains all three elements. The class for this is “center stage-buttons”.</li>
+    <li>      If you navigate up through the divs, you will be able to find the html code that contains all three elements. The class for this is <code>center stage-buttons</code>.</li>
     
     <li>      In your text editor, open up your “HomePageSpec.js” file, and create a variable called HomePage like this:
         
@@ -130,7 +130,7 @@ you will be able to see the button highlight).</li>
 
     This HomePage variable contains page objects, which are the elements on the page. Different page objects will be used for different sections that are tested on.</li>
     
-    <li>     Create page objects for the center stage buttons with the HomePage variable, like so:
+    <li>     Create page objects for the center stage buttons with the <code>HomePage</code> variable, like so:
         
  <pre>
        <code>
