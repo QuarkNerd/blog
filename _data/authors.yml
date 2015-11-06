@@ -1,4 +1,4 @@
-﻿active-authors:
+active-authors:
   - aaiken
   - aaylett
   - alee
@@ -287,3 +287,12 @@ authors:
         feed-description: A collection of Rosie Hamilton's thoughts on software testing.
         author-image: /rhamilton/assets/thisisme.jpg
         author-summary: <p>I have been breaking software since 2005. I am the Author of <a href="http://testingfuntime.blogspot.co.uk/"> Mega Ultra Super Happy Software Testing Fun Time </a>. I currently work at Scott Logic as a Test Engineer.</p>
+    hpretswell:
+        name: Hannah Pretswell
+        email: hpretswell@scottlogic.com
+        gravatar: 085198904ae587a1d2c5995fa9477129
+        twitter-url: https://twitter.com/TheHannimator
+        twitter-handle: TheHannimator
+        feed-description: Bits and bobs on software testing
+        author-image: /hpretswell/assets/me.jpg
+        author-summary: <p>I work as a Test Engineer with a rather odd background in animation. When I'm not bug hunting I like to read, play piano and partake in local theatre productions.</p>
