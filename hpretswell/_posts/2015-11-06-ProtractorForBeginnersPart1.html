@@ -32,10 +32,10 @@ layout: default_post
     }
 </style>
 
-<p>When I started writing automated tests in Protractor, I had never programmed anything before (unless you count learning enough html/css on codecademy to create an incredibly basic, 90’s style webpage). Some of the problems I encountered whilst learning protractor were very hard to find on Google, which did make my learning a lot slower than I would have liked. Luckily I work with amazing people who are more than happy to share their knowledge which has saved me countless times, but unfortunately there are many people out there who do not have access to such resources. So, I have decided to create a tutorial which documents as many issues as possible that I encountered whilst learning.</p>
+<p>When I started writing automated tests in Protractor, I had never programmed anything before (unless you count learning enough html/css on codecademy to create an incredibly basic, 90’s style webpage). Some of the problems I encountered whilst learning Protractor were very hard to find on Google, which did make my learning a lot slower than I would have liked. Luckily I work with amazing people who are more than happy to share their knowledge which has saved me countless times, but unfortunately there are many people out there who do not have access to such resources. So, I have decided to create a tutorial which documents as many issues as possible that I encountered whilst learning.</p>
 
 <p>
-This tutorial will be broken down into bite sized chunks, with each new blog post as a new task, and it is aimed for people with little to no experience of programming. You will be writing the tests for the <a href= "https://angularjs.org/">angularjs site</a> itself, since this is a good site for practising writing protractor tests for as it is written in Angular.js; the JavaScript framework that protractor runs tests against.</p>
+This tutorial will be broken down into bite sized chunks, with each new blog post as a new task, and it is aimed at people with little to no experience of programming. You will be writing the tests for the <a href= "https://angularjs.org/">AngularJs site</a> itself, since this is a good site for practising writing Protractor tests for as it is written in AngularJs; the JavaScript framework that Protractor runs tests against.</p>
 
 <p>
 Note: if you get stuck at any point, the entire code can be found in <a href="https://github.com/hannimator/angularjs.org_protractor">https://github.com/hannimator/angularjs.org_protractor</a>  for use as reference. Snippets of the code will be shown as examples throughout.</p>
@@ -43,13 +43,13 @@ Note: if you get stuck at any point, the entire code can be found in <a href="ht
 <h2>Introduction:</h2>
 
 <p>
-To begin with, follow this tutorial <a href="https://github.com/angular/protractor/blob/master/docs/tutorial.md">https://github.com/angular/protractor/blob/master/docs/tutorial.md</a>. It will run through how to setup protractor and jasmine, and the basics of running some simple tests. Another good read, but not necessary for this tutorial is <a href="https://github.com/angular/protractor/blob/master/docs/toc.md">https://github.com/angular/protractor/blob/master/docs/toc.md</a>, which has some more in depth information about protractor and jasmine.
+To begin with, follow this tutorial <a href="https://github.com/angular/protractor/blob/master/docs/tutorial.md">https://github.com/angular/protractor/blob/master/docs/tutorial.md</a>. It will run through how to setup Protractor and Jasmine, and the basics of running some simple tests. Another good read, but not necessary for this tutorial is <a href="https://github.com/angular/protractor/blob/master/docs/toc.md">https://github.com/angular/protractor/blob/master/docs/toc.md</a>, which has some more in depth information about Protractor and Jasmine.
 Once you have completed the above tutorials, follow the steps below. </p>
  
 <h3>Page Objects, Developer Tools and the DOM</h3>
  
 <p>    
-Page objects model the UI objects that your test interacts with inside your tests code. Using page objects keeps the tests easier to maintain (since if anything changes, you only have to change the page objects rather than change every single test). To find these UI objects, open up the browser developer tools by pressing f12 and select the 'elements' tab, or find the element (e.g. a button), right click and select 'Inspect element' from the dropdown list. For this example, use the <a href= "https://angularjs.org/">angularjs site</a>. Right click on the 'View on Github' button and select 'Inspect element'. Observe the line
+Page objects model the UI objects that your test interacts with inside your tests code. Using page objects keeps the tests easier to maintain (since if anything changes, you only have to change the page objects rather than change every single test). To find these UI objects, open up the browser developer tools by pressing f12 and select the 'elements' tab, or find the element (e.g. a button), right click and select 'Inspect element' from the dropdown list. For this example, use the <a href= "https://angularjs.org/">AngularJs site</a>. Right click on the 'View on Github' button and select 'Inspect element'. Observe the line
     
  <pre><code><xmp>   <a class="btn btn-large" href="https://github.com/angular/angular.js">
       <i class="icon-github-sign"></i>
@@ -63,7 +63,7 @@ Is highlighted. For this element (or page object) you can see the classname is <
     var pageObjectName = element(by.css(“.btn.btn-large”));
        </code></pre>
 
-The reason it is written as <code>".btn.btn-large"</code> rather than <code>"btn btn-large"</code> is down to locators, which are what tell protractor where to find certain elements. A CSS selector would look like this: <code>".someCSS"</code>, whereas an ID selector would look like this: <code>"#someID"</code>. Some more information on this can be found in the <a href="https://github.com/angular/protractor/blob/master/docs/locators.md">protractor documentation</a>
+The reason it is written as <code>".btn.btn-large"</code> rather than <code>"btn btn-large"</code> is down to locators, which are what tell Protractor where to find certain elements. A CSS selector would look like this: <code>".someCSS"</code>, whereas an ID selector would look like this: <code>"#someID"</code>. Some more information on this can be found in the <a href="https://github.com/angular/protractor/blob/master/docs/locators.md">Protractor documentation</a>
  </p>
 
 <p>
@@ -104,7 +104,7 @@ Create a new folder where you want to keep your project. Open up your preferred 
 <li>How to check that something is displayed on the screen or present in the DOM using <code>isDisplayed</code></li></ul></p>
 
 <p>
-In this task you will test that elements are present and visible on the page using the three center stage buttons on the home page of angularjs.org and the Jasmine matcher <code>.isDisplayed</code> (read more about Jasmine matchers <a href="http://jasmine.github.io/2.0/introduction.html">here</a>. <code>isDisplayed</code> checks to see if the element is actually present on the page: if the element is not in the DOM whilst using <code>isDisplayed</code>, it will throw an exception error. See how to use <code>isDisplayed</code> below.
+In this task you will test that elements are present and visible on the page using the three center stage buttons on the home page of AngularJs.org and the Jasmine matcher <code>.isDisplayed</code> (read more about Jasmine matchers <a href="http://jasmine.github.io/2.0/introduction.html">here</a>. <code>isDisplayed</code> checks to see if the element is actually present on the page: if the element is not in the DOM whilst using <code>isDisplayed</code>, it will throw an exception error. See how to use <code>isDisplayed</code> below.
 
 <ol>
     <li>      Open up angularjs.org</li>
@@ -175,7 +175,7 @@ You can see that there has been a page object created for <code>centerStageButto
    });
        </code></pre></li>
     
-    <li>  Run the test by opening up the command line, navigating to the folder where the config file is located. Type in <code>protractor conf.js</code> and press Enter for the code to start running (make sure you have started the selenium webdriver by typing in <code>webdriver-manager start</code> and pressing enter in the command line).</li>
+    <li>  Run the test by opening up the command line, navigating to the folder where the config file is located. Type in <code>protractor protractorConf.js</code> and press Enter for the code to start running (make sure you have started the selenium webdriver by typing in <code>webdriver-manager start</code> and pressing enter in the command line).</li>
     
     <li>  Did it pass? Yes? Great! No? Double check you have the code written correctly by looking at the code inside the Spec folder here: <a href="https://github.com/hannimator/angularjs.org_protractor">https://github.com/hannimator/angularjs.org_protractor</a> .</li>
     
