@@ -1,7 +1,7 @@
 ---
 author: hpretswell
 title: Protractor For Beginners Part 1
-summary: "The first in a series of simple and short tutorials for automating tests using protractor."
+summary: "This is the first post in a series of simple and short tutorials for automating tests using Protractor. In this post we will look at how to find page elements using the Chrome developer tools, and writing a simple test using the Jasmine matcher isDisplayed."
 tags:
   - testing
   - automation
@@ -35,7 +35,7 @@ layout: default_post
 <p>When I started writing automated tests in Protractor, I had never programmed anything before (unless you count learning enough html/css on codecademy to create an incredibly basic, 90’s style webpage). Some of the problems I encountered whilst learning protractor were very hard to find on Google, which did make my learning a lot slower than I would have liked. Luckily I work with amazing people who are more than happy to share their knowledge which has saved me countless times, but unfortunately there are many people out there who do not have access to such resources. So, I have decided to create a tutorial which documents as many issues as possible that I encountered whilst learning.</p>
 
 <p>
-This tutorial will be broken down into bite sized chunks, with each new blog post as a new task, and it is aimed for people with little to no experience of programming. You will be writing the tests for the <a href= "https://angularjs.org/">angularjs site</a> itself, since his is a good site for practising writing protractor tests for as it is written in Angular.js; the JavaScript framework that protractor runs tests against.</p>
+This tutorial will be broken down into bite sized chunks, with each new blog post as a new task, and it is aimed for people with little to no experience of programming. You will be writing the tests for the <a href= "https://angularjs.org/">angularjs site</a> itself, since this is a good site for practising writing protractor tests for as it is written in Angular.js; the JavaScript framework that protractor runs tests against.</p>
 
 <p>
 Note: if you get stuck at any point, the entire code can be found in <a href="https://github.com/hannimator/angularjs.org_protractor">https://github.com/hannimator/angularjs.org_protractor</a>  for use as reference. Snippets of the code will be shown as examples throughout.</p>
@@ -63,7 +63,7 @@ Is highlighted. For this element (or page object) you can see the classname is <
     var pageObjectName = element(by.css(“.btn.btn-large”));
        </code></pre>
 
-The reason it is written as <code>".btn.btn-large"</code> rather than <code>"btn btn-large"</code> is down to locators, which are what tell protractor where to find certain elements. A CSS locator would look like this: <code>".someCSS"</code>, whereas an ID locator would look like this: <code>"#someID"</code>. Some more information on this can be found in the <a href="https://github.com/angular/protractor/blob/master/docs/locators.md">protractor documentation</a>
+The reason it is written as <code>".btn.btn-large"</code> rather than <code>"btn btn-large"</code> is down to locators, which are what tell protractor where to find certain elements. A CSS selector would look like this: <code>".someCSS"</code>, whereas an ID selector would look like this: <code>"#someID"</code>. Some more information on this can be found in the <a href="https://github.com/angular/protractor/blob/master/docs/locators.md">protractor documentation</a>
  </p>
 
 <p>
@@ -79,7 +79,7 @@ To disable and enable suites and specs, simply place an x in front of the descri
 
 <p>
 Open up <a href= "https://angularjs.org/">https://angularjs.org/</a>.
-Create a new folder where you want to keep your project. Open up Brackets, and open up the folder that you have just created. Create a new .js file called 'HomePageSpec.js' and create a config file called 'protractorConf.js'. Paste in this code in to the 'protractorConf.js' file:
+Create a new folder where you want to keep your project. Open up your preferred text editor (I personally use <a href="http://brackets.io/">Brackets</a>), and open up the folder that you have just created. Create a new .js file called 'HomePageSpec.js' and create a config file called 'protractorConf.js'. Paste in this code in to the 'protractorConf.js' file:
 
  <pre>
        <code>
@@ -104,7 +104,7 @@ Create a new folder where you want to keep your project. Open up Brackets, and o
 <li>How to check that something is displayed on the screen or present in the DOM using <code>isDisplayed</code></li></ul></p>
 
 <p>
-In this task you will test that elements are present and visible on the page using the three center stage buttons on the home page of angularjs.org and the Jasmine matcher <code>.isDisplayed</code> (read more about Jasmine matchers <a href="http://jasmine.github.io/2.0/introduction.html">here</a>. <code>isDisplayed</code> checks to see if the element is actually present on the page: if the element is not in the DOM whilst using <code>isDisplayed</code>, it will throw an exeption error. See how to use <code>isDisplayed</code> below.
+In this task you will test that elements are present and visible on the page using the three center stage buttons on the home page of angularjs.org and the Jasmine matcher <code>.isDisplayed</code> (read more about Jasmine matchers <a href="http://jasmine.github.io/2.0/introduction.html">here</a>. <code>isDisplayed</code> checks to see if the element is actually present on the page: if the element is not in the DOM whilst using <code>isDisplayed</code>, it will throw an exception error. See how to use <code>isDisplayed</code> below.
 
 <ol>
     <li>      Open up angularjs.org</li>
