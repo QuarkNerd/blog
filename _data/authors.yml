@@ -31,6 +31,7 @@ active-authors:
   - tbarclay
   - tkelly
   - tsimmons
+  - wferguson
   - wloveland
   - wreilly
 
@@ -296,3 +297,7 @@ authors:
         feed-description: Bits and bobs on software testing
         author-image: /hpretswell/assets/me.jpg
         author-summary: <p>I work as a Test Engineer with a rather odd background in animation. When I'm not bug hunting I like to read, play piano and partake in local theatre productions.</p>
+    wferguson:
+        name: William Ferguson
+        email: wferguson@scottlogic.com
+        gravatar: 701a9a8da54af53986e7d63b9c11a163
