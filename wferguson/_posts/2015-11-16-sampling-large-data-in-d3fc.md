@@ -5,7 +5,7 @@ summary: "Libraries like d3 and d3fc do a fantastic job at making interactive ch
 layout: default_post
 image: /wferguson/assets/d3fc-sampling/image.png
 ---
-At Scott Logic, we've been developing a collection of charting cmoponents building on the popular [d3](http://d3js.org/) library. These components should complement d3, making it easier to build complex charts. You can see what we've done so far on the [d3fc website](http://d3fc.io/). I've been adding a few data samplers into d3fc, and this post will show the results.
+At Scott Logic, we've been developing a collection of charting components building on the popular [d3](http://d3js.org/) library. These components should complement d3, making it easier to build complex charts. You can see what we've done so far on the [d3fc website](http://d3fc.io/). I've been adding a few data samplers into d3fc, and this post will show the results.
 
 When you have datasets in the order of tens or hundreds of thousands, it's not feasible rendering every data point on a small chart, especially on mobile devices. Therefore, some method of choosing which data points to render that accurately represent your data is required. 
 
