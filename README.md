@@ -150,6 +150,24 @@ If the site fails to build, GitHub will send you an email letting you know about
 
 There are some restrictions with loading external resources on forks; some fonts, Twitter share counts, Disqus comment counts and Disqus threads will not load on the forked versions of the blog (these may appear are errors in you console).
 
+### Spelling
+As part of the submission, spelling is automatically checked. To do this yourself, run `npm install` and `npm test`. Any spelling errors should be printed out.
+
+If there's a word that's classed as incorrectly spelled and you want it to be classed as correct, open `.spelling` and add the following:
+
+```
+# Note the space before and after the '-'.
+ - path/to/blog/post.md
+Some
+words
+like
+mkdir
+expressjs
+etc
+```
+
+If there's a word that's classed as incorrectly spelled and there's a special character in it (eg. `sending*something*spelllllingmistake`), the special characters act as spaces. Therefore you can add in `spelllllingmistake` as a special word and it should work.
+
 ### Deploying to the Scott Logic website
 To get your blog posts on the Scott Logic website, go to your personal GitHub fork of the repository (likely at https://github.com/USERNAME/blog) and click 'Pull Requests' on the right hand side, and then 'Create pull request'. This will create a request to pull your changes into the original blog repository, and automatically notify the blog team. Once they hit the OK button, it'll be pulled in and deployed to http://blog.scottlogic.com/.
 
