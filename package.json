@@ -20,7 +20,7 @@
     "url": "https://github.com/ScottLogic/blog/issues"
   },
   "scripts": {
-    "test": "mdspell \"*/_posts/**/*.md\" --en-gb --ignore-acronyms --ignore-numbers -r -x && echo All good"
+    "test": "mdspell \"*/_posts/**/*.md\" --en-gb --ignore-acronyms --ignore-numbers -r -x"
   },
   "homepage": "http://blog.scottlogic.com",
   "private": true
