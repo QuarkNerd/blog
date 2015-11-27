@@ -19,7 +19,7 @@ Functional programming is becoming more and more popular and it is not just a pa
 
 * It is fast - the most popular compiler (GHC) compiles code into native machine code.
 * It has a rich set of libraries - there is already a high level WebSocket library that implements the protocol for me.
-* It supports [green threads](https://en.wikipedia.org/wiki/Green_threads) which makes it easy to split work across mutliple processors.
+* It supports [green threads](https://en.wikipedia.org/wiki/Green_threads) which makes it easy to split work across multiple processors.
 * Data structures are immutable by default therefore the compiler ensures that data is safe to share between threads.
 
 ## The Problem
@@ -28,7 +28,7 @@ I want to create an application that displays a table of stocks and their curren
 
 ## Client
 
-The client is fairly uninteresting. It connects to a WebSocket server and listens for messages of the form `{stock symbol}:{price}`. When a message is recieved, rows are updated or appended as appropriate. I won't go into any details about the client as it is fairly uninteresting, but here is the code for reference:
+The client is fairly uninteresting. It connects to a WebSocket server and listens for messages of the form `{stock symbol}:{price}`. When a message is received, rows are updated or appended as appropriate. I won't go into any details about the client as it is fairly uninteresting, but here is the code for reference:
 
 {% highlight html %}
 
@@ -89,7 +89,7 @@ The client is fairly uninteresting. It connects to a WebSocket server and listen
 
 ## Server
 
-The server code has to be fast and support multiple clients. To acheive this, the server code must have the following properties:
+The server code has to be fast and support multiple clients. To achieve this, the server code must have the following properties:
 
 * It must utilise all processor cores.
 * Sending messages or negotiating a connection with one client should not block other clients.
@@ -198,12 +198,12 @@ The last bit of code is the `main` function which is the entry point to the appl
 
 1. The type signature of a Haskell program. The Haskell equivalent of `public static void main(String [] args)`.
 2. Says the `main` function is composed of the following actions.
-3. Creates the inital channel from which all other channels are duplicated.
+3. Creates the initial channel from which all other channels are duplicated.
 4. Calls `notifyClients` that was defined earlier. The `forkIO` function is all that's needed to invoke this on a separate thread.
-5. This creates a simple socket server using the [WebSocket](https://hackage.haskell.org/package/websockets-0.9.6.1/docs/Network-WebSockets.html) package. `runServer` takes an ip address to bind to, a port and a function that runs each time a client attempts a connection.
+5. This creates a simple socket server using the [WebSocket](https://hackage.haskell.org/package/websockets-0.9.6.1/docs/Network-WebSockets.html) package. `runServer` takes an IP address to bind to, a port and a function that runs each time a client attempts a connection.
 6. `pc` is a pending connection. At this point, it is still possible to accept or reject the client, but because I'm nice, I call `acceptRequest` that takes a pending connection and gives me a `Connection` in return.
 7. `dupChan` creates a new channel by duplicating the initial one. As described above, when an item gets added to the initial channel it will get added to each of the duplicated channels as well. This lets the initial thread 'broadcast' to all other threads.
-8. Call the `handleConnection` function that was deifned above using the new connection and duplicated channel.
+8. Call the `handleConnection` function that was defined above using the new connection and duplicated channel.
 
 Done! A high performance stock ticker server in 18 lines of code (although I did skip the code that actually gets the prices)! I'm not entirely sure what the aim of this blog post is but maybe it has piqued your interest in Haskell. Its many practical advantages aside, my favourite feature is that it's fun to use.
 

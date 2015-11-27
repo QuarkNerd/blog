@@ -12,7 +12,7 @@ While [d3fc](http://d3fc.io) (a toolkit of charting components built in the d3 s
 
 ## What are we aiming for?
 
-The holy grail of any visualisation in the browser is to achieve 60 frames per second. Without relying on exotic tricks that's around the framerate that we (humans) perceive as continuous motion, and through no strange coincidence, the maximum framerate the browser will render at. There are two things worthing of note -
+The holy grail of any visualisation in the browser is to achieve 60 frames per second. Without relying on exotic tricks that's around the framerate that we (humans) perceive as continuous motion, and through no strange coincidence, the maximum framerate the browser will render at. There are two things worthy of note -
 
 * 60 fps translates to 16.66ms to render each frame. Once you subtract any layout and painting time, that can leave approximately 10ms for your code to do its business.
 * There's no point hitting the 10ms render time 90% of the time, that will just lead to perceptible jank in the rendering. If you're aiming for 60 fps you need to hit that ~10ms 100% of the time.
@@ -29,7 +29,7 @@ Before diving in, let's quickly review what the performance is like currently an
 
 Not good! A few things to note -
 
-* The red triangles are signaling that we're missing the 60fps target
+* The red triangles are signalling that we're missing the 60fps target
 * The bar chart at the top shows sometimes we're missing the 30fps target
 * The red dashed boxes highlight the GC pauses
 
@@ -59,7 +59,7 @@ function render() {
 render();
 {% endhighlight %}
 
-On each interaction, we're relying on D3's inherent idempotent rendering capabilities and re-creating all of our components on each render. Whilst this pattern (clearly!) has a number of disadvantages which we'll come on to, it does fulfill our requirement of fully re-rendering the chart from the model on every interaction.
+On each interaction, we're relying on D3's inherent idempotent rendering capabilities and re-creating all of our components on each render. Whilst this pattern (clearly!) has a number of disadvantages which we'll come on to, it does fulfil our requirement of fully re-rendering the chart from the model on every interaction.
 
 ## Components all the way down
 
@@ -114,7 +114,7 @@ render();
 
 This keeps the component pattern consistent throughout our code and stops the top level render becoming the typical dumping ground of procedural code.
 
-*This is in effect, a (liberal) interpretation of the Flux pattern. In Flux, user interactions are modeled as actions which propagate through to a top-level dispatcher, then into a store which performs the business logic (mutating the model) and then kicks off a render utilising a virtual-DOM to improve performance (by minimising DOM operations). In our code, user interactions are modeled as events which propagate to the top level which performs the business logic (mutating the model) and then kicks off a render utilising [d3's update pattern](http://bost.ocks.org/mike/selection/) to improve performance (by minimising DOM operations). Note that in both patterns user interactions always propagate to the top-level before being acted upon, there is no short-circuiting of rendering logic.*
+*This is in effect, a (liberal) interpretation of the Flux pattern. In Flux, user interactions are modelled as actions which propagate through to a top-level dispatcher, then into a store which performs the business logic (mutating the model) and then kicks off a render utilising a virtual-DOM to improve performance (by minimising DOM operations). In our code, user interactions are modelled as events which propagate to the top level which performs the business logic (mutating the model) and then kicks off a render utilising [d3's update pattern](http://bost.ocks.org/mike/selection/) to improve performance (by minimising DOM operations). Note that in both patterns user interactions always propagate to the top-level before being acted upon, there is no short-circuiting of rendering logic.*
 
 ## Optimising the series
 
