@@ -9,7 +9,8 @@
     "grunt-cli": "^0.1.13",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-less": "^0.12.0",
-    "grunt-contrib-uglify": "^0.8.0"
+    "grunt-contrib-uglify": "^0.8.0",
+    "markdown-spellcheck": "^0.6.2"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,9 @@
   },
   "bugs": {
     "url": "https://github.com/ScottLogic/blog/issues"
+  },
+  "scripts": {
+    "test": "mdspell \"*/_posts/**/*.md\" --en-gb --ignore-acronyms --ignore-numbers -r -x && echo All good"
   },
   "homepage": "http://blog.scottlogic.com",
   "private": true
