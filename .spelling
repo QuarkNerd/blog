@@ -1157,8 +1157,8 @@ swiftz
 shinobicontrols.com
 iOS8
  - sduncan/_posts/2014-02-04-intro-to-ixd.md
-’content
-’content
+’content’
+content’
 ’content
  - sduncan/_posts/2014-07-31-hiphop.md
 Homies
@@ -1293,3 +1293,13 @@ ui-sref-active
 masterDetailState
 stateProvider
 setupMasterDetail
+ - dthomas/_posts/2014-09-18-the-agile-mindset.md
+VersionOne
+Scrum-lite
+Scrum.org
+Scrumbut
+ - wloveland/_posts/2015-05-01-state-of-in-car-uis.md
+Matthaeus
+Krenn
+slippy
+esk

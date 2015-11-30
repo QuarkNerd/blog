@@ -132,7 +132,7 @@ Our cursor changes from a regular arrow to a pointer-finger; simultaneously, an 
 
 *Windows 8 is flawed in many ways, but in this instance their use of implicitly truncated tiles is an effective form of affordance - particularly in mobile technologies where screen space is limited*
 
-Leveraging our understanding of how real material/’content’ would appear if it was leaving our field of view/sight, these tiles continue off the viewport, hinting that there is more content to be had in that direction.  There are no explicit cues at work here; nothing is explicitly stating “Scroll to the right to discover more content”.  The tiles and their nested content being clipped by the edge of the viewport subconsciously imply this.
+Leveraging our understanding of how real material/'content' would appear if it was leaving our field of view/sight, these tiles continue off the viewport, hinting that there is more content to be had in that direction.  There are no explicit cues at work here; nothing is explicitly stating “Scroll to the right to discover more content”.  The tiles and their nested content being clipped by the edge of the viewport subconsciously imply this.
 
 Unlike the train toilet door, but like the push plate, these forms of digital interfaces afford; they do not insist. Breakdowns in interaction design often begin with a poor use of affordance. Forcing users to stop and consider how to achieve their task takes them away from their reasons for performing their task to begin with. Strong interaction design is born from a strong use of affordance. Affording users to subconsciously understand how while focusing on the more important what and why leads towards a positive experience.
 
