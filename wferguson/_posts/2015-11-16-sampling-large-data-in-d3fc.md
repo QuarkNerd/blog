@@ -4,10 +4,14 @@ title: Sampling Large Datasets in d3fc
 summary: "Libraries like d3 and d3fc do a fantastic job at making interactive charts. However, when the data size is in the hundreds of thousands, performance suffers. In this post, I'll have a look at some sampling techniques recently implemented in d3fc, and show them off with a demo."
 layout: default_post
 image: /wferguson/assets/d3fc-sampling/image.png
+categories:
+  - Web
+  - D3
+  - Charting
 ---
 At Scott Logic, we've been developing a collection of charting components building on the popular [d3](http://d3js.org/) library. These components should complement d3, making it easier to build complex charts. You can see what we've done so far on the [d3fc website](http://d3fc.io/). I've been adding a few data samplers into d3fc, and this post will show the results.
 
-When you have datasets in the order of tens or hundreds of thousands, it's not feasible rendering every data point on a small chart, especially on mobile devices. Therefore, some method of choosing which data points to render that accurately represent your data is required. 
+When you have datasets in the order of tens or hundreds of thousands, it's not feasible rendering every data point on a small chart, especially on mobile devices. Therefore, some method of choosing which data points to render that accurately represent your data is required.
 
 d3fc uses two sampling techniques defined in the thesis [Downsampling Time Series for Visual Representation](http://skemman.is/stream/get/1946/15343/37285/3/SS_MSthesis.pdf) by Sveinn Steinarsson: Mode-Median Bucket and Largest Triangle (with one- and three-bucket variations). These data samplers allow large datasets to be plotted at much lower cost than drawing each data point by creating a smaller sample of the data which still encapsulates relevant details.
 
@@ -33,13 +37,13 @@ As previously mentioned, this algorithm tends to smooth peaks and troughs in the
 
 Largest Triangle is a more complicated algorithm. The premise of the algorithm is that, given two pre-determined points, the point in the bucket that forms the largest triangle has the largest effective area and so is the most important in the bucket. The Largest Triangle implementation comes in a one bucket and a three bucket form.
 
-Because the importance of a point is determined by the size of its effective area, extreme values naturally have higher likelihood to be chosen. Therefore noisier data sets produce noisier subsampled data. 
+Because the importance of a point is determined by the size of its effective area, extreme values naturally have higher likelihood to be chosen. Therefore noisier data sets produce noisier subsampled data.
 
 #### One Bucket
 
 The "one bucket" [implementation](http://d3fc.io/components/sampler/largestTriangleOne.html) is where the two other points are the points before and after the current point being checked. This algorithm naturally chooses points with highest difference relative to its neighbours and not the bucket. This brings with it the advantage of being able to pre-compute all the points' effective areas before checking for maxima, reducing code complexity.
 
-#### Three Bucket 
+#### Three Bucket
 
 The "three bucket" [implementation](http://d3fc.io/components/sampler/largestTriangleThreeBucket.html) is where the two predetermined points are chosen from the buckets before and after the bucket being evaluated. The first point is the point chosen to represent the bucket before the current bucket. The second is a "ghost point" representing the next bucket, which in this case is simply an average of the x and y values of that bucket.
 
@@ -73,7 +77,7 @@ The chart has two components -- the main viewport and the navigator providing an
 
 Animations are used to show and test how smoothly the chart performs when it undertakes these calculations. The chart can zoom  and pan to random areas of the data. Naturally, responsiveness of the chart during these transitions and redraws is dependent on the zoom size (the lower the zoom the slower the chart) and the algorithm used. Largely, the animations remained smooth on non-maximal zooms.
 
-Because the data is divided into buckets and the chart data can be moved and resized, the data points in each bucket changes over time. That's why, when you scroll through the data, the chart appears to 'jump' data points, as the data point selected for that bucket changes. 
+Because the data is divided into buckets and the chart data can be moved and resized, the data points in each bucket changes over time. That's why, when you scroll through the data, the chart appears to 'jump' data points, as the data point selected for that bucket changes.
 
 Have a play below and try it for yourself! The code for this example is available on [GitHub](https://github.com/WPFerg/wpferg.github.io/tree/master/d3fc-samplers).
 
