@@ -1,5 +1,5 @@
 function loadTweetCount() {
-    var API_URL = "//cdn.api.twitter.com/1/urls/count.json",
+    var API_URL = "//opensharecount.com/count.json",
         TWEET_URL = "https://twitter.com/intent/tweet";
 
     jQuery(".tweet").each(function() {
@@ -9,7 +9,7 @@ function loadTweetCount() {
 
         if (elem.find(".count").is(':empty')) {
             // Get count and set it as the inner HTML of .count
-            jQuery.getJSON(API_URL + "?callback=?&url=" + url, function(data) {
+            jQuery.getJSON(API_URL + "?url=" + url, function(data) {
                 if (data.count > 0) {
                     elem.css("opacity", 1)
                         .find(".count")
