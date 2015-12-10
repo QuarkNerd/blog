@@ -2,12 +2,6 @@
 {% assign postOrPage = include.postOrPage %}
 
 {% capture url %}{{ site.canonical.url }}{{ postOrPage.url }}{% endcapture %}
-{% if postOrPage.oldlink %}
-  {% capture url %}{{ postOrPage.oldlink }}{% endcapture %}
-{% endif %}
-{% if postOrPage.originalArticleLink %}
-  {% assign url = postOrPage.originalArticleLink %}
-{% endif %}
 {% assign disqusID = postOrPage.url %}
 {% if postOrPage.disqus-id %}
   {% assign disqusID = postOrPage.disqus-id %}
