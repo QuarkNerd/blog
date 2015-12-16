@@ -27,6 +27,7 @@ active-authors:
   - rhendry
   - rmarcalo
   - rwilliams
+  - sbulut
   - shogarth
   - soneill
   - tbarclay
@@ -113,6 +114,9 @@ authors:
         name: Mark Rhodes
         email: mrhodes@scottlogic.com
         gravatar: fd23036b365ac4d5492207da6dbe0248
+    sbulut:
+        name: Seda Bulut
+        email: SBulut@scottlogic.com
     shogarth:
         name: Sam Hogarth
         email: shogarth@scottlogic.com
