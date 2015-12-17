@@ -49,5 +49,5 @@ The Arrival is a wordless migrant story of such beauty that it can't fail to lea
 I spent so many hours pouring over Trouble For Trumpets' illustrations as a child that I had to buy a new copy (not a straightforward task, given its fairly limited print) as a teenager due to the original falling to pieces. What makes this book stand out is its incredible attention to detail. An entire universe is communicated down to the tiniest minutiae in a mere 32 pages without ever distracting from the story. Every illustration contains dozens of mini-stories and many are annotated to call out the names of characters, plants, weapons and other details. As a designer, it reminds me that no matter how mundane a project might initially seem, putting your soul into it and paying attention to every little detail will elevate it to something special.
 
 <a src="http://petercrossart.com/books/trumpets/trouble-for-trumpets/">
-  <img src="{{ site.github.url }}/godds/assets/recommended-reading-trumpets.png" />
+  <img src="{{ site.github.url }}/godds/assets/recommended-reading-trumpets.jpg" />
 </a>
