@@ -1269,14 +1269,6 @@ Startup.Auth.cs
 ResourceController.cs
 ComponentSpace's
 DotNetOpenAuth
- - ceberhardt/_posts/2015-12-04-angular-2.md
-todo-list
-1.x
-Eisenberg's
-Todo
-todo
-ng-conf
-newItem
  - cprice/_posts/2015-11-02-improving-low-barrel-performance.md
 16.66ms
 10ms
@@ -1318,4 +1310,5 @@ todo-list
 Eisenberg's
 Todo
 todo
+ngModel
 ng-conf
