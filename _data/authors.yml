@@ -20,6 +20,7 @@ active-authors:
   - lpage
   - mdunsdon
   - mjose
+  - mtinning
   - nhemley
   - nwolverson
   - rcaulcott-cooper
@@ -314,3 +315,11 @@ authors:
         gravatar: 94ea0f85d46b48edd725e5c6b7b60d62
         author-image: /bdimitrov-SL/assets/profile.jpg
         author-summary: <p>I am a Software Developer at Scott Logic working with .NET and HTML5 web technologies.</p>
+    mtinning:
+        name: Michael Tinning
+        email: mtinning@scottlogic.com
+        author-summary: <p>I am a Senior Software Developer at Scott Logic, specialising in .NET technologies but excitable about many more. I am also involved in the organisation of <a href="http://www.meetup.com/bristech/">BrisTech</a>, a vibrant community of technology enthusiasts in Bristol and the South West.</p>
+        author-image: /mtinning/assets/profile.jpg
+        twitter-handle: mttinning
+        twitter-url: https://twitter.com/mttinning
+        gravatar: c0800747d0696e49dc753be3c345f049
