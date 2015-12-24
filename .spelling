@@ -544,6 +544,7 @@ ReactJS.NET
 downsampling
 subsampled
 subsampling
+sourcemaps
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
 line.y
@@ -1318,3 +1319,20 @@ Bringhurst
 d'oh
 McCloud
 Tufte's
+ - ceberhardt/_posts/2015-12-24-creating-an-angular-2-build.md
+TSLint
+lite-server
+gulpfile
+gulp-tslint
+gulp.task
+tslint
+node-uuid
+node-uuid-1
+2.3.d.ts
+Globbing
+tsd
+node-uuid-global
+node-uuid-base
+immutable.js
+crytpo
+tsconfig-glob
