@@ -50,7 +50,7 @@ The Tour of Heroes project declares its TypeScript version dependency via `devDe
 
 As a result, when you run `npm install` you will now have a local copy of the correct version of the TypeScript compiler.
 
-When you use `npm run` to run one of your scripts, npm adds `node_modules/.bin` to the path provided to the scripts. The net result of this is that the locally installed `tsc` binary will be used rather than the global binary. As a result it is preferable to run `npm run tsc` in order to compiler your project.
+When you use `npm run` to run one of your scripts, npm adds `node_modules/.bin` to the path provided to the scripts. The net result of this is that the locally installed `tsc` binary will be used rather than the global binary. As a result it is preferable to run `npm run tsc` in order to compile your project.
 
 One drawback of using the command-line compiler is that the generated JavaScript and sourcemap files are output directly alongside the source TypeScript files:
 
@@ -275,8 +275,8 @@ However this doesn't work so well if you want to use a more complex library such
 DefinitelyTyped is a community effort to provide type definitions for JavaScript libraries. It has a command-line interface, `tsd`, which is similar to npm. In order to obtain the required type information it is simply a matter locating the corresponding project, then executing `tsd install`. However, things are not so easy in practice! In practice there are a number of pitfalls to this approach:
 
 1. **Versioning** - In the case of node-uuid [the type definitions lack a version](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/node-uuid) (e.g. node-uuid-1.2.3.d.ts), which indicates that they are for the current version of node-uuid, but of course this may no longer be the case.
-2.  **Environments ** - In the case of node-uuid it can be used via common-js (typically in a node environment) or as a global (within the browser). You have to take care to ensure that the correct type definitions are being used.
-3.  **Absent libraries ** - Some libraries do not use DefinitelyTyped, for example immutable-js [ships its type definitions alongside the JavaScript distributable](https://github.com/facebook/immutable-js/tree/master/dist). In my opinion this is a *much better* approach as it removes the versioning issue mentioned earlier.
+2.  **Environments** - In the case of node-uuid it can be used via common-js (typically in a node environment) or as a global (within the browser). You have to take care to ensure that the correct type definitions are being used.
+3.  **Absent libraries** - Some libraries do not use DefinitelyTyped, for example immutable-js [ships its type definitions alongside the JavaScript distributable](https://github.com/facebook/immutable-js/tree/master/dist). In my opinion this is a *much better* approach as it removes the versioning issue mentioned earlier.
 4.  **Conflicting techniques** - This being the world of JavaScript there is more than one solution to a problem! [Typings](https://github.com/typings/typings) is a new type definition manager for TypeScript which I've seen a few projects using.
 
 Anyhow, back to the task in hand. In this case the `node-uuid-global` type definitions are what's needed:
