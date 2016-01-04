@@ -3,6 +3,9 @@
 # global dictionary is at the start, file overrides afterwards
 # one word per line, to define a file override use ' - filename'
 # where filename is relative to this configuration file
+dropwizard
+pom
+yml
 crosshairs
 ie
 accessor
@@ -1336,3 +1339,7 @@ node-uuid-base
 immutable.js
 crytpo
 tsconfig-glob
+ - bjedrzejewski/_posts/2016-01-05-java-microservices-with-dropwizard-tutorial.md
+maxLength
+tasklist-service
+TaskList
