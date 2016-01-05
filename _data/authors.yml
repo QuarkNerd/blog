@@ -37,6 +37,7 @@ active-authors:
   - wferguson
   - wloveland
   - wreilly
+  - bjedrzejewski
 
 authors:
     labs:
@@ -325,3 +326,8 @@ authors:
         twitter-handle: mttinning
         twitter-url: https://twitter.com/mttinning
         gravatar: c0800747d0696e49dc753be3c345f049
+    bjedrzejewski:
+        name: Bartosz Jedrzejewski
+        email: bjedrzejewski@scottlogic.com
+        gravatar: 5cb43ae453151d6c0e22b3ebf959e5f5
+        author-summary: <p>I am a Senior Software Developer at Scott Logic. I use Java and JavaScript to solve all kind of problems- from hobby projects to enterprise financial systems. Currently I am fascinated by JavaScipt Frameworks, Microservice Architecture and board games.</p>
