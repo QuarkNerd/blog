@@ -13,8 +13,8 @@ This blog shows how to get started with microservices using [Dropwizard](http://
 The year 2015 was definitely a 'Year of Microservices' in Java. It seems that microservices and technologies such as Docker and Dropwizard permanently changed how Java development
 is done. Developers familiar with Java application servers are facing a dilemma- if they already know how to do something in Tomcat, JBoss, or other application server, why
 would they spend time learning a new technology? Why chose something different than what is already well understood? As you will see in this example, not only the time investment of learning
-Dropwizard is small (compared to alternatives) it is also rapid and lightweight framework for getting a web service up and running. There are numerous other advantages
-when deciding for Dropwizard over other options (and some disadvantages), but now it is not a time for that.
+Dropwizard is small (compared to alternatives) it is also a rapid and lightweight framework for getting a web service up and running. There are numerous other advantages
+when deciding for Dropwizard over other options (and some disadvantages), but now it is not the time for that.
 What follows is Dropwizard in Anger, and Java microservice in just over 200 lines (counting the .pom) of code!
 
 ## Project Idea - the TaskList service
@@ -79,9 +79,9 @@ application as a single jar file. Executing a jar is the way Java microservices 
                         <phase>package</phase>
                         <goals>
                             <goal>shade</goal>
-                        </goals>M
+                        </goals>
                         <configuration>
-                            <trMansformers>
+                            <transformers>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
                                 <transformer
@@ -102,9 +102,11 @@ application as a single jar file. Executing a jar is the way Java microservices 
 
 One thing that is familiar to anyone who had to work with Java application servers is the huge and hard to understand
 configurations file or files. Here Dropwizard helps again. It defines plenty of sensible [defaults](https://dropwizard.github.io/dropwizard/0.9.1/docs/manual/configuration.html)
-that we don't have to worry about in this example and let us decide exactly how the configuration will look like. For developers it may
+that we don't have to worry about in this example and lets us decide exactly how the configuration will look like. For developers it may
 not be scary to go through large XML's, but for most users- this can make a difference between something they can change
-themselves or asking for help. We will call the configuration file `tasklist-service.yml` and let's define the only variable
+themselves or asking for help. The language chosen for Dropwizard configuration file is [YAML](https://en.wikipedia.org/wiki/YAML).
+It is a very simple human-readable data serialization format. As you will see, to use it in the configuration file, you don't
+have to know much about it. We will call the configuration file `tasklist-service.yml` and let's define the only variable
 that we want users to set- `maxLength` for the query. The whole file reads:
 
 {% highlight xml %}
@@ -142,7 +144,7 @@ if you are familiar with it, you already have a head start.
 
 ## Data Model
 
-Having data model that can live both as JSON and Java object is very beneficial, as it lets the developers make full use
+Having a data model that can live both as JSON and Java object is very beneficial, as it lets the developers make full use
 of the strong typing found in Java. The only item we will use in this API is a `Task` and it's definition will be very simple.
 It is also making use of Jackson:
 
@@ -182,10 +184,10 @@ public class Task {
 
 ## Application Logic
 
-Having dealt with the configuration (in less than 30 lines) and completing our simple Data Model, now is the time to write
+Having dealt with the configuration (in less than 30 lines) and completing our simple data model, now is the time to write
 the application logic. For Dropwizard, the resources are where most of the logic lives. These provide the endpoints (Web Services)
 that will grant the access for the outside. Our task is to gather the processes that run on the system. Assuming that the
-environment in which the project will be run is Unix / Linux based (or git-bash in windows) you can get the active processes from
+environment in which the project will be run is Unix / Linux based (or git-bash in Windows) you can get the active processes from
 terminal with `ps -e`. If you are using Windows, feel free to customise the code.
 This method combined with the server configuration and customisable user query will provide the
 running tasks. The following code does just that:
@@ -237,6 +239,7 @@ public class TaskListResource {
                     new BufferedReader(new InputStreamReader(p.getInputStream()));
             int processedLines = 0;
             while ((line = input.readLine()) != null) {
+                //Quick fix to remove the first line, as it contains no data (this may be environment dependent)
                 if(processedLines == 0){
                     processedLines++;
                     continue;
@@ -310,9 +313,15 @@ And your first micro-service is running.
 
 You can check it on: <http://localhost:8080/task-list>
 
+<img src="{{ site.github.url }}/bjedrzejewski/assets/tasklistservice.jpg" />
+
 You can also filter only the process that contain 'Java' keyword: <http://localhost:8080/task-list?contains=java>
 
+<img src="{{ site.github.url }}/bjedrzejewski/assets/tasklistservice-contains.jpg" />
+
 Or even see some server diagnostics on: <http://localhost:8081/>
+
+<img src="{{ site.github.url }}/bjedrzejewski/assets/tasklistservice-diag.jpg" />
 
 ## Afterword
 
