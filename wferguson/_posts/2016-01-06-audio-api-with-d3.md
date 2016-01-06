@@ -12,6 +12,10 @@ categories:
 
 HTML5 adds a lot of new features for developers to make use of to build rich web applications. One of these is the Web Audio API -- not to be confused with just the `<audio>` element -- which allows access to raw audio data. This data can then be analysed and visualised through the HTML5 canvas or using charting libraries like D3.
 
+<img src="{{ site.github.url }}/wferguson/assets/audio-1/preview.gif" style="display: block; margin: auto;"/>
+
+**You can see the application on [GitHub Pages](http://wpferg.github.io/MusicVisualisation/)**
+
 ### Web Audio: What is it?
 The Web Audio API (in brief) is a set of nodes connected together. These nodes can create, modify or output the audio. A rather basic analogy for this is the flow of water from a treatment plant to a house. The plant sends water (audio) though pipes, where it gets filtered and inspected, before being sent to the house (speakers) for use.
 
