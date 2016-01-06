@@ -233,8 +233,9 @@ public class TaskListResource {
             //First line contains no data so it is omitted
             for(int i = 1; i < lines.size(); i++) {
                 String line = lines.get(i);
+                //filter the processes depending on the ?contains= from the url
                 if(line.contains(query)) {
-                    //filter the processes depending on the ?contains= from the url
+                    //trim the processes according to the maxLength
                     tasks.add(new Task(counter.getAndIncrement(), line.substring(0, Math.min(line.length(), maxLength))));
                 }
             }
