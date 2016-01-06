@@ -177,13 +177,17 @@ that will grant the access for the outside. Our task is to gather the processes 
 environment in which the project will be run is Unix / Linux based (or git-bash in Windows) you can get the active processes from
 terminal with `ps -e`. If you are using Windows, feel free to customise the code.
 This method combined with the server configuration and customisable user query will provide the
-running tasks. The following code does just that:
+running tasks. The following code takes care of that while using (SLF4J)[http://www.slf4j.org/]
+and [Google Guava](https://github.com/google/guava) libraries provided with Dropwizard:
 
 {% highlight java %}
 package com.bjedrzejewski.tasklistservice;
 
 import com.google.common.base.Optional;
 import com.codahale.metrics.annotation.Timed;
+import com.google.common.io.CharStreams;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -204,45 +208,40 @@ import java.util.concurrent.atomic.AtomicLong;
 public class TaskListResource {
     private final int maxLength;
     private final AtomicLong counter;
+    //SLF4J is provided with dropwizard. Logback is also provided
+    Logger log = LoggerFactory.getLogger(TaskListResource.class);
 
     public TaskListResource(int maxLength) {
         this.maxLength = maxLength;
-        //Create unique id's
         this.counter = new AtomicLong();
     }
 
     @GET
     @Timed
-    public List<Task> sayHello(@QueryParam("contains") Optional<String> contains) {
+    public List<Task> listTasks(@QueryParam("contains") Optional<String> contains) {
         List<Task> tasks = new ArrayList<Task>();
 
         String query = contains.or("");
 
         try {
-            String line;
             //Get processes from the terminal
             Process p = Runtime.getRuntime().exec("ps -e");
             BufferedReader input =
                     new BufferedReader(new InputStreamReader(p.getInputStream()));
-            int processedLines = 0;
-            while ((line = input.readLine()) != null) {
-                //Quick fix to remove the first line, as it contains no data (this may be environment dependent)
-                if(processedLines == 0){
-                    processedLines++;
-                    continue;
-                }
-                //filter the processes depending on the ?contains= from the url
+            //Dropwizard comes with google guava
+            List<String> lines = CharStreams.readLines(input);
+            //First line contains no data so it is omitted
+            for(int i = 1; i < lines.size(); i++) {
+                String line = lines.get(i);
                 if(line.contains(query)) {
-                    //trim the processes according to the maxLength
+                    //filter the processes depending on the ?contains= from the url
                     tasks.add(new Task(counter.getAndIncrement(), line.substring(0, Math.min(line.length(), maxLength))));
                 }
-                processedLines++;
             }
             input.close();
-        } catch (Exception err) {
-            err.printStackTrace();
+        } catch (Exception e) {
+            log.error("Exception in listTasks method.", e);
         }
-
         return tasks;
     }
 }
