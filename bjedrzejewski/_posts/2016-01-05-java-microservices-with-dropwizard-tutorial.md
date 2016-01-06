@@ -177,7 +177,7 @@ that will grant the access for the outside. Our task is to gather the processes 
 environment in which the project will be run is Unix / Linux based (or git-bash in Windows) you can get the active processes from
 terminal with `ps -e`. If you are using Windows, feel free to customise the code.
 This method combined with the server configuration and customisable user query will provide the
-running tasks. The following code takes care of that while using (SLF4J)[http://www.slf4j.org/]
+running tasks. The following code takes care of that while using [SLF4J](http://www.slf4j.org/)
 and [Google Guava](https://github.com/google/guava) libraries provided with Dropwizard:
 
 {% highlight java %}
