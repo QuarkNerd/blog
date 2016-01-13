@@ -15,6 +15,7 @@ active-authors:
   - dpizzi
   - dthomas
   - dkerr
+  - dwybourn
   - godds
   - isullivan
   - jbandenburg
@@ -331,3 +332,9 @@ authors:
         email: bjedrzejewski@scottlogic.com
         gravatar: 5cb43ae453151d6c0e22b3ebf959e5f5
         author-summary: <p>I am a Senior Software Developer at Scott Logic. I use Java and JavaScript to solve all kind of problems- from hobby projects to enterprise financial systems. Currently I am fascinated by JavaScipt Frameworks, Microservice Architecture and board games.</p>
+    dwybourn:
+        name: David Wybourn
+        email: dwybourn@scottlogic.com
+        author-summary: <p>I am a software developer at Scott Logic, my experience is in back end server software in C/C++ and Java, however I'm continuously learning new higher level and specilist languages such as Groovy, Scala, Python, Go, etc.</p>
+        author-image: /dwybourn/assets/profile.jpg
+        gravatar: ebdfd47c91385d9c1d45995d06f5cc0b    
