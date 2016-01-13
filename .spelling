@@ -548,6 +548,9 @@ downsampling
 subsampled
 subsampling
 sourcemaps
+Hadoop
+hadoop
+movie
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
 line.y
@@ -1349,3 +1352,33 @@ keypress
 OnPush
 zone.js
 uuid
+ - dwybourn/_posts/2016-01-13-introduction-to-hadoop-and-map-reduce.md
+nk
+_SUCCESS
+movies.txt
+SNAPSHOT.jar
+com.scottlogic.reviewsanalyser.ReviewAnalyser
+path-to-movies
+mvn
+part-r-00000
+quickstart
+datanodes
+datanode
+namenode
+args.length
+System.exit
+System.err.println
+args
+ClassNotFoundException
+txt
+blocksize
+LongWritable
+context.write
+IOException
+InterruptedException
+ReviewsMapper
+ReviewsReducer
+ReviewsAnalyser
+Cloudera's
+textinputformat.record.delimiter
+ReviewsAnalyser-0
