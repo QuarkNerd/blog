@@ -163,7 +163,7 @@ As you can see, the main bulk of this class is creating a `Job`, it’s here whe
 At the top of the method we create a configuration and we set a property called “textinputformat.record.delimiter”. This tells our Hadoop program that every value entry is delimited with a double newline character. We have to do this as each review entry is multiple lines, with each one separated by a two newlines between them. If each review entry was on a single line, then there would be no need to create our own configuration here as the default delimiter is a single newline.
 
 ### Running the example
-The code and its maven file can be found here. (add github link). Checkout the code (or type it out yourself) and run the following to build the program:
+The code and its maven file [can be found on github](https://github.com/dwybourn/hadoop-reviews-analyser). Checkout the code (or type it out yourself) and run the following to build the program:
 
     mvn clean install 
     
