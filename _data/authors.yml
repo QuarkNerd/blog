@@ -24,6 +24,7 @@ active-authors:
   - mjose
   - mtinning
   - nhemley
+  - nsoper
   - nwolverson
   - rcaulcott-cooper
   - rhamilton
@@ -338,3 +339,9 @@ authors:
         author-summary: <p>I am a software developer at Scott Logic, my experience is in back end server software in C/C++ and Java, however I'm continuously learning new higher level and specilist languages such as Groovy, Scala, Python, Go, etc.</p>
         author-image: /dwybourn/assets/profile.jpg
         gravatar: ebdfd47c91385d9c1d45995d06f5cc0b    
+    nsoper:
+        name: Nick Soper
+        email: nsoper@scottlogic.com
+        author-summary: <p>I am a Senior Software Developer at Scott Logic. I have many years C# experience but recently I've been writing a lot of JavaScript. I am interested in functional programming and would love to get stuck into some client work using F# one day. I also enjoy music (metal and jazz), reading and cats.</p>
+        gravatar: 5aaeb8af94f81312997215b90cd6d1af
+        author-image: /nsoper/assets/nsoper.jpg
