@@ -8,7 +8,7 @@ categories:
   - Web
 ---
 
-*Very soon after we first published this post, Microsoft announced they had changed the name from **ASP.NET 5** to **ASP.NET Core 1.0**. Rather than re-writing this post, I've summarised the reasons for the change [in a new post]({{site.github.url}}/2016/01/20/aspnet5-to-aspnetcore.html).*
+*Very soon after we first published this post, Microsoft announced they had changed the name from **ASP.NET 5** to **ASP.NET Core 1.0**. Rather than re-writing this post, I've summarised the reasons for the change [in a new post]({{site.github.url}}/2016/01/21/aspnet5-to-aspnetcore.html).*
 
 Since we [last wrote about ASP.NET 5](http://blog.scottlogic.com/2015/05/14/aspnet50-intro.html) Microsoft have pushed the [first release candidate (RC1)](https://github.com/aspnet/home/releases/v1.0.0-rc1-final) for the new platform. According to Microsoft's [Schedule and Roadmap](https://github.com/aspnet/Home/wiki/Roadmap) we will be seeing <span id="version5-of-1">version 1.0.0 (of version 5?)</span> in Q1 2016.
 
