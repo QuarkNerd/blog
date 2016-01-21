@@ -10,6 +10,7 @@ active-authors:
   - ceberhardt
   - cgrant
   - cprice
+  - csmith
   - dgorst
   - dmcnamee
   - dpizzi
@@ -347,3 +348,10 @@ authors:
         author-image: /nsoper/assets/nsoper.jpg
         twitter-url: https://twitter.com/devsoper
         twitter-handle: devsoper
+    csmith:
+        name: Chris Smith
+        email: csmith@scottlogic.co.uk
+        author-summary: <p>I'm a Lead Developer at Scott Logic. I have a lot of experience with C# and JavaScript. I'm currently interested in DevOps (especially Docker) and functional programming, e.g. F#, Erlang, Clojure.</p>
+        gravatar: 2c3c188fa868c9e20e809e5af1d1aa29
+        twitter-url: https://twitter.com/cjsmithie
+        twitter-handle: cjsmithie
