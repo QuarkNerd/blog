@@ -153,7 +153,27 @@ There are some restrictions with loading external resources on forks; some fonts
 ### Spelling
 As part of the submission, spelling is automatically checked. To do this yourself, run `npm install` and `npm test`. Any spelling errors should be printed out.
 
-If there's a word that's classed as incorrectly spelled and you want it to be classed as correct, open `.spelling` and add the following:
+If there's a word that's classed as incorrectly spelled and you want it to be classed as correct there are a couple of ways in which you can do this.
+
+#### Via the mdspell interactive tool
+
+The preferred route is to use the interactive `mdspell` tool. Install mdspell globally:
+
+```
+npm i markdown-spellcheck -g
+```
+
+Then run the following:
+
+```
+mdspell */_posts/**/*.md -n -a
+```
+
+This will spell check all of the files allowing you to add words to the global or local (post specific) sections of the `.spelling` file.
+
+#### Manual
+
+You can edit the `.spelling` file manually by adding the following:
 
 ```
 # Note the space before and after the '-'.
@@ -224,4 +244,3 @@ grunt build:dev
 Development versions of the files should not be committed to the main repository.
 
 **Please see the READMEs for [styles](https://github.com/ScottLogic/blog/blob/gh-pages/less/README.md) and [scripts](https://github.com/ScottLogic/blog/blob/gh-pages/scripts/README.md) for more information.**
-
