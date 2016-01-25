@@ -551,6 +551,8 @@ sourcemaps
 Hadoop
 hadoop
 movie
+VirtualBox
+Dockerfile
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
 line.y
@@ -1414,3 +1416,10 @@ Hanselman
 Microsoft.AspNetCore.Mvc
 DamianEdwards
 aspnetcore
+ - csmith/_posts/2016-01-25-playing-with-docker-compose-and-erlang.md
+distributed-erlang
+erl
+erlc
+Dockerfile's
+# This is due to a bug in mdspell, which has been reported.
+_gateway
