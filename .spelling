@@ -553,6 +553,7 @@ hadoop
 movie
 VirtualBox
 Dockerfile
+redux
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
 line.y
@@ -1416,6 +1417,7 @@ Hanselman
 Microsoft.AspNetCore.Mvc
 DamianEdwards
 aspnetcore
+<<<<<<< HEAD
  - csmith/_posts/2016-01-25-playing-with-docker-compose-and-erlang.md
 distributed-erlang
 erl
@@ -1423,3 +1425,6 @@ erlc
 Dockerfile's
 # This is due to a bug in mdspell, which has been reported.
 _gateway
+ - ceberhardt/_posts/2016-01-25-angular2-time-travel-with-redux.md
+rollbacks
+localStorage
