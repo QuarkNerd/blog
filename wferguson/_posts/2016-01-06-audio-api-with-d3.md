@@ -2,12 +2,16 @@
 author: wferguson
 title: Exploring the Web Audio API with D3
 summary: "In this post, I investigate the HTML5 Web Audio API, using it with D3 to perform real-time audio visualisation."
+title-short: Web Audio with D3
 layout: default_post
 image: /wferguson/assets/audio-1/frequency-waveform.png
 categories:
   - Web
   - D3
   - HTML5
+image: wferguson/assets/featured/webaudio.png
+tags:
+  - featured
 ---
 
 HTML5 adds a lot of new features for developers to make use of to build rich web applications. One of these is the Web Audio API -- not to be confused with just the `<audio>` element -- which allows access to raw audio data. This data can then be analysed and visualised through the HTML5 canvas or using charting libraries like D3.
