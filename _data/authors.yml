@@ -31,6 +31,7 @@ active-authors:
   - rhamilton
   - rhendry
   - rmarcalo
+  - rsillem
   - rwilliams
   - sbulut
   - shogarth
@@ -355,3 +356,9 @@ authors:
         gravatar: 2c3c188fa868c9e20e809e5af1d1aa29
         twitter-url: https://twitter.com/cjsmithie
         twitter-handle: cjsmithie
+    rsillem:
+        name: Robin Sillem
+        email: rsillem@scottlogic.com
+        gravatar: 858e2c9ef66e0f7850a7ea8505f76084
+        author-image: /rsillem/assets/profile.jpg
+        author-summary: <p>I am a Lead Developer at Scott Logic.</p>
