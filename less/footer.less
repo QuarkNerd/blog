@@ -1,4 +1,4 @@
-#footer {
+.footer-bottom {
   color: #666;
   font-size: 12px;
   padding: 80px 0 0.2em;
@@ -12,5 +12,33 @@
 
   p {
     margin: 1.5em 0 0;
+  }
+}
+
+.footer-social {
+  text-align: center;
+  background: @black;
+
+  .social-icons {
+    display: inline-block;
+    text-align: left;
+
+    a {
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+      margin-right: 10px;
+
+      &.facebook-icon {
+        background: @black url("assets/social/facebook-icon.png")
+      }
+      &.linkedin-icon {
+        background: @black url("assets/social/linkedin-icon.png")
+      }
+      &.twitter-icon {
+        background: @black url("assets/social/twitter-icon.png")
+      }
+    }
+
   }
 }
