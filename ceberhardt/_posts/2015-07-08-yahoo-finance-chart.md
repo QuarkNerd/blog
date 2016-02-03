@@ -86,7 +86,7 @@ The simple code above results in the following chart:
 
 <small>View the [full code for this example](http://bl.ocks.org/ColinEberhardt/8feaa6deaf7a5e276c49) via D3 bl.ocks.</small>
 
-##Adding gridlines and line
+## Adding gridlines and line
 
 Where other charting libraries might represent line, point and area as a single series type, d3fc prefers a 'micro component' approach where each are separate. For this chart an area and line series are required:
 

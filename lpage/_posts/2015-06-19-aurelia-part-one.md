@@ -11,7 +11,7 @@ summary: This post gives a walkthrough of a project that makes use of the new Au
 image: lpage/assets/featured/aurelia-large.png
 ---
 
-###The Aurelia Story
+### The Aurelia Story
 
 Aurelia is project created by Rob Eisenberg, a former member of the Angular 2.0 team and creator of Durandal and Caliburn. In his own words...
 
@@ -19,11 +19,11 @@ Aurelia is project created by Rob Eisenberg, a former member of the Angular 2.0 
  
 After reading through [an example of porting a simple app from angular 2 to Aurelia](http://eisenbergeffect.bluespire.com/porting-an-angular-2-0-app-to-aurelia/) I was intrigued and felt it was worth giving it a go to find out what it was like, how different it was and how close it was to being production ready.
 
-###less2css
+### less2css
 
 The [less2css](http://www.less2css.org) site allows you to try out less and see the resultant css. Its been a great learning and testing tool, but has been out of date a while (version 2 not available) and it's been frustrating that its not hosted on github pages (it hasn't been that reliable) and that it requires a server-side component. I thought this would be a good project to try Aurelia out on.
 
-###Creating the Skeleton
+### Creating the Skeleton
 
 First I created the repo..
 
@@ -52,7 +52,7 @@ I can see there is a `gulp serve` command and when I run that I get a web server
 
 <img src="{{ site.github.url }}/lpage/assets/aurelia-one/aurelia-skeleton-pageone.png" alt="Aurelia skeleton first page" />
 
-###A single text editor
+### A single text editor
 
 The first thing I'm going to do is try removing all the pages but one. `index.html` is just a bootstrapper and the rest of the files are in src. I'll keep the router for now, but [remove the nav bar](https://github.com/less/less-preview/commit/6a5a677813f4ae6e5b3fa450d204982759b6a01b).
 
@@ -163,7 +163,7 @@ And below is shown my now working text editor...
 
 <img src="{{ site.github.url }}/lpage/assets/aurelia-one/one-editor.png" alt="A text editor with less syntax highlighting" />
 
-###Multiple text editors
+### Multiple text editors
 
 Next, I want to try having two editors, one of which is read only - the left hand side will be the less editor and the right hand side the resultant css editor which will be read only. Strangely I found that having the two elements be the children of a single parent didn't work, but everything went okay when I added sub div's which will probably be needed anyway.
 
@@ -199,7 +199,7 @@ I also added a custom element attribute `@customElement("cmeditor")` though it s
 
 The next risky thing is browser support - as it seems [IE9 support is a new thing](http://aurelia.io/docs.html#browser-support). So I followed the instructions and hit problems. I solved it and sent a [PR to update their instructions](https://github.com/aurelia/documentation/pull/111). Hopefully it should be easier for the next person!
 
-###Less compilation
+### Less compilation
 
 I want to set up the bindings and have less compile source code as the user types, so I write a utility class that loads less from our CDN and a static gulp task that generates a list of less versions (since the CDN has no directory listing we can scan). 
 If you are coming from Angular 1, you might expect Aurelia to want to know about services, but it doesn't have its own module system (it uses jspm), you just create a [new ES6 module that does what you want](https://github.com/less/less-preview/blob/dd4a9ca3286d442588c95037f511793d8c23fed8/src/less.js).
@@ -251,7 +251,7 @@ Then I need to make my editor update its contents when the value changes. I got 
 
 And now I have 2 editors, when I edit Less code in one, the CSS code in the right changes!
 
-###Saving to the URL
+### Saving to the URL
 
 I want the less code to be saved on the URL so that you can link to code examples and while playing with setting `location.hash`, I find you get a routing exception even when routing isn't configured. So, I decided to start removing routing. Aurelia is built as a very small core framework with plugins for everything (from templating to routing to http). Aurelia is generally started with [Aurelia bootstrapper](https://github.com/aurelia/bootstrapper) which imports all the modules and then you choose which ones you want to initialise. From the documentation, here is a setup example...
 

@@ -25,7 +25,7 @@ In this post, we will explore three factors that should be considered before mak
 1. When machines or large batches of data are added to an existing cluster, background loads are introduced to split and distribute data.
 
 
-###Introduction to Sharded Clusters
+### Introduction to Sharded Clusters
 
 MongoDB contains a database server component that is responsible for persisting data and carrying out queries on that data.  With this component on a single machine there are operational concerns as this introduces a single point of failure.  MongoDB's replica set feature comes to the rescue, and allows 'secondary' machines to replicate the data on the 'primary' and be ready to take over on a failure.
 
@@ -33,7 +33,7 @@ Whilst a replica set can alleviate some operational risks, and are typically fou
 
 Each shard in a sharded cluster exclusively holds onto a set of chunks. These chunks describe a subset of the data stored and can be migrated from one shard to another, either to maintain an even distribution of data or to handle shards being added or removed from the cluster.  It is this distribution that provides you with the performance benefits, as data interactions can be routed to a single shard, reducing the load on other shards.
 
-##Consider: Will the benefits outweigh the costs?
+## Consider: Will the benefits outweigh the costs?
 
 If you are not currently using a sharded cluster in MongoDB, you are forced to increase the specifications of your replica set machines to cope with additional load.  For some systems this approach works well, but there does come a point for some where this does not become worthwhile.
 
@@ -50,7 +50,7 @@ In order to evaluate whether this is the right choice for you, the most importan
 Your ability to make forecasts is important, for you need to see whether it is cheaper to have the hardware requirements you need all on a single machine or whether it is more financially viable to spread your requirements over several machines.  There are only so many cores that you can fit in one machine and only so much I/O you can transfer from a single machine, so technology may force your hand in the future and require you to think about transitioning to a sharded cluster.
 
 
-##Consider: How should data be split into chunks?
+## Consider: How should data be split into chunks?
 
 A shard key acts as an index over your data and is needed to create a sharded cluster.  When setting up a sharded cluster, this shard key is broken up into chunks by MongoDB - using a configurable data storage criterion.
 
@@ -67,7 +67,7 @@ Finally, the shard key value should be _distinct across the data_.  This is impo
 Meeting all these criteria tends to be infeasible in real world systems, so you need to base your decisions on the typical usage patterns of your data.  When your system goes into production the performance of your shard key should be regularly monitored, as this should give you insight about your current usage patterns and help you be proactive when these patterns change.
 
 
-##Consider: What is the impact of maintenance tasks?
+## Consider: What is the impact of maintenance tasks?
 
 As part of the sharded cluster feature, MongoDB employs a balancer to distribute chunks evenly between shards.  Whilst this helps keep the overall system scalable, there is an additional load placed across the sharded cluster when chunks are transferred.
 
@@ -77,7 +77,7 @@ Chunks can also be split in two and distributed on the fly when certain data sto
 
 If you can predict the amount of data you will be receiving and the range of values your shard key will have, it may be possible for you to manually split chunks beforehand. By doing so, the data will be written to a chunk that is unlikely to be automatically split or transferred to another shard.
 
-##What have we discovered?
+## What have we discovered?
 
 So far, we have looked at the key considerations you need to make before transitioning over to a sharded cluster.  What we have seen is that there is a tremendous amount of value in collecting performance metrics as they allow you to evaluate your current resource usage, make forecasts and anticipate future performance bottlenecks.  We have also seen that the transition to a sharded cluster introduces an additional deployment and maintainability cost and that the addition or removal of a machine can add an additional load.  Finally, we have touched upon what a shard key is and how this one choice defines the types of performance benefits you can receive from a sharded cluster.
 

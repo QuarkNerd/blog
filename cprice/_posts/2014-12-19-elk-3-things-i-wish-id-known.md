@@ -12,7 +12,7 @@ disqus-id: /2014/12/19/elk-3-things-i-wish-id-known.html
 
 I’ve recently completed an ELK (Elasticsearch, Logstash & Kibana) real-time log processing implementation for an HTML5 FX trading platform. Along the way I’ve learnt a few things I wish I’d known beforehand. This post shares some more details of the project and hopefully some time saving tips.
 
-#ELK
+# ELK
 
 <img src="{{ site.github.url }}/cprice/assets/ELKOverview.png" title="ELK Overview"/>
 
@@ -26,7 +26,7 @@ The ELK stack is made up of 3 components -
 
 <img src="{{ site.github.url }}/cprice/assets/Kibana4beta3.png" title="Kibana 4 beta 3 (taken from the release blog post)"/>
 
-#A brief case study
+# A brief case study
 
 The platform in question was a real-time FX trading system supporting 100s of concurrent client connections. Supporting this were 10s of multiply redundant services spread across 10s of Windows and Linux servers straddling a DMZ and internal network. As is typical of such systems, there were strict security policies governing communication between these services.
 

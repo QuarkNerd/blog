@@ -48,7 +48,7 @@ So if you want to avoid the possibility of your application blowing up at runtim
 
 This had me scratching my head for a while, until thankfully a colleague of mine, [Nicholas Wolverson](http://www.scottlogic.com/blog/nwolverson/), pointed out the seemingly obvious - you catch the exception with Objective-C!
 
-##Catching Exceptions in Swift
+## Catching Exceptions in Swift
 
 The simple solution to the problem is to create a small Objective-C 'shim' that catches any exceptions that might be thrown, returning them via the method signature directly.
 

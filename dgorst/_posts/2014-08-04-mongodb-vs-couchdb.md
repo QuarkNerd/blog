@@ -13,7 +13,7 @@ As part of a project I'm working on, I have a requirement for a NoSQL database. 
 
 First, a little more information about my use case. I am part of a team who will be sending a balloon up into near-space (if you're interested, you can find out about us on our [Wordpress page](http://projectlatex.wordpress.com/)). As it is in flight, the balloon will be sending telemetry information via radio back down to a ground station. Once we receive the data at the ground station, we store it in a database of some kind. The decoded data is not going to be particularly relational, hence a NoSQL database seems like a good storage method. The data will be handled as Javascript objects so either MongoDB or CouchDB seem to be a fairly good fit, given that they work by storing JSON documents.
 
-##The CAP triangle
+## The CAP triangle
 
 A few years ago, Nathan Hurst wrote a [blog post giving a visual guide to NoSQL systems](http://blog.nahurst.com/visual-guide-to-nosql-systems). That post included the image below.
 
@@ -32,7 +32,7 @@ Which system you go for would normally be determined by the priorities of your p
 
 My use case is likely to only involve a single database node and I'm not expecting particularly high database traffic. With these relatively flexible constraints, I would expect that either MongoDB or CouchDB would be able to meet my use case without any problems. In the rest of this post I'll look at how easy both systems were to use and I'll make my decision based on that. 
 
-##The data to be stored
+## The data to be stored
 
 The snippet below shows an example of the type of telemetry information which we'll be storing.
 
@@ -51,7 +51,7 @@ The snippet below shows an example of the type of telemetry information which we
 
 We'll be receiving data every few seconds. In this blog post, we'll be running a database server locally and our client code will be running in Node.js. In the next couple of sections, we'll look at how to store the data and how to make the kind of queries which we are likely to make on it. Let's look at MongoDB first.
 
-##MongoDB
+## MongoDB
 
 With MongoDB installed, the server can be started by calling **mongod** from the command line. Once running, we’re in a position to add data and make queries. In this post, two separate Node.js processes are used; one to insert new data into the database when it becomes available, and the other to make queries on the database.
 
@@ -88,7 +88,7 @@ module.exports = {
 
 As well as defining the schema, we declare the URL to the database and a model class which is based on the schema. Mongoose uses this model to create new documents and to query the database.
 
-###Writing to the database
+### Writing to the database
 
 Now let's add documents to the database when new telemetry data is received. In our Node app which is receiving the telemetry data, let's add a dependency on Mongoose and our schema module.
 
@@ -126,7 +126,7 @@ dbTelemetryInfo.save(function(err, dbTelemetryInfo) {
 });
 {% endhighlight %}
 
-###Querying the database
+### Querying the database
 
 In a separate process, we'll query the data. In a real-world app we'd probably want to see a snapshot of the latest data, and we might want to display a graph of historical data, such as altitude over time. Let's write some queries to get this information. First, let's create and open a connection to the database.
 
@@ -174,7 +174,7 @@ TelemetryDbModel
 
 Great, so now we have a system where we're saving telemetry information to the database when we receive it, and we're able to query it in order to display the information. I like the query interface that MongoDB offers, and the QueryBuilder interface which Mongoose builds on top of this also seems very powerful. Now that we have a working system with MongoDB, let's take a look at how to implement the same functionality in CouchDB.
 
-##CouchDB
+## CouchDB
 
 As with MongoDB, the first thing to do is to get a database server up and running. I'm running on a Mac and this is simple in that environment. I haven't tried this on a Windows machine, but I imagine it would be similar there. On a Mac, you just download a zipped version of the CouchDB app, then unzip it and copy it to the Applications folder on your machine. After doing that, you can launch the app using Launchpad, and it will start the database server and open up Futon, its web-based administration panel. Futon will look a little like the screenshot below.
 
@@ -182,7 +182,7 @@ As with MongoDB, the first thing to do is to get a database server up and runnin
 
 Futon gives you a button to create a new database. As you can see, I've used that to create a new database for our data, called *telemetry*. Now that we have a database, it's time to populate it when we receive new telemetry information. 
 
-###Writing to the database
+### Writing to the database
 
 CouchDB uses HTTP requests to populate or query the database, so we could just write HTTP PUT requests to do this. I'm going to simplify things even further though by using a 3rd party module to help. There are a few available but I've gone for [Cradle](https://github.com/flatiron/cradle) in this example as it seems to be popular and offers an easy-to-use API. In the Node app where we receive telemetry information, we'll add functionality to write any new data to CouchDB. At the top of the app, add a dependency on Cradle and create a connection to the database.
 
@@ -205,7 +205,7 @@ db.save(telemetryInfo, function(err, res) {
 
 Cool, that was easy to do. Now let's write some code to query the database once we've populated it. 
 
-###Querying the database
+### Querying the database
 
 To query the database in CouchDB you need to define a MapReduce function. These functions are declared as *views* within a *design* on the database. I've written some code below which will create views for the common types of queries which we will need. This code should be run once against the database to define the views. Once they are defined, we can query the database for the results of a particular view at any time.
 

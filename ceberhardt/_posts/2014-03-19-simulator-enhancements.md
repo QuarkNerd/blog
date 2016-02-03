@@ -165,6 +165,7 @@ This requires a slightly different approach!
 Again, swizzling is used to intercept the `startAccelerometerUpdatesToQueue:withHandler` method, but this time a reference to the handler is stored so that it can be invoked directly with the simulated data:
 
 {% highlight objc %}
+
 #define HANDLER_IDENTIFIER ＠"accelerometerHandler"
 
 ＠implementation CMMotionManager (Enhancements)
@@ -196,6 +197,7 @@ The solution to this problem? swizzling! (of course)
 The code below adds a `simx_setAcceleration` method to `CMAccelerometerData` which allows us to inject the fake data. The swizzled `override_acceleration` method replaces the getter implementation of this readonly property to return the fake data:
 
 {% highlight objc %}
+
 #define ACCELERATION_IDENTIFIER ＠"accelerometerHandler"
 
 ＠implementation CMAccelerometerData (Enhancements)

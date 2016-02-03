@@ -39,7 +39,7 @@ The lines show the flow of data, with the red lines representing data being tran
 
 Once the map and sort stage is complete, the namenode determines how to distribute the work load for reduce. At this point the map output may be transferred to a different machine for processing, how the data is distributed is dependent on the size of the data and the number of machines in the cluster.
 
-###Enough theory, time for code
+### Enough theory, time for code
 I’m going to walk through a very simple MapReduce application and how to setup Hadoop. By far the easiest way to setup Hadoop is to [download a copy of Cloudera’s Hadoop quickstart VM](https://www.cloudera.com/content/www/en-us/downloads/quickstart_vms/5-5.html). This is free, open source and contains everything you need to run a MapReduce application set up for you. 
 Once that’s all up and running, we’re going to need some data to work on. Thanks to the internet, we’re spoilt for choice when it comes to large datasets, I’ve chosen the list of [amazon movie reviews](http://snap.stanford.edu/data/web-Movies.html) from the Stanford network analysis project.
 The Stanford page has lots of different examples if you want to play around with them. The code we’re going to write would work fine on the list of all amazon product reviews, providing you have the bandwidth, storage and patience for the program to run on so much data.

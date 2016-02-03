@@ -15,7 +15,7 @@ Using [Cordova](http://cordova.apache.org/) and [Ionic Framework](http://ionicfr
 
 This year our summer interns worked on an internal project to build a mobile application. They used Cordova to deploy the cross-platform HTML5 app onto multiple phone platforms, including iPhone and Android. The results looked really good, and inspired me to try making a cross-platform app out of my Angular SPA (Single Page Application) from my [earlier blog post]({{ site.github.url }}/2014/07/30/spa-angular-knockout.html).
 
-###Setting up Cordova
+### Setting up Cordova
 
 [Cordova's installation guide](http://cordova.apache.org/docs/en/3.6.0/guide_cli_index.md.html#The%20Command-Line%20Interface) is detailed and easy to follow, so I won't try to reproduce that here.  
 
@@ -48,7 +48,7 @@ At this point I had a functioning Android application, but it just showed the Co
 <img src="{{ site.github.url }}/alee/assets/x-platform-ionic/vanilla-cordova.png"/>
 
 
-###Porting the web application
+### Porting the web application
 
 My Angular SPA uses Gulp to bundle and minify the application in the `dist` folder. What if I just copied that into the content folder of my Cordova application? It can't be that simple can it?
 
@@ -75,13 +75,13 @@ It really was that simple! The application works as expected - clicking the rows
 
 When I replaced Cordova's scaffolded html page, I lost the reference to Cordova's APIs for accessing the phone's hardware (like the camera etc.). I'm not using any of that stuff though, so the App can run without it.  
 
-###Redesigning for Mobile
+### Redesigning for Mobile
 
 My Angular SPA application uses Bootstrap to control the layout, which automatically adapts to different screen sizes. On a phone-sized screen, the two charts move down below the table and the title bar changes to show a pull-down menu. This makes the application usable on a phone, but it doesn't feel much like a mobile application.
 
 I could improve the mobile experience by doing some more size-specific changes. For example, use the `hidden-xs` class to hide elements that don't need to be displayed on small screens. The result might be a good enough experience for mobile visitors to the website, but users expect more from installable phone apps.
 
-###Mobile view with Ionic Framework
+### Mobile view with Ionic Framework
 
 [AngularJS](https://angularjs.org/) uses a MVW ([Model-View-Whatever](https://plus.google.com/+AngularJS/posts/aZNVhj355G2)) pattern, so in theory we should be able to swap out the "View" part with a new View that is optimised for mobile.
 
@@ -159,7 +159,7 @@ The Ionic-powered mobile application looks like this:
 
 The 'home' page no longer has all three components displayed at the same time, but uses Ionic's tabbed view to show them one at a time. Clicking the search icon raises a pop-over window with a search box. Clicking one of the investments initiates a slide-left animation to show the investment details with a back button. The Ionic version looks and feels much more like a native mobile application. 
 
-###Summary
+### Summary
 
 Deploying a Single Page Application as a cross-platform app using Cordova turned out to be extremely easy. Most of the time was spent downloading the Android SDK.
 

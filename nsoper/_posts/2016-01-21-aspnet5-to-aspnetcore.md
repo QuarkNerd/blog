@@ -18,15 +18,15 @@ The **1.0** part of the new name is a much better reflection of the fact that th
 
 The inclusion of **Core** in the name reflects the fact that the new ASP.NET is far more modular and can run on the new *.NET Core 1.0* framework as well as the 'old' **.NET Framework 4.6*.
 
-###What about MVC 6?
+### What about MVC 6?
 
 Throughout my previous post I referred a great deal to MVC 6. In the new world we are not going to be referring to MVC 6, instead the amalgamation of MVC 5 and Web API 2 will just be **ASP.NET Core MVC**, and the package version will start at 1.0.0. I think it seems very sensible to drop the 6 because it's not a version up from MVC 5 - it's a complete rewrite.
 
-###Namespaces
+### Namespaces
 
 According to the community stand up, this name change will introduce a new **Microsoft.AspNetCore.Mvc** namespace. NuGet packages will also be named using this convention - all starting from v1.0.0.
 
-###Summary
+### Summary
 
 So top marks to Microsoft for engaging with the community both to gather feedback from the community and communicate the name change via regular, interactive video updates.
 

@@ -124,7 +124,7 @@ event += { println("Hello") }
 
 Anyhow, this isn't going to work :-(
 
-##A Complete Event Implementation
+## A Complete Event Implementation
 
 OK, so there are quite a few issues with the simple implementation, time to put things right.
 

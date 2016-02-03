@@ -78,7 +78,7 @@ tiddles.saySomething() // fails at runtime
 {% endhighlight %}
 Whilst this behaviour is understandable to people who came to Swift via Objective-C, I can guarantee it will confuse people who are new to iOS development!
 
-##AnyObject and sneaky type conversions
+## AnyObject and sneaky type conversions
 
 If you try to create a 'mixed' array containing strings and numbers you will encounter difficulties:
 
@@ -105,7 +105,7 @@ _stdlib_getTypeName(mixed[0])
 _stdlib_getTypeName(mixed[1])
 {% endhighlight %}
 
-##Conclusions
+## Conclusions
 
 Take care when using `AnyObject`, you can do some pretty strange things with that types. In fact, take care when using Swift with Objective-C at all! ;-)
 

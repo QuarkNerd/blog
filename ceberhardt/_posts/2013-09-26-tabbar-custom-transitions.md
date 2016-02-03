@@ -189,7 +189,7 @@ fromView.frame = containerView.bounds;
 
 One important thing to not here is that because the animation is achieved using a single UIView animation, this animation controller will work with the framework's `UIPercentDrivenInteractiveTransition` class. This is a big bonus, because it means that the framework can play, rewind and step through the animation in order to make it interactive.
 
-##Adding some depth
+## Adding some depth
 
 In order to add a bit of realism and depth, I used the same technique as I described in my previous blog post, using a simple utility method to add a gradient as a child of a given view:
 
@@ -230,7 +230,7 @@ The final step is to animate the alpha value of these gradient views along with 
 
 Done!
 
-##Going interactive
+## Going interactive
 
 Interaction controllers are associated with views, adding gesture recognisers, which trigger interactive transitions. In order to make tab bar controller transitions interactive, a horizontal swipe feature seems appropriate.
 

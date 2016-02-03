@@ -92,7 +92,7 @@ The `paginator` object contains various other properties that can be used to ren
 
 With the above code in place you can support pagination with Jekyll. The next step is integration of jScroll to give infinite scrolling!
 
-##jScroll
+## jScroll
 
 [jScroll](http://jscroll.com/) is a jQuery plugin that works by magic, just add the following line of code to your site:
 

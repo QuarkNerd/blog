@@ -19,7 +19,7 @@ disqus-id: /2014/11/14/d3_chartcomponents_rsi.html
 Among the plethora of financial charting applications on the market, if you take a read through their functionality list, you'll find one of the most common indicators implemented is the Relative Strength Index (RSI). 
 I suppose a good place to start is to give some background on RSI, but if you are a seasoned financial veteran you may want to skip over the next few sections to the good stuff.
 
-##So, what is Relative Strength (RS)?
+## So, what is Relative Strength (RS)?
 
 ...and why is it important?
 

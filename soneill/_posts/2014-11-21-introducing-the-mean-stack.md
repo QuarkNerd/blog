@@ -75,7 +75,7 @@ AngularJS is the front end, UI and client side logic of the stack. The applicati
 
 <h2 style="text-indent: -9999px; background-image:url('{{ site.github.url }}/soneill/assets/2014-11-21-introducing-the-mean-stack/install-header.png'); height:206px; background-repeat: no-repeat; background-position: center;" class="aligncenter">Install MEAN.IO</h2>
 
-###Installing dependencies
+### Installing dependencies
 
 - Git (version control) [download](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
@@ -92,12 +92,12 @@ AngularJS is the front end, UI and client side logic of the stack. The applicati
     $ npm install -g grunt
 {% endhighlight %}
 
-###Installing MEAN.IO
+### Installing MEAN.IO
 {% highlight javascript %}
     $ sudo npm install -g mean-cli
 {% endhighlight %}
 
-###Creating a MEAN.IO project
+### Creating a MEAN.IO project
 {% highlight javascript %}
     $ mean init <myApp>
     $ cd <myApp> && npm install 
@@ -122,7 +122,7 @@ Mean provides more structure by dividing features out into packages. These are f
   * _system_ - logic and ui for the index page and navigation header
   * _users_ - out of the box user management, handles forgotten passwords, sign up, login and the usual boilerplate.
 
-###INSIDE A MEAN.IO PACKAGE
+### INSIDE A MEAN.IO PACKAGE
 
 __app.js__
 Contains the feature's meta config, such as menu items.
@@ -196,10 +196,10 @@ This breaks down into the following tasks :
 6. update the sites styling
 7. deploy the application
 
-###1. list all articles on the front page
+### 1. list all articles on the front page
 We’ll clean out the MEAN.IO propaganda from the front page by copying the contents of `packages/articles/public/view/list.html` into `packages/system/public/view/index.html`. The code we just 'borrowed' is a view which lists articles. It contains some article data and two buttons for modifying the article. Make sure to remove the `H1` element at the bottom for creating new articles as we don't want that behaviour on the front page. 
 
-###2. add a filter to the front page
+### 2. add a filter to the front page
 Now we restrict the articles on the front page to those that are published. Go to the html file for the front page, `packages/system/public/views/index.html` and change the element 
 {% highlight html %}
     <li data-ng-repeat="article in articles">
@@ -210,7 +210,7 @@ to
 {% endhighlight %}
 `ng-repeat` is an Angular directive that uses the tagged element and it's children as a template for displaying each article in the list called articles. A list comprehension is added that filters out articles that don't have a 'published' field equal to 'true'.
 
-###3. add a 'published' state to the article model
+### 3. add a 'published' state to the article model
 The front page will be empty now as all of the articles will be filtered out. Let’s add a `published` field to the article model in the database. 
 find the file `packages/articles/server/models/articles.js` and add the following to the existing properties 
 
@@ -224,7 +224,7 @@ find the file `packages/articles/server/models/articles.js` and add the followin
 
 This really highlights why we're using MongoDB, using JSON to specify the model is simple and easy to understand.
 
-###4. add a way to change the published state of an article
+### 4. add a way to change the published state of an article
 Articles are now not published by default so we need a mechanism to edit the state. Let’s add a button to each article that toggles its published state. Go to `packages/system/public/view/index.html` and add the following button 
 
 {% highlight html %}
@@ -245,7 +245,7 @@ You'll notice it looks like the other buttons but calls a different function. `g
 
 Now the button can be clicked on each article to change its published state. If you take a look around the controller a bit more you’ll see the update, remove and add functionality. The publish functionality is just a mix of existing CRUD functionality. With this we can publish articles to the front page and view them without logging in. However, If we add a new user we notice that the first user’s articles are appearing under the private article list. 
 
-###5. making the user’s articles private
+### 5. making the user’s articles private
 Go to `packages/articles/app.js` and change the title from ‘Articles’ to ‘My Articles’. This updates the button in the menu and makes it clear to the user that their articles are private. We’d like to restrict the listed articles on that page to those that belong to the current user. If we look in the ArticlesController, we can see the reference to the current user in the `hasAuthorization()` function. We’ll create a synonym for the current user into the ArticlesController to keep it clean.
 
 {% highlight javascript %}
@@ -271,7 +271,7 @@ This means that if a user is provided, the function should remove articles that 
   <section data-ng-controller="ArticlesController" data-ng-init="find(currentUser)">
 {% endhighlight %}
 
-###6. update the styling
+### 6. update the styling
 
 Now that we have some new functionality, let’s be a real full stack developer and update the UI. Bootstrap comes with MEAN.IO so let’s override the default values and make the heading a bright colour. You’ll find the index page’s CSS in `packages/system/public/assets/css/common.css`. Just add the following and use your favourite colour as the heading background
 
@@ -289,11 +289,11 @@ Now that we have some new functionality, let’s be a real full stack developer 
 
 At this point, it would be nice to have some admin control. Luckily, this is provided out of the box by MEAN.IO. Simply update a user in the mongo database by adding a role, “admin”. This allows that user to manage the app, its settings, change the theme dynamically for all users, add and edit other users. Also, the admin is authorized to edit, remove and publish/unpublish any article. Check the `hasAuthorization()` function in ArticleController to see why. 
 
-###7. Deploying the application
+### 7. Deploying the application
 Now that we have a minimal viable product, you can deploy it. MEAN.IO leans towards [heroku](http://mean.io/blog/2014/01/installing-mean-io-on-heroku-from-a-to-z/), a cloud platform for running applications, but anything node-based should work. For this blog post I’ve developed and deployed the example using [cloud 9](https://c9.io/) another cloud based service that provides a browser IDE and linux kernel. 
 Database hosting such as [mongolabs](https://mongolab.com/) is free. You can update the database’s URL and other settings in `config/env/development`.
 
-##Conclusion
+## Conclusion
 This blog demonstrated how to change
 * front end logic
 * front end ui

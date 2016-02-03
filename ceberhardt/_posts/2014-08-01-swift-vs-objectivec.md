@@ -24,11 +24,11 @@ This month's TIOBE Index (a proprietary measure of language popularity, computed
 
 Before moving on to my method and results, I just want to briefly state that Swift is in Beta, and I do not see this early measure as an indication of success or failure. It was more for my own benefit, to give me a rough idea of just how active the Swift community is at this very early stage.
 
-##The Statistics
+## The Statistics
 
 These days there are two sites that form the 'backbone' of software development, [GitHub](https://github.com/), where developers store and share their projects, and [StackOverflow](http://stackoverflow.com/) where developers discuss coding problems. Fortunately both have excellent APIs which have provided me with a mechanism for determining the amount of Swift vs. Objective-C activity on each site.
 
-###GitHub
+### GitHub
 
 Let's start with GitHub. The following chart shows the number of newly created repositories in each language on a daily basis for the past two months:
 
@@ -42,7 +42,7 @@ In contrast, Objective-C is holding steady at around 200 repos per day. In other
 
 One other interesting difference is that Objective-C activity follows a clear weekly cycle, with the weekend seeing around half as many repos created compared to weekdays. Swift doesn't appear to follow a strong weekly cycle, with Swift development being just as active on the weekend. Possibly an indication that people are primarily using Swift in their spare time?
 
-###StackOverflow
+### StackOverflow
 
 The number of Swift and Objective-C questions asked on StackOverflow follows a similar pattern:
 
@@ -50,7 +50,7 @@ The number of Swift and Objective-C questions asked on StackOverflow follows a s
 
 Again, a sudden burst of Swift activity, which gradually subsiding to the point where there are roughly 3x as many Objective-C questions than Swift questions asked.
 
-###Conclusions
+### Conclusions
 
 The above results indicate that iOS development activity is still predominantly Objective-C, with roughly 3x more activity vs. Swift. However, considering that Swift is still in beta, this does indicate a significant amount of activity!
 

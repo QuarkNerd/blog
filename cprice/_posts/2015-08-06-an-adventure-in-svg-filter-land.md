@@ -673,6 +673,7 @@ That translates into the following HTML -
 To which we apply the following styling -
 
 {% highlight css %}
+
 #viewport {
     background: black;
     overflow: hidden;

@@ -233,7 +233,7 @@ func !~= <I : IntervalType>(value: I.Bound, pattern: I) -> Bool {
 
 With this in place, my Life logic is complete
 
-##Updating the cells
+## Updating the cells
 
 Now that I have an array of cells that are contain dying cells, and another that contains new life, I simply need to iterate over these arrays updating the cell's state.
 
@@ -308,7 +308,7 @@ There are a couple of things I really like about this code:
 1. The functional nature makes it really easy to see the rules of Life and how they have been applied
 2. The use of local functions (or in this case the equivalent constant closures), allows you to structure your code without the need for private 'helper' methods.
 
-##Local functions FTW!
+## Local functions FTW!
 
 I liked the pattern of splitting methods up into smaller units via local functions so much that I employed it elsewhere in my code. The project contains a `UIView` subclass, `WorldView`, which uses Core Graphics to render the current stat of the `World`.
 

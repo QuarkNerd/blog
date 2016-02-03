@@ -15,7 +15,7 @@ disqus-id: /2014/02/28/arrow-functions-in-knockoutjs.html
 
 Recently, Knockout's original author Steve Sanderson released a plugin called [knockout-projections](https://github.com/stevesanderson/knockout-projections) which optimises the performance of the observable array methods filter and map. In this post, I'll take a peek into the future by combining this plugin with the forthcoming ES6 arrow functions to produce some very terse and highly efficient collection bindings.
 
-#Array filter and map
+# Array filter and map
 
 Before I jump into arrow functions I'll quickly introduce a couple of the ES5 array methods, you can safely skip this section if you're familiar with them. However, if you're not already using these methods, you're missing out. Equivalent to the C# IEnumerable methods ```where``` and ```select```, they're basically shorthand for -
 
@@ -39,7 +39,7 @@ Before I jump into arrow functions I'll quickly introduce a couple of the ES5 ar
 
 They've now got widespread adoption in the browsers and are [easily poly-filled](https://github.com/es-shims/es5-shim/). Consider yourself informed.
 
-#The problem
+# The problem
 
 I used to write a lot of C# and I was a big fan of LINQ, so I was looking forward to using these methods in my bindings. Unfortunately, I'd forgotten about one thing... JavaScript's crazy verbose function syntax. For me, adding that in really takes the shine off using these new methods in bindings -
 
@@ -59,7 +59,7 @@ If you haven't already heard, [ES6 will introduce a new syntax for lambdas calle
 
 Unfortunately, browser support for ES6 just isn't there yet and short of inventing a time machine there's not much we can do about that... or is there?
 
-#A solution (of sorts)
+# A solution (of sorts)
 
 Adopting a fairly liberal artistic license (basically throwing any loading performance concerns out the window...), it turns out that we can use the new syntax in bindings with a small Knockout plugin. This is because bindings aren't directly interpreted as JavaScript by the browser, instead Knockout pre-processes them to support e.g. re-evaluating expressions when dependencies change. 
 
@@ -80,7 +80,7 @@ In Knockout 3.0 it is now very easy to hook into this preprocessing. For example
 
 That means that *all* we need to do is use an ES6 compatible parser to parse the ```stringFromMarkup```, use an ES6 compatible Abstract Syntax Tree traverser to swap out the arrow functions for their old-skool counterparts and then finally generate the corresponding JavaScript snippet from the modified AST. Simples! (If a lot-a-bit overkill).
 
-#Static meta-programming
+# Static meta-programming
 
 [Esprima](https://github.com/ariya/esprima), [estraverse](https://github.com/Constellation/estraverse) and [escodegen](https://github.com/Constellation/escodegen) are existing tools for static meta-programming, a fancy way of saying "messing around with the source code before it's executed". The tools are well documented on their respective sites but and in this case I think the APIs are obvious enough -
 
@@ -100,7 +100,7 @@ That means that *all* we need to do is use an ES6 compatible parser to parse the
 
 We take the source ```stringFromMarkup``` and use esprima to translate it into an AST. We then traverse this AST searching for ArrowFunctionExpression nodes. If we find one, we use a helper function to rewrite the node into an ES5 compatible version and then tell estraverse to replace the node with our rewritten version. Finally, we use escodegen to generate JavaScript code corresponding to the rewritten AST.
 
-#Rewriting an arrow function expression
+# Rewriting an arrow function expression
 
 The last piece in the puzzle is how to rewrite the arrow function into a plain function. Helpfully, the TC39 (JavaScript's standards committee) wiki defines [how arrow functions should behave](http://tc39wiki.calculist.org/es6/arrow-functions/). In essence we need -
 
@@ -182,7 +182,7 @@ You can see a really basic [example in action here](http://chrisprice.io/knockou
   require('knockout-arrows');
 {% endhighlight %}
 
-#Conclusion
+# Conclusion
 
 So whilst not the most practical end result i.e. you probably don't want to be loading a full-blown ES6 parser, tree traversal and code generation logic along with your app. I do think it gives a glimpse of the future of bindings in the browser. I look forward to the day that all of this comes for free but until then I'll happily buy a beer for the first person to turn this into a build-time grunt task.
 

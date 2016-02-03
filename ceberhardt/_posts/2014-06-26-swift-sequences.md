@@ -59,7 +59,7 @@ while let i = generator.next() {
 
 One interesting point is that the Swift `Range` is a finite sequence, in that it has a start and an end. The `Sequence` protocol does not mandate this, and can be used to represent infinite sequences (although you should probable avoid using infinite sequences with `for-in` loops!)
 
-##Deferred Execution and Lazy Evaluation
+## Deferred Execution and Lazy Evaluation
 
 Now that you have seen what a Swift Sequence is, let's look at how it supports the concept of lazy evaluation. First up, a couple of definitions:
 
@@ -73,7 +73,7 @@ Lazy evaluation is a topic that relates to deferred execution. In the context of
 
 Both of the above probably sound like quite abstract concepts, so let's see how they can be used in practice.
 
-##A Fibonacci sequence
+## A Fibonacci sequence
 
 Let's say you want to perform some calculations on a [Fibonacci sequence](http://en.wikipedia.org/wiki/Fibonacci_number). You could populate an array with the first 100 terms and use this for your calculation, but Swift sequences offer an elegant alternative.
 
@@ -195,7 +195,7 @@ Fib#1 - 2
 
 This clearly demonstrates that the next item is being requested from the generator on each iteration and the Fibonacci sequence is being generated lazily.
 
-##Manipulating sequences
+## Manipulating sequences
 
 The lazy evaluation of sequence is quite cool, but things get even more interesting when you apply operation to the sequence, transforming its output. The Swift APIs have a handful of operations you can apply to sequences.
 
@@ -262,7 +262,7 @@ Which gives the following output:
 (5, 34)
 </pre>
 
-##Creating your own sequence operations
+## Creating your own sequence operations
 
 Unfortunately `filter` and `Zip2` are pretty much the only sequence operations I could find within the Swift APIs. So how do you go about adding your own operations?
 

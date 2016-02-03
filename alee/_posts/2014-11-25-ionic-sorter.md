@@ -44,7 +44,7 @@ You can also try both versions for yourself here (looks best in a narrow window 
 
 I spent some time searching for other options for re-ordering lists - there a few that support touch. However, they all start the re-order operation on a touch-down event, rather than a long press. That wouldn't work in this case, because the list also needs to scroll using touch.
 
-###Creating a sortable directive
+### Creating a sortable directive
 
 For the purpose of this blog article, I’ve built a simple Ionic application with a sortable list. The full project is available on [GitHub](https://github.com/DevAndyLee/Ionic-Sorter). Note that this project also uses jQuery to make a few things a bit easier, but it should be possible to eliminate jQuery if required.
 
@@ -129,7 +129,7 @@ The above code sets up the directive’s scope for binding the `draggable` and `
 In `touchHold`, it looks for the element that the user is about to start dragging.
 In `touchMove`, it calls `stopPropagation()` to prevent anything else from handling the event, because we don’t want the list’s normal scroll behaviour to activate when the user drags up and down.
 
-###Switching to re-order mode
+### Switching to re-order mode
 
 When the user starts dragging an item, it needs to switch that item to `absolute` positioning, and replace it with a placeholder. Add this to the `touchHold()` function:
 
@@ -171,7 +171,7 @@ Adding the `draggable` class name means we can adjust its appearance to make it 
       box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
     }
 
-###Dragging up and down the list
+### Dragging up and down the list
 
 As the user drags the item up and down the list, it needs to move the dragged item with the touch point. As the position changes in the list, the placeholder should be moved to the new location. Add this to `touchMove()`:
 
@@ -205,7 +205,7 @@ As the user drags the item up and down the list, it needs to move the dragged it
     }
 {% endhighlight %}
 
-###Repositioning the item
+### Repositioning the item
 
 Finally, when the user releases the item, we need to revert it back to its normal position, and if the position has changed call the callback function. The controller’s implementation of the function should re-order the items in the source data, which will cause Angular to refresh the DOM. Add this to `touchRelease()`:
 
@@ -230,17 +230,17 @@ Finally, when the user releases the item, we need to revert it back to its norma
     }
 {% endhighlight %}
 
-###Finishing touches
+### Finishing touches
 
 At this point, we have a basic implementation but we’re missing some finishing touches.
 
-####Auto-scroll main window
+#### Auto-scroll main window
 
 When the user drags to near the top or bottom of the screen, it should automatically scroll the main window up and down.
 
 I achieved this by setting up a timer interval (`setInterval`) during the re-order operation, that looks at the current touch position and scrolls if it’s within a certain distance of the top or bottom. See the `autoScroll()` function in the [final solution](https://github.com/DevAndyLee/Ionic-Sorter/blob/master/www/js/sortable.js) for more details of the implementation.
 
-####Animating the items during re-ordering
+#### Animating the items during re-ordering
 
 For a little bit more polish, it would be nice if the items animated to their new positions as the user drags up and down.
 
@@ -250,7 +250,7 @@ One problem is that the cards have a top and bottom margin. While the old placeh
 
 A related problem is that some browsers allow space for a zero-height element with a margin, while others don’t. This leads to inconsistent behaviour. I worked around it by adding an additional pixel to the `topMargin()` adjustment above, then animating to 1px height instead.
 
-####Efficient animations using CSS transitions
+#### Efficient animations using CSS transitions
 
 Finally, to make sure the animations are smooth, it’s best to make them css transitions, since many browsers are able to optimise those - some even using hardware acceleration.
 
@@ -265,7 +265,7 @@ This is actually pretty easy to do - we just need to make sure the `placeholder`
 
 With that done, we can set the height of the element directly, and wait for the animation to complete. Please see the [final solution](https://github.com/DevAndyLee/Ionic-Sorter/blob/master/www/js/sortable.js) for more details of the implementation.
 
-####Touch-hold threshold
+#### Touch-hold threshold
 
 The default threshold for the `hold` event in Ionic is 1. That means that if the touch point moves by more than a pixel, the hold event will be cancelled. In practice that can be quite hard for users to do (and may vary between devices).
 
@@ -275,7 +275,7 @@ The default threshold can be adjusted by adding this line to the start of `app.j
     ionic.Gestures.gestures.Hold.defaults.hold_threshold = 20;
 {% endhighlight %}
 
-###Conclusion
+### Conclusion
 
 The replacement to Ionic's default list reordering functionality is a stand-alone directive that's easy to drop in to any project. The new process is easy and natural, and looks great.
 

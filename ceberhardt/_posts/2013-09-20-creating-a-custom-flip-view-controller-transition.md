@@ -242,7 +242,7 @@ The alpha values above just need to be updated within the keyframes of the anima
 
 <img src="{{ site.github.url }}/ceberhardt/assets/CustomVCTransitions/FlipWithShadow.png"/>
 
-##Done!!!
+## Done!!!
 
 You can find the full sourcecode for this custom animation on github, in a project called [VCTransitionsLibrary](https://github.com/ColinEberhardt/VCTransitionsLibrary), which is a collection of different animations and interaction controllers.
 

@@ -17,7 +17,7 @@ Writing software that is concurrent, scalable and fault-tolerant is hard. To ach
 
 <img src="{{ site.github.url }}/rdoyle/assets/mandelbrot.png" />
 
-##What is the Actor Model?
+## What is the Actor Model?
 
 The Actor model allows the developer to write concurrent and distributed systems by abstracting the low-level problems of having to deal with locking and thread management. The model is made up from a set of components known as Actors. They communicate by sending messages, with some content, to one another. There are several key points about how Actors behave:
 * When a message is received they decide what to do based upon the message type and content.
@@ -34,7 +34,7 @@ The diagram below shows multiple Actors in an Actor system communicating through
 
 There are various implementations of the Actor model. [Akka](http://akka.io/) is a framework available for both Java and Scala, in this post I have used it with Scala. Scala used to have its own implementation of the Actor model but this was deprecated in Scala 2.10 in favour of the Akka framework’s implementation.
 
-##Implementing the Actor Model using Akka
+## Implementing the Actor Model using Akka
 
 To demonstrate the Actor model I have looked at the problem of defining which complex numbers lie in the [Mandelbrot Set](http://en.wikipedia.org/wiki/Mandelbrot_set). Specifically, I have used the [Escape Time Algorithm](http://en.wikipedia.org/wiki/Mandelbrot_set#Escape_time_algorithm) to see if each point lies in the set. The algorithm iteratively applies a set of mathematical operations to an input value and terminates when the value reaches a specified threshold or after a maximum number of iterations. The number of iterations performed for each complex number is the value that I have associated with it.
 
@@ -277,7 +277,7 @@ If I now run the code I see an image similar to the one below, pretty cool! To u
 
 I have now implemented a simple Actor model using the Akka framework and I hope you’ll agree that it was a lot simpler than the alternative of explicitly handling thread management. The workers are the part of the system that act concurrently to calculate the value of points in the set. Here I have used four Worker Actors that work at the same time to calculate values. What do you think will happen if I change the value of the `numWorkers` parameter in the call to the calculate method? 
 
-##Performance Considerations
+## Performance Considerations
 
 The main advantage of using an Actor model is to easily create highly concurrent and distributed systems, as such you would expect to see a performance benefit from using it. By changing the number of Actors in the router pool in this example I can change the performance of the system. The more Actors in the pool the quicker the calculations will be. I have run the project on a computer with a quad core processor. This means that four Actors is roughly the best performance I can get. Four Actors equates to one thread per core, allowing the core to put all its resources onto that thread. Therefore there is no benefit if I create a pool of eight Actors, as two threads would run on each core, but each thread would have fewer resources and would take longer to calculate.
 
@@ -296,7 +296,7 @@ When creating an Actor system you should decide which routing method is most app
 
 Another consideration when using Akka is that of message delivery. There are three basic categories for message delivery; the default, which has been used in this example, is at-most-once delivery. at-most-once delivery means that the message will be sent once and will be received either once, or it will be lost during delivery and will not be received. This is the cheapest message delivery method with the highest performance. The second message delivery method is at-least-once delivery, multiple messages could be sent, such that at least one is delivered - it indeed could be the case that multiple messages are received. The final method has the worst performance - exactly-once delivery. For this method both the sender and receiver need to keep state to check that duplicate messages are neither sent nor received. When designing an Actor model you should decide which delivery method is most suitable for your needs, sometimes the performance trade-off will be necessary to ensure that every message is delivered the correct number of times.
 
-##So, Should You Use an Actor Model?
+## So, Should You Use an Actor Model?
 
 Actor models make concurrent software much easier for developers to write, as the developer does not have to deal with thread management and locking. They can write in simple, high level terms of message passing between Actors and let the framework deal with thread management. This will allow developers to produce correct concurrent software much quicker than was previously possible.
 

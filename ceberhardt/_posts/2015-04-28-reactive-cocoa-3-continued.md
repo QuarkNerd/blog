@@ -68,7 +68,7 @@ Emitting a next event
 ...
 {% endhighlight %}
 
-##Signal Producers
+## Signal Producers
 
 Signal producers follow a very similar initialisation structure:
 
@@ -109,7 +109,7 @@ With the earlier signal example, if you add multiple observers, only a single ti
 
 Signal producers are used to represents operations or tasks, where the act of starting the signal producer initiates the operation. Whereas signals represents a stream of events which occur regardless of whether observers have been added or not. Signal producers are a good fit for network requests, whereas signals work well for streams of UI events.
 
-##Signal Producer Operations
+## Signal Producer Operations
 
 The operations that can be performed on signal producers are defined as curried free functions, in exactly the same way as they are for signals.
 
@@ -157,7 +157,7 @@ Next received: tick #1
 ...
 {% endhighlight %}
 
-##Applying Signal operations to Signal Producers
+## Applying Signal operations to Signal Producers
 
 If you look at the operations that are defined for signal producers you'll soon realise that it is lacking some of the 'core' functions, e.g. map and filter.
 
@@ -225,7 +225,7 @@ I am still a little unsure about the reasoning behind which operations are defin
 
 Currently this approach is restrictive, if I model a stream of events from a `UITextField` as a signal, I cannot apply a `flatMap` operation to it. I've [raised this as an issue](https://github.com/ReactiveCocoa/ReactiveCocoa/issues/1930)!
 
-##API Clarity
+## API Clarity
 
 The RC3 APIs contain some really clever concepts and are a great example of 'functional' Swift. I have personally learnt a lot from this library.
 
@@ -248,7 +248,7 @@ ReactiveCocoa 3.0 is in beta and the APIs I have been using and describing are c
 I've raised [my concerns about API clarity as an issue](https://github.com/ReactiveCocoa/ReactiveCocoa/issues/1941). One potential solution is to duplicate the free functions as methods directly on signal and signal producer (in much the same way as the swift collection operations), however, this does result in some unpleasant compromises.
 
 
-##Conclusions
+## Conclusions
 
 This concludes my second look at RC3, I'll probably write one final blog post on the subject where I look at building a more complete example.
 
