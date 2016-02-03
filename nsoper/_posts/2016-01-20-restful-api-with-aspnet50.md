@@ -20,7 +20,7 @@ MVC 6 is part of ASP.NET 5 and it is a completely new unified framework for writ
 
 The API itself is just going to be simple CRUD (create, read, update, delete) loosely based on [Microsoft's tutorial](https://docs.asp.net/projects/mvc/en/latest/getting-started/first-web-api.html). This article will present my thoughts/observations on what has changed between Web API 2 and MVC 6.
 
-##API project template
+## API project template
 
 I'm using Visual Studio 2015 Update 1. The process for creating a new ASP.NET 5 project is identical to that for creating an ASP.NET 4.6.1 project. Selecting *ASP.NET Web Application* from the *New Project* dialog results in the following dialog:
 
@@ -39,7 +39,7 @@ So there are a few obvious differences:
 
 I'm not going to talk about wwwroot or Dependencies because they are covered in [our previous post](http://blog.scottlogic.com/2015/05/14/aspnet50-intro.html#client-side-libraries) and they are not relevant to writing a RESTful API.  I will talk about the other changes in the rest of the post.
 
-##Startup.cs
+## Startup.cs
 
 The [Startup](https://docs.asp.net/en/latest/fundamentals/startup.html#the-startup-class) class seems to have been inspired by [OWIN](http://owin.org/). In recent years OWIN has become a hugely popular .NET tool for decoupling web server and web application. Microsoft have taken notice so `Startup` is now *the one and only place* to start up your web application. It is important to note that this is not an OWIN class, just an OWIN-like class.
 
@@ -121,7 +121,7 @@ We also have the option of creating a set of `Startup{EnvironmentName}` classes,
 
 So ASP.NET 5 gives us a neat new option for writing environment specific code just by applying a naming convention to `Startup` classes and methods, but that is just one of your options. You can also inject the new [`IHostingEnvironment`](https://github.com/aspnet/Hosting/blob/cad9ea1df7e78c52c99346de17b6fc3c2bc2c67e/src/Microsoft.AspNet.Hosting.Abstractions/IHostingEnvironment.cs) interface anywhere that you would like to have environment specific code (including the `Startup` constructor!).  See [Working with Multiple Environments](http://docs.asp.net/en/latest/fundamentals/environments.html) for more information.
 
-##No Global.asax
+## No Global.asax
 
 If you have ever written a Web API 2 application in the past you will be familiar with the **Global.asax** file, which contains a `WebApiApplication` class by default:
 
@@ -159,7 +159,7 @@ public static class WebApiConfig
 
 This code switches on attribute based routing and sets up Web API routing conventions. In the new world the same is achieved in the `Startup` class by calling `services.AddMvc()` from `ConfigureServices` and `app.UseMvc()` from `Configure`.  So we don't need any smelly `GlobalConfiguration` class any more.
 
-##Controllers
+## Controllers
 
 Here is the automatically created `ValuesController`:
 
@@ -203,11 +203,11 @@ public class ValuesController : Controller
 
 My first observation was the base class. Pretty much all Web API 2 controllers inherit from `ApiController` but [`Controller`](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNet.Mvc.ViewFeatures/Controller.cs) is the base class in the new world. In MVC 6 the same `Controller` base class can be used whether you are writing a RESTful API or an MVC website. The framework also supports [POCO](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object) controllers so you can remove the base class completely and a request to 'api/values' will still work. This is made possible by [convention based controller discovery](http://www.strathweb.com/2015/04/asp-net-mvc-6-discovers-controllers/), which is completely pluggable.
 
-###ControllerBase
+### ControllerBase
 
 On 10th December 2015 Microsoft introduced [a new ControllerBase class](https://github.com/aspnet/Mvc/commit/a2393f21be55c5c02ea67df55407aa7585121173) which helps us implement a RESTful API controller without bringing in unnecessary properties/methods related to MVC websites such as `ViewBag`, `ViewData` and `ViewResult`. At the time of writing this is still on the **dev** branch so it will be interesting to see where Microsoft end up going with this new class...
 
-##Routing
+## Routing
 
 You can specify a base route at the controller level using the new '[controller]' placeholder instead of hard-coding the controller name ('[action]' is also supported but this would produce unRESTful URIs like 'api/values/get'). Routing has also been nicely combined with the various `[Http{Verb}]` attributes so you can succinctly state that a PUT request with and 'id' will be handled by the `Put` method:
 
@@ -254,7 +254,7 @@ Secondly, the correct **action** was selected based on naming convention so a GE
 
 MVC 6 still allows actions to be selected based on the name matching the HTTP verb of the request, but since attribute based routing is now the recommended approach, you will no longer get a default routing configuration for selecting controllers by name.
 
-#Books API
+# Books API
 
 I've written a basic API which is a tweaked version of Microsoft's tutorial: [Building Your First Web API with MVC 6](https://docs.asp.net/projects/mvc/en/latest/getting-started/first-web-api.html) based on books instead of to-do items. I'll describe my thoughts having followed through the tutorial so you can either do the tutorial first or get [my code from Github](https://github.com/niksoper/aspnet5-books).
 
@@ -263,7 +263,7 @@ I've written a basic API which is a tweaked version of Microsoft's tutorial: [Bu
 
 In order to implement a books API I'll need somewhere to store my books so I've created a basic repository which will store a collection of books in memory. The repository code is not of interest for this post, you just need to understand that there is an `IBookRepository` which is implemented by `BookRepository`.
 
-###Property injection
+### Property injection
 
 For some reason Microsoft decided to use property injection to introduce a repository to their `TodoController`:
 
@@ -279,7 +279,7 @@ I can only assume that property injection was chosen by the author in order to s
 
 End of minor rant.
 
-###Configuring dependencies
+### Configuring dependencies
 
 I'm injecting an `IBookRepository` into the `BooksController` constructor:
 
@@ -336,7 +336,7 @@ public class IocConfig
 
 This was fairly straightforward and you could have this up and running in no time at all if you've done this before but you are still likely to be slowed down when starting up a project by the need to bring in a 3rd party solution like Autofac. I really like the way you can get up and running with DI support straight away with ASP.NET 5.
 
-##Model binding
+## Model binding
 
 I want to add a book using the following HTTP request:
 
@@ -409,7 +409,7 @@ This time the body contains the author and title, and the query string also cont
 
 Check out [this post](https://lbadri.wordpress.com/2014/11/23/web-api-model-binding-in-asp-net-mvc-6-asp-net-5/) for a nice summary of model binding in the new world.
 
-##Returning from actions
+## Returning from actions
 
 The `IActionResult` class is the flexible choice and this will feel familiar to ASP.NET MVC developers because previous versions of ASP.NET MVC provided an abstract `ActionResult` class and all action methods needed to return a type that derived from `ActionResult`.
 
@@ -467,7 +467,7 @@ Incidentally, RC1 does not provide a helper method for creating a `NoContentResu
 
 These should all feel familiar enough to Web API 2 developers (although I admit that `CreatedAtRoute()` was new to me). There are plenty of other helpers that will be familiar to MVC and Web API 2 developers alike so it would be worth checking out the source code for [`Controller`](https://github.com/aspnet/Mvc/blob/master/src/Microsoft.AspNet.Mvc.ViewFeatures/Controller.cs) or [`ControllerBase`](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNet.Mvc.Core/ControllerBase.cs) to see what is available.
 
-###Other return types
+### Other return types
 
 In my opinion `IActionResult` is very often the correct return type since it offers the most flexibility but returning `void`, `string` or [POCO](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object) is also supported if you don't need the flexibility of `IActionResult` and want a simple 200 response. 
 
@@ -476,7 +476,7 @@ A couple of noteworthy points:
 * `void` gives you a 200 response instead of the (surely, more appropriate) 204 response that Web API 2 produces.
 * `string` gives you content-type 'text/plain' instead of 'application/json', which seems like a more sensible change.
 
-##Logging
+## Logging
 
 Any production system needs logging and that usually means writing some basic infrastructure based around `ILoggerFactory` and `ILogger` services.
 
@@ -521,7 +521,7 @@ The `AddSerilog()` method adds a provider using the given serilog configuration:
 
 We now have three providers configured so we'll get logs to the console, debug output and a local file.
 
-###Running from the console
+### Running from the console
 
 You will only be able to see console logs if you launch the application from the console. You can do this by running **`dnx web`** from the project directory (the one containing **project.json**), or you can use Visual Studio to do the same thing:
 
@@ -541,7 +541,7 @@ What you are actually doing is running the `web` command from **project.json**:
 }
 </pre>
 
-###Resolving a logger
+### Resolving a logger
 
 Having configured the `ILoggerFactory` you could now inject an `ILoggerFactory` into your controller and call the [`CreateLogger<T>` extension method](https://github.com/aspnet/Logging/blob/d679c78ab257375d26343207877b3d483c093d29/src/Microsoft.Extensions.Logging.Abstractions/LoggerFactoryExtensions.cs#L18) to create a logger instance named after a given type. However, I'm going to inject an `ILogger<BooksController>` directly:
 
@@ -566,7 +566,7 @@ This is neat because the framework authors have realised that most consumers wou
 
 The [default `LoggerFactory`](https://github.com/aspnet/Logging/blob/1308245d2c470fcf437299331b8175e2e417af04/src/Microsoft.Extensions.Logging/LoggerFactory.cs) maintains an in-memory dictionary of `Logger` instances keyed by name so injecting an `ILoggerFactory<ConcreteType>` anywhere in your application will resolve to the same logger instance as long as the type is the same.
 
-###Using a logger
+### Using a logger
 
 I'll log a message whenever a book is created or edited using the `ILogger.LogVerbose()` extension method:
 
@@ -597,7 +597,7 @@ public IActionResult Update(string id, [FromBody]Book book)
 }
 {% endhighlight %}
 
-###Log levels
+### Log levels
 
 Each provider can have a minimum required `LogLevel`. The `ConsoleLoggerProvider` is configured from a configuration file; in this case the file is **appsettings.json** because this path is given in the `Startup` constructor:
 
@@ -648,7 +648,7 @@ If I now change the minimum logging level for 'Microsoft' to 'Error' then the AS
 
 <img src="{{ site.github.url }}/nsoper/assets/console-logging-no-aspnet.png"/>
 
-####A note on serilog
+#### A note on serilog
 
 Serilog will map `LogLevel.Verbose` to its own `Debug` level.  So you will see the following message logged in the wwwroot/MvcLibrary-YYYYMMYY.log file (note the [Debug] label):
 
@@ -656,7 +656,7 @@ Serilog will map `LogLevel.Verbose` to its own `Debug` level.  So you will see t
 2016-01-18 17:18:05.650 +00:00 MvcLibrary.Controllers.BooksController [Debug] Added "Some New Book" by "Nick Soper"
 </pre>
 
-###Verbose -> Trace
+### Verbose -> Trace
 
 Since RC1, Microsoft have [renamed Verbose to Trace](https://github.com/aspnet/Logging/pull/314). The following comment was made on the pull request:
 
@@ -666,7 +666,7 @@ So the new default set in **appsettings.json** will be 'Debug' which is consider
 
 For a more detailed overview of logging in ASP.NET 5, see [Microsoft's documentation](http://docs.asp.net/en/latest/fundamentals/logging.html).
 
-##Summary
+## Summary
 
 With ASP.NET 5 and MVC 6, Microsoft have really modernized the platform. The new **`Startup`** approach with configurable middleware is more in line with the [expressjs](http://expressjs.com/) way of doing things and with no static `GlobalConfiguration` class the design just feels cleaner. The support for **environment based configuration** simplifies builds by allowing making configuration an environment concern. Both **dependency injection** and **logging** are far better supported out of the box but we still have the option of plugging our own solutions in these areas too.
 
