@@ -16,7 +16,7 @@ When Apple announced iOS 7 back in June at WWDC, they also announced a number of
 As soon as the developer preview SDK and documentation were released I started exploring the new API. I found the API very easy to get to grips with, especially after watching the WWDC videos and reading through the documentation. I’d never done any game development before, so this blog explains the very basics of getting a simple game up and running with SpriteKit.
 
 
-##1st Squadron
+## 1st Squadron
 
 ![First Squadron Logo](https://raw.github.com/ChrisGrant/FirstSquadron/master/FirstSquadron/logo@2x.png)
 
@@ -28,14 +28,14 @@ The game built is a top down WWII fighter plane game, set over the English Chann
 
 *Screenshots from the game*
 
-##Building the Game
+## Building the Game
 
 The following will walk you through how the game was built. It's not a complete explanation of every line of code, but it will give you a good idea of how to set up a similar game for yourself. It would be useful to have a copy of the code when reading this article however. To download the code for yourself and see how it's done, head over to [GitHub](https://github.com/ChrisGrant/FirstSquadron "GitHub First Squadron Repository").
 
-###Application Structure
+### Application Structure
 The structure of the app is relatively simple. We have a single `UIViewController` named `ViewController` which is created by the `AppDelegate` and added to the key window.  I won't be going into any detail about the View Controller in this post. All it does is create and add the `FighterGameScene` as a subview, add a few labels, logos and buttons, and controls the interaction between these buttons and labels and the scene.
 
-###Setting up the Scene
+### Setting up the Scene
 
 ##### Configuration
 *'A scene is the root node of your content. It is used to display SpriteKit content on an SKView.'*  - SKScene Docs
@@ -80,7 +80,7 @@ By having two cloud layers, we add some depth to the scene as the fighter appear
 
 That's it! The scene is set up and ready to add fighters, missiles and explosions to!
 
-###Adding the Fighters
+### Adding the Fighters
 
 The `Fighter` base class defines the common properties and behaviour of a fighter. This makes creating new fighters in future and adding theme to the scene simple. Every fighter fires missiles and has a health. There are currently two subclasses. `HeroFighter` and `EnemyFighter`. Each subclass specifies various properties such as `categoryBitMask`, `collisionBitMask`, `contactTestBitMask` and `mass`. The `HeroFighter` class also sets `allowsRotation` to `NO`. This is how we ensure the fighter always faces the top of the scene.  
 
@@ -90,7 +90,7 @@ The fighters themselves are simply sprite images:
 
 These were created in Photoshop and based on blueprints of the *Messerschmitt Bf 109* and the *Supermarine Spitfire*.
 
-####Launching Enemy Fighters
+#### Launching Enemy Fighters
 
 The enemy fighters are launched every 5 seconds using an NSTimer. 
 
@@ -103,11 +103,11 @@ This calls the `launchEnemyFighters` method, which instantiates and five `EnemyF
 
 *5 enemy planes flying in formation*
 
-####Launching the Hero
+#### Launching the Hero
 
 The hero is added to center of the scene immediately after the user hits the **START** or **RESTART** buttons.
 
-###Controlling the Hero Plane
+### Controlling the Hero Plane
 
 To control the hero plane, we instantiate a `CMMotionManager` object in the constructor. On the first update, we want to store a reference to current motion's attitude. By doing so, we can multiply future updates by this reference attitude and use the result as the relative attitude:
 
@@ -121,13 +121,13 @@ Once we have calculated the relative attitude, we move the plane by applying an 
 	
 This simple block of code gives the user the ability to move the hero around the scene!
 
-###Collision Handling
+### Collision Handling
 
 By setting the `contactDelegate` of the `physicsBody` to `self`, this allows us to detect collisions. Implementing the following method will give us access to these collisions.
 
 	-(void)didBeginContact:(SKPhysicsContact*)contact
 
-####Hero Collision
+#### Hero Collision
 
 The only collisions we are interested in with the hero are with enemy missiles and enemy planes. We check the enemy plane collision in the enemy plane category, so the only scenario we need to cater for in the first if statement is if the hero hits an enemy missile and vice-versa. This leads to a rather convoluted if statement!
 
@@ -136,7 +136,7 @@ The only collisions we are interested in with the hero are with enemy missiles a
 
 If the hero does collide with an enemy missile and we do enter this if statement, we immediately remove the missile and decrement the hero's health by 0.05. 
 
-####Enemy Collision
+#### Enemy Collision
 
 Whenever an enemy fighter collides with something we want to remove it. However, we want to do different things depending on what the enemy collided with. 
 
@@ -158,11 +158,11 @@ This just adds an explosion particle emitter where the collision occurred, fades
 
 *An enemy plane exploding*
 
-####Missile Collision
+#### Missile Collision
 
 If a missile collides with anything, we want to remove it, regardless of what it was. We do this last as if it collides with a plane, we want to check that above.
 
-##Hints and Tips
+## Hints and Tips
 
 -	**Keep it simple**
 

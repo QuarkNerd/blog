@@ -24,17 +24,17 @@ When the system comes up, hitting something like ```http://localhost:2345/a``` w
 
 In this post, I'll describe how I incrementally got to the final solution. I'll start with brief descriptions of Docker and Erlang.
 
-##Docker
+## Docker
 
 Docker is a virtualisation solution based on Linux containers. It's making big noises in the IT space and so if you're reading this blog, you've probably heard of it. It works by isolating a set of Linux processes and giving them their own file system, network stack etc. Containers are more lightweight than VMs and spin up faster. If you're interested and don't know much about Docker, I'd advise you to fire up your favourite search engine and go surfing.
 
-##Erlang
+## Erlang
 
 Erlang is a functional programming language based on [actors](https://en.wikipedia.org/wiki/Actor_model). It was originally developed by [Ericsson](http://www.ericsson.com/) and is now open source. It's good for soft real time, highly concurrent, robust systems. One of the reasons I wanted to look at it is the intellectual challenge - getting your head round purely functional programming (no mutability allowed), actors and supervision trees certainly exercises the old grey matter!
 
 The Erlang code I've used in this blog draws on Chapter 14 (Programming with Sockets) of Joe Armstrong's excellent book "Programming Erlang". It's important to note that I'm only an Erlang newbie and this is "toy" code. Production Erlang applications use OTP - the [Open Telecom Platform](http://learnyousomeerlang.com/what-is-otp), with [supervision trees](http://learnyousomeerlang.com/supervisors) for robustness.
 
-##Setting up a worker container
+## Setting up a worker container
 
 So, let's roll our sleeves up and dive into running Erlang code in containers. We'll talk about hooking multiple containers up into a system later.
 
@@ -109,7 +109,7 @@ In a separate terminal, we can start another container and run the TCP client co
 
 When you send via TCP from the client container, you'll see the server container log the event.
 
-##Setting up the HTTP server container
+## Setting up the HTTP server container
 
 The next piece of the puzzle is to write a small HTTP server, and have it delegate to one of two possible backend TCP static servers, depending on the path segment of the URL. Here's the code:
 
@@ -182,7 +182,7 @@ You'll also see the HTTP server log the interaction:
 
 (It happens twice because the browser initially requests "favicon" as well.)
 
-##Automating system start-up
+## Automating system start-up
 
 There are two remaining steps before we can just type
 
@@ -240,7 +240,7 @@ If you run
 
 in a terminal, you'll see images for each of the workers and the gateway and corresponding containers.
 
-##Conclusion
+## Conclusion
 
 At this point, I decided I'd achieved my objective of getting a multi-container system up and running in an automated way, but I wanted to see how it looked on someone else's machine. I asked one of my colleagues to clone the repo onto his Ubuntu VM and bring up the system. We watched as Docker pulled the official Erlang image, built the custom images, started the containers and linked them up. It was impressive and I started to think of ways of using it to speed up development and deployment of systems built on microservices.
 

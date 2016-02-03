@@ -12,7 +12,7 @@ This post will address a question that is often raised within organisations tran
 
 At Scott Logic we run a lot of Agile projects and this question is asked regularly of us when we’re proposing a team structure for a new client project. In this post I’ll give my perspective on this based on our experience. We’ll focus on Scrum, but this discussion applies to projects run using any Agile method. At Scott Logic we have our own framework for Agile delivery, [Assured Agile](http://www.scottlogic.com/services/assured-agile), which I will refer to although no background knowledge is required!.
 
-##Project Management within Scrum 
+## Project Management within Scrum 
 
 Scrum is often classified as Agile’s ‘project management’ method and yet looks incompatible with the traditional Project Manager role. The Scrum method defines only 3 roles: Scrum Master, Development Team and Product Owner. Many of the responsibilities of the traditional Project Manager are covered by these other roles:
 
@@ -25,7 +25,7 @@ Scrum is often classified as Agile’s ‘project management’ method and yet l
 
 So, given this is all covered, is there any value in assigning a Project Manager to the team? 
 
-##A question of scale and complexity
+## A question of scale and complexity
 
 The answer is (as ever) ‘it depends’! What’s important is to consider the scale and complexity of the project and the wider environment in which it exists. 
 

@@ -35,7 +35,7 @@ Templates are an essential part of any large Single Page Application, since tryi
 
 Asp.Net has a built in Bundling and Optimisation feature that bundles together multiple JavaScript or Css files into a single minified download. Can we do the same thing with Angular templates?
 
-###Asp.Net Bundling
+### Asp.Net Bundling
 
 As a quick overview of Asp.Net bundling, here's how I've configured bundling for my JavaScript and Css files:
 
@@ -89,7 +89,7 @@ In release mode, we get a single minified download instead:
 {% endhighlight %}
 
 
-###Bundling Angular Templates
+### Bundling Angular Templates
 
 Angular has a `templateCache` object, which stores all the templates it has loaded so far. It also lets you pre-load templates into the template cache, so that's what we need to do. If we have a (very simple) `hello-world` template that looks like this:
 
@@ -184,7 +184,7 @@ And that's it. Now, when I open the application in debug mode, nothing is render
 
 The content of the download is JavaScript that inserts the specified templates into the `templateCache`, so that Angular doesn't need to dynamically download them.
 
-###Conclusion
+### Conclusion
 
 Bundling and Optimisation are powerful features for improving the responsiveness of Asp.Net applications, without the need for a distribution build step. With a little extra effort, we've added Angular's templates to that process, and optimised six requests for HTML content into just one download.
 

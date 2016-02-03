@@ -10,7 +10,7 @@ disqus-id: /2014/03/11/a-developers-intro-to-webgl.html
 
 Recently, I have been starting to get to grips with WebGL. Having little to no real previous experience with 3D graphics, there was a reasonably steep learning curve to overcome. So I thought I'd touch on a few of the basics here and share some resources that I found really useful.
 
-##WEBGL OVERVIEW
+## WEBGL OVERVIEW
 
 WebGL is a JavaScript API that allows for the creation of 3D and 2D graphics within the browser. It renders on a <code>&lt;canvas&gt;</code> element as a drawing context, but provides low-level access to the GPU. The graphics can be made completely interactive; responding to keyboard and mouse events, as well as touch events on mobile devices.
 
@@ -25,7 +25,7 @@ So, to render a 3D image with WebGL, we essentially build up the image out of tr
 
 There’s a whole lot more to it than that, of course. So please check out some of the links throughout this post to get a more detailed explanation. You could also read the [WebGL specification]( http://www.khronos.org/registry/webgl/specs/latest/1.0/), if you want a **really detailed** explanation.
 
-##WEBGL LIBRARIES
+## WEBGL LIBRARIES
 
 We’ve **very** briefly covered how WebGL 3D graphics are created. Which may seem simple enough, but in practice it involves several quite mathematical, and perhaps not very intuitive steps. So how does that scale to rendering cubes, or spheres, or [aquariums]( https://webglsamples.googlecode.com/hg/aquarium/aquarium.html)? 
 
@@ -40,7 +40,7 @@ There are lots of WebGL libraries out there. A few worth looking at are:
 
 Check out [Paul Lewis’ tutorials](http://www.aerotwist.com/tutorials/) for more information on using libraries (Three.js  in this case). Incidentally, the tutorials on shaders are also worth a look.
 
-##SPINNING SQUARES AND TRIANGLES
+## SPINNING SQUARES AND TRIANGLES
 
 For a far more detailed walkthrough the principles behind WebGL and creating your first 3D graphics, I strongly recommend Giles Thomas’ ["Learning WebGL"]( http://learningwebgl.com/blog/) blog. The lessons are adapted from a popular series based around game development in OpenGL, and they cover everything from spinning squares to nicely lit, interactive globes and more.
 

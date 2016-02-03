@@ -21,9 +21,9 @@ As before, I've put the finished project on GitHub: [e2e-Angular-Knockout](https
 <a href="{{ site.github.url }}/alee/assets/spa-an-ko/Angular/index.html" target="_blank">Angular demo</a>).
 
 
-##Test frameworks
+## Test frameworks
 
-###Test Angular using Protractor
+### Test Angular using Protractor
 
 I used [angular-seed](https://github.com/angular/angular-seed) to build my Angular solution, and that comes with a sample e2e test that uses a tool called Protactor. The Angular and Knockout websites look identical, so I suggested that the same e2e tests should work in both versions. However, that isn't entirely true.
 
@@ -47,7 +47,7 @@ Protractor runs the Jasmine tests, making a `browser` object available so that t
 <img src="{{ site.github.url }}/alee/assets/e2e-an-ko/angular-flow.png"/>
 
 
-###Test Knockout using Jasmine-Node and WebDriverJS
+### Test Knockout using Jasmine-Node and WebDriverJS
 
 The Knockout solution can't use Protractor, but we can still run Jasmine tests from Node using [jasmine-node](https://github.com/mhevery/jasmine-node), and control the website directly using [selenium-webdriver](https://code.google.com/p/selenium/).
 
@@ -65,7 +65,7 @@ Then run the tests:
 
 
 
-##Writing tests
+## Writing tests
 
 Each test will navigate to a particular page in the application, optionally apply some action to that page, then test the resulting DOM to make sure everything is as expected.
 
@@ -226,7 +226,7 @@ Thanks to Protractor, we don't have to do anything special after entering the fi
 
 I've chosen to wait for the Ajax request to complete by checking for three rows, but this is not particularly elegant (and also makes the subsequent test for three rows redundant). I think if I was implementing this in production, I'd want some sort of ajax-status object in the application, so that the test can more directly wait for outstanding Ajax requests.
 
-##Is it worth the effort?
+## Is it worth the effort?
 
 I've written a set of e2e tests in both projects. For each page, the test verifies that the page loads and shows the correct heading. For each component, tests verify that the component makes the Ajax request for data and presents the data on screen. They also test that the component updates itself correctly when the filter changes. The tests for the Investments table verify that the correct formatting is used for dates and currencies, and that clicking on a row navigates to the details page.
 
@@ -240,9 +240,9 @@ For example, imagine I have written a test that enters a filter query and verifi
 
 So what can we do?
 
-##Making e2e tests more robust
+## Making e2e tests more robust
 
-###Make tests responsible for their own data
+### Make tests responsible for their own data
 
 A good way to solve the problem of conflicting data in the test database is to make each test responsible for the data it needs.
 
@@ -254,7 +254,7 @@ I've often used this approach for integration testing of repository code, and it
 
 As the application gets bigger, it may be that a lot more data is required just to get a basic test to run. You may find that instead of starting with a completely empty database each time, it's better to have some basic seed data. Any data that's widely used but pretty static is a good candidate. You might also want to have at least one of each type of user too, so it's easier to have a simple log-in step in tests.
 
-###Mock out the back-end server
+### Mock out the back-end server
 
 An alternative to seeding the database is to remove the back-end server completely, and instead provide mocked responses to Ajax requests. If we mock out the server, then it isn't really an end-to-end test any more (more like a middle-to-end test). However, it may still make sense if you're developing an SPA and you're interested in testing the behaviour of the website itself based on predictable responses from back-end services. Another benefit is that you don't need to get the real server running (with its test database) before running the tests.
 
@@ -322,7 +322,7 @@ Now I can setup a mocked response like this:
     ]);
 {% endhighlight %}
 
-##Easier to run e2e tests
+## Easier to run e2e tests
 
 So far, all my tests still require that the website itself is already running before I start testing. However, I created a Node module that starts and stops a mocked back-end web service, so why not do the same for the web server?
 
@@ -347,7 +347,7 @@ As before, we also need a custom Jasmine `Reporter` to close down the server at 
 
 With this in place, we now have a set of robust e2e tests (ok, middle-to-end tests!), which will automatically start and stop the necessary servers for us.
 
-##Summing up
+## Summing up
 
 I've shown how to implement e2e tests for an SPA created with either Angular or Knockout. The Angular version has a clear advantage thanks to the Angular-specific test tool Protractor, which makes tests easier to write. However, it's possible to do the same things in the Knockout version and it's not really that much harder.
 

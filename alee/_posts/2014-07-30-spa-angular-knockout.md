@@ -23,7 +23,7 @@ Knockout doesn't have any of that, but then it isn't supposed to. Instead, it ge
 
 If I'm going to compare Angular with Knockout, then I need to plug in some of these other tools to make it a fair comparison. I think my title needs updating:
 
-##Angular vs Knockout + CrossroadsJS + RequireJS
+## Angular vs Knockout + CrossroadsJS + RequireJS
 
 I decided to follow Steve's example, using yeoman to scaffold out an SPA with Knockout, <a href="http://millermedeiros.github.io/crossroads.js/">CrossroadsJS</a> and <a href="http://requirejs.org/">RequireJS</a>. CrossroadsJS implements hashtag routing, and RequireJS handles module loading and dependencies.
 
@@ -43,11 +43,11 @@ Try entering text into the filter box, and clicking on individual investments. H
 	<img src="{{ site.github.url }}/alee/assets/spa-an-ko/SampleApp.png"/>
 </a>
 
-##Getting Started
+## Getting Started
 
 Both projects use Node Package Manager (npm), so <a href="http://nodejs.org/">Node</a> is a prerequisite.
 
-###Knockout Project
+### Knockout Project
 
 Getting the Knockout project going was surprisingly easy. Steve Sanderson's talk goes through the process in detail, so I won't reproduce that here, but here are the commands to install Yeoman and scaffold the project:
 
@@ -59,14 +59,14 @@ That gives you a simple project with routing and two initial views (Home and Abo
 
     yo ko:component <name>
 
-###Angular Project
+### Angular Project
 
 For the Angular project, I cloned it from angular-seed, then used npm to pull in all the dependencies:
 
     git clone https://github.com/angular/angular-seed.git
     npm install
 
-##Modules
+## Modules
 
 When developing an enterprise web application, some sort of module loading system is very important. It allows us to decouple all the various parts of the application, and helps stop the project from becoming an unmanageable mess.
 
@@ -76,7 +76,7 @@ The scaffolded Knockout project uses RequireJS for module loading, which works a
 
 It's also possible to use RequireJS with Angular, but I won't try to cover that here.
 
-##Navigation / Views
+## Navigation / Views
 
 Hash-tag routing means we can navigate around the SPA using the part of the URL after the '#'. Using the hash-tag for navigation means that the browser automatically records the history for us, so clicking the back button should do what the user expects it to.
 
@@ -109,7 +109,7 @@ The view uses the 'component' binding to render the correct component based on t
 
     <div id="page" data-bind="component: { name: route().page }"></div>
 
-##Components
+## Components
 
 I want to build the home page up from loosely coupled components, but they must still talk to each other. For example, when I type in the search text box, the other components should automatically update themselves.
 
@@ -162,7 +162,7 @@ In this case, the component parameters (including the searchModel) get passed in
 
 Knockout components are currently a preview feature, and they're pretty neat. When used with RequireJS, it's also smart enough to only load the JavaScript and template files when the component is actually used. 
 
-###Binding to controls
+### Binding to controls
 
 The investment filter component contains a text box which is bound to the 'name' parameter of the search model. I also wanted the binding to delay updates slightly - i.e. when the filter changes we'll be triggering ajax requests to do some analysis, so we don't want that to happen too often while the user is still typing.
 
@@ -195,7 +195,7 @@ In Knockout, the value binding is used. The searchModel uses an observable, with
     };
 {% endhighlight %}
 
-###Filters and custom bindings
+### Filters and custom bindings
 
 Displaying raw data values on the screen is no good. The values must be formatted so they look like dates and currency and percentages etc. Angular uses 'filters' for this task, which is a simple function that takes a value and returns a modified result. The built in date and currency filters are ok, but I still ended up creating my own custom filters because I wanted custom formatting without having to set the formatting options everywhere the filters were used (in case I decide to change the formatting in the future).
 
@@ -220,7 +220,7 @@ The Knockout version does the same thing with a custom binding:
     };
 {% endhighlight %}
 
-###Reacting to model changes
+### Reacting to model changes
 
 When the search model changes (i.e. a user has typed in the search box), the other components need to make ajax requests for analysis based on the updated model.
 
@@ -278,7 +278,7 @@ My Knockout project makes ajax requests via jQuery, so I've used jQuery.Mockjax 
         </tr>
     </tbody>
 
-###Binding data to charts
+### Binding data to charts
 
 I've written some <a href="http://d3js.org/">D3</a> code to render and animate bar and column charts, so now I want to bind the data to the charts.
 
@@ -325,7 +325,7 @@ Adding the chart is equally simple:
 	
 In the completed project, I've expanded on the chart directive and binding to provide a more generic method for binding to multiple types of chart (bar and column charts are implemented).
 
-##Unit testing
+## Unit testing
 
 Both projects come with unit testing already configured, using Jasmine and Karma. Great! Unit testing is one area that really benefits from tools like Angular and Knockout, because we can concentrate on testing the controllers and models, without having to worry about what's happening to the DOM. Karma is a command line test runner, so it's easy to integrate with a continuous integration build process. The Knockout project also has a browser-based test runner, which makes it a lot easier to debug failing tests.
 
@@ -412,7 +412,7 @@ The following test creates a test target with a mock search model, and checks th
 
 The Angular documentation also advocates building end-to-end (e2e) tests, and the project comes with some sample tests to start with. They use Protractor to run the site in a browser and verify behaviour. I won't try to cover e2e testing in this post, but as the site is identical between the Angular and Knockout versions, the same e2e tests should work in both versions.
 
-##Packaging and optimisation
+## Packaging and optimisation
 
 At the moment our Angular website makes thirty two requests to serve the home page, and the Knockout version makes thirty nine. These are mostly JavaScript modules, but also css files and templates. For production we need to package up all these files and minify them to optimise the website.
 
@@ -442,7 +442,7 @@ The Angular project didn't have any of this, so I decided to create my own using
 <img src="{{ site.github.url }}/alee/assets/spa-an-ko/ServedFilesAN.png"/>
 
 
-##Animation
+## Animation
 
 Other than the D3 charts, I haven't tried to do much with animation. It's an important subject though, and worth a mention.
 
@@ -450,7 +450,7 @@ Angular has good support for animated transitions, including between pages. You 
 
 In Knockout, animated transitions can be built using custom bindings and jQuery. The easy example in the Knockout documentation is a fadeVisible binding (fade elements in and out so they don't instantly appear or disappear). For page transitions, we'd need to replace the 'component' binding with a custom binding that does the same thing but with an animation step. Knockout Components are still in preview though, so it's possible this may change before release.
 
-##Conclusion
+## Conclusion
 
 Both Angular and Knockout (with CrossroadsJS and RequireJS) are brilliant tools for building enterprise scale single page applications. My sample application looks and behaves identically in the two versions, and the development process was pretty smooth in both cases. I'd certainly be more than happy working with either of them.
 

@@ -182,10 +182,10 @@ Porting the assignments from Scala to Clojure has been an interesting experience
 
 So what are the biggest differences between these two languages?  From my perspective, there are two.  
 
-###Syntax###
+### Syntax ###
 Scala's syntax is an evolution from Java and allows the user to use a variety of styles.  This requires discipline on the part of the user and could increase the learning curve on a new project that has a different style.  Clojure, on the other hand, shouts its Lisp ancestry from the top of its lungs.  It's a syntax that's not for everyone, will have a steep learning curve for anyone without a Lisp background and, like all languages, with sufficient effort can be contorted into incomprehensibility.  
 
-###Data###
+### Data ###
 Scala wants you to take all of that OO knowledge you've accumulated over the years and expand upon it.  Classes are very much at its forefront, although significantly more flexible than those in Java, C# and C++ thanks to traits.  This is a familiar paradigm allowing users to get up to speed more quickly and take advantage of all of the benefits of OO (along with all of its downsides).  Clojure thinks OO is rather overrated and gives the user a new paradigm to work with having emulated/pillaged the bits of OO it does like (e.g. Polymorphism, although without inheritance).  It breaks with the OO notion that functions and data should be inextricably linked with its philosophy of 100 functions applied to 1 data structure.
 
 

@@ -112,7 +112,7 @@ The data that the `Event` enumeration encapsulates (within next and error events
 
 The simple code examples above show some of the benefits that Swift brings to ReactiveCocoa. The use of generics for defining signals means that you get type safety when observing events. Furthermore, type inference means that while some of the types you are dealing with are pretty complex, involving nested generics, you don't have to explicitly declare the generic types.
 
-##Transforming Signals
+## Transforming Signals
 
 The Swift signal type supports a very similar family of operations to its Obj-C counterpart. However, there is another significant difference in the overall API design.
 
@@ -234,7 +234,7 @@ The way that pipe forward and these curried functions work together certainly ta
 
 In order to understand how these all fit together I created a simple example, a string type, with a fluent interface built from free functions and pipe forward. I've created a documented playground, [available as a gist](https://gist.github.com/ColinEberhardt/b4bf4e4566ffa88afcda), which describes it in more detail.
 
-##Conclusions
+## Conclusions
 
 The core concepts of RC3 are the same as RC2, signals that emit events, however the implementation is quite different. While you don't necessarily need to know how signal operations and pipe forward work, I have this knowledge to be very useful when debugging.
 

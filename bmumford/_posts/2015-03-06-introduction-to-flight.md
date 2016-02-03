@@ -29,17 +29,17 @@ In this blog I'll introduce the framework in a little more depth by building and
 
 If you want to skip the waffle and go straight to the code then click <a href="https://github.com/bm1729/flight-experiments">here</a>.
 
-##Assumptions##
+## Assumptions
 
 This blog assumes the reader has a basic knowledge of javascript, jQuery and Jasmine and a healthy curiosity. The application we will be building is plumbed together using RequireJS.
 
-##The project##
+## The project
 
 In this blog we'll build a simple application that has a list of items to select from in the left hand panel. In the right hand panel will be a more detailed view of the selected item. Noddy stuff, but useful to illustrate the basic concepts.
 
 <img src="{{ site.github.url }}/bmumford/assets/introduction-to-flight/FlightExperiments.png"/>
 
-##Component parts##
+## Component parts
 
 <i>Components</i> are the building blocks of a Flight application. A component is a small, cohesive unit of functionality which is attached to a  DOM element. They have zero knowledge of each other and once they are attached to the DOM they are on their own. This makes testing them incredibly simple. No dependencies to stub as there are no dependencies! "So how do they communicate with each other?!" you might ask. We'll get there.
 
@@ -170,7 +170,7 @@ define(['components/dataComponent', 'components/detailComponent', 'components/li
 
 Bosh. Three components attached to the DOM. Now what...
 
-##The main event##
+## The main event
 
 As mentioned before these components know nothing about each other and this is intentional. Components communicate to each other by listening for and triggering <i>events</i>. As applications get larger, care must be taken when naming events. A nice naming convention is described <a href="https://blog.twitter.com/2013/flight-at-tweetdeck">here</a>.
 
@@ -279,7 +279,7 @@ And here's what happens when a user clicks an item in the list:
 
 "Hang on a second, what's that `this.after('initialize', function() {...});` bit?!" you might ask. Very astute of you. It is an example of <a href="https://github.com/flightjs/flight/blob/v1.x/doc/advice_api.md">advice</a> and allows us to modify existing code by adding extra functionality. In our case this can be read as "after initialisation, add our event handlers and, in the case of the listComponent, trigger the 'uiItemsRequested' event". The `this.after('initialize', function() {...});` pattern is the most common you will use and is used to setup the component.
 
-##Mixin' it up##
+## Mixin' it up
 
 Pretty neat, we have a working application. It won't win awards... yet. But we're about to add some logging to the console. Surely that will swing the judges. We don't want to repeat our code again and again so what's the answer? Mixins. Mixins are bits of code that we can make available to multiple components. Lets make our loggerMixin with a single `info` function:
 
@@ -337,7 +337,7 @@ define(['flight/lib/component', 'mixins/loggerMixin'], function(defineComponent,
 
 It's as easy as including the mixin when defining the component. We now have access to the `this.info` function that we defined in the mixin. It's easy to think of more complex examples where this would be very useful.
 
-##Testing times##
+## Testing times
 
 Because components don't depend on each other and they have a well defined API (i.e. given this event with this data, I expect that event with that data to be triggered) they are very easy to test. There are helpful libraries which extend jasmine (<a href="https://github.com/flightjs/jasmine-flight">jasmine-flight</a>) and mocha (<a href="https://github.com/flightjs/mocha-flight">mocha-flight</a>), depending on your preference, which have additional functions for initialising components and spying on events. Here is a simple test for the dataComponent written using the jasmine-flight library:
 
@@ -368,7 +368,7 @@ describeComponent('component/dataComponent', function() {
 
 The `this.setupComponent` function must be called before you start testing and can be called with test html and options (although I haven't needed them for this test). Very simple I'm sure you'll agree. 
 
-##Conclusion##
+## Conclusion
 
 Flight isn't designed to take the place of AngularJS, KnockoutJS or any other MV* framework. Instead it provides a neat way to split up your code by piggy-backing on technology that we all understand (events and jQuery). It forces you to write decoupled and easily testable code. Apart from that you can structure your application as you wish. 
 

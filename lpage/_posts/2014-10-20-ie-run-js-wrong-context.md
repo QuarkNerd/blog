@@ -112,7 +112,7 @@ If you don't quite understand, the easiest way is to compare the code with the s
 
 The test case can be run from <a href="{{ site.github.url }}/lpage/assets/wrong-context/testmain.htm">here</a>.
 
-##What are the implications?
+## What are the implications?
 
 There are several issues that can arise because of this IE bug. The most obvious is because it makes JavaScript not like a single threaded language any more. For example..
 
@@ -144,7 +144,7 @@ But that's probably the least of your worries. Firstly the main window thread wi
 
 A third example can be seen when using knockout computed values - Knockout ignores re-entrant calls to ko.computed (it messes up the internal ko state of that computed). But in the case of a popup window, the computed might be triggered by a completely new event (not recursive) but be ignored because the current state of that computed tells knockout that it is being called recursively.
 
-##How to fix it
+## How to fix it
 
 I don't think we can deal with this bug by programming in a thread safe way - there are too many loop holes, javascript lacks the tools and its not quite just multithreaded behaviour. Imagine the previous example.. (note - untested, for illustration purposes only)
 

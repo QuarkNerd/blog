@@ -12,19 +12,19 @@ disqus-id: /2014/11/10/Video-Stitching-With-AVFoundation.html
 
 When I originally started this project, it was my intention to develop a tool for iOS Developers attempting to create App Preview videos for their apps on the App Store. While reading [Getting Started with App Previews](http://dancounsell.com/articles/getting-started-with-app-previews) by Dan Counsell, I realised that to create videos with the correct size, my only option was Final Cut Pro. A £199.99 piece of software. I searched for a free alternative but found nothing, so started to develop my own.
 
-###iMovie Support
+### iMovie Support
 <img src="{{ site.github.url }}/cgrant/assets/iMovie.png" />
 
 About a week into this development, Apple released an update and announced that you could now [create app previews with iMovie](https://developer.apple.com/news/?id=10162014a), which is free! This is great news for developers, but it meant I gave up on development of this tool. I did, however, learn a lot about AVFoundation while creating it. One of the most challenging tasks I tackled was how to combine multiple videos. Below I explore how to stitch several .mov files together using AVFoundation.
 
-##Getting Started
+## Getting Started
 The project is a Mac app, and contains three sample .mov files that I captured on my iPhone 6 using QuickTime. To capture video from your device, just ensure it is plugged in, open QuickTime, then select File -> New Recording, then click record in the new window.
 
 All of the interesting code is inside the [`ViewController.m`](https://github.com/ChrisGrant/AVFoundation-Video-Stitching/blob/master/VideoStitching/ViewController.m "AVFoundation Video Stitching Repository - ViewController") class. The UI in the ViewController contains a single `AVPlayerView` that is linked to a `playerView` property with an IBOutlet. The UI could be expanded in future to allow the user of the application to import their own videos, rather than using the three bundled with the application and hardcoded into [`ViewController.m`](https://github.com/ChrisGrant/AVFoundation-Video-Stitching/blob/master/VideoStitching/ViewController.m "AVFoundation Video Stitching Repository - ViewController").
 
 <img src="{{ site.github.url }}/cgrant/assets/storyboard.png" />
 
-###First things first
+### First things first
 To start, we must build an array that contains `AVAsset` objects. 
 
 	AVAsset *tennisAsset = [AVAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"tennisTall" ofType:@"mov"]]];
@@ -55,7 +55,7 @@ We also store the time in a CMTime variable. CMTime is a rational time value rep
 
 Finally, we keep a mutable array of instructions. This array is used as the .instructions property on `AVMutableVideoComposition`, which we will discuss later.
 
-###Iterating through the Assets
+### Iterating through the Assets
 
 We are now ready to add content to our composition and tracks by iterating through the assets array.
 

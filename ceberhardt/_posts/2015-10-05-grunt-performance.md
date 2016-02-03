@@ -18,7 +18,7 @@ I've recently been working on an open source project, [d3fc](https://github.com/
 
 This blog post shares a few steps I took to improve the performance of our grunt build, hopefully some of the tools I used will be of use to others.
 
-##Instrumentation
+## Instrumentation
 
 We all know that the first step in improving performance is to instrument. You need to know which steps in your build are time-consuming before trying to optimise them.
 
@@ -116,7 +116,7 @@ require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
 It's very easy to forget to clean up your `package.json` resulting in your grunt build loading tasks unnecessarily.
 
-##JIT task loading
+## JIT task loading
 
 As ever, when grunt doesn't support something, you can almost guarantee that there will be a plugin that does! In this case it's `jit-grunt`, a just-in-time plugin loader. Simply replace the manual `loadNpmTasks` or `matchdep` step and replace with the following:
 
@@ -216,7 +216,7 @@ Execution Time (2015-10-03 10:37:49 UTC)
 Total 8.4s
 {% endhighlight %}
 
-##From JSHint+JSCS to ESLINT
+## From JSHint+JSCS to ESLINT
 
 Looking at the tasks that are taking most time, JSHint certainly stands out. Also, we are running two separate static analysis tools over our code. The first, JSHint, is focussed on the languages constructs used, restricting the use of JavaScript features in order to write more 'safe' and predictable code. Whereas JSCS is purely a style checker, looking at things like indentation, single/double quotes etc ...
 

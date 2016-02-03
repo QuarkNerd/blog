@@ -25,7 +25,7 @@ I've also build a simple sample application, which you can try here: <a href="{{
 
 The code for this sample application is available on [GitHub](https://github.com/DevAndyLee/Angular-Hero-Sample).
 
-###How to use in your application
+### How to use in your application
 
 The component is hosted at [Angular-Hero](https://github.com/DevAndyLee/Angular-Hero), and can be installed into your application using [bower](http://bower.io/) like this:
 
@@ -71,7 +71,7 @@ This also means that CSS styles will be animated during the transition.
 For example, if the target element is blue, then you'll get an animated transition from red to blue.
 You can also animate other styles in the same way, such as corner-radius and borders etc...
 
-###Screen transitions with AngularJS
+### Screen transitions with AngularJS
 
 AngularJS has great support for animations, with good [documentation](https://docs.angularjs.org/guide/animations).
 
@@ -117,7 +117,7 @@ I also added extra details like scaling or sliding in blocks of text. For exampl
     }
 {% endhighlight %}
 
-###How the Hero transition works
+### How the Hero transition works
 
 To perform a Hero transition, we actually want to animate an element on one screen to a new position in a different screen. From Angular's point of view these are two unrelated elements in the DOM, so there is no way to accomplish that with a CSS-based animation.
 
@@ -132,7 +132,7 @@ On the first screen, we don't actually know which elements are going to be the H
        hero-id="name">{{"{{"}}contact.name}}</div>
 {% endhighlight %}
 
-###Animating the elements
+### Animating the elements
 
 We don't want to mess around with the existing elements in the DOM - they've most likely been created by Angular, and Angular will need to keep control of them to maintain its bindings.
 
@@ -142,7 +142,7 @@ At the same time, the clone's CSS classes are also swapped over. That lets us an
 
 Finally, the `transitionend` events fire for all the Hero elements, and `hero-transition` will call the `done` callbacks from the animation's `enter()` and `leave()` methods, letting Angular know we've finished.
 
-###Conclusion
+### Conclusion
 
 While I've been building the `angular-hero` component, I've learned a lot about CSS transitions generally and Angular animations in particular. It's surprisingly easy to do and can help build an engaging user experience. 
 

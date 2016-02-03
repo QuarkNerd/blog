@@ -17,7 +17,7 @@ categories:
 ---
 This post is a [continuation of my previous]({{ site.github.url }}/2014/09/10/game-of-life-in-functional-swift.html) which looked at implementing Conway's Game of Life using functional techniques. Here I look at how memoization can be used to cache the return value of a function in order to improve performance.
 
-##Introduction
+## Introduction
 
 In my previous post I discussed an implementation of  Life which was free from for-loops, instead relying on functional techniques. The core logic, which operates on an `n x n` grid of cells, is shown below:
 
@@ -71,7 +71,7 @@ Whilst the above code is expressive and self-contained, the performance issues a
 
 Before going ahead and optimising the above code it is probably worth determining whether this is in fact necessary. Optimising code which doesn't *need* to run any faster is a waste of time!
 
-##Performance testing
+## Performance testing
 
 Ideally I'd like the game to run at around 20 frames per second, which gives me a good target metric for my optimisation.
 
@@ -81,7 +81,7 @@ The Xcode unit testing tools have a built-in mechanism for performance measureme
 
 As you can see from the above, the current, non-optimised version of my Life game takes around 2 seconds to perform 20 iterations, so fails to meet my target of 20 frames per second.
 
-##A memoize function
+## A memoize function
 
 Memoization (which my spell checker ironically keeps trying to correct to memorisation) is an optimisation technique where the return values of a function are cached to avoid repeating the same computation.
 
@@ -153,7 +153,7 @@ dyingCells.each { (cell: Cell) in cell.state = .Dead }
 
 The trailing closure syntax is highly effective in this context.
 
-##Memoization in action
+## Memoization in action
 
 Unfortunately the above code will not compile because `Cell` does not adopt the `Hashable` protocol (and by inheritance the `Equatable` protocol as well). This is easily rectified as follows:
 
@@ -183,7 +183,7 @@ Now that function that finds the neighbours for a cell is memoized, it's time to
 
 This gives 0.145 secs, a big improvement on 1.93 secs, and enough to hit the target of 20 frames per second.
 
-##Faster memoization
+## Faster memoization
 
 There is one small problem with the current memoize function, it is a little slow! If you look closely, each time it is called for a cached value the `indexForKey` function is called on the dictionary, followed by the subscript, `cache[val]`, this effectively results in two dictionary lookups!
 
@@ -209,7 +209,7 @@ dyingCells.each { (cell: Cell) in cell.state = .Dead }
 
 The above is slightly more verbose, but results in the test execution dropping further to 0.101 seconds.
 
-##Pre-computation
+## Pre-computation
 
 Rather than going to all this trouble of caching function value, each cell could simply store a reference to its neighbours:
 
@@ -310,7 +310,7 @@ dyingCells.each { (cell: Cell) in cell.state = .Dead }
 
 Awesome!
 
-##Conclusions (And the elephant in the room)
+## Conclusions (And the elephant in the room)
 
 Hopefully you have enjoyed learning about memoization. The functional nature of the Swift language certainly makes these concepts much more easy to apply than Objective-C. As a parting thought, I just want to address the elephant in the room ...
 

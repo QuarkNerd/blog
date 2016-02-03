@@ -59,7 +59,7 @@ Some frameworks tend to be quite flexible in the way you can work with it, where
 
 Focusing on providing a comparison between these framework's philosophies ensures you can pick a framework that is compatible with your application's requirements or suits your personal taste.
 
-##<img src="{{ site.github.url }}/dkerr/assets/backbone.png"/>
+## <img src="{{ site.github.url }}/dkerr/assets/backbone.png"/>
 
 Backbone.js offers a flexible, minimalist solution to separating concerns in your application. As a consequence of its minimal solution, Backbone.js used without its own plugins is more of a utility library than a fully-fledged MVC framework.
 

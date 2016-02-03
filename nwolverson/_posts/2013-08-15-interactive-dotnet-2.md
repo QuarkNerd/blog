@@ -152,9 +152,11 @@ and the inclusion of definitions at the top level (a more "script like" syntax).
 
 {% highlight csharp %}
 
-#r "System.Xml"
-#r "System.Xml.Linq"
-#r "System.Core"
+# r "System.Xml"
+
+# r "System.Xml.Linq"
+
+# r "System.Core"
 
 using System;
 using System.Net;

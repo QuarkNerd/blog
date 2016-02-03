@@ -299,7 +299,7 @@ func concurrent<U>(transform: (T) -> U,
 
 This improves the performance by around 25%.
 
-##Batched Computation
+## Batched Computation
 
 Another problem with the current implementation is the overhead of the underlying threading code via `dispatch_group_async`. The rendering of a typical Mandelbrot might involve computing the iterations for ~200,000 pixels. This requires dispatching 200,000 units of work, and if each unit is small, the overhead is significant.
 

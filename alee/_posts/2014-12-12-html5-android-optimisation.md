@@ -18,7 +18,7 @@ The App looked great running on iPhones and the Android devices we had available
 
 Google's success at making the OS available at lower price points means that many users have devices with relatively limited performance. Giving those users a good experience is vital. Here are some lessons I've learned while optimising my App to look good on older or slower devices.
 
-###About the App
+### About the App
 
 My proof of concept App consists of a home screen showing a scrollable list of cards. Each card shows some summary information, and clicking on the card initiates a transition to the details screen. Some of the the card content also appears in the header of the details screen, so it uses a "Hero" transition to move it to its new position. This diagram illustrates the transition:
 
@@ -26,7 +26,7 @@ My proof of concept App consists of a home screen showing a scrollable list of c
 
 I built my App using [Ionic Framework](http://ionicframework.com), which is based on [AngularJS](https://angularjs.org/), but these lessons should apply to other frameworks too. Angular has built-in support for animations, and Ionic comes with some default transitions for sliding pages left and right. I used that, and added a Javascript animation for the "Hero" element. It extracts the element from the card and positions it so it's in the same place on screen, then animates it to it's new location before removing it. The corresponding element in the details page is initially hidden during the animation, and revealed at the end so it appears to be the same element.
 
-###Cache or pre-fetch data
+### Cache or pre-fetch data
 
 The data for the card details page comes from an Ajax request, so a simple implementation would look something like this:
 
@@ -59,7 +59,7 @@ As it happens, some of the data on the details screen was used to create a summa
 
 Now the important parts of the details screen will be displayed before the transition begins. We'll still get some additional details popping in mid-transition, but I'll have a look at that problem in a later paragraph: [Avoid DOM updates during transitions](#avoid_dom_updates_during_transitions). 
 
-###Use CSS transitions
+### Use CSS transitions
 
 Rather than try to explain how Angular Animations work, I'll refer to the [documentation](https://docs.angularjs.org/guide/animations). I created an `animation` module, with `enter` and `leave` methods for the screens containing the "Hero" elements.
 
@@ -113,7 +113,7 @@ In this example, the `animating` class tells the browser to animate the `top` at
 
 The CSS transition also lets us animate other properties, such as the foreground and background colours. These are different on the details page because the element moves inside the header.
 
-###Selectively disable transitions
+### Selectively disable transitions
 
 The CSS transitions look nice and smooth on the higher-end devices, such as the Nexus 5 and Nexus 10, but older devices still struggle. I tested with a HTC Desire S, which could handle the simple side-to-side transition of the page, but not animating the "Hero" element.
 
@@ -130,7 +130,7 @@ Ionic framework already has a built in feature for just this sort of situation. 
     } 
 {% endhighlight %}
 
-###Avoid DOM updates during transitions
+### Avoid DOM updates during transitions
 
 Javascript applications that get data from an ajax service are high-latency asynchronous by their nature. That makes it very difficult to make sure you don't get any data returned in the middle of a transition. When that happens, it usually means changes to the controller's `$scope`, which trigger DOM updates. The updates may not take long, but it can be enough to delay one of the frames of the animation, which creates a noticeable and unsightly judder.
 
@@ -209,7 +209,7 @@ The `dataService` class also gets `callbackService` injected, and uses it to wra
     });
 {% endhighlight %}
 
-###Conclusion
+### Conclusion
 
 The optimisations I've tried have noticeably improved the User Experience on high performance devices like the Nexus 5, which has fewer dropped animation frames and feels smoother and more responsive. More importantly, it has made a dramatic improvement on the lower end devices. Where the transition was previously slow and jerky, it is now a simple slide-left with nothing else competing for CPU time.   
 
