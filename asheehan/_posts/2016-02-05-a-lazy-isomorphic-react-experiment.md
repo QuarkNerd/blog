@@ -37,15 +37,18 @@ think this is an important gauge of how well this framework would work in practi
 So just for reference, here is the list of these technologies/techniques I used.
 
 #### TypeScript
+
 Useful in large applications as the strongly typed nature of it allows you to catch
 bugs earlier in the development cycle, making it harder to break things when making
 a change.
 
 #### React-router
+
 Allowing routing to separate 'pages' in the application, almost guaranteed in a
 large application.
 
 #### Redux
+
 A slightly different and more concrete implementation of the flux architecture
 This is a big topic so I won't go into much detail in this blog post. If you want
 to learn more about **Redux** first (which I recommend, its really cool) - check
@@ -53,12 +56,14 @@ this blog post out
 [here](http://blog.scottlogic.com/2016/01/25/angular2-time-travel-with-redux.html).
 
 #### Hot reloading
+
 This is a hot topic at the moment (I stole that joke from [this blog post](http://blog.scottlogic.com/2016/01/27/a-case-for-hot-reloading.html)).
 Allows you to streamline your React application development workflow, cutting the
 time you need to wait for compilation, so definitely check out that blog post if you're
 not familiar with the concept, maybe you'll warm to it (my joke).
 
 #### Sass
+
 And finally, Sass for stylesheets. People have been talking recently about getting
 rid of stylesheets in React applications altogether, in favour of writing styles in
 JavaScript then inserting them directly into the react component, with something like
@@ -97,7 +102,8 @@ itself.
 
 So why would you develop an isomorphic application?
 
-#### Code reuse  
+
+### Code reuse  
 
 A big benefit is to able to reduce the amount of overall code in your application.
 In a server-rendered application you would use a *templating
@@ -115,24 +121,27 @@ up for debate. Is it a good idea to have multiple applications use the same Reac
 component? What if you change a component to address something in the web application,
 might that break something in your iOS app? Maybe something to consider.
 
-#### Performance
+
+### Performance
 
 The fact that the server can also render content in **exactly** the same way that
 the client does means that the initial load time of an isomorphic application
 would be much smaller than a solely client-rendered application, it would be similar
 to the load time of a server-rendered application for 2 reasons:
 
-##### **No initial render**
+#### **No initial render**
+
 The client does not have to do the initial render, so this cuts down the amount of
 processing the client needs to do when the app loads for **the first time**.
 
-##### **Smaller initial file size**
+#### **Smaller initial file size**
+
 Thanks to code-splitting the initial file size could also be much smaller,
 as we only need to load the code for the current page, in the same way you might
 split your code up for a server-rendered multi-page application.
 
 
-#### Search engine optimisation  
+### Search engine optimisation  
 
 A problem with client-rendered applications currently is that the markup received
 from the server is pretty much blank, until the client loads and is then able to
@@ -222,7 +231,7 @@ You could even use webpack to replace the link of `img` elements with base64 str
 hard-coding the image directly inside the react component.
 
 
-#### Sass compilation  
+### Sass compilation  
 
 Here is an example of using webpack to configure sass compilation, with live reloading.
 
@@ -290,7 +299,8 @@ class App extends React.Component<IAppProps, {}> {
 }
 {% endhighlight %}
 
-#### Webpack thoughts
+
+### Webpack thoughts
 
 Webpack does a lot. As well as having tons of pluggable loaders to use, there is
 a plethora of options and configurations, so it's no doubt that the documentation
@@ -339,7 +349,7 @@ dependencies for you.
 You can find the list of webpack plugins [here](https://webpack.github.io/docs/list-of-plugins.html)
 
 
-#### React router
+### React router
 
 We'll do a quick run through of React router to explain how to set up multiple
 pages in an application, and how it relates to the isomorphic React approach.
@@ -369,7 +379,7 @@ history, so the **back** and **forward** buttons work out of the box, transition
 easily between different routes.
 
 
-#### Time to be lazy
+### Time to be lazy
 
 You'll notice for the nested routes that instead of using the `component` prop
 like the top level **App** route, we supply a `getComponent` prop which is a
@@ -416,7 +426,7 @@ you traverse to a different page, the relevant bundle and styles will be loaded 
 that component too.
 
 
-#### Requiring stylesheets on the server
+### Requiring stylesheets on the server
 
 With a standard webpack configuration, isomorphic applications do not work perfectly
 in the situation where you want to require stylesheets on the server as well as on
