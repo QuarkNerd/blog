@@ -88,8 +88,7 @@ the items and deducts the total from the users balance.
 
 ![Shop page]({{ site.github.url }}/asheehan/assets/shop-page.png "The shop page")
 
-*See the whole application here*
--- LINK --
+*Link to the GitHub repository is [here](https://github.com/alisd23/lazy-isomorphic-react)*
 
 
 ## Why isomorphic?
