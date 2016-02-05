@@ -51,9 +51,8 @@ large application.
 
 A slightly different and more concrete implementation of the flux architecture
 This is a big topic so I won't go into much detail in this blog post. If you want
-to learn more about **Redux** first (which I recommend, its really cool) - check
-this blog post out
-[here](http://blog.scottlogic.com/2016/01/25/angular2-time-travel-with-redux.html).
+to learn more about **Redux** first (which I recommend, its really cool) -
+[check it out](http://blog.scottlogic.com/2016/01/25/angular2-time-travel-with-redux.html).
 
 #### Hot reloading
 
@@ -81,14 +80,13 @@ The main layout of the website at the moment is as follows:
 
 1. Main shop `/` - contains the list of products and the current cart.
 This page sits at the base root.
-2. Individual product page `/product/:id` - This page contains information about a specific product,
-given by the id in the url. ID is the product id
+2. Individual product page `/product/:id` - This page contains information about a specific product.
 3. Checkout page `/checkout` - Shows the cart only, along with the buy button, which checks out
 the items and deducts the total from the users balance.
 
 ![Shop page]({{ site.github.url }}/asheehan/assets/shop-page.png "The shop page")
 
-*Link to the GitHub repository is [here](https://github.com/alisd23/lazy-isomorphic-react)*
+*Check out the code on the [GitHub repository](https://github.com/alisd23/lazy-isomorphic-react)*
 
 
 ## Why isomorphic?
@@ -104,7 +102,7 @@ So why would you develop an isomorphic application?
 
 ### Code reuse  
 
-A big benefit is to able to reduce the amount of overall code in your application.
+A big benefit is to be able to reduce the amount of overall code in your application.
 In a server-rendered application you would use a *templating
 engine* (such as Jade, Blade etc...) to render your markup on the server, and if
 you wanted to update on the client afterwards you would need some client-side
@@ -239,7 +237,7 @@ which loaders to apply to the scss files:
 
 **NOTE** *This is the webpack configuration for the development environment only.
 You'll need a separate set of configuration to set the application up for production
-You can check out my production webpack config* [here](https://github.com/alisd23/lazy-isomorphic-react/blob/master/webpack/prod.config.js).
+You can check out my production webpack config* [on GitHub](https://github.com/alisd23/lazy-isomorphic-react/blob/master/webpack/prod.config.js).
 
 {% highlight js %}
 var config = {
@@ -345,7 +343,7 @@ For example you can easily specify a minimum chunk file size, meaning that any f
 smaller than the threshold will get merged together, and webpack will sort out all
 dependencies for you.
 
-You can find the list of webpack plugins [here](https://webpack.github.io/docs/list-of-plugins.html)
+You can find the list of webpack plugins [in the webpack documentation](https://webpack.github.io/docs/list-of-plugins.html)
 
 
 ### React router
@@ -473,5 +471,4 @@ to go digging through some code... This also means it is very likely to change i
 future, so take that under consideration before starting a production application
 in this way.
 
-If you want to have a look at the code I'll leave a link to the GitHub repository
-[here](https://github.com/alisd23/lazy-isomorphic-react)
+If you want to have a look at the code I'll leave a link to the [GitHub repository](https://github.com/alisd23/lazy-isomorphic-react)
