@@ -11,8 +11,6 @@ categories:
   - Redux
 ---
 
-# A Lazy Isomorphic React Experiment
-
 If you've used React and Flux, you'll know how powerful this combination is when
 building single page applications. But how practical is it when building truly
 large scale applications with multiple sections? An issue with client-rendered single
@@ -38,29 +36,29 @@ meaning how easy it is to incorporate other technologies into the application. I
 think this is an important gauge of how well this framework would work in practice.
 So just for reference, here is the list of these technologies/techniques I used.
 
-##### TypeScript
+#### TypeScript
 Useful in large applications as the strongly typed nature of it allows you to catch
 bugs earlier in the development cycle, making it harder to break things when making
 a change.
 
-##### React-router
+#### React-router
 Allowing routing to separate 'pages' in the application, almost guaranteed in a
 large application.
 
-##### Redux
+#### Redux
 A slightly different and more concrete implementation of the flux architecture
 This is a big topic so I won't go into much detail in this blog post. If you want
 to learn more about **Redux** first (which I recommend, its really cool) - check
 this blog post out
 [here](http://blog.scottlogic.com/2016/01/25/angular2-time-travel-with-redux.html).
 
-##### Hot reloading
+#### Hot reloading
 This is a hot topic at the moment (I stole that joke from [this blog post](http://blog.scottlogic.com/2016/01/27/a-case-for-hot-reloading.html)).
 Allows you to streamline your React application development workflow, cutting the
 time you need to wait for compilation, so definitely check out that blog post if you're
 not familiar with the concept, maybe you'll warm to it (my joke).
 
-##### Sass
+#### Sass
 And finally, Sass for stylesheets. People have been talking recently about getting
 rid of stylesheets in React applications altogether, in favour of writing styles in
 JavaScript then inserting them directly into the react component, with something like
@@ -99,7 +97,7 @@ itself.
 
 So why would you develop an isomorphic application?
 
-##### Code reuse  
+#### Code reuse  
 
 A big benefit is to able to reduce the amount of overall code in your application.
 In a server-rendered application you would use a *templating
@@ -117,24 +115,24 @@ up for debate. Is it a good idea to have multiple applications use the same Reac
 component? What if you change a component to address something in the web application,
 might that break something in your iOS app? Maybe something to consider.
 
-##### Performance
+#### Performance
 
 The fact that the server can also render content in **exactly** the same way that
 the client does means that the initial load time of an isomorphic application
 would be much smaller than a solely client-rendered application, it would be similar
 to the load time of a server-rendered application for 2 reasons:
 
-###### **No initial render**
+##### **No initial render**
 The client does not have to do the initial render, so this cuts down the amount of
 processing the client needs to do when the app loads for **the first time**.
 
-###### **Smaller initial file size**
+##### **Smaller initial file size**
 Thanks to code-splitting the initial file size could also be much smaller,
 as we only need to load the code for the current page, in the same way you might
 split your code up for a server-rendered multi-page application.
 
 
-##### Search engine optimisation  
+#### Search engine optimisation  
 
 A problem with client-rendered applications currently is that the markup received
 from the server is pretty much blank, until the client loads and is then able to
@@ -147,13 +145,12 @@ on the server side before sending it to the client, web crawlers can once again
 access your real content, just as they would in a server-rendered application.
 
 
-## Let's see some Isomorphic Rendering
+### Let's see some Isomorphic Rendering
 
 Rendering the application on the server:  
 **server/app.tsx**
 
-```JavaScript
-
+{% highlight js %}
 match({ routes, location: req.url || '/' }, (error, redirectLocation, renderProps) => {
   // Compile an initial state (Including react routing information)
   const products = {};
@@ -183,12 +180,12 @@ const html = (
 res
   .status(200)
   .send('<!doctype html>\n' + renderToString(html));
-```
+{% endhighlight %}
 
 Rendering the application on the client:  
 **client/app.tsx**
 
-```JavaScript
+{% highlight js %}
 match({ history: browserHistory, routes } as any, (error, redirectLocation, renderProps) => {
 
   const initialState = (window as any).__INITIAL_STATE__;
@@ -203,7 +200,7 @@ match({ history: browserHistory, routes } as any, (error, redirectLocation, rend
     document.getElementById('root')
   );
 });
-```
+{% endhighlight %}
 
 The code above is simplified slightly but as you can see both the client are rendering
 the exact component, so after this point React takes over and the rendering will be exactly
@@ -236,7 +233,7 @@ which loaders to apply to the scss files:
 You'll need a separate set of configuration to set the application up for production
 You can check out my production webpack config* [here](https://github.com/alisd23/lazy-isomorphic-react/blob/master/webpack/prod.config.js).
 
-```JavaScript
+{% highlight js %}
 var config = {
   ...
   module: {
@@ -266,14 +263,14 @@ var config = {
     outputStyle: 'expanded'
   }
 }
-```
+{% endhighlight %}
 
 Then simply **require** the sass file in your client side JavaScript. which is enough for
 webpack to realise those styles need loading, so it will then bundle those for you.
 
 So in my App.tsx top Level component I require the **common** styles stylesheet
 
-```JavaScript
+{% highlight js %}
 class App extends React.Component<IAppProps, {}> {
 
   render() : React.ReactElement<{}> {
@@ -291,7 +288,7 @@ class App extends React.Component<IAppProps, {}> {
     )
   }
 }
-```
+{% endhighlight %}
 
 #### Webpack thoughts
 
@@ -342,7 +339,7 @@ dependencies for you.
 You can find the list of webpack plugins [here](https://webpack.github.io/docs/list-of-plugins.html)
 
 
-##### React router
+#### React router
 
 We'll do a quick run through of React router to explain how to set up multiple
 pages in an application, and how it relates to the isomorphic React approach.
@@ -350,8 +347,7 @@ pages in an application, and how it relates to the isomorphic React approach.
 We can define routes using a React Router component like the following:
 
 
-```JavaScript
-
+{% highlight js %}
 import App from './containers/App';
 
 <Route path="/" component={App}>
@@ -365,7 +361,7 @@ import App from './containers/App';
     // Load all required resources for checkout page
   }} />
 </Route>
-```
+{% endhighlight %}
 
 Then by navigating to different urls, React router then loads the correct component
 and passes in any query parameters as React props. It also plugs easily into the browser
@@ -383,8 +379,7 @@ In this function we can require all the modules we need before the React router
 switches to the new component, which is exactly what we want. So we end up with a
 routes file like this:
 
-```JavaScript
-
+{% highlight js %}
 import App from './containers/App';
 
 <Route path="/" component={App}>
@@ -409,7 +404,7 @@ import App from './containers/App';
     });
   }} />
 </Route>
-```
+{% endhighlight %}
 
 **NOTE** the styles are required inside the components themselves. This was a design
 decision I made due to the fact that styles are so closely related to the React component
