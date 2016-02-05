@@ -129,12 +129,12 @@ the client does means that the initial load time of an isomorphic application
 would be much smaller than a solely client-rendered application, it would be similar
 to the load time of a server-rendered application for 2 reasons:
 
-#### **No initial render**
+#### No initial render
 
 The client does not have to do the initial render, so this cuts down the amount of
 processing the client needs to do when the app loads for **the first time**.
 
-#### **Smaller initial file size**
+#### Smaller initial file size
 
 Thanks to code-splitting the initial file size could also be much smaller,
 as we only need to load the code for the current page, in the same way you might
