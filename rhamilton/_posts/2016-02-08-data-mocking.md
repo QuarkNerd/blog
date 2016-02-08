@@ -38,23 +38,20 @@ Mocking is essentially simulating the behaviour of real data in controlled ways.
 
 To start using mock data the software under test needs to be "tricked" into replacing real data with fake data. I'm sure there are many ways to do this but one way I have seen this successfully achieved is through the addition of a configuration file. This configuration file can contain a list of keys and values. The keys being paths to various API end points and the values names of files that contain fake API responses. The application code is told to check the config file and if it contains any fake responses to use those instead of the real responses.
 
-Collecting data to make mocks from is a fairly straight forward process if the application can be opened inside a browser. Opening the browser developer tools (f12), inspecting the Network tab then interacting with the software (i.e.. changing the value on the drop-down box) will usually reveal API requests made and display the associated response received.
+Collecting data to make mocks from is a fairly straight forward process if the application can be opened inside a browser. Opening the browser developer tools (F12), inspecting the Network tab then interacting with the software (i.e.. changing the value on the drop-down box) will usually reveal API requests made and display the associated response received.
 
 Let's continue with the example of our software which displays the names of local businesses as values as a drop-down list. To keep things simple I'm going to say that this software uses a REST API with the following request and response.
 
 A request URL might be:
 
-```
-https://www.somecompany.com/api/business/names
-```
+    https://www.somecompany.com/api/business/names
 
 And a response might be:
 
-```
-[{"id":"0000001","name":"Tidy Town Taxis" },
- {"id":"0000002","name":"Paul's Popular Pizzeria" },
- {"id":"0000003","name":"Costalotta Coffee Shop" }]
-```
+    [{"id":"0000001","name":"Tidy Town Taxis" },
+     {"id":"0000002","name":"Paul's Popular Pizzeria" },
+     {"id":"0000003","name":"Costalotta Coffee Shop" }]
+
 
 So to set up some mock data for this app, we could copy and paste the response into a file and tell the software to use that data instead of the data at the real API endpoint.
 
@@ -62,15 +59,13 @@ And this is where the fun begins. Once the software has been tricked into using 
 
 If we wanted to test what happens when the list has many values, we could just change the mock data by adding more values to the file so it looks like this...
 
-```
-[{"id":"0000001","name":"Tidy Town Taxis" },
-  {"id":"0000002","name":"Paul's Popular Pizzeria" },
-  {"id":"0000003","name":"Costalotta Coffee Shop" },
-  {"id":"0000004","name":"Hey guess what, this is fake data" },
-  {"id":"0000005","name":"And this is also fake data" },
-  {"id":"0000006","name":"This data was made up" },
-  {"id":"0000007","name":"But the app thinks it's real" }]
-```
+    [{"id":"0000001","name":"Tidy Town Taxis" },
+      {"id":"0000002","name":"Paul's Popular Pizzeria" },
+      {"id":"0000003","name":"Costalotta Coffee Shop" },
+      {"id":"0000004","name":"Hey guess what, this is fake data" },
+      {"id":"0000005","name":"And this is also fake data" },
+      {"id":"0000006","name":"This data was made up" },
+      {"id":"0000007","name":"But the app thinks it's real" }]
 
 Once this new mock is fed back into the application, it might look something like this...
 
