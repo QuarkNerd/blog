@@ -78,10 +78,10 @@ with technologies than the end product itself.
 
 The main layout of the website at the moment is as follows:
 
-1. Main shop `/` - contains the list of products and the current cart.
+1. **Main shop** `/` - contains the list of products and the current cart.
 This page sits at the base root.
-2. Individual product page `/product/:id` - This page contains information about a specific product.
-3. Checkout page `/checkout` - Shows the cart only, along with the buy button, which checks out
+2. **Individual product page** `/product/:id` - This page contains information about a specific product.
+3. **Checkout page** `/checkout` - Shows the cart only, along with the buy button, which checks out
 the items and deducts the total from the users balance.
 
 ![Shop page]({{ site.github.url }}/asheehan/assets/shop-page.png "The shop page")
@@ -154,12 +154,14 @@ access your real content, just as they would in a server-rendered application.
 
 ## Let's see some Isomorphic Rendering
 
+
 #### Rendering the application on the server
 This rendering code sits inside an express middleware function on the server. We need to
 use middleware because the user should be able to start at any page on the site, so we
 have to 'intercept' all requests, filter out the ones that are present in our routes definition
 using the match function (shown later in the code-splitting section), then serve the correct
 rendered html.
+
 
 `server/app.tsx`
 
@@ -198,6 +200,8 @@ res
   .send('<!doctype html>\n' + renderToString(html));
 {% endhighlight %}
 
+
+
 #### Rendering the application on the client:  
 
 The client then uses the same process when performing the initial render, it matches the
@@ -211,6 +215,7 @@ if they are the same it does not have to render anything initially.
 **Note**: The client and the server have different functions for setting up the store.
 This is simply because there is some extra middleware to be added to the client
 store specifically for Redux dev tools, which does not work on the server.
+
 
 `client/app.tsx`
 
@@ -231,6 +236,7 @@ match({ history: browserHistory, routes } as any, (error, redirectLocation, rend
   );
 });
 {% endhighlight %}
+
 
 The code above is simplified slightly but as you can see both the client are rendering
 the exact component, so after this point React takes over and the rendering will be exactly
@@ -295,6 +301,7 @@ var config = {
 }
 {% endhighlight %}
 
+
 Then simply **require** the sass file in your client side JavaScript. which is enough for
 webpack to realise those styles need loading, so it will then bundle those for you.
 
@@ -319,6 +326,7 @@ class App extends React.Component<IAppProps, {}> {
   }
 }
 {% endhighlight %}
+
 
 
 ### Webpack thoughts
@@ -495,4 +503,5 @@ to go digging through some code... This also means it is very likely to change i
 future, so take that under consideration before starting a production application
 in this way.
 
-If you want to have a look at the code I'll leave a link to the [GitHub repository](https://github.com/alisd23/lazy-isomorphic-react)
+Again, if you want to have a look at the code I'll leave a link to the [GitHub repository](https://github.com/alisd23/lazy-isomorphic-react),
+and you can try out the application [here](http://188.166.136.217/)
