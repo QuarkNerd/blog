@@ -86,7 +86,8 @@ the items and deducts the total from the users balance.
 
 ![Shop page]({{ site.github.url }}/asheehan/assets/shop-page.png "The shop page")
 
-*Check out the code on the [GitHub repository](https://github.com/alisd23/lazy-isomorphic-react)*
+**Check out the code on the [GitHub repository](https://github.com/alisd23/lazy-isomorphic-react)**
+**And [try the application](http://188.166.136.217/)**
 
 
 ## Why isomorphic?
@@ -100,7 +101,7 @@ itself.
 So why would you develop an isomorphic application?
 
 
-### Code reuse  
+### 1. Code reuse  
 
 A big benefit is to be able to reduce the amount of overall code in your application.
 In a server-rendered application you would use a *templating
@@ -112,14 +113,14 @@ engine with React, allowing you to the use the React components on both the
 client and the server.
 
 This code reuse could extend even further if you decided to build accompanying mobile apps
-with **React native**, because this opens the door for you to share components
+with **React Native**, because this opens the door for you to share components
 across web and mobile applications. Whether this is a good thing is still
 up for debate. Is it a good idea to have multiple applications use the same React
 component? What if you change a component to address something in the web application,
 might that break something in your iOS app? Maybe something to consider.
 
 
-### Performance
+### 2. Performance
 
 The fact that the server can also render content in **exactly** the same way that
 the client does means that the initial load time of an isomorphic application
@@ -138,7 +139,7 @@ as we only need to load the code for the current page, in the same way you might
 split your code up for a server-rendered multi-page application.
 
 
-### Search engine optimisation  
+### 3. Search engine optimisation  
 
 A problem with client-rendered applications currently is that the markup received
 from the server is pretty much blank, until the client loads and is then able to
@@ -151,20 +152,29 @@ on the server side before sending it to the client, web crawlers can once again
 access your real content, just as they would in a server-rendered application.
 
 
-### Let's see some Isomorphic Rendering
+## Let's see some Isomorphic Rendering
 
-Rendering the application on the server:  
-**server/app.tsx**
+#### Rendering the application on the server
+This rendering code sits inside an express middleware function on the server. We need to
+use middleware because the user should be able to start at any page on the site, so we
+have to 'intercept' all requests, filter out the ones that are present in our routes definition
+using the match function (shown later in the code-splitting section), then serve the correct
+rendered html.
+
+`server/app.tsx`
 
 {% highlight js %}
 match({ routes, location: req.url || '/' }, (error, redirectLocation, renderProps) => {
-  // Compile an initial state (Including react routing information)
+  // Compile an initial state (Including react routing information) that will be used
+  // to render the correct markup
   const products = {};
   _products.forEach((p) => products[p.id] = p);
   const initialState = {
     products,
     routing: { location: renderProps.location }
   }
+  // Initialise store with this state and render the root component (this is the same
+  // top-level component which the client will render)
   const store = configureServer(reducerRegistry, initialState);
   const component = (
     <Provider store={store}>
@@ -188,12 +198,26 @@ res
   .send('<!doctype html>\n' + renderToString(html));
 {% endhighlight %}
 
-Rendering the application on the client:  
-**client/app.tsx**
+#### Rendering the application on the client:  
+
+The client then uses the same process when performing the initial render, it matches the
+route to make sure it renders the same components as the server did, and mounts it on to
+the `#root` element.
+
+The initial markup on the client should be **the same** as the markup received from the
+server. This means React on the client can compare the checksums of the markup, and
+if they are the same it does not have to render anything initially.
+
+**Note**: The client and the server have different functions for setting up the store.
+This is simply because there is some extra middleware to be added to the client
+store specifically for Redux dev tools, which does not work on the server.
+
+`client/app.tsx`
 
 {% highlight js %}
 match({ history: browserHistory, routes } as any, (error, redirectLocation, renderProps) => {
 
+  // Get initial state from window and configure initial state (just like the server)
   const initialState = (window as any).__INITIAL_STATE__;
   const store = configureClient(reducerRegistry, DevTools, initialState);
 
@@ -274,7 +298,7 @@ var config = {
 Then simply **require** the sass file in your client side JavaScript. which is enough for
 webpack to realise those styles need loading, so it will then bundle those for you.
 
-So in my App.tsx top Level component I require the **common** styles stylesheet
+So in my `App.tsx` top Level component I require the **common** styles stylesheet
 
 {% highlight js %}
 class App extends React.Component<IAppProps, {}> {
