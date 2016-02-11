@@ -563,6 +563,8 @@ un-pin
 gung-ho
 pem
 key.pem
+whitelist
+whitelisting
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
 line.y
@@ -1451,3 +1453,32 @@ img
 scss
 base64
 App.tsx
+ - rsillem/_posts/2016-02-11-SQL-injection.md
+VTech
+Stuxnet
+SQLi
+customrules.js
+Fiddler2
+5xx
+passwordless
+Cloudflare
+_Prevention
+_Cheat
+_Sheet
+_Testing
+_Guide
+_Table
+_of
+_Contents
+_Injection
+eval
+urlscan
+_v4
+ - rsillem/_posts/Cross-site-scripting.md
+XMLHttpRequest
+whitelists
+_presentation
+_Stack
+_stack
+sce.trustAsHtml
+shorteners
