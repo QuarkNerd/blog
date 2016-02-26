@@ -60,10 +60,10 @@ The final, re-implemented site is hosted [here](http://jekyll-scroll.surge.sh/).
 
 <img src='{{ site.github.url }}/tbarclay/assets/static-site/frontpage.png' title="Spluxr" alt="Spluxr front page" />
 
-## [Gimme Gimme (static) Shock Treatment](https://www.youtube.com/watch?v=gj4u1yJMAf4)  - The Comprimises
+## [Gimme Gimme (static) Shock Treatment](https://www.youtube.com/watch?v=gj4u1yJMAf4)  - The Compromises
 
 One of the requirements in [my original post]({{ site.github.url }}/2015/09/18/meteor-scroll.html) about making this site was that it should be easy to add, remove and edit sections through a CMS. This implementation doesn't meet that requirement. New sections must be added to the `_sections` directory and then the site has to be redeployed using Surge's command line tool. For a developer, this is a perfectly nice, streamlined workflow, but of course it's not for everybody. And I think this is a problem static site generators have when compared with the Wordpresses and Squarespaces of the world: they aren't yet fully accessibly to non-technical collaborators like designers or copy writers. 
 
-If I developed this site for a non-technical client, the absense of a CMS might prevent them from being able to easily add new content. That could easily be a deal-breaker that would prompt them to dismiss this as an option.
+If I developed this site for a non-technical client, the absence of a CMS might prevent them from being able to easily add new content. That could easily be a deal-breaker that would prompt them to dismiss this as an option.
 
 There actually are tools out there, like [Netlify CMS](https://github.com/netlify/netlify-cms), that aim to fill this gap, although I haven't had a chance to try them yet, and from a quick glance they don't seem very mature yet. But the fact that there are options out there signals hope for static site generators to become more mainstream and take a bit more of the web market from the PHP-based, dynamic giants.
