@@ -567,6 +567,9 @@ whitelist
 whitelisting
 d3v4
 d3-voronoi
+Joomla
+composability
+Netlify
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
 line.y
@@ -1484,3 +1487,9 @@ _Stack
 _stack
 sce.trustAsHtml
 shorteners
+ - tbarclay/_posts/2016-02-23-static-site.md
+Surge.sh
+page.js
+Gimme
+Wordpresses
+Squarespaces
