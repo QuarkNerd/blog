@@ -12,7 +12,7 @@ This blog post explores performing cross site scripting attacks on your own mach
 
 [Securing Web Applications, Part 1. Man In The Middle Attacks](http://blog.scottlogic.com/2016/02/01/man-in-the-middle.html)
 
-[Securing Web Applications, Part 1. SQL (and other) Injection Attacks](http://blog.scottlogic.com/2016/02/11/SQL-injection.html)
+[Securing Web Applications, Part 2. SQL (and other) Injection Attacks](http://blog.scottlogic.com/2016/02/11/SQL-injection.html)
 
 An important note before starting:
 
