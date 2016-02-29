@@ -40,7 +40,7 @@ XSS is often classified in terms of the first point above. Here's a currently ac
 3. The server embeds the malicious data in the response, typically HTML but there are other possibilities - it depends on the design of the site. The malicious data appears in the response in a place where the browser (and/or scripts running in the browser) will treat it as active content. This is the 'reflected' bit.
 4. The browser renders (or otherwise processes) the response, running the malicious data as commands. The bad thing (whatever the attack was - e.g. sending user data or session IDs to the attacker) happens.
 
-<img src="{{ site.github.url }}/rsillem/assets/security-xss/reflected-xss.PNG" style="display: block; margin: auto;"/>
+<img src="{{ site.github.url }}/rsillem/assets/security-xss/reflected-xss.png" style="display: block; margin: auto;"/>
 
 **Stored (aka Persisted) XSS**
 
@@ -49,7 +49,7 @@ XSS is often classified in terms of the first point above. Here's a currently ac
 3. The server embeds the malicious data in the response, typically HTML but there are other possibilities - it depends on the design of the site. The malicious data appears in the response in a place where the browser (and/or scripts running in the browser) will treat it as active content.
 4. The browser renders (or otherwise processes) the response, running the malicious data as commands. The bad thing (whatever the attack was - e.g. sending user data or session IDs to the attacker) happens.
 
-<img src="{{ site.github.url }}/rsillem/assets/security-xss/stored-xss.PNG" style="display: block; margin: auto;"/>
+<img src="{{ site.github.url }}/rsillem/assets/security-xss/stored-xss.png" style="display: block; margin: auto;"/>
 
 **DOM-based XSS**
 
@@ -57,7 +57,7 @@ XSS is often classified in terms of the first point above. Here's a currently ac
 2. Scripts running in the browser use the malicious data in client-side DOM manipulation, as part of their normal operation.
 3. The browser renders (or otherwise processes) the DOM, running the malicious data as commands. The bad thing (whatever the attack was - e.g. sending user data or session IDs to the attacker) happens.
 
-<img src="{{ site.github.url }}/rsillem/assets/security-xss/DOM-based-xss.PNG" style="display: block; margin: auto;"/>
+<img src="{{ site.github.url }}/rsillem/assets/security-xss/DOM-based-xss.png" style="display: block; margin: auto;"/>
 
 
 This taxonomy ([Types of Cross-Site Scripting](https://www.owasp.org/index.php/Types_of_Cross-Site_Scripting)) is all about the flow of malicious data, but the picture is made more complex by the variety of ways in which you can abuse the browser - injecting script is obvious, but how about altering CSS to change how controls are presented to the user? This all gets quite deep - for an illustration of just how deep, see 
