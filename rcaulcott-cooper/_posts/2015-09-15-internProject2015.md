@@ -26,7 +26,7 @@ Our goal was to create an application similar to many commercial, mid-range char
 * Ability to load and stream real data (in this case, data about bitcoin prices)
 * Pan and zoom functionality on every visible chart
 
-<iframe src="http://scottlogic.github.io/d3fc-showcase/" width='100%' height='700px'></iframe>
+<iframe src="http://scottlogic.github.io/BitFlux/releases/0.5.0/" width='100%' height='700px'></iframe>
 
 ## What is D3?
 
