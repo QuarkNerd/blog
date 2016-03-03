@@ -39,6 +39,7 @@ active-authors:
   - soneill
   - tbarclay
   - tkelly
+  - tferguson
   - tsimmons
   - wferguson
   - wloveland
@@ -294,6 +295,11 @@ authors:
         name: Allen Wallis
         gravatar: 040a59115aea9a572eace5e19f1e6253
         email: awallis@scottlogic.com
+    tferguson:
+        name: Tyler Ferguson
+        email: tferguson@scottlogic.co.uk
+        gravatar: 46b3ff75f0c69eca7f80876307e1f386
+        author-summary: <p>I am a Developer at Scott Logic. I have a strong interest in front end development and the javascript ecosystem as a whole. I like most things to do with mathematics and chess.</p>
     tbarclay:
         name: Tim Barclay
         gravatar: 0b06781c8c3ac7261b8bb4e5810a4004
