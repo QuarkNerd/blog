@@ -10,7 +10,7 @@ summary: Making the jump to fully modularized applications in javascript is now 
 
 jspm is an incredibly powerful client side package manager for [SystemJS](https://github.com/systemjs/systemjs). SystemJS is a universal module loader built on top of the [ES6 Module Loader Polyfill](https://github.com/ModuleLoader/es6-module-loader) allowing us to work with ES6 modules in our applications today. 
 
-For those familiar with Bower, jspm fulfills a similar role without the nastiness of polluting the global scope with our dependencies - it allows us to directly import our dependencies into modules as and when we need them. On top of this, we’ll see later that jspm can also help us greatly simplify our build in an ES6 application!
+For those familiar with Bower, jspm fulfils a similar role without the nastiness of polluting the global scope with our dependencies - it allows us to directly import our dependencies into modules as and when we need them. On top of this, we’ll see later that jspm can also help us greatly simplify our build in an ES6 application!
 
 In this walkthrough we’ll take a look at setting up jspm, installing packages from the jspm registry, building a modular ‘Hello World’ application in ES6 using angular, preparing our code for a production environment and trying to understand how jspm solves problems that the tools before it didn’t.
 
