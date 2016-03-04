@@ -6,7 +6,7 @@ gravatar: 46b3ff75f0c69eca7f80876307e1f386
 summary: Making the jump to fully modularized applications in javascript is now incredibly easy with ES6 modules and javascript package manager (jspm). We'll take a look at the refreshing simplicity in the jspm workflow and how it goes about achieiving this.
 ---
 
-*This post uses jspm 0.16. This information may be incomplete and even incorrect when jspm 0.17 is released. You can still try out jspm 0.17 beta now and follow developments [here](http://jspm.io/0.17-beta-guide/index.html).*
+*This post uses jspm 0.16. This information may be incomplete and even incorrect when jspm 0.17 is released. You can still try out jspm 0.17 beta now and follow developments [via the beta guide](http://jspm.io/0.17-beta-guide/index.html).*
 
 jspm is an incredibly powerful client side package manager for [SystemJS](https://github.com/systemjs/systemjs). SystemJS is a universal module loader built on top of the [ES6 Module Loader Polyfill](https://github.com/ModuleLoader/es6-module-loader) allowing us to work with ES6 modules in our applications today. 
 
@@ -20,7 +20,7 @@ Well we’re working on the assumption that we would like to write a modular jav
 
 Despite the various moving parts in the jspm workflow one of its big advantages over tools that have tried to solve similar problems in the past (e.g. RequireJS for loading dependencies) is its ease of use. In order to do this aspect of jspm justice I will begin each section with an “In a Nutshell” aside which shows you how we achieve the task at hand. The rest of the section will discuss and attempt to understand what we just did.
 
-The complete code for this post can be found [here](https://github.com/tylerferguson/jspm-setup-example).
+The complete code for this post can be found on [github](https://github.com/tylerferguson/jspm-setup-example).
 
 ## Installing jspm and Setup
 Assume we are currently in a blank project directory (e.g. ‘/jspm-setup-example’).
@@ -33,7 +33,7 @@ Assume we are currently in a blank project directory (e.g. ‘/jspm-setup-exampl
 
 When prompted select the default setting at each stage except for the `server baseURL` which we will set to ‘app’. 
 The `app` directory (which jspm will now have created for us) will house all of our client side code. 
-The other options are fairly self explanatory but you can learn more [here](http://jspm.io/docs/getting-started.html#2-create-a-project).
+The other options are fairly self explanatory but you can learn more in the [jspm getting started guide](http://jspm.io/docs/getting-started.html#2-create-a-project).
 
 #### What’s Actually Happening
 
@@ -150,7 +150,7 @@ System.config({
 
 This tells SystemJS how to resolve module dependencies in our javascript files.
 Any time System sees `import angular from 'angular'` it will know to look at `github:angular/..` which in turn (due to the `paths` field in `config.js`) resolves to `jspm_packages/github/angular/..`.
-If this `import` syntax is new to you you can read more on ES6 module loading [here](https://developer.mozilla.org/en/docs/web/javascript/reference/statements/import). 
+If this `import` syntax looks unfamiliar you can read more on [ES6 module loading on MDN](https://developer.mozilla.org/en/docs/web/javascript/reference/statements/import). 
 For our purposes we just need to know that `import *variable* from *module*` means we are assigning the default export from `*module*` to `*variable*`. 
 In the case of modules we have defined ourselves we provide the path to the module in place of `*module*`.
 
@@ -187,7 +187,7 @@ If we `bower install angular` (don’t panic, global dependencies aren’t sneak
     < "format cjs";
 
 The directories are in fact exactly the same except for a `.bower.json`, a `.jspm-hash` and a few innocuous looking strings that have been inserted at the top of some files.
-The first two files contain information like the source of the package, which commit is being used and the release tag that references it. 
+The first two files contain information like the source of the package and which commit is being used. [This can help with identifying an outdated package that needs to be downloaded again](https://github.com/jspm/registry/issues/789).
 
 What about the strings? jspm uses some [rules](https://github.com/systemjs/systemjs/blob/master/docs/module-formats.md#user-content-module-format-detection) to determine the format of a module (global / commonjs / amd / esm) and what is being exported in the case of a global module. These strings are used by SystemJS in module loading to identify the format of the module, its exports and its dependencies. The rest of the code is *exactly* the same, the only difference is that we get module loading and dependency resolution for free! We can now remove the `bower_components` directory, we will not be needing it again.
 
@@ -275,7 +275,7 @@ Congratulations, you have built a (rather simple) angular application that uses 
 
 Let’s recap here. The only files loaded via script tags in our `index.html` are for `system.js` and its `config.js`. 
 We need the config in a script tag so that SystemJS knows which transpiler to use and other important details like its module resolution mappings. 
-We import `app.js` because it is the entry point of our application. This set up our main angular module and allows the application to bootstrap via the `ng-app` directive. 
+We import `app.js` because it is the entry point of our application. This sets up our main angular module and allows the application to bootstrap via the `ng-app` directive. 
 No matter how many modules and third party dependencies we add to the rest of our application we will never need to make the `index.html` aware of any other file again. SystemJS will handle all module loading from here onwards. In fact, if we were using a third party angular module like [UIRouter](https://github.com/angular-ui/ui-router) so that our template (not including the bootstrapping directive) is replaced by a div with a `ui-view` directive, we could theoretically never have to touch our `index.html` again. 
 
 This is amazing news for those of us who have inexplicably forgotten to add a script tag in the past and wondered where an error is coming from or had to deal with ordering issues for our app’s dependencies, and it is also a much, much cleaner solution than injecting script tags into your `index.html`. 
