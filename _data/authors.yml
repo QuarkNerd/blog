@@ -157,6 +157,9 @@ authors:
     dkerr:
         name: Dean Kerr
         email: dkerr@scottlogic.com
+        gravatar: ae2614d4e0902adb7844ecec868ef5ee
+        author-image: /dkerr/assets/mugshot.jpg
+        author-summary: <p>I'm a full-stack web developer, with an interest in anything and everything that's new in web technology!</p>
     sduncan:
         name: Simon Duncan
         email: sduncan@scottlogic.co.uk

@@ -1544,6 +1544,7 @@ _Contents
 v4
 _Stack
 whitelists
+
  - cprice/_posts/2016-03-08-deconstructing-a-tweet-sized-d3-creation.md
 Firebaugh's
 a-ttributes
@@ -1576,3 +1577,9 @@ Mesz
 IXDA.org
 Ferne
 passengerhood
+
+ - dkerr/_posts/2016-03-09-As-It-Stands-Electron-Security.md
+BrowserWindow
+nodeIntegration
+window.open
+webview
