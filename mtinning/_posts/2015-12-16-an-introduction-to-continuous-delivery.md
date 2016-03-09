@@ -6,8 +6,10 @@ summary: This post explores continuous delivery within an agile context, and goe
 tags:
   - DevOps
   - Continuous Delivery
+  - Agile
 categories:
   - DevOps
+  - Agile
 ---
 
 ![Traffic]({{ site.github.url }}/mtinning/assets/traffic-header.jpg "Traffic")
