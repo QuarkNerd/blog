@@ -72,9 +72,8 @@ authors:
         gravatar: b6fe36176ec7c9475374a5cd3b7bef1a
         twitter-url: https://twitter.com/100pxls
         twitter-handle: 100pxls
-        google-plus-url: https://plus.google.com/u/0/114347034265773524402
         author-image: /cprice/assets/mugshot.jpg
-        author-summary: <p>My name is Chris Price, I'm based in Newcastle upon Tyne and work as a Software Engineer at Scott Logic. I spend my days developing desktop/tablet/mobile web apps for financial services companies (unfortunately mostly hidden behind paywalls). I do like to blog about things when I can and am a core contributor to <a href="https://github.com/chrisprice">d3fc</a>.</p>
+        author-summary: <p>My name is Chris Price, I'm based in Newcastle upon Tyne and work as a Software Engineer at Scott Logic. I spend my days developing desktop/tablet/mobile web apps for financial services companies (unfortunately mostly hidden behind paywalls). I do like to blog about things when I can and do some interesting stuff on <a href="https://github.com/chrisprice">GitHub</a>.</p>
     lpage:
         name: Luke Page
         gravatar: f40e61d9f159e1fd0cc70f1e717f6a7b
@@ -158,6 +157,9 @@ authors:
     dkerr:
         name: Dean Kerr
         email: dkerr@scottlogic.com
+        gravatar: ae2614d4e0902adb7844ecec868ef5ee
+        author-image: /dkerr/assets/mugshot.jpg
+        author-summary: <p>I'm a full-stack web developer, with an interest in anything and everything that's new in web technology!</p>
     sduncan:
         name: Simon Duncan
         email: sduncan@scottlogic.co.uk
@@ -283,6 +285,7 @@ authors:
         name: Will Loveland
         email: wloveland@scottlogic.com
         gravatar: edd2ab1d485e1d3eb6626d6a3782590d
+        author-summary: <p>I'm a User Experience Designer at Scott Logic. My interests lie in the future of the in-car experiences, working with complex systems and cat GIFs.</p>
     rmarcalo:
         name: Rui Marcalo
         email: rmarcalo@scottlogic.co.uk
@@ -317,7 +320,7 @@ authors:
         twitter-handle: Rosicadia
         feed-description: A collection of Rosie Hamilton's thoughts on software testing.
         author-image: /rhamilton/assets/thisisme.jpg
-        author-summary: <p>I have been breaking software since 2005. I am the Author of <a href="http://testingfuntime.blogspot.co.uk/"> Mega Ultra Super Happy Software Testing Fun Time </a>. I currently work at Scott Logic as a Test Engineer.</p>
+        author-summary: <p>I have been happily testing software and reporting bugs since 2005. I am the Author of <a href="http://testingfuntime.blogspot.co.uk/"> Mega Ultra Super Happy Software Testing Fun Time</a>. As well as writing I enjoy playing violin, playing PC games, going to the gym and pushing <a href="https://golang.org/">Golang</a> to <a href="https://github.com/Rosalita">Github</a>. I currently work at Scott Logic as a Test Engineer.</p>
     hpretswell:
         name: Hannah Pretswell
         email: hpretswell@scottlogic.com
