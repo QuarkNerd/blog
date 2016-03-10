@@ -39,7 +39,7 @@ You might agree with them, you might disagree with them. It doesn't matter. It's
 
 ## Join forces with another (possibly lonely) tester
 
-Recently an opportunity came along for me to be less lonely. A new project was due to start which was had some similarities to a project I had been working on. I was asked to share some knowledge with the tester due to start work on the new project. So I set aside an hour to team up and do some pair testing.
+Recently an opportunity came along for me to be less lonely. A new project was due to start which had some similarities to a project I had been working on. I was asked to share some knowledge with the tester due to start work on the new project. So I set aside an hour to team up and do some pair testing.
 
 I have done pair testing before and knew it would be useful for both of us but the experience was remarkable.
 
