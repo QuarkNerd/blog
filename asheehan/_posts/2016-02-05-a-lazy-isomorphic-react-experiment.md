@@ -2,6 +2,7 @@
 author: asheehan
 layout: default_post
 title: A Lazy Isomorphic React Experiment
+title-short: Lazy Isomorphic React
 categories:
   - Web
   - HTML5
