@@ -567,6 +567,7 @@ whitelist
 whitelisting
 d3v4
 d3-voronoi
+laggy
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
 line.y
