@@ -1,12 +1,16 @@
 ---
 author: dkerr
 title: "As It Stands - Electron Security"
+title-short: "Electron Security"
 layout: default_post
 categories:
   - Web
   - Electron
   - Security
 summary: "A brief look at the current state of application security in Electron"
+image: dkerr/assets/featured/electron.jpg
+tags:
+  - featured
 ---
 
 Over the past few years, there's been an increasing demand for web applications to separate from the browser and become fully integrated desktop applications. Previously, the amount of time and effort required to convert an existing application was a major roadblock to developers and businesses. However, frameworks are starting to appear offering an easier route to build cross-platform desktop applications utilising web technologies.
@@ -35,7 +39,7 @@ To provide applications with desktop functionality, the Electron team modified C
 	<img src='{{ site.github.url }}/dkerr/assets/electron-sandbox.png' title="Electron Sandbox" alt="Electron sandbox" />
 </p>
 
-This is not a concern for a lot of Electron applications, especially those that don't pull in remote data and need extensive operating system privileges anyway (such as an IDE). However, this is a (potentially) serious and unnecessary security risk for applications that do pull in remote data, any successful XSS attack would give the attacker full control over the victim's machine! 
+This is not a concern for a lot of Electron applications, especially those that don't pull in remote data and need extensive operating system privileges anyway (such as an IDE). However, this is a (potentially) serious and unnecessary security risk for applications that do pull in remote data, any successful XSS attack would give the attacker full control over the victim's machine!
 
 It's worth stressing that a successful XSS attack within a sandboxed application is still a catastrophic event that can do untold damage. Even restricted to the sandbox, an attack can execute scripts to hijack user sessions, deface web sites, insert hostile content, redirect users and install malware. Nonetheless, unless they escape the sandbox the potential for damage stops at the browser level with the operating system left unharmed and only data explicitly shared with the browser at risk.
 
@@ -77,7 +81,7 @@ One smaller concern is how up-to-date the Electron team will keep its version of
 
 ## Planned Changes
 
-The good news is that Electron is a very active open source project, backed by a major web player ([GitHub](https://www.github.com)) and a lot of companies have built their products using it. As a result, the workarounds mentioned above (as well as other issues) are already being addressed thanks to contributions from a number of interested parties. 
+The good news is that Electron is a very active open source project, backed by a major web player ([GitHub](https://www.github.com)) and a lot of companies have built their products using it. As a result, the workarounds mentioned above (as well as other issues) are already being addressed thanks to contributions from a number of interested parties.
 
 Once those workarounds have been patched, Electron applications should be a lot more resilient against XSS attacks re-enabling node integration. It's worth pointing out that there's an [open discussion](https://github.com/atom/electron/issues/1753) around Electron's security model on GitHub, so further changes and improvements are likely to be made once this discussion is finalised.
 
