@@ -9,6 +9,10 @@ categories:
   - Isomorphic
   - Webpack
   - Redux
+summary: If you've used React and Flux, you'll know how powerful this combination is when building single page applications. But how practical is it when building truly large scale applications with multiple sections?.
+image: asheehan/assets/featured/react.png
+tags:
+  - main_featured
 ---
 
 If you've used React and Flux, you'll know how powerful this combination is when

@@ -1,8 +1,11 @@
 ---
 author: rhamilton
 title: The Lonely Tester's Survival Guide
+title-short: The Lonely Tester
 summary: "How to stay fresh, focused and super effective when testing alone"
+image: rhamilton/assets/featured/lonelytester.jpg
 tags:
+  - featured
   - software testing
   - pair testing
   - agile testing
