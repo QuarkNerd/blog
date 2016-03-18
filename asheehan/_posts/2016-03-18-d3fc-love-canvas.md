@@ -95,31 +95,19 @@ Then the series creation function simply sets up the zoom behaviour, splits the 
 
 let xScale = d3.scale.identity();
 let yScale = d3.scale.identity();
-
 /**
- * Render the candlestick chart on the given elements of a D3 selection
+ * Render the candlestick chart on the given elements via a D3 selection
  */
 var candlestickSeries = function(selection) {
 
   selection.each(function(data) {
     const element = this;
-    const event = d3.dispatch('zoom');
-    const zoom = d3.behavior.zoom()
-      .x(xScale)
-      .y(yScale)
-        .on('zoom', function() {
-          event.zoom.call(this, xScale.domain(), yScale.domain());
-          draw();
-        });
-
-    d3.select(element).call(zoom);
 
     const upData = data.filter(d => d.open <= d.close);
     const downData = data.filter(d => d.open > d.close);
 
     const draw = fc.util.render(() => {
-      // All canvas have a getContext property so use this to work out
-      // if we need to render an svg or a canvas
+      // Check if element is a canvas
       element.getContext
         ? drawCanvas(upData, downData, generator, element)
         : drawSvg(upData, downData, generator, element);
@@ -129,14 +117,18 @@ var candlestickSeries = function(selection) {
   });
 };
 
-candlestickSeries.xScale = function(x) {
-  if (!x) return xScale;
-  xScale = x;
+candlestickSeries.xScale = (...args) => {
+  if (!args.length) {
+      return xScale;
+  }
+  xScale = args[0];
   return candlestickSeries;
 };
-candlestickSeries.yScale = function(x) {
-  if (!x) return yScale;
-  yScale = x;
+candlestickSeries.yScale = (...args) => {
+  if (!args.length) {
+      return yScale;
+  }
+  yScale = args[0];
   return candlestickSeries;
 };
 
@@ -163,10 +155,28 @@ const yScale = scaleLinear()
     .pad(0.2)(data))
       .range([height, 0]);
 
+// Zoom handler
+function handleZoom() {
+  d3.select(this).call(series);
+}
+
+// Setup zoom behaviour for each chart individually
+const svgZoom = d3.behavior.zoom()
+  .x(xScale)
+  .y(yScale)
+  .on('zoom', handleZoom);
+
+const canvasZoom = d3.behavior.zoom()
+  .x(xScale)
+  .y(yScale)
+  .on('zoom', handleZoom);
+
+d3.select(svgEl).call(svgZoom);
+d3.select(canvasEl).call(canvasZoom);
+
 const series = candlestickSeries()
   .xScale(xScale)
   .yScale(yScale);
-
 
 d3.selectAll('.chart')
   .datum(data)
