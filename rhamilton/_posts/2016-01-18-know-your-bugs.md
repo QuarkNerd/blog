@@ -4,7 +4,6 @@ title: Know your bugs
 summary: "Six annoyingly awkward bug patterns that every tester should know..."
 image: rhamilton/assets/featured/bugs.png
 tags:
-  - featured
   - functional testing
   - blackbox testing
   - bugs
