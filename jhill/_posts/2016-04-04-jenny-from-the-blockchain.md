@@ -254,13 +254,13 @@ OP_DUP    OP_HASH160    <address/pubKeyHash>    OP_EQUALVERIFY    OP_CHECKSIG
 7. Calculate the length (in bytes where 1 byte = 2 hex characters) of the scriptPubKey 
    and convert it to hexadecimal;
 
-  50 characters   ⇒   25 bytes (dec)   ⇒   19 bytes (hex)
+  50 characters   ->   25 bytes (dec)   ->   19 bytes (hex)
 
 
 8. Convert the amount to send to this address (20 satoshi) into an eight byte little 
    endian hexadecimal number;
 
-  20 (dec)   ⇒   0000000000000014 (hex)   ⇒   1400000000000000 (little endian)
+  20 (dec)   ->   0000000000000014 (hex)   ->   1400000000000000 (little endian)
 
 
 9. Concatenate into a raw output or keep separated for later use;
