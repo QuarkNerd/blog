@@ -30,60 +30,56 @@ Let us first go through some common terminology which is useful to know when rea
 
 The blockchain, as the name suggests, is a chain of individual blocks, where each block consists of a header and a body. The main body is a list of all transactions which occurred between the creation of a given block, and its predecessor in the chain. The header of a block contains identification information used to prove the authenticity of both the block and the transactions contained. Blocks are being added to the chain all the time at an average rate of one every ten minutes. Each time a block is created, whoever created it is paid a reward, currently standing at 25BTC (10809 USD). So what is stopping everyone from minting money? Well firstly everyone in the bitcoin network (5000 major registered nodes) are racing each other to mine the next block. Secondly, in order to claim a block, you need to solve a very difficult maths problem, known as the proof of work (more on this later). This problem would take an individual miner working on an average spec PC thousands (if not millions) of years to compute. Before we explain how the maths puzzle is solved, we need to know what the six fields which comprise the header are, how they relate to the rest of the block and how they are used to create the block hash.
 
-{% highlight %}
-variable   | bytes |  description
-           |       |
-version    |  4    |  version of the bitcoin protocol used to create the block
-prevHash   |  32   |  hash of the previous block
-merkleRoot |  32   |  root of a sha256 hash tree where the leaves are transactions
-time       |  4    |  time of block creation in seconds since 1970-01-01T00:00 UTC
-bits       |  4    |  difficulty of block hash in compressed form
-nonce      |  4    |  field used in mining
-{% endhighlight %}
+    variable   | bytes |  description
+               |       |
+    version    |  4    |  version of the bitcoin protocol used to create the block
+    prevHash   |  32   |  hash of the previous block
+    merkleRoot |  32   |  root of a sha256 hash tree where the leaves are transactions
+    time       |  4    |  time of block creation in seconds since 1970-01-01T00:00 UTC
+    bits       |  4    |  difficulty of block hash in compressed form
+    nonce      |  4    |  field used in mining
 
 The order in which bytes are stored (most to least significant or vice versa) is referred to as big or [little](https://en.wikipedia.org/wiki/Endianness) endian notation. Each value in the header is stored in big endian, specified by the official bitcoind node implementation documentation. When they are used in the block hash calculation they are converted to little endian hexadecimal encoding. Below we take the same sample header components and construct a block hash from them.
 
-{% highlight %}
-1. Determine block header components;
-
-  version    = 1
-  prevHash   = 02c1fe8644d8558cf354a074ad19f6a39c385764ee84084e28febec38ab861ab
-  merkleRoot = 672bf003ed02a6d8eb76f9bf24c8497d63f0a7698ca33decb923494ca5ac02d9
-  timestamp  = 1231006505
-  bits       = 486604799
-  nonce      = 2083236893
-
-
-2. Convert the components to hexadecimal little endian;
-
-  version    = 01000000
-  prevHash   = ab61b88ac3befe284e0884ee6457389ca3f619ad74a054f38c55d84486fec102
-  merkleRoot = d902aca54c4923b9ec3da38c69a7f0637d49c824bff976ebd8a602ed03f02b67
-  time       = 29ab5f49
-  bits       = ffff001d
-  nonce      = 1eac2b7c
-
-
-3. Concatenate block header from components into a single hex string;
-
-  01000000ab61b88ac3befe284e0884ee6457389ca3f619ad74a054f38c55d84486fec102d902aca54c4
-  923b9ec3da38c69a7f0637d49c824bff976ebd8a602ed03f02b6729ab5f49ffff001d1eac2b7c
-
-
-4. Perform sha256 on raw hex to find first hash;
-
-  1eeab40993721c73fc8e0a4050ae8a3fbf8e57aacd5115637f13c3dacd67007f
-
-
-5. Perform sha256 on first hash to find second (and final) hash;
-
-  fdb4085e02a63586bf27fd3a9b7138bbf82ce390344edbbb6ccc4a534423b351
-
-
-6. Return in little endian form for storage in block;
-
-  51b32344534acc6cbbdb4e3490e32cf8bb38719b3afd27bf8635a6025e08b4fd
-{% endhighlight %}
+    1. Determine block header components;
+    
+      version    = 1
+      prevHash   = 02c1fe8644d8558cf354a074ad19f6a39c385764ee84084e28febec38ab861ab
+      merkleRoot = 672bf003ed02a6d8eb76f9bf24c8497d63f0a7698ca33decb923494ca5ac02d9
+      timestamp  = 1231006505
+      bits       = 486604799
+      nonce      = 2083236893
+    
+    
+    2. Convert the components to hexadecimal little endian;
+    
+      version    = 01000000
+      prevHash   = ab61b88ac3befe284e0884ee6457389ca3f619ad74a054f38c55d84486fec102
+      merkleRoot = d902aca54c4923b9ec3da38c69a7f0637d49c824bff976ebd8a602ed03f02b67
+      time       = 29ab5f49
+      bits       = ffff001d
+      nonce      = 1eac2b7c
+    
+    
+    3. Concatenate block header from components into a single hex string;
+    
+      01000000ab61b88ac3befe284e0884ee6457389ca3f619ad74a054f38c55d84486fec102d902aca54c4
+      923b9ec3da38c69a7f0637d49c824bff976ebd8a602ed03f02b6729ab5f49ffff001d1eac2b7c
+    
+    
+    4. Perform sha256 on raw hex to find first hash;
+    
+      1eeab40993721c73fc8e0a4050ae8a3fbf8e57aacd5115637f13c3dacd67007f
+    
+    
+    5. Perform sha256 on first hash to find second (and final) hash;
+    
+      fdb4085e02a63586bf27fd3a9b7138bbf82ce390344edbbb6ccc4a534423b351
+    
+    
+    6. Return in little endian form for storage in block;
+    
+      51b32344534acc6cbbdb4e3490e32cf8bb38719b3afd27bf8635a6025e08b4fd
 
 Now we know how a block hash is made let's look at how difficult it is to solve the block maths puzzle we mentioned earlier. The problem users need to solve involves producing the 32 byte hash that, when interpreted as a decimal number, is smaller than a predefined number (the difficulty). The official bitcoind node has a very simple mining algorithm, where it repeatedly increments the nonce and calculates the hash until a valid hash is found. Due to the entropy of sha256, it is very difficult (nigh impossible) to formulate an efficient algorithm to calculate this. Optimisations do exist however, but they still run in exponential time.
 
@@ -95,50 +91,44 @@ Proof of work involves creating valid hash of a block that can be quickly verifi
 
 Verifying the block hash is very simple and quick to do, shown below is a hash from the blockchain which has been accepted. Also included is the value of bits from the block header. The bits are passed into a simple formula in order to generate a number, which the block hash is compared to. If the hash is smaller, the block is accepted, if the hash is not smaller, the hash is invalid. Here is a worked example with values taken from the live bitcoin blockchain.
 
-{% highlight %}
-1. Take a hash to check and a value of bits to compare it to;
-
-  hash   = 0000000000000000033d76d1979cbf908abbd9e94a5a7a84aedc51dd3aa0d022
-  bits   = 1806b99f
-
-
-2. Take the first byte from the bits value to use as an exponent and the remaining
-   bytes as the mantissa;
-
-  exponent   = 18
-  mantissa   = 06b99f
-
-
-3. Plug the values into a formula to create the target;
-
-  target = (0x)mantissa * 2^( 8 * ( (0x) exponent - 3 ))
-  target = 0x06b99f * 2^( 8 * ( 0x18 - 3 ))
-  target = 000000000000000006b99f000000000000000000000000000000000000000000
-  
-  N.B. exponent-3 is the number of bytes to the right of the mantissa
-
-  
-4. Is the hash smaller or equal to the difficulty?
-
-  hash   = 0000000000000000033d76d1979cbf908abbd9e94a5a7a84aedc51dd3aa0d022
-  target = 000000000000000006b99f000000000000000000000000000000000000000000
-
-  hash < target --> hash is valid.
-{% endhighlight %}
+    1. Take a hash to check and a value of bits to compare it to;
+    
+      hash   = 0000000000000000033d76d1979cbf908abbd9e94a5a7a84aedc51dd3aa0d022
+      bits   = 1806b99f
+    
+    
+    2. Take the first byte from the bits value to use as an exponent and the remaining
+       bytes as the mantissa;
+    
+      exponent   = 18
+      mantissa   = 06b99f
+    
+    
+    3. Plug the values into a formula to create the target;
+    
+      target = (0x)mantissa * 2^( 8 * ( (0x) exponent - 3 ))
+      target = 0x06b99f * 2^( 8 * ( 0x18 - 3 ))
+      target = 000000000000000006b99f000000000000000000000000000000000000000000
+      
+      N.B. exponent-3 is the number of bytes to the right of the mantissa
+    
+      
+    4. Is the hash smaller or equal to the difficulty?
+    
+      hash   = 0000000000000000033d76d1979cbf908abbd9e94a5a7a84aedc51dd3aa0d022
+      target = 000000000000000006b99f000000000000000000000000000000000000000000
+    
+      hash < target --> hash is valid.
 
 Looking at the same data as in the block generation example, here is the nonce and the resulting block hash. We have changed the difficulty, for the purposes of the demonstration, to be much lower than the actual bitcoin value. This will allow us to accept a larger number of valid hashes.
 
-{% highlight %}
-nonce       | 2083236894
-blockhash   | 51b32344534acc6cbbdb4e3490e32cf8bb38719b3afd27bf8635a6025e08b4fd
-{% endhighlight %}
+    nonce       | 2083236894
+    blockhash   | 51b32344534acc6cbbdb4e3490e32cf8bb38719b3afd27bf8635a6025e08b4fd
 
 If the nonce is only slightly different, as seen below, then this completely changes the resulting hash value. This shows how it is virtually impossible to guess what value the nonce may be, and why brute force (possibly with negligible optimisations) is the only method of mining bitcoins. The same goes for any other data involved in the block hash. Changing any transaction data (resultantly changing the merkle root) would result in a completely invalid block hash, thus showing the inherent security in the blockchain.
 
-{% highlight %}
-nonce        | 2083236894
-block hash   | 2298ab2601f17e1c61c4ca7476f91d562ed436c50ef22687bc8425fddb9b7b75
-{% endhighlight %}
+    nonce        | 2083236894
+    block hash   | 2298ab2601f17e1c61c4ca7476f91d562ed436c50ef22687bc8425fddb9b7b75
 
 With the difficulty of the proof of work being so high, it is very rare for a single miner to work alone. Most mining is done by mining pools, which are effectively syndicates of miners. These pools usually work on a "divide and conquer" technique, mining different ranges of possible values to reduce the time in which a valid hash is found. The number of calculations done is stored by each member of these pools, and this is how their share of the reward is calculated. The reward is paid to the pool owner in the standard reward transaction, and every month (or however often) a transaction is made to pay miners for their share of work. The reward transaction is the very first transaction in a block and is added by miners when they attempt to calculate the nonce. Since the reward is in the form of minted coins, this transaction has no inputs.
 
@@ -154,241 +144,223 @@ The body of a block consists of all transactions which occurred between two give
 
 Outputs have two main fields; the amount to send and the script. When an output is created, the recipient of the bitcoins provides an address to which the bitcoins will be sent. This address is derived from a public key owned by the recipient, which in turn is derived from a private key that only the recipient has access to. Output scripts are effectively finite state machines which will process the signature, found in a transaction input, as an input for the machine. Several types of common script exist, each type includes different requirements which must be met in order to spend the coins located at an address. Pay-to-PubKeyHash is the most common form of script for an output. It only allows the owner of an address to spend the bitcoins located there and is comprised of the following concatenation;
 
-{% highlight %}
-OP_DUP    OP_HASH160    <address/pubKeyHash>    OP_EQUALVERIFY    OP_CHECKSIG
-{% endhighlight %}
+    OP_DUP    OP_HASH160    <address/pubKeyHash>    OP_EQUALVERIFY    OP_CHECKSIG
 
 Inputs are references to the outputs of other transactions. They identify an output by providing the transaction hash and index of the output the spender wishes to redeem. The script of this output is treated like a finite state machine. The input scripts are passed into the finite state machine as values and executed in order to prove the spender owns the right to spend the bitcoins. The input script for a Pay-to-PubKeyHash (output script) is the following concatenation;
 
-{% highlight %}
-<sig>    <pubKey>
-{% endhighlight %}
+    <sig>    <pubKey>
 
 The pubKey value is the public key used to make the address of the spenders bitcoins. The "sig" field is a signature created from the sender's private key which proves they are the person who owns the address/public key. Exactly how the keys are generated and redeemed is a tricky process using ECDSA (and the bitcoin curve secp256k1) and would make this blog post even longer! So we think it's best saved for a later date. A walkthrough of the basic signing algorithm for ECDSA can be found on [Wikipedia](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm). The essence of the signing process is as follows; that a transaction is constructed, identifying values of the transaction are selected, the values collected are concatenated into a byte sequence, the byte sequence is then signed using the senders private key with ecdsa using the secp256k1 curve. 
 
-{% highlight %}
-variable                | bytes |  description
-                        |       |
-nVersion                |  4    |  protocol version used to construct tx
-inputCount              |  1    |  number of tx inputs
-input[]prevHash         |  32   |  hash corresponding to the hash of the tx 
-                                |  containing output being spent
-input[]index            |  4    |  index of an output to-be-used transaction
-input[]scriptSigLen     |  1    |  index of the output in the tx being spent
-input[]scriptSig        |  -    |  signature and private key proving ownership of 
-                                |  address being spent
-input[]sequence         |  4    |  ignored and set to ffffffff unless blockLockTime is 
-                                |  used. Allows for various forms of a tx to be 
-                                |  submitted
-outputCount             |  1    |  number of tx outputs
-output[]value           |  8    |  the amount in satoshi to be spent
-output[]scriptPubKeyLen |  1    |  length of the PubKeyScript
-output[]scriptPubKey    |  -    |  script containing instructions which must be met in
-                                |  order to spend bitcoins at this output
-blockLockTime           |  4    |  number of txs which must exist before this tx can be 
-                                |  spent
-{% endhighlight %}
+    variable                | bytes |  description
+                            |       |
+    nVersion                |  4    |  protocol version used to construct tx
+    inputCount              |  1    |  number of tx inputs
+    input[]prevHash         |  32   |  hash corresponding to the hash of the tx 
+                                    |  containing output being spent
+    input[]index            |  4    |  index of an output to-be-used transaction
+    input[]scriptSigLen     |  1    |  index of the output in the tx being spent
+    input[]scriptSig        |  -    |  signature and private key proving ownership of 
+                                    |  address being spent
+    input[]sequence         |  4    |  ignored and set to ffffffff unless blockLockTime is 
+                                    |  used. Allows for various forms of a tx to be 
+                                    |  submitted
+    outputCount             |  1    |  number of tx outputs
+    output[]value           |  8    |  the amount in satoshi to be spent
+    output[]scriptPubKeyLen |  1    |  length of the PubKeyScript
+    output[]scriptPubKey    |  -    |  script containing instructions which must be met in
+                                    |  order to spend bitcoins at this output
+    blockLockTime           |  4    |  number of txs which must exist before this tx can be 
+                                    |  spent
 
 So let's work through creating a transaction. First we will look at how you create outputs and then how you take an output and sign it as an input. We have a scenario where Angelina owes Brad 20 satoshi (1 BTC = 100,000,000 satoshi - named after the creator of bitcoin). From past transactions Angelina has a collection of bitcoin addresses where her money is located, for each address she has the corresponding private key kept somewhere safe.
 
-{% highlight %}
-17pA4nZbtivWZVkkaEUEGjLT5DVnH5Gbr1							8 satoshi
-17vKrNtHoNR5BKtvBuVPhFfjdu5gFQJaFA							4 satoshi
-1Q5oGFD2PwAnkHZxx9Fbas5fvucU3c523u							6 satoshi
-1EVUprVsqL1Hw7Uj4DhCUAPhSLQ6Hhbfrx							7 satoshi
----------------------------------------------------------------------------------------
-Total											25 satoshi
-{% endhighlight %}
- 
+    17pA4nZbtivWZVkkaEUEGjLT5DVnH5Gbr1							8 satoshi
+    17vKrNtHoNR5BKtvBuVPhFfjdu5gFQJaFA							4 satoshi
+    1Q5oGFD2PwAnkHZxx9Fbas5fvucU3c523u							6 satoshi
+    1EVUprVsqL1Hw7Uj4DhCUAPhSLQ6Hhbfrx							7 satoshi
+    ---------------------------------------------------------------------------------------
+    Total											25 satoshi
+
 We can see that Angelina has more than 20 satoshi in her wallet in total, but no single address which holds exactly 20 satoshi. What she must do here is pick some addresses totalling 20 or more satoshi which we can spend in this transaction. They will be sent to two outputs; one is to an address Brad has provided her, the other is to a new address she will make (for her change). Here we have the two new addresses they made.
 
-{% highlight %}
-1LU8w6o1xF6qxgG72g2CPsq49muH7EqDNE					Brad's provided address
-1KWtwinyjbexk3BrU695ByGWbJYhNLN2bZ					Angelina's change address
-
-Here are the addresses which Angelina has chosen to use in this transaction.
-
-17pA4nZbtivWZVkkaEUEGjLT5DVnH5Gbr1							8 satoshi
-1Q5oGFD2PwAnkHZxx9Fbas5fvucU3c523u							6 satoshi
-1EVUprVsqL1Hw7Uj4DhCUAPhSLQ6Hhbfrx							7 satoshi
----------------------------------------------------------------------------------------
-Total											21 satoshi
-{% endhighlight %}
+    1LU8w6o1xF6qxgG72g2CPsq49muH7EqDNE					Brad's provided address
+    1KWtwinyjbexk3BrU695ByGWbJYhNLN2bZ					Angelina's change address
+    
+    Here are the addresses which Angelina has chosen to use in this transaction.
+    
+    17pA4nZbtivWZVkkaEUEGjLT5DVnH5Gbr1							8 satoshi
+    1Q5oGFD2PwAnkHZxx9Fbas5fvucU3c523u							6 satoshi
+    1EVUprVsqL1Hw7Uj4DhCUAPhSLQ6Hhbfrx							7 satoshi
+    ---------------------------------------------------------------------------------------
+    Total											21 satoshi
 
 Angelina now calculates the pubKeyScript from the address above (using the form Pay-to-PubKeyHash mentioned above and copied below for ease of reading) and, along with the value to be sent to each address, creates the output objects. Below shows how Brad's address is converted into a pubKeyScript. Addresses are stored in a variant of [base58](https://en.wikipedia.org/wiki/Base58) called [base58Check](https://en.bitcoin.it/wiki/Base58Check_encoding).
 
-{% highlight %}
-OP_DUP    OP_HASH160    <address/pubKeyHash>    OP_EQUALVERIFY    OP_CHECKSIG
-
-1. Input address (commonly provided in base58Check) to send 20 satoshi to;
-
-  1LU8w6o1xF6qxgG72g2CPsq49muH7EqDNE				Brad's provided address
-
-
-2. Address reformatted to hexadecimal from bitcoin's modified base58check string;
-
-  00 d58c3e279b8431d6e61b64b414a5b39ee93d638d d683a38f
-
-
-3. OPCode value are recorded in hexadecimal;
-
-  OP_DUP               = 76 (118)                 OP_HASH160           = a9 (169)
-  OP_EQUALVERIFY       = 88 (136)                 OP_CHECKSIG          = ac (172)
-
-
-4. The address is separated from the 1 byte version and 4 byte checksum;
-
-  d58c3e279b8431d6e61b64b414a5b39ee93d638d 
-
-
-5. The OPCodes are added and a byte is included before the hash to state its length;
-
-  76 a9 14 d58c3e279b8431d6e61b64b414a5b39ee93d638d 88 ac
-
-
-6. The concatenated result is the final scriptPubKey;
-
-  76a914d58c3e279b8431d6e61b64b414a5b39ee93d638d88ac
-
-
-7. Calculate the length (in bytes where 1 byte = 2 hex characters) of the scriptPubKey 
-   and convert it to hexadecimal;
-
-  50 characters   ->   25 bytes (dec)   ->   19 bytes (hex)
-
-
-8. Convert the amount to send to this address (20 satoshi) into an eight byte little 
-   endian hexadecimal number;
-
-  20 (dec)   ->   0000000000000014 (hex)   ->   1400000000000000 (little endian)
-
-
-9. Concatenate into a raw output or keep separated for later use;
-
-satoshi             |  1400000000000000
-scriptLength        |  19
-scriptPubKey        |  76a914d58c3e279b8431d6e61b64b414a5b39ee93d638d88ac
-
-raw                 |  14000000000000001976a914d58c3e279b8431d6e61b64b414a5b39ee93d63
-                    |  8d88ac
-{% endhighlight %}
+    OP_DUP    OP_HASH160    <address/pubKeyHash>    OP_EQUALVERIFY    OP_CHECKSIG
+    
+    1. Input address (commonly provided in base58Check) to send 20 satoshi to;
+    
+      1LU8w6o1xF6qxgG72g2CPsq49muH7EqDNE				Brad's provided address
+    
+    
+    2. Address reformatted to hexadecimal from bitcoin's modified base58check string;
+    
+      00 d58c3e279b8431d6e61b64b414a5b39ee93d638d d683a38f
+    
+    
+    3. OPCode value are recorded in hexadecimal;
+    
+      OP_DUP               = 76 (118)                 OP_HASH160           = a9 (169)
+      OP_EQUALVERIFY       = 88 (136)                 OP_CHECKSIG          = ac (172)
+    
+    
+    4. The address is separated from the 1 byte version and 4 byte checksum;
+    
+      d58c3e279b8431d6e61b64b414a5b39ee93d638d 
+    
+    
+    5. The OPCodes are added and a byte is included before the hash to state its length;
+    
+      76 a9 14 d58c3e279b8431d6e61b64b414a5b39ee93d638d 88 ac
+    
+    
+    6. The concatenated result is the final scriptPubKey;
+    
+      76a914d58c3e279b8431d6e61b64b414a5b39ee93d638d88ac
+    
+    
+    7. Calculate the length (in bytes where 1 byte = 2 hex characters) of the scriptPubKey 
+       and convert it to hexadecimal;
+    
+      50 characters   ->   25 bytes (dec)   ->   19 bytes (hex)
+    
+    
+    8. Convert the amount to send to this address (20 satoshi) into an eight byte little 
+       endian hexadecimal number;
+    
+      20 (dec)   ->   0000000000000014 (hex)   ->   1400000000000000 (little endian)
+    
+    
+    9. Concatenate into a raw output or keep separated for later use;
+    
+    satoshi             |  1400000000000000
+    scriptLength        |  19
+    scriptPubKey        |  76a914d58c3e279b8431d6e61b64b414a5b39ee93d638d88ac
+    
+    raw                 |  14000000000000001976a914d58c3e279b8431d6e61b64b414a5b39ee93d63
+                        |  8d88ac
 
 She then starts creating the inputs for this transaction. Initially, inputs only have three of the five values found in every input; prevHash, index and sequence. These three identify what bitcoins to spend and in what manner to spend them. Once all inputs have been created like this, identifiers of an input are taken and amended in a byte-stream. For each input in turn, the corresponding scriptPubKey from the output is signed along with the identifier byte stream. This produces a set of signatures which validate the spending of each input's to-be-used output. The signatures are also tied into the transaction through the identifying byte stream and prevent people tampering with the transaction, as this will invalidate the signatures. The process of signing involves some tricky maths and new definitions for adding, doubling and multiplying that are specific to Elliptic Curve Cryptography. I've included a link at the end for more information, but I won't cover this process in details here.
 
 Below is a worked example of what Angelina had to compute in order to redeem bitcoins from her first address (17pA4nZbtivWZVkkaEUEGjLT5DVnH5Gbr1). She takes the scriptPubKey referenced in the input in order to create the script to redeem the bitcoins at this address.
 
-{% highlight %}
-1. Locate the existing scriptPubKey;
-
-  76a9144abbdf494156759c3bbf13718efad0c0c68e429088ac
-
-
-2. Split the scriptPubKey into the OPCodes and address;
-
-  OP_DUP OP_HASH160 d58c3e279b8431d6e61b64b414a5b39ee93d638d OP_EQUALVERIFY OP_CHECKSIG
-
-
-3. Find the public key corresponding to this address;
-
-  02b9d9c6b95f29709562dc8b285ca5951f718d904b61c17a60f4f6cd65bf8aa628
-
-4. In this case the script used to redeem these bitcoins requires a public key, which
-   when converted to an address, is equal to the script address. A signature for
-   the public key is created using the private key. It is an ECDSA signature
-   formatted with DER and will be used to verify ownership of the public key provided.
-   The script structure is as follows;
-
-  48                         |  Length of signature
-  30                         |  Byte marking start of header structure
-  45                         |  Length of header
-  02                         |  Byte marking integer object
-  21                         |  Length of R component of signature
-  00b9fe0b1b099e3a9e942f49   |  R component of signature
-    6b50b56ef6830752d233e5   |  
-    2132a92353cc6436108e     |  
-  02                         |  Byte marking integer object
-  20                         |  Length of S component of signature
-  3c03771ed6501a8ac2376089   |  S component of signature
-    3ebac7193754fe329ce783   |  
-    7086ee562528463a16       |  
-  01                         |  ?
-  21                         |  Length of public key
-  02b9d9c6b95f29709562dc8b   |  Compressed public key (found above)
-    285ca5951f718d904b61c1   |  
-    7a60f4f6cd65bf8aa628     |  
-{% endhighlight %}
+    1. Locate the existing scriptPubKey;
+    
+      76a9144abbdf494156759c3bbf13718efad0c0c68e429088ac
+    
+    
+    2. Split the scriptPubKey into the OPCodes and address;
+    
+      OP_DUP OP_HASH160 d58c3e279b8431d6e61b64b414a5b39ee93d638d OP_EQUALVERIFY OP_CHECKSIG
+    
+    
+    3. Find the public key corresponding to this address;
+    
+      02b9d9c6b95f29709562dc8b285ca5951f718d904b61c17a60f4f6cd65bf8aa628
+    
+    4. In this case the script used to redeem these bitcoins requires a public key, which
+       when converted to an address, is equal to the script address. A signature for
+       the public key is created using the private key. It is an ECDSA signature
+       formatted with DER and will be used to verify ownership of the public key provided.
+       The script structure is as follows;
+    
+      48                         |  Length of signature
+      30                         |  Byte marking start of header structure
+      45                         |  Length of header
+      02                         |  Byte marking integer object
+      21                         |  Length of R component of signature
+      00b9fe0b1b099e3a9e942f49   |  R component of signature
+        6b50b56ef6830752d233e5   |  
+        2132a92353cc6436108e     |  
+      02                         |  Byte marking integer object
+      20                         |  Length of S component of signature
+      3c03771ed6501a8ac2376089   |  S component of signature
+        3ebac7193754fe329ce783   |  
+        7086ee562528463a16       |  
+      01                         |  ?
+      21                         |  Length of public key
+      02b9d9c6b95f29709562dc8b   |  Compressed public key (found above)
+        285ca5951f718d904b61c1   |  
+        7a60f4f6cd65bf8aa628     |  
 
 Angelina now takes all the inputs and outputs and puts them into the order below. She needs to calculate or state a few extra values for the bitcoin protocol to accept this transaction.
 
-{% highlight %}
-version          (le) |  01000000
-inputCount            |  03
-[1]prevHash      (le) |  76187db8c360fdbc054c42bec9dd390dce33ac6d9e8f8a321179fd3ce3a9
-                      |  1dd4
-[1]prevIndex     (le) |  00000000
-[1]scriptLength       |  6b
-[1]scriptSig          |  483045022100b9fe0b1b099e3a9e942f496b50b56ef6830752d233e52132
-                      |  a92353cc6436108e02203c03771ed6501a8ac23760893ebac7193754fe32
-                      |  9ce7837086ee562528463a16012102b9d9c6b95f29709562dc8b285ca595
-                      |  1f718d904b61c17a60f4f6cd65bf8aa628
-[1]sequence      (le) |  ffffffff
-[2]prevHash      (le) |  98c02933a347040d5f6e374a7aa72a42c690ec8490eafb1d9c5aac91c6ff
-                      |  ed59
-[2]prevIndex     (le) |  00000000
-[2]scriptLength       |  6a
-[2]scriptSig          |  4730440220219f9275abe4887b4b86a1dd20e1cd252e181e660ad79debd7
-                      |  f4ea41895c9c7202206b8a997918124e36864b68e35457166a662ca82cc9
-                      |  c065b111c3c5dbcfc949b50121036406e0b5c3dc6e30f8cb650637591278
-                      |  417e32f9a2d3667566a69f661a773a45
-[2]sequence      (le) |  ffffffff
-[3]prevHash      (le) |  c4fd8b4c5d9a793e1ca654a81514c197335c5f00b3e864b3bb69a5eef4ca
-                      |  13a0
-[3]prevIndex     (le) |  00000000
-[3]scriptLength       |  64
-[3]scriptSig          |  473044022074262cdfe36ec86b329aba348e04ec8dceb1ae27e31923c6a5
-                      |  f92f5032d427c1022035909dd1780e61fe656c4d6d73d5d06574ccb47948
-                      |  d46cb78619fbb5f1ec3bad0121021be9fcb54b056252bba241f9a7b950a7
-                      |  1a96b9d63b29fa7e91e0f9974fa51f6a
-[3]sequence      (le) |  ffffffff
-outputCount           |  02
-[1]satoshi       (le) |  1400000000000000
-[1]scriptLength       |  19
-[1]scriptPubKey       |  76a914d58c3e279b8431d6e61b64b414a5b39ee93d638d88ac
-[2]satoshi       (le) |  0100000000000000
-[2]scriptLength       |  19
-[2]scriptPubKey       |  76a914cb19afed52e12daaf83fd503aa214209921ee07288ac
-blockLockTime    (le) |  00000000
-{% endhighlight %}
+    version          (le) |  01000000
+    inputCount            |  03
+    [1]prevHash      (le) |  76187db8c360fdbc054c42bec9dd390dce33ac6d9e8f8a321179fd3ce3a9
+                          |  1dd4
+    [1]prevIndex     (le) |  00000000
+    [1]scriptLength       |  6b
+    [1]scriptSig          |  483045022100b9fe0b1b099e3a9e942f496b50b56ef6830752d233e52132
+                          |  a92353cc6436108e02203c03771ed6501a8ac23760893ebac7193754fe32
+                          |  9ce7837086ee562528463a16012102b9d9c6b95f29709562dc8b285ca595
+                          |  1f718d904b61c17a60f4f6cd65bf8aa628
+    [1]sequence      (le) |  ffffffff
+    [2]prevHash      (le) |  98c02933a347040d5f6e374a7aa72a42c690ec8490eafb1d9c5aac91c6ff
+                          |  ed59
+    [2]prevIndex     (le) |  00000000
+    [2]scriptLength       |  6a
+    [2]scriptSig          |  4730440220219f9275abe4887b4b86a1dd20e1cd252e181e660ad79debd7
+                          |  f4ea41895c9c7202206b8a997918124e36864b68e35457166a662ca82cc9
+                          |  c065b111c3c5dbcfc949b50121036406e0b5c3dc6e30f8cb650637591278
+                          |  417e32f9a2d3667566a69f661a773a45
+    [2]sequence      (le) |  ffffffff
+    [3]prevHash      (le) |  c4fd8b4c5d9a793e1ca654a81514c197335c5f00b3e864b3bb69a5eef4ca
+                          |  13a0
+    [3]prevIndex     (le) |  00000000
+    [3]scriptLength       |  64
+    [3]scriptSig          |  473044022074262cdfe36ec86b329aba348e04ec8dceb1ae27e31923c6a5
+                          |  f92f5032d427c1022035909dd1780e61fe656c4d6d73d5d06574ccb47948
+                          |  d46cb78619fbb5f1ec3bad0121021be9fcb54b056252bba241f9a7b950a7
+                          |  1a96b9d63b29fa7e91e0f9974fa51f6a
+    [3]sequence      (le) |  ffffffff
+    outputCount           |  02
+    [1]satoshi       (le) |  1400000000000000
+    [1]scriptLength       |  19
+    [1]scriptPubKey       |  76a914d58c3e279b8431d6e61b64b414a5b39ee93d638d88ac
+    [2]satoshi       (le) |  0100000000000000
+    [2]scriptLength       |  19
+    [2]scriptPubKey       |  76a914cb19afed52e12daaf83fd503aa214209921ee07288ac
+    blockLockTime    (le) |  00000000
 
 When looking at the transaction structure above you can notice several of the values have their bytes inverted into little endian form. Where a value is stored in little endian I have annotated the field (le). All of these bytes are concatenated before being passed into a SHA256 function for two rounds of hashing. This produces the final transaction hash which can be used as a reference by other inputs at a later time.
 
-{% highlight %}
-1. Concatenated transaction;
-
-  010000000376187db8c360fdbc054c42bec9dd390dce33ac6d9e8f8a321179fd3ce3a91dd4000000006b
-  483045022100b9fe0b1b099e3a9e942f496b50b56ef6830752d233e52132a92353cc6436108e02203c03
-  771ed6501a8ac23760893ebac7193754fe329ce7837086ee562528463a16012102b9d9c6b95f29709562
-  dc8b285ca5951f718d904b61c17a60f4f6cd65bf8aa628ffffffff98c02933a347040d5f6e374a7aa72a
-  42c690ec8490eafb1d9c5aac91c6ffed59000000006a4730440220219f9275abe4887b4b86a1dd20e1cd
-  252e181e660ad79debd7f4ea41895c9c7202206b8a997918124e36864b68e35457166a662ca82cc9c065
-  b111c3c5dbcfc949b50121036406e0b5c3dc6e30f8cb650637591278417e32f9a2d3667566a69f661a77
-  3a45ffffffffc4fd8b4c5d9a793e1ca654a81514c197335c5f00b3e864b3bb69a5eef4ca13a000000000
-  6a473044022074262cdfe36ec86b329aba348e04ec8dceb1ae27e31923c6a5f92f5032d427c102203590
-  9dd1780e61fe656c4d6d73d5d06574ccb47948d46cb78619fbb5f1ec3bad0121021be9fcb54b056252bb
-  a241f9a7b950a71a96b9d63b29fa7e91e0f9974fa51f6affffffff0214000000000000001976a914d58c
-  3e279b8431d6e61b64b414a5b39ee93d638d88ac01000000000000001976a914cb19afed52e12daaf83f
-  d503aa214209921ee07288ac00000000
-
-
-2. First hash result;
-
-  4198263063942af5c0931808de30532005cdbaa0bb9d6c59e01611691429166b
-
-
-3. Second hash result (final tx hash);
-
-  d246963f71bbc26ab1c75c5911344cb7a2daafc8291756851ebbc627ab738166
-{% endhighlight %}
+    1. Concatenated transaction;
+    
+      010000000376187db8c360fdbc054c42bec9dd390dce33ac6d9e8f8a321179fd3ce3a91dd4000000006b
+      483045022100b9fe0b1b099e3a9e942f496b50b56ef6830752d233e52132a92353cc6436108e02203c03
+      771ed6501a8ac23760893ebac7193754fe329ce7837086ee562528463a16012102b9d9c6b95f29709562
+      dc8b285ca5951f718d904b61c17a60f4f6cd65bf8aa628ffffffff98c02933a347040d5f6e374a7aa72a
+      42c690ec8490eafb1d9c5aac91c6ffed59000000006a4730440220219f9275abe4887b4b86a1dd20e1cd
+      252e181e660ad79debd7f4ea41895c9c7202206b8a997918124e36864b68e35457166a662ca82cc9c065
+      b111c3c5dbcfc949b50121036406e0b5c3dc6e30f8cb650637591278417e32f9a2d3667566a69f661a77
+      3a45ffffffffc4fd8b4c5d9a793e1ca654a81514c197335c5f00b3e864b3bb69a5eef4ca13a000000000
+      6a473044022074262cdfe36ec86b329aba348e04ec8dceb1ae27e31923c6a5f92f5032d427c102203590
+      9dd1780e61fe656c4d6d73d5d06574ccb47948d46cb78619fbb5f1ec3bad0121021be9fcb54b056252bb
+      a241f9a7b950a71a96b9d63b29fa7e91e0f9974fa51f6affffffff0214000000000000001976a914d58c
+      3e279b8431d6e61b64b414a5b39ee93d638d88ac01000000000000001976a914cb19afed52e12daaf83f
+      d503aa214209921ee07288ac00000000
+    
+    
+    2. First hash result;
+    
+      4198263063942af5c0931808de30532005cdbaa0bb9d6c59e01611691429166b
+    
+    
+    3. Second hash result (final tx hash);
+    
+      d246963f71bbc26ab1c75c5911344cb7a2daafc8291756851ebbc627ab738166
 
 When a new block is being mined, the transactions it will contain have been locked in. The transactions are laid out and hashed together in pairs to create a new SHA256 hash. This is recursively done until a single hash remains; the merkle root. Below is a diagram showing how the hashes are made on each level of recursion. On any given level, there may not be an even number of hashes, if this is the case the last hash to be processed is hashed with itself.
 
