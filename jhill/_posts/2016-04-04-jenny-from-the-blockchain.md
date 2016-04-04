@@ -14,9 +14,9 @@ Over the past several years there has been a lot of talk about cryptocurrencies,
 
 Bitcoin is just one implementation of the blockchain. While all cryptocurrencies are based on the blockchain algorithms, there are subtle differences between the implementations. To illustrate the differences here is a contrast between bitcoin and litecoin. The first difference is that litecoin aims to mine a block every 2.5 minutes, as opposed to bitcoins 10 minute processing rate. This speeds up the time it takes for a transaction to be confirmed in the network, providing protection to users against certain kinds of attack/mistake (such as double spending). A second difference is the inclusion of [scrypt](https://en.wikipedia.org/wiki/Scrypt) in the proof-of-word algorithm, a memory intensive function compared to bitcoin's [sha256](https://en.wikipedia.org/wiki/SHA-2). This makes it much harder to parallelise the mining of litecoins. Litecoin supports mining of up to 84 million litecoins, four times as many as bitcoin provides.
 
-In this post we will focus our explanations on the inner works of bitcoin, since all other cryptocurrencies share similar implementations. During our time constructing our own bitcoin network, we spent a lot of time researching exactly how bitcoin works, and so included in this blog is a selection of the core algorithms with step by step examples. We hope to help other people wanting to learn about bitcoin by assembling the information they need into a single source. We did this, so you don’t have to share in the difficulty of traversing the web looking for clues as to how the system works. The language of this blog is aimed at people who have a basic understanding of computer science, and will go into some detail with how these algorithms work and some of the data structures are made. For anyone wanting to write their own code, we have included worked examples which can serve as test data for your algorithms.
+In this post we will focus our explanations on the inner works of bitcoin, since all other cryptocurrencies share similar implementations. During our time constructing our own bitcoin network, we spent a lot of time researching exactly how bitcoin works, and so included in this blog is a selection of the core algorithms with step by step examples. We hope to help other people wanting to learn about bitcoin by assembling the information they need into a single source. We did this, so you don't have to share in the difficulty of traversing the web looking for clues as to how the system works. The language of this blog is aimed at people who have a basic understanding of computer science, and will go into some detail with how these algorithms work and some of the data structures are made. For anyone wanting to write their own code, we have included worked examples which can serve as test data for your algorithms.
 
-## Where’s your header at?
+## Where's your header at?
 
 Let us first go through some common terminology which is useful to know when reading into bitcoin and should help everything make a little more sense;
 
@@ -91,7 +91,7 @@ In calculating a valid block hash, the sha256 hash step takes more computing pow
 
 We mentioned the term proof of work earlier. This is the first valid hash of a block found by bitcoin miners and broadcast to other peers on the network. Whoever calculates this hash first gets the 25BTC reward, and once the hash and nonce used to find it is shared on the network, it can very quickly be verified. The difficulty of mining has grown proportionally with the hashing power of the network, to ensure that the amount of coins in circulation does not grow too quickly. Every 2016 blocks, bitcoin calculates a new difficulty (adjusts the current difficulty slightly). There is a total limit of 21 million bitcoins that can ever be mined, but by increasing the difficulty to maintain a constant mining rate, this limit should not be reached until the year 2140.
 
-Proof of work involves creating valid hash of a block that can be quickly verified by other users on the network to prove that you, as a miner, have put time into calculating the nonce. The “nonce” is the pseudo-random number that is a component of a block hash. A valid hash exists only if the numerical interpretation of the hash (as a 256-bit number) is smaller than a predetermined difficulty. The hash must be smaller than the difficulty in order to be accepted into the blockchain.
+Proof of work involves creating valid hash of a block that can be quickly verified by other users on the network to prove that you, as a miner, have put time into calculating the nonce. The `nonce` is the pseudo-random number that is a component of a block hash. A valid hash exists only if the numerical interpretation of the hash (as a 256-bit number) is smaller than a predetermined difficulty. The hash must be smaller than the difficulty in order to be accepted into the blockchain.
 
 Verifying the block hash is very simple and quick to do, shown below is a hash from the blockchain which has been accepted. Also included is the value of bits from the block header. The bits are passed into a simple formula in order to generate a number, which the block hash is compared to. If the hash is smaller, the block is accepted, if the hash is not smaller, the hash is invalid. Here is a worked example with values taken from the live bitcoin blockchain.
 
@@ -133,16 +133,16 @@ nonce       | 2083236894
 blockhash   | 51b32344534acc6cbbdb4e3490e32cf8bb38719b3afd27bf8635a6025e08b4fd
 {% endhighlight %}
 
-If the nonce is only slightly different, as seen below, then this completely changes the resulting hash value. This shows how it is virtually impossible to “guess” what value the nonce may be, and why brute force (possibly with negligible optimisations) is the only method of mining bitcoins. The same goes for any other data involved in the block hash. Changing any transaction data (resultantly changing the merkle root) would result in a completely invalid block hash, thus showing the inherent security in the blockchain.
+If the nonce is only slightly different, as seen below, then this completely changes the resulting hash value. This shows how it is virtually impossible to guess what value the nonce may be, and why brute force (possibly with negligible optimisations) is the only method of mining bitcoins. The same goes for any other data involved in the block hash. Changing any transaction data (resultantly changing the merkle root) would result in a completely invalid block hash, thus showing the inherent security in the blockchain.
 
 {% highlight %}
 nonce        | 2083236894
 block hash   | 2298ab2601f17e1c61c4ca7476f91d562ed436c50ef22687bc8425fddb9b7b75
 {% endhighlight %}
 
-With the difficulty of the proof of work being so high, it is very rare for a single miner to work alone. Most mining is done by mining pools, which are effectively syndicates of miners. These pools usually work on a “divide and conquer” technique, mining different ranges of possible values to reduce the time in which a valid hash is found. The number of calculations done is stored by each member of these pools, and this is how their share of the reward is calculated. The reward is paid to the pool owner in the standard reward transaction, and every month (or however often) a transaction is made to pay miners for their share of work. The reward transaction is the very first transaction in a block and is added by miners when they attempt to calculate the nonce. Since the reward is in the form of minted coins, this transaction has no inputs.
+With the difficulty of the proof of work being so high, it is very rare for a single miner to work alone. Most mining is done by mining pools, which are effectively syndicates of miners. These pools usually work on a "divide and conquer" technique, mining different ranges of possible values to reduce the time in which a valid hash is found. The number of calculations done is stored by each member of these pools, and this is how their share of the reward is calculated. The reward is paid to the pool owner in the standard reward transaction, and every month (or however often) a transaction is made to pay miners for their share of work. The reward transaction is the very first transaction in a block and is added by miners when they attempt to calculate the nonce. Since the reward is in the form of minted coins, this transaction has no inputs.
 
-We’ve described how difficult it is to mine blocks but some among you may be thinking: "With a 4 byte nonce there are only 4.3x10^9 values to check and a network with a hash rate of 7.5x10^16 hashes per second, surely blocks will be found very quickly?". You would be correct!
+We've described how difficult it is to mine blocks but some among you may be thinking: "With a 4 byte nonce there are only 4.3x10^9 values to check and a network with a hash rate of 7.5x10^16 hashes per second, surely blocks will be found very quickly?". You would be correct!
 
 It is possible to have a header where no matter what the value of the nonce is, there will not be a valid block hash. Miners calculate every valid value for the four byte nonce, until they either find a valid block hash, or there are no more values for the nonce they can try. The miner now knows that any value they choose for the nonce will not create a valid block hash; something else in the header must be changed to produce a valid hash.
 
@@ -164,7 +164,7 @@ Inputs are references to the outputs of other transactions. They identify an out
 <sig>    <pubKey>
 {% endhighlight %}
 
-The pubKey value is the public key used to make the address of the spenders bitcoins. The "sig" field is a signature created from the sender's private key which proves they are the person who owns the address/public key. Exactly how the keys are generated and redeemed is a tricky process using ECDSA (and the bitcoin curve secp256k1) and would make this blog post even longer! So we think it’s best saved for a later date. A walkthrough of the basic signing algorithm for ECDSA can be found on [Wikipedia](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm). The essence of the signing process is as follows; that a transaction is constructed, identifying values of the transaction are selected, the values collected are concatenated into a byte sequence, the byte sequence is then signed using the senders private key with ecdsa using the secp256k1 curve. 
+The pubKey value is the public key used to make the address of the spenders bitcoins. The "sig" field is a signature created from the sender's private key which proves they are the person who owns the address/public key. Exactly how the keys are generated and redeemed is a tricky process using ECDSA (and the bitcoin curve secp256k1) and would make this blog post even longer! So we think it's best saved for a later date. A walkthrough of the basic signing algorithm for ECDSA can be found on [Wikipedia](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm). The essence of the signing process is as follows; that a transaction is constructed, identifying values of the transaction are selected, the values collected are concatenated into a byte sequence, the byte sequence is then signed using the senders private key with ecdsa using the secp256k1 curve. 
 
 {% highlight %}
 variable                | bytes |  description
@@ -203,8 +203,8 @@ Total											25 satoshi
 We can see that Angelina has more than 20 satoshi in her wallet in total, but no single address which holds exactly 20 satoshi. What she must do here is pick some addresses totalling 20 or more satoshi which we can spend in this transaction. They will be sent to two outputs; one is to an address Brad has provided her, the other is to a new address she will make (for her change). Here we have the two new addresses they made.
 
 {% highlight %}
-1LU8w6o1xF6qxgG72g2CPsq49muH7EqDNE					Brad’s provided address
-1KWtwinyjbexk3BrU695ByGWbJYhNLN2bZ					Angelina’s change address
+1LU8w6o1xF6qxgG72g2CPsq49muH7EqDNE					Brad's provided address
+1KWtwinyjbexk3BrU695ByGWbJYhNLN2bZ					Angelina's change address
 
 Here are the addresses which Angelina has chosen to use in this transaction.
 
@@ -215,14 +215,14 @@ Here are the addresses which Angelina has chosen to use in this transaction.
 Total											21 satoshi
 {% endhighlight %}
 
-Angelina now calculates the pubKeyScript from the address above (using the form Pay-to-PubKeyHash mentioned above and copied below for ease of reading) and, along with the value to be sent to each address, creates the output objects. Below shows how Brad’s address is converted into a pubKeyScript. Addresses are stored in a variant of [base58](https://en.wikipedia.org/wiki/Base58) called [base58Check](https://en.bitcoin.it/wiki/Base58Check_encoding).
+Angelina now calculates the pubKeyScript from the address above (using the form Pay-to-PubKeyHash mentioned above and copied below for ease of reading) and, along with the value to be sent to each address, creates the output objects. Below shows how Brad's address is converted into a pubKeyScript. Addresses are stored in a variant of [base58](https://en.wikipedia.org/wiki/Base58) called [base58Check](https://en.bitcoin.it/wiki/Base58Check_encoding).
 
 {% highlight %}
 OP_DUP    OP_HASH160    <address/pubKeyHash>    OP_EQUALVERIFY    OP_CHECKSIG
 
 1. Input address (commonly provided in base58Check) to send 20 satoshi to;
 
-  1LU8w6o1xF6qxgG72g2CPsq49muH7EqDNE				Brad’s provided address
+  1LU8w6o1xF6qxgG72g2CPsq49muH7EqDNE				Brad's provided address
 
 
 2. Address reformatted to hexadecimal from bitcoin's modified base58check string;
@@ -273,7 +273,7 @@ raw                 |  14000000000000001976a914d58c3e279b8431d6e61b64b414a5b39ee
                     |  8d88ac
 {% endhighlight %}
 
-She then starts creating the inputs for this transaction. Initially, inputs only have three of the five values found in every input; prevHash, index and sequence. These three identify what bitcoins to spend and in what manner to spend them. Once all inputs have been created like this, identifiers of an input are taken and amended in a byte-stream. For each input in turn, the corresponding scriptPubKey from the output is signed along with the identifier byte stream. This produces a set of signatures which validate the spending of each input's to-be-used output. The signatures are also tied into the transaction through the identifying byte stream and prevent people tampering with the transaction, as this will invalidate the signatures. The process of signing involves some tricky maths and new definitions for adding, doubling and multiplying that are specific to Elliptic Curve Cryptography. I’ve included a link at the end for more information, but I won’t cover this process in details here.
+She then starts creating the inputs for this transaction. Initially, inputs only have three of the five values found in every input; prevHash, index and sequence. These three identify what bitcoins to spend and in what manner to spend them. Once all inputs have been created like this, identifiers of an input are taken and amended in a byte-stream. For each input in turn, the corresponding scriptPubKey from the output is signed along with the identifier byte stream. This produces a set of signatures which validate the spending of each input's to-be-used output. The signatures are also tied into the transaction through the identifying byte stream and prevent people tampering with the transaction, as this will invalidate the signatures. The process of signing involves some tricky maths and new definitions for adding, doubling and multiplying that are specific to Elliptic Curve Cryptography. I've included a link at the end for more information, but I won't cover this process in details here.
 
 Below is a worked example of what Angelina had to compute in order to redeem bitcoins from her first address (17pA4nZbtivWZVkkaEUEGjLT5DVnH5Gbr1). She takes the scriptPubKey referenced in the input in order to create the script to redeem the bitcoins at this address.
 
@@ -398,11 +398,11 @@ When a new block is being mined, the transactions it will contain have been lock
 
 ##In the End (ian)
 
-So far we’ve explained what actually goes into a bitcoin transaction, and how those transactions are added to the blockchain and verified by miners. We hope this is helpful for anyone trying to understand cryptocurrencies on a lower level. For the next post in this series we’ll dive into the security and encryption in bitcoin, focusing on the Elliptical Curve Cryptography (ECC) in signing of transactions, the generation of addresses and other forms of output signature such as Multisig or Escrow scripts.
+So far we've explained what actually goes into a bitcoin transaction, and how those transactions are added to the blockchain and verified by miners. We hope this is helpful for anyone trying to understand cryptocurrencies on a lower level. For the next post in this series we'll dive into the security and encryption in bitcoin, focusing on the Elliptical Curve Cryptography (ECC) in signing of transactions, the generation of addresses and other forms of output signature such as Multisig or Escrow scripts.
 
 ##Further Reading and a Brief Aside
 
-Below are a few interesting links you might wish to look into. They are relevant to the material of the blog. If you found this blog interesting, I’d suggest reading into the functionality of the Ethereum and Ripple; two currencies recognised as the second generation of cryptocurrency. They benefit from hindsight, being able to avoid mistakes made by the first generation and match the successes. Here is a little information on Ethereum to hopefully whet your whistle.
+Below are a few interesting links you might wish to look into. They are relevant to the material of the blog. If you found this blog interesting, I'd suggest reading into the functionality of the Ethereum and Ripple; two currencies recognised as the second generation of cryptocurrency. They benefit from hindsight, being able to avoid mistakes made by the first generation and match the successes. Here is a little information on Ethereum to hopefully whet your whistle.
 
 Ethereum: This currency has evolved from the underlying blockchain algorithms to become more than just a currency. The network itself is effectively a single decentralized virtual machine capable to executing programs contained within transactions. Ethereum is a hybrid network with its currency, Ether, being used as payment for execution of programs. Ethereum also supports smart contracts (buzzword of 2016/17??) which are a payment and program hybrid. Using Ethereum it would be possible to set up standing orders or trust funds which could only be accessed on set dates. This currency has received a large amount of attention recently from major tech companies, such as Microsoft, announcing that they will be implementing Ethereum as a Service on Azure.
 
@@ -414,7 +414,7 @@ Ethereum: This currency has evolved from the underlying blockchain algorithms to
 
 [https://bitcoinwisdom.com/bitcoin/difficulty](https://bitcoinwisdom.com/bitcoin/difficulty) - *graph illustrating the change in the bitcoin mining difficulty*
 
-[http://www.coindesk.com/new-bitcoin-asic-to-be-most-power-efficient-on-public-market/](http://www.coindesk.com/new-bitcoin-asic-to-be-most-power-efficient-on-public-market/) - *ASIC news article giving a nice overview of ASIC’s and what role the play in mining*
+[http://www.coindesk.com/new-bitcoin-asic-to-be-most-power-efficient-on-public-market/](http://www.coindesk.com/new-bitcoin-asic-to-be-most-power-efficient-on-public-market/) - *ASIC news article giving a nice overview of ASIC's and what role the play in mining*
 
 [http://bitcoin.stackexchange.com/questions/36634/how-do-i-get-to-the-value-in-the-scriptpubkey-part-of-the-transaction](http://bitcoin.stackexchange.com/questions/36634/how-do-i-get-to-the-value-in-the-scriptpubkey-part-of-the-transaction) - *base58Check encoding description*
 
