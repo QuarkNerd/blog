@@ -1609,7 +1609,6 @@ ejs
 Pret
 Foursquare
 webhook
-
  - jhill/_posts/2016-04-04-jenny-from-the-blockchain.md
 17pA4nZbtivWZVkkaEUEGjLT5DVnH5Gbr1
 256-bit
@@ -1649,3 +1648,11 @@ scrypt
 secp256k1
 sha256
 sig
+ - mtinning/_posts/2016-04-04-a-functional-front-end-with-react.md
+Ramda
+ImmutableJS
+Angular2
+MVC
+HelloWorld
+ClojureScript
+stateful
