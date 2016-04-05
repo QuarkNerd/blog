@@ -3,3 +3,12 @@
 
 # These files are text and should be normalized (convert crlf -> lf)
 *.md      text
+*.xml     text
+*.js      text
+*.html    text
+*.htm     text
+*.css     text
+*.svg     text
+*.java    text
+*.pdf     -text
+
