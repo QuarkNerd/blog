@@ -15,6 +15,7 @@ active-authors:
   - dgorst
   - dmcnamee
   - dpizzi
+  - dtheasby
   - dthomas
   - dkerr
   - dwybourn
@@ -384,3 +385,8 @@ authors:
         gravatar: 858e2c9ef66e0f7850a7ea8505f76084
         author-image: /rsillem/assets/profile.jpg
         author-summary: <p>I am a Lead Developer at Scott Logic.</p>
+    dtheasby:
+        name: Drew Theasby
+        email: dtheasby@scottlogic.com
+        gravatar: 95eaac11221e97abef0cfe083b03e4d4
+        author-summary: <p>Test Engineer at Scott Logic</p>
