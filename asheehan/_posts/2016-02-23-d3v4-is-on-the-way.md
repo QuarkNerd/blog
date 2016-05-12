@@ -34,3 +34,5 @@ now published as separate npm modules, reads the dependencies for each module,
 then takes that data and draws the [force layout graph](https://github.com/mbostock/d3/wiki/Force-Layout)
 showing the relationships between each of the modules. We haven't thought of a use
 for this yet, but, it looks cool...
+
+Check out the code at the [GitHub repository](https://github.com/alisd23/d3v4-dependancy-chart)
