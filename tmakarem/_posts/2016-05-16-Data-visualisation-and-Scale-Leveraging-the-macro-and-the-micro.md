@@ -23,13 +23,9 @@ When we first look at the wall from afar, we can see that it is under the ground
 
 The commemoration of the dead is portrayed from the macro level to the micro level, unwrapping a layer of the message at each stage, and evoking emotions at each scale. The memorial captures meaning at every level of the scale.
 
-|
-![Vietnam war memorial wall, Maya Lin]({{ site.github.url }}/tmakarem/assets/001_mayalin1.png "Vietnam war memorial wall, Maya Lin") 
-|
-![Vietnam war memorial wall, Maya Lin]({{ site.github.url }}/tmakarem/assets/002_mayalin2.png "Vietnam war memorial wall, Maya Lin")
-|
-![Vietnam war memorial wall, Maya Lin]({{ site.github.url }}/tmakarem/assets/003_mayalin3.png "Vietnam war memorial wall, Maya Lin")
-|
+
+![Vietnam war memorial wall, Maya Lin]({{ site.github.url }}/tmakarem/assets/001_mayalin1.png "Vietnam war memorial wall, Maya Lin") ![Vietnam war memorial wall, Maya Lin]({{ site.github.url }}/tmakarem/assets/002_mayalin2.png "Vietnam war memorial wall, Maya Lin") ![Vietnam war memorial wall, Maya Lin]({{ site.github.url }}/tmakarem/assets/003_mayalin3.png "Vietnam war memorial wall, Maya Lin")
+
 [Vietnam war memorial wall, Maya Lin](http://www.mayalin.com/)
 
 This type of visualisation can be equally applicable to other formats. Ben Fry, in a project entitled The Preservation of Favoured Traces, uses scale to provide a new perspective on Darwin’s theory, one that highlights its evolution throughout his lifetime. Darwin published On the Origin of Species in 1859 but continued revising it over the years. In Fry’s project, the words are colour-coded based on the edition they appeared in. At a macro level, we can view the extent of changes in Darwin’s theory and how much he adapted it over time. On a micro level, we can look at the exact edits and see how the theory evolved.
