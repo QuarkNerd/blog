@@ -6,13 +6,13 @@ summary: "The size of things is relative to the scale that we set. This might so
 ---
 The size of things is relative to the scale that we set. This might sound like a trivial notion, but it is key to creating meaningful data visualisations.
 
-While attending a lecture on nanotechnology a few years back, I was introduced to *The Powers of Ten*, a documentary that perfectly illustrates this idea of scale. The documentary explores the relative scale of things in the Universe according to a magnitude based on a factor of ten. The film starts at a picnic in a park, and repeatedly zooms out by a factor of ten, going from the picknicker to the cosmic. It then takes us back to the picknicker, zooming to his hand, into the microscopic.
+While attending a lecture on nanotechnology a few years back, I was introduced to *The Powers of Ten*, a documentary that perfectly illustrates this idea of scale. The documentary explores the relative scale of things in the Universe according to a magnitude based on a factor of ten. The film starts at a picnic in a park, and repeatedly zooms out by a factor of ten, going from the picnicker to the cosmic. It then takes us back to the picnicker, zooming to his hand, into the microscopic.
 
 ![Powers of ten]({{site.github.url}}/tmakarem/assets/000_powers-of-ten.png "Powers of ten")
 
 [Powers of ten](https://www.youtube.com/watch?v=0fKBhvDjuy0)
 
-The main idea in the documentary is that the size of something is relative to what we compare it to. The hand of the picknicker is huge compared to the proton of a carbon within a DNA molecule, but it is tiny compared to the Universe. The less obvious point is that certain things become irrelevant at certain scales. For example, If we try to visualise the proton at the Universe scale, we will find it difficult to get anything meaningful. Each magnitude allows us to perceive a certain type of data.
+The main idea in the documentary is that the size of something is relative to what we compare it to. The hand of the picnicker is huge compared to the proton of a carbon within a DNA molecule, but it is tiny compared to the Universe. The less obvious point is that certain things become irrelevant at certain scales. For example, If we try to visualise the proton at the Universe scale, we will find it difficult to get anything meaningful. Each magnitude allows us to perceive a certain type of data.
 
 When visualizing data, scale is inevitable. The minute we represent data, we make a decision about the scale at which we represent it. We sometimes make that decision subconsciously. Data visualization is much more powerful when we consciously set the scale, because it allows us to think about how to make the data meaningful at different levels of the scale.
 
@@ -58,7 +58,7 @@ The yearly view provides an overview. The monthly view highlights days on which 
 
 [Windows Calendar live tile](http://winsupersite.com/site-files/winsupersite.com/files/archive/winsupersite.com/content/content/142698/tile.jpg)
 
-If we navigate a calendar from the yearly drilling into the daily, scale would reflect distance. However, interactivity allows us to navigate it in a nonlinear way. Let’s take the calendar in the Windows 10 design as an example. A live tile on the home screen presents an overview of the calendar. It displays upcoming events. We tap on the live tile to navigate to a full view of the calendar. The user can customize the calendar and choose its default view. The user can also dynamically switch between the default view and the other calendar views on the same page. The live tile is the first layer of the scale, and the custom view is the second. Scale is reflected in the layers of navigation. It is no longer defined by the yearly, monthly, weekly or daily view of the calendar.
+If we navigate a calendar from the yearly drilling into the daily, scale would reflect distance. However, interactivity allows us to navigate it in a non-linear way. Let’s take the calendar in the Windows 10 design as an example. A live tile on the home screen presents an overview of the calendar. It displays upcoming events. We tap on the live tile to navigate to a full view of the calendar. The user can customize the calendar and choose its default view. The user can also dynamically switch between the default view and the other calendar views on the same page. The live tile is the first layer of the scale, and the custom view is the second. Scale is reflected in the layers of navigation. It is no longer defined by the yearly, monthly, weekly or daily view of the calendar.
 
 Interactive data visualisation allows us to play on a notion of scale that is independent from distance, because it allows us to layer different levels of the scale on the same surface.
 
