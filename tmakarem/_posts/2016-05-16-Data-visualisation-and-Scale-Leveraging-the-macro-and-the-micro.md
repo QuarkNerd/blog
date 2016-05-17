@@ -1,6 +1,6 @@
 ---
 author: tmakarem
-title: Data Visualisation and Scale: Leveraging the Macro and the Micro
+title: "Data Visualisation and Scale: Leveraging the Macro and the Micro"
 layout: default_post
 summary: This post explores the notion of scale in data visualisation.
 ---
