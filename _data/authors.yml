@@ -39,8 +39,9 @@ active-authors:
   - shogarth
   - soneill
   - tbarclay
-  - tkelly
   - tferguson
+  - tkelly
+  - tmakarem
   - tsimmons
   - wferguson
   - wloveland
@@ -390,3 +391,10 @@ authors:
         email: dtheasby@scottlogic.com
         gravatar: 95eaac11221e97abef0cfe083b03e4d4
         author-summary: <p>Test Engineer at Scott Logic</p>
+    tmakarem:
+        name: Tamara Chehayeb Makarem
+        email: TChehayebMakarem@scottlogic.com
+        author-summary: <p> I am a User Experience Designer based in London. Using an Agile approach, I design desktop, tablet and mobile web apps. At Scott logic, I work with clients mainly in financial services enhancing their trading platforms, analytics dashboards and Intranet tools. I am an enthusiast of Data visualization and interactive projects using code for art.</p>
+        gravatar: 73d206981f4f75819ae6afe473bdbaad
+        twitter-url: http://twitter.com/TamaraCMakarem
+        twitter-handle: TamaraCMakarem
