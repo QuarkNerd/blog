@@ -25,9 +25,9 @@ The commemoration of the dead is portrayed from the macro level to the micro lev
 
 ![Vietnam war memorial wall, Maya Lin]({{ site.github.url }}/tmakarem/assets/001_mayalin1.png "Vietnam war memorial wall, Maya Lin")
 
-![Vietnam war memorial wall, Maya Lin]({{ site.github.url }}/tmakarem/assets/001_mayalin2.png "Vietnam war memorial wall, Maya Lin")
+![Vietnam war memorial wall, Maya Lin]({{ site.github.url }}/tmakarem/assets/002_mayalin2.png "Vietnam war memorial wall, Maya Lin")
 
-![Vietnam war memorial wall, Maya Lin]({{ site.github.url }}/tmakarem/assets/001_mayalin3.png "Vietnam war memorial wall, Maya Lin")
+![Vietnam war memorial wall, Maya Lin]({{ site.github.url }}/tmakarem/assets/003_mayalin3.png "Vietnam war memorial wall, Maya Lin")
 
 [Vietnam war memorial wall, Maya Lin](http://www.mayalin.com/)
 
@@ -75,7 +75,7 @@ The yearly view provides an overview. The monthly view highlights days on which 
 
 ![iOS Calendar (Yearly, monthly and daily views)]({{ site.github.url }}/tmakarem/assets/014_ios-calendar-3.png "iOS Calendar (Yearly, monthly and daily views)")
 
-![Windows Calendar live tile]({{ site.github.url }}/tmakarem/assets/015-live-tile.png "Windows Calendar live tile")
+![Windows Calendar live tile]({{ site.github.url }}/tmakarem/assets/015-live-tile.jpg "Windows Calendar live tile")
 
 [Windows Calendar live tile](http://winsupersite.com/site-files/winsupersite.com/files/archive/winsupersite.com/content/content/142698/tile.jpg)
 
