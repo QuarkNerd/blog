@@ -24,7 +24,11 @@ When we first look at the wall from afar, we can see that it is under the ground
 The commemoration of the dead is portrayed from the macro level to the micro level, unwrapping a layer of the message at each stage, and evoking emotions at each scale. The memorial captures meaning at every level of the scale.
 
 
-![Vietnam war memorial wall, Maya Lin]({{ site.github.url }}/tmakarem/assets/001_mayalin1.png "Vietnam war memorial wall, Maya Lin") ![Vietnam war memorial wall, Maya Lin]({{ site.github.url }}/tmakarem/assets/002_mayalin2.png "Vietnam war memorial wall, Maya Lin") ![Vietnam war memorial wall, Maya Lin]({{ site.github.url }}/tmakarem/assets/003_mayalin3.png "Vietnam war memorial wall, Maya Lin")
+![Vietnam war memorial wall, Maya Lin]({{ site.github.url }}/tmakarem/assets/001_mayalin1.png "Vietnam war memorial wall, Maya Lin")
+
+![Vietnam war memorial wall, Maya Lin]({{ site.github.url }}/tmakarem/assets/002_mayalin2.png "Vietnam war memorial wall, Maya Lin")
+
+![Vietnam war memorial wall, Maya Lin]({{ site.github.url }}/tmakarem/assets/003_mayalin3.png "Vietnam war memorial wall, Maya Lin")
 
 [Vietnam war memorial wall, Maya Lin](http://www.mayalin.com/)
 
@@ -32,7 +36,7 @@ This type of visualisation can be equally applicable to other formats. Ben Fry, 
 
 ![The preservation of Favoured Traces, Ben Fry]({{ site.github.url }}/tmakarem/assets/004_benfry1.png "The preservation of Favoured Traces, Ben Fry")
 
-![The preservation of Favoured Traces, Ben Fry]({{ site.github.url }}/tmakarem/assets/004_benfry1.png "The preservation of Favoured Traces, Ben Fry")
+![The preservation of Favoured Traces, Ben Fry]({{ site.github.url }}/tmakarem/assets/005_benfry2.png "The preservation of Favoured Traces, Ben Fry")
 
 [The preservation of Favoured Traces, Ben Fry](https://fathom.info/traces/)
 
@@ -40,23 +44,15 @@ Maps are another common example of visualization in which zooming is often used 
 
 On a macro level, the map shows the evolution of the gap between income and house prices over 19 years. For a £26,500 salary from 1998 to 2005, the map goes from blue/green to pink/red, indicating that buyers need a much higher multiple of their salary to afford a house.
 
-
 ![Unaffordable Country: Where can you afford to buy a house?, The Guardian]({{ site.github.url }}/tmakarem/assets/006_guardian1.png "Unaffordable Country: Where can you afford to buy a house?, The Guardian")
 
 ![Unaffordable Country: Where can you afford to buy a house?, The Guardian]({{ site.github.url }}/tmakarem/assets/007_guardian2.png "Unaffordable Country: Where can you afford to buy a house?, The Guardian")
 
 [Unaffordable Country: Where can you afford to buy a house?, The Guardian](http://www.theguardian.com/society/ng-interactive/2015/sep/02/unaffordable-country-where-can-you-afford-to-buy-a-house)
 
-
 On a micro level, we can look at the median house price in an area and a more detailed view of the house prices at a street level. The level of detail is kept appropriate to how far we are zoomed in or out.
 
-![Unaffordable Country: Where can you afford to buy a house?, The Guardian]({{ site.github.url }}/tmakarem/assets/008_guardian3.png "Unaffordable Country: Where can you afford to buy a house?, The Guardian")
-
-![Unaffordable Country: Where can you afford to buy a house?, The Guardian]({{ site.github.url }}/tmakarem/assets/009_guardian4.png "Unaffordable Country: Where can you afford to buy a house?, The Guardian")
-
-![Unaffordable Country: Where can you afford to buy a house?, The Guardian]({{ site.github.url }}/tmakarem/assets/010_guardian5.png "Unaffordable Country: Where can you afford to buy a house?, The Guardian")
-
-![Unaffordable Country: Where can you afford to buy a house?, The Guardian]({{ site.github.url }}/tmakarem/assets/011_guardian6.png "Unaffordable Country: Where can you afford to buy a house?, The Guardian")
+![Unaffordable Country: Where can you afford to buy a house?, The Guardian]({{ site.github.url }}/tmakarem/assets/008_guardian3.png "Unaffordable Country: Where can you afford to buy a house?, The Guardian")![Unaffordable Country: Where can you afford to buy a house?, The Guardian]({{ site.github.url }}/tmakarem/assets/009_guardian4.png "Unaffordable Country: Where can you afford to buy a house?, The Guardian")![Unaffordable Country: Where can you afford to buy a house?, The Guardian]({{ site.github.url }}/tmakarem/assets/010_guardian5.png "Unaffordable Country: Where can you afford to buy a house?, The Guardian")![Unaffordable Country: Where can you afford to buy a house?, The Guardian]({{ site.github.url }}/tmakarem/assets/011_guardian6.png "Unaffordable Country: Where can you afford to buy a house?, The Guardian")
 
 Scale and distance seem intertwined in all of these examples. In Maya Lin’s installation, we have to physically move closer to experience the different levels of the scale. In the Powers of ten, Ben Fry’s project, and the Guardian example, distance is still physical, but it is represented virtually through a digital zoom in and out.
 
