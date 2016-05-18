@@ -2,7 +2,7 @@
 author: godds
 title: Make Banking Talk
 image: godds/assets/featured/make-banking-talk.png
-summary: "Conversational Commerce drastically re-images the way services are delivered to customers by moving interactions with them into chat, messaging or other natural language interfaces such as voice. The following video captures some of our initial thoughts on how this might apply to financial services."
+summary: "Conversational Commerce drastically re-imagines the way services are delivered to customers by moving interactions with them into chat, messaging or other natural language interfaces such as voice. The following video captures some of our initial thoughts on how this might apply to financial services."
 tags:
   - author-featured
   - featured
@@ -14,7 +14,7 @@ suppress-careers-add: true
 short-author-aside: true
 ---
 
-Conversational Commerce drastically re-images the way services are delivered to customers by moving interactions with them into chat, messaging or other natural language interfaces such as voice.
+Conversational Commerce drastically re-imagines the way services are delivered to customers by moving interactions with them into chat, messaging or other natural language interfaces such as voice.
 
 [WeChat](http://www.wechat.com/en/), the dominant messaging app in China, has had phenomenal success through conversational commerce, with 3rd party services offering everything from restaurant booking and ticket reservation to healthcare administration and investing through WeChat's app. The Western equivalents, such as Facebook Messenger and Skype, are playing catch-up, having only recently opened the door to 3rd parties (with Uber, KLM and Bank Of America examples of early adopters). Similarly, the voice interactions of Amazon's Alexa and [Viv](http://viv.ai/) build on 3rd party services and are highlighting a path the likes of Siri, Cortana and Google Now are likely to follow as well.
 
