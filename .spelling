@@ -641,6 +641,7 @@ commoditisation
 api.ai
 wit.ai
 nitty
+namespaced
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
 line.y
@@ -1744,3 +1745,5 @@ someemailprovider.com
 a.user
 foobar.com
 _Request
+ - ceberhardt/_posts/2016-05-19-redux-reducer-arrays.md
+bindActionCreators
