@@ -37,6 +37,7 @@ active-authors:
   - rwilliams
   - sbulut
   - shogarth
+  - sking
   - soneill
   - tbarclay
   - tferguson
@@ -398,3 +399,8 @@ authors:
         gravatar: 73d206981f4f75819ae6afe473bdbaad
         twitter-url: http://twitter.com/TamaraCMakarem
         twitter-handle: TamaraCMakarem
+    sking:
+        name: Saber King
+        email: sking@scottlogic.com
+        gravatar: c02644e4b21947da7787247349954f96
+        author-summary: <p>I am a graduate developer at Scott Logic</p>
