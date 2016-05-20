@@ -8,7 +8,7 @@ categories:
   - HTML5
 ---
 
-The redux pattern provides a simple (and strict) pattern for managing state; a single store holds the state while a reducer applies actions, evolving the application state. As your app becomes more complex, you can [split up your reducer into separate functions](http://redux.js.org/docs/api/combineReducers.html), however, what if you have multiple instances of the same state in your app? for example a collection of notes, or calendar entries? the standard pattern for splitting reducers doesn't cover this scenario.
+The redux pattern provides a simple (and strict) pattern for managing state; a single store holds the state while a reducer applies actions, evolving the application state. As your app becomes more complex, you can [split up your reducer into separate functions](http://redux.js.org/docs/api/combineReducers.html), however, what if you have multiple instances of the same state in your app? For example a collection of notes, or calendar entries? The standard pattern for splitting reducers doesn't cover this scenario.
 
 In this blog post I'll take a look at how you can take a reducer and apply it to a collection of state objects. As an example, I'll take the classic 'counter' demo and turn it into an app with multiple counters:
 
@@ -219,7 +219,7 @@ Each counter is now able to dispatch actions with their respective index. The fi
 
 Once again, I don't want to change the counter reducer, so this needs to be handled in the root reducer.
 
-Given that actions are namespaced, it is possible to identify the counter actions by their prefix. The root reducer identifies any actions that are intended intended for the counter reducer, using the index to locate the correct item within the array of counter states, then invokes the counter reducer accordingly:
+Given that actions are namespaced, it is possible to identify the counter actions by their prefix. The root reducer identifies any actions that are intended for the counter reducer, using the index to locate the correct item within the array of counter states, then invokes the counter reducer accordingly:
 
 ~~~ javascript
 import counterReducer from './counterReducer'
@@ -246,7 +246,7 @@ With the above code in place, the counters are fully functioning once again:
 
 The way that the action creators are bound to the item index, looks quite similar to the way react / redux binds the dispatcher to actions.
 
-Taking inspiration from the redux utility function [bindActionCreators](http://redux.js.org/docs/api/bindActionCreators.html), `bindIndexToActionCreators` can be extended to operate on object whose values are action creators, as well as a single action creator:
+Taking inspiration from the redux utility function [bindActionCreators](http://redux.js.org/docs/api/bindActionCreators.html), `bindIndexToActionCreators` can be extended to operate on an object whose values are action creators, as well as a single action creator:
 
 
 ~~~ javascript
