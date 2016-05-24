@@ -1515,7 +1515,6 @@ Hanselman
 Microsoft.AspNetCore.Mvc
 DamianEdwards
 aspnetcore
-<<<<<<< HEAD
  - csmith/_posts/2016-01-25-playing-with-docker-compose-and-erlang.md
 distributed-erlang
 erl
@@ -1760,3 +1759,8 @@ Fusco
 Mycroft
 Gayle
 Laakmann
+ - sking/_posts/2016-05-23-an-animated-chart-with-html5-canvas.md
+Rui
+tearable
+currentLocation
+timeElapsed
