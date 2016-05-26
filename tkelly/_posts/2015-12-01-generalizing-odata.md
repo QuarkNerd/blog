@@ -9,6 +9,7 @@ tags:
   - odata
 categories:
   - .NET
+  - C#
 ---
 
 In this blog post, we take a look at how to create an OData controller which leverages generics to offer the same CRUD services for multiple models. The full source is available [on GitHub](https://github.com/tpkelly/generalizing-odata).

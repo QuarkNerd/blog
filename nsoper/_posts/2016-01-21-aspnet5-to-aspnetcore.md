@@ -6,6 +6,7 @@ summary: "Literally a couple of hours after we released the previous post on wri
 categories:
   - .NET
   - Web
+  - C#
 ---
 
 Earlier today I released a post called [Building a RESTful API with ASP.NET 5]({{site.github.url}}/2016/01/20/restful-api-with-aspnet50.html).

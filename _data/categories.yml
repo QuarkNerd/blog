@@ -1,6 +1,9 @@
 -  title: Latest Articles
    url: /index.html
 
+-  title: News
+   url: /category/news.html
+
 -  title: Web
    url: /category/web.html
 
@@ -22,11 +25,17 @@
 -  title: .NET
    url: /category/dotnet.html
 
--  title: News
-   url: /category/news.html
-
 -  title: CSS
    url: /category/css.html
+
+-  title: Java
+   url: /category/java.html
+
+-  title: C#
+   url: /category/csharp.html
+
+-  title: JavaScript
+   url: /category/javascript.html
 
 -  title: Swift
    url: /category/swift.html

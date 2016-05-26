@@ -7,6 +7,7 @@ disqus-id: /2015/07/31/what-makes-a-good-cms.html
 categories:
   - Web
   - .NET
+  - C#
 ---
 
 Content management systems (CMSs) provide a separation between content and code. This allows, among other things, non-programmers to create and maintain website content. This post demonstrates how the open source .NET CMS [Umbraco](http://umbraco.com/) can be used to create a complex website while maintaining a clean code base.

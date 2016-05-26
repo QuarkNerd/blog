@@ -5,6 +5,7 @@ tags:
   - blog
 categories:
   - .NET
+  - C#
 layout: default_post
 source: site
 summary: "In the first part of a series on running an interactive environment (REPL) on .NET, I talk a little about why you might want one, and cover the non-C# options."

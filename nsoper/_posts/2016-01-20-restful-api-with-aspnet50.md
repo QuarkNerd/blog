@@ -6,6 +6,7 @@ summary: "This blog describes my first experience of writing a RESTful API with 
 categories:
   - .NET
   - Web
+  - C#
 ---
 
 *Very soon after we first published this post, Microsoft announced they had changed the name from **ASP.NET 5** to **ASP.NET Core 1.0**. Rather than re-writing this post, I've summarised the reasons for the change [in a new post]({{site.github.url}}/2016/01/21/aspnet5-to-aspnetcore.html).*

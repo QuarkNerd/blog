@@ -5,6 +5,7 @@ layout: default_post
 summary: "This blog shows how to get started with microservices using Dropwizard. It guides the reader through building a simple task-list service."
 categories:
   - Web
+  - Java
 ---
 This blog shows how to get started with microservices using [Dropwizard](http://www.dropwizard.io/0.9.1/docs/). It guides the reader through building a simple task-list service.
 

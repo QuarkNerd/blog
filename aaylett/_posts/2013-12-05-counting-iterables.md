@@ -3,7 +3,8 @@ author: aaylett
 title: Iterating while counting
 tags:
   - blog
-categories: []
+categories:
+  - Java
 layout: default_post
 source: site
 oldlink: "http://www.scottlogic.com/blog/2013/12/05/counting-iterables.html"

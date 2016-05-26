@@ -7,6 +7,7 @@ tags:
 categories:
   - WPF
   - .NET
+  - C#
 layout: default_post
 oldlink: "http://www.scottlogic.com/blog/2013/12/18/wpf-snoop-powershell.html"
 disqus-id: /2013/12/18/wpf-snoop-powershell.html

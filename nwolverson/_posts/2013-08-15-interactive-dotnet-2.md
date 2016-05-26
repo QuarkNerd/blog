@@ -5,6 +5,7 @@ tags:
   - blog
 categories:
   - .NET
+  - C#
 layout: default_post
 source: site
 summary: "In the previous part of this series discussing running an interactive environment (REPL) on .NET I covered the non-C# options. This post explores the options for an interactive or lightweight C# environment."
