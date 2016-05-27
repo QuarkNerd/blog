@@ -1,6 +1,7 @@
 active-authors:
   - aaiken
   - aaylett
+  - acheshire
   - alee
   - asheehan
   - amorgan
@@ -404,3 +405,8 @@ authors:
         email: sking@scottlogic.com
         gravatar: c02644e4b21947da7787247349954f96
         author-summary: <p>I am a graduate developer at Scott Logic</p>
+    acheshire:
+        name: Alexander Cheshire
+        email: acheshire@scottlogic.com
+        gravatar: 0dad4b3bf82f4c1370397af505f0cb86
+        author-summary: <p>I am a developer with experience in JavaScript and Java</p>
