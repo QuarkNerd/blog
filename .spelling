@@ -1784,3 +1784,9 @@ timeElapsed
  - acheshire/_posts/2016-05-26-big-data-logging-elk-stack.md
 Dockerbeat
 Topbeat
+ - rhendry/_posts/2016-05-30-writing-a-docker-volume-plugin.md
+flocker
+systemd
+unmount
+systemctl
+s3fs
