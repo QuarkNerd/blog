@@ -98,3 +98,5 @@ They're using Electron to wrap the webpage content shown by their browser, this 
 To summarise, Electron currently has its fair share of security issues that complicate the process of building secure applications. The removal of the sandbox protection in return for desktop integration removes an important [layer of defence](https://www.owasp.org/index.php/Defense_in_depth) against XSS attacks. Various workarounds also exist that circumvent turning node integration off in the event of an XSS attack. Fortunately, due to the framework's popularity and active community the Electron team are already making good progress to resolving these issues.
 
 With that said, there's still a lot of work to be done. One major goal should be a more secure way for applications that do need some node and desktop integration to interact with the operating system. At the moment however, there's no clear path forward on how that would be achieved.
+
+**[See this post for an update](http://blog.scottlogic.com/2016/06/01/An-update-on-Electron-Security.html) to the points raised in this article.**
