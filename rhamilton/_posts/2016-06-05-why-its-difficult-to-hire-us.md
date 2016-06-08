@@ -3,12 +3,13 @@ author: rhamilton
 title: A study of software testers
 title-short: A study of software testers
 summary: "I decided to do some research into testers and the challenges we face in the work place to find some answers. These are some my findings."
-image:
+image: rhamilton/assets/featured/survey.png
 tags:
   - software testing survey
   - data analysis
   - R programming
   - hiring testers
+  - featured
 categories:
   - Test
 layout: default_post

@@ -7,7 +7,10 @@ categories:
   - Web
   - Electron
   - Security
-summary: "A fresh look at the state of application security in Electron"
+summary: "It’s been a couple of months since my first post about the security of Electron. With v1.0 having recently been released I felt it was time for a a fresh look"
+image: dkerr/assets/featured/electron.jpg
+tags:
+  - featured
 ---
 
 It’s been a couple of months since [my post](http://blog.scottlogic.com/2016/03/09/As-It-Stands-Electron-Security.html) about the state of security in Electron and a lot has changed in this short time frame already! Now that Electron v1.0 has been [released](http://electron.atom.io/blog/2016/05/11/electron-1-0) I thought it would be a good time to take another look to see what improvements have been made.
@@ -28,7 +31,7 @@ Electron’s documentation has also been completely revamped, it’s now a lot c
 
 In my previous post, I discussed two workarounds ([3943](https://github.com/electron/electron/issues/3943), [4026](https://github.com/electron/electron/issues/4026)) that allowed node integration to be re-enabled despite it being explicitly turned off in the configuration. In the event of a successful XSS attack, it meant the attacker could re-enable node integration to gain full control over the victim's machine! Since then, [changes](https://github.com/electron/electron/pull/4897) have been implemented that were released in [version 1.1.1](https://github.com/electron/electron/releases/tag/v1.1.1) to fix these workarounds.
 
-Firstly, child windows are now prevented from having `nodeIntegration` if their parent windows do not have it. 
+Firstly, child windows are now prevented from having `nodeIntegration` if their parent windows do not have it.
 
 {% highlight js %}
 // This will now only enable nodeIntegration if the parent window also has it enabled
@@ -48,7 +51,7 @@ With these fixes, `nodeIntegration` cannot be re-enabled in the event of an XSS 
 
 One notable contribution highlighted as an upcoming change in my last post was the re-introduction of the Chromium sandbox for any Electron processes that didn’t need node integration. The developers behind the Brave browser [planned to contribute back](https://github.com/electron/electron/issues/3943#issuecomment-205559782) the sandbox support they implemented on their fork of Electron. However, it seems the changes they made won’t be contributed back after all, since it required [extensions that some core contributors weren’t happy including in Electron](https://github.com/electron/electron/issues/3943#issuecomment-218844210).
 
-It’s an understandable decision to make but nonetheless a bit of a shame that sandbox support hasn’t been contributed back. Without the sandbox, Electron applications aren’t run inside a restrictive environment that controls what processes can do. 
+It’s an understandable decision to make but nonetheless a bit of a shame that sandbox support hasn’t been contributed back. Without the sandbox, Electron applications aren’t run inside a restrictive environment that controls what processes can do.
 
 It's worth mentioning that the benefits to introducing the sandbox are reduced thanks to the node integration workarounds being fixed. Without those fixes, only the sandbox would have prevented XSS attacks from gaining full privileges over a victim’s machine. Adding the sandbox now would mean it serves as an additional robust layer of protection and last line of defence.
 
