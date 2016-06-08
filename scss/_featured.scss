@@ -1,5 +1,7 @@
 .row.featured {
-  overflow-x: scroll;
+  @media (max-width: map-get($grid-breakpoints, md)) {
+    overflow-x: scroll;
+  }
   >div {
     min-width: map-get($grid-breakpoints, md);
     margin-bottom: $largeLayoutUnit;

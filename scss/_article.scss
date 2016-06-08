@@ -6,8 +6,10 @@ article {
     font-weight: 300;
   }
 
-  li {
-    line-height: $baseLineHeight;
+  .body {
+    li, p {
+      line-height: $largeLineHeight;
+    }
   }
 
   header {
@@ -38,6 +40,10 @@ article {
 
   ul {
     list-style-type: disc;
+  }
+
+  ol {
+    list-style-type: decimal;
   }
 
   .embed-container {
