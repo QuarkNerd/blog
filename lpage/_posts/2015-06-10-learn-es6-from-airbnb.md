@@ -1,7 +1,6 @@
 ---
 author: lpage
 title: "Learn ES6 from Airbnb's coding standards"
-featured-overlay-inverted: true
 categories:
   - JavaScript
 tags: null

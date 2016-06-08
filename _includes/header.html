@@ -1,90 +1,75 @@
-<header id="header">
-  <div class="container sl-base-container">
-    <div class="row">
-      <div class="xs-col-12 bar">
-        <a href="{{ site.scottlogic.url }}/" class="logo">Scott Logic</a>
-        <form id="cse-search-box" action="{{ site.scottlogic.url }}/" class="pull-right hidden-xs">
-          <input type="text" name="s" placeholder="SEARCH" class="searchbox form-control">
-          <img src="{{ site.github.url }}/assets/search-icon.svg" alt="Search" class="searchbtn">
-        </form>
-      </div>
-    </div>
-  </div>
-  <div class="container sl-nav-container hidden-xs">
-    <nav class="row">
-      <div class="col-xs-12">
-        <ul>
-          <li class="dropdown">
-            <a href="{{ site.scottlogic.url }}/services/">Services</a>
-            <ul class="dropdown-menu" role="menu">
-              <div class="nav-arrow-up"></div>
-              <li><a href="{{ site.scottlogic.url }}/services/">Services Home</a></li>
-              <li><a href="{{ site.scottlogic.url }}/services/technical-strategy-consulting/">Technical Strategy &amp; Consulting</a></li>
-              <li><a href="{{ site.scottlogic.url }}/services/bespoke-software-development/">Bespoke Software Development</a></li>
-              <li><a href="{{ site.scottlogic.url }}/services/user-experience/">User Experience Design</a></li>
-              <li><a href="{{ site.scottlogic.url }}/services/project-delivery/">Project Delivery</a></li>
-              <li><a href="{{ site.scottlogic.url }}/services/assured-agile/">Assured Agile</a></li>
-              <li><a href="{{ site.scottlogic.url }}/case-studies/">Case Studies</a></li>
-              <li><a href="{{ site.scottlogic.url }}/about/technology/">Technology</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <span class="divider">/</span>
-            <a href="#" class="nonlink">Sectors</a>
-            <ul class="dropdown-menu" role="menu">
-              <div class="nav-arrow-up"></div>
-              <li><a href="{{ site.scottlogic.url }}/sectors/capital-markets/">Capital Markets</a></li>
-              <li><a href="{{ site.scottlogic.url }}/sectors/energy-trading/">Energy Trading</a></li>
-              <li><a href="{{ site.scottlogic.url }}/sectors/e-trade/">E Trading</a></li>
-              <li><a href="{{ site.scottlogic.url }}/sectors/financial-services/">Financial Services</a></li>
-              <li><a href="{{ site.scottlogic.url }}/sectors/healthcare/">Healthcare</a></li>
-              <li><a href="{{ site.scottlogic.url }}/sectors/oil-and-gas/">Oil and Gas</a></li>
-              <li><a href="{{ site.scottlogic.url }}/sectors/public-sector/">Public Sector</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <span class="divider">/</span>
-            <a href="http://unleashed.scottlogic.com/" class="selected">Knowledge</a>
-            <ul class="dropdown-menu" role="menu">
-              <div class="nav-arrow-up"></div>
-              <li><a href="http://unleashed.scottlogic.com/">Knowledge Home</a></li>
-              <li><a href="http://blog.scottlogic.com/">Blog</a></li>
-              <li><a href="http://events.scottlogic.com/">Events</a></li>
-              <li><a href="http://smarter.scottlogic.com/insights">Insights Blog</a></li>
-              <li><a href="http://unleashed.scottlogic.com/white-papers/">White Papers</a>
-              <li><a href="http://info.scottlogic.com/tech-pulse">Tech Pulse</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <span class="divider">/</span>
-            <a href="{{ site.scottlogic.url }}/careers/">Careers</a>
-            <ul class="dropdown-menu" role="menu">
-              <div class="nav-arrow-up"></div>
-              <li><a href="{{ site.scottlogic.url }}/careers/">Careers Home</a></li>
-              <li><a href="{{ site.scottlogic.url }}/careers/life-at-scott-logic/">Life at Scott Logic</a></li>
-              <li><a href="{{ site.scottlogic.url }}/careers/graduateprogramme/">Graduate Programme</a></li>
-              <li><a href="{{ site.scottlogic.url }}/careers/internship/">Internship</a></li>
-              <li><a href="{{ site.scottlogic.url }}/careers/careersprogrammes/interns/">Our People</a></li>
-              <li><a href="http://smarter.scottlogic.com/careers">Careers Blog</a></li>
-              <li><a href="{{ site.scottlogic.url }}/careers/vacancies/">Vacancies</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <span class="divider">/</span>
-            <a href="#">About</a>
-            <ul class="dropdown-menu" role="menu">
-              <div class="nav-arrow-up"></div>
-              <li><a href="{{ site.scottlogic.url }}/about/company-information/">Company Information</a></li>
-              <li><a href="{{ site.scottlogic.url }}/news/">News</a></li>
-              <li><a href="{{ site.scottlogic.url }}/about/events/">Events</a></li>
-              <li><a href="{{ site.scottlogic.url }}/about/locations/">Locations</a></li>
-              <li><a href="{{ site.scottlogic.url }}/about/management-team/">Management Team</a></li>
-              <li><a href="http://smarter.scottlogic.com/insights">Insights</a></li>
-              <li><a href="{{ site.scottlogic.url }}/contact/">Contact</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </div>
-</header>
+<header id="masthead" class="clearfix" role="banner">
+
+			<div class="header-top-bar wrapper">
+
+				<div class="mtoggle"></div>
+
+				<div class="header-inner">
+					<a href="http://www.scottlogic.com" class="header-logo">Scott Logic</a>
+					<form role="search" method="get" class="search-form" action="http://www.scottlogic.com/">
+	<label for="search"></label>
+	<input type="text" class="search-field" placeholder="SEARCH" value="" name="s" title="Search for:">
+	<input type="submit" class="search-submit" value="Search">
+</form>				</div>
+
+			</div>
+
+			<nav id="mastnav" class="mastnav" role="navigation">
+				<ul id="menu-main-navigation" class="menu"><li id="menu-item-36" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children first menu-item-36"><a href="/services">Services</a>
+<ul class="sub-menu">
+	<li id="menu-item-109" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-109"><a href="/services">Services Home</a></li>
+	<li id="menu-item-121" class="menu-item menu-item-type-post_type menu-item-object-services menu-item-121"><a href="http://www.scottlogic.com/services/technical-strategy-consulting/">Technical Consulting &amp; Strategic Advice</a></li>
+	<li id="menu-item-120" class="menu-item menu-item-type-post_type menu-item-object-services menu-item-120"><a href="http://www.scottlogic.com/services/bespoke-software-development/">Bespoke software development</a></li>
+	<li id="menu-item-119" class="menu-item menu-item-type-post_type menu-item-object-services menu-item-119"><a href="http://www.scottlogic.com/services/user-experience-design/">User experience design</a></li>
+	<li id="menu-item-118" class="menu-item menu-item-type-post_type menu-item-object-services menu-item-118"><a href="http://www.scottlogic.com/services/project-delivery/">Project management</a></li>
+	<li id="menu-item-117" class="menu-item menu-item-type-post_type menu-item-object-services menu-item-117"><a href="http://www.scottlogic.com/services/assured-agile/">Assured agile</a></li>
+	<li id="menu-item-122" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-122"><a href="/case-studies">Case studies</a></li>
+	<li id="menu-item-116" class="menu-item menu-item-type-post_type menu-item-object-services menu-item-116"><a href="http://www.scottlogic.com/services/technology/">Technology</a></li>
+</ul>
+</li>
+<li id="menu-item-37" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-37"><a href="#">Sectors</a>
+<ul class="sub-menu">
+	<li id="menu-item-198" class="menu-item menu-item-type-post_type menu-item-object-sectors menu-item-198"><a href="http://www.scottlogic.com/sectors/capital-markets/">Capital Markets</a></li>
+	<li id="menu-item-197" class="menu-item menu-item-type-post_type menu-item-object-sectors menu-item-197"><a href="http://www.scottlogic.com/sectors/energy-trading/">Energy Trading</a></li>
+	<li id="menu-item-196" class="menu-item menu-item-type-post_type menu-item-object-sectors menu-item-196"><a href="http://www.scottlogic.com/sectors/e-trade/">E-Trading</a></li>
+	<li id="menu-item-195" class="menu-item menu-item-type-post_type menu-item-object-sectors menu-item-195"><a href="http://www.scottlogic.com/sectors/financial-services/">Financial Services</a></li>
+	<li id="menu-item-194" class="menu-item menu-item-type-post_type menu-item-object-sectors menu-item-194"><a href="http://www.scottlogic.com/sectors/healthcare/">Healthcare</a></li>
+	<li id="menu-item-193" class="menu-item menu-item-type-post_type menu-item-object-sectors menu-item-193"><a href="http://www.scottlogic.com/sectors/oil-and-gas/">Oil and Gas</a></li>
+	<li id="menu-item-192" class="menu-item menu-item-type-post_type menu-item-object-sectors menu-item-192"><a href="http://www.scottlogic.com/sectors/public-sector/">Public Sector</a></li>
+</ul>
+</li>
+<li id="menu-item-1187" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children current-menu-parent menu-item-1187"><a href="http://unleashed.scottlogic.com/">Knowledge</a>
+<ul class="sub-menu">
+	<li id="menu-item-1188" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1188"><a href="http://unleashed.scottlogic.com/">Knowledge Home</a></li>
+	<li id="menu-item-38" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-38"><a href="http://www.scottlogic.com/blog/">Blog</a></li>
+	<li id="menu-item-1189" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1189"><a href="http://events.scottlogic.com/">Events</a></li>
+	<li id="menu-item-1190" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1190"><a href="http://smarter.scottlogic.com/insights">Insights Blog</a></li>
+	<li id="menu-item-1191" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1191"><a href="http://unleashed.scottlogic.com/white-papers/">White Papers</a></li>
+	<li id="menu-item-1772" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1772"><a href="http://info.scottlogic.com/tech-pulse">Tech Pulse</a></li>
+</ul>
+</li>
+<li id="menu-item-1209" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current-menu-ancestor menu-item-has-children menu-item-1209"><a href="/careers">Careers</a>
+<ul class="sub-menu">
+	<li id="menu-item-1205" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-1201 current_page_item menu-item-1205"><a href="http://www.scottlogic.com/careers/">Careers Home</a></li>
+	<li id="menu-item-1206" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1206"><a href="http://www.scottlogic.com/careers/life-at-scott-logic/">Life at Scott Logic</a></li>
+	<li id="menu-item-1214" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1214"><a href="http://www.scottlogic.com/careers/graduateprogramme/">Graduate Programme</a></li>
+	<li id="menu-item-1213" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1213"><a href="http://www.scottlogic.com/careers/internship/">Internship</a></li>
+	<li id="menu-item-1207" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1207"><a href="http://www.scottlogic.com/careers/our-people/">Our People</a></li>
+	<li id="menu-item-1215" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1215"><a href="http://smarter.scottlogic.com/careers">Careers Blog</a></li>
+	<li id="menu-item-1208" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1208"><a href="http://www.scottlogic.com/careers/vacancies/">Vacancies</a></li>
+</ul>
+</li>
+<li id="menu-item-147" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-147"><a href="#">About</a>
+<ul class="sub-menu">
+	<li id="menu-item-34" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-34"><a href="http://www.scottlogic.com/about/company-information/">Company Information</a></li>
+	<li id="menu-item-33" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33"><a href="http://www.scottlogic.com/about/news/">News</a></li>
+	<li id="menu-item-32" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-32"><a href="http://www.scottlogic.com/about/events/">Events</a></li>
+	<li id="menu-item-31" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-31"><a href="http://www.scottlogic.com/about/locations/">Locations</a></li>
+	<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a href="http://www.scottlogic.com/about/management-team/">Management Team</a></li>
+	<li id="menu-item-28" class="menu-item menu-item-type-post_type menu-item-object-page last menu-item-28"><a href="http://www.scottlogic.com/about/contact/">Contact</a></li>
+</ul>
+</li>
+</ul>
+			</nav>
+
+		</header>

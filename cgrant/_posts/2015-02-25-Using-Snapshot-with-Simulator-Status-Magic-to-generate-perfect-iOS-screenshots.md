@@ -1,6 +1,5 @@
 ---
 author: cgrant
-featured-overlay-inverted: true
 categories:
  - cgrant
 tags: 

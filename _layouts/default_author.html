@@ -17,27 +17,10 @@ layout: default
     </div>
   </div>
 </section>
-{% comment %} If there's an author summary then we can display the carousel with author's articles underneath. {% endcomment%}
-{% assign featuredPosts = site.tags["author-featured"] | where:"author",page.author %}
-{% assign numPosts = featuredPosts | size %}
-{% if numPosts > 0 %}
-<section>
-  <div class="container">
-    <div class="row hidden-xs">
-      <div class="col-xs-12">
-        {% include featured_carousel.html maxPosts=10 featuredPosts=featuredPosts %}
-      </div>
-    </div>
-  </div>
-  <div class="container full-screen">
-    <div class="row visible-xs visible-xs">
-      <div class="col-xs-12">
-        {% include featured_carousel_mobile.html maxPosts=10 featuredPosts=featuredPosts %}
-      </div>
-    </div>
-  </div>
-</section>
-{% endif %}
+
+{% assign featuredPosts = site.tags.featured | where:"author",page.author %}
+{% include featured.html featuredPosts=featuredPosts %}
+
 <section class="container">
   <div class="row">
     <h2 class="col-xs-12 col-sm-8 col-sm-offset-2">Articles</h2>

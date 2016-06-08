@@ -42,16 +42,12 @@ post contents, markdown/html
 * **summary** - The index pages for the blog and author pages includes summaries of each blog post. You can use summary to provide a **summary** for your blog post, otherwise the first 50 words of the post itself are used. When writing your own summaries, please try to make them roughly 50 words in length.
 * **tags** - An array of keywords that describe the blog post contents:
   * Add the `featured` tag to have your article displayed in the blog's featured carousel.
-  * Add the `author-featured` tag to have your article displayed in your author page carousel.    
 * **image** - The image used for this article if present in the carousel.
-* **image-attribution** - An attribution for your chosen `image` property. Add this as follows: `image courtesy of <a href='EXAMPLE_LINK'>EXAMPLE_SOURCE</a>`
-* **featured-overlay-inverted** - (true/false) Whether to invert the colour of the social icons. If your featured image is dark in its top right corner, choose 'true'.
 * **title-short** - An optional abbreviated title for articles that appear in the featured carousel.
 * **summary-short** - An optional abbreviated summary for articles that appear in the featured carousel. This summary text is only displayed in 'large' carousel tiles.
 * **disqus-id** - A unique ID for the Disqus thread. If this is left blank the page's URL path will be used instead.
 * **originalArticleLink** - A URL to the original content. This is only needed if the blog post is just a reference to an article/blog in another location. Including this link will disable the page's Disqus thread so that readers post comments on the original content.
 * **categories** - An array of categories for the post. These are added to the `<categories>` tag on the post's RSS & Atom feed entries.
-* **suppress-careers-add** - (true/false) Whether to suppress the careers advert at the bottom of the blog post. Setting 'true' will cause the advert to be hidden.
 
 ##### Legacy post meta-data (not needed)
 * **oldlink** - This is a blog post's original link; I.E. including the canonical domain at the time the post was published, this ensures Twitter counts/Disqus threads still work; new posts (any posts published after the migration) don't need this. It may be useful for future migrations.
@@ -132,7 +128,6 @@ When adding your details to authors you'll need to add the following:
 * **feed-description** - A short description that will be added to the description of the author's Atom and RSS feed.
 * **gravatar** - The author's [gravatar hash](https://en.gravatar.com/site/implement/hash/). This is an [md5 hash](http://www.miraclesalad.com/webtools/md5.php) of your email address in lower case. If you don't have a gravatar account you'll need to [sign up](https://en.gravatar.com/) for one.
 * **twitter-url** - The author's Twitter account.
-* **twitter-handle** - The author's Twitter handle.
 * **google-plus-url** - The author's Google+ url.
 * **author-image** - A relative URL to the author's image. For example (/ceberhardt/assets/mugshot.jpg).
 * **author-summary** - A short paragraph introducing the author.
@@ -197,10 +192,6 @@ Featured articles are selected at the discretion of Colin Eberhardt (bribes acce
 
 To make an article appear on the featured carousel, simply add the `featured` tag to your post. The featured carousel will show the 10 most recent `featured` blogs.
 
-#### Author Featured Articles
-
-Every author page has a featured carousel, much like the main blog page. To add items to your featured carousel, simply add the `author-featured` tag to your blog post.
-
 ### Comments and notifications
 When you have posted your first blog post there are a few of other things you should consider doing:  
 
@@ -221,27 +212,16 @@ Please note:
 * The [repository metadata](https://help.github.com/articles/repository-metadata-on-github-pages/) is not available if you build the site locally, one solution is to temporarily add the required variables to `_config.yml`.
 * As many resources expect to be loaded from `scottlogic.com`, it is a good idea to serve the site from this domain (e.g. `blog.scottlogic.com`).
 
-#### Assets
+#### CSS & Scripts
 
-[npm](https://www.npmjs.com/) manages the development dependencies for the assets. [Grunt](http://gruntjs.com/) builds the styles and scripts. Images are located in `images/` and are copied as part of the Jekyll build.
+You can compile the SCSS into CSS as follows:
 
-Ensure [Node.js](http://nodejs.org/) is installed.
-
-Install development dependencies:
 ```
-npm install
+npm run style
 ```
 
-Build production versions of CSS and Scripts:
-```
-grunt build
-```
+And concat / minify the JS as follows:
 
-Build development versions of the CSS and scripts (including source maps):
 ```
-grunt build:dev
+npm run scripts
 ```
-
-Development versions of the files should not be committed to the main repository.
-
-**Please see the READMEs for [styles](https://github.com/ScottLogic/blog/blob/gh-pages/less/README.md) and [scripts](https://github.com/ScottLogic/blog/blob/gh-pages/scripts/README.md) for more information.**

@@ -2,8 +2,6 @@
 author: rmarcalo
 title: An experiment with Animation and UI
 layout: default_post
-suppress-careers-add: true
-featured-overlay-inverted: true
 tags: null
 categories:
   - UX

@@ -3,8 +3,8 @@ layout: default
 title: Web
 ---
 
-
-{% include featured_header.html %}
+{% include hero.html %}
+{% include featured.html %}
 
 {% assign posts = site.categories["Web"] %}
 {% include blog_index.html posts=posts paginate=false categoryIndex=2 %}

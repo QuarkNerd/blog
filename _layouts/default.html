@@ -10,15 +10,9 @@
     {% if site.github.owner_name != 'ScottLogic' %}
     <meta name="robots" content="noindex, nofollow">
     {% endif %}
-    <!--[if lt IE 9]>
-    <script src="{{ site.github.url }}/scripts/html5shiv.js"></script>
-    <![endif]-->
 
-    {% comment %} Only load the Typekit fonts when on the main repo; they will fail to load on the forks {% endcomment %}
-    {% if site.github.owner_name == 'ScottLogic' %}
     <script type="text/javascript" src="//use.typekit.net/fbo8hfs.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-    {% endif %}
 
     {% comment %} Twitter meta data. API ref: https://dev.twitter.com/cards/types/summary-large-image {% endcomment%}
     <meta name="twitter:card" content="{% if page.image %}summary_large_image{% else %}summary{% endif %}"/>
@@ -57,24 +51,14 @@
     {% endif %}
 </head>
 <body>
-<div class="page-content-background right hidden-xs hidden-sm"></div>
-<div class="page-content-background left hidden-xs hidden-sm"></div>
+<div class="page-content-background right hidden-md-down"></div>
+<div class="page-content-background left hidden-md-down"></div>
 
 {% include header.html %}
-
 {{ content }}
-
-
 {% unless page.paginated %}
 {% include footer.html %}
 {% endunless %}
-
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
 
 <script src="{{ site.github.url | remove_first: 'http:' }}/script.js" type="text/javascript"></script>
 <script type="text/javascript">jQuery.noConflict();</script>

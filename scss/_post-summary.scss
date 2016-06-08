@@ -1,0 +1,28 @@
+.summary {
+  margin-top: $largeLayoutUnit;
+  margin-bottom: $largeLayoutUnit;
+
+  .imageContainer img {
+    float: right;
+    margin-top: $largeLayoutUnit;
+    border-radius: 50%;
+  }
+
+  h3 {
+    a {
+      color: $textColor;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  p {
+    margin-bottom: $layoutUnit;
+  }
+
+  .social {
+    float: none;
+  }
+}

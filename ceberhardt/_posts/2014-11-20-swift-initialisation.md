@@ -9,7 +9,6 @@ image: ceberhardt/assets/featured/options.jpg
 image-attribution: "image courtesy of <a href=\"https://www.flickr.com/photos/laenulfean/\">Carsten Tolkmit</a>"
 tags:
   - featured
-  - author-featured
 oldlink: "http://www.scottlogic.com/blog/2014/11/20/swift-initialisation.html"
 disqus-id: /2014/11/20/swift-initialisation.html
 categories:

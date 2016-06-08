@@ -7,7 +7,6 @@ image: ceberhardt/assets/featured/reactive-cocoa.png
 title-short: ReactiveCocoa 3.0
 tags:
   - featured
-  - author-featured
 categories:
   - iOS
   - Swift

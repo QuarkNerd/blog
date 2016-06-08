@@ -1,7 +1,6 @@
 ---
 author: lpage
 title: Making a RTL plugin in less
-featured-overlay-inverted: true
 categories:
   - Web
   - CSS

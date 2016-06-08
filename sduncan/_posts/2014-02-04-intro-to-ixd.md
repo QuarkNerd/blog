@@ -13,7 +13,6 @@ categories:
   - UX
 layout: default_post
 source: site
-featured-overlay-inverted: true
 oldlink: "http://www.scottlogic.com/blog/2014/02/04/intro-to-ixd.html"
 disqus-id: /2014/02/04/intro-to-ixd.html
 ---

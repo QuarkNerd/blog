@@ -7,7 +7,6 @@ summary: "An open-high-low-close chart is a type of financial chart used to show
 layout: default_post
 tags: null
 image: tsimmons/assets/featured/chart.png
-featured-overlay-inverted: true
 oldlink: "http://www.scottlogic.com/blog/2014/08/19/an-ohlc-chart-component-for-d3.html"
 disqus-id: /2014/08/19/an-ohlc-chart-component-for-d3.html
 categories:

@@ -2,7 +2,6 @@
 author: lpage
 title: "Seven Surprising JavaScript 'Features'"
 title-short: Surprising JavaScript
-featured-overlay-inverted: true
 categories:
   - JavaScript
 tags:

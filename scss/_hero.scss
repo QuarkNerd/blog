@@ -1,0 +1,62 @@
+$heroHeight: 140px;
+$heroHeightCompact: 80px;
+$heroHeightVeryCompact: 50px;
+
+.hero {
+
+  .row {
+    height: $heroHeight;
+    border: 1px solid white;
+
+    .svg-container {
+      position: relative;
+      svg {
+        opacity: 0.3;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: $heroHeight;
+        z-index: -1;
+      }
+    }
+
+    h1 {
+      margin-left: $largeLayoutUnit;
+    }
+
+    h2 {
+      margin-left: $largeLayoutUnit;
+      font-size: $mediumFontSize;
+      font-weight: lighter;
+      text-transform: none;
+    }
+  }
+  @media (max-width: map-get($grid-breakpoints, md)) {
+    .row {
+      height: $heroHeightCompact;
+      .svg-container {
+        svg {
+          height: $heroHeightCompact;
+        }
+      }
+
+      h1 {
+        font-size: $largeFontSize;
+      }
+    }
+  }
+  @media (max-width: map-get($grid-breakpoints, sm)) {
+    .row {
+      height: $heroHeightVeryCompact;
+      .svg-container {
+        svg {
+          height: $heroHeightVeryCompact;
+        }
+      }
+
+      h1 {
+        font-size: $mediumFontSize;
+      }
+    }
+  }
+}

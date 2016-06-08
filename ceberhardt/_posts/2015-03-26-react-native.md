@@ -10,7 +10,6 @@ originalArticleLink: http://www.raywenderlich.com/99473/introducing-react-native
 image: ceberhardt/assets/featured/react.jpg
 tags:
   - featured
-  - author-featured
 categories:
   - iOS
   - Swift

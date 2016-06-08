@@ -57,7 +57,6 @@ authors:
         email: asheehan-dare@scottlogic.com
         gravatar: 1e370c1ed31f9721f88e5584f20b3784
         twitter-url: https://twitter.com/im_alisd
-        twitter-handle: im_alisd
         author-summary: I'm Ali, and I'm new here
         author-image: /asheehan/assets/profile.jpg
         feed-description: Ali's thoughts on life and technology
@@ -67,7 +66,6 @@ authors:
         gravatar: 458f2e0d08d4114f8b323798cfea141d
         feed-description: Colin Eberhardt's Technology Adventures
         twitter-url: https://twitter.com/ColinEberhardt
-        twitter-handle: ColinEberhardt
         author-summary: <p>I am Technology Director at Scott Logic and am a prolific technical author, blogger and speaker on a range of technologies. For a number of years I worked with the Microsoft stack of technologies, including WPF, WCF, Silverlight and Windows Phone. More recently I have diversified to include HTML5, JavaScript and iOS development.</p>
         author-image: /ceberhardt/assets/mugshot.jpg
     cprice:
@@ -75,7 +73,6 @@ authors:
         email: cprice@scottlogic.com
         gravatar: b6fe36176ec7c9475374a5cd3b7bef1a
         twitter-url: https://twitter.com/100pxls
-        twitter-handle: 100pxls
         author-image: /cprice/assets/mugshot.jpg
         author-summary: <p>My name is Chris Price, I'm based in Newcastle upon Tyne and work as a Software Engineer at Scott Logic. I spend my days developing desktop/tablet/mobile web apps for financial services companies (unfortunately mostly hidden behind paywalls). I do like to blog about things when I can and do some interesting stuff on <a href="https://github.com/chrisprice">GitHub</a>.</p>
     lpage:
@@ -91,7 +88,6 @@ authors:
         email: aaylett@scottlogic.com
         gravatar: 279455275f7e4f69b0759fec26130c01
         twitter-url: https://twitter.com/aaylett
-        twitter-handle: aaylett
         google-plus-url: https://plus.google.com/117103827242094116619
     rhendry:
         name: Ross Hendry
@@ -119,7 +115,6 @@ authors:
         email: godds@scottlogic.com
         gravatar: 3f5e6c753071c6a41f7f1dbb89daeb3b
         twitter-url: https://twitter.com/g_odds
-        twitter-handle: g_odds
         google-plus-url: https://plus.google.com/u/0/106838695703708413394
         feed-description: Graham Odds' thoughts about design, technology and data visualisation.
         author-image: /godds/assets/mugshot.jpg
@@ -170,14 +165,12 @@ authors:
         gravatar: 0f765c3e99ff8441cf0d0f60aed9634b
         author-summary: UX designer. Arduino & physical computing enthusiast. Likes hip hop and 30 minute drone pieces.
         twitter-url: https://twitter.com/simonduncan
-        twitter-handle: simonduncan
         feed-description: Simon Duncan is a UX designer, particularly interested in interaction design and information architecture. These are some of his thoughts.
     rwilliams:
         name: Robat Williams
         email: rwilliams@scottlogic.co.uk
         gravatar: b2e17d98db06119a53fffd5666848871
         twitter-url: https://twitter.com/_rwms
-        twitter-handle: _rwms
         google-plus-url: https://plus.google.com/u/0/111956836520400525467
         author-image: /rwilliams/assets/rwilliams.jpg
         author-summary: <p>I work building web applications for our clients at Scott Logic. I mainly work with HTML5/JavaScript front end technologies, and Java.</p>
@@ -200,7 +193,6 @@ authors:
         gravatar: a764bd37e5ba2ba9305fc4d0c8b67aa7
         author-summary: Tester. Photographer.
         twitter-url: https://twitter.com/demcnamee
-        twitter-handle: demcnamee
         google-plus-url: https://www.google.com/+DanielMcNamee
         feed-description: Daniel is a senior test engineer and exponent of rapid software testing.
         author-image: /dmcnamee/assets/2011.jpg
@@ -250,7 +242,6 @@ authors:
         gravatar: 785c4b4fe07574c8350791f355195f36
         author-summary: Software engineer.
         twitter-url: https://twitter.com/joebandenburg
-        twitter-handle: joebandenburg
     wreilly:
         name: William Reilly
         email: wreilly@scottlogic.com
@@ -283,7 +274,6 @@ authors:
         gravatar: ddd6d3bac7772fa67fc5e312a18bdaec
         author-summary: Writes and speaks a lot about mobile development. Author of <a href="http://shinobicontrols.com/ios8">iOS8 Day-by-Day</a>. Trombonist. <br/><br/>Technical Evangelist @ <a href="http://www.shinobicontrols.com">shinobicontrols</a>
         twitter-url: https://twitter.com/iwantmyrealname
-        twitter-handle: iwantmyrealname
         google-plus-url: https://plus.google.com/+SamDavies_ActuallyMyRealName
         author-summary: |
             <p>Having escaped first from academia, and then the public sector, Sam is very happy to be working in the software industry. His role as Technical Evangelist at <a href="http://shinobicontrols.com/">shinobicontrols</a> involves a huge amount of writing, speaking at conferences and catching up with customers. His specialism is in mobile, but he has wide ranging experience, and a passion for the emerging "Internet of Things".</p><p>He is a member of the <a href="http://www.raywenderlich.com/u/samdavies">Ray Wenderlich tutorial team</a> and in addition to writing tutorials for the site, he was a lead author on the <a href="http://www.raywenderlich.com/store/swift-tutorials-bundle?source=barbararussell">iOS 8 by Tutorials</a> book, as well as a speaker at RWDevCon 2015. He blogs prolifically on the <a href="http://www.shinobicontrols.com/blog?author=sdavies">shinobicontrols</a> site, as well as writing articles for other sites such as <a href="http://www.objc.io">objc.io</a>.</p><p>Sam has also written a selection of free e-books about mobile development over recent years, including the very popular <a href="https://leanpub.com/ios7daybyday">iOS 7: Day-by-Day</a>, <a href="http://www.shinobicontrols.com/ios8">iOS 8: Day-by-Day</a> and <a href="https://leanpub.com/bitesizekitkat">Bitesize Android KitKat</a>.
@@ -324,7 +314,6 @@ authors:
         email: rhamilton@scottlogic.com
         gravatar: 3353c71097ec03a671be49239d8c9574
         twitter-url: https://twitter.com/Rosicadia
-        twitter-handle: Rosicadia
         feed-description: A collection of Rosie Hamilton's thoughts on software testing.
         author-image: /rhamilton/assets/thisisme.jpg
         author-summary: <p>I have been happily testing software and reporting bugs since 2005. I am the Author of <a href="http://testingfuntime.blogspot.co.uk/"> Mega Ultra Super Happy Software Testing Fun Time</a>. As well as writing I enjoy playing violin, playing PC games, going to the gym and pushing <a href="https://golang.org/">Golang</a> to <a href="https://github.com/Rosalita">Github</a>. I currently work at Scott Logic as a Test Engineer.</p>
@@ -333,7 +322,6 @@ authors:
         email: hpretswell@scottlogic.com
         gravatar: 085198904ae587a1d2c5995fa9477129
         twitter-url: https://twitter.com/TheHannimator
-        twitter-handle: TheHannimator
         feed-description: Bits and bobs on software testing
         author-image: /hpretswell/assets/me.jpg
         author-summary: <p>I work as a Test Engineer with a rather odd background in animation. When I'm not bug hunting I like to read, play piano and partake in local theatre productions.</p>
@@ -353,7 +341,6 @@ authors:
         email: mtinning@scottlogic.com
         author-summary: <p>I am a Senior Software Developer at Scott Logic, specialising in .NET technologies but excitable about many more. I am also involved in the organisation of <a href="http://www.meetup.com/bristech/">BrisTech</a>, a vibrant community of technology enthusiasts in Bristol and the South West.</p>
         author-image: /mtinning/assets/profile.jpg
-        twitter-handle: mttinning
         twitter-url: https://twitter.com/mttinning
         gravatar: c0800747d0696e49dc753be3c345f049
     bjedrzejewski:
@@ -374,14 +361,12 @@ authors:
         gravatar: 5aaeb8af94f81312997215b90cd6d1af
         author-image: /nsoper/assets/nsoper.jpg
         twitter-url: https://twitter.com/devsoper
-        twitter-handle: devsoper
     csmith:
         name: Chris Smith
         email: csmith@scottlogic.co.uk
         author-summary: <p>I'm a Lead Developer at Scott Logic. I have a lot of experience with C# and JavaScript. I'm currently interested in DevOps (especially Docker) and functional programming, e.g. F#, Erlang, Clojure.</p>
         gravatar: 2c3c188fa868c9e20e809e5af1d1aa29
         twitter-url: https://twitter.com/cjsmithie
-        twitter-handle: cjsmithie
     rsillem:
         name: Robin Sillem
         email: rsillem@scottlogic.com

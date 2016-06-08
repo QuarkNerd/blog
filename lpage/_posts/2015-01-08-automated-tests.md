@@ -1,7 +1,6 @@
 ---
 author: lpage
 title: Why should a project have automated tests?
-featured-overlay-inverted: true
 categories:
   - Test
 tags: null

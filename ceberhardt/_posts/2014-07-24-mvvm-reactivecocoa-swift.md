@@ -8,7 +8,6 @@ categories:
 tags: null
 summary: This blog post looks out how Swift makes the combination of ReactiveCocoa and MVVM even better ...
 layout: default_post
-suppress-careers-add: true
 oldlink: "http://www.scottlogic.com/blog/2014/07/24/mvvm-reactivecocoa-swift.html"
 disqus-id: /2014/07/24/mvvm-reactivecocoa-swift.html
 ---

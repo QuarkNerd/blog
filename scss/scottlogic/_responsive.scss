@@ -1,0 +1,299 @@
+//desktop
+@media only screen and (max-width: 1030px) {
+	.post-type-archive-services .articles {
+		margin-left: 0;
+	}
+	.page-wrap {
+		padding: 0 15px 30px;
+	}
+	.left-col {
+		padding-left: 0;
+	}
+	aside {
+		padding-right: 0;
+	}
+}
+
+@media only screen and (max-width: 980px) {
+	.locations h3 {
+		font-size: 23px;
+	}
+}
+
+//ipad
+@media only screen and (max-width: 767px) {
+	.page-template-homepage .four-cols-wrapper .col:nth-child(3) h6 {
+		margin: 0;
+	}
+	.pre-footer-cta {
+		margin-left: 0;
+	}
+	.callout.right {
+		width: 100%;
+		float: none;
+		margin: 0;
+	}
+	.wysiwyg ul {
+		margin-left: 0;
+	}
+	//homepage
+	.page-template-homepage {
+		.col.three,
+		.col.four {
+			width: 100%;
+			padding: 0;
+		}
+		.col.four img {
+			display: none;
+		}
+	}
+	//header
+	.header-inner .search-form {
+		display: none;
+	}
+	.header-logo {
+		margin-top: 3px;
+		margin-bottom: -5px;
+	}
+	//footer
+	.pre-footer-cta {
+		p,
+		.btn {
+			width: 100%;
+		}
+		p {
+			margin-bottom: 20px;
+			line-height: 23px;
+		}
+		.btn {
+			margin-bottom: 24px;
+		}
+	}
+	.footer-links {
+		padding: 0 0 25px;
+		nav {
+			width: 50%;
+			&:nth-child(2n+1) {
+				clear: both;
+			}
+		}
+	}
+	//generic
+	.banner {
+		display: none;
+	}
+	.intro-para {
+		padding: 0;
+	}
+	.left-col {
+		padding: 0;
+		 p {
+		 	margin-left: 0;
+		 }
+	}
+	aside {
+		margin-top: 25px;
+		padding: 0 !important;
+	}
+	.main-blockquote {
+		width: 100% !important;
+		padding: 0 !important;
+		border-left: none;
+		p {
+			padding: 0;
+			max-width: none;
+		}
+	}
+	blockquote {
+		border-left: none;
+		margin: 0 0 40px !important;
+		padding: 0;
+		p {
+			margin: 30px 0 !important;
+			padding: 0;
+		}
+	}
+	//posts / blog
+	.blog .post-article {
+		margin-bottom: 50px;
+		width: 100%;
+		max-width: none;
+		h2 {
+			margin-bottom: 0;
+		}
+		figure {
+			display: none;
+		}
+	}
+	.post-article {
+		padding: 0 !important;
+		width: 100% !important;
+	}
+	.post-article figure {
+		// display: none;
+	}
+	.blog .articles-wrapper {
+		padding: 0;
+	}
+	.read-more {
+		display: none;
+	}
+	.read-more-content {
+		display: block;
+	}
+	//pages
+	//case-studies
+	.post-type-archive-case_studies {
+		figure {
+			display: none;
+		}
+		.post-text-wrapper {
+			h2 {
+				margin: 16px 0;
+				min-height: 42px;
+			}
+		}
+		.post-article {
+			margin-bottom: 30px;
+		}
+	}
+	.single-case_studies {
+		aside {
+			display: none;
+		}
+	}
+	//company-info
+	.page-template-company-info {
+		.left-col {
+			width: 100%;
+		}
+		aside {
+			display: none;
+		}
+	}
+	//events
+	.post-type-archive-events {
+		.articles-container {
+			.post-text-wrapper {
+				float: none;
+				h3 {
+					font-size: 21px;
+				}
+			}
+		}
+		figure {
+			display: none;
+		}
+	}
+	//locations
+	.locations {
+		h3 {
+			font-size: 21px;
+		}
+		li {
+			width: 100%;
+			padding: 0;
+		}
+		img {
+			display: none;
+		}
+		.read-more {
+			display: none;
+		}
+		.read-more-content {
+			display: block;
+		}
+	}
+	//management team
+	.post-type-archive-management_team .post-article.full-width .text-wrapper {
+		float: none;
+		padding: 0;
+		width: 100%;
+	}
+	//contact
+	.page-template-contact {
+		.left-col {
+			padding-left: 0;
+			width: 100%;
+		}
+		.gform_wrapper input[type="submit"] {
+			width: 100%;
+		}
+		aside {
+			width: 100%;
+		}
+	}
+	.gfield {
+		width: 100%;
+		margin-right: 0;
+	}
+	.page-template-spotlight .page-wrap {
+		padding-top: 0;
+	}
+}
+
+//mobile
+@media only screen and (max-width: 480px) {
+	h1,
+	.single-sectors h1,
+	.single-services h1 {
+		font-size: 36px;
+		line-height: 1.25;
+	}
+}
+
+@media only screen and (max-width: 350px) {
+	.single .blog-aside figure {
+	    float: none;
+	    text-align: center;
+	    margin-bottom: 20px;
+	}
+	.single .blog-aside article {
+		margin-bottom: 23px;
+		border-bottom: 1px solid #eAe8e8;
+		text-align: center;
+		padding-bottom: 20px;
+	}
+	.single .blog-aside article .text-wrapper {
+		width: 100%;
+		margin: 0;
+	}
+}
+
+//news
+@media only screen and (max-width: 767px) {
+	.featured-posts {
+		a {
+			color: $white;
+			text-decoration: none;
+		}
+		img {
+			display: none;
+		}
+		ul {
+			margin-top: 12px;
+			h2 {
+				margin-bottom: 23px;
+			}
+		}
+		ul .text-wrapper,
+		ul li {
+			position: static;
+			background: $black;
+		}
+		li:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+
+// ie7
+.no-hashchange {
+}
+
+//ie8
+.no-svg .footer-bottom {
+    background-image: url(_img/SL_primary_AW_01B_REV_bold_light.png);
+    background-position: 50% 20px;
+}

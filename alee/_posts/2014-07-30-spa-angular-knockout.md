@@ -6,8 +6,6 @@ categories:
   - HTML5
 summary: "A comparison of Angular and Knockout in an enterprise scale single page application, by building the same sample application with both tools."
 layout: default_post
-featured-overlay-inverted: true
-suppress-careers-add: true
 oldlink: "http://www.scottlogic.com/blog/2014/07/30/spa-angular-knockout.html"
 disqus-id: /2014/07/30/spa-angular-knockout.html
 ---
@@ -460,7 +458,6 @@ If you don't like having Knockout's observables all over your JavaScript code, t
 
 While there are pros and cons to both solutions, I still don't have a clear preference for either Angular or Knockout. At least I can be confident that neither one would be the wrong choice.
 
-{% include ads/html5-white-paper.html %}
 
 
 

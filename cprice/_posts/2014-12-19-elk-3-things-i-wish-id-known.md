@@ -5,7 +5,6 @@ categories:
   - NoSQL
 tags: null
 layout: default_post
-suppress-careers-add: true
 oldlink: "http://www.scottlogic.com/blog/2014/12/19/elk-3-things-i-wish-id-known.html"
 disqus-id: /2014/12/19/elk-3-things-i-wish-id-known.html
 ---

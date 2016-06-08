@@ -1,7 +1,6 @@
 ---
 author: ceberhardt
 title: Creating a custom flip view controller transition
-featured-overlay-inverted: true
 image: ceberhardt/assets/featured/custom-flip.jpg
 tags: null
 categories: []

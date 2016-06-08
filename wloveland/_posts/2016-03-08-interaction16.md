@@ -2,7 +2,6 @@
 author: wloveland
 title: Interaction 16
 layout: default_post
-suppress-careers-add: true
 categories:
   - UX
 summary: "On the 1st of March myself and Graham Odds travelled to Helsinki, Finland to attend the 8th annual Interaction week."

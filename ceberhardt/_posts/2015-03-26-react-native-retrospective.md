@@ -8,7 +8,6 @@ title-short: React Native Thoughts
 image: ceberhardt/assets/featured/react-native-retrospective.jpg
 tags:
   - featured
-  - author-featured
 categories:
   - iOS
   - Mobile

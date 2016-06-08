@@ -1,0 +1,32 @@
+.align-center {
+  text-align: center;
+}
+
+.author {
+  p, a {
+    font-size: $smallFontSize;
+  }
+
+  img {
+    margin-bottom: $layoutUnit;
+    border-radius: 50%;
+  }
+
+  .authorName {
+    display: block;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+
+  .authorSummary {
+    margin-bottom: $smallLayoutUnit;
+    // Links in author summary should be displayed inline.
+    a {
+      display: initial;
+    }
+  }
+
+  a {
+    display: block;
+  }
+}

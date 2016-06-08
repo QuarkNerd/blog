@@ -3,7 +3,6 @@ id: 161553
 author: aaylett
 title: "Eclipse Kepler and @Nullable"
 image: aaylett/assets/featured/eclipse.jpg
-featured-overlay-inverted: true
 tags:
   - Eclipse
   - blog

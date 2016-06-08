@@ -1,0 +1,31 @@
+{% if include.featuredPosts %}
+  {% assign featuredPosts = include.featuredPosts %}
+{% else %}
+  {% assign featuredPosts = site.tags.featured %}
+{% endif %}
+
+{% assign numPosts = featuredPosts | size %}
+{% if numPosts > 3 %}
+<section class="container">
+  <div class="row featured">
+    <div class="col-xs-12">
+      {% for post in featuredPosts limit:4  %}
+        <a href='{{ site.github.url }}{{ post.url }}'>
+          <div class="col-xs-3 cell">
+            <div class="overlay">
+              <h4>
+                {% if post.title-short %}
+                  {{ post.title-short }}
+                {% else %}
+                  {{ post.title | truncatewords: 4 }}
+                {% endif %}
+              </h4>
+            </div>
+            <img src="{{ site.github.url }}/{{post.image}}"/>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}

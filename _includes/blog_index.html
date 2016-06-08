@@ -5,12 +5,17 @@
 <section>
     <div class="container blog-post-container">
         <div class="row">
-            <div class="col-xs-12 col-md-2">
+            <div class="col-xs-12 col-md-2 hidden-sm-down">
                 {% include categories_menu.html selectedIndex=categoryIndex %}
                 {% include authors_menu.html %}
             </div>
             <div class="col-xs-12 col-md-9">
-                <h2 class="visible-md visible-lg col-sm-offset-2">{{ site.data.categories[categoryIndex].title }}</h2>
+                <h2 class="hidden-sm-down col-sm-offset-2">
+                  {{ site.data.categories[categoryIndex].title }}
+                </h2>
+                <div class="hidden-md-up col-sm-offset-2">
+                  {% include categories_menu_compact.html selectedIndex=categoryIndex %}
+                </div>
                 {% comment %} This container is used by jScroll. When the next page is fetched, the contents of this div are added to the bottom of the page {% endcomment %}
                 <div class="content">
 
@@ -24,5 +29,3 @@
         </div>
     </div>
 </section>
-
-

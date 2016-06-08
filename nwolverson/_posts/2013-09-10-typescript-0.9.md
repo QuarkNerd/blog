@@ -2,7 +2,6 @@
 author: nwolverson
 title: "Typescript 0.9: Any improvement"
 image: nwolverson/assets/featured/typescript.jpg
-featured-overlay-inverted: true
 tags:
   - blog
 categories:

@@ -1,7 +1,6 @@
 ---
 author: lpage
 title: "var, multi-var or anywhere var?"
-featured-overlay-inverted: true
 categories:
   - JavaScript
 tags: null

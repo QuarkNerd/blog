@@ -1,7 +1,6 @@
 ---
 author: lpage
 title: State of localisation on the web
-featured-overlay-inverted: true
 categories:
   - Web
 tags: null

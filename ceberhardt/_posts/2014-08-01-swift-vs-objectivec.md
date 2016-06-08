@@ -8,7 +8,6 @@ categories:
 tags: null
 summary: It was just two months ago that Apple took us by surprise in releasing the Swift programming language. This blog post reflects on the first few months of Swift adoption.
 layout: default_post
-suppress-careers-add: true
 oldlink: "http://www.scottlogic.com/blog/2014/08/01/swift-vs-objectivec.html"
 disqus-id: /2014/08/01/swift-vs-objectivec.html
 ---

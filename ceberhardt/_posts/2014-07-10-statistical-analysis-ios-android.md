@@ -10,11 +10,9 @@ categories:
 summary: "A few months ago I published a blog post which showed the results of analysing the meta-data of 75,000 apps from the iTunes App Store. This blog post continues the analysis by adding 60,000 Android apps into the mix."
 summary-short: "Comparing 75,000 iOS apps with 60,000 Android apps."
 layout: default_post
-featured-overlay-black: true
 originalArticleLink: "http://www.shinobicontrols.com/blog/posts/2014/07/09/a-statistical-comparison-of-the-ios-and-android-stores"
 tags:
   - featured
-  - author-featured
 ---
 
 

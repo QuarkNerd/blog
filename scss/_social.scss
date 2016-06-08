@@ -1,0 +1,28 @@
+$social-height:   16px;
+
+.social {
+  div {
+    margin-right: $layoutUnit;
+    display: inline-block;
+    height: $social-height;
+    transition: opacity 1s;
+
+    * {
+      display: block;
+      float: left;
+    }
+
+    span {
+      height: $social-height;
+      line-height: $social-height;
+      font-size: $smallFontSize;
+    }
+
+    svg {
+      margin-right: 3px;
+      path {
+        fill: $grey;
+      }
+    }
+  }
+}

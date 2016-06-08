@@ -1,7 +1,6 @@
 ---
 author: ceberhardt
 title: An Interactive Tab Bar Controller Transition
-featured-overlay-inverted: true
 tags: null
 categories: []
 summary: "This blog post looks at creating an interactive tab bar controller transition, where you can swipe left and right to navigate between the tabs. The transition itself is a 'paperfold' effect - very pretty!"

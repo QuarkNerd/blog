@@ -8,7 +8,6 @@ categories:
 summary: "Reactive programming is a paradigm which allows you to better represent a work flow where changes in one part of your data model propagate down to other parts of the model. This blog post demonstrates an example of this, by listening for updates to Wikipedia and reacting accordingly."
 summary-short: ""
 layout: default_post
-suppress-careers-add: true
 oldlink: "http://www.scottlogic.com/blog/2014/07/23/frp-with-bacon-and-d3.html"
 disqus-id: /2014/07/23/frp-with-bacon-and-d3.html
 ---
@@ -404,7 +403,6 @@ A lot of the concepts in this post were new to me before I started writing it, s
 - [The excellent docs available on the Bacon.js GitHub page](https://github.com/baconjs/bacon.js#intro)
 - [The tutorials section on the D3 GitHub page](https://github.com/mbostock/d3/wiki/Tutorials)
 
-{% include ads/html5-white-paper.html %}
 
 
 

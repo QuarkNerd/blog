@@ -1,34 +1,9 @@
 {% assign selectedIndex = include.selectedIndex %}
-
-{% comment %} Always visible vertical list for larger screens. {% endcomment %}
-<div class="hidden-xs hidden-sm md-categories-menu">
+<div class="side-menu">
     <h3>Categories</h3>
     <ul>
         {% for category in site.data.categories %}
             <li class="{% if selectedIndex == forloop.index0 %}active {% endif %}"><a href="{{ site.github.url }}{{ category.url }}">{{ category.title }}</a></li>
         {% endfor %}
     </ul>
-</div>
-{% comment %} Drop down vertical list for smaller screens. {% endcomment %}
-<div class="hidden-md hidden-lg sm-categories-menu">
-    <h3 class="hidden-xxs">Categories:</h3>
-    <div class="dropdown  hidden-xxs visible-xs-inline-block visible-sm-inline-block">
-        <div class="dropdown-arrow">
-            <h3>{{ site.data.categories[selectedIndex].title }}</h3>
-        </div>
-        <ul class="dropdown-menu">
-            <div class="nav-arrow-up"></div>
-            {% for category in site.data.categories %}
-                {% unless selectedIndex == forloop.index0 %}<li><a href="{{ site.github.url }}{{ category.url }}">{{ category.title }}</a></li>{% endunless %}
-            {% endfor %}
-        </ul>
-    </div>
-    <div class="dropdown-arrow visible-xxs-inline-block hidden-xs hidden-sm hidden-md hidden-lg">
-        <select onchange="location = this.options[this.selectedIndex].value">
-            {% for category in site.data.categories %}
-            <option {% if selectedIndex == forloop.index0 %}selected="selected"{% endif %}
-                    value="{{ site.github.url }}{{ category.url }}">{{ category.title }}</option>
-            {% endfor %}
-        </select>
-    </div>
 </div>

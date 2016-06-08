@@ -1,0 +1,24 @@
+code, pre {
+  font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+}
+
+code.highlighter-rouge {
+  padding: 2px 4px;
+  font-size: $monospaceFontSize;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: $smallLayoutUnit;
+}
+
+pre {
+  display: block;
+  padding: $layoutUnit;
+  margin: 0 0 $layoutUnit;
+  font-size: $monospaceFontSize;
+  line-height: 1.42857143;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: $smallLayoutUnit;
+}

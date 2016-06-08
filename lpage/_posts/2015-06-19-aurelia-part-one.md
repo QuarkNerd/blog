@@ -1,7 +1,6 @@
 ---
 author: lpage
 title: Creating less2css using Aurelia
-featured-overlay-inverted: true
 categories:
   - HTML5
   - Web

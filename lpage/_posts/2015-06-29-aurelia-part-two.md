@@ -1,7 +1,6 @@
 ---
 author: lpage
 title: "Aurelia, less2css and bundling"
-featured-overlay-inverted: true
 categories:
   - HTML5
   - Web

@@ -4,7 +4,6 @@ title: An introduction to MVC frameworks
 layout: default_post
 categories: []
 summary: The recent rise of web applications that have all the functionality of their desktop counterparts has highlighted the fact that JavaScript MVC Frameworks are now an essential part of any modern web developers toolkit.
-suppress-careers-add: true
 oldlink: "http://www.scottlogic.com/blog/2013/12/06/JavaScript-MVC-frameworks.html"
 disqus-id: /2013/12/06/JavaScript-MVC-frameworks.html
 ---
@@ -150,7 +149,6 @@ The discussion above illustrates how there isn't a one-size-fits-all framework t
 
 Finally, try to build some proof of concept prototypes in each framework and compare the implementations. This is similar to what the authors behind [TodoMVC](http://www.todomvc.com) started which highlights the differences between a huge number of MVC frameworks by implementing a simple TODO application in each one.
 
-{% include ads/html5-white-paper.html %}
 
 
 

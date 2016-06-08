@@ -1,0 +1,13 @@
+{% assign showAuthorInfo = include.showAuthorInfo %}
+{% assign post = include.post %}
+{% assign author = site.data.authors.authors[post.author] %}
+
+<h5 class="post-metadata">
+  {% if showAuthorInfo %}
+    <span class="author-name"><a href="{{ site.github.url }}/{{ post.author }}">{{ author.name }}</a> &middot; </span>
+  {% endif %}
+  <span>
+     {% include format_date.html date=post.date %} &middot;
+  </span>
+  <span>{% include reading_time.html post=post %}</span>
+</h5>

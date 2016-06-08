@@ -4,9 +4,7 @@ title: The State Of In-Car UIs
 title-short: The State Of In-Car UIs
 layout: default_post
 summary: "An examination of the current state of in-car UIs, and how Apple, Google and Tesla are significantly shaking things up."
-suppress-careers-add: true
 image: wloveland/assets/featured/car-ui.jpg
-featured-overlay-inverted: true
 tags:
   - featured
 categories:

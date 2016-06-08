@@ -4,9 +4,9 @@
 
 <div class="author">
     {% if author.gravatar %}
-        <img src="//www.gravatar.com/avatar/{{ author.gravatar }}" alt="{{ author.name }}" class="img-circle" />
+        <img src="//www.gravatar.com/avatar/{{ author.gravatar }}" alt="{{ author.name }}"/>
     {% else %}
-        <img src="{{ site.github.url }}/images/avatar.png" alt="{{ author.name }}" class="img-circle" />
+        <img src="{{ site.github.url }}/assets/avatar.png" alt="{{ author.name }}"/>
     {% endif %}
     {% if suppressName != true %}
     <a class="authorName highlight" rel="author" href="{{ site.github.url }}/{{ page.author }}">{{ author.name }}</a>
@@ -15,7 +15,8 @@
         <div class="authorSummary">{{ author.author-summary }}</div>
     {% endif %}
     {% if  author.twitter-url %}
-        <a class="highlight" rel="author" href="{{ author.twitter-url}}">{% if author.twitter-handle %} @{{ author.twitter-handle }} {% else %} Twitter {% endif %}</a>
+        {% assign twitter-url-split = "author.twitter-url | split: '/' %}
+        <a class="highlight" rel="author" href="{{ author.twitter-url}}">@{{ twitter-url-split[3] }}</a>
     {% endif %}
     {% if author.google-plus-url %}
         <a class="highlight" rel="author" href="{{ author.google-plus-url}}">Google+</a>

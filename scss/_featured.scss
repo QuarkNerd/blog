@@ -1,0 +1,33 @@
+.row.featured {
+  overflow-x: scroll;
+  >div {
+    min-width: map-get($grid-breakpoints, md);
+    margin-bottom: $largeLayoutUnit;
+
+    .cell {
+      padding: 0;
+      position: relative;
+      border: 1px solid white;
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        padding: $smallLayoutUnit 0 0 $layoutUnit;
+
+        h4 {
+          color: white;
+          font-size: $baseFontSize;
+          text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+
+          @media (max-width: map-get($grid-breakpoints, md)) {
+            font-size: $smallFontSize;
+          }
+        }
+      }
+    }
+  }
+}

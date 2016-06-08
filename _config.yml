@@ -23,7 +23,7 @@ exclude:
     - Gemfile
     - Gemfile.lock
     - Gruntfile.js
-    - less
+    - scss
     - node_modules
     - package.json
     - README.md
@@ -31,13 +31,11 @@ exclude:
     # N.B. Not all scripts are excluded, as some are directly referenced, because:
     # - jquery-1.9.1.js - some posts make use of this
     # - disqus-comment-thread.js - only required on the post pages
-    # - html5shiv.js - must be included before the opening `<body>` tag
-    - scripts/README.md
     - scripts/disqus-comment-count.js
+    - scripts/jquery-1.9.1.js
     - scripts/jquery.jscroll-2.2.4.js
-    - scripts/modernizr.custom.js
     - scripts/tweet.js
-    - scripts/app.js
+    - scripts/search.js
 
 
 # For local use only

@@ -3,7 +3,6 @@ author: rhendry
 title: WebdriverJS and Promises
 title-short: WebdriverJS and Promises
 layout: default_post
-featured-overlay-inverted: true
 tags:
   - featured
 image: rhendry/assets/featured/promise.jpg

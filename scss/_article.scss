@@ -1,0 +1,58 @@
+article {
+  margin-top: $extraLargeLayoutUnit;
+  margin-bottom: $layoutUnit;
+
+  h1 {
+    font-weight: 300;
+  }
+
+  li {
+    line-height: $baseLineHeight;
+  }
+
+  header {
+    .published, .social, .post-metadata {
+      display: inline;
+    }
+
+    .social {
+      float: right;
+    }
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      .author-name {
+        display: none;
+      }
+    }
+  }
+
+  aside {
+    margin-top: $extraLargeLayoutUnit;
+  }
+
+  ul, ol {
+    margin-bottom: 10px;
+    list-style-position: inside;
+    padding-left: 40px;
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  .embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+
+    iframe, object, embed {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
