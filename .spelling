@@ -661,6 +661,8 @@ Evan
 Sugrue
 Zach
 Powderly
+reusability
+nginx
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
 line.y
@@ -1800,3 +1802,6 @@ _1.R
  - ceberhardt/_posts/2016-06-10-six-tips-for-cleaner-promises.md
 tonicdev
 v6
+ - bjedrzejewski/_posts/2016-06-13-code-reuse-in-microservices-architecture.md
+reusability
+Nginx
