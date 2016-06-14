@@ -122,7 +122,7 @@ Verifying the block hash is very simple and quick to do, shown below is a hash f
 
 Looking at the same data as in the block generation example, here is the nonce and the resulting block hash. We have changed the difficulty, for the purposes of the demonstration, to be much lower than the actual bitcoin value. This will allow us to accept a larger number of valid hashes.
 
-    nonce       | 2083236894
+    nonce       | 2083236893
     blockhash   | 51b32344534acc6cbbdb4e3490e32cf8bb38719b3afd27bf8635a6025e08b4fd
 
 If the nonce is only slightly different, as seen below, then this completely changes the resulting hash value. This shows how it is virtually impossible to guess what value the nonce may be, and why brute force (possibly with negligible optimisations) is the only method of mining bitcoins. The same goes for any other data involved in the block hash. Changing any transaction data (resultantly changing the merkle root) would result in a completely invalid block hash, thus showing the inherent security in the blockchain.
@@ -262,12 +262,13 @@ Below is a worked example of what Angelina had to compute in order to redeem bit
     
     2. Split the scriptPubKey into the OPCodes and address;
     
-      OP_DUP OP_HASH160 d58c3e279b8431d6e61b64b414a5b39ee93d638d OP_EQUALVERIFY OP_CHECKSIG
+      OP_DUP OP_HASH160 76a9144abbdf494156759c3bbf13718efad0c0c68e429088ac OP_EQUALVERIFY OP_CHECKSIG
     
     
     3. Find the public key corresponding to this address;
     
       02b9d9c6b95f29709562dc8b285ca5951f718d904b61c17a60f4f6cd65bf8aa628
+      
     
     4. In this case the script used to redeem these bitcoins requires a public key, which
        when converted to an address, is equal to the script address. A signature for
