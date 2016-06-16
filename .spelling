@@ -3,6 +3,10 @@
 # global dictionary is at the start, file overrides afterwards
 # one word per line, to define a file override use ' - filename'
 # where filename is relative to this configuration file
+altcoins
+trustless
+microtransactions
+channeling
 dropwizard
 pom
 yml
@@ -1805,3 +1809,15 @@ v6
  - bjedrzejewski/_posts/2016-06-13-code-reuse-in-microservices-architecture.md
 reusability
 Nginx
+ - jhill/_posts/2016-06-16-bitcoin-redeem-scripts.md
+ffffffff
+nVersion
+inputCount
+outputCount
+blockLockTime
+nLockTime
+Pay-To-PubKey-Hash
+HTLCs
+Poon
+Dryja
+3Mbit
