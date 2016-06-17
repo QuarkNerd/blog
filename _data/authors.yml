@@ -34,6 +34,7 @@ active-authors:
   - rhamilton
   - rhendry
   - rmarcalo
+  - rrahim
   - rsillem
   - rwilliams
   - sbulut
@@ -395,3 +396,9 @@ authors:
         email: acheshire@scottlogic.com
         gravatar: 0dad4b3bf82f4c1370397af505f0cb86
         author-summary: <p>I am a developer with experience in JavaScript and Java</p>
+    rrahim:
+        name: Rhianna Rahim
+        email: rrahim@scottlogic.co.uk
+        gravatar: 3eea110c82f1934eb984d56fa4d45517
+        author-image: /rrahim/assets/profile.jpg
+        author-summary: <p>I am a UX Designer at Scott Logic. My background is in Product Design and I studied at Brunel University for 4 years. I have designed apps for mobile, desktop, tablet, web and service robot. I enjoy the research side of user experience, as I am always interested in learning about new technologies and design principles.</p>
