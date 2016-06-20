@@ -678,6 +678,11 @@ busybox
 wget
 reusability
 nginx
+DockerHub
+meetups
+Nuget
+jq
+parameterised
 iMessage
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
@@ -1846,3 +1851,9 @@ Kollin
 Vitaly
 Whaley
 Soranzo
+ - csmith/_posts/2016-06-20-declarative-ci-cd-with-concourse.md
+BristechSRM
+comms
+pipeline.yml
+load-vars-from
+credentials.yml
