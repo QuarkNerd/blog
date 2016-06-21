@@ -4,6 +4,8 @@ title: The Catch 22 of Conversational UIs
 image: godds/assets/featured/catch22-conversational.png
 categories:
   - UX
+tags:
+  - featured
 layout: default_post
 summary: This blog post highlights an awkward problem in one of the key building blocks of an automated conversational UI and suggests a few strategies for how to deal with it.
 ---
