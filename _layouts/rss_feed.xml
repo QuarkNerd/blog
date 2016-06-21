@@ -23,9 +23,9 @@
     {% endif %}
     {% for post in feed_posts limit:20%}
     <item>
-        <title><![CDATA[{{ post.title }}]]></title>
-        <sl:title-short><![CDATA[{% if post.title-short %}{{ post.title-short }}{% else %}{{ post.title | truncatewords: 6 }}{% endif %}]]></sl:title-short>
         {% assign author = site.data.authors.authors[post.author] %}
+        <title><![CDATA[{{ post.title }} by {{ author.name }}]]></title>
+        <sl:title-short><![CDATA[{% if post.title-short %}{{ post.title-short }}{% else %}{{ post.title | truncatewords: 6 }}{% endif %}]]></sl:title-short>
         <author>{% if author.email %}{{ author.email }} ({{ author.name }}){% else %}{{ author.name }}{% endif %}</author>
         <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
         <description><![CDATA[{{ post.content }}]]></description>
@@ -40,6 +40,6 @@
 
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
-        
-  </channel> 
+
+  </channel>
 </rss>
