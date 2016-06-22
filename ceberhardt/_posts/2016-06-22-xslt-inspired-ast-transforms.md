@@ -1,6 +1,6 @@
 ---
 author: ceberhardt
-title: An XSLT-inspired approach to JavaScript AST transformation
+title: Recursive Pattern Matching and Transformation of JavaScript AST
 layout: default_post
 categories:
   - Web
