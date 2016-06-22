@@ -684,6 +684,8 @@ Nuget
 jq
 parameterised
 iMessage
+XPath
+recurse
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
 line.y
@@ -1857,3 +1859,9 @@ comms
 pipeline.yml
 load-vars-from
 credentials.yml
+ - ceberhardt/_posts/2016-06-22-xslt-inspired-ast-transforms.md
+Shuhei
+Kagawa
+XSLT-inspired
+JSPath
+nodeset
