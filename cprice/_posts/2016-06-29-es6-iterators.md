@@ -17,7 +17,7 @@ d3fc contains a [component for generating random data series based on stochastic
 
 It provides one interface for creating batches of data -
 
-~~~
+~~~js
 import { financial } from 'd3fc-random-data';
 
 const generator = financial()
@@ -33,7 +33,7 @@ console.log(generator(2));
 
 and another basic streaming interface for iterating over a sequence of values -
 
-~~~
+~~~js
 import { financial } from 'd3fc-random-data';
 
 const generator = financial()
@@ -64,7 +64,7 @@ Now the core part of this library is running the stochastic processes to produce
 
 Luckily ES6 introduced iterators to the language to provide just such an interface. It was added in the form of two new "protocols": iterable and iterator. An *iterable* being something that can be *iterated* over using an *iterator* -
 
-~~~
+~~~js
 const iterable = [0, 1, 2];
 const iterator = iterable[Symbol.iterator]();
 
@@ -82,7 +82,7 @@ console.log(iterator.next());
 
 As you can see this has been retrofitted into the language's built in arrays but it's not only arrays which support this protocol, all of the language's iterable built-ins do (e.g. strings, objects, etc.). And of course you're free to implement it for your own custom objects -
 
-~~~
+~~~js
 const iterable = {
   [Symbol.iterator]: () => {
     int count = 0;
@@ -109,7 +109,7 @@ console.log(iterator.next());
 
 A quick recap of the existing code -
 
-~~~
+~~~js
 import { financial } from 'd3fc-random-data';
 
 const generator = financial()
@@ -119,7 +119,7 @@ const generator = financial()
 
 We're aiming to make the `generator` instance of our `financial` component iterable so we need to expose an accessor for the iterator -
 
-~~~
+~~~js
 generator[Symbol.iterator] = () => {
     // return iterator;
 };
@@ -127,7 +127,7 @@ generator[Symbol.iterator] = () => {
 
 Now the implementation of our iterator is relatively simple as we already had a very similar interface. The only additional property we need to return from the iterator's `next` method is a `done` value of `false` because the sequence is infinite  -
 
-~~~
+~~~js
 generator[Symbol.iterator] = () => {
     const stream = generator.stream();
     return {
@@ -141,7 +141,7 @@ generator[Symbol.iterator] = () => {
 
 We can test it like so (with some gratuitous use of [destructuring assignment](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) which uses [iterators under the hood](http://www.ecma-international.org/ecma-262/6.0/#sec-runtime-semantics-destructuringassignmentevaluation))-
 
-~~~
+~~~js
 const [first] = generator;
 console.log(first);
 // { date: 2016-01-01T00:00:00.000Z, /* ... */ }
@@ -149,7 +149,7 @@ console.log(first);
 
 Or like so (using the [for...of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) statement which again [uses iterators under the hood](http://www.ecma-international.org/ecma-262/6.0/#sec-runtime-semantics-forin-div-ofbodyevaluation-lhs-stmt-iterator-lhskind-labelset))-
 
-~~~
+~~~js
 for (const item of generator) {
   console.log(item);
   // { date: 2016-01-01T00:00:00.000Z, /* ... */ }
@@ -183,4 +183,4 @@ By asking to be notified of the next value, consumers are implicitly applying ba
 
 ## Conclusion
 
-Not all blog posts end up where you expected, but hopefully you've picked up something useful along the way. I certainly did. Mostly around not assuming a popular library wouldn't have glaring bugs in it but also a little about a possible future direction of JS. It also appears that interest in iterators is growing with a [push to encourage the use of iterators in libraries](https://github.com/leebyron/iterall#why-use-iterators).
+Not all blog posts end up where you expected, but hopefully you've picked up something useful along the way. I certainly did. Mostly around never trusting an API and always looking at the code behind it (once again!) but also a little about a possible future direction of JS. It also appears that interest in iterators is growing with a [push to encourage the use of iterators in libraries](https://github.com/leebyron/iterall#why-use-iterators).
