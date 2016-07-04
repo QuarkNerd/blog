@@ -2,6 +2,7 @@
 author: dwybourn
 title: Service discovery with Docker Swarm
 layout: default_post
+image: dwybourn/assets/featured/swarm.png
 categories:
   - Docker
   - DevOps

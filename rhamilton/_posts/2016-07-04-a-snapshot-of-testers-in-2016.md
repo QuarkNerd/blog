@@ -3,13 +3,14 @@ author: rhamilton
 title: A snapshot of software testers in 2016
 title-short: A snapshot of software testers in 2016
 summary: "Continuing my research into Software Testers I examine how and why people are getting into testing careers and present a snapshot of testers in 2016 "
-image: rhamilton/assets/camera.jpg
+image: rhamilton/assets/featured/camera.jpg
 tags:
   - software testing survey
   - data analysis
   - R programming
   - software testers
   - testing trends
+  - featured
 categories:
   - Test
 layout: default_post
