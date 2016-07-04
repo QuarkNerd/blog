@@ -317,7 +317,7 @@ authors:
         twitter-url: https://twitter.com/Rosicadia
         feed-description: A collection of Rosie Hamilton's thoughts on software testing.
         author-image: /rhamilton/assets/thisisme.jpg
-        author-summary: <p>I have been happily testing software and reporting bugs since 2005. I am the Author of <a href="http://testingfuntime.blogspot.co.uk/"> Mega Ultra Super Happy Software Testing Fun Time</a>. As well as writing I enjoy playing violin, playing PC games, going to the gym and pushing <a href="https://golang.org/">Golang</a> to <a href="https://github.com/Rosalita">Github</a>. I currently work at Scott Logic as a Test Engineer.</p>
+        author-summary: <p>I have been happily testing software and reporting bugs since 2005. I am the Author of <a href="http://testingfuntime.blogspot.co.uk/"> Mega Ultra Super Happy Software Testing Fun Time</a>. As well as writing I enjoy playing violin, playing PC games, going to the gym and pushing <a href="https://golang.org/">Golang</a> and <a href="https://www.r-project.org/about.html">R</a> to <a href="https://github.com/Rosalita">Github</a>. I currently work at Scott Logic as a Test Engineer.</p>
     hpretswell:
         name: Hannah Pretswell
         email: hpretswell@scottlogic.com
