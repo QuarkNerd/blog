@@ -225,3 +225,4 @@ And concat / minify the JS as follows:
 ```
 npm run scripts
 ```
+
