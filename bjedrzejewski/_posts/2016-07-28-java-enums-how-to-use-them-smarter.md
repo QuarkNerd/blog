@@ -192,7 +192,7 @@ public enum BasicMean implements MathematicalMean {
     MEAN_AVERAGE {
         @Override
         public double calculate(double[] values) {
-            double mean = 1.0;
+            double mean = 0.0;
             for(double d : values) {
                 mean += d;
             }
