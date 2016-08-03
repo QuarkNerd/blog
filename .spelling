@@ -686,6 +686,9 @@ parameterised
 iMessage
 XPath
 recurse
+RStudio
+Golang
+csv
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
 line.y
@@ -1874,3 +1877,15 @@ id3js
  - bjedrzejewski/_posts/2016-07-28-java-enums-how-to-use-them-smarter.md
 java.lang.Enum
 transactionComplete
+ - rhamilton/_posts/2016-08-03-exploring-data-with-shiny-and-r.md
+shinyapps.io
+_testers
+_index
+_outages
+_25000
+xlsl
+ui.R
+server.R
+renderUI
+_demo
+shiny.rstudio.com
