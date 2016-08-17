@@ -689,6 +689,10 @@ recurse
 RStudio
 Golang
 csv
+recurses
+glitching
+configurability
+Idempotency
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
 line.y
