@@ -190,11 +190,11 @@ const component = () => {
   const instance = (selection) => {
     const update = selection.selectAll('li')
       .data(d => [d, d, d]);
-    const enter = selection.enter()
+    const enter = update.enter()
       .append('li');
     update.merge(enter)
       .text((d, i) => i);
-    selection.exit()
+    update.exit()
       .remove();
   };
 
@@ -210,12 +210,12 @@ const component = () => {
   const instance = (selection) => {
     const update = selection.selectAll('li')
       .data(d => [d, d, d]);
-    const enter = selection.enter()
+    const enter = update.enter()
       .append('li')
       .style('color', (d, i) => i == 1 ? 'red' : 'black');
     update.merge(enter)
       .text((d, i) => i);
-    selection.exit()
+    update.exit()
       .remove();
   };
 
@@ -249,11 +249,11 @@ const component = () => {
   const instance = (selection) => {
     const update = selection.selectAll('li')
       .data(d => [d, d, d]);
-    const enter = selection.enter()
+    const enter = update.enter()
       .append('li');
     update.merge(enter)
       .text((d, i) => i);
-    const exit = selection.exit()
+    const exit = update.exit()
       .remove();
 
     update.enter = () => enter;
@@ -577,7 +577,7 @@ Which produces the following DOM structure -
 </ul>
 ~~~
 
-The problem with non-index based keys occurs when we try and insert an item anywhere other than at the end of the list -
+**In older versions (pre-v4) of D3** a problem used to occur when using non-index based keys and trying to insert an item anywhere other than at the end of the list -
 
 ~~~ javascript
 render([
@@ -595,43 +595,15 @@ render([
 </ul>
 ~~~
 
-This happens because the data-join establishes that there are less nodes than items and so, as we've instructed it to do, appends a new node. As the existing nodes already have an association with the existing data items through the identifier-based key function they remain associated and the new data item is associated with the new node.
+This happened because the data-join established that there were less nodes than items and so, as we'd instructed it to do, appended a new node. As the existing nodes already had an association with the existing data items through the identifier-based key function they remained associated and the new data item was associated with the new node.
 
-With an index-based join, the new node would have been appended to the end in the same way. However, the data would then have re-assigned to all of the nodes such that the indices match causing the result to look correct.
+With an index-based join, the new node would have been appended to the end in the same way. However, the data would then have been re-assigned to all of the nodes such that the indices matched causing the result to look correct.
 
-To get the expected result, instead of `append`ing the new node we need to `insert` it instead -
+To get the expected result (**pre-v4**) instead of `append`ing the new node we had to `insert` it instead. However, D3 v4 fixes this unexpected behaviour. `append` will now insert the node in the expected location. This guarantees the node ordering will match the data as long as the order of the data does not change.
 
+*Confusingly the old behaviour is now available by using `insert` which [caught us out](https://github.com/d3fc/d3fc-data-join/issues/19)!*
 
-~~~ javascript
-const render = (data) => {
-  // ...
-  const enter = update.enter()
-    .insert('li')
-    .attr('data-id', d => d.id);
-  // ...
-};
-
-render([
-  { id: 1, value: 'Bob' },
-  { id: 2, value: 'Carol' }
-]);
-
-render([
-  { id: 0, value: 'Alice' },
-  { id: 1, value: 'Bob' },
-  { id: 2, value: 'Carol' }
-]);
-~~~
-
-~~~ html
-<ul>
-  <li data-id="0">Alice</li>
-  <li data-id="1">Bob</li>
-  <li data-id="2">Carol</li>
-</ul>
-~~~
-
-The data-join component always `insert`s rather than `append`s new nodes. This guarantees the node ordering will match the data as long as the order of the data does not change.
+The data-join component allows you to specify a key and internally makes use of `append` to ensure nodes are initially inserted in their correct location -
 
 ~~~ javascript
 const render = (data) => {
@@ -643,7 +615,7 @@ const render = (data) => {
 };
 ~~~
 
-One final twist is when you do need to change the order of the data. In this case, you can use `d3-selection`'s [order](https://github.com/d3/d3-selection#selection_order) to re-insert the nodes at their correct location -
+One final twist to be aware of is when you do need to change the order of the data. In this case, you can use `d3-selection`'s [order](https://github.com/d3/d3-selection#selection_order) to re-insert the nodes at their correct location -
 
 ~~~ javascript
 const render = (data) => {
