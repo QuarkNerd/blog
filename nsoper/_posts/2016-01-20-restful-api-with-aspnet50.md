@@ -96,20 +96,20 @@ This error message reveals that the framework will look for a method named eithe
 {
 
   ...
-  
+
   "profiles": {
     "IIS Express": {
-    
+
       ...
-      
+
       "environmentVariables": {
         "Hosting:Environment": "Development"
       }
     },
     "web": {
-    
+
       ...
-      
+
       "environmentVariables": {
         "Hosting:Environment": "Development"
       }
@@ -257,7 +257,7 @@ MVC 6 still allows actions to be selected based on the name matching the HTTP ve
 
 # Books API
 
-I've written a basic API which is a tweaked version of Microsoft's tutorial: [Building Your First Web API with MVC 6](https://docs.asp.net/projects/mvc/en/latest/getting-started/first-web-api.html) based on books instead of to-do items. I'll describe my thoughts having followed through the tutorial so you can either do the tutorial first or get [my code from Github](https://github.com/niksoper/aspnet5-books).
+I've written a basic API which is a tweaked version of Microsoft's tutorial: [Building Your First Web API with MVC 6](https://docs.asp.net/projects/mvc/en/latest/getting-started/first-web-api.html) based on books instead of to-do items. I'll describe my thoughts having followed through the tutorial so you can either do the tutorial first or get [my code from Github](https://github.com/niksoper/aspnet5-books/tree/blog-dotnet-rc1).
 
 
 ## Dependency injection
@@ -359,10 +359,10 @@ Here is the `BooksController` focussed on the signature for my `Create` method:
 public class BooksController : Controller
 {
     ...
-    
+
     [HttpPost]
     public IActionResult Create([FromBody]Book book)
-    
+
     ...
 }
 {% endhighlight %}
@@ -470,7 +470,7 @@ These should all feel familiar enough to Web API 2 developers (although I admit 
 
 ### Other return types
 
-In my opinion `IActionResult` is very often the correct return type since it offers the most flexibility but returning `void`, `string` or [POCO](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object) is also supported if you don't need the flexibility of `IActionResult` and want a simple 200 response. 
+In my opinion `IActionResult` is very often the correct return type since it offers the most flexibility but returning `void`, `string` or [POCO](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object) is also supported if you don't need the flexibility of `IActionResult` and want a simple 200 response.
 
 A couple of noteworthy points:
 
@@ -507,7 +507,7 @@ I'm going to use [serilog](http://serilog.net/). [This post](http://www.davidhay
 var log = new Serilog.LoggerConfiguration()
     .MinimumLevel.Debug()
     .WriteTo.RollingFile(
-        pathFormat: env.MapPath("MvcLibrary-{Date}.log"), 
+        pathFormat: env.MapPath("MvcLibrary-{Date}.log"),
         outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} {SourceContext} [{Level}] {Message}{NewLine}{Exception}")
     .CreateLogger();
 
@@ -537,7 +537,7 @@ What you are actually doing is running the `web` command from **project.json**:
   "commands": {
     "web": "Microsoft.AspNet.Server.Kestrel"
   },
-  
+
   ...
 }
 </pre>
@@ -558,7 +558,7 @@ public class BooksController : Controller
         this.books = books;
         this.logger = logger;
     }
-    
+
     ...
 }
 {% endhighlight %}
@@ -608,7 +608,7 @@ public Startup(IHostingEnvironment env)
     // Set up configuration sources.
     var builder = new ConfigurationBuilder()
         .AddJsonFile("appsettings.json");
-    
+
     this.Configuration = builder.Build();
 }
 {% endhighlight %}
