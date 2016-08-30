@@ -1893,3 +1893,10 @@ server.R
 renderUI
 _demo
 shiny.rstudio.com
+ - csmith/_posts/2016-08-30-docker-1-12-swarm-mode-round-robin.md
+Wybourn
+Vagrantfile
+SSH'd
+worker1
+worker2
+IPs
