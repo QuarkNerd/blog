@@ -14,11 +14,12 @@ active-authors:
   - cprice
   - csmith
   - dgorst
+  - dkerr
   - dmcnamee
+  - dmiley
   - dpizzi
   - dtheasby
   - dthomas
-  - dkerr
   - dwybourn
   - godds
   - isullivan
@@ -407,3 +408,8 @@ authors:
         email: jfriel@scottlogic.co.uk
         gravatar: 59bdeaafd2405f31c2de2faa41745bca
         author-summary: <p>I am a summer intern at Scott Logic</p>
+    dmiley:
+        name: Drew Miley
+        email: dmiley@scottlogic.co.uk
+        gravatar: 6fc5270bd445b6a20cf7354b0003e035
+        author-summary: <p>Scott Logician. My chatbot is my analyst. For latest <a href="https://github.com/djmiley">developments</a></p>
