@@ -24,6 +24,7 @@ active-authors:
   - godds
   - isullivan
   - jbandenburg
+  - jharris
   - lpage
   - mdunsdon
   - mjose
@@ -413,3 +414,9 @@ authors:
         email: dmiley@scottlogic.co.uk
         gravatar: 6fc5270bd445b6a20cf7354b0003e035
         author-summary: <p>Scott Logician. My chatbot is my analyst. For latest <a href="https://github.com/djmiley">developments</a></p>
+    jharris:
+        name: Jon Harris
+        email: jharris@scottlogic.com
+        gravatar: 460c8825ca2bfb12b3a30d7f4f675b60
+        author-summary: <p>I'm a developer at the Bristol office of Scott Logic.  I develop mostly in C# and JavaScript, and Python outside of work.</p>
+
