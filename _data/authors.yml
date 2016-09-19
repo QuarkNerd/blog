@@ -24,6 +24,7 @@ active-authors:
   - godds
   - isullivan
   - jbandenburg
+  - jdunkerley
   - jharris
   - lpage
   - mdunsdon
@@ -419,4 +420,10 @@ authors:
         email: jharris@scottlogic.com
         gravatar: 460c8825ca2bfb12b3a30d7f4f675b60
         author-summary: <p>I'm a developer at the Bristol office of Scott Logic.  I develop mostly in C# and JavaScript, and Python outside of work.</p>
-
+    jdunkerley:
+        name: James Dunkerley
+        email: jdunkerley@scottlogic.com
+        author-summary: <p>I am a Lead Developer at Scott Logic, based in London. I have many years of using C# within financial services. My current interests are in data analytics and visualisation, particularly using Tableau and Alteryx. </p>
+        gravatar: b1c5913a855a0da5350c50017a75ecf2
+        twitter-url: http://twitter.com/jdunkerley
+        twitter-handle: jdunkerley
