@@ -700,6 +700,9 @@ Jenna
 WebVR
 bytecode
 WhatsApp
+es7
+mixouts
+es6
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
 line.y
@@ -2017,3 +2020,14 @@ Rinas
 Banoub
 Brun
 TeamDunks
+ - asheehan/_posts/2016-09-01-the-power-of-the-higher-order.md
+PureComponent
+FetchDataComponent
+currentProps
+nextProps
+MyComponent
+ - asheehan/_posts/2016-09-20-the-power-of-the-higher-order.md
+currentProps
+nextProps
+FetchDataComponent
+PureComponent
