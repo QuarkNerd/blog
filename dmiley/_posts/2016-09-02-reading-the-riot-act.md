@@ -11,7 +11,7 @@ summary: "Migrating a Knockout project to a webpack redux application using Riot
 
 <img style="display:block; margin: auto" src='{{ site.github.url }}/dmiley/assets/riot-act.jpg' title="The Riot Act" />
 
-In contrast to the above tome, Riot is a exceptionally lightweight javascript framework billed as a React alternative. I recently used it on a project of my own devising in order to explore its relative merits compared to its more illustrious cousin. The project as is is hosted [here](http://djmiley.github.io/PoolLeague/). As you can see, it is a fairly unadorned data-display with several elements of interactivity.
+In contrast to the above tome, Riot is a exceptionally lightweight javascript framework billed as a React alternative. I recently used it on a project of my own devising in order to explore its relative merits compared to its more illustrious cousin. The project as is is hosted [here](http://drewmiley.github.io/PoolLeague/). As you can see, it is a fairly unadorned data-display with several elements of interactivity.
 
 ### Invoking De Bono: Creating a Specification
 
@@ -38,7 +38,7 @@ In my initial implementation, I decided that I should try and get the system wor
     |   +-- util.js
     +-- viewModel.js
 
-This, along with implementing the data binding in the index.html [file](http://github.com/djmiley/PoolLeague/blob/93ca232f32250999959fa2a3622e8e99525fc07b/index.html), was enough to get me a minimum viable product that conformed to my initial specifications. 
+This, along with implementing the data binding in the index.html [file](http://github.com/drewmiley/PoolLeague/blob/93ca232f32250999959fa2a3622e8e99525fc07b/index.html), was enough to get me a minimum viable product that conformed to my initial specifications. 
 
 ## Moving on up: Migrating to a new technology stack
 
