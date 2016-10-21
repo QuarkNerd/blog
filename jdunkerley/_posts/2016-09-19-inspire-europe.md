@@ -5,6 +5,9 @@ summary: "My highlights from attending the Alteryx Inspire Europe conference, ho
 layout: default_post
 categories:
   - Alteryx
+image: jdunkerley/assets/featured/inspire.png
+tags:
+  - featured
 ---
 
 <img src="{{ site.github.url }}/jdunkerley/assets/inspire_europe.jpg" alt="Inspire Europe" style="display: block; margin: auto;"/>

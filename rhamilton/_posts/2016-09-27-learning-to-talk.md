@@ -3,11 +3,12 @@ author: rhamilton
 title: Learning to talk - Finding your voice and telling a story
 title-short: Learning to talk - Finding your voice and telling a story
 summary: "Having never given a technical talk before, I agreed to speak in public then found myself figuring out how I was going to do this."
-image: rhamilton/assets/parrot.png
+image: rhamilton/assets/featured/parrot.png
 tags:
   - software testing
   - tech talk
   - public speaking
+  - featured
 categories:
   - Test
 layout: default_post
