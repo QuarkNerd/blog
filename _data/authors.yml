@@ -13,6 +13,7 @@ active-authors:
   - cgrant
   - cprice
   - csmith
+  - dsmith
   - dgorst
   - dkerr
   - dmcnamee
@@ -427,3 +428,9 @@ authors:
         gravatar: b1c5913a855a0da5350c50017a75ecf2
         twitter-url: http://twitter.com/jdunkerley
         twitter-handle: jdunkerley
+    dsmith:
+        name: Darren Smith
+        email: dsmith@scottlogic.com
+        author-summary: <p>I'm a Senior Developer at Scott Logic, based in Newcastle.</p>
+        gravatar: 62304ebf3f06d2beac44569fdaa4cc7a
+        twitter-url: https://twitter.com/darrenpsmithweb

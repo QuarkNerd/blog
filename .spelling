@@ -704,6 +704,7 @@ es7
 mixouts
 es6
 Mup
+unscored
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
 line.y
@@ -2122,3 +2123,5 @@ ne
  - bjedrzejewski/_posts/2016-11-22-spring-boot-and-mongodb.md
 Initializr
 standalone
+ - dsmith/_posts/2016-11-22-using-rally-to-benchmark-elasticsearch.md
+Mitterdorfer
