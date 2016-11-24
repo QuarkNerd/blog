@@ -3,6 +3,7 @@ active-authors:
   - aaylett
   - acheshire
   - alee
+  - amjones
   - asheehan
   - amorgan
   - awallis
@@ -57,6 +58,12 @@ active-authors:
 authors:
     labs:
         name: Scott Logic Labs
+    amjones:
+        name: Andrew Jones
+        email: amjones@scottlogic.com
+        gravatar: 0cb5f9b7baa70d7a5bb09f9a772e0f64
+        author-image: /amjones/assets/mug.jpg
+        author-summary: Last miner in the North East
     asheehan:
         name: Ali Sheehan-Dare
         email: asheehan-dare@scottlogic.com

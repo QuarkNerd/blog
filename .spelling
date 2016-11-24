@@ -705,6 +705,8 @@ mixouts
 es6
 Mup
 unscored
+Scottcoin
+blockchain
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
 line.y
@@ -2125,3 +2127,10 @@ Initializr
 standalone
  - dsmith/_posts/2016-11-22-using-rally-to-benchmark-elasticsearch.md
 Mitterdorfer
+ - amjones/_posts/2016-11-24-scottcoin-centralising-the-decentralised.md
+PoW
+mempool
+0.75MB
+merkle
+coinbase
+permissioned
