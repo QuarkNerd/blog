@@ -16,6 +16,8 @@ We’ve recently been investigating uses for the blockchain and as part of this,
 
 
 This post will cover things at a very high level of detail, if you are interested in the “nitty gritty”, check out these other two blog posts.
+[JENNY FROM THE BLOCKCHAIN](http://blog.scottlogic.com/2016/04/04/jenny-from-the-blockchain.html)
+[BITCOIN PAYMENTS AND THE LIGHTNING NETWORK](http://blog.scottlogic.com/2016/06/16/bitcoin-redeem-scripts.html)
 
 
 ##The Structure of Bitcoin
