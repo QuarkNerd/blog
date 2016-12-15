@@ -707,6 +707,7 @@ Mup
 unscored
 Scottcoin
 blockchain
+semver
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
 line.y
@@ -2138,3 +2139,11 @@ permissioned
 AudioKit
 Csound
 Novachord
+ - ceberhardt/_posts/2016-12-15-semantic-versioning-is-not-enough.md
+roadmap
+v.4
+MAJOR.MINOR.PATCH
+0.x
+shrinkwrap
+v12
+Eidhof
