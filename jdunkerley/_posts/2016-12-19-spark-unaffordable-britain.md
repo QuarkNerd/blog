@@ -1,6 +1,6 @@
 ---
 author: jdunkerley
-title: Unafforable Country In Apache Spark
+title: Unaffordable Country In Apache Spark
 summary: "Recreating the data used for the Guardian's Unafforable Country visualisation in Apache Spark."
 layout: default_post
 categories:
