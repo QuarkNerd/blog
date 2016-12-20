@@ -20,7 +20,7 @@ Recreating the Guardian's data process within Apache Spark felt like a great way
 [Spark](https://spark.apache.org/) is one of the most common platforms used for large scale data processing today. It builds upon the MapReduce programming model introduced by Hadoop. However, It is
 significantly faster than Hadoop (up to 100 times) as it performs the operations in memory avoiding slow disk IO operations.
 
-It is a general purpose platform. You can clean, process and analyse data all within Spark. It has connectivity to various data storage platforms and can cope with either structured (for example SQL data
+It is a general-purpose platform. You can clean, process and analyse data all within Spark. It has connectivity to various data storage platforms and can cope with either structured (for example SQL data
 via JDBC) or unstructured data stored (such as text files in HDFS). It is designed to cope with large scale data, way beyond what can be stored within a single machine capabilities. It integrates with
 Hadoop easily and can use Hadoop's [YARN](http://hortonworks.com/apache/yarn/) system to find and control computation nodes in the network.
 
@@ -55,11 +55,11 @@ be multiple layers with nodes computing intermediary results before passing them
 
 ## Installing Spark
 
-First we need to install some pre-requisites. Spark itself needs a Java VM to run, you can download the current version from [the Java home page](https://www.java.com/en/). We will be using 
+First, we need to install some pre-requisites. Spark itself needs a Java VM to run, you can download the current version from [the Java home page](https://www.java.com/en/). We will be using 
 [Python](https://www.python.org/) for this tutorial. I chose to use version 3.x, but everything works in 2.x as well. In order to use a Jupyter notebook as a development environment, you also need to install
 that. I chose to use the [Anaconda](https://www.continuum.io/downloads) Python distribution which includes everything I needed (including the notebooks).
 
-For this guide, we wont be using Hadoop and will just be running a local instance of Spark. You can hence download whichever version of Spark you like from the download page. Once you have downloaded it,
+For this guide, we won't be using Hadoop and will just be running a local instance of Spark. You can hence download whichever version of Spark you like from the download page. Once you have downloaded it,
 extract the file to a location you are happy to run it from, I used `C:\Spark`. We now need to set up some environment variables. First, add a new environment variable called `SPARK_HOME` and set it to
 the location you extracted Spark to. Next, add `%SPARK_HOME%\bin` to the `Path` variable.
 
@@ -160,10 +160,10 @@ maxByKey = data.reduceByKey(max)
 minByKey = data.reduceByKey(min)
 ~~~
 
-To compute the mean and standard deviation, you need to compute the total of all the values and the sum of prices squared. Again this can be done using the `reduceByKey` but this time I need to provide a
+To compute the mean and standard deviation, you need to compute the total of all the values and the sum of prices squared. Again, this can be done using the `reduceByKey` but this time I need to provide a
 bespoke function to do the computation. Python lambda syntax is particularly suited to this simple computation. For the sum of the squared value, the `map` function is used to compute the squared
 value before running `reduceByKey`. Note that when using `map` with a keyed RDD, the function will be passed a tuple of the key and value. I also need to be able to interact with the counts, again this
-can be done using `map` and `reduceByKey`. Finally to join the values together, you need to use `join` to look up one value from one RDD into another based on the key. Combined with `map` this can be used
+can be done using `map` and `reduceByKey`. Finally, to join the values together, you need to use `join` to look up one value from one RDD into another based on the key. Combined with `map` this can be used
 to compute the mean and standard deviation. The code below will create RDDs capable of producing all of the basic statistics:
 
 ~~~ python
@@ -180,8 +180,8 @@ stDev = avgSquare.join(mean).map(lambda kvp: (kvp[0], math.sqrt(kvp[1][0] - kvp[
 
 All of these statistics can be computed in a single pass together. We need to use the `aggregateByKey` function to do this. This function takes 3 parameters. The first is the value to initiate the aggregation
 process with. The second is a function argument which takes the current aggregate value (or the initial value) and a single value from the RDD and then computes the new value of the aggregate. For each key,
-this function is called for every value within a computation node to compute the aggregate value. If a key is split across multiple nodes then this aggregate is passed to the final parameter. This is a function
-argument which takes two aggregate value and merges them. This will be called repeatedly until a final single aggregate for the key is computed. This final function will not be called for a key, if all of it's
+this function is called for every value within a computation node to compute the aggregate value. If a key is split across multiple nodes, then this aggregate is passed to the final parameter. This is a function
+argument which takes two aggregate value and merges them. This will be called repeatedly until a final single aggregate for the key is computed. This final function will not be called for a key, if all of its
 values are within a single node.
 
 <img src="{{ site.github.url }}/jdunkerley/assets/spark_aggregateByKey.jpg" alt="Aggregate by key process" style="display: block; margin: auto;"/>
@@ -231,8 +231,8 @@ stats = data.aggregateByKey(initialAggregate, addValue, mergeAggregates)\
 If you would rather use a Python class for this, there is a limitation that the PySpark cannot `pickle` a class in the main script file. If you place the implementation in a separate module, then you will be able
 to use it. While this is quite straight forward as a Spark Job, it is a restriction to work around within the REPL environment.
 
-The final statistic I want to compute, is the median. While for very large datasets we wont be able to use a straight forward approach, the price paid data is small enough to use a simple `groupByKey` method.
-This method groups together all the values for a key into an array. We can then use the `map` function on the array to compute the median. The limitation of this approach is that it is possible you wont be able
+The final statistic I want to compute, is the median. While for very large datasets, we won't be able to use a straight forward approach, the price paid data is small enough to use a simple `groupByKey` method.
+This method groups together all the values for a key into an array. We can then use the `map` function on the array to compute the median. The limitation of this approach is that it is possible you won't be able
 to store all the values for a key in a single node in which case an out of memory exception will occur. It also requires a large amount of data being moved between the nodes. However, for this simple case the code
 looks like:
 
@@ -243,8 +243,8 @@ medians = data.groupByKey()\
 ~~~
 
 We now have all the statistics needed. The last task is to join it all back together and output the results. The `join` command easily allows us to join the median to the other statistics. In order to write it
-out to a csv file, we need to join the partitions back together. We can use the `repartition` function to either increase or decrease the number of partitions. In this case I want to reduce to a single partition.
-The code below adds a header row, creates an array of values from the statistics and converts to a comma separated string, and finally writes to a csv file within the specified folder (`saveAsTextFile`):
+out to a CSV file, we need to join the partitions back together. We can use the `repartition` function to either increase or decrease the number of partitions. In this case I want to reduce to a single partition.
+The code below adds a header row, creates an array of values from the statistics and converts to a comma separated string, and finally writes to a CSV file within the specified folder (`saveAsTextFile`):
 
 ~~~ python
 import copy
