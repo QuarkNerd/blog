@@ -1,7 +1,7 @@
 ---
 author: jdunkerley
 title: Unaffordable Country In Apache Spark
-summary: "Recreating the data used for the Guardian's Unafforable Country visualisation in Apache Spark."
+summary: "Recreating the data used for the Guardian's Unaffordable Country visualisation in Apache Spark."
 layout: default_post
 categories:
   - Apache Spark
