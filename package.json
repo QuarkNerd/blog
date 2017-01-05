@@ -21,7 +21,7 @@
   "scripts": {
     "test": "mdspell \"*/_posts/**/*.md\" --en-gb --ignore-acronyms --ignore-numbers -r -x",
     "style": "node-sass --omit-source-map-url --include-path=node_modules/bootstrap/scss/ --output-style=compressed scss/style.scss style.css",
-    "scripts": "uglifyjs scripts/jquery-1.9.1.js scripts/jquery.jscroll-2.2.4.js scripts/disqus-comment-count.js scripts/tweet.js scripts/search.js -o script.js"
+    "scripts": "uglifyjs scripts/jquery-1.9.1.js scripts/jquery.jscroll-2.2.4.js scripts/disqus-comment-count.js scripts/elapsed.js scripts/tweet.js scripts/search.js -o script.js"
   },
   "homepage": "http://blog.scottlogic.com",
   "private": true

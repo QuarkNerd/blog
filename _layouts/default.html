@@ -72,11 +72,11 @@ jQuery('.content').jscroll({
   callback: function() {
     loadCommentCount();
     loadTweetCount();
+    makeTimestampsRelative();
   }
 });
 </script>
 {% endif %}
-
 {% if site.github.owner_name == 'ScottLogic' %}
 {% include remarketing.html %}
 {% endif %}
