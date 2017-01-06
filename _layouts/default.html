@@ -5,32 +5,37 @@
     <title>{% if page.title %}{{ page.title }}{% else %}Scott Logic{% endif %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="alternate" type="application/atom+xml" href="{{ site.canonical.url }}/atom.xml" title="Scott Logic Blog">
-
     <link rel="canonical" href="{{ site.canonical.url }}{{ page.url | replace:'index.html',''}}">
-    {% if site.github.owner_name != 'ScottLogic' %}
-    <meta name="robots" content="noindex, nofollow">
-    {% endif %}
-
+    {% if site.github.owner_name != 'ScottLogic' %}<meta name="robots" content="noindex, nofollow">{% endif %}
     <script type="text/javascript" src="//use.typekit.net/fbo8hfs.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
-    {% comment %} Twitter meta data. API ref: https://dev.twitter.com/cards/types/summary-large-image {% endcomment%}
-    <meta name="twitter:card" content="{% if page.image %}summary_large_image{% else %}summary{% endif %}"/>
-    <meta name="twitter:site" content="@{{ site.twitter_handle }}"/>
-    {% if page.author-twitter-handle %}<meta name="twitter:creator" content="@{{ page.author-twitter-handle }}"/>{% endif %}
-    <meta name="twitter:title" content="{{ page.title }}"/>
-    <meta name="twitter:description" content="{{ page.summary }}"/>
-    <meta name="twitter:image:src" content="{{ site.canonical.url }}/{% if page.image %}{{ page.image }}{% else %}assets/sl-dark.png{% endif %}"/>
+    {% assign author      = site.data.authors.authors[page.author] %}
+    {% assign pageImgUrl  = site.canonical.url | append: '/' | append: page.image %}
+    {% assign gravatarUrl = 'http://www.gravatar.com/avatar/' | append: author.gravatar | append: '?s=200' %}
+    {% assign slLogUrl    = site.canonical.url | append: '/assets/sl-dark.png' %}
+    {% assign twitterHandleSize = author.twitter-url | size %}
+    {% assign twitterHandle     = author.twitter-url | slice: 20, twitterHandleSize | strip %}
 
+    {% capture ogImage %}{% if page.image %}{{ pageImgUrl }}{% else %}{% if author.gravatar %}{{ gravatarUrl }}{% else %}{{ slLogUrl }}{% endif %}{% endif %}{% endcapture %}
+    {% capture ogDescription %}{% if page.summary %}{{ author.name }}: {{ page.summary }}{% else %}{{ author.name }}: {{ page.content | truncatewords: 15 | strip_html }}{% endif %}{% endcapture %}
+    {% capture twitterCard %}{% if page.image %}summary_large_image{% else %}summary{% endif %}{% endcapture %}
+    {% capture twitterCreator %}{% if author.twitter-url %}{{ twitterHandle }}{% else %}{{ site.twitter_handle }}{% endif %}{% endcapture %}
+
+    {% comment %} OpenGraph MetaData - Twitter / Facebook {% endcomment%}
     <meta property="og:title" content="{{ page.title }}" />
+    <meta property="og:description"content="{{ ogDescription }}"/>
+    <meta property="og:image" content="{{ ogImage }}"/>
     <meta property="og:type" content="article" />
-    <meta property="og:image" content="{{ site.canonical.url }}/{% if page.image %}{{ page.image }}{% else %}assets/sl-dark.png{% endif %}" />
     <meta property="og:site_name" content="{{ site.name }}"/>
     <meta property="og:url" content="{{ site.canonical.url }}{{ page.url }}" />
-    <meta property="og:description" content="{{ page.summary }}" />
+
+    {% comment %} Twitter {% endcomment%}
+    <meta name="twitter:card" content="{{ twitterCard }}"/>
+    <meta name="twitter:site" content="@{{ site.twitter_handle }}"/>
+    <meta name="twitter:creator" content="@{{ twitterCreator }}"/>
 
     <link rel="stylesheet" href="{{ site.github.url | remove_first: 'http:' }}/style.css" type="text/css">
-
     <link rel="icon" type="image/png" href="http://9hjqf9qs4q37zvw724c9urzc.wpengine.netdna-cdn.com/wp-content/themes/scott-logic/_img/favicon.png" />
 
     {% comment %} Only load analytics when on the main repo; it will fail to load on the forks {% endcomment %}
