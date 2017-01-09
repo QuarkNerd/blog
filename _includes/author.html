@@ -16,9 +16,9 @@
     {% endif %}
     {% if  author.twitter-url %}
         {% assign twitter-url-split = "author.twitter-url | split: '/' %}
-        <a class="highlight" rel="author" href="{{ author.twitter-url}}">@{{ twitter-url-split[3] }}</a>
+        <a class="authorSocialMediaLink highlight" rel="author" href="{{ author.twitter-url}}">@{{ twitter-url-split[3] }}</a>
     {% endif %}
     {% if author.google-plus-url %}
-        <a class="highlight" rel="author" href="{{ author.google-plus-url}}">Google+</a>
+        <a class="authorSocialMediaLink highlight" rel="author" href="{{ author.google-plus-url}}">Google+</a>
     {% endif %}
 </div>
