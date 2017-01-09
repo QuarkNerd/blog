@@ -15,6 +15,9 @@ function loadTweetCount() {
                         .find(".count")
                         .html(data.count);
                 }
+                else {
+                  elem.css("display", "none");
+                }
             });
         }
     });
