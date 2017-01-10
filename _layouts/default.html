@@ -18,7 +18,7 @@
     {% assign twitterHandle     = author.twitter-url | slice: 20, twitterHandleSize | strip %}
 
     {% capture ogImage %}{% if page.image %}{{ pageImgUrl }}{% else %}{% if author.gravatar %}{{ gravatarUrl }}{% else %}{{ slLogUrl }}{% endif %}{% endif %}{% endcapture %}
-    {% capture ogDescription %}{% if page.summary %}{{ author.name }}: {{ page.summary }}{% else %}{{ author.name }}: {{ page.content | truncatewords: 15 | strip_html }}{% endif %}{% endcapture %}
+    {% capture ogDescription %}{% if page.summary %}{{ author.name }}: {{ page.summary }}{% else %}{{ author.name }}: {{ page.content | strip_html | truncatewords: 15 }}{% endif %}{% endcapture %}
     {% capture twitterCard %}{% if page.image %}summary_large_image{% else %}summary{% endif %}{% endcapture %}
     {% capture twitterCreator %}{% if author.twitter-url %}{{ twitterHandle }}{% else %}{{ site.twitter_handle }}{% endif %}{% endcapture %}
 
