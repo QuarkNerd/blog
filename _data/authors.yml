@@ -63,7 +63,6 @@ authors:
         name: Andrew Jones
         email: amjones@scottlogic.com
         gravatar: 0cb5f9b7baa70d7a5bb09f9a772e0f64
-        author-image: /amjones/assets/mug.jpg
         author-summary: <p>Last miner in the North East.</p>
     asheehan:
         name: Ali Sheehan-Dare
@@ -71,7 +70,6 @@ authors:
         gravatar: 1e370c1ed31f9721f88e5584f20b3784
         twitter-url: https://twitter.com/im_alisd
         author-summary: <p>I'm Ali, and I'm new here</p>
-        author-image: /asheehan/assets/profile.jpg
         feed-description: Ali's thoughts on life and technology
     ceberhardt:
         name: Colin Eberhardt
@@ -80,13 +78,11 @@ authors:
         feed-description: Colin Eberhardt's Technology Adventures
         twitter-url: https://twitter.com/ColinEberhardt
         author-summary: <p>I am Technology Director at Scott Logic and am a prolific technical author, blogger and speaker on a range of technologies. For a number of years I worked with the Microsoft stack of technologies, including WPF, WCF, Silverlight and Windows Phone. More recently I have diversified to include HTML5, JavaScript and iOS development.</p>
-        author-image: /ceberhardt/assets/mugshot.jpg
     cprice:
         name: Chris Price
         email: cprice@scottlogic.com
         gravatar: b6fe36176ec7c9475374a5cd3b7bef1a
         twitter-url: https://twitter.com/100pxls
-        author-image: /cprice/assets/mugshot.jpg
         author-summary: <p>My name is Chris Price, I'm based in Newcastle upon Tyne and work as a Software Engineer at Scott Logic. I spend my days developing desktop/tablet/mobile web apps for financial services companies (unfortunately mostly hidden behind paywalls). I do like to blog about things when I can and do some interesting stuff on <a href="https://github.com/chrisprice">GitHub</a>.</p>
     lpage:
         name: Luke Page
@@ -130,7 +126,6 @@ authors:
         twitter-url: https://twitter.com/g_odds
         google-plus-url: https://plus.google.com/u/0/106838695703708413394
         feed-description: Graham Odds' thoughts about design, technology and data visualisation.
-        author-image: /godds/assets/mugshot.jpg
         author-summary: <p>I'm a designer working on complex systems across desktop, web and mobile.  As Head of User Experience at Scott Logic, I work primarily with financial services and energy trading institutions, creating everything from direct-to-consumer investment applications to research, trading and analysis tools. I delight in pushing at what is possible to discover beautiful, effective solutions to problems.</p>
     isullivan:
         name: Ian Sullivan
@@ -153,7 +148,6 @@ authors:
         gravatar: d4534a4d64ddf89c318221d9f0e766da
         author-summary: <p>Frequently found developing Android applications, playing with web technologies and musing about patterns and process.</p>
         feed-description: Sam Hogarth is a developer working primarily with web technologies, with a side-interest in Android development.
-        author-image: /shogarth/assets/shogarth.jpg
         author-summary: <p>I am a developer at Scott Logic, working primarily with HTML5 web technologies. Previously, I've developed for ShinobiControls for Android and I maintain an interest in Android development.</p>
     nwolverson:
         name: Nicholas Wolverson
@@ -170,7 +164,6 @@ authors:
         name: Dean Kerr
         email: dkerr@scottlogic.com
         gravatar: ae2614d4e0902adb7844ecec868ef5ee
-        author-image: /dkerr/assets/mugshot.jpg
         author-summary: <p>I'm a full-stack web developer, with an interest in anything and everything that's new in web technology!</p>
     sduncan:
         name: Simon Duncan
@@ -185,7 +178,6 @@ authors:
         gravatar: b2e17d98db06119a53fffd5666848871
         twitter-url: https://twitter.com/_rwms
         google-plus-url: https://plus.google.com/u/0/111956836520400525467
-        author-image: /rwilliams/assets/rwilliams.jpg
         author-summary: <p>I work building web applications for our clients at Scott Logic. I mainly work with HTML5/JavaScript front end technologies, and Java.</p>
     amorgan:
         name: Adam Morgan
@@ -208,7 +200,6 @@ authors:
         twitter-url: https://twitter.com/demcnamee
         google-plus-url: https://www.google.com/+DanielMcNamee
         feed-description: Daniel is a senior test engineer and exponent of rapid software testing.
-        author-image: /dmcnamee/assets/2011.jpg
         author-summary: <p>I test stuff. I like to find where the lovely applications that our wonderful developers have toiled over are broken. And tell them about it.</p>
     dgorst:
         name: Dan Gorst
@@ -267,7 +258,6 @@ authors:
         name: Mark Jose
         email: mjose@scottlogic.com
         gravatar: 6113027b6f67ad9f5f50a90f1481c0ed
-        author-image: /mjose/assets/profile.jpg
         author-summary: <p>I'm a lead developer at Scott Logic, working with HTML5 web technologies and C# / .NET development.</p><p>When I'm not coding you'll normally find me tinkering with cars or at the race track, but coding is a less expensive pass time.</p><p>I also contribute to a <a href="https://github.com/tunerscafe">few open source projects</a>.</p>
     tkelly:
         name: Thomas Kelly
@@ -290,7 +280,6 @@ authors:
         google-plus-url: https://plus.google.com/+SamDavies_ActuallyMyRealName
         author-summary: |
             <p>Having escaped first from academia, and then the public sector, Sam is very happy to be working in the software industry. His role as Technical Evangelist at <a href="http://shinobicontrols.com/">shinobicontrols</a> involves a huge amount of writing, speaking at conferences and catching up with customers. His specialism is in mobile, but he has wide ranging experience, and a passion for the emerging "Internet of Things".</p><p>He is a member of the <a href="http://www.raywenderlich.com/u/samdavies">Ray Wenderlich tutorial team</a> and in addition to writing tutorials for the site, he was a lead author on the <a href="http://www.raywenderlich.com/store/swift-tutorials-bundle?source=barbararussell">iOS 8 by Tutorials</a> book, as well as a speaker at RWDevCon 2015. He blogs prolifically on the <a href="http://www.shinobicontrols.com/blog?author=sdavies">shinobicontrols</a> site, as well as writing articles for other sites such as <a href="http://www.objc.io">objc.io</a>.</p><p>Sam has also written a selection of free e-books about mobile development over recent years, including the very popular <a href="https://leanpub.com/ios7daybyday">iOS 7: Day-by-Day</a>, <a href="http://www.shinobicontrols.com/ios8">iOS 8: Day-by-Day</a> and <a href="https://leanpub.com/bitesizekitkat">Bitesize Android KitKat</a>.</p>
-        author-image: /sdavies/assets/sdavies.jpg
     wloveland:
         name: Will Loveland
         email: wloveland@scottlogic.com
@@ -328,7 +317,6 @@ authors:
         gravatar: 3353c71097ec03a671be49239d8c9574
         twitter-url: https://twitter.com/Rosicadia
         feed-description: A collection of Rosie Hamilton's thoughts on software testing.
-        author-image: /rhamilton/assets/thisisme.jpg
         author-summary: <p>I have been happily testing software and reporting bugs since 2005. I am the Author of <a href="http://testingfuntime.blogspot.co.uk/"> Mega Ultra Super Happy Software Testing Fun Time</a>. As well as writing I enjoy playing violin, playing PC games, going to the gym and pushing <a href="https://golang.org/">Golang</a> and <a href="https://www.r-project.org/about.html">R</a> to <a href="https://github.com/Rosalita">Github</a>. I currently work at Scott Logic as a Senior Test Engineer.</p>
     hpretswell:
         name: Hannah Pretswell
@@ -336,7 +324,6 @@ authors:
         gravatar: 085198904ae587a1d2c5995fa9477129
         twitter-url: https://twitter.com/TheHannimator
         feed-description: Bits and bobs on software testing
-        author-image: /hpretswell/assets/me.jpg
         author-summary: <p>I work as a Test Engineer with a rather odd background in animation. When I'm not bug hunting I like to read, play piano and partake in local theatre productions.</p>
     wferguson:
         name: William Ferguson
@@ -347,13 +334,11 @@ authors:
         name: Bogdan Dimitrov
         email: bdimitrov@scottlogic.com
         gravatar: 94ea0f85d46b48edd725e5c6b7b60d62
-        author-image: /bdimitrov-SL/assets/profile.jpg
         author-summary: <p>I am a Software Developer at Scott Logic working with .NET and HTML5 web technologies.</p>
     mtinning:
         name: Michael Tinning
         email: mtinning@scottlogic.com
         author-summary: <p>I am a Senior Software Developer at Scott Logic, specialising in .NET technologies but excitable about many more. I am also involved in the organisation of <a href="http://www.meetup.com/bristech/">BrisTech</a>, a vibrant community of technology enthusiasts in Bristol and the South West.</p>
-        author-image: /mtinning/assets/profile.jpg
         twitter-url: https://twitter.com/mttinning
         gravatar: c0800747d0696e49dc753be3c345f049
     bjedrzejewski:
@@ -365,14 +350,12 @@ authors:
         name: David Wybourn
         email: dwybourn@scottlogic.com
         author-summary: <p>I am a software developer at Scott Logic, my experience is in back end server software in C/C++ and Java, however I'm continuously learning new higher level and specilist languages such as Groovy, Scala, Python, Go, etc.</p>
-        author-image: /dwybourn/assets/profile.jpg
         gravatar: ebdfd47c91385d9c1d45995d06f5cc0b
     nsoper:
         name: Nick Soper
         email: nsoper@scottlogic.com
         author-summary: <p>I am a Senior Software Developer at Scott Logic. I have many years C# experience but recently I've been writing a lot of JavaScript. I am interested in functional programming and would love to get stuck into some client work using F# one day. I also enjoy music (metal and jazz), reading and cats.</p>
         gravatar: 5aaeb8af94f81312997215b90cd6d1af
-        author-image: /nsoper/assets/nsoper.jpg
         twitter-url: https://twitter.com/devsoper
     csmith:
         name: Chris Smith
@@ -384,7 +367,6 @@ authors:
         name: Robin Sillem
         email: rsillem@scottlogic.com
         gravatar: 858e2c9ef66e0f7850a7ea8505f76084
-        author-image: /rsillem/assets/profile.jpg
         author-summary: <p>I am a Lead Developer at Scott Logic.</p>
     dtheasby:
         name: Drew Theasby
@@ -412,7 +394,6 @@ authors:
         name: Rhianna Rahim
         email: rrahim@scottlogic.co.uk
         gravatar: 3eea110c82f1934eb984d56fa4d45517
-        author-image: /rrahim/assets/profile.jpg
         author-summary: <p>I am a UX Designer at Scott Logic. My background is in Product Design and I studied at Brunel University for 4 years. I have designed apps for mobile, desktop, tablet, web and service robot. I enjoy the research side of user experience, as I am always interested in learning about new technologies and design principles.</p>
     jfriel:
         name: James Friel
