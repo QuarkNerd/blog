@@ -4,9 +4,22 @@
 {% assign postDetailLimit = include.postDetailLimit %}
 {% assign posts = include.posts %}
 
-{% for post in posts %}
-    {% if  forloop.index > postDetailLimit  %}
-        {% assign showPostSummary = false %}
-    {% endif %}
-    {% include post_summary.html showPostSummary=showPostSummary includeSocialLinks=includeSocialLinks showAuthorInfo=showAuthorInfo post=post %}
-{% endfor %}
+{% if include.contributorFilter %}
+    {% assign author = include.contributorFilter %}
+    {% assign authorId = author.email | split: '@' | first %}
+    {% for post in posts %}
+        {% if post.author == authorId or post.contributors contains authorId %}
+            {% if forloop.index > postDetailLimit %}
+                {% assign showPostSummary = false %}
+            {% endif %}
+            {% include post_summary.html showPostSummary=showPostSummary includeSocialLinks=includeSocialLinks showAuthorInfo=showAuthorInfo post=post %}
+        {% endif %}
+    {% endfor %}
+{% else %}
+    {% for post in posts %}
+        {% if  forloop.index > postDetailLimit  %}
+            {% assign showPostSummary = false %}
+        {% endif %}
+        {% include post_summary.html showPostSummary=showPostSummary includeSocialLinks=includeSocialLinks showAuthorInfo=showAuthorInfo post=post %}
+    {% endfor %}
+{% endif %}

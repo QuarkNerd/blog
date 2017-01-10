@@ -1,4 +1,5 @@
 {% assign author = include.author %}
+{% assign contributorId = include.contributorId %}
 {% assign suppressSummary = include.suppressSummary %}
 {% assign suppressName = include.suppressName %}
 
@@ -9,7 +10,7 @@
         <img src="{{ site.github.url }}/assets/avatar.png" alt="{{ author.name }}"/>
     {% endif %}
     {% if suppressName != true %}
-    <a class="authorName highlight" rel="author" href="{{ site.github.url }}/{{ page.author }}">{{ author.name }}</a>
+    <a class="authorName highlight" rel="author" href="{{ site.github.url }}/{{ contributorId }}">{{ author.name }}</a>
     {% endif %}
     {% if author.author-summary and suppressSummary != true %}
         <div class="authorSummary">{{ author.author-summary }}</div>

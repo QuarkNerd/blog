@@ -2,6 +2,7 @@
 layout: default
 ---
 {% assign author = site.data.authors.authors[page.author] %}
+{% assign contributors = page.contributors %}
 <article class="container">
   <div class="row">
     <aside class="col-md-2 hidden-sm-down">
@@ -27,6 +28,12 @@ layout: default
       <div class="hidden-md-down">
         {% include author.html author=author %}
       </div>
+      {% for contributorId in contributors %}
+        {% assign contributor = site.data.authors.authors[contributorId] %}
+        <div class="hidden-md-down">
+          {% include author.html author=contributor contributorId=contributorId %}
+        </div>
+      {% endfor%}
     </aside>
   </div>
 </article>
