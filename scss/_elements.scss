@@ -24,6 +24,12 @@ p {
 a {
   text-decoration: none;
   font-size: inherit;
+  &:focus {
+    outline:none;
+  }
+  &::-moz-focus-inner {
+    border:0;
+  }
 }
 
 sup {
