@@ -16,7 +16,7 @@ disqus-id: /2015/01/20/typescript-compiler-api.html
 <script src="{{ site.github.url }}/nwolverson/assets/tsc/highlight.pack.js"> </script>
 
 <style type="text/css">
-    @import url("http://www.fssnip.net/Content/style.css");
+    @import url("{{ site.github.url }}/nwolverson/assets/tsc/snippets.css");
     @import url("{{ site.github.url }}/nwolverson/assets/tsc/vs.css");
     @import url("{{ site.github.url }}/nwolverson/assets/tsc/tsblog.css");
     <!-- -->
@@ -26,14 +26,11 @@ disqus-id: /2015/01/20/typescript-compiler-api.html
     hljs.initHighlightingOnLoad();
     <!-- -->
 </script>
-<script src="http://www.fssnip.net/Content/tips.js">
+<script src="{{ site.github.url }}/nwolverson/assets/tsc/tips.js">
 <!-- maruku :( -->
 </script>
 <script src="{{ site.github.url }}/nwolverson/assets/tsc/typescriptServices.js">
 <!-- maruku :( -->
-</script>
-<script src="{{ site.github.url }}/scripts/jquery-1.9.1.js">
-<!-- not loaded (yet)? -->
 </script>
 <script src="{{ site.github.url }}/nwolverson/assets/tsc/blog.js">
 <!-- maruku :( -->
@@ -120,7 +117,7 @@ The Language Service API is a wrapper on top of the TypeScript compiler APIs int
         getSourceFile(filename: string): SourceFile;
         dispose(): void;
     }
-    
+
 As can be seen there are many methods centered around giving information at a particular source code location, e.g. for completion, navigation, "quick info", as
 well as for generating the compiled output, getting diagnostics, etc. So how do we get hold of a `LanguageService` instance? The interface between the language service and the environment is defined by the `LanguageServiceHost` API as below:
 
@@ -179,7 +176,7 @@ We can implement this to feed in source text directly for analysis. The host API
             }
         }
     }
-    
+
 We can then make use of this to make some simple analyses. Omitting the code to load `lib.d.ts` as required reference, here is what is required to get the actual compiler output:
 
     var host = new MyLanguageServiceHost();
@@ -196,12 +193,12 @@ Demo (feel free to edit - but note there's no error checking, code may be emitte
         <button>Translate</button>
         <pre></pre>
 </div>
-    
+
 Or to get matching brace position:
-    
+
     var braces = languageService.getBraceMatchingAtPosition("script.ts", text.indexOf("{"));
     var matchingPos = braces[1].start;
-    
+
 Demo (Move cursor to the left of brackets to show matching pairs):
 
 <div id="ex2">
@@ -212,21 +209,21 @@ function test() {
 }
 </textarea>
 </div>
-    
+
 Or "quick info", ie tooltip info about an identifier. Unfortunately this is rather pre-processed and textual in nature:
 
     var info = languageService.getQuickInfoAtPosition("script.ts", 10);
     var text = info.displayParts.map(x =>x.text).join("");
-    
+
 Demo:
-    
+
 <div id="ex3">
     <textarea rows="5" cols="80">var x = [1].map(z => [z, z])</textarea>
     <label>Identifier name: <input type="text" id="identifiername" value="x"/></label>
     <button>Show info</button>
     <pre></pre>
 </div>
-    
+
 #### Compiler API
 
 Rather than using the language service layer we can use the compiler API a little more directly. The host interface we have to implement is `CompilerHost`:
@@ -241,7 +238,7 @@ Rather than using the language service layer we can use the compiler API a littl
         useCaseSensitiveFileNames(): boolean;
         getNewLine(): string;
     }
-    
+
 This is even easier for us than the above, as it shares a number of members but others can be omitted. Extending the class we defined above to do both, we have:
 
     class MyCompilerHost extends MyLanguageServiceHost implements ts.CompilerHost {
@@ -257,7 +254,7 @@ This is even easier for us than the above, as it shares a number of members but 
         useCaseSensitiveFileNames = () => true;
         getNewLine = () => "\n";
     }
-    
+
 Having done that, we create a `Program` instance and obtain a `TypeChecker`:
 
     var program = ts.createProgram([scriptName], host.getCompilationSettings(), host);
@@ -267,7 +264,7 @@ This lets us easily get the types of a program's declarations:
 
     var decls = sf.getNamedDeclarations().map(nd => nd.symbol.name + ": " +
         typeChecker.typeToString(typeChecker.getTypeAtLocation(nd)));
-        
+
 Demo:
 
 <div id="ex4">
@@ -279,7 +276,7 @@ Demo:
     <button>Show Declarations</button>
     <pre></pre>
 </div>
-        
+
 How about all identifiers? Well there's no dedicated way to do this, what we can do is iterate over the tree. The tree `Node` interface
 is perhaps a little awkward for this, the compiler provides us a utility function `ts.forEachChild`. Here we do a quick and dirty accumulation
 of all nodes:
@@ -292,12 +289,12 @@ of all nodes:
     allNodes(sf);
     return nodes;
 }</code></pre>
-    
+
 Then fetch identifier nodes and again get their types:
 
     var idNodes = getNodes(sf).filter(n => n.kind === ts.SyntaxKind.Identifier);
-    var typed = idNodes.map(n => (<ts.Identifier>n).text + ": " + typeChecker.getTypeAtLocation(n)); 
-    
+    var typed = idNodes.map(n => (<ts.Identifier>n).text + ": " + typeChecker.getTypeAtLocation(n));
+
 Demo:
 
 <div id="ex5">
@@ -313,28 +310,5 @@ Demo:
 I've enjoyed integrating with the TypeScript compiler/language services, and the API seems to be improving from when I first looked at it. I hope there is
 a little useful information here to get you started, or perhaps provide a little inspiration to have a go.
 
-After I started writing this post, an example was posted of using the Language Service to [reformat TypeScript code](http://blog.ctaggart.com/2015/01/format-typescript-with-v14-language.html), it can be seen that the in-memory language service there turns out very similar to mine (i.e. do as little as possible). 
+After I started writing this post, an example was posted of using the Language Service to [reformat TypeScript code](http://blog.ctaggart.com/2015/01/format-typescript-with-v14-language.html), it can be seen that the in-memory language service there turns out very similar to mine (i.e. do as little as possible).
 [TypeScript official API docs](https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API) are also a useful reference.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
