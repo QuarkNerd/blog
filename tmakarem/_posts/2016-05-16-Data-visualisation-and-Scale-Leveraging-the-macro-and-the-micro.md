@@ -4,6 +4,8 @@ title: "Data Visualisation and Scale: Leveraging the Macro and the Micro"
 layout: default_post
 categories:
   - UX
+tags:
+- UX
 summary: "The size of things is relative to the scale that we set. This might sound like a trivial notion, but it is key to creating meaningful data visualisations."
 ---
 The size of things is relative to the scale that we set. This might sound like a trivial notion, but it is key to creating meaningful data visualisations.

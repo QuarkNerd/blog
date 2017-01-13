@@ -666,6 +666,7 @@ Evan
 Sugrue
 Zach
 Powderly
+HEAD
 reusability
 nginx
 iMessage
@@ -708,6 +709,9 @@ unscored
 Scottcoin
 blockchain
 semver
+ScottLogic/gh-pages
+playfield
+designkit
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
 line.y
