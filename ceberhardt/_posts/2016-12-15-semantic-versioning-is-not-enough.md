@@ -4,6 +4,9 @@ title: Semantic Versioning is not enough
 layout: default_post
 categories:
   - HTML5
+image: ceberhardt/assets/featured/semantic.png
+tags:
+  - featured
 ---
 
 
