@@ -10,9 +10,6 @@ tags:
   - trading
   - foreign currency exchange
   - heuristics
-
-
-
 categories:
   - Test
 layout: default_post
@@ -47,6 +44,12 @@ I was very fortunate on my project that I was able to implement testing with agi
 
 Given the high level of exploratory testing I was able to do on my project, I generated a lot of ideas and identified some high risk areas and common mistakes. I have decided to put together a heuristic testing cheat sheet for anyone carrying out exploratory testing of trading software.
 
-[My testing FX trading heuristic testing cheat sheet can be found here](https://raw.githubusercontent.com/Rosalita/mushstft/master/FxTrade.png). I wanted to combine my knowledge of trading with some of the ideas I generated. On the sheet my ideas are written around the knowledge in magenta coloured boxes. I hope this may be useful to anyone working on trading software.
+The following is a low resolution thumbnail, click to expand, or <a href="{{ site.github.url }}/rhamilton/assets/cheat-sheet/trading-heuristic-testing-cheat-sheet.png">download directly from this link</a>.
+
+<a href="{{ site.github.url }}/rhamilton/assets/cheat-sheet/trading-heuristic-testing-cheat-sheet.png">
+  <img src="{{ site.github.url }}/rhamilton/assets/cheat-sheet/trading-heuristic-testing-cheat-sheet-small.jpg" alt="Foreign Currency Trading Heuristic Testing Cheat Sheet" title="Foreign Currency Trading Heuristic Testing Cheat Sheet"/>
+</a>
+
+I wanted to combine my knowledge of trading with some of the ideas I generated. On the sheet my ideas are written around the knowledge in magenta coloured boxes. I hope this may be useful to anyone working on trading software.
 
 This post was also published on my software testing blog [Mega Ultra Super Happy Software Testing Fun time](http://testingfuntime.blogspot.co.uk/).
