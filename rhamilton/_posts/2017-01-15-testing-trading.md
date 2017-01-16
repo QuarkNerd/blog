@@ -14,7 +14,7 @@ tags:
 categories:
   - Test
 layout: default_post
-image: rhamilton/assets/featured/fx-cheat-sheet.png
+image: rhamilton/assets/featured/fx-cheat-sheet.jpg
 
 ---
 

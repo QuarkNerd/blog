@@ -5,6 +5,9 @@ title: "Creating a Simple Particle Simulation with Go"
 categories:
   - Go
 summary: "In this post, I take a look at writing a simple particle simulation as a way of learning some of the basics of the Go language."
+image: wferguson/assets/featured/particles.png
+tags:
+  - featured
 ---
 
 I've been looking at Go with some interest for a period of time, and of particular interest was how easy it was to parallelise computations. As a way to try to learn some of the key concepts behind the language, I tried to make a particle simulation. This simulation was pretty simple: there's a bunch of particles bouncing around in a box, being influenced by gravity.
