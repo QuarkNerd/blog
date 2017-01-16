@@ -9,6 +9,7 @@
     {% if site.github.owner_name != 'ScottLogic' %}<meta name="robots" content="noindex, nofollow">{% endif %}
     <script type="text/javascript" src="//use.typekit.net/fbo8hfs.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <script type="text/javascript">siteGithubOwnerName = '{{ site.github.owner_name }}'</script>
 
     {% assign author      = site.data.authors.authors[page.author] %}
     {% assign pageImgUrl  = site.canonical.url | append: '/' | append: page.image %}
@@ -75,7 +76,9 @@ jQuery('.content').jscroll({
   nextSelector: '.next',
   loadingHtml: '<div id="loadingSpinner"><div class="f_circleG" id="frotateG_01"></div><div class="f_circleG" id="frotateG_02"></div><div class="f_circleG" id="frotateG_03"></div><div class="f_circleG" id="frotateG_04"></div><div class="f_circleG" id="frotateG_05"></div><div class="f_circleG" id="frotateG_06"></div><div class="f_circleG" id="frotateG_07"></div><div class="f_circleG" id="frotateG_08"></div></div>',
   callback: function() {
-    loadCommentCount();
+    {% if site.github.owner_name == 'ScottLogic' %}
+      loadCommentCount();
+    {% endif %}
     loadTweetCount();
     makeTimestampsRelative();
   }

@@ -32,4 +32,6 @@ function loadCommentCount() {
     });
   }
 };
-loadCommentCount();
+if(siteGithubOwnerName == 'ScottLogic') {
+  loadCommentCount();
+}
