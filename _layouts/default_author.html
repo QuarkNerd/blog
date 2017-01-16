@@ -11,14 +11,14 @@ layout: default
     <div class="col-xs-12 align-center">
       {% include author.html author=author suppressSummary=true suppressName=true %}
     </div>
-    {% capture author_summary %}{{ site.data.authors.authors[page.author].author-summary }}{% endcapture %}
+    {% capture author_summary %}{{ author.author-summary }}{% endcapture %}
     <div class="col-xs-12 col-sm-8 col-sm-offset-2">
       <p>{{ author_summary }}</p>
     </div>
   </div>
 </section>
 
-{% assign featuredPosts = site.tags.featured | where:"author",page.author %}
+{% assign featuredPosts = site.tags.featured | where:"author", page.author %}
 {% include featured.html featuredPosts=featuredPosts %}
 
 <section class="container">
@@ -26,7 +26,7 @@ layout: default
     <h2 class="col-xs-12 col-sm-8 col-sm-offset-2">Articles</h2>
     <div class="col-xs-12 col-sm-8 col-sm-offset-2">
       {% assign posts = site.posts %}
-      {% include post_list.html showPostSummary=true showAuthorInfo=false posts=posts postDetailLimit=20 contributorFilter=author %}
+      {% include post_list.html showPostSummary=true showAuthorInfo=false posts=posts postDetailLimit=20 contributorFilter=page.author %}
     </div>
   </div>
 </section>

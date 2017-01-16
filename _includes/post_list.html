@@ -5,8 +5,7 @@
 {% assign posts = include.posts %}
 
 {% if include.contributorFilter %}
-    {% assign author = include.contributorFilter %}
-    {% assign authorId = author.email | split: '@' | first %}
+    {% assign authorId = include.contributorFilter %}
     {% assign i = 0 %}
     {% for post in posts %}
         {% if post.author == authorId or post.contributors contains authorId %}
