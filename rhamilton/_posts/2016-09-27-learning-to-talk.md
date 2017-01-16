@@ -3,7 +3,7 @@ author: rhamilton
 title: Learning to talk - Finding your voice and telling a story
 title-short: Learning to talk - Finding your voice and telling a story
 summary: "Having never given a technical talk before, I agreed to speak in public then found myself figuring out how I was going to do this."
-image: rhamilton/assets/featured/parrot.png
+image: rhamilton/assets/featured/parrot.jpg
 tags:
   - software testing
   - tech talk
@@ -14,7 +14,7 @@ categories:
 layout: default_post
 ---
 
-<img src="{{ site.github.url }}/rhamilton/assets/parrot.png" alt="title image" title="title image"/>
+<img src="{{ site.github.url }}/rhamilton/assets/parrot.jpg" alt="title image" title="title image"/>
 
 At the start of August I attended North East Agile Testing (NEAT) meet up at [Campus North](http://campusnorth.co.uk/events/) in Newcastle. While I feel I am active within the software testing community (through Slack, Twitter, blogging etc.) this was actually the first time I had ever attended a face to face testing event. While at NEAT I found it easy to express my views about testing (possibly helped by the free beer) and tried to share my experience by answering some of the questions which were being asked.
 

@@ -10,9 +10,12 @@ tags:
   - trading
   - foreign currency exchange
   - heuristics
+  - featured
 categories:
   - Test
 layout: default_post
+image: rhamilton/assets/featured/fx-cheat-sheet.png
+
 ---
 
 <img src="{{ site.github.url }}/rhamilton/assets/currency.jpg" alt="title image" title="title image"/>
