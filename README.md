@@ -205,11 +205,19 @@ Follow the [instructions above](#getting-a-local-copy-to-work-with) for obtainin
 
 #### Running Jekyll locally
 
-For most tasks, running Jekyll locally isn't required. If it is, then follow the instructions from [Jekyll](http://jekyllrb.com/docs/installation/) and [GitHub](https://help.github.com/articles/using-jekyll-with-pages/#installing-jekyll) for local installation.
+For most tasks, running Jekyll locally isn't required. If it is, then follow the instructions from [Jekyll](http://jekyllrb.com/docs/installation/) and [GitHub](https://help.github.com/articles/using-jekyll-with-pages/#installing-jekyll) for local installation or you can run a local instance of github-pages in docker using the following command and browsing to port `4000` at your docker-machine's ip:
+
+```
+docker run -v /path/to/blog/project:/usr/src/app -p "4000:4000" starefossen/github-pages:latest bundle exec jekyll serve --host 0.0.0.0
+```
 
 Please note:
 * The [repository metadata](https://help.github.com/articles/repository-metadata-on-github-pages/) is not available if you build the site locally, one solution is to temporarily add the required variables to `_config.yml`.
 * As many resources expect to be loaded from `scottlogic.com`, it is a good idea to serve the site from this domain (e.g. `blog.scottlogic.com`).
+* `path/to/blog/project` is the directory on your docker-machine where the blog project files are mounted.
+* To mount a Windows host directory in a docker container using Boot2Docker follow [this example](https://tuhrig.de/mount-windows-folder-to-boot2docker-vm/).
+
+
 
 #### CSS & Scripts
 
