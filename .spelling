@@ -712,6 +712,7 @@ semver
 ScottLogic/gh-pages
 playfield
 designkit
+strava
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
 line.y
@@ -2170,3 +2171,6 @@ Axios
 ReactDOM
 Gitter
 Forex
+ - ceberhardt/_posts/2017-01-26-london-marathon-visualising.md
+6mph
+sub-3
