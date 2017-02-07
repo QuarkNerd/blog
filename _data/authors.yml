@@ -14,6 +14,7 @@ active-authors:
   - cgrant
   - cprice
   - csmith
+  - dcook
   - dsmith
   - dgorst
   - dkerr
@@ -423,3 +424,12 @@ authors:
         author-summary: <p>I'm a Senior Developer at Scott Logic, based in Newcastle.</p>
         gravatar: 62304ebf3f06d2beac44569fdaa4cc7a
         twitter-url: https://twitter.com/darrenpsmithweb
+    dcook:
+        name: Daniel Cook
+        email: dcook@scottlogic.com
+        author-summary: <p>Big Data Lead at Scott Logic with a passion for all things Hadoop. I've architected real time streaming Big Data solutions as well as huge data lakes.</p>
+        feed-description: Dan Cook's thoughts on all things Big Data.
+        gravatar: 477b06f3eb1e0a496918328c43a91ca3
+        twitter-url: https://twitter.com/dancookdev
+        twitter-handle: dancookdev
+        google-plus-url: https://plus.google.com/102307699647083644941
