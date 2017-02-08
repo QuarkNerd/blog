@@ -125,8 +125,6 @@ And then the Flink program is something like the following:
 
 object Flink {
 
-  case class Reading(time: String, pollution: Int)
-
   def main(args: Array[String]) {
 
     val env = StreamExecutionEnvironment.getExecutionEnvironment
