@@ -18,6 +18,9 @@ disqus-id: /2014/09/29/crosshairs.html
 <script data-main="{{ site.github.url }}/aaiken/assets/crosshairs/js/Chart.js" src="{{ site.github.url }}/aaiken/assets/crosshairs/js/lib/require.js">
 </script>
 
+> **Quick update** - the code in this article was used as the starting point for components in [the d3fc project](https://d3fc.io/).
+> It's a bit more advanced than this article, but you might find it interesting to see what this code evolved into!
+
 In [my last article]({{ site.github.url }}/2014/09/19/interactive.html) I put together an interactive chart that could be panned and zoomed, but there was one obvious omission - crosshairs. In this article I'm going to create a D3 crosshairs component, and show you how to add it to a chart.
 
 Here's the chart we're going to build:

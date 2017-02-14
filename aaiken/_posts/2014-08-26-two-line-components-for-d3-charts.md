@@ -12,7 +12,11 @@ layout: default_post
 oldlink: "http://www.scottlogic.com/blog/2014/08/26/two-line-components-for-d3-charts.html"
 disqus-id: /2014/08/26/two-line-components-for-d3-charts.html
 ---
+
 In this article I'm going to create two simple, reusable D3 components for adding line annotations to charts. One of the things I appreciate most about D3 components is that, regardless of the complexity of the component itself, adding one to a chart is typically a really simple process, and these components will illustrate that elegance.
+
+> **Quick update** - the code in this article was used as the starting point for components in [the d3fc project](https://d3fc.io/).
+> It's a bit more advanced than this article, but you might find it interesting to see what this code evolved into!
 
 The first component will be a horizontal line at a fixed y-value; adding it to the chart will take only 4 lines of code...
 

@@ -18,6 +18,9 @@ disqus-id: /2014/09/19/interactive.html
 <script data-main="{{ site.github.url }}/aaiken/assets/interactive/js/Chart.js" src="{{ site.github.url }}/aaiken/assets/interactive/js/lib/require.js">
 </script>
 
+> **Quick update** - the code in this article was used as the starting point for components in [the d3fc project](https://d3fc.io/).
+> It's a bit more advanced than this article, but you might find it interesting to see what this code evolved into!
+
 Recently I've been looking at various D3 components, which has been a fun project. I haven't yet had the chance to develop an interactive, dynamic component though, which has meant that the resulting charts have been sadly static. For this article I wanted to use what I've learned to build a fully interactive chart - something that wouldn't look out of place on a financial app.
 
 Here's the chart we're going to build:

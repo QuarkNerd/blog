@@ -19,6 +19,9 @@ disqus-id: /2014/10/31/fibonacci.html
 <script data-main="{{ site.github.url }}/aaiken/assets/fibonacci/js/Chart.js" src="{{ site.github.url }}/aaiken/assets/fibonacci/js/lib/require.js">
 </script>
 
+> **Quick update** - the code in this article was used as the starting point for components in [the d3fc project](https://d3fc.io/).
+> It's a bit more advanced than this article, but you might find it interesting to see what this code evolved into!
+
 In this article I'm going to create an interactive **Fibonacci fan** D3 component, and show you how to add it to a chart in just 7 lines of code.
 
 For many of you, your first question is probably...
