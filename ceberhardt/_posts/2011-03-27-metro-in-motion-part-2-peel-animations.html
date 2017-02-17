@@ -164,30 +164,7 @@ protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
   base.OnBackKeyPress(e);
 }
 {% endhighlight %}
-<p>The final twist is that when the back 'key' is pressed the application exits immediately. To avoid this, we cancel the event. However, we need a way to exit the application when the animation has finished. Unfortunately Silverlight for WP7 does not have a mechanism for programatically exiting! This has been <a href="http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/8961eac4-880d-4c61-9bd5-8771347514ab">the subject of much debate</a>. I opted for the popular <a href="http://www.pchenry.com/Home/tabid/36/EntryId/345/The-way-to-Exit-a-WP7-app-just-seems-wrong-to-me-is-it-just-me.aspx">throw-an-unhandled-exception</a> route. Yes it is ugly, no, I do not like it, but let's not get distracted. The 'peel' effect is now done!</p>
+<p>The final twist is that when the back 'key' is pressed the application exits immediately. To avoid this, we cancel the event. However, we need a way to exit the application when the animation has finished. Unfortunately Silverlight for WP7 does not have a mechanism for programatically exiting! This has been <a href="http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/8961eac4-880d-4c61-9bd5-8771347514ab">the subject of much debate</a>. I opted for the popular throw-an-unhandled-exception</a> route. Yes it is ugly, no, I do not like it, but let's not get distracted. The 'peel' effect is now done!</p>
 <p>To use this code in your own application, you will have to assemble your own list of elements based on your UI, however, this does give a lot of flexibility.</p>
 <p>You can download the project sourcecode here: <a href='{{ site.github.url }}/archive/2011/03/MetroInMotion2.zip'>MetroInMotion2.zip</a></p>
 <p>Regards,Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

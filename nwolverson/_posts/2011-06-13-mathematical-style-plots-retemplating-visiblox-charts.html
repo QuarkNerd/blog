@@ -19,7 +19,7 @@ disqus-id: /2011/06/mathematical-style-plots-retemplating-visiblox-charts/
 <div style="text-align: center;"><img src="{{ site.github.url }}/archive/2011/06/MidAxis-Sin.png" alt="Sin chart" title="Visiblox graph of y=sin(x) with on-chart axes" /></div>
 <h4>Templating a Visiblox Chart</h4>
 <p>An Visiblox chart is an instance of the Chart control. As with any WPF/Silverlight custom control, this can be retemplated to alter its visual appearence. Of course as the control has all the rendering logic to draw complex charts, there is a limit to what you can achive, but it's surprising how much can be done to alter the layout of the  chart. (Other examples might include embedding some custom data display within the chart.)</p>
-<p>Firstly, consult the <a href="http://www.visiblox.com/docs/">API documentation</a> to see the default template of the chart (the Visiblox API documentation reproduces default or sample templates for most templatable controls, but in general you can find this out for yourself using a tool such as <a href="http://blog.wpfwonderland.com/2007/01/02/wpf-tools-stylesnooper/">StyleSnooper</a> or Reflector). You'll see that there is some complexity to support axes on all four sides of the chart, and other nice default behaviour - but here we'll cut back to basics.</p>
+<p>Firstly, consult the <a href="http://www.visiblox.com/docs/">API documentation</a> to see the default template of the chart (the Visiblox API documentation reproduces default or sample templates for most templatable controls, but in general you can find this out for yourself using a tool such as <a href="https://wpfwonderland.wordpress.com/2007/01/02/wpf-tools-stylesnooper/">StyleSnooper</a> or Reflector). You'll see that there is some complexity to support axes on all four sides of the chart, and other nice default behaviour - but here we'll cut back to basics.</p>
 <p>We'll use a Grid with 2 rows, the first being the title, the 2nd containing the chart. Notice that the default template has a more complex grid. Important parts of this are the <em>plot area</em> (containing all the elements rendered "on chart" in their own individual containers), and the <em>axis containers</em>. </p>
 <p>At this point I'm going to digress a little regarding axes. A Visiblox axis is responsible for 2 things: calculating based on data values where points should be rendered in that dimension, and actually rendering the axis itself. Note that in the default template the Y axis container is in a grid cell adjacent to the plot area, it thus has the same height as the plot area, and thus the ticks on the axis correspond to render positions within the plot area. Similarly the X axis is the same width as the plot area. </p>
 <p>In order to render our axes within the chart, we'll simply move them into the same grid cell as the plot area. The Y axis will have the same height as it did before, and the X axis will have the same width, so everything will render correctly using the default Visiblox axis implementations. </p>
@@ -104,26 +104,3 @@ private void RepositionAxesEvent(object sender, EventArgs e)
 <h4>Conclusion</h4>
 <p>In this article I showed how to re-template a Visiblox chart to render its axes within the main plot area. I didn't consider many features Visiblox provides, such as a legend or multiple axes, but for those that need it, a custom template can provide flexibility to meet your particular situation.</p>
 <p>You can download source for this example <a href="{{ site.github.url }}/archive/2011/05/MidAxis.zip">in this project</a>.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

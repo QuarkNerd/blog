@@ -23,7 +23,7 @@ disqus-id: /2010/09/integrating-closure-tools-with-maven/
 --compiler_flags="--compilation_level=ADVANCED_OPTIMIZATIONS" /
 --compiler_jar=compiler.jar --output_file=compiled.js{% endhighlight %}
 <h2>Maven Integration</h2>
-<p>Integrating an executable with Maven is simple using the <a href="http://mojo.codehaus.org/exec-maven-plugin/" target="_blank">Maven Exec Plugin</a>. However, the tricky part comes with requiring all the source files in one location to compile.</p>
+<p>Integrating an executable with Maven is simple using the <a href="http://www.mojohaus.org/exec-maven-plugin/" target="_blank">Maven Exec Plugin</a>. However, the tricky part comes with requiring all the source files in one location to compile.</p>
 <p>It's to be assumed that you've been using the war plugin to package your web project. The war:war goal will explode all the required files in a target directory, and then package them into a WAR file. The uncompressed files remain in the target directory after the WAR has been created, and we will use these exploded files to compile the code.</p>
 <p>The goal is to have all the JavaScript source files in the Maven directory before creating the final WAR file, so we can compile them. We do this by adding a war:war goal to the prepare-package phase. This goal explodes all the required source into the target directory, and allows us to compile, before the actual packaging is done in the package phase.</p>
 <p>In its simplest form, the phases are as follows:</p>
@@ -194,26 +194,3 @@ disqus-id: /2010/09/integrating-closure-tools-with-maven/
 <p>Hopefully this article has explained the method of integrating the Closure Compiler into your build process. Whilst in theory it doesn't sound like a complicated task, the management of files between different projects can be quite complex.</p>
 <p>The main goal of this article was to introduce the method of exploding the required files into one directory, manipulating the files, and then creating the final WAR.</p>
 <p>Hopefully I've provided a framework for working with the Closure Tools and Maven and that, in theory, different executables and Maven goals can be applied to the source files (jsdoc-toolkit and JSLint as examples) before they are packaged into the final WAR.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

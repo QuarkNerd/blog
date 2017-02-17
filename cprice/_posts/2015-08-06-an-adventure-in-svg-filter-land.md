@@ -18,7 +18,7 @@ I've been working on an open-source charting library called [d3fc](http://scottl
 
 The story starts with [Coinbase](https://www.coinbase.com/), a well-known(/funded) Bitcoin company. I was hunting for a freely available streaming data feed that we could use to provide some more realistic examples. A Bitcoin feed is the obvious choice, they're generally a lot more accessible without onerous licensing agreements and despite (because of?) recent turbulent times, are far more interesting than most financial products.
 
-As you'd expect, the [Coinbase Exchange](https://exchange.coinbase.com/) has an [API](https://docs.exchange.coinbase.com/) and the [public market data](https://docs.exchange.coinbase.com/#market-data) is freely-available in historic and streaming forms. I quickly knocked up a [little wrapper](http://scottlogic.github.io/d3fc/components/data/coinbase.html) to make the historic API easier to deal with and was about to start on a pretty boring example when I noticed a tab I still had open -
+As you'd expect, the [Coinbase Exchange](https://exchange.coinbase.com/) has an [API](https://docs.gdax.com/) and the [public market data](https://docs.gdax.com/#market-data) is freely-available in historic and streaming forms. I quickly knocked up a little wrapper which has evolved into [this](https://d3fc.io/api/financial-feed-api.html) to make the historic API easier to deal with and was about to start on a pretty boring example when I noticed a tab I still had open -
 
 <img src="{{ site.github.url }}/cprice/assets/svg-filters/coinbase.png" alt="Coinbase Exchange homepage screenshot" width="878"/>
 
@@ -46,7 +46,7 @@ Also missing from the static screenshot are the parallax (elements moving over e
 
 Let's just say that the dataset used in the video is optimistic. I don't think we can rely on a real stream to give us results like that! We could just use some hard-coded data but the library comes with a configurable random data generator so let's use that.
 
-The [fc.data.random.financial component](http://scottlogic.github.io/d3fc/components/data/financial.html) uses a [GBM model](https://en.wikipedia.org/wiki/Geometric_Brownian_motion). The model includes two configurable properties: the percentage drift (`mu`) and the percentage volatility (`sigma`). [This tool](http://turingfinance.com/interactive-stochastic-processes/) lets you play with and see the effect of these values. In this case we want a relatively high positive drift with relatively low volatility -
+The [fc.data.random.financial component](http://scottlogic.github.io/d3fc/components/data/financial.html) uses a [GBM model](https://en.wikipedia.org/wiki/Geometric_Brownian_motion). The model includes two configurable properties: the percentage drift (`mu`) and the percentage volatility (`sigma`). [This tool](http://stuartreid.co.za/interactive-stochastic-processes/) lets you play with and see the effect of these values. In this case we want a relatively high positive drift with relatively low volatility -
 
 {% highlight js %}
 var dataGenerator = fc.data.random.financial()

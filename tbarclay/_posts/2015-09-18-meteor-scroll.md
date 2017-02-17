@@ -26,7 +26,7 @@ In this blog I'm going to work through making a product marketing website to the
 
 Now, I don't know much about product marketing, but I do know that if you have a new product, you have to create its name by making up a word and then removing some vowels. So I'll make a page to market my new product/service/event/solution, Spluxr.
 
-You can find the source of this project on [GitHub](https://github.com/timbarclay/jump-scroll-site) and a working demo at [jumpscroll.meteor.com](http://jumpscroll.meteor.com/).
+You can find the source of this project on [GitHub](https://github.com/timbarclay/jump-scroll-site).
 
 <img src='{{ site.github.url }}/tbarclay/assets/meteor/title.png' title="Spluxr" alt="Spluxr title screen" />
 

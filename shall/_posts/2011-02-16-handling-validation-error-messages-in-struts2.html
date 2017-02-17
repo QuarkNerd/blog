@@ -101,7 +101,7 @@ disqus-id: /2011/02/handling-validation-error-messages-in-struts2/
     </global-results>
 <!-- remainder of struts.xml defined here -->{% endhighlight %}
 <p>Firstly, adding "json-default" to the package declaration gives me access to the json result type. I've then defined a global result for the type input, meaning that any uncaught input results will redirect to here.</p>
-<p>The type is JSON, and I've specified the root to be fieldErrors (which is a bean property, and thus would map to <a href="http://www.opensymphony.com/xwork/api/com/opensymphony/xwork/ActionSupport.html#getFieldErrors()" target="_blank">getFieldErrors()</a>). Finally, I've added a prefix and suffix to wrap the produced JSON in another object for nicer encapsulation. Using the example above, when calling the action with a username that already exists I receive the following object:</p>
+<p>The type is JSON, and I've specified the root to be fieldErrors (which is a bean property, and thus would map to <a href="http://struts.apache.org/maven/struts2-core/apidocs/com/opensymphony/xwork2/ActionSupport.html#getFieldErrors()" target="_blank">getFieldErrors()</a>). Finally, I've added a prefix and suffix to wrap the produced JSON in another object for nicer encapsulation. Using the example above, when calling the action with a username that already exists I receive the following object:</p>
 {% highlight javascript %}{
   "errors" : {
     "username" : ["Username already exists!"]
@@ -139,26 +139,3 @@ if(e.errors) {
 <h2>Conclusion</h2>
 <p>My aim was to utilize the Struts built-in validation with a more flexible error message framework, which I believe I have achieved. I didn't want to go into the interceptors that handle the validation as they already work so well, I was mainly concerned with the error messages. The final stage, wherein you define a function for each form, is by no means perfect, and I am still looking for improvements to defining individual form submission behaviour.</p>
 <p>The important thing to note is that, even though we're doing quite a lot on the client-side, all of the validation is done by the server. It's essentially safe behind closed doors, where it can evaluate the input and choose to execute the action or not. So even if there is a problem in the implementation of error messages being shown, you can be safe in the knowledge that your forms will still be validated by Struts. An interesting extension would be mixing in some client-side validation too.. but that's another blog post!</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

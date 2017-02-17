@@ -138,7 +138,7 @@ let transformed = rulesRunner(ast);
 
 ## A simple transformations
 
-OK, now that the identity is working, it's time to do something more interesting. One of the [first posts I read about JavaScript AST transformation](https://blog.redradix.com/working-with-javascript-ast/) described how to take a simple binary operation, `const x = 5 * 10`, compute the operation and replace the expression with the result, `const x = 50`.
+OK, now that the identity is working, it's time to do something more interesting. One of the first posts I read about JavaScript AST transformation described how to take a simple binary operation, `const x = 5 * 10`, compute the operation and replace the expression with the result, `const x = 50`.
 
 The AST that Babel generates for this expression is as follows:
 

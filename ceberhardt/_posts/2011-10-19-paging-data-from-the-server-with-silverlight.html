@@ -18,7 +18,7 @@ disqus-id: /blog/colin/2011/10/paging-data-from-the-server-with-silverlight/
 <ul>
 <li><a href="https://dev.twitter.com/docs/api/1/get/search">Twitter Search API</a></li>
 <li><a href="http://www.nestoria.co.uk/help/api">Nestoria API</a> for searching houses for sale</li>
-<li>Any of the <a href="http://www.odata.org/producers">OData producers</a></li>
+<li>Any of the <a href="http://www.odata.org/ecosystem/">OData producers</a></li>
 </ul>
 <p>With paging being a common application requirement, Silverlight has the functionality to deal with this scenario built-in. The System.Windows.Data assembly contains the <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.ipagedcollectionview%28VS.95%29.aspx">IPagedCollectionView</a> interface, which defines the following methods, properties and events, allowing navigation of paged data:</p>
 <p><img src="{{ site.github.url }}/archive/2011/10/PagedCollectionView.png" alt="" title="PagedCollectionView" width="154" height="211" class="aligncenter size-full wp-image-1756" /></p>
@@ -261,26 +261,3 @@ public ICommand ExecuteSearchCommand
 <p>So in summary, by implementing <code>IPagedCollectionView</code> with a pluggable datasource, <code>IPagedDataSource</code>, it is possible to very quickly and easily create an application that pages data from the server.</p>
 <p>You can download the full sourcecode here: <a href='{{ site.github.url }}/archive/2011/10/PagedCollectionViewExample.zip'>PagedCollectionViewExample.zip</a></p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
