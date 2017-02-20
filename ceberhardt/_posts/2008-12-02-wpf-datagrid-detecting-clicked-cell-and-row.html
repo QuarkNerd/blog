@@ -28,7 +28,7 @@ disqus-id: /blog/colin/2008/12/wpf-datagrid-detecting-clicked-cell-and-row/
 }{% endhighlight %}
 <p>The above event is a 'bubbling' event, which means that it it started on the element that was originally clicked (for example a TextBlock which renders the cell's value within a DataGridCell), then bubbled up the logical tree until it reaches our event handler in the Window. The e.OriginalSource property gives us access to the element that initiated this event.</p>
 <p>The problem is that while we have access to the lement which was clicked on, this element is part of the control or data template of the element that we are really interested, the cell or header. The WPF rich-content model means that our cells could contain all sorts of visual element, therefore we have no way of guessing exactly what e.OriginalSource will be. However, the one thing of which we can be certain is that this element is a child of the element which we are interested in.</p>
-<p>If you place a bearkpoint within yoru event handler, you can then use the excellent <a href="http://karlshifflett.wordpress.com/mole-for-visual-studio/">Mole</a> debug visualiser to locate the clicked element within the visual tree as illustrated below:</p>
+<p>If you place a bearkpoint within yoru event handler, you can then use the excellent <a href="https://oceanware.wordpress.com/mole-visual-studio-debugger-visualizer/">Mole</a> debug visualiser to locate the clicked element within the visual tree as illustrated below:</p>
 <p><a href="http://wpfadventures.files.wordpress.com/2008/12/dgvisualtree.png"><img class="alignnone size-full wp-image-60" title="dgvisualtree" src="http://wpfadventures.files.wordpress.com/2008/12/dgvisualtree.png" alt="dgvisualtree" width="450" height="428" /></a></p>
 <p>As you can see, the visual tree is a complex beast! I have highlighted the items of interest:</p>
 <ol>
@@ -122,26 +122,3 @@ disqus-id: /blog/colin/2008/12/wpf-datagrid-detecting-clicked-cell-and-row/
 <p><a href="http://wpfadventures.files.wordpress.com/2008/12/clickedvalue.png"><img class="alignnone size-full wp-image-61" title="clickedvalue" src="http://wpfadventures.files.wordpress.com/2008/12/clickedvalue.png" alt="clickedvalue" width="299" height="299" /></a></p>
 <p>The sample project can be download, <a href="http://wpfadventures.files.wordpress.com/2008/12/wpfdatagridmouseclicks.doc">wpfdatagridmouseclicks</a>, changing the file extension from .doc to .zip.</p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

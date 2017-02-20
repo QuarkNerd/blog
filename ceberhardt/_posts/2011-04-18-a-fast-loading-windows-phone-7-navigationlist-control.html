@@ -176,7 +176,7 @@ private void ItemsControl_PrepareContainerForItem(object sender, PrepareContaine
 }
 {% endhighlight %}
 <p>The above could have been achieved without the use of <code>ItemsControlEx</code> by providing a container for each item that is added, much the same was as the <code>ListBox</code> contains items within a <code>ListBoxItem</code> instance. However, the aim here is to make the control as lightweight as possible, which means minimizing the number of visual elements created.</p>
-<p>The <code>Element_MouseLeftButtonUp</code> event handler raises the <code>Navigation</code> event, but what are the manipulation event handlers for? This is because if the <code>NavigationList</code> is used within a control that performs some action due to manipulation, the <code>Pivot</code> control which reacts to swipe for example, a mouse up event is still fired when the manipulation ends. This results in a navigation firing incorrectly, see <a href="http://mindre.net/Article/windows_phone_7__mouseleftbuttonup_event_inside_a_pivot">Tore Lervik's blog</a> for more details.</p>
+<p>The <code>Element_MouseLeftButtonUp</code> event handler raises the <code>Navigation</code> event, but what are the manipulation event handlers for? This is because if the <code>NavigationList</code> is used within a control that performs some action due to manipulation, the <code>Pivot</code> control which reacts to swipe for example, a mouse up event is still fired when the manipulation ends and this results in a navigation firing incorrectly.</p>
 {% highlight csharp %}
 private bool _manipulationDeltaStarted;
 
@@ -205,26 +205,3 @@ private void Element_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
 <p>Now people ... <strong>please stop using <code>ListBox</code> for navigation</strong>, it is slow and it's API is cumbersome!</p>
 <p>You can download the sourcecode here:<a href='{{ site.github.url }}/archive/2011/04/NavigationListControl.zip'>NavigationListControl.zip</a></p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

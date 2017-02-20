@@ -24,7 +24,7 @@ disqus-id: /blog/colin/2011/05/a-simple-windows-phone-7-mvvm-tombstoning-example
 <h2>What is tombstoning?</h2>
 <p>Mobile phones have limited resources compared to desktop computers, for that reason most smartphones OSs limit the number of applications that are currently loaded into memory and executing. For Windows Phone 7 this limit is one!</p>
 <p>If the user hits the phone start button while you application is running, the screen lock engages, or you invoke a chooser / launcher from your application, then your application is terminated. However, when the user navigates back to your app, the screen unlocks or the chooser / launcher closed, the user expects to see your application again in its original state. </p>
-<p>To support this, the WP7 OS maintains state information which allows you to 'restore' your application by starting a new application instance and using this state information to start the application in the same state as the one which was terminated. For a full overview of this process I would recommend reading the <a href="http://msdn.microsoft.com/en-us/library/ff817008(v=vs.92).aspx">Execution Model Overview for Windows Phone</a> on MSDN, or the three part series on the Windows Phone Developer Blog <a href="http://windowsteamblog.com/windows_phone/b/wpdev/archive/2010/07/15/understanding-the-windows-phone-application-execution-model-tombstoning-launcher-and-choosers-and-few-more-things-that-are-on-the-way-part-1.aspx">(1)</a>, <a href="http://windowsteamblog.com/windows_phone/b/wpdev/archive/2010/07/16/understanding-the-windows-phone-application-execution-model-tombstoning-launcher-and-choosers-and-few-more-things-that-are-on-the-way-part-2.aspx">(2)</a>, <a href="http://windowsteamblog.com/windows_phone/b/wpdev/archive/2010/07/20/understanding-the-windows-phone-application-execution-model-tombstoning-launcher-and-more-part-3.aspx">(3)</a>.</p>
+<p>To support this, the WP7 OS maintains state information which allows you to 'restore' your application by starting a new application instance and using this state information to start the application in the same state as the one which was terminated. For a full overview of this process I would recommend reading the <a href="http://msdn.microsoft.com/en-us/library/ff817008(v=vs.92).aspx">Execution Model Overview for Windows Phone</a> on MSDN, or the three part series on the Windows Phone Developer Blog <a href="https://blogs.windows.com/buildingapps/2010/07/15/understanding-the-windows-phone-application-execution-model-tombstoning-launcher-and-choosers-and-few-more-things-that-are-on-the-way-part-1">(1)</a>, <a href="https://blogs.windows.com/buildingapps/2010/07/16/understanding-the-windows-phone-application-execution-model-tombstoning-launcher-and-choosers-and-few-more-things-that-are-on-the-way-part-2/">(2)</a>, <a href="https://blogs.windows.com/buildingapps/2010/07/20/understanding-the-windows-phone-application-execution-model-tombstoning-launcher-and-more-part-3/">(3)</a>.</p>
 <p>This probably sounds like a lot of work, and to be honest, it is. You might be wondering if the new multi-tasking capabilities that the Mango update will bring (demoed at the<a href="http://channel9.msdn.com/Events/MIX/MIX11/KEY02"> MIX11 day 2 keynote</a> and to be released probably late 2012) will mean the that tombstoning will disappear. I have not seen any official confirmation one way or the other, however, personally I think you will still need to tombstone in Mango. It is most likely that the number of concurrent applications will be limited and applications will still need to tombstone as a result.</p>
 <h2>The Example Application</h2>
 <p>The example application I am using for this blog post is illustrated below. The application displays a list of tweets, clicking on a tweet displays it full screen. Twitter applications are the new Hello World!</p>
@@ -355,26 +355,3 @@ protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventA
 <p>It is worth noting that this example tombstones the entire ViewModel state, and in more complex applications it might be more appropriate to tombstone an abstraction of the ViewModel, especially if it is not serializable. However, I think the simple example that this blog presents is still a useful starting point for understanding the tombstoning process.</p>
 <p>You can download the sourcecode for this example application: <a href='{{ site.github.url }}/archive/2011/05/WP7MVVMTombstone.zip'>WP7MVVMTombstone.zip</a></p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

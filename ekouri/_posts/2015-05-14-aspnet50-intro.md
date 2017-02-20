@@ -8,20 +8,20 @@ categories:
   - Server
   - C#
 ---
-The [Build Conference](https://www.build15.com/) is now behind us where lots of exciting things were announced, among them the release of Visual Studio 2015 RC1. This blog post discusses the changes to the .NET framework, the solution layout / configuration and serves as an introduction to the recommended programming style encouraged by Microsoft going forwards. If you haven't downloaded Visual Studio 2015, [grab it now](https://www.visualstudio.com/en-us/downloads/visual-studio-2015-downloads-vs.aspx)!
+The [Build Conference](http://www.build15.com/) is now behind us where lots of exciting things were announced, among them the release of Visual Studio 2015 RC1. This blog post discusses the changes to the .NET framework, the solution layout / configuration and serves as an introduction to the recommended programming style encouraged by Microsoft going forwards. If you haven't downloaded Visual Studio 2015, [grab it now](https://www.visualstudio.com/en-us/downloads/visual-studio-2015-downloads-vs.aspx)!
 
 ## Framework changes
-Due to the rise of cloud hosting and the demand to host in any platform, not just Windows servers where you need to install the framework in order for your applications to work, ASP.NET 5 now supports two runtimes: 
+Due to the rise of cloud hosting and the demand to host in any platform, not just Windows servers where you need to install the framework in order for your applications to work, ASP.NET 5 now supports two runtimes:
 
-* Full .NET: This is what was being shipped until now. It's the version that gets installed on your machine. 
-* CoreCLR: It's the shiny new, cloud-optimized runtime that can run on any machine (Windows, Mac, Linux). To achieve this, the framework has been broken down into NuGet packages and applications only need to reference those packages that are needed. In fact only the primary dependencies, any inner dependencies are downloaded automatically. When you deploy your application to the host, it's bundled up into a NuGet package itself including all the dependencies. This results in the bundle being larger than previously where only the files belonging to your application were included, but it means that the server doesn't need to have the .NET framework installed. 
+* Full .NET: This is what was being shipped until now. It's the version that gets installed on your machine.
+* CoreCLR: It's the shiny new, cloud-optimized runtime that can run on any machine (Windows, Mac, Linux). To achieve this, the framework has been broken down into NuGet packages and applications only need to reference those packages that are needed. In fact only the primary dependencies, any inner dependencies are downloaded automatically. When you deploy your application to the host, it's bundled up into a NuGet package itself including all the dependencies. This results in the bundle being larger than previously where only the files belonging to your application were included, but it means that the server doesn't need to have the .NET framework installed.
 
 <img alt=".NET 2015 runtimes" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/Dot-Net-2015.png" />
 
 **Note**: Older applications (ones built with 4.5.1 or previous) will only work with the full .NET runtime as will any new Windows Forms and WPF applications. These will not be supported by the CoreCLR.
 
 ## Run side-by-side
-As a result of having everything that your application needs bundled and contained into a NuGet package, it is possible to run applications targeting different runtimes side-by-side. This eliminates the problem of having to update the runtime installed on the server in order to support new applications and 'fearing' that your older ones will break. 
+As a result of having everything that your application needs bundled and contained into a NuGet package, it is possible to run applications targeting different runtimes side-by-side. This eliminates the problem of having to update the runtime installed on the server in order to support new applications and 'fearing' that your older ones will break.
 
 ### DNVM
 When you install Visual Studio 2015, [DNVM](https://github.com/aspnet/home) also gets installed and added to your PATH. DNVM is the dotnet version manager and will manage the different runtimes for you.
@@ -51,7 +51,7 @@ Just to clarify, you don't have to use these commands to do things with your app
 **Note**: In the beta and CTP versions of Visual Studio 2015, these commands were kvm, k and kpm respectively so you might see these used in older posts. These were renamed in the RC1 release.
 
 ## Solution layout
-The first thing you will notice when you create your first project in VS 2015, is that the solution structure has changed and matches (almost) exactly what you see if you open the file explorer to your application's source code. At the top level, there is the solution file (.sln) and a global.json file, then under the src folder there is a separate folder for each project and within each are the files and folders of your application. 
+The first thing you will notice when you create your first project in VS 2015, is that the solution structure has changed and matches (almost) exactly what you see if you open the file explorer to your application's source code. At the top level, there is the solution file (.sln) and a global.json file, then under the src folder there is a separate folder for each project and within each are the files and folders of your application.
 
 The root of the website is now wwwroot and not the root of the project. This is where all the static assets such as images should go to as well as downloaded JavaScript libraries, CSS etc. Adding a file from the file explorer will immediately add it to your solution, there is no need to include it in your project manually. The .csproj file has been replaced with a much simpler .xproj file and the project.json file. All the references to the files included in the project that used to be in the .csproj file have been completely removed.
 
@@ -61,7 +61,7 @@ The root of the website is now wwwroot and not the root of the project. This is 
 Most of the application configuration now lives in this file. Within it you can add all your NuGet **dependencies**, the **frameworks** that you want to support, any **commands** that you wish to run using dnx as well as more advanced things such as compilation settings, excluded files and folders, scripts you wish to execute during different stages (prebuild, postbuild, prepack, postpack etc) and [many more](https://github.com/aspnet/Home/wiki/Project.json-file). Let's have a closer look at the dependencies, frameworks and commands sections.
 
 ### Dependencies
-This is the place to include any references to ASP.NET NuGet packages as well as project references (for example Class libraries in the same solution). Once you start typing a dependency, IntelliSense is provided to assist you and once you pick the package you want, it will indicate which the latest version available (although it is possible to specify a different version or just use empty quotes ("") to always reference the latest). 
+This is the place to include any references to ASP.NET NuGet packages as well as project references (for example Class libraries in the same solution). Once you start typing a dependency, IntelliSense is provided to assist you and once you pick the package you want, it will indicate which the latest version available (although it is possible to specify a different version or just use empty quotes ("") to always reference the latest).
 
 <img alt="Dependencies" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/dependencies.png" />
 
@@ -110,7 +110,7 @@ When building a website there are some common tasks, such as bundling and minifi
 
 <img alt="npm" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/npm4.PNG" />
 
-Once you have a task runner installed, you need to configure which tasks it should run and when. For example, in the following gulpfile.js there is a copy task configured which will copy the needed JS libraries from bower_components and place them under a lib folder in your wwwroot. There is also a clean task which will delete the files under lib. 
+Once you have a task runner installed, you need to configure which tasks it should run and when. For example, in the following gulpfile.js there is a copy task configured which will copy the needed JS libraries from bower_components and place them under a lib folder in your wwwroot. There is also a clean task which will delete the files under lib.
 
 <img alt="Gulp" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/gulp.PNG" />
 
@@ -119,7 +119,7 @@ To run those tasks, there is a new window called Task Runner Explorer. You will 
 <img alt="Task Runner" src="{{ site.github.url }}/ekouri/assets/aspnet5intro/taskrunner.png" />
 
 ## Unified MVC 6
-In previous ASP.NET releases, Web Pages, Web API and MVC were implemented separately but because they offered a lot of common functionality, there was some duplication and inconsistencies. They are now all unified under the umbrella of MVC 6. There no longer is a separate ApiController for your services or the need to write slightly different code or reference different libraries to achieve similar results between the three programming models. 
+In previous ASP.NET releases, Web Pages, Web API and MVC were implemented separately but because they offered a lot of common functionality, there was some duplication and inconsistencies. They are now all unified under the umbrella of MVC 6. There no longer is a separate ApiController for your services or the need to write slightly different code or reference different libraries to achieve similar results between the three programming models.
 
 ## Dependency Injection
 ASP.NET 5 comes with built-in support for dependency injection. In fact, creating an empty Web Application will not even provide support for MVC. This 'service' needs to be added to the dependency injection (DI) container. You can still explicitly instantiate specific services when needed but Microsoft seem to really want to push this style of coding.
@@ -144,26 +144,3 @@ In this post, all the major changes and new concepts introduced in ASP.NET 5 wer
 * [http://docs.asp.net/en/latest/conceptual-overview/aspnet.html](http://docs.asp.net/en/latest/conceptual-overview/aspnet.html)
 * [http://weblogs.asp.net/scottgu/introducing-asp-net-5](http://weblogs.asp.net/scottgu/introducing-asp-net-5)
 * [http://www.hanselman.com/blog/IntroducingASPNETVNext.aspx](http://www.hanselman.com/blog/IntroducingASPNETVNext.aspx)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

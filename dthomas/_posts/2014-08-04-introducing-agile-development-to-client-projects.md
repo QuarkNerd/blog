@@ -38,7 +38,7 @@ One of the key groups involved in analysing the success or failure of developmen
 
 <img src="{{ site.github.url }}/dthomas/assets/IntroducingAgile/AgileVsWaterfall.jpg"/>
 
-Yahoo! went through a [well documented](http://assets.scrumfoundation.com/downloads/6/YahooAgileRollout.pdf) and very successful transition to Scrum beginning in 2004. As part of this they tracked progress by following the perception of the developers towards the work they were producing. 64% of respondents considered that the business value of the work under Scrum had increased, with only 2% thinking it had decreased. In the years after the transition over 80% of respondents to their survey wanted to continue using Scrum.
+Yahoo! went through a [well documented](http://static1.1.sqspcdn.com/static/f/447037/6486321/1270929190703/YahooAgileRollout.pdf) and very successful transition to Scrum beginning in 2004. As part of this they tracked progress by following the perception of the developers towards the work they were producing. 64% of respondents considered that the business value of the work under Scrum had increased, with only 2% thinking it had decreased. In the years after the transition over 80% of respondents to their survey wanted to continue using Scrum.
 
 Salesforce also completed an incredibly successful [transition to Agile](http://www.forbes.com/sites/stevedenning/2011/04/14/how-marc-benioff-of-salesforce-com-became-the-most-valuable-ceo-of-all/) in 2007. They had similar results to Yahoo! in terms of developer satisfaction, with 92% agreeing that they would recommend Agile to others. The proportion of their work force having “a good” or “the best” time increased from 40% to 86%. They also measured an increase in productivity, with features released per developer increasing by 38%.
 
@@ -57,26 +57,3 @@ This is a common feature of Agile teams. The close collaboration between all sta
 On top of this there is the satisfaction that any professional gets from doing high quality work. My experience of Agile teams is that they produce higher quality work, with fewer bugs, and this is a great source of pride to me. Having someone else put in charge of the way I develop usually results in that person asking you to cut corners to get work done to a deadline. This is hugely unsatisfying.
 
 All of these factors make us feel like it is worth taking the risk and trying to sell Agile to our clients. If they are not keen then we need to be willing to work with that. Buy in is an important part of Agile, and if our clients are not keen then there is no point in pushing them. But as far as possible I think we should try to work in an Agile way with our clients. In the <a href="{{site.github.url}}{% post_url 2014-08-11-a-piecemeal-approach-to-introducing-agile %}">next</a> part of the blog, we'll have a look at how we might go about introducing Agile to our clients.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

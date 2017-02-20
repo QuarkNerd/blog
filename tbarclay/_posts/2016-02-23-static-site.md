@@ -6,10 +6,10 @@ layout: default_post
 categories:
   - HTML5
   - Web
-summary: This post discusses building a modern single page marketing site using a static site generator 
+summary: This post discusses building a modern single page marketing site using a static site generator
 ---
 
-A few months ago I [wrote about]({{ site.github.url }}/2015/09/18/meteor-scroll.html) creating a [single-page marketing site](http://jumpscroll.meteor.com/). At the time I had been playing quite a bit with the full-stack reactive JavaScript framework, [Meteor](https://www.meteor.com/), so in a fit of "when you have a hammer everything looks like a nail" fervour, that's what I used. That really wasn't the right choice for a site like this for a number of reasons, so here I'll talk about re-implementing the same site in a more sensible way. 
+A few months ago I [wrote about creating a single-page marketing site]({{ site.github.url }}/2015/09/18/meteor-scroll.html). At the time I had been playing quite a bit with the full-stack reactive JavaScript framework, [Meteor](https://www.meteor.com/), so in a fit of "when you have a hammer everything looks like a nail" fervour, that's what I used. That really wasn't the right choice for a site like this for a number of reasons, so here I'll talk about re-implementing the same site in a more sensible way. 
 
 Marketing pages generally contain non-interactive product information that doesn't change very often, and this one was no exception. This makes a dynamic, full-stack approach like Meteor overkill. Instead, in apparent contrast to a decade or so of ever more dynamic web technologies, what we really need here is a static site.
 
@@ -62,7 +62,7 @@ The final, re-implemented site is hosted [here](http://jekyll-scroll.surge.sh/).
 
 ## [Gimme Gimme (static) Shock Treatment](https://www.youtube.com/watch?v=gj4u1yJMAf4)  - The Compromises
 
-One of the requirements in [my original post]({{ site.github.url }}/2015/09/18/meteor-scroll.html) about making this site was that it should be easy to add, remove and edit sections through a CMS. This implementation doesn't meet that requirement. New sections must be added to the `_sections` directory and then the site has to be redeployed using Surge's command line tool. For a developer, this is a perfectly nice, streamlined workflow, but of course it's not for everybody. And I think this is a problem static site generators have when compared with the Wordpresses and Squarespaces of the world: they aren't yet fully accessibly to non-technical collaborators like designers or copy writers. 
+One of the requirements in [my original post]({{ site.github.url }}/2015/09/18/meteor-scroll.html) about making this site was that it should be easy to add, remove and edit sections through a CMS. This implementation doesn't meet that requirement. New sections must be added to the `_sections` directory and then the site has to be redeployed using Surge's command line tool. For a developer, this is a perfectly nice, streamlined workflow, but of course it's not for everybody. And I think this is a problem static site generators have when compared with the Wordpresses and Squarespaces of the world: they aren't yet fully accessibly to non-technical collaborators like designers or copy writers.
 
 If I developed this site for a non-technical client, the absence of a CMS might prevent them from being able to easily add new content. That could easily be a deal-breaker that would prompt them to dismiss this as an option.
 

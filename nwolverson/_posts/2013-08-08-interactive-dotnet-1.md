@@ -20,7 +20,7 @@ about why you might want one.
 
 I'll start with an overview of the non-C# options in this post, and finally get around to C#
 <a href="{{site.github.url}}/2013/08/15/interactive-dotnet-2.html">in part 2</a>. The
-collected source of the examples in this post/series is 
+collected source of the examples in this post/series is
 [available here](https://github.com/nwolverson/blog-interactivenet).
 
 ## Why bother?
@@ -60,14 +60,14 @@ processing tools in the .NET framework, a charting or mapping library and explor
 
 For the purpose of this overview, I'm going to set a task to accomplish via the various
 options presented. This will consist of fetching some data via the WorldBank API and
-extracting some information. The data is the indicator "EN.URB.LCTY", the population 
-in a country's largest city (for 2009), and we'll end up with a list of countries in 
-order of population (descending). There are no doubt many ways to do this (perhaps 
+extracting some information. The data is the indicator "EN.URB.LCTY", the population
+in a country's largest city (for 2009), and we'll end up with a list of countries in
+order of population (descending). There are no doubt many ways to do this (perhaps
 "better" or "more native"), but in each case we'll use the standard .NET `WebClient`
 to download the data in XML format, and then XML to LINQ to parse the data.
 
 The various implementations of this will tend to take a very similar format. Firstly
-we'll add references and import the appropriate namespaces, then we'll perform the 
+we'll add references and import the appropriate namespaces, then we'll perform the
 download and extract a list of nodes - as uses of the same .NET API, this will look
 very similar in every case, a pure question of syntax. Lastly we'll perform some actual
 list processing, and here the languages used can show their differences and native
@@ -75,27 +75,27 @@ concepts a bit more.
 
 It's worth noting that I'm presenting examples of scripts as a whole, which may be
 somewhat misleading as to the use of the REPL. In each case I executed these examples
-line by line in the REPL, modifying and correcting as I went along, what you see in 
+line by line in the REPL, modifying and correcting as I went along, what you see in
 code snippets here are the collected final results of this evolution.
 
 ## DLR - the iron languages
 
 Microsoft implemented support for dynamic languages on .NET, via the
-[Dynamic Language Runtime](http://http://en.wikipedia.org/wiki/Dynamic_Language_Runtime) (DLR).
+[Dynamic Language Runtime](https://en.wikipedia.org/wiki/Dynamic_Language_Runtime) (DLR).
 There were 2 officially supported languages developed within
-Microsoft, [IronPython](http://en.wikipedia.org/wiki/IronPython) and 
+Microsoft, [IronPython](http://en.wikipedia.org/wiki/IronPython) and
 [IronRuby](http://en.wikipedia.org/wiki/IronRuby); various other support was planned but shelved.
 As of 2010 official support ceased and the projects were handed over to the open source community:
 it now seems that IronPython is going strong but IronRuby is looking rather dead (but usable!).
 
 ### IronPython
 
-[IronPython](http://http://ironpython.net/) comes out of the box with "IronPython Console",
+[IronPython](http://ironpython.net/) comes out of the box with "IronPython Console",
 the IronPython REPL in a console window:
 
 ![IronPython Console screenshot]({{ site.github.url }}/nwolverson/assets/interactive.net/ipy-interactive.png)
 
-This comes with standard command history etc, and you could run it in a better (non default) console, 
+This comes with standard command history etc, and you could run it in a better (non default) console,
 but to be frank it's a little painful. A better experience is in Visual Studio 2010 or 2012 with
 [Python tools](http://pytools.codeplex.com/). This gives you standard IDE features, syntax highlighting,
 and even better IntelliSense for both standard python libraries and .NET libraries.
@@ -134,7 +134,7 @@ wb = XNamespace.Get("http://www.worldbank.org");
 
 We can then define some utilities to extract the bits we're interested from the XML.
 The result of the `DescendantsAndSelf` method is an `IEnumerable`, this is exposed
-as a python iterable, which we can use in a list comprehension to construct a list of value/country pairs. 
+as a python iterable, which we can use in a list comprehension to construct a list of value/country pairs.
 
 {% highlight python %}
 
@@ -146,8 +146,8 @@ def getValue(d):
 def getCountry(d):
     return d.Element(wb+"country").Value
 
-pops = [(getValue(n), getCountry(n)) 
-        for n in doc.Root.DescendantsAndSelf(wb+"data") 
+pops = [(getValue(n), getCountry(n))
+        for n in doc.Root.DescendantsAndSelf(wb+"data")
         if hasValue(n)]
 pops.sort(reverse=True)
 pops[:5]
@@ -159,7 +159,7 @@ Then the result:
 {% highlight python %}
 >>> pops[:5]
 [(36506588, 'Japan'), (21719706, 'India'), (19960132, 'Brazil'), (19318531, 'Mexico'), (19299681, 'United States')]
->>> 
+>>>
 {% endhighlight %}
 
 [Source here](https://github.com/nwolverson/blog-interactivenet/blob/master/Python/IntPy.py).
@@ -167,7 +167,7 @@ Then the result:
 ### IronRuby
 
 As of 2013 IronRuby isn't looking in the best of states. It's open sourced, with some ongoing development, and
-should be considered "fully working"; but there still is no support in 
+should be considered "fully working"; but there still is no support in
 [IronRuby Tools](http://www.ironruby.net/tools/) for VS2012. I like Ruby as a language but you would seem to need a
 strong reason to rely on IronRuby. Saying that, if you know Ruby and want to play in .NET, why not?
 
@@ -184,7 +184,7 @@ Powershell runs in the console as standard:
 
 ![PowerShell console screenshot]({{ site.github.url }}/nwolverson/assets/interactive.net/powershell-console.png)
 
-However a richer environment is found in the PowerShell ISE. 
+However a richer environment is found in the PowerShell ISE.
 
 ![PowerShell ISE screenshot]({{ site.github.url }}/nwolverson/assets/interactive.net/powershell-ise.png)
 
@@ -209,9 +209,9 @@ $doc = [System.Xml.Linq.XDocument]::Load($sr);
 {% endhighlight %}
 
 We can then pass the enumerable results of `DescendantsAndSelf` through the PowerShell pipeline,
-filtering with `Where-Object`, iterating with `ForEach-Object`, selecting 
-with `Select-Object`. I use the full names here, symbols `?`, `%` and aliases may be easier to type 
-in practise. 
+filtering with `Where-Object`, iterating with `ForEach-Object`, selecting
+with `Select-Object`. I use the full names here, symbols `?`, `%` and aliases may be easier to type
+in practise.
 
 {% highlight powershell %}
 
@@ -226,7 +226,7 @@ function getCountry ([System.Xml.Linq.XElement] $d) {
     $d.Element($wb + "country").Value;
 }
 
-$data = $doc.Root.DescendantsAndSelf($wb + "data") | 
+$data = $doc.Root.DescendantsAndSelf($wb + "data") |
 	Where-Object { hasValue $_ };
 
 $pops = $data | ForEach-Object { New-Object -TypeName PSObject `
@@ -238,7 +238,7 @@ $sorted | Select-Object -First 5 | Write-Output
 {% endhighlight %}
 
 Here we chose to construct an object with named properties with `New-Object`. We could
-have just used a tuple, but this gave us the ability to sort nicely, and to output the 
+have just used a tuple, but this gave us the ability to sort nicely, and to output the
 structured object in a readable fashion.
 
 {% highlight console %}
@@ -295,15 +295,15 @@ let wb = XNamespace.Get("http://www.worldbank.org");
 
 {% endhighlight %}
 
-In the remaining implementation we see a list comprehension, similar to the python case, and also 
+In the remaining implementation we see a list comprehension, similar to the python case, and also
 some pipelining, typical of F# code:
 
 {% highlight fsharp %}
 
 let hasValue (d: XElement) =
-    match d.Element(wb + "value") with 
+    match d.Element(wb + "value") with
     | null -> false
-    | v -> not v.IsEmpty 
+    | v -> not v.IsEmpty
 
 let getValue (d: XElement) =
     d.Element(wb + "value").Value |> int
@@ -334,10 +334,10 @@ val it : seq<int * string> =
 #### Type providers
 
 The big feature in the last edition of F# was type providers. These are basically just a fancy form of
-code generation, but the trick here is the Visual Studio integration. A type provider is defined for 
+code generation, but the trick here is the Visual Studio integration. A type provider is defined for
 a particular resource and at edit time VS is able to provide IntelliSense for the generated types.
 
-It so happens that one type provider that's been included from the start and is now included in 
+It so happens that one type provider that's been included from the start and is now included in
 [FSharp.Data](http://fsharp.github.io/FSharp.Data/) is a World Bank provider. The DLL is referenced
 (either in a project or interactive session):
 
@@ -415,33 +415,10 @@ sorted |> Seq.take 5
 ## The rest
 
 Various other .NET languages [exist](http://en.wikipedia.org/wiki/Microsoft_.NET_Languages), e.g.
-C++/CLI, [Boo](http://boo.codehaus.org/), various 
-[Lisp](http://en.wikipedia.org/wiki/IronLisp)/[Scheme](http://en.wikipedia.org/wiki/IronScheme), 
+C++/CLI, [Boo](http://boo-lang.org/), various
+[Lisp](http://en.wikipedia.org/wiki/IronLisp)/[Scheme](http://en.wikipedia.org/wiki/IronScheme),
 JavaScript implementations - some of which may or may not have interactive environments, but this web page is only so long, so you're on your own.
 
 As for C#, that shall be the subject of my next post, where I'll cover various options, both "Open Source" and "Official".
 
 You can download the full source for the examples above [from this repository](https://github.com/nwolverson/blog-interactivenet).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
