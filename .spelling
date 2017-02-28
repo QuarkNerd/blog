@@ -729,6 +729,7 @@ artboards
 sharable
 StreamSets
 Dockerhub
+heatmap
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
 line.y
@@ -2231,3 +2232,6 @@ rosalita.github.io
  reflow
  _context
  stateful
+ - ceberhardt/_posts/2017-02-28-london-marathon-training-visualisation.md
+parkruns
+parkrun
