@@ -15,6 +15,7 @@ active-authors:
   - cprice
   - csmith
   - dcook
+  - dketley
   - dsmith
   - dgorst
   - dkerr
@@ -433,3 +434,8 @@ authors:
         twitter-url: https://twitter.com/dancookdev
         twitter-handle: dancookdev
         google-plus-url: https://plus.google.com/102307699647083644941
+    dketley:
+        name: Dominic Ketley
+        email: dketley@scottlogic.com
+        author-summary: <p>I'm a Developer at Scott Logic, based in Edinburgh.</p>
+        gravatar: 6c79499e6992a81bdea5587ed6bfa6f6
