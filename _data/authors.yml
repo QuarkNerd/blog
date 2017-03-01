@@ -21,6 +21,7 @@ active-authors:
   - dkerr
   - dmcnamee
   - dmiley
+  - dogle
   - dpizzi
   - dtheasby
   - dthomas
@@ -31,6 +32,7 @@ active-authors:
   - jdunkerley
   - jharris
   - jhill
+  - lcollingwood
   - lpage
   - mdunsdon
   - mjose
@@ -208,6 +210,15 @@ authors:
         name: Dan Gorst
         email: dgorst@scottlogic.com
         gravatar: bd790d492bb45a531a39adbbb1b3274c
+    dogle:
+        name: Dave Ogle
+        email: dogle@scottlogic.com
+        gravatar: 5184c8688ce24268e57f8040a6366857
+        author-summary: <p>I'm Dave, a developer working at Scott logic in Edinburgh</p>
+    lcollingwood:
+        name: Laurie Collingwood
+        email: lcollingwood@scottlogic.com
+        gravatar: fee97b22e614094360dbd65d73c0e2df
     alee:
         name: Andy Lee
         email: alee@scottlogic.com
