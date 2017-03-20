@@ -198,7 +198,7 @@ public partial class PersonViewModel : INotifyPropertyChanged
   </Grid>
 </Border>
 {% endhighlight %}
-<p>(Note the <a href="http://www.scottlogic.co.uk/blog/colin/2010/12/a-simplified-grid-markup-for-silverlight-and-wpf/">simplified grid markup</a>!)</p>
+<p>(Note the <a href="{{ site.github.url }}/2010/12/21/a-simplified-grid-markup-for-silverlight-and-wpf">simplified grid markup</a>!)</p>
 <p>Here's the code for this very simple example in action:</p>
 <div style="text-align: center;"><object width="250" height="100" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.github.url }}/archive/2011/04/ViewModelCodeGeneration.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <p>This blog post has described a method for generating the boiler-plate code that the MVVM patterns requires. The use of T4 templates and partial classes mirrors the way that the Visual Studio designer generates code. Personally I think the end result is much easier to understand that the dynamic proxy or aspects / weaving approach described by others. The example given in this blog post is pretty trivial, but when you use it for bigger projects with complex view-models containing numerous properties, you really start to feel the benefit.</p>

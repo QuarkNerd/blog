@@ -29,7 +29,7 @@ This is where d3fc departs from the thesis. The thesis evenly distributes data p
 
 Mode-Median Bucket is a simple algorithm. Each bucket is analysed for the frequency of y-values. If there is a single most common value (mode) in the bucket, then that y-value is chosen to represent the bucket. If there are multiple values with the same frequency, then some tie-breaking is required to choose a mode (d3fc chooses the last mode it comes across). If there is no mode, however, the median is taken.
 
-Performance isn't great for this algorithm, due to the constant modification of the object that tracks the modes. However, for smaller data sets (like in [this example](http://d3fc.io/components/sampler/modeMedian.html)), the performance is acceptable.
+Performance isn't great for this algorithm, due to the constant modification of the object that tracks the modes. However, for smaller data sets (like in [this example](https://d3fc.io/api/sample-api.html#mode-median)), the performance is acceptable.
 
 As previously mentioned, this algorithm tends to smooth peaks and troughs in the dataset due to their low frequency.
 
@@ -41,11 +41,11 @@ Because the importance of a point is determined by the size of its effective are
 
 #### One Bucket
 
-The "one bucket" [implementation](http://d3fc.io/components/sampler/largestTriangleOne.html) is where the two other points are the points before and after the current point being checked. This algorithm naturally chooses points with highest difference relative to its neighbours and not the bucket. This brings with it the advantage of being able to pre-compute all the points' effective areas before checking for maxima, reducing code complexity.
+The "one bucket" [implementation](https://d3fc.io/api/sample-api.html#largest-triangle-one-bucket) is where the two other points are the points before and after the current point being checked. This algorithm naturally chooses points with highest difference relative to its neighbours and not the bucket. This brings with it the advantage of being able to pre-compute all the points' effective areas before checking for maxima, reducing code complexity.
 
 #### Three Bucket
 
-The "three bucket" [implementation](http://d3fc.io/components/sampler/largestTriangleThreeBucket.html) is where the two predetermined points are chosen from the buckets before and after the bucket being evaluated. The first point is the point chosen to represent the bucket before the current bucket. The second is a "ghost point" representing the next bucket, which in this case is simply an average of the x and y values of that bucket.
+The "three bucket" [implementation](https://d3fc.io/api/sample-api.html#largest-triangle-three-buckets) is where the two predetermined points are chosen from the buckets before and after the bucket being evaluated. The first point is the point chosen to represent the bucket before the current bucket. The second is a "ghost point" representing the next bucket, which in this case is simply an average of the x and y values of that bucket.
 
 <img src="{{ site.github.url }}/wferguson/assets/d3fc-sampling/image.PNG" />
 
@@ -83,4 +83,4 @@ Have a play below and try it for yourself! The code for this example is availabl
 
 <iframe src="http://wpferg.github.io/d3fc-samplers" style="width: 100%; height: 500px; border: none; overflow: hidden;"></iframe>
 
-The algorithms I've outlined here work to varying degrees of success. They give some choice into how to represent the dataset -- preferring extremes or not. They all speed up chart rendering time and so makes the chart more responsive. If you need to render or use large sets of data, I'd recommend having a look at [d3fc](http://d3fc.io/) and its [components](http://d3fc.io/components/introduction/1-getting-started.html), and especially the samplers (though I might be biased).
+The algorithms I've outlined here work to varying degrees of success. They give some choice into how to represent the dataset -- preferring extremes or not. They all speed up chart rendering time and so makes the chart more responsive. If you need to render or use large sets of data, I'd recommend having a look at [d3fc](http://d3fc.io/) and its [components](https://d3fc.io/introduction/getting-started.html), and especially the samplers (though I might be biased).

@@ -18,15 +18,15 @@ layout: default_post
 source: wordpress
 disqus-id: /blog/colin/2011/10/tombstoning-with-phonegap-for-windows-phone-7-and-knockoutjs/
 ---
-<p>A few weeks back I wrote <a href="http://www.scottlogic.co.uk/blog/colin/2011/09/developing-windows-phone-7-html5-apps-with-phonegap/" title="Developing Windows Phone 7 HTML5 apps with PhoneGap">a blog post</a> about how the recent announcement of PhoneGap support for Windows Phone 7 (WP7) which makes it possible to develop HTML5-based applications. In my previous blog post I showed the development of a simple HTML5 / JavaScript application which PhoneGap wraps up within a Silverlight application 'shell' allowing it to be deployed to your phone and potentially submitted to the Marketplace.</p>
-<p>However, in order to pass the various Marketplace requirements and gain certification, your application must correctly handle the application lifecycle. With the recent Mango release, the lifecycle has become a little more complicated (although better! in that it adds multi-tasking / fast-app switching). I have also covered the lifecycle in a previous blog post and demonstrated how you can  <a href="http://www.scottlogic.co.uk/blog/colin/2011/10/a-windows-phone-7-1-mango-mvvm-tombstoning-example/" title="A Windows Phone 7.1 (Mango) MVVM Tombstoning Example">handle the various lifecycle events within an MVVM application</a>. </p>
+<p>A few weeks back I wrote <a href="{{ site.github.url }}/2011/09/29/developing-windows-phone-7-html5-apps-with-phonegap" title="Developing Windows Phone 7 HTML5 apps with PhoneGap">a blog post</a> about how the recent announcement of PhoneGap support for Windows Phone 7 (WP7) which makes it possible to develop HTML5-based applications. In my previous blog post I showed the development of a simple HTML5 / JavaScript application which PhoneGap wraps up within a Silverlight application 'shell' allowing it to be deployed to your phone and potentially submitted to the Marketplace.</p>
+<p>However, in order to pass the various Marketplace requirements and gain certification, your application must correctly handle the application lifecycle. With the recent Mango release, the lifecycle has become a little more complicated (although better! in that it adds multi-tasking / fast-app switching). I have also covered the lifecycle in a previous blog post and demonstrated how you can  <a href="{{ site.github.url }}/2011/10/03/a-windows-phone-7-1-mango-mvvm-tombstoning-example" title="A Windows Phone 7.1 (Mango) MVVM Tombstoning Example">handle the various lifecycle events within an MVVM application</a>. </p>
 <p>The most tricky part of the application lifecycle that as a developer you need to handle is the tombstoned state, where your application is terminated (i.e. stopped and removed from memory). It is your responsibility to save enough state in order that when your tombstoned application is restarted, it looks to the user as if your application never stopped running, i.e. you restore your application UI to its original state. </p>
 <p>The Mango application lifecycle is illustrated below:</p>
 <p><img src="{{ site.github.url }}/archive/2011/10/WP7Lifecycle1.png" alt="" title="WP7Lifecycle" width="600" height="475" class="aligncenter size-full wp-image-1785" /></p>
 <p>The <a href="http://docs.phonegap.com/en/1.0.0/phonegap_events_events.md.html">PhoneGap events</a> API includes pause and resume events, which can be used to detect when the application transitions to and from the dormant state, however, for WP7 these events do not give us enough information. When resuming, we need to know whether it has resumed from a dormant or a tombstoned state. Considering that the tombstoned state is peculiar to WP7 (Android, and iPhone simply have a suspend / resume model), I don't think it makes sense for the PhoneGap APIs to change in order to accommodate this. In this blog post I will show how the WP7 PhoneGap application host can be modified in order to support tombstoning.</p>
 <p>But before we get there, I want to digress a while and look at using the MVVM pattern with JavaScript ...</p>
 <h2>Using the MVVM pattern in JavaScript</h2>
-<p>Handling tombstoning is much easier if you have a good separation between your view and your logic, with the MVVM pattern being a sensible choice for achieving this. When your application is tombstoned (and your application terminated), then re-activated, it is your responsibility to recreate the original state. Your view-model, is a model-of-a-view, so technically should provide all the information required to fulfil this requirement. See my <a href="http://www.scottlogic.co.uk/blog/colin/2011/10/a-windows-phone-7-1-mango-mvvm-tombstoning-example/">previous blog</a> post for details.</p>
+<p>Handling tombstoning is much easier if you have a good separation between your view and your logic, with the MVVM pattern being a sensible choice for achieving this. When your application is tombstoned (and your application terminated), then re-activated, it is your responsibility to recreate the original state. Your view-model, is a model-of-a-view, so technically should provide all the information required to fulfil this requirement. See my <a href="{{ site.github.url }}/2011/10/03/a-windows-phone-7-1-mango-mvvm-tombstoning-example">previous blog</a> post for details.</p>
 <p>There are numerous JavaScript UI frameworks available (MVC, MVP, MVVM), however, because I feel tombstoning lends itself particularly well to the MVVM pattern, I decided to give <a href="http://knockoutjs.com/">KnockoutJS</a> a try. When reading about this framework you will find references to WPF and Silverlight, it is clear that it has been heavily inspired by the Microsoft XAML frameworks.</p>
 <p>The application I have built to demonstrate tombstoning is a very simple, single page twitter search application.</p>
 <p>The Knockout view model is a JavaScript object where the properties are defined as 'observables'. These are JavaScript functions which provide change notification, much like CLR properties with <code>INotifyPropergtyChanged</code> within Silverlight / WPF.</p>
@@ -186,7 +186,7 @@ private void Application_Deactivated(object sender, DeactivatedEventArgs e)
   PhoneApplicationService.Current.State[ModelKey] = viewModelState;
 }
 {% endhighlight %}
-<p>Note, to do this I have had to modify the current PhoneGap WP7 library to provide access to the underlying WebBrowser control, I have <a href="https://github.com/phonegap/phonegap-wp7/issues/35">raised an issue requesting this change to the PhoenGap library</a>.</p>
+<p>Note, to do this I have had to modify the current PhoneGap WP7 library to provide access to the underlying WebBrowser control.</p>
 <p>The application now stores it state when it becomes dormant, the next step is to use this state when an application is activated from a tombstoned state. Within the <code>Activated</code> handler we can read this state as follows:</p>
 {% highlight csharp %}
 /// <summary>
@@ -271,26 +271,3 @@ this.setState = function (stateString) {
 <p>Now that I can tombstone a PhoneGap application, I feel that it is one step closer to be a viable solution for application development. The final thing that I still haven't quite worked out yet is navigation and back-button support. Fortunately Knockout has a lot to offer in this area as well, but more on that later ...</p>
 <p>You can download the full sourcecode (including PhoneGap library mods) here: <a href='{{ site.github.url }}/archive/2011/10/PhoneGapExample.zip'>PhoneGapExample.zip</a></p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

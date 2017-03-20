@@ -32,7 +32,7 @@ blake512(testCase, null, true);
 <p>It must be said that JavaScript is certainly not the best language to implement this kind of hashing algorithm, and that this implementation is significantly slower than the reference C implementation.  However, it should be quick enough for general usage and takes less than 1ms to encode a 2-block message on a modern browser.</p>
 <p><strong>Handling the Input</strong><br />Since there is no native binary data type in JavaScript, this implementation uses JavaScript Strings to encode the message to hash.  It follows the lead of <a href="https://github.com/drostie/sha3-js/blob/master/blake32.js">Chris Drost's blake 32 (256) implementation</a>, which treats the given message as a UCS-2 encoded binary sequence (i.e. JavaScript's native string encoding); e.g. the string '\uB210\u0061' ('눐a') encodes the hex sequence: B210 0061.  The upside of encoding like this is that it's (hopefully) natural for the user and pretty easy to work with. Unfortunately however, it means that you can only encode messages whose length are multiples of 16 bits.  Also, since the maximum possible string length is 2^32 bits (8GB), this limits the length of messages you can encode (the maximum message length the algorithm permits is actually 2^128 bits).  This could probably be overcome by using arrays of string instead; as I can't be bothered - I'll leave that as a task for the interested reader!</p>
 <p><strong>Javascript and Numbers</strong><br />The Blake algorithm requires a lot of bit level manipulation, so whilst it's appropriate to initially encode the given message as a JavaScript string, when it comes to actually manipulating it, it's far easier to convert this string into an array of numbers.  The algorithm has an initial padding phase in which the given message is broken into sections of 1024 bit "blocks".  Each block is considered to be comprised of a sequence of 16 64-bit "words".  The bit-wise operations are then done on the individual words.  Therefore, in a natural encoding, a "word" is an unsigned 64-bit integer, a block is an array of 16 words, and the message is just an array of blocks.</p>
-<p>Unfortunately, there is no native 64-bit integer type in JavaScript.  In JavaScript there is only one number type which stores them using a 64 bit floating point representation.  This representation can only safely store integers values up to 2^53, see the 64 bit binary type on the <a href="http://en.wikipedia.org/wiki/IEEE_754-2008">wikipedia article</a> for a reference on this (assuming no-one has maliciously altered it!).</p>
+<p>Unfortunately, there is no native 64-bit integer type in JavaScript.  In JavaScript there is only one number type which stores them using a 64 bit floating point representation.  This representation can only safely store integers values up to 2^53, see the 64 bit binary type on the <a href="https://en.wikipedia.org/wiki/IEEE_floating_point#IEEE_754-2008">wikipedia article</a> for a reference on this (assuming no-one has maliciously altered it!).</p>
 <p>Crucially, the binary operators such as and (<code>&</code>), exclusive-or (<code>^</code>) and shift (<code><<</code>, <code>>>></code>) required by the algorithm are supported by JavaScript.  It performs these operations by converting the given numbers to 32 bit signed two's complement big-endian integer representations of them, performing the operation on these integers, then converting them back.  An excellent reference on these operators is available from <a href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Bitwise_Operators">Mozilla</a>.  A side effect of this conversion in and out of 32 bit integers, is that the operation will only work if the number can be represented in this way.  Also, another gotcha is that the bit-shift operators only work on the 5 least significant bits of the number to shift, so shifting by 32 bits (i.e. 100000), gives you the same result as shifting by 0 bits (i.e. a no-op).  This can lead to some confusing code, for example, in Chris Drost's's 32 bit implementation, there is a line of code to get the number <code>2^32</code> which is written like so:</p>
 {% highlight javascript %}
 var two32 = 4 * (1 << 30);
@@ -42,7 +42,7 @@ var two32 = 4 * (1 << 30);
 {% highlight javascript %}
 var highBits = 0XFFFFFFFF; var lowBits = 0XFFFFFFFF;
 {% endhighlight %}
-<p>There are several implementations that you can use to do this, the most notable being Google's closure library's <a href="http://closure-library.googlecode.com/svn/docs/closure_goog_math_long.js.source.html">Long</a>.  However, since that code is part of the closure library, which I don't want a dependancy on, I wrote my own 64 bit number class called <code>Word</code> (i.e. as it represents a single 64  bit "word" in the algorithm).  This version also supports the required "bit rotation" operation and is more light-weight, in that all operations alter the state of the <code>Word</code> on which it is called, rather than returning a new instance each time.</p>
+<p>There are several implementations that you can use to do this, the most notable being Google's closure library's <a href="https://google.github.io/closure-library/api/goog.math.Long.html">Long</a>.  However, since that code is part of the closure library, which I don't want a dependancy on, I wrote my own 64 bit number class called <code>Word</code> (i.e. as it represents a single 64  bit "word" in the algorithm).  This version also supports the required "bit rotation" operation and is more light-weight, in that all operations alter the state of the <code>Word</code> on which it is called, rather than returning a new instance each time.</p>
 <p>Although this <code>Word</code> class is private within the algorithm's code, it might be useful for other applications.  The code for it as follows:</p>
 {% highlight javascript %}
 //Constructor..
@@ -158,7 +158,7 @@ function(string, saltStr, outputHex) ...
 <td>(string, required) the message to hash, encoded as previously described.</td>
 </tr>
 <td><code>saltStr</code></td>
-<td>(string, optional) the <a href="http://en.wikipedia.org/wiki/Salt_(cryptography)">salt</a> to use when hashing.  If this is defined must be a string of length 16 which is treated as a 256 bit binary sequence, encoded in the same manner as the message.  If this is not defined, the default salt, consisting of a sequence of 256 zero's is used.</td>
+<td>(string, optional) the <a href="https://en.wikipedia.org/wiki/Salt_(cryptography)">salt</a> to use when hashing.  If this is defined must be a string of length 16 which is treated as a 256 bit binary sequence, encoded in the same manner as the message.  If this is not defined, the default salt, consisting of a sequence of 256 zero's is used.</td>
 <tr>
 <td><code>outputHex</code></td>
 <td> (boolean, optional) whether the output should be a string encoded in the same manner as the message (the default behavior) or a hexadecimal sequence.</td>
@@ -183,26 +183,3 @@ function stringToHex(str){
 }
 {% endhighlight %}
 <p>I don't think there'll be any cross browser issues or other problems but if you spot something please let me know and I'll try to fix the problem (time permitting)!</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -18,7 +18,7 @@ iframe {
 }
 </style>
 
-Most charting libraries are monoliths. The more features they support, the more unwieldy their APIs tend to become. With the [d3fc](http://scottlogic.github.io/d3fc/) project we have been exploring an alternative approach, constructing charts from a set of small components, that complement the popular D3 library.
+Most charting libraries are monoliths. The more features they support, the more unwieldy their APIs tend to become. With the [d3fc](https://d3fc.io/) project we have been exploring an alternative approach, constructing charts from a set of small components, that complement the popular D3 library.
 
 In this two-part blog series I want to demonstrate the power of both d3fc and D3 by re-creating the [rather complex Yahoo Finance chart](http://finance.yahoo.com/echarts?s=yhoo+Interactive#{"showEma":true,"emaColors":"#cc0000","emaPeriods":"50","emaWidths":"1","emaGhosting":"0","range":"5d","allowChartStacking":true}).
 

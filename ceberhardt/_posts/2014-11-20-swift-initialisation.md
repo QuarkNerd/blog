@@ -68,7 +68,7 @@ class ViewController: UIViewController {
 
 Unfortunately you cannot use the `view` property of the superclass before there super initializer has been invoked.
 
-The restrictions illustrated by these examples are a direct result of Swift's [two-phase initialisation process](https://developer.apple.com/library/ios/documentation/swift/conceptual/Swift_Programming_Language/Initialization.html) and the associated safety checks.
+The restrictions illustrated by these examples are a direct result of Swift's [two-phase initialisation process](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html) and the associated safety checks.
 
 So, what next? How about taking a two-phase approach; first initialising the UIDynamicAnimator, then setting the reference view after the superclass has been initialised?
 

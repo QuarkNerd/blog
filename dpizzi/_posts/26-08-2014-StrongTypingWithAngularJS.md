@@ -19,7 +19,7 @@ A few weeks ago my colleague presented a detailed article about [strong typing f
 
 [Typescript](http://www.typescriptlang.org/), on the other hand, is a typed superset of the JavaScript language that is compiled to produce clean, simple cross-browser compatible JavaScript code, which can help when building and maintaining large-scale applications. Typescript follows ECMAScript 5 (ES5) syntax but also includes several proposed features of ES6 such as interfaces, classes and modules.
 
-In order to use strong typing we need first to define the types mapping the Angular objects, but writing all these interfaces - including the properties and methods that compose them - seems like a tedious task. Luckily, a popular TypeScript declaration file ( _.d.ts_ ) already exists and is available in the GitHub project named [DefinitelyTyped](https://github.com/borisyankov/DefinitelyTyped/tree/master/angularjs).
+In order to use strong typing we need first to define the types mapping the Angular objects, but writing all these interfaces - including the properties and methods that compose them - seems like a tedious task. Luckily, a popular TypeScript declaration file ( _.d.ts_ ) already exists and is available in the GitHub project named [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/angular).
 
 The Visual Studio 2013 solution containing the code for this article is available on [GitHub](https://github.com/dpizzi-scottlogic/StrongTypingWithAngularJS).
 
@@ -27,7 +27,7 @@ The Visual Studio 2013 solution containing the code for this article is availabl
 
 ### A Modular Design
 
-In JavaScript, it is good practice to avoid name collisions and (over) pollution of the global namespace. The concept of modules has already been adopted in several frameworks - such as RequireJS or CommonJS. TypeScript also provides modularity by implementing the module feature proposed by ES6: 
+In JavaScript, it is good practice to avoid name collisions and (over) pollution of the global namespace. The concept of modules has already been adopted in several frameworks - such as RequireJS or CommonJS. TypeScript also provides modularity by implementing the module feature proposed by ES6:
 
 {% highlight javascript %}
 module _modulename {
@@ -45,7 +45,7 @@ A simple reference to the definition file _angular.d.ts_ will make available all
 /// <reference path="../Lib/DefinitelyTyped/jquery/jquery.d.ts" />
 {% endhighlight %}
 
-However, as every file will need to reference all the required definitions, a useful design is to centralise all of them within one unique file which will be reference instead wherever needed. 
+However, as every file will need to reference all the required definitions, a useful design is to centralise all of them within one unique file which will be reference instead wherever needed.
 
 For example,
 
@@ -60,7 +60,7 @@ For example,
 This file will reference every component defined within the application (services, controller, directives, filters, etc…).
 Then, each file will use this centralised referencing, such as:
 
-_AppStorage.ts_ 
+_AppStorage.ts_
 {% highlight javascript %}
 /// <reference path="_app.ts" />
 {% endhighlight %}
@@ -94,9 +94,9 @@ module app {
 
 Here, the main application module app is defined, the service _appStorage_ and the controller _appCtrl_ are attached with their corresponding TypeScript classes _AppStorage_ and _AppCtrl_, which will be compiled into JavaScript functions.
 
-### Services 
+### Services
 
-In this example we will defined a unique service - here called _appStorage_ –, which will be in charge of storing information using the local storage API. This service is defined using the _AppStorage_ TypeScript class, which is part of the _app_ module. 
+In this example we will defined a unique service - here called _appStorage_ –, which will be in charge of storing information using the local storage API. This service is defined using the _AppStorage_ TypeScript class, which is part of the _app_ module.
 Let’s have a look at its implementation:
 
 _AppStorage.ts_
@@ -115,13 +115,13 @@ module app {
 }
 {% endhighlight %}
 
-The class holds two methods _set_ and _get_, which are responsible for setting and getting values stored using the given key. 
+The class holds two methods _set_ and _get_, which are responsible for setting and getting values stored using the given key.
 NOTE: The implementation above is simplified for presentation purpose; for example, unicity of the stored keys is not respected and previous duplicate entry will therefore be overridden.
-Whilst the implementation of this service was quite simple, the definition of the controller is less straightforward. 
+Whilst the implementation of this service was quite simple, the definition of the controller is less straightforward.
 
 ### Controllers
 
-The Angular controller will also be implemented using a TypeScript class, however one main difference with the service is that a constructor will be defined to allow dependency injection to insert the _$scope_ parameter object. In addition, the controller will make use of the _appStorage_ service. 
+The Angular controller will also be implemented using a TypeScript class, however one main difference with the service is that a constructor will be defined to allow dependency injection to insert the _$scope_ parameter object. In addition, the controller will make use of the _appStorage_ service.
 
 _AppCtrl.ts_
 {% highlight javascript %}
@@ -147,7 +147,7 @@ export class AppCtrl {
 }
 {% endhighlight %}
 
-However, this base interface will need to be extended in order to add the properties and methods specific to our controller. The controller will hold a greeting string property and the _changeName_ method. The _greeting_ displays a generic message if no name have been stored so far, otherwise the message is customised. The _changeName_ method, defined using a lambda expression, stores the new name using the _appStorage_ service and modify the _greeting_ message. 
+However, this base interface will need to be extended in order to add the properties and methods specific to our controller. The controller will hold a greeting string property and the _changeName_ method. The _greeting_ displays a generic message if no name have been stored so far, otherwise the message is customised. The _changeName_ method, defined using a lambda expression, stores the new name using the _appStorage_ service and modify the _greeting_ message.
 
 {% highlight javascript %}
 export interface IAppCtrlScope extends ng.IScope {
@@ -156,8 +156,8 @@ export interface IAppCtrlScope extends ng.IScope {
 }
 export class AppCtrl {
     constructor(private $scope: IAppCtrlScope, private appStorage: AppStorage) {
-            $scope.greeting = appStorage.get('name') !== '' ? 
-				'Hello ' + appStorage.get('name') + ' !' : 
+            $scope.greeting = appStorage.get('name') !== '' ?
+				'Hello ' + appStorage.get('name') + ' !' :
 				'Hello you !';
             $scope.changeName = (name) => {
                 appStorage.set('name', name);
@@ -166,7 +166,7 @@ export class AppCtrl {
 }
 {% endhighlight %}
 
-NOTE: In this case a lambda expression is used for clarity and is interchangeable with a classic JavaScript anonymous function definition. Indeed, the advantage of using lambda expression emerges on call-back scenario as it automatically captures the right this pointer available when the function is created and not invoked (more details [here](http://www.typescriptlang.org/Handbook#functions-lambdas-and-using-39this39)). 
+NOTE: In this case a lambda expression is used for clarity and is interchangeable with a classic JavaScript anonymous function definition. Indeed, the advantage of using lambda expression emerges on call-back scenario as it automatically captures the right this pointer available when the function is created and not invoked (more details [here](http://www.typescriptlang.org/Handbook#functions-lambdas-and-using-39this39)).
 
 ### Directives
 
@@ -180,7 +180,7 @@ module app {
     'use strict';
     angular.module('app', [])
         .service('appStorage', AppStorage)
-        .controller('appCtrl', AppCtrl) 
+        .controller('appCtrl', AppCtrl)
         .directive('changeName', changeName);
 }
 {% endhighlight %}
@@ -205,7 +205,7 @@ module app {
 {% endhighlight %}
 
 There are a few interesting points to discuss here. First, notice that we chose to not use the isolated scope of the directive and instead simply used the controller scope. The main reason is to keep the directive definition as simple as possible and instead focus on the TypeScript integration aspect rather than pure Angular directive implementation. The main consequence is the use of the _IAppCtrlScope_ interface instead of having to define a new interface to match the scope specific to the directive.
-Whilst this remains fairly similar to the controller class definition in term of interface and dependency injection, a new type is introduced here: _jQuery_. This type is also defined within a definition file provided by the DefinitelyTyped GitHub [project](https://github.com/borisyankov/DefinitelyTyped/tree/master/jquery). This file is also referenced within the *\_app.ts* file: 
+Whilst this remains fairly similar to the controller class definition in term of interface and dependency injection, a new type is introduced here: _jQuery_. This type is also defined within a definition file provided by the DefinitelyTyped GitHub [project](https://github.com/borisyankov/DefinitelyTyped/tree/master/jquery). This file is also referenced within the *\_app.ts* file:
 
 {% highlight javascript %}
 /// <reference path="../Lib/DefinitelyTyped/jquery/jquery.d.ts" />
@@ -262,7 +262,7 @@ export class AppCtrl {
 		'$scope',
 		'appStorage'
 	];
-	constructor(private $scope: IAppCtrlScope, private appStorage: AppStorage) {	
+	constructor(private $scope: IAppCtrlScope, private appStorage: AppStorage) {
 			...
 	}
 }
@@ -271,33 +271,10 @@ export class AppCtrl {
 ## Further Readings
 
 The goal of this article was to give an overview of the integration between TypeScript and AngularJS by first exposing the overall project organisation and the file referencing. Later, we saw how to implement the main Angular components by taking into consideration the issues raised by superset typing introduced by TypeScript.
-So where can we go from there? 
+So where can we go from there?
 
-The [usage notes](https://github.com/borisyankov/DefinitelyTyped/tree/master/angularjs#readme) of the definition file from the DefinitelyTyped GitHub repository discusses many aspects of the integration. It presents, for instance, extra definition files that can be referenced such as - amongst many others - the _angular-resource.d.ts_ (for the _ngResource_ module).
+The [usage notes](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/angular/README.md) of the definition file from the DefinitelyTyped GitHub repository discusses many aspects of the integration. It presents, for instance, extra definition files that can be referenced such as - amongst many others - the _angular-resource.d.ts_ (for the _ngResource_ module).
 
 This [blog](http://notebookheavy.com/2013/05/22/angularjs-and-typescript/) post, by David Iffland, on using AngularJS and TypeScript together with MVC and .NET also presents similar content together with links to other resources.
 
-Finally, an example of integration can also be found on the [TodoMVC](http://todomvc.com/labs/architecture-examples/typescript-angular/#/) project website which has the overall goal of comparing different JavaScript MV* framework by implementing the same application with each.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Finally, an example of integration can also be found on the [TodoMVC](http://todomvc.com/examples/typescript-angular/#/) project website which has the overall goal of comparing different JavaScript MV* framework by implementing the same application with each.

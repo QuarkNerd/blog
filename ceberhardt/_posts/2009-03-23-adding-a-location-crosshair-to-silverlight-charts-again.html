@@ -16,8 +16,8 @@ source: wordpress
 disqus-id: /blog/colin/2009/03/adding-a-location-crosshair-to-silverlight-charts-again/
 ---
 <p>Silverlight is moving fast. Really fast. The recent <a href="http://live.visitmix.com/">MIX09</a> conference saw the release of Silverlight 3 (Beta) and also a new release of the <a href="http://blogs.msdn.com/delay/archive/2009/03/19/silverlight-charting-is-faster-and-better-than-ever-silverlight-toolkit-march-09-release-now-available.aspx">Silverlight Toolkit</a>. All this change is making it hard for us bloggers to keep up!</p>
-<p>Just over a month ago I posted an article on this blog about how to add <a href="http://www.scottlogic.co.uk/blog/colin/2009/02/adding-a-location-crosshair-to-silverlight-charts/">a location crosshair</a> to the Silverlight Toolkit Charts. This blog post briefly discusses how the charts have changed with the release last week, and updates the code accordingly.</p>
-<p>If you want to know how the general approach works, I would recommend reading the <a href="http://www.scottlogic.co.uk/blog/colin/2009/02/adding-a-location-crosshair-to-silverlight-charts/">previous blog post</a>, this post serves as an update and discussion on how the chart template has changed.</p>
+<p>Just over a month ago I posted an article on this blog about how to add <a href="{{ site.github.url }}/2009/02/04/adding-a-location-crosshair-to-silverlight-charts">a location crosshair</a> to the Silverlight Toolkit Charts. This blog post briefly discusses how the charts have changed with the release last week, and updates the code accordingly.</p>
+<p>If you want to know how the general approach works, I would recommend reading the <a href="{{ site.github.url }}/2009/02/04/adding-a-location-crosshair-to-silverlight-charts">previous blog post</a>, this post serves as an update and discussion on how the chart template has changed.</p>
 <p>There have been a number of minor changes to the charts that affect my previous implementation, including a change of namespace and orientation type on the chart axes. However, the biggest change is in the template of the chart control itself. Previously the chart template was structured via a Grid as shown below:</p>
 {% highlight xml %}
 <ControlTemplate TargetType="charting:Chart">
@@ -119,26 +119,3 @@ private KeyValuePair<DateTime, double> GetPlotAreaCoordinates(Point position)
 <p>... until the next release of the toolkit ;-)</p>
 <p>You can download the project sourcecode: <a href='{{ site.github.url }}/archive/2009/03/sllinechartcrosshairupdated.zip'>sllinechartcrosshairupdated.zip</a>.</p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

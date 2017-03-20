@@ -15,7 +15,7 @@ layout: default_post
 source: wordpress
 disqus-id: /blog/colin/2008/11/multiselect-datagrid-with-checkboxes/
 ---
-<p>I am currently very interested in the new WPF DataGrid which was released on <a href="http://www.codeplex.com/wpf">codeplex</a> recently. Someone posted an interesting question in the <a href="http://www.codeplex.com/wpf/Thread/View.aspx">codeplex forums</a> asking about whether it would be possible to configure the DataGrid so that a user can make multiple row selections via checkboxes which are associated with each row. I thought that this sounded like an excellent idea - afterall, the standard behaviour of ctrl-leftclick might be intuitive to the computer savvy, however you can bet the average user (which is certainly the majority) does not know this.</p>
+<p>I am currently very interested in the new WPF DataGrid which was released on <a href="http://www.codeplex.com/wpf">codeplex</a> recently. Someone posted an interesting question in the <a href="http://wpf.codeplex.com/discussions">codeplex forums</a> asking about whether it would be possible to configure the DataGrid so that a user can make multiple row selections via checkboxes which are associated with each row. I thought that this sounded like an excellent idea - afterall, the standard behaviour of ctrl-leftclick might be intuitive to the computer savvy, however you can bet the average user (which is certainly the majority) does not know this.</p>
 <p>Fortunately the solution is quite simple to implement in WPF:</p>
 {% highlight xml %}<dg:DataGrid ItemsSource="{Binding}">
   <dg:DataGrid.RowHeaderTemplate>
@@ -73,26 +73,3 @@ disqus-id: /blog/colin/2008/11/multiselect-datagrid-with-checkboxes/
 <p>You can download the demo project, <a href="http://wpfadventures.files.wordpress.com/2008/11/wpfdatagridmultiselect.doc">wpfdatagridmultiselect</a>, changing the file extension from .doc to .zip.</p>
 <p>Regards, Colin E.</p>
 <p>P.S. You can achieve the same effect with a ListView as detailed in <a href="http://weblogs.asp.net/marianor/archive/2008/02/04/multiselect-listview-with-checkboxes-in-wpf.aspx">this blog post</a>.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

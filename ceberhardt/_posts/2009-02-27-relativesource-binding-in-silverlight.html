@@ -17,7 +17,7 @@ layout: default_post
 source: wordpress
 disqus-id: /blog/colin/2009/02/relativesource-binding-in-silverlight/
 ---
-<p>In my <a href="http://www.scottlogic.co.uk/blog/colin/2009/02/elementname-binding-in-silverlight-via-attached-behaviours/">previous post</a> I demonstrated how an the WPF ElementName style binding can be emulated with Silverlight via an attached behaviour. As a brief recap, the technique involved creating an attached property, which when bound, adds a handler for the elements Loaded event. When the element is loaded, the even handler locates the named element and constructs a binding via a relay object. Here is the attached property in use:</p>
+<p>In my <a href="{{ site.github.url }}/2009/02/22/elementname-binding-in-silverlight-via-attached-behaviours">previous post</a> I demonstrated how an the WPF ElementName style binding can be emulated with Silverlight via an attached behaviour. As a brief recap, the technique involved creating an attached property, which when bound, adds a handler for the elements Loaded event. When the element is loaded, the even handler locates the named element and constructs a binding via a relay object. Here is the attached property in use:</p>
 {% highlight xml %}
 <Rectangle Height="20" Fill="Green">
     <local:BindingHelper.Binding>
@@ -26,7 +26,7 @@ disqus-id: /blog/colin/2009/02/relativesource-binding-in-silverlight/
 </Rectangle>
 <Slider x:Name="Slider" Value="20" Minimum="0" Maximum="300"/>
 {% endhighlight %}
-<p>Where the Rectangle's Width is bound to the Slider's Value. For details, and sourcecode, visit <a href="http://www.scottlogic.co.uk/blog/colin/2009/02/elementname-binding-in-silverlight-via-attached-behaviours/">this blog post</a>. Here I am going to extend this attached behaviour in order to emulate WPF's RelativeSource binding.</p>
+<p>Where the Rectangle's Width is bound to the Slider's Value. For details, and sourcecode, visit <a href="{{ site.github.url }}/2009/02/22/elementname-binding-in-silverlight-via-attached-behaviours">this blog post</a>. Here I am going to extend this attached behaviour in order to emulate WPF's RelativeSource binding.</p>
 <p>For much of the time you will want to bind your visual elements to your data objects via their DataContext property. However, there are often times when you want too perform a binding for pure presentation purposes, for example, binding the width of two elements together. In this context WPFs RelativeSource and ElementName binding prove to be powerful and useful features of the binding framework.</p>
 <p>Here I will extend the attached behaviour I described in my previous post to add RelativeSource binding capabilities. The properties of the attached property type have been extended:</p>
 {% highlight csharp %}
@@ -76,7 +76,7 @@ private static void TargetElement_Loaded(object sender, RoutedEventArgs e)
     }
 }
 {% endhighlight %}
-<p>When the attached property becomes attached to our target element it adds a handler for the elements Loaded event (this is the <em>attached behaviour</em>). Within the event handler, we determine whether this is a relative source binding. If this is the case, the CreateRelayBinding method is invoked where the source and target element parameters are the same element. For details of how the CreateRelayBinding method works, see the <a href="http://www.scottlogic.co.uk/blog/colin/2009/02/elementname-binding-in-silverlight-via-attached-behaviours/">previous blog post</a>.  An example of a relative-source self binding is show below, where a TextBox's Width property is bound to its Text, if you trype in a new text value, the TextBox Width adjusts accordingly.</p>
+<p>When the attached property becomes attached to our target element it adds a handler for the elements Loaded event (this is the <em>attached behaviour</em>). Within the event handler, we determine whether this is a relative source binding. If this is the case, the CreateRelayBinding method is invoked where the source and target element parameters are the same element. For details of how the CreateRelayBinding method works, see the <a href="{{ site.github.url }}/2009/02/22/elementname-binding-in-silverlight-via-attached-behaviours">previous blog post</a>.  An example of a relative-source self binding is show below, where a TextBox's Width property is bound to its Text, if you trype in a new text value, the TextBox Width adjusts accordingly.</p>
 {% highlight xml %}
 <TextBox Text="200" Margin="0,5,0,0">
     <local:BindingHelper.Binding>
@@ -209,26 +209,3 @@ private static void TargetElement_Loaded(object sender, RoutedEventArgs e)
 <div id="slPluginHost"> <object id="SilverlightPlugin" width="400" height="150" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.github.url }}/archive/2009/02/silverlightbinding1.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <p>You can download a visual studio project with all the sourcecode: <a href='{{ site.github.url }}/archive/2009/02/silverlightrelativesourcebinding.zip'>silverlightrelativesourcebinding.zip</a>.</p>
 <p>Enjoy, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

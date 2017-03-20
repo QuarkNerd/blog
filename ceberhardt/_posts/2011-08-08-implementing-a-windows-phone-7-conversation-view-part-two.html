@@ -16,11 +16,11 @@ source: wordpress
 disqus-id: /blog/colin/2011/08/implementing-a-windows-phone-7-conversation-view-part-two/
 ---
 <p><em>This blog post describes how to implement a conversation / messaging style application with Windows Phone 7. It covers how to style the speech bubbles and the scrolling of the conversation list view when the phone keyboard is shown.</em></p>
-<p>A couple of weeks ago I wrote a blog post which described the creation of a <a href="http://www.scottlogic.co.uk/blog/colin/2011/07/a-wp7-conversation-view/" title="Implementing a Windows Phone 7 Conversation View">Windows Phone 7 ConversationView</a>, a view which renders a list of messages so that they look like a conversation. In this blog post I am going to extend the concept further, by adding an input text field allowing you to have a conversation with ELIZA, an A.I. chatterbot. This blog post will look at some of the tricky issue regarding scrolling the list of messages so that the most recent is always visible when responding.</p>
+<p>A couple of weeks ago I wrote a blog post which described the creation of a <a href="{{ site.github.url }}/2011/07/15/a-wp7-conversation-view" title="Implementing a Windows Phone 7 Conversation View">Windows Phone 7 ConversationView</a>, a view which renders a list of messages so that they look like a conversation. In this blog post I am going to extend the concept further, by adding an input text field allowing you to have a conversation with ELIZA, an A.I. chatterbot. This blog post will look at some of the tricky issue regarding scrolling the list of messages so that the most recent is always visible when responding.</p>
 <p>You can see a video of this code in action below:</p>
 <p><iframe width="425" height="349" src="http://www.youtube.com/embed/cu2pw98tjZc" frameborder="0" allowfullscreen></iframe></p>
 <p>I hoped that I could find a decent C# <a href="http://en.wikipedia.org/wiki/ELIZA">ELIZA</a> (a classic chatter application that takes on the role of a therapist) implementation on the internet, however, the only one <a href="http://www.codeproject.com/KB/library/ProjectEliza.aspx">I found was rather basic</a>. If you know of any alternatives, pleas let me know!</p>
-<p>In my previous blog post I created a <code>UserControl</code> which renders each <code>Message</code> instance, where the template used to render the message is dependant on which side of the conversation it relates to. Refer to <a href="http://www.scottlogic.co.uk/blog/colin/2011/07/a-wp7-conversation-view/" title="Implementing a Windows Phone 7 Conversation View">my previous blog post</a> for implementation details.</p>
+<p>In my previous blog post I created a <code>UserControl</code> which renders each <code>Message</code> instance, where the template used to render the message is dependant on which side of the conversation it relates to. Refer to <a href="{{ site.github.url }}/2011/07/15/a-wp7-conversation-view" title="Implementing a Windows Phone 7 Conversation View">my previous blog post</a> for implementation details.</p>
 <p><img src="{{ site.github.url }}/archive/2011/07/WP7ConversationDesignTime.png" alt="" title="WP7ConversationDesignTime" width="600" height="328" class="aligncenter size-full wp-image-1604" /></p>
 <p>The layout for my simple chat application uses an instance of the <code>ConversationView</code> user control, with a text input located at the bottom of the screen:</p>
 {% highlight xml %}
@@ -91,7 +91,7 @@ disqus-id: /blog/colin/2011/08/implementing-a-windows-phone-7-conversation-view-
   </StackPanel>
 </ScrollViewer>
 {% endhighlight %}
-<p>We can detect when the input <code>TextBlock</code> receives focus to determine when the keyboard will be revealed. Using the <a href="http://www.scottlogic.co.uk/blog/colin/2009/09/helpful-extension-methods-for-show-hide-animations-in-silverlight/" title="Helpful extension methods for Show / Hide animations in Silverlight">Show / Hide extension methods I blogged about a while back</a>, we can fire the animations which make this padding rectangle grow or shrink when the keyboard is shown or hidden:</p>
+<p>We can detect when the input <code>TextBlock</code> receives focus to determine when the keyboard will be revealed. Using the <a href="{{ site.github.url }}/2009/09/26/helpful-extension-methods-for-show-hide-animations-in-silverlight" title="Helpful extension methods for Show / Hide animations in Silverlight">Show / Hide extension methods I blogged about a while back</a>, we can fire the animations which make this padding rectangle grow or shrink when the keyboard is shown or hidden:</p>
 {% highlight csharp %}
 private void TextInput_GotFocus(object sender, RoutedEventArgs e)
 {
@@ -144,26 +144,3 @@ private void ScrollConvesationToEnd()
 <p>And there you have it, a fully functional conversation application. Enjoy!</p>
 <p>You can download the complete sourcecode: <a href='{{ site.github.url }}/archive/2011/08/WP7ConversationView.zip'>WP7ConversationView.zip</a> </p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

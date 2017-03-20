@@ -20,7 +20,7 @@ In my previous blog post, I looked at how lazy properties can be used to avoid s
 
 What *is* an Optional Pyramid of Doom I hear you say?
 
-It's a name I borrowed from the JavaScript world. Web developers often find themselves having to deal with chains of asynchronous callbacks. These can lead to deeply nested code, termed a [Pyramid of Doom](http://survivejs.com/common_problems/pyramid.html).
+It's a name I borrowed from the JavaScript world. Web developers often find themselves having to deal with chains of asynchronous callbacks. These can lead to deeply nested code, termed a [Pyramid of Doom](https://github.com/survivejs/js_tricks_and_tips/wiki/Common-Problems#user-content-pyramid-of-doom).
 
 With Swift, pyramids become an issue when you have to unwrap multiple optional values before performing some logic:
 
@@ -170,7 +170,7 @@ The syntax isn't quite as neat as the previous, which made good use of trailing 
 
 ### if-let and cast
 
-One area where Swift developers often encounter Pyramids of Doom is the parsing of JSON. In the early days of Swift there were quite a few people [lamenting the code that this resulted in](http://owensd.io/2014/06/18/json-parsing.html), although more recently this problem has been solved by libraries such as [SwiftlyJSON](https://github.com/SwiftyJSON/SwiftyJSON), or [ridiculously clever functional concepts](http://robots.thoughtbot.com/efficient-json-in-swift-with-functional-concepts-and-generics).
+One area where Swift developers often encounter Pyramids of Doom is the parsing of JSON. In the early days of Swift there were quite a few people [lamenting the code that this resulted in](https://owensd.io/2014/06/18/json-parsing-2/), although more recently this problem has been solved by libraries such as [SwiftlyJSON](https://github.com/SwiftyJSON/SwiftyJSON), or [ridiculously clever functional concepts](http://robots.thoughtbot.com/efficient-json-in-swift-with-functional-concepts-and-generics).
 
 The basic problem is as follows, when JSON is parsed, a dictionary is created at runtime, which is a collection of name-value pairs of `Any` type:
 

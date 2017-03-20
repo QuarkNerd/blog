@@ -27,8 +27,8 @@ public Page()
     ContactDetails details = new ContactDetails()
     {
         Company = "Scott Logic Ltd.",
-        Email = "ceberhardt@scottlogic.co.uk",
-        URL = "http://www.scottlogic.co.uk",
+        Email = "ceberhardt@scottlogic.com",
+        URL = "http://www.scottlogic.com",
         Country = "UK",
         FullName = "Colin Eberhardt",
         PhoneNumber = 4408452241930
@@ -88,7 +88,7 @@ public Page()
 </StackPanel>
 {% endhighlight %}
 <p>But just how exactly do we bind the properties of these business objects?</p>
-<p>One approach would be to use a value converter for each binding in order to extract the required part of the number, for example a CountryCodeValueConverter could be implemented which grabs the first 2 digits of the number. However, this approach is a little inelligent in that it fragments our logic into a number of separate classes, furthermore, if we want country specific formatting this requires the use of multibindings, which can be rather cumbersome if over-used (for a Silverlight implementation of multi bindings see <a href="http://www.scottlogic.co.uk/blog/colin/2009/06/silverlight-multibindings-how-to-attached-mutiple-bindings-to-a-single-property/">my blog post</a> from earlier this year). </p>
+<p>One approach would be to use a value converter for each binding in order to extract the required part of the number, for example a CountryCodeValueConverter could be implemented which grabs the first 2 digits of the number. However, this approach is a little inelligent in that it fragments our logic into a number of separate classes, furthermore, if we want country specific formatting this requires the use of multibindings, which can be rather cumbersome if over-used (for a Silverlight implementation of multi bindings see <a href="{{ site.github.url }}/2009/06/25/silverlight-multibindings-how-to-attached-mutiple-bindings-to-a-single-property">my blog post</a> from earlier this year). </p>
 <p>Another approach which is often used to tackle tricky binding problems is the use of the Model-View-ViewModel (MVVM) pattern. With this pattern, our ContactDetails object is the Model, we construct a ViewModel which is a UI-oriented abstraction of the Model and it is this which we bind to the View. WPF guru Josh Smith describes MVVM as <a href="http://joshsmithonwpf.wordpress.com/2008/12/01/the-philosophies-of-mvvm/">"a value converter on steroids"</a> in order to highlight the usefulness of the pattern in this context.</p>
 <p>The basic approach used here is to bind your View to a ViewModel rather than binding it to the business object directly. The ViewModel is specific to the view and wraps the business object (i.e. Model), forwarding the property values and change notification to the View. This extra layer allows us to supplement the properties of the Model object, adding new computed properties which are specific to the View. In this case, these computed properties can be used to expose 'country code', 'area code', etc... to our View. </p>
 <p><em>(This is a common pattern so I am not going to reproduce the code required here, however, if you are interested, the attached sourcecode accompanying this article contains a regular ViewModel version as well as a mini-ViewModel implementation)</em></p>
@@ -204,26 +204,3 @@ public PhoneNumberControl()
 <p><strong>In conclusion</strong>, the use of a mini-ViewModel which is embedded within a <code>UserControl</code> allows you to solve tricky binding problems without being weighed down by rolling out the MVVM pattern across your entire View. I am not against the MVVM pattern in itself, however I do firmly believe that it should only be used to solve the problems which it is was specifically designed for, i.e. supporting the designer-developer workflow and unit testing.</p>
 <p>You can download the source-code for this article: <a href='{{ site.github.url }}/archive/2009/08/SLMiniViewModel.zip'>SLMiniViewModel.zip</a> - this project contains both MVVM and mini-MVVM implementations (count the number of lines in the ViewModel and contrast it with the mini-ViewModel).</p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

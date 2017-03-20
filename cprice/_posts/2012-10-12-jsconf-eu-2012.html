@@ -14,7 +14,7 @@ layout: default_post
 source: site
 disqus-id: /2012/10/jsconf-eu-2012/
 ---
-<p><a style="float: right; margin-left: 16px;" href="http://www.scottlogic.co.uk/blog/chris/"><img class="aligncenter size-full wp-image-145833" style="border: 1px solid black;" title="Chris Price" src="{{ site.github.url }}/archive/2012/03/me1.png" alt="" /></a><em>Hot on the heels of Reject.js was JSConf EU, a weekend conference about, well, JavaScript! It was my first time there so I was a little unsure what to expect, I was absolutely blown away by the venue, the organisation, the food, the drinks, the talks and most importantly the people. Thanks this time goes to Holger Blank, Malte Ubl, Jan Lehnardt and Tiffany Conroy.</em></p>
+<p><a style="float: right; margin-left: 16px;" href="{{ site.github.url }}/cprice/"><img class="aligncenter size-full wp-image-145833" style="border: 1px solid black;" title="Chris Price" src="{{ site.github.url }}/archive/2012/03/me1.png" alt="" /></a><em>Hot on the heels of Reject.js was JSConf EU, a weekend conference about, well, JavaScript! It was my first time there so I was a little unsure what to expect, I was absolutely blown away by the venue, the organisation, the food, the drinks, the talks and most importantly the people. Thanks this time goes to Holger Blank, Malte Ubl, Jan Lehnardt and Tiffany Conroy.</em></p>
 <h3 style="clear:both">Keynote</h3>
 <p>Brendan Eich (the creator of JavaScript) opened the conference with this Apple-inspired satirical advert for ES6.</p>
 <p style="text-align:center"><iframe width="600" height="315" src="http://www.youtube.com/embed/NJxB0Pp69IQ" frameborder="0" allowfullscreen></iframe></p>
@@ -23,7 +23,7 @@ disqus-id: /2012/10/jsconf-eu-2012/
 <p>Mary introduced a programming language that she's aiming at children called Isla. During her talk she said something that has really stuck with me. Programming is about magic. The magic that happens once you've typed in your program and then you first see it run. Much the same as stacking dominoes and then knocking the first one over. Mary was right, I had forgotten that's why I love programming.</p>
 <p>Sticking to the theme, she suggested that every programmer should at some point try writing a language (if you're using JavaScript <a href="http://pegjs.majda.cz/">PEG.js</a> and <a href="https://github.com/KrisJordan/multimethod-js">multimethod.js</a> might come in handy).</p>
 <h3>Michael Bebenita - Low Level JavaScript</h3>
-<p>This talk was turtles all the way down! The <del datetime="2012-10-29T09:14:41+00:00">Google</del> Mozilla guys have implemented <a href="http://mbebenita.github.com/LLJS/">a tool</a> that allows a C-like language along with structs, pointers, malloc and free, to be built on top JavaScript TypedArrays. They suggested that it can be useful for performance critical sections of code e.g. for physics calculations etc..</p>
+<p>This talk was turtles all the way down! The <del datetime="2012-10-29T09:14:41+00:00">Google</del> Mozilla guys have implemented <a href="https://github.com/mbebenita/LLJS">a tool</a> that allows a C-like language along with structs, pointers, malloc and free, to be built on top JavaScript TypedArrays. They suggested that it can be useful for performance critical sections of code e.g. for physics calculations etc..</p>
 <h3>Sam Dutton - WebRTC: Real-Time Communication Without Plugins</h3>
 <p>A frustratingly high-level look at <a href="http://www.html5rocks.com/en/tutorials/webrtc/basics/">WebRTC</a>, which you can think of as a P2P version of WebSockets. I was hoping for a real deep-dive into some of the details but we were only shown the shiny demos. Don't get me wrong the technology itself is very cool, I think we'll be seeing a lot more of it as the browser support improves.</p>
 <h3>Lennart C. L. Kats - Effectively Building Language Tools</h3>
@@ -34,9 +34,9 @@ disqus-id: /2012/10/jsconf-eu-2012/
 <h3>John Bender - Faster JavaScript with Category Theory</h3>
 <p>John gave us a crash course on category theory and how it could be applied to the jQuery internals to speed things up. I'd recommend checking out the <a href="https://github.com/johnbender/wield">Wield project page</a>.</p>
 <h3>Garann Means - Improvisational JavaScript</h3>
-<p>Garann noticed that bloggers were applying Tina Fey's rules of improv to everything from the <a href="http://balancedworklife.com/blog/tina-feys-rules-for-improv-and-the-workplace/">workplace</a> to <a href="http://sostark.net/post/4965998605/tina-feys-rules-of-improvisation-that-will-change-your">dieting</a> and thought that JavaScript was missing out. Her talk was a very interesting take on how to design robust, easy-to-use library code and interfaces.  I think the most relevant of the improv rules was "Say yes and...", i.e. expect that users will give you partial or broken input sometimes, so try your best to work with it instead of throwing it back in their faces. E.g. don't interrupt a sign-up flow with an error if someone chooses an existing username, use their user ID instead and allow them to change it at a later date.</p>
+<p>Garann noticed that bloggers were applying Tina Fey's rules of improv to everything from the <a href="http://www.mycareertopia.com/tina-feys-rules-for-improv-and-the-workplace/">workplace</a> to <a href="http://sostark.net/post/4965998605/tina-feys-rules-of-improvisation-that-will-change-your">dieting</a> and thought that JavaScript was missing out. Her talk was a very interesting take on how to design robust, easy-to-use library code and interfaces.  I think the most relevant of the improv rules was "Say yes and...", i.e. expect that users will give you partial or broken input sometimes, so try your best to work with it instead of throwing it back in their faces. E.g. don't interrupt a sign-up flow with an error if someone chooses an existing username, use their user ID instead and allow them to change it at a later date.</p>
 <h3>Axel Rauschmayer - JavaScript Inheritance: Beyond the Basics</h3>
-<p>Axel did a deep dive into inheritance as it was in JavaScript in ES3, how some <a href="http://docs.webplatform.org/wiki/concepts/programming/javascript/inheritance">new features in ES5</a> can help tidy up your code and how the proposed <a href="https://github.com/dherman/tc39-codex-wiki/blob/master/data/es6/classes/index.md">class feature of ES6</a> could help even further. My pro-tip -</p>
+<p>Axel did a deep dive into inheritance as it was in JavaScript in ES3, how some <a href="https://www.webplatform.org/docs/tutorials/working_with_objects_in_JavaScript/#Inheritance">new features in ES5</a> can help tidy up your code and how the proposed <a href="https://github.com/dherman/tc39-codex-wiki/blob/master/data/es6/classes/index.md">class feature of ES6</a> could help even further. My pro-tip -</p>
 <pre style="font-size:16px; text-align: center;">Functions have a prototype property
 Objects have an internal prototype reference</pre>
 <p><br/></p>
@@ -49,14 +49,14 @@ Objects have an internal prototype reference</pre>
 <h3>James Halliday - Code Collage</h3>
 <p>A nice reminder of the unix do one thing and do it well approach as applied to Node modules from one of the biggest package contributors on NPM, <a href="https://npmjs.org/~substack">substack</a>. This was extreme live coding, executed brilliantly. I didn't meet one person who wasn't in awe of this talk.</p>
 <h3>Anders Heijlsberg/Luke Hoban - Introducing TypeScript</h3>
-<p>This was a talk I was surprised to see on the schedule but I'm very glad it was. I'd already given a <a href="http://www.scottlogic.co.uk/2012/10/typescript-versus-closure/">quick summary of my thoughts</a> before the conference so I was looking forward to the talk. However, the feeling of people I talked to prior to the presentation was unanimously negative. Microsoft certainly don't have the best history on the web and I think people were concerned that this was VBScript2.</p>
+<p>This was a talk I was surprised to see on the schedule but I'm very glad it was. I'd already given a <a href="{{ site.github.url }}/2012/10/02/typescript-versus-closure">quick summary of my thoughts</a> before the conference so I was looking forward to the talk. However, the feeling of people I talked to prior to the presentation was unanimously negative. Microsoft certainly don't have the best history on the web and I think people were concerned that this was VBScript2.</p>
 <p>The talk was great, it was really interesting to hear that Microsoft have been working on this project for 2 years, and to me it shows. If you haven't tried it out then I encourage you to checkout it's playground on the official site (start with the Walkthrough: JavaScript then Walkthrough: Types) and read through <a href="http://www.nczonline.net/blog/2012/10/04/thoughts-on-typescript/">Nicholas C. Zakas's very balanced discussion of it's pros and cons</a>.</p>
 <p><i>On a side note, wildly extrapolating from some shreds of evidence, I think we might soon see a browser-based Visual Studio from Microsoft. The editor used in the playground is a custom component that Microsoft has authored, which seems a strange choice for such a simple demo, as there's plenty of very good open-source options. Digging a bit deeper into the code behind the editor, all of it is namespaced under "vs". Even if they did choose to write one just for the playground the internal architecture is vastly over engineered for something so trivial, e.g. using multiple web-workers in the background. Even just comparing the size of the codebase to CodeMirror, it comes out suspiciously large.</i></p>
 <h3>Francisco Jordano - OpenWebDevice: First Mobile Running Firefox OS</h3>
 <p>Francisco introduced <a href="http://www.mozilla.org/en-US/firefoxos/">Firefox OS</a>, Mozilla's late (and as yet unfinished) entry into the smartphone operation system race. In essence they've made PhoneGap, but at the operating system level instead of the app level. It's an interesting concept, but it's one that's already been tried unsuccessfully by Palm, so I'm hedging my bets on this one.</p>
 <h3>Matthew Delaney/Jing Jin - The Web's Black Magic: As Viewed from Within WebKit</h3>
 <p>Matthew and Jing picked a bit of a strange storyline for their talk but the content was really interesting. In essence they picked three optimisation techniques that are often touted on the internet as being the solutions to various performance problems, then set about explaining the WebKit source code behind the problem and the solution.</p>
-<p>The first was why you need to <a href="http://davidchambersdesign.com/settimeout-fix-for-webkit-transition/">use setTimeout to trigger CSS transitions</a>. This was a fairly basic explanation of the JavaScript event loop, but it was interesting to learn that a single execution cycle is called a runloop. </p>
+<p>The first was why you need to <a href="http://www.mikechambers.com/blog/2011/07/20/timing-issues-when-animating-with-css3-transitions/">use setTimeout to trigger CSS transitions</a>. This was a fairly basic explanation of the JavaScript event loop, but it was interesting to learn that a single execution cycle is called a runloop. </p>
 <p>The second problem was <a href="http://www.nczonline.net/blog/2009/02/03/speed-up-your-javascript-part-4/">mixing DOM writes and reads in a loop</a>. The solution is obviously to bundle all your reads together and your writes together but I was surprised at how hard it can be to spot that you've fallen into this trap.</p>
 <p>The final problem was the widely misunderstood <a href="http://stackoverflow.com/questions/10814178/css-performance-relative-to-translatez0">just slap transformZ(0) on it</a>. The talk covered the benefits of hardware compositing and how it can be abused. In summary <A href="http://trac.webkit.org/wiki/Accelerated%20rendering%20and%20compositing">use it wisely</a>!</p>
 <h3>Angelina Fabbro - Inspector Web and the Mystery of the Shadow DOM</h3>
@@ -95,26 +95,3 @@ Objects have an internal prototype reference</pre>
 <p><a class="twitter-share-button" href="https://twitter.com/share" data-via="100pxls">Tweet</a><script type="text/javascript">// <![CDATA[ !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");// ]]></script></p>
 <div class="g-plusone" data-annotation="inline" data-width="300"></div>
 <p><script type="text/javascript">// <![CDATA[   (function() {     var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;     po.src = 'https://apis.google.com/js/plusone.js';     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);   })();// ]]></script></p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

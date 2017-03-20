@@ -139,9 +139,9 @@ self.getFunc = function (funcStr) {
 var findPrimes = function (args) {
 	var divisor, isPrime, result = [],
 		current = args.from;
-	while (current < args.to) { 		
-		divisor = parseInt(current / 2, 10); 		
-		isPrime = true; 		
+	while (current < args.to) {
+		divisor = parseInt(current / 2, 10);
+		isPrime = true;
 		while (divisor > 1) {
 			if (current % divisor === 0) {
 				isPrime = false;
@@ -211,7 +211,7 @@ var findPrimes = function (args) {
 </table>
 <p>In the above tests we can see that execution always takes the same time in a Web Worker as in the UI thread.  In Chrome and Firefox, we see that executing Web Workers concurrently gives a nice performance improvement by taking advantage of multiple CPUs on the user's machine.  These are very positive results, especially considering the overhead in constructing and messaging the Web Workers.</p>
 <h2>Chrome</h2>
-<p>This technique of wrapping Web Workers works really well in Google Chrome, even though, as we saw in <a href="http://www.scottlogic.co.uk/2011/02/web-workers-part-1-performance/">Part 1</a>, Chrome has the largest overhead in constructing a Web Worker object.  As you would expect, Chrome makes use of multiple cores by running the Web Workers in separate threads and we can achieve a good speed-up in performance on multi-core machines vs single-core machines.</p>
+<p>This technique of wrapping Web Workers works really well in Google Chrome, even though, as we saw in <a href="{{ site.github.url }}/2011/02/18/web-workers-part-1-performance">Part 1</a>, Chrome has the largest overhead in constructing a Web Worker object.  As you would expect, Chrome makes use of multiple cores by running the Web Workers in separate threads and we can achieve a good speed-up in performance on multi-core machines vs single-core machines.</p>
 <h2>Firefox</h2>
 <p>Firefox also has great performance.  There is a good speed-up on multi-core machines, and additionally, Firefox has a low overhead in constructing Web Worker objects.</p>
 <h2>Opera</h2>
@@ -220,29 +220,6 @@ var findPrimes = function (args) {
 <p>In IE, since we are executing exclusively in the UI thread, long-running calculations will result in the message "A script on this page is causing Internet Explorer to run slowly".  This will occur if your worker function executes more than 5 million statements.  By way of workaround I can only suggest the following:</p>
 <ul>
 <li>Split the worker into multiple smaller workers to ensure the 5 million-statement limit is not reached.  You should endeavour to provide user feedback regularly to let the user know that the application has not crashed.</li>
-<li>If you have control over the client's registry (eg. a company internal application) then <a href="http://support.microsoft.com/kb/175500">the limit can be changed</a>, although that is a bad idea because the browser will be unresponsive for a long time.</li>
+<li>If you have control over the client's registry (eg. a company internal application) then <a href="https://support.microsoft.com/en-us/help/175500/error-message-a-script-on-this-page-is-causing-internet-explorer-to-run-slowly">the limit can be changed</a>, although that is a bad idea because the browser will be unresponsive for a long time.</li>
 <li>Offer an alternative version of your application to IE users, which is not as computationally intensive.  Inform the users that they can use the full version in another browser.</li>
 </ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -43,15 +43,15 @@ obj2.fn(obj2); // true{% endhighlight %}
 <p>In the second example, we've created a reference to our function on a new object (obj2) and invoked the function on it. Therefore within the function <strong>this</strong> is a reference to obj2.</p>
 <p>We can easily re-write both of the problematic examples so that they function correctly by using a bit of indirection (and closure) -</p>
 {% highlight javascript %}// a common problem rewritten
-var fn = function (arg) { 
-    return obj.func(arg); 
+var fn = function (arg) {
+    return obj.func(arg);
 };
 fn(obj); // true
 
 // a not-so-common problem rewritten
 var obj2 = {
-    fn : function (arg) { 
-        return obj.func(arg); 
+    fn : function (arg) {
+        return obj.func(arg);
     }
 };
 obj2.fn(obj); // true{% endhighlight %}
@@ -61,7 +61,7 @@ obj2.fn(obj); // true{% endhighlight %}
 fn.call(obj, obj); // true
 fn.apply(obj, [obj]); // true{% endhighlight %}
 <p><em>(The difference between call and apply is how they deal with the arguments following the <strong>this</strong> value. <a href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Function/call">Call</a> expects a number of further arguments to be passed to the function. Whereas <a href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Function/apply">apply</a> expects a second argument which is an array of the arguments to be passed to the function.)</em></p>
-<p>Some libraries (e.g. <a href="http://api.prototypejs.org/language/function/prototype/bind/">Prototype</a>, <a href="http://mootools.net/docs/core/Native/Function#Function:bind">MooTools</a>, <a href="http://www.dojotoolkit.org/reference-guide/dojo/hitch.html#dojo-hitch">DoJo</a>, etc.) take advantage of these functions and allow you to "bind" the value of <strong>this</strong> to a function. The libraries normally provide a new function on the Function prototype e.g.</p>
+<p>Some libraries (e.g. <a href="http://api.prototypejs.org/language/Function/prototype/bind/">Prototype</a>, <a href="https://mootools.net/core/docs/1.6.0/Types/Function#Function:bind">MooTools</a>, <a href="http://www.dojotoolkit.org/reference-guide/dojo/hitch.html#dojo-hitch">DoJo</a>, etc.) take advantage of these functions and allow you to "bind" the value of <strong>this</strong> to a function. The libraries normally provide a new function on the Function prototype e.g.</p>
 {% highlight javascript %}var fn = obj.func.bind(obj);
 fn(obj); // true{% endhighlight %}
 <p>A simple implementation of "bind" could return a new function that invokes the original function using either the call or apply to set the value of this e.g.</p>
@@ -75,26 +75,3 @@ fn(obj); // true{% endhighlight %}
 <p>Personally I prefer not to use "bind" functions, as I think they hide what is happening from less experienced developers in a way that leads them to develop JavaScript in a Java/C# way. Instead I'd rather they see what is actually happening, and then at least they have a chance of fully embracing the language and it's unique features.</p>
 <p>Hopefully this post has cleared things up a bit, if you think it could be clearer let me know and I'll do my best to correct it.</p>
 <p>Cheers, Chris</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -8,7 +8,7 @@ categories:
   - Canvas
 ---
 
-Along with the [modularisation](https://github.com/mbostock/d3/issues/2461) of code, [D3 version 4](https://github.com/mbostock/d3/tree/4) also brings new support for canvas drawing, thanks to the [d3-path](https://github.com/d3/d3-path) package introduced in version 4.
+Along with the [modularisation](https://github.com/d3/d3/issues/2461) of code, [D3 version 4](https://github.com/d3/d3/releases/tag/v4.0.0) also brings new support for canvas drawing, thanks to the [d3-path](https://github.com/d3/d3-path) package introduced in version 4.
 
 There are performance advantages to using canvas over svg for drawing complex charts (however canvas is not necessarily always better). You can read more about **d3-path** and *svg vs canvas*  [in this blog post](http://blog.scottlogic.com/2016/03/10/d3-path-what-is-it-good-for.html).
 

@@ -88,7 +88,7 @@ What I would say is that in the iOS world there are already some widely used fra
 
 This is probably the most important limitation of React Native. It is an abstraction, by which I mean that there is a pretty large chunk of code sitting between yourself and the native platform you are developing for.
 
-Time for that [Joel Spolsky quote](http://www.joelonsoftware.com/articles/LeakyAbstractions.html):
+Time for that [Joel Spolsky quote](https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/):
 
 > All non-trivial abstractions, to some degree, are leaky
 

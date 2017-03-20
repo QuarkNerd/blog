@@ -76,7 +76,7 @@ The end result is something like the following (live example, mouse over an iden
 ![Tooltip screenshot]({{site.github.url}}/nwolverson/assets/tsc/ts-tooltip.png) Tooltip appearing on mouseover.
 
 #### Getting Started
-The APIs described here are part of the TypeScript compiler 1.4 release, which you can grab from [npm](https://www.npmjs.com/package/typescript) or [with VS tools](https://visualstudiogallery.msdn.microsoft.com/2d42d8dc-e085-45eb-a30b-3f7d50d55304).
+The APIs described here are part of the TypeScript compiler 1.4 release, which you can grab from [npm](https://www.npmjs.com/package/typescript) or [with VS tools](https://marketplace.visualstudio.com/items?itemName=TypeScriptTeam.TypeScript14forVisualStudio2013-13057).
 The TypeScript 1.4 compiler version is required for the runtime services and corresponding definition file,
 but in order to compile these examples the latest compiler is also required, as the definition files make use of TypeScript 1.4 features.
 

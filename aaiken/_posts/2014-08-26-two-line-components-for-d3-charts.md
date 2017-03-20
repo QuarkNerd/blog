@@ -31,7 +31,7 @@ var line = sl.series.annotation()
 
 <img src="{{ site.github.url }}/aaiken/assets/annotation.png"/>
 
-The second component will be a line which follows any field on the data model, and includes an optional [moving average](http://en.wikipedia.org/wiki/Moving_average) calculation; adding it to the chart will take only 6 lines of code...
+The second component will be a line which follows any field on the data model, and includes an optional [moving average](https://en.wikipedia.org/wiki/Moving_average) calculation; adding it to the chart will take only 6 lines of code...
 
 {% highlight javascript %}
 var line = sl.series.tracker()
@@ -137,7 +137,7 @@ var annotation = sl.series.annotation()
     .yScale(yScale)
     .yValue(annotationValue);
 {% endhighlight %}
-    
+
 The only bit of real code that we need to write is to scale the chart's Y axis to ensure that our line is always visible - we do this by making sure the Y-scale domain includes the value we're calling out.
 
 {% highlight javascript %}
@@ -156,7 +156,7 @@ plotArea.append('g')
     .datum(data)
     .call(annotation);
 {% endhighlight %}
-    
+
 Obviously, one final step is to style the line - I've chosen to display it as a dashed line using the `stroke-dasharray` property.
 
 {% highlight css %}
@@ -209,7 +209,7 @@ sl.series.tracker = function () {
             else {
 
                 if (movingAverage === 0) {
-                    
+
                     line.y(function (d) { return yScale(d[yValue]); });
                 }
                 else {
@@ -317,7 +317,7 @@ var tracker = sl.series.tracker()
     .movingAverage(5)
     .css('tracker-close-avg');
 {% endhighlight %}
-    
+
 As we've described above, the `yValue` attribute is pretty flexible - it can take a number as a parameter, or the name of any of the fields on the data object - in this case I'm telling it to follow the `close` field. I'm also telling it to display the mean of the last 5 values for this field rather than the field itself by specifying a value for the `movingAverage` attribute.
 
 Once that's done we can add the component to the chart, just as before.
@@ -328,7 +328,7 @@ plotArea.append('g')
     .datum(data)
     .call(tracker);
 {% endhighlight %}
-    
+
 Finally we style the line (I'm cheating slightly by using the same style as before).
 
 {% highlight css %}
@@ -350,33 +350,8 @@ That's all there is to it - a relatively small amount of code, but it gives us a
 
 ### Enhancements
 
-When I see a moving average on a financial chart, my mind immediately jumps to [Bollinger Bands](http://en.wikipedia.org/wiki/Bollinger_Bands) - so that's how I'd extend this component further. Alternatively, the particular moving average calculation we're using here is called 'simple moving average' - there are other moving averages we could add, and allow the user to specify the type of calculation they want.
+When I see a moving average on a financial chart, my mind immediately jumps to [Bollinger Bands](https://en.wikipedia.org/wiki/Bollinger_Bands) - so that's how I'd extend this component further. Alternatively, the particular moving average calculation we're using here is called 'simple moving average' - there are other moving averages we could add, and allow the user to specify the type of calculation they want.
 
 ## Conclusion
 
 Starting out with a very simple horizontal-line component, we've now built a tracker component which can display a horizontal line at a specified y-value, or track any given field on the data model with an optional (and configurable) moving average calculation.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

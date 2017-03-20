@@ -12,8 +12,8 @@ layout: default_post
 source: wordpress
 disqus-id: /blog/colin/2010/12/visiblox-charts-vs-amcharts-quick-charts/
 ---
-<p>Around one week ago I published an article which <a href="http://www.scottlogic.co.uk/blog/colin/2010/12/visiblox-visifire-dynamicdatadisplay-charting-performance-comparison/">compared the performance of Visibox charts to a few of its competitors</a>. The results indicated that Visiblox was the fastest chart, with DynamicDataDisplay coming in a very close second.</p>
-<div style="background-color:#ddd; margin:10px; padding:20px;"><b>UPDATE:</b> I have published a more up-to-date and <a href="http://www.scottlogic.co.uk/blog/colin/2012/04/wpf-charting-performance-comparisons-the-battle-continues/">extensive test of WPF charting components in a more recent blog post</a>. This new test looks at how raster-graphics can be used to significantly enhance performance.</div>
+<p>Around one week ago I published an article which <a href="{{ site.github.url }}/2010/12/10/visiblox-visifire-dynamicdatadisplay-charting-performance-comparison">compared the performance of Visibox charts to a few of its competitors</a>. The results indicated that Visiblox was the fastest chart, with DynamicDataDisplay coming in a very close second.</p>
+<div style="background-color:#ddd; margin:10px; padding:20px;"><b>UPDATE:</b> I have published a more up-to-date and <a href="{{ site.github.url }}/2012/04/24/wpf-charting-performance-comparisons-the-battle-continues">extensive test of WPF charting components in a more recent blog post</a>. This new test looks at how raster-graphics can be used to significantly enhance performance.</div>
 <p>A few days ago Alan Mendelevich plugged the <a href="http://devblog.ailon.org/devblog/post/2010/12/17/amCharts-Quick-Charts-in-e2809cVisiblox-Performance-Teste2809d.aspx">amChart Quick Chart into the test harness to see how the performance compared</a>. Alan's findings were that the Quick Charts were marginally faster that Visiblox (and that you should not compare apples and oranges).</p>
 <p>This post is a quick response to Alan's findings. </p>
 <p>The reason that amChart's Quick Chart was not in the comparison was because I wanted to compare a few of the most well known charting solutions, with the exception of DDD, which might not be terribly well know, but is noted for its speed. The amChart's offerings were absent from the comparison simply because they are a very basic chart - I wanted to compare feature-rich charting components (comparing apples to apples!).</p>
@@ -80,26 +80,3 @@ private List<RGBData> GetRGBData(List<List<Histogram.DataPoint>> rgbData)
 <p>My congratulations to amCharts Quick Charts, they certainly live up to their name and provide a quick solution for basic charting requirements. For many charting applications, performance is important, this is true for those with simple requirements, and possibly even more so for those with complex requirements.</p>
 <p>Full article sourcecode: <a href='{{ site.github.url }}/archive/2010/12/ChartingSourcecode.zip'>ChartingSourcecode.zip</a></p>
 <p>Regards, Colin E. </p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

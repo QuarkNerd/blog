@@ -115,7 +115,7 @@ public void drawItem(DrawItemEventArgs e, Padding margin,
 </ListBox>
 {% endhighlight %}
 <p>Comparing the two approaches; not only is there less code in the WPF version, it is also much clearer and easy to follow. However, the advantages of the WPF approach do not end there ...</p>
-<p>WPF uses a <a href="http://en.wikipedia.org/wiki/Retained_mode">retained graphics mode</a>, which means the various elements in the above XAML code are assembled into a visual tree that is retained in memory, rather than just being painted to some bitmap. This means that the developer does not have to worry about invalidation, and does not need to employ techniques to avoid flicker when re-drawing. </p>
+<p>WPF uses a <a href="https://en.wikipedia.org/wiki/Retained_mode">retained graphics mode</a>, which means the various elements in the above XAML code are assembled into a visual tree that is retained in memory, rather than just being painted to some bitmap. This means that the developer does not have to worry about invalidation, and does not need to employ techniques to avoid flicker when re-drawing. </p>
 <p>The original author of the WinForms code above subclassed ListBox and created a concrete control for rendering this <em>specific </em>data with this <em>specific </em>layout. With WPF there is no subclassing, and no need to create a specific ListBoxItem for each row to provide the data for the control, instead the list binds directly to the business objects, with the DataTemplate doing all the work.</p>
 <p>Finally, you can supply design time data to your WPF / Silverlight applications, allowing you to get immediate feedback when designing your templates, removing the time consuming build / execution cycle required with WinForms. The screenshot below shows how the listbox looks in visual studio:</p>
 <p><img src="{{ site.github.url }}/archive/2010/09/designTimeData.png" alt="" title="designTimeData" width="568" height="529" class="aligncenter size-full wp-image-793" /></p>
@@ -133,26 +133,3 @@ public void drawItem(DrawItemEventArgs e, Padding margin,
 <p>In conclusion, templates are a very powerful features of the WPF (and Silverlight) framework that provide far more that just a mechanism for creating round buttons! If we look at the font selector used in Word 2007, I can imagine creating this UI with WPF in a matter of hours, whereas with WinForms it would take days. That is why I love WPF!</p>
 <p>You can download the WPF and WinForms source for this article: <a href='{{ site.github.url }}/archive/2010/09/WPFLove.zip'>WPFLove.zip</a></p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

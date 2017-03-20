@@ -11,7 +11,7 @@ summary: "Migrating a Knockout project to a webpack redux application using Riot
 
 <img style="display:block; margin: auto" src='{{ site.github.url }}/dmiley/assets/riot-act.jpg' title="The Riot Act" />
 
-In contrast to the above tome, Riot is a exceptionally lightweight javascript framework billed as a React alternative. I recently used it on a project of my own devising in order to explore its relative merits compared to its more illustrious cousin. The project as is is hosted [here](http://drewmiley.github.io/PoolLeague/). As you can see, it is a fairly unadorned data-display with several elements of interactivity.
+In contrast to the above tome, Riot is a exceptionally lightweight javascript framework billed as a React alternative. I recently used it on a project of my own devising in order to explore its relative merits compared to its more illustrious cousin. The project as is is hosted [here](https://drewmiley.github.io/PoolLeague/). As you can see, it is a fairly unadorned data-display with several elements of interactivity.
 
 ### Invoking De Bono: Creating a Specification
 
@@ -38,7 +38,7 @@ In my initial implementation, I decided that I should try and get the system wor
     |   +-- util.js
     +-- viewModel.js
 
-This, along with implementing the data binding in the index.html [file](http://github.com/drewmiley/PoolLeague/blob/93ca232f32250999959fa2a3622e8e99525fc07b/index.html), was enough to get me a minimum viable product that conformed to my initial specifications. 
+This, along with implementing the data binding in the index.html [file](https://github.com/drewmiley/PoolLeague/blob/93ca232f32250999959fa2a3622e8e99525fc07b/index.html), was enough to get me a minimum viable product that conformed to my initial specifications.
 
 ## Moving on up: Migrating to a new technology stack
 
@@ -46,7 +46,7 @@ Having completed this; I started looking into React, and developed some ES6 proj
 
 ### Running Riot: Selecting a javascript framework
 
-Fairly quickly, I discovered [Riot](http://github.com/riot/riot). Its main selling points seemed to be it was simple to use and develop in, which was ideal for the scale of my application, and its approach to data binding, which seemed most reminiscent of Knockout. 
+Fairly quickly, I discovered [Riot](https://github.com/riot/riot). Its main selling points seemed to be it was simple to use and develop in, which was ideal for the scale of my application, and its approach to data binding, which seemed most reminiscent of Knockout.
 
 Exploring various options, I selected Redux and Webpack as companion technologies to work with. This would make it easier to directly compare Riot with React.
 
@@ -122,7 +122,7 @@ I found the syntax in Riot to be far less mysterious than it would be in a React
                     </tr>
                 </thead>
                 <tbody>
-                    {this.props.leagueFixtures.filtered().map((leagueFixture) => 
+                    {this.props.leagueFixtures.filtered().map((leagueFixture) =>
                         <LeagueFixture key={leagueFixture.get('id')}
                             gameWeek={leagueFixture.get('gameWeek')}
                             homePlayer={leagueFixture.get('homePlayer')}
@@ -143,7 +143,7 @@ As you can see from the structure of the two files, the Riot tag appears to be a
 
 Now for the bad news. Two main problems quickly became apparent when developing with Riot.
 
-For someone spoilt on React's integration with [Immutable](http://github.com/facebook/immutable-js), Riot's lack of support for this was glaring. The structural ease offered by `each`, `if` and other attributes was significantly weakened by their inability to cope with accessing object properties in a way that React does not even blink at. In the end, I decided not to implement Immutable, as it would have had to have been diluted considerably in order to work. Again, this makes Riot fairly unsuitable for working with anything but simple data structures.
+For someone spoilt on React's integration with [Immutable](https://github.com/facebook/immutable-js), Riot's lack of support for this was glaring. The structural ease offered by `each`, `if` and other attributes was significantly weakened by their inability to cope with accessing object properties in a way that React does not even blink at. In the end, I decided not to implement Immutable, as it would have had to have been diluted considerably in order to work. Again, this makes Riot fairly unsuitable for working with anything but simple data structures.
 
 Along with this, Riot has little support for unit testing of tags. In this age of development, this is a major weakness. It led to me conducting most of my tests visually which, due to my intuition of the app, were seemingly sufficient. In any other circumstance, the confidence in the project would have been severely dented, and would most certainly have led to an unmanageable bug count.
 

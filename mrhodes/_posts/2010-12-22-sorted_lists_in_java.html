@@ -104,8 +104,8 @@ itr.next();
 public SortedList(Comparator<? super T> comparator)
 {% endhighlight %}
 <p>If you're not used to Java generics then this line might look a bit odd!  The type definition, "<code>&lt;? super T&gt;&gt;</code>" just says that the given comparator must be capable of comparing elements of type <code>T</code>, which is the type of element that the list is able to store.</p>
-<p>This might seem like a weird decision, since Java's built in <code>TreeSet</code> doesn't enforce the same restriction; it also allows a no-argument constructor.  The reason is that this no-argument constructor is used to create a <code>TreeSet</code> which orders elements by their <em>natural order</em>; i.e. the order you get if you use the <code>compareTo</code> method on the set's elements.  The draw back of this design decision is that there is no way to say that either the elements must be <code>Comparable</code>, or you need to supply a <code>Comparator</code>, so you need to add a runtime check for this (i.e. note the <code>ClassCastException</code> thrown by the <a href="http://download.oracle.com/javase/1.4.2/docs/api/java/util/TreeSet.html#add(java.lang.Object)"><code>TreeSet</code>'s  <code>add</code></a> method).</p>
-<p>If you need this behaviour with this <code>SortedList</code>, you can you implement a very simple subclass of it which passes in a <code>Comparator</code> providing this natural ordering.  An example implementation of this is given in this file: <a href="{{ site.github.url }}/archive/2011/03/SortedListNatural.java">SortedListNatural.java</a>, since it's so short I've also included all the code in it below too:</p>
+<p>This might seem like a weird decision, since Java's built in <code>TreeSet</code> doesn't enforce the same restriction; it also allows a no-argument constructor.  The reason is that this no-argument constructor is used to create a <code>TreeSet</code> which orders elements by their <em>natural order</em>; i.e. the order you get if you use the <code>compareTo</code> method on the set's elements.  The draw back of this design decision is that there is no way to say that either the elements must be <code>Comparable</code>, or you need to supply a <code>Comparator</code>, so you need to add a runtime check for this (i.e. note the <code>ClassCastException</code> thrown by the <a href="http://docs.oracle.com/javase/7/docs/api/java/util/TreeSet.html#add(E)"><code>TreeSet</code>'s  <code>add</code></a> method).</p>
+<p>If you need this behaviour with this <code>SortedList</code>, you can you implement a very simple subclass of it which passes in a <code>Comparator</code> providing this natural ordering.  An example implementation of this is shown below:</p>
 {% highlight java %}
 public class SortedListNatural<T extends Comparable<? super T>> extends SortedList<T> {
 	public SortedListNatural(){
@@ -118,8 +118,8 @@ public class SortedListNatural<T extends Comparable<? super T>> extends SortedLi
 }
 {% endhighlight %}
 <p>Note that the type definition restricts the class so that only comparable objects can be stored in it; removing the need for any runtime check.</p>
-<p><strong>AVL Trees as Sorted Lists</strong>In order to obtain the logarithmic run times for the standard operations, the SortedList needs to be based on some kind of balanced tree structure.  I've used an <a href="http://en.wikipedia.org/wiki/AVL_tree">AVL tree</a>, which is pretty much the simplest form of balanced tree you can have (so less chance of mistakes!) and since it ensures the tree remains very balanced (more so than say a <a href="http://en.wikipedia.org/wiki/Red-black_tree">Red-Black Tree</a>), it means that that the <code>get</code> and <code>contains</code> methods always run efficiently.</p>
-<p>An AVL tree is a <a href="http://en.wikipedia.org/wiki/Binary_search_tree">binary search tree</a>, which rebalances itself whenever the height of any node's subtree becomes at least two larger than it's other subtree.  The rebalancing requires implementing just two methods - the <a href="http://en.wikipedia.org/wiki/Tree_rotation">left and the right tree rotations</a>.  I won't go into all the details here, but if you're interested, a pretty easy to follow introduction to AVL trees is available at: <a href="http://www.cse.cuhk.edu.hk/~taoyf/course/2100s10/lec9.pdf">lecture1</a>, <a href="http://www.cse.cuhk.edu.hk/~taoyf/course/2100s10/lec10.pdf">lecture2 </a>and <a href="http://www.cse.cuhk.edu.hk/~taoyf/course/2100s10/lec11.pdf">lecture3</a>.</p>
+<p><strong>AVL Trees as Sorted Lists</strong>In order to obtain the logarithmic run times for the standard operations, the SortedList needs to be based on some kind of balanced tree structure.  I've used an <a href="https://en.wikipedia.org/wiki/AVL_tree">AVL tree</a>, which is pretty much the simplest form of balanced tree you can have (so less chance of mistakes!) and since it ensures the tree remains very balanced (more so than say a <a href="https://en.wikipedia.org/wiki/Red-black_tree">Red-Black Tree</a>), it means that that the <code>get</code> and <code>contains</code> methods always run efficiently.</p>
+<p>An AVL tree is a <a href="https://en.wikipedia.org/wiki/Binary_search_tree">binary search tree</a>, which rebalances itself whenever the height of any node's subtree becomes at least two larger than it's other subtree.  The rebalancing requires implementing just two methods - the <a href="https://en.wikipedia.org/wiki/Tree_rotation">left and the right tree rotations</a>.  I won't go into all the details here, but if you're interested, a pretty easy to follow introduction to AVL trees is available at: <a href="http://www.cse.cuhk.edu.hk/~taoyf/course/2100s11/lec9.pdf">lecture1</a>, <a href="http://www.cse.cuhk.edu.hk/~taoyf/course/2100sum11/lec10.pdf">lecture2 </a>and <a href="http://www.cse.cuhk.edu.hk/~taoyf/course/2100sum11/lec11.pdf">lecture3</a>.</p>
 <p>When it comes to actually implementing an AVL tree, the most obvious way to do it in Java is to have an inner <code>Node</code> class to represent the individual positions in the tree, and then have the main class hold a reference to the root <code>Node</code> of the tree.  The <code>Node</code> class needs to be defined somewhat recursively, as each Node needs to maintain references to both the children nodes and their parent node.  In order to use an AVL tree as a <code>SortedList</code>, you need this Node class to be slightly different than in a standard implementation, the changes required are that:</p>
 <ol>
 <li>Allow more than one node to store values that are equal in terms of the given comparator.</li>
@@ -285,26 +285,3 @@ void printAll(){
 {% endhighlight %}
 <p><strong>Unit Tests</strong>I always find that when writing code like this, it's really easy to make a mistake, so to build up some confidence in it I wrote some <a href="http://www.junit.org/">junit</a> tests for the SortedList class which are included in the download.  If you find a problem with it that's not covered by them please let me know.</p>
 <p>Mark Rhodes</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

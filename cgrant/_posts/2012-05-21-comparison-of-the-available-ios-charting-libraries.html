@@ -34,7 +34,7 @@ disqus-id: /2012/05/comparison-of-the-available-ios-charting-libraries/
 <h2>The Libraries</h2>
 <p>Above, I have described how the framework operates and loads data to present in the different charting libraries. I will now describe how to add four different libraries to this framework. The charts have been added following the same patterns as outlined in their respective sample projects. For all of the libraries, a standard line chart has been created with as much of the default behaviour possible to ensure a fair comparison.</p>
 <h3>Core Plot</h3>
-<p><a href="http://code.google.com/p/core-plot/">Core Plot</a> is a free, open source charting library available under the <a href="http://www.opensource.org/licenses/bsd-license.php">New BSD License</a>. The library is also available for use in Mac OS X applications. At the time of writing, the current version is 1.0. Core Plot has a <a href="http://code.google.com/p/core-plot/w/list">wiki</a>, and the new 1.0 version comes with a comprehensive set of API documentation. I found that the source code itself was the best place to look for documentation, as the majority of classes and methods have clear, meaningful comments.</p>
+<p><a href="http://code.google.com/p/core-plot/">Core Plot</a> is a free, open source charting library available under the <a href="https://opensource.org/licenses/bsd-license.php">New BSD License</a>. The library is also available for use in Mac OS X applications. At the time of writing, the current version is 1.0. Core Plot has a <a href="http://code.google.com/p/core-plot/w/list">wiki</a>, and the new 1.0 version comes with a comprehensive set of API documentation. I found that the source code itself was the best place to look for documentation, as the majority of classes and methods have clear, meaningful comments.</p>
 <h3>Integrating Core Plot into the framework</h3>
 <p>In the <code>CorePlotViewController</code>, we first must create a <code>CPTGraphHostingView</code>. Within this view, we create a <code>CorePlotLineChart</code> with the price container, then initialise the plot. The majority of the setup for core plot is done in the <code>CorePlotLineChart</code> class, which implements the <code>CPPlotDataSource</code> protocol. This provides the chart with the data points it must display and is done by implementing the following method:</p>
 <p><code>-(NSNumber*)numberForPlot:(CPTPlot*)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index</code>.</p>
@@ -126,7 +126,7 @@ DTCDay *pDay = [[DTCDay alloc] initWithDate:theDate];
 <p>To build the examples you need to download the charting components from their respective web pages. Due to licensing restrictions I was unable to include them in the download.</p>
 <ul>
 <li><a href="http://code.google.com/p/core-plot/">Core-Plot</a></li>
-<li><a href="http://www.shinobicharts.com/">Shinobi Charts</a></li>
+<li><a href="https://www.shinobicontrols.com/shinobicharts">Shinobi Charts</a></li>
 <li><a href="http://threedgraphics.com/tdg/products/tools/ioschart/">iOS:Chart</a></li>
 <li><a href="http://www.keepedge.com/">KeepEdge</a></li>
 </ul>
@@ -164,26 +164,3 @@ DTCDay *pDay = [[DTCDay alloc] initWithDate:theDate];
 </ul>
 <p>This comparison has looked at four of the main charting libraries available for iOS developers, comparing the features of each. If you have noticed any errors or possible issues with the source code or any of my assumptions within this article, please feel free to contact me at cgrant@scottlogic.co.uk and I will correct these as soon as possible. In addition, if you are aware of other iOS charting libraries that have not been included in this article, please let me know and I will do my best to update and include them as soon as possible.
 <p>Disclaimer: Scott Logic is the parent company for Shinobi controls, but I have evaluated each of the frameworks based on their API and features alone.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

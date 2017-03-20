@@ -272,7 +272,7 @@ authors:
         name: Mark Jose
         email: mjose@scottlogic.com
         gravatar: 6113027b6f67ad9f5f50a90f1481c0ed
-        author-summary: <p>I'm a lead developer at Scott Logic, working with HTML5 web technologies and C# / .NET development.</p><p>When I'm not coding you'll normally find me tinkering with cars or at the race track, but coding is a less expensive pass time.</p><p>I also contribute to a <a href="https://github.com/tunerscafe">few open source projects</a>.</p>
+        author-summary: <p>I'm a lead developer at Scott Logic, working with HTML5 web technologies and C# / .NET development.</p><p>When I'm not coding you'll normally find me tinkering with cars or at the race track, but coding is a less expensive pass time.</p><p>I also contribute to a <a href="https://github.com/markjose">few open source projects</a>.</p>
     tkelly:
         name: Thomas Kelly
         email: tkelly@scottlogic.com
@@ -293,7 +293,7 @@ authors:
         twitter-url: https://twitter.com/iwantmyrealname
         google-plus-url: https://plus.google.com/+SamDavies_ActuallyMyRealName
         author-summary: |
-            <p>Having escaped first from academia, and then the public sector, Sam is very happy to be working in the software industry. His role as Technical Evangelist at <a href="http://shinobicontrols.com/">shinobicontrols</a> involves a huge amount of writing, speaking at conferences and catching up with customers. His specialism is in mobile, but he has wide ranging experience, and a passion for the emerging "Internet of Things".</p><p>He is a member of the <a href="http://www.raywenderlich.com/u/samdavies">Ray Wenderlich tutorial team</a> and in addition to writing tutorials for the site, he was a lead author on the <a href="http://www.raywenderlich.com/store/swift-tutorials-bundle?source=barbararussell">iOS 8 by Tutorials</a> book, as well as a speaker at RWDevCon 2015. He blogs prolifically on the <a href="http://www.shinobicontrols.com/blog?author=sdavies">shinobicontrols</a> site, as well as writing articles for other sites such as <a href="http://www.objc.io">objc.io</a>.</p><p>Sam has also written a selection of free e-books about mobile development over recent years, including the very popular <a href="https://leanpub.com/ios7daybyday">iOS 7: Day-by-Day</a>, <a href="http://www.shinobicontrols.com/ios8">iOS 8: Day-by-Day</a> and <a href="https://leanpub.com/bitesizekitkat">Bitesize Android KitKat</a>.</p>
+            <p>Having escaped first from academia, and then the public sector, Sam is very happy to be working in the software industry. His role as Technical Evangelist at <a href="http://shinobicontrols.com/">shinobicontrols</a> involves a huge amount of writing, speaking at conferences and catching up with customers. His specialism is in mobile, but he has wide ranging experience, and a passion for the emerging "Internet of Things".</p><p>He is a member of the <a href="http://www.raywenderlich.com/u/samdavies">Ray Wenderlich tutorial team</a> and in addition to writing tutorials for the site, he was a lead author on the <a href="https://store.raywenderlich.com/products/ios-8-by-tutorials">iOS 8 by Tutorials</a> book, as well as a speaker at RWDevCon 2015. He blogs prolifically on the <a href="http://www.shinobicontrols.com/blog?author=sdavies">shinobicontrols</a> site, as well as writing articles for other sites such as <a href="http://www.objc.io">objc.io</a>.</p><p>Sam has also written a selection of free e-books about mobile development over recent years, including the very popular <a href="https://leanpub.com/ios7daybyday">iOS 7: Day-by-Day</a>, <a href="http://www.shinobicontrols.com/ios8">iOS 8: Day-by-Day</a> and <a href="https://leanpub.com/bitesizekitkat">Bitesize Android KitKat</a>.</p>
     wloveland:
         name: Will Loveland
         email: wloveland@scottlogic.com
@@ -324,7 +324,7 @@ authors:
         name: Ruth Caulcott-Cooper
         email: rcaulcott-cooper@scottlogic.co.uk
         gravatar: 5abeadc63cbe7be7b6538ffd4b523b3b
-        author-summary: <p>I am an intern going into my third year of Computer Science at Newcastle University, and have mainly been doing Java, javascript and C. Recently I have been working with d3.js, less.css and Scott Logic's own <a href="http://scottlogic.github.io/d3fc">d3fc</a>.</p>
+        author-summary: <p>I am an intern going into my third year of Computer Science at Newcastle University, and have mainly been doing Java, javascript and C. Recently I have been working with d3.js, less.css and Scott Logic's own <a href="https://github.com/d3fc">d3fc</a>.</p>
     rhamilton:
         name: Rosie Hamilton
         email: rhamilton@scottlogic.com
@@ -336,7 +336,7 @@ authors:
         name: Hannah Pretswell
         email: hpretswell@scottlogic.com
         gravatar: 085198904ae587a1d2c5995fa9477129
-        twitter-url: https://twitter.com/TheHannimator
+        twitter-url: https://twitter.com/HannahPretswell
         feed-description: Bits and bobs on software testing
         author-summary: <p>I work as a Test Engineer with a rather odd background in animation. When I'm not bug hunting I like to read, play piano and partake in local theatre productions.</p>
     wferguson:

@@ -67,7 +67,7 @@ for(double t = 0; t < Math.PI * 10; t += Math.PI / 36)
 <p>Anyhow, this is a small lesson in what is possibly obvious! However, I must admit, I had far too much fun creating the Lissajous Figure example application as you can see from the app. at the start of this article ... it takes me back to Physics lab at University!</p>
 <p>A few other points of interest:</p>
 <ul>
-<li>The code uses <a href="http://www.scottlogic.co.uk/blog/colin/2009/02/elementname-binding-in-silverlight-via-attached-behaviours/">ElementName binding attached behaviour</a> I created in an earlier blog post. As a result, there is no code-behind in the main page (I may be flirting with Silverlight but my WPF credibility remains intact!)</li>
+<li>The code uses <a href="{{ site.github.url }}/2009/02/22/elementname-binding-in-silverlight-via-attached-behaviours">ElementName binding attached behaviour</a> I created in an earlier blog post. As a result, there is no code-behind in the main page (I may be flirting with Silverlight but my WPF credibility remains intact!)</li>
 <li>The various dependency properties for the Lissajous Figure user control are defined using T4 templates as described in this <a href="http://www.codeproject.com/KB/WPF/DependencyPropertyCodeGen.aspx">codeproject article</a>.</ul>
 <p>I also really like the way that when one of the DPs such as Phase is updated, a storyboard is used to animate the accompanying ActualPhase  DP to the updated value.</p>
 {% highlight csharp %}
@@ -93,26 +93,3 @@ private void AnimateProperty(string propertyName, double targetValue, int millis
 <p>You can download the full project source here: <a href='{{ site.github.url }}/archive/2009/06/silverlightdpperformance.zip'>silverlightdpperformance.zip</a>.</p>
 <p>[Oscilloscope image reproduced from <a href="http://en.wikipedia.org/wiki/File:Tektronix_465_Oscilloscope.jpg">Wikipedia</a> under Creative Commons Licence]</p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -67,7 +67,7 @@ private bool TryFindListBox()
   return true;
 }
 {% endhighlight %}
-<p>The above code uses some simple <a href="http://www.scottlogic.co.uk/blog/colin/2010/03/linq-to-visual-tree/">Linq-to-VisualTree</a> to locate these elements. Notice that the approach taken first tries to locate these elements, if this fails, the <code>Loaded</code> event is handled, which is fired when elements (and their template components) are added to the visual tree.</p>
+<p>The above code uses some simple <a href="{{ site.github.url }}/2010/03/04/linq-to-visual-tree">Linq-to-VisualTree</a> to locate these elements. Notice that the approach taken first tries to locate these elements, if this fails, the <code>Loaded</code> event is handled, which is fired when elements (and their template components) are added to the visual tree.</p>
 <p>The animation is fired each time the <code>Popup</code> is opened. Creating the animation itself is quite simple, the items within the <code>ListBox</code> are iterated over, with a <code>TranslateTransform</code> created for each, with delayed <code>Storyboard</code> animations used to fire the animations sequentially. However, the container's (i.e. <code>ListBoxItem</code> instances) may not have been created when the <code>Opened</code> event fires. In order to handle this, the code below checks for the container of the item at the first index. If this container has not yet been generated, the code which creates the animations is deferred until after the next <code>LayoutUpdated</code> event. This should ensure that the containers are now present. The code is shown below:</p>
 {% highlight csharp %}
 /// <summary>
@@ -133,26 +133,3 @@ private void Popup_Opened(object sender, System.EventArgs e)
 <p>I have of course updated the Sandwich Flow, Metro In Motion demo application to include this effect. Again, this is available via the <a href="http://wp7contrib.codeplex.com/">WP7Contrib project</a>:</p>
 <p><iframe width="640" height="510" src="http://www.youtube.com/embed/TtVWLxDDhiE" frameborder="0" allowfullscreen></iframe></p>
 <p>Regards,Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

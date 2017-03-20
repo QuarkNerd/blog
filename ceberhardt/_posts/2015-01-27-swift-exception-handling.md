@@ -185,7 +185,7 @@ Which brings me onto the final part of this blog post ...
 
 Most modern languages support exceptions - the lack of support in Swift does seem to make it be something of an exception (ba-dum-tish). However, despite the fact Objective-C fully supports exceptions, they are often frowned upon.
 
-As an example, the Google Objective-C style guide simply states "[Don't throw exceptions](http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml#Avoid_Throwing_Exceptions)".
+As an example, the Google Objective-C style guide simply states "[Don't throw exceptions](https://google.github.io/styleguide/objcguide.xml#Avoid_Throwing_Exceptions)".
 
 However, I personally feel that Swift would benefit from the introduction of exceptions. To see why, we'll return back the everyone's favourite topic - optionals!
 

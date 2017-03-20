@@ -19,7 +19,7 @@ Let's start at the beginning ...
 
 ## What are Events?
 
-Cocoa has a number of techniques that allow classes to collaborate in a loosed-coupled fashion via some form of notification, including target-action, the delegate pattern, NSNotification and KVO. These are all forms of the classic [Observer Pattern](http://en.wikipedia.org/wiki/Observer_pattern), yet all are different implementations, and each have their own failings. KVO is cumbersome, the delegate pattern only permits a single observer ... However this post isn't a rant about Cocoa, so enough of that ;-)
+Cocoa has a number of techniques that allow classes to collaborate in a loosed-coupled fashion via some form of notification, including target-action, the delegate pattern, NSNotification and KVO. These are all forms of the classic [Observer Pattern](https://en.wikipedia.org/wiki/Observer_pattern), yet all are different implementations, and each have their own failings. KVO is cumbersome, the delegate pattern only permits a single observer ... However this post isn't a rant about Cocoa, so enough of that ;-)
 
 Events provide a generic mechanism for raising notifications that can be handled by multiple observers. C# developers have the luxury of [first-class language support for events](https://msdn.microsoft.com/en-us/library/awbftdfh.aspx), however in most other mainstream languages this is something that is either provided at a library level or that you have to implement yourself.
 

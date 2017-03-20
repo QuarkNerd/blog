@@ -15,7 +15,7 @@ When I originally started this project, it was my intention to develop a tool fo
 ### iMovie Support
 <img src="{{ site.github.url }}/cgrant/assets/iMovie.png" />
 
-About a week into this development, Apple released an update and announced that you could now [create app previews with iMovie](https://developer.apple.com/news/?id=10162014a), which is free! This is great news for developers, but it meant I gave up on development of this tool. I did, however, learn a lot about AVFoundation while creating it. One of the most challenging tasks I tackled was how to combine multiple videos. Below I explore how to stitch several .mov files together using AVFoundation.
+About a week into this development, Apple released an update and announced that you could now [create app previews with iMovie](https://developer.apple.com/support/app-previews/imovie/), which is free! This is great news for developers, but it meant I gave up on development of this tool. I did, however, learn a lot about AVFoundation while creating it. One of the most challenging tasks I tackled was how to combine multiple videos. Below I explore how to stitch several .mov files together using AVFoundation.
 
 ## Getting Started
 The project is a Mac app, and contains three sample .mov files that I captured on my iPhone 6 using QuickTime. To capture video from your device, just ensure it is plugged in, open QuickTime, then select File -> New Recording, then click record in the new window.
@@ -132,4 +132,4 @@ And that's it! The API can seem a little complicated at first, and you have to b
 
 <img src="{{ site.github.url }}/cgrant/assets/player.png" />
 
-If you are interested in learning more, I recommend starting with the [AVFoundationFramework docs from Apple](https://developer.apple.com/library/ios/documentation/AVFoundation/Reference/AVFoundationFramework/). If you have noticed any issues with the code, please raise an issue or create a pull request over at [GitHub](https://github.com/ChrisGrant/AVFoundation-Video-Stitching "AVFoundation Video Stitching Repository").
+If you are interested in learning more, I recommend starting with the [AVFoundationFramework docs from Apple](https://developer.apple.com/reference/avfoundation). If you have noticed any issues with the code, please raise an issue or create a pull request over at [GitHub](https://github.com/ChrisGrant/AVFoundation-Video-Stitching "AVFoundation Video Stitching Repository").

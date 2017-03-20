@@ -106,4 +106,4 @@ The new seamless connection experiences for SQL Server and Oracle are really nic
 
 Overall, version 11 has some great improvements which will increase productivity and the speed at which you can get to an answer. The increased use of HTML5 based designers is great and gives a much more modern look and feel. It is also really nice to see that old tools (such as the Formula tool) and the SDKs are not being neglected and the platform continues to grow.
 
-This post was also published on my own personal blog - [jdunkerley.co.uk](http://www.jdunkerley.co.uk)
+This post was also published on my own personal blog - [jdunkerley.co.uk](https://jdunkerley.co.uk/)

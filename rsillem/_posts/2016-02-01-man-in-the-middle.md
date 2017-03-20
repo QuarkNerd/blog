@@ -22,8 +22,8 @@ A man in the middle (MITM) attack is where the attacker can intercept the networ
 
 Here's some examples of where man in the middle attacks have been employed successfully.
 
-* [Your PC is compromised](http://www.theregister.co.uk/2015/11/23/dude\_youre\_getting\_pwned/)
-* [Your router is compromised](http://www.theregister.co.uk/2003/11/07/help\_my\_belkin\_router/)
+* [Your PC is compromised](http://www.theregister.co.uk/2015/11/23/dude_youre_getting_pwned)
+* [Your router is compromised](http://www.theregister.co.uk/2003/11/07/help_my_belkin_router/)
 * [Your wireless network is compromised](http://www.theinquirer.net/inquirer/news/2045528/hundreds-log-rogue-wireless-hotspot-infosec-conference). And the same advice from [Dell](http://powermore.dell.com/technology/hackers-use-wi-fi-steal-passwords/).
 * [Your ISP is compromised](http://news.softpedia.com/news/Tunisian-Gov-Is-Primary-Suspect-in-Mass-Theft-of-Gmail-Yahoo-and-Facebook-Logins-176453.shtml)
 
@@ -137,9 +137,9 @@ These links might prove useful:
 
 * [Wikipedia article on HTTPS](https://en.wikipedia.org/wiki/HTTPS)
 
-* [Description of Transport Layer Security](https://en.wikipedia.org/wiki/Transport\_Layer\_Security#Description)
+* [Description of Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security#Description)
 
-* [Wikipedia on Public Key Certificates](https://en.wikipedia.org/wiki/Public\_key\_certificate)
+* [Wikipedia on Public Key Certificates](https://en.wikipedia.org/wiki/Public_key_certificate)
 
 The sample apps use self-signed certificates for the domains `10.10.10.10` and `10.10.10.20` respectively. These are not trusted by your browser, as there is no chain of trust back to a trusted root certification authority (they do have a public key, so they enable the confidentiality/integrity bits of HTTPS). If you request either sample in a modern browser it will complain at you about untrusted connections. So now you should arrange matters so that the certificates provided by the samples are trusted, and at this point I should reiterate that you should have a firm grasp of what certificates and trust are about.
 
@@ -218,7 +218,7 @@ You will know if you have got everything right if:
 
 Another thing you will observe is that you can no longer get in if Fiddler is capturing HTTPS. This is because Fiddler works by inserting itself as a proxy with its own certificate - DO\_NOT\_TRUST\_FiddlerRoot (there's a clue in the name). Where you could previously click past the browser warnings, once you have HSTS in place you can't - unless you're using IE <= 10.
 
-You can see more information about Strict Transport Security at [Wikipedia](https://en.wikipedia.org/wiki/HTTP\_Strict\_Transport\_Security) or [OWASP](https://www.owasp.org/index.php/HTTP\_Strict\_Transport\_Security).
+You can see more information about Strict Transport Security at [Wikipedia](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security) or [OWASP](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security).
 
 
 Restricting which certificates the app trusts - HPKP
@@ -238,8 +238,8 @@ The OWASP guidance below is quite gung-ho about HPKP, but that guidance is under
 
 See further:
 
-* [https://en.wikipedia.org/wiki/HTTP\_Public\_Key\_Pinning](https://en.wikipedia.org/wiki/HTTP\_Public\_Key\_Pinning)
-* [https://www.owasp.org/index.php/Pinning\_Cheat\_Sheet](https://www.owasp.org/index.php/Pinning\_Cheat\_Sheet)
+* [https://en.wikipedia.org/wiki/HTTP\_Public\_Key\_Pinning](https://en.wikipedia.org/wiki/HTTP_Public_Key_Pinning)
+* [https://www.owasp.org/index.php/Pinning\_Cheat\_Sheet](https://www.owasp.org/index.php/Pinning_Cheat_Sheet)
 
 
 

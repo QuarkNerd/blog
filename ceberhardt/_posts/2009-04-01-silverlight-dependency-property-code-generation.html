@@ -42,7 +42,7 @@ private void OnMaximumPropertyChanged(DependencyPropertyChangedEventArgs e)
 }
 {% endhighlight %}
 <p>The above code defines a dependency property, Maximum, providing a type and default value, a CLR property wrapper and a method which is invoked on property change. We have 21 lines of quite densely packed code, which does so little! Furthermore, dependency property declarations can be quite error prone; if incorrectly specified the error can easily go undetected and unreported, wasting precious hours ...</p>
-<p>A few people have created code snippets which help automate the construction of this ghastly boiler-plate code. They are a few snippets available for <a href="http://blog.nerdplusart.com/archives/silverlight-code-snippets">Silverlight</a> and whole host available <a href="http://www.drwpf.com/blog/Home/tabid/36/EntryID/41/Default.aspx">WPF</a> courtesy of the good Dr. These certainly help you get started, however, when refactoring or re-organising code you are back to a more manual approach. </p>
+<p>A few people have created code snippets which help automate the construction of this ghastly boiler-plate code. They are a few snippets available for <a href="http://blog.nerdplusart.com/archives/silverlight-code-snippets">Silverlight</a> and whole host available <a href="http://drwpf.com/blog/category/silverlight/">WPF</a> courtesy of the good Dr. These certainly help you get started, however, when refactoring or re-organising code you are back to a more manual approach. </p>
 <p>Before I describe my approach, I want to briefly explain why dependency properties (DP) have to be this way. An obvious beginner question is, why can't CLR properties behave like DPs? The difference is that CLR properties are understood by the compiler, they are part of the language. Whereas DPs are purely implementation, an implementation which is restricted by the .NET language.</p>
 <p>So, if we can't change the language itself, what can we do? I toyed with the idea of Aspect Oriented Programming, enhancing the compiled bytecode in order to add DPs for CLRs marked with attributes, however whichever way I looked at the problem I could not find a solution that fits. This lead me onto code generation, the basic idea being that my DPs would be generated from a concise description of my Dependency Objects. This investigation lead me to one of Visual Studios best kept secrets, <a href="http://msdn.microsoft.com/en-us/library/bb126445.aspx">T4 templates</a> (T4 = Text Template Transformation Toolkit!).</p>
 <p>T4 template are available in Visual Studio 2008, however they are not listed when you select 'Add => New Item' on you project. To add a new template, simply create a new file with an extension of 'tt'. You will then see something that looks like the following:</p>
@@ -69,7 +69,7 @@ public class HelloWorld
 	}
 }
 {% endhighlight %}
-<p>Note that the <code>DateTime.Now.ToString()</code> has been evaluated by the template engine, resulting in a string literal in the generated file. For an excellent and detailed overview of T4 templates I would recommend heading over to  Oleg Sych's blog where he has a whole host of <a href="http://www.olegsych.com/tag/t4/">articles on T4 templates</a>.</p>
+<p>Note that the <code>DateTime.Now.ToString()</code> has been evaluated by the template engine, resulting in a string literal in the generated file. For an excellent and detailed overview of T4 templates I would recommend heading over to  Oleg Sych's blog where he has a whole host of <a href="http://olegsych.com/T4Toolbox/">articles on T4 templates</a>.</p>
 <p>Now, how do we add generated DPs to a class? Fortunately this is a problem that has been solved before, and the answer is partial classes. In the same way that your XAML editor (and DataSet editor, ASP.NET editor ...) creates a partial class, we can create a partial class which just contains our DP declarations. A suitable template might look something like this:</p>
 <pre>
 public partial class <span style="background: #ddf">&lt;#= className #&gt;</span>
@@ -119,7 +119,7 @@ foreach(var dp in dps)
 {% endhighlight %}
 <p>The XML schema serves two purposes, firstly Visual Studio will auto-complete making the construction of this document a breeze, secondly, ensuring that the document is valid means that the template itself does not have to be programmed in such a 'defensive' style.</p>
 <p>Notice also a few other goodies here, the <code>propertyChangedCallback</code> attribute indicates that a property changed event handler will be added to the code as a partial method. Furthermore, the <code>notifyPropertyChanged</code> attribute indicates that the class will implemented <code>INotifypropertyChanged</code>, raising the <code>PropertyChanged</code> event whenever a DP changes. More boiler-plate code eradicated!</p>
-<p>The complete template that builds classes from the XML file contains a class feature block (for details see <a href="http://www.olegsych.com/2008/02/t4-class-feature-blocks/">Oleg's blog</a>), called <code>GenerateClass</code>, which takes two parameters. The first is the fully qualified name of the class, the second is the location of the XML file:</p>
+<p>The complete template that builds classes from the XML file contains a class feature block, called <code>GenerateClass</code>, which takes two parameters. The first is the fully qualified name of the class, the second is the location of the XML file:</p>
 <pre>
 <span style="background:#ddf">&lt;#@ include file="DependencyObjectTemplate.tt" #&gt;
 &lt;#
@@ -386,26 +386,3 @@ namespace &lt;#= classNamespace #&gt;
 
 </xs:schema>
 {% endhighlight %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

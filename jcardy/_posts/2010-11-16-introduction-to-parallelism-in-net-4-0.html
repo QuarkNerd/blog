@@ -20,7 +20,7 @@ disqus-id: /2010/11/introduction-to-parallelism-in-net-4-0/
 ---
 <p>Back in the day, processors had a single core and clock speeds increased steadily every year.  This meant that although writing multi-threaded code for a single CPU gave some performance improvements (since single-core CPUs usually try to execute multiple threads), it was hardly the top of any developer's list of priorities.  In the last few years, clock speeds have reached a plateau and we've all got dual core or quad core processors, with the core-increasing trend set to continue.</p>
 <p>Part of the reason for the apathy toward parallelism is that some significant effort must be made to ensure that thread safety is taken care of and issues of deadlocking and race conditions are avoided, with the associated maintenance cost and scope for introducing bugs often outweighing performance gains.  In this blog post I will introduce a few of the features that .NET 4.0 brings to help us write more scalable code by taking advantage of the opportunities for parallelism, as we move into a world of multi-core and many-core processors.</p>
-<p><strong>Aside:</strong> "Many-core" describes a processor containing more cores than the number of running processes, in the realm of hundreds or thousands of cores.  It's at this point that parallelism in software is key; the system can't run efficiently otherwise because there are more cores than threads.  If you think this number of cores is totally futuristic, think again - NVIDIA have long been driving their parallel processors due to the parallelism demanded by rendering engines.  The NVIDIA GTX280 GPU has 240 cores, and the Tesla M20 has 448 cores [<a href="http://www.nvidia.com/object/product_tesla_c1060_us.html">1</a>].  Intel has also announced a 50-core CPU called "Knights Corner" [<a href="http://www.intel.com/pressroom/archive/releases/20100531comp.htm">2</a>].</p>
+<p><strong>Aside:</strong> "Many-core" describes a processor containing more cores than the number of running processes, in the realm of hundreds or thousands of cores.  It's at this point that parallelism in software is key; the system can't run efficiently otherwise because there are more cores than threads.  If you think this number of cores is totally futuristic, think again - NVIDIA have long been driving their parallel processors due to the parallelism demanded by rendering engines.  The NVIDIA GTX280 GPU has 240 cores, and the Tesla M20 has 448 cores [<a href="http://www.nvidia.com/object/product_tesla_c1060_us.html">1</a>].  Intel has also announced a 50-core CPU called "Knights Corner" [<a href="http://www.geek.com/chips/intel-unveils-knights-corner-50-core-server-chip-1260323/">2</a>].</p>
 <p>Frequently, when we do use concurrency in our applications, we developers write code that is targeted towards a specific number of cores.  For example, I want to free up my UI thread by performing a long-running calculation in the background.  So naturally I run my calculation in a new thread from the thread pool.  But what if my processor has four cores? Or 1000? I've hardcoded my software to use two and only two threads.  This is the main issue highlighted in a 2006 research report from the University of California, Berkeley titled '<em>The Landscape of Parallel Computing Research: A View from Berkeley</em>' [<a href="http://www.eecs.berkeley.edu/Pubs/TechRpts/2006/EECS-2006-183.pdf">3</a>], which states:</p>
 <blockquote><p>"The overarching goal should be to make it easy to write programs that execute efficiently on highly parallel computing systems"</p></blockquote>
 <p>and -</p>
@@ -77,11 +77,11 @@ var src = Observable.FromEvent&lt;EventArgs&gt;(textBox, "TextChanged")  //Liste
 
 //Call ObserveOn to synchronise with the UI thread, and write to a label.
 using(src.ObserveOn(label).Subscribe(
-    txt =&gt; 
+    txt =&gt;
     {
-        label.Text = txt; 
+        label.Text = txt;
     })
-{ 
+{
     Application.Run(frm); //When the form is closed, the 'using' block exits, and the subscription is disposed.
 }
 {% endhighlight %}
@@ -92,32 +92,9 @@ using(src.ObserveOn(label).Subscribe(
 <p>Cheers,</p>
 <p>Johnny</p>
 <h2>Further reading</h2>
-<p>1 NVIDIA multi-core GPU - the Tesla specifications<a href="http://www.nvidia.com/object/product_tesla_c1060_us.html">http://www.nvidia.com/object/product_tesla_c1060_us.html</a></p>
-<p>2 Intel "Knights Corner" 50-core chip press release<a href="http://www.intel.com/pressroom/archive/releases/20100531comp.htm">http://www.intel.com/pressroom/archive/releases/20100531comp.htm</a></p>
-<p>3 '<em>The Landscape of Parallel Computing Research: A View from Berkeley</em>'<a href="http://www.eecs.berkeley.edu/Pubs/TechRpts/2006/EECS-2006-183.pdf">http://www.eecs.berkeley.edu/Pubs/TechRpts/2006/EECS-2006-183.pdf</a></p>
-<p>4 '<em>Patterns for Parallel Programming: Understanding and Applying Parallel Patterns with the .NET Framework 4</em>'<a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=86B3D32B-AD26-4BB8-A3AE-C1637026C3EE">http://www.microsoft.com/downloads/en/details.aspx?FamilyID=86B3D32B-AD26-4BB8-A3AE-C1637026C3EE</a></p>
-<p>5 Introduction to PLINQ<a href="http://msdn.microsoft.com/en-us/library/dd997425.aspx">http://msdn.microsoft.com/en-us/library/dd997425.aspx</a></p>
-<p>6 Rx .NET Hands On Lab<a href="http://download.microsoft.com/download/C/5/D/C5D669F9-01DF-4FAF-BBA9-29C096C462DB/Rx%20HOL%20.NET.pdf">http://download.microsoft.com/download/C/5/D/C5D669F9-01DF-4FAF-BBA9-29C096C462DB/Rx%20HOL%20.NET.pdf</a></p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<p>1 NVIDIA multi-core GPU - the Tesla specifications <a href="http://www.nvidia.com/object/product_tesla_c1060_us.html">http://www.nvidia.com/object/product_tesla_c1060_us.html</a></p>
+<p>2 Intel "Knights Corner" 50-core chip <a href="http://www.geek.com/chips/intel-unveils-knights-corner-50-core-server-chip-1260323/">http://www.geek.com/chips/intel-unveils-knights-corner-50-core-server-chip-1260323/</a></p>
+<p>3 '<em>The Landscape of Parallel Computing Research: A View from Berkeley</em>' <a href="http://www.eecs.berkeley.edu/Pubs/TechRpts/2006/EECS-2006-183.pdf">http://www.eecs.berkeley.edu/Pubs/TechRpts/2006/EECS-2006-183.pdf</a></p>
+<p>4 '<em>Patterns for Parallel Programming: Understanding and Applying Parallel Patterns with the .NET Framework 4</em>' <a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=86B3D32B-AD26-4BB8-A3AE-C1637026C3EE">http://www.microsoft.com/downloads/en/details.aspx?FamilyID=86B3D32B-AD26-4BB8-A3AE-C1637026C3EE</a></p>
+<p>5 Introduction to PLINQ <a href="http://msdn.microsoft.com/en-us/library/dd997425.aspx">http://msdn.microsoft.com/en-us/library/dd997425.aspx</a></p>
+<p>6 Rx .NET Hands On Lab <a href="http://download.microsoft.com/download/C/5/D/C5D669F9-01DF-4FAF-BBA9-29C096C462DB/Rx%20HOL%20.NET.pdf">http://download.microsoft.com/download/C/5/D/C5D669F9-01DF-4FAF-BBA9-29C096C462DB/Rx%20HOL%20.NET.pdf</a></p>

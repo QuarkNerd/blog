@@ -73,7 +73,7 @@ If you've ever wanted to plot a chart or create a visualisation, you will no dou
 
 D3 excels at transforming data into SVG or HTML elements, allowing charts to be constructed with very little code. However, D3 does little to help with the more mundane task of layout; the positioning of axes, labels, the legend etc ...
 
-Mike Bostock (D3's creator) has published a simple [Margin Convention](http://bl.ocks.org/mbostock/3019563) which he uses in his own examples. As you can see from the code below the simple task of applying a margin around the chart requires some fiddly maths:
+Mike Bostock (D3's creator) has published a simple [Margin Convention](https://bl.ocks.org/mbostock/3019563) which he uses in his own examples. As you can see from the code below the simple task of applying a margin around the chart requires some fiddly maths:
 
 {% highlight javascript %}
 var margin = {top: 20, right: 10, bottom: 20, left: 10};
@@ -167,7 +167,7 @@ I have omitted the `parseStyle` function which parses the `layout-css` property 
 
 Once the node tree has been constructed and the layout computed, all that remains is to apply this layout to the SVG. The `top` and `left` layout properties are applied as a transform, whereas the `height` and `width` are written to `layout-height` and `layout-width` attributes respectively. The reason for this is that SVG group elements (`g`) have an origin but do not have a width or height. In order for a child element to occupy the rectangle defined by the layout mechanism, they need some way to obtain the computed bounds.
 
-The following puts it all together as a function that can be called on a D3 selection 
+The following puts it all together as a function that can be called on a D3 selection
 
 {% highlight javascript %}
 var layout = function(selection) {
@@ -286,7 +286,7 @@ Computing the above armed with nothing more than the 'margin convention' would b
 
 ## Summary
 
-It was a great coincidence that the ReactJS Native development resulted in the open-sourcing of exactly the component I needed for applying flexbox to SVG. If you are interested in using this code, you can find it within the [D3FC repository](https://github.com/ScottLogic/d3-financial-components/blob/master/components/utilities/layout.js). This is a project with a wider goal of making it easier to construct complex financial charts using D3. Our aim is to construct components that enhance D3 rather than wrap it (which would take most of its power away).
+It was a great coincidence that the ReactJS Native development resulted in the open-sourcing of exactly the component I needed for applying flexbox to SVG. If you are interested in using this code, you can find it within the [D3FC repository](https://github.com/d3fc/d3fc/). This is a project with a wider goal of making it easier to construct complex financial charts using D3. Our aim is to construct components that enhance D3 rather than wrap it (which would take most of its power away).
 
 Anyhow, more on D3FC later ...
 
@@ -372,28 +372,3 @@ d3.selectAll("g").filter(function(d) {
 </script>
 
 Regards, Colin E.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -27,7 +27,7 @@ disqus-id: /blog/colin/2011/02/a-circular-progressbar-style-using-an-attached-vi
 <h2>What is wrong with the ProgressBar?</h2>
 <p>If you look at the <a href="http://msdn.microsoft.com/en-us/library/dd334413%28VS.95%29.aspx">documentation for styling / templating the ProgressBar</a> you will find that this control expects the template to contain two elements, <code>ProgressBarTrack</code> and <code>ProgressBarIndicator</code>:</p>
 <p><a href="{{ site.github.url }}/archive/2011/02/ProgressBarParts.png"><img src="{{ site.github.url }}/archive/2011/02/ProgressBarParts.png" alt="" title="ProgressBarParts" width="534" height="135" class="aligncenter size-full wp-image-1197" /></a></p>
-<p>What the ProgressBar does is, when the template is applied, in OnApplyTemplate, it locates the elements with the given names in order to update the visual state of the UI. You can use Reflector (quick, <a href="http://www.red-gate.com/products/dotnet-development/reflector/announcement">while it is still free</a>!)  to see how the state of these elements is updated in the <code>ProgressBar.SetProgressBarIndicatorLength</code> method:</p>
+<p>What the ProgressBar does is, when the template is applied, in OnApplyTemplate, it locates the elements with the given names in order to update the visual state of the UI. You can use Reflector (quick, <a href="http://www.red-gate.com/products/dotnet-development/reflector/?&gclid=CMSbzZahwtICFSEW0wodqgQFXg">while it is still free</a>!)  to see how the state of these elements is updated in the <code>ProgressBar.SetProgressBarIndicatorLength</code> method:</p>
 {% highlight csharp %}
 private void SetProgressBarIndicatorLength()
 {
@@ -64,7 +64,7 @@ private void SetProgressBarIndicatorLength()
 <p>So what is so bad about creating your own circular progress indicator from scratch? Firstly, there is the issue of object-oriented design principles and re-use. Secondly, and in my opinion much more importantly, is how this affects skinning. Templating allows you to radically change your UI simply by applying a new set of styles, see for example the <a href="http://silverlight.codeplex.com/wikipage?title=Silverlight%20Toolkit%20Overview%20Part%203&referringTitle=Home">Silverlight Toolkit Themes</a>. Styles can change the value of any property of an element (including its template) but they cannot change the class itself! So, if you create a circular progress bar as a new control, you cannot interchange it with the standard <code>ProgressBar</code> simply by applying a theme.</p>
 <h2>An Attached View Model</h2>
 <p>OK, rant over. Time to fix the problem!</p>
-<p>A few months ago I blogged about <a href="http://www.scottlogic.co.uk/blog/colin/2010/10/developing-a-lookless-silverlight-gauge-control-part-2/">how to create completely lookless controls using an attached view model</a>. The basic concept behind this approach is that the control itself should not include any logic which is tightly-coupled to a particular template, or 'look'. This logic is still required, but is instead introduced into the template by means of an attached view model.</p>
+<p>A few months ago I blogged about <a href="{{ site.github.url }}/2010/10/20/developing-a-lookless-silverlight-gauge-control-part-2">how to create completely lookless controls using an attached view model</a>. The basic concept behind this approach is that the control itself should not include any logic which is tightly-coupled to a particular template, or 'look'. This logic is still required, but is instead introduced into the template by means of an attached view model.</p>
 <p>Typically the elements within a control's template inherit the same DataContext as the control itself, i.e. whatever business object or view model you have bound to your UI. With the attached view model approach, a view model is attached to the root element in the template. On attachment, this view model acquires a reference to the ProgressBar, in order to adapt its properties, making it easier to render a circular indicator, and sets itself as the DataContext of the child elements:</p>
 <p><a href="{{ site.github.url }}/archive/2011/02/AttachedViewModel.png"><img src="{{ site.github.url }}/archive/2011/02/AttachedViewModel.png" alt="" title="AttachedViewModel" width="650" height="211" class="aligncenter size-full wp-image-1203" /></a></p>
 <p>The view model is attached in XAMl as follows, as a result the DataContext of any element within the template is now the view model:</p>
@@ -81,7 +81,7 @@ private void SetProgressBarIndicatorLength()
 </ControlTemplate>
 {% endhighlight %}
 <h2>Becoming Attached</h2>
-<p>The changed handler for the <code>Attach</code> property is given below. In summary, on attachment, the view model sets itself as the <code>DataContext</code> for the element it has been attached to. It then handlers the <code>Loaded</code> event which fires when the UI is fully constructed in order to locate the <code>ProgressBar</code> using <a href="http://www.scottlogic.co.uk/blog/colin/2010/03/linq-to-visual-tree/">Linq to VisualTree</a>:</p>
+<p>The changed handler for the <code>Attach</code> property is given below. In summary, on attachment, the view model sets itself as the <code>DataContext</code> for the element it has been attached to. It then handlers the <code>Loaded</code> event which fires when the UI is fully constructed in order to locate the <code>ProgressBar</code> using <a href="{{ site.github.url }}/2010/03/04/linq-to-visual-tree">Linq to VisualTree</a>:</p>
 {% highlight csharp %}
 /// <summary>
 /// Change handler for the Attach property
@@ -204,7 +204,7 @@ protected virtual void ComputeViewModelProperties()
   </Setter>
 </Style>
 {% endhighlight %}
-<p>(The template uses a <code>PiePiece</code> is a control I borrowed from a <a href="http://www.codeproject.com/KB/WPF/PieChartDataBinding.aspx">PieChart control</a> I created a few years back, and the <a href="http://www.scottlogic.co.uk/blog/colin/2010/12/a-simplified-grid-markup-for-silverlight-and-wpf/">simplified Grid syntax</a>)</p>
+<p>(The template uses a <code>PiePiece</code> is a control I borrowed from a <a href="http://www.codeproject.com/KB/WPF/PieChartDataBinding.aspx">PieChart control</a> I created a few years back, and the <a href="{{ site.github.url }}/2010/12/21/a-simplified-grid-markup-for-silverlight-and-wpf">simplified Grid syntax</a>)</p>
 <p>We now have a circular ProgressBar! ...</p>
 <p><img src="{{ site.github.url }}/archive/2011/02/CircleProgress.png" alt="" title="CircleProgress" width="142" height="144" class="aligncenter size-full wp-image-1207" /></p>
 <h2>Segmented Progress Bar</h2>
@@ -256,26 +256,3 @@ protected virtual void ComputeViewModelProperties()
 <h2>Sourcecode</h2>
 <p>You can download the full sourcecode for this blog post: <a href='{{ site.github.url }}/archive/2011/02/CircularProgressBar.zip'>CircularProgressBar.zip</a></p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

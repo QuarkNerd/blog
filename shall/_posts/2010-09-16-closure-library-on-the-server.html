@@ -18,7 +18,7 @@ layout: default_post
 source: site
 disqus-id: /2010/09/closure-library-on-the-server/
 ---
-<p>Over the past few months I've been using the <a href="http://www.scottlogic.co.uk/2010/09/introducing-closure-tools/" target="_blank">Closure Library</a> to create my own JavaScript library that carries out some graphical processing. This is done entirely in JavaScript, using Closure's <strong>graphics</strong> package.</p>
+<p>Over the past few months I've been using the <a href="{{ site.github.url }}/2010/09/06/introducing-closure-tools" target="_blank">Closure Library</a> to create my own JavaScript library that carries out some graphical processing. This is done entirely in JavaScript, using Closure's <strong>graphics</strong> package.</p>
 <p>An important factor in the development of this library was compatibility. I wanted assurance that, no matter what browser the user hit the page from, the graphic would be displayed. The Library's graphics package is already very good at this; determining the browser from the User-Agent header and then deciding whether to produce an SVG, VML or Canvas drawing context.  However, some devices either don't support any of these drawing methods, or cannot process the JavaScript involved.</p>
 <p>The solution to this problem was to move the processing of the JavaScript and rendering of any graphics to the server. Should the client attempt to access the site from an unsupported browser, the page could then fetch an image representation of the graphic.</p>
 <p>This blog article will explain the changes I had to make to the Library to make this possible, as well as a brief look into the Servlet handling the processing of the JavaScript.</p>
@@ -90,7 +90,7 @@ disqus-id: /2010/09/closure-library-on-the-server/
     // makes a call to the server with the parameters -- server does the rest
     ctx.drawText(this.text, this.x1, this.y1, this.x2, this.y2, this.align, this.stroke);
   }{% endhighlight %}
-<p>.. but that's not the best solution. The <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#text-0" target="_blank">Canvas API</a> does provide methods to draw text, so we should use those:</p>
+<p>.. but that's not the best solution. The <a href="https://html.spec.whatwg.org/multipage/scripting.html#the-canvas-element" target="_blank">Canvas API</a> does provide methods to draw text, so we should use those:</p>
 {% highlight javascript %}  goog.graphics.ServerTextElement.prototype.draw(ctx){
     // uses the standard css notation for fonts
     ctx.font = this.font_.family + ' ' + this.font_.size + 'px';
@@ -135,7 +135,7 @@ disqus-id: /2010/09/closure-library-on-the-server/
   // code below to use svg{% endhighlight %}
 <h2>Support for the NodeList Interface</h2>
 <p>There was one additional problem I experienced when running the Library on the server.</p>
-<p>I was trying to convert a Java XML Document (<a href="http://download.oracle.com/javase/1.4.2/docs/api/org/w3c/dom/Document.html" target="_blank">org.w3c.dom.Document</a>) into a <a href="http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407/" target="_blank">JavaScript Document object</a>, using XMLDataSource, which has one difference; the way the JavaScript NodeList interface retrieves Nodes by index.</p>
+<p>I was trying to convert a Java XML Document (<a href="https://docs.oracle.com/javase/7/docs/api/org/w3c/dom/Document.html" target="_blank">org.w3c.dom.Document</a>) into a <a href="http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407/" target="_blank">JavaScript Document object</a>, using XMLDataSource, which has one difference; the way the JavaScript NodeList interface retrieves Nodes by index.</p>
 {% highlight javascript %}  /** @type {NodeList} */
   var nodeList = element.getChildNodes();
   for(var i = 0; i < nodeList.length; i++) {
@@ -147,26 +147,3 @@ disqus-id: /2010/09/closure-library-on-the-server/
 <h2>Conclusion</h2>
 <p>I was very surprised at how well the Closure Library ported over to a server environment. With the exception of some DOM methods, which were easily solved using Envjs, and the NodeList interface, there were no problems in moving the Library to the server.</p>
 <p>Server-side JavaScript is a very interesting topic; one that I feel will become more prevalent in the future. To know that Google's Closure Library is well on its way to being fully compliant with standards to the point it can be executed on a server, is a very good sign.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

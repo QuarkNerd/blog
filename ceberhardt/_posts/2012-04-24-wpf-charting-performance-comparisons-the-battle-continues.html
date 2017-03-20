@@ -21,7 +21,7 @@ disqus-id: /blog/colin/2012/04/wpf-charting-performance-comparisons-the-battle-c
 <p><img src="{{ site.github.url }}/archive/2012/04/LineSeriesFrameRate.png" alt="" title="LineSeriesFrameRate" width="650" height="361" class="aligncenter size-full wp-image-2104" /></p>
 <h2>Introduction</h2>
 <p>Readers of my blog will know that charting and performance are two things that interest me greatly. One of the first things I did back in 2009 when I started working with WPF and Silverlight was have a go with the Microsoft 'toolkit' charts. Unfortunately I found these charts, and the various third party competitors, to be painfully slow when rendering just a few hundred datapoints. As a result of these findings I set about creating a high performance chart for Silverlight and WPF, which eventually became <a href="http://www.visiblox.com">Visiblox charts</a>.</p>
-<p>In December 2010 I <a href="http://www.scottlogic.co.uk/blog/colin/2010/11/visiblox-charts-vs-silverlight-toolkit-charts-a-test-of-performance-2/">published a performance comparison</a> that demonstrated that Visiblox was approximately 50-100 times faster than the Toolkit charts and 10 times faster than Visifire charts. At the time the only charts which came close were those developed as part of Microsoft's <a href="http://dynamicdatadisplay.codeplex.com/">now abandoned Dynamic Data Display project</a>. Since publishing these figures, a number of the WPF and Silverlight charting vendors have started to take performance much more seriously, with <a href="http://www.visifire.com/blog/2011/12/02/fast-silverlight-charts/">Visifire</a> more than doubling performance amid claims of being the fastest chart, <a href="http://devblog.ailon.org/devblog/post/2010/12/17/amCharts-Quick-Charts-in-e2809cVisiblox-Performance-Teste2809d.aspx">amCharts</a> have also publishing some very good performance figures as have <a href="http://blogs.telerik.com/vladimirmilev/posts/10-02-23/how-fast-is-your-chart.aspx">Telerik</a>.</p>
+<p>In December 2010 I <a href="{{ site.github.url }}/2010/11/08/visiblox-charts-vs-silverlight-toolkit-charts-a-test-of-performance-2">published a performance comparison</a> that demonstrated that Visiblox was approximately 50-100 times faster than the Toolkit charts and 10 times faster than Visifire charts. At the time the only charts which came close were those developed as part of Microsoft's <a href="http://dynamicdatadisplay.codeplex.com/">now abandoned Dynamic Data Display project</a>. Since publishing these figures, a number of the WPF and Silverlight charting vendors have started to take performance much more seriously, with <a href="http://www.visifire.com/blog/2011/12/02/fast-silverlight-charts/">Visifire</a> more than doubling performance amid claims of being the fastest chart, <a href="http://devblog.ailon.org/devblog/post/2010/12/17/amCharts-Quick-Charts-in-e2809cVisiblox-Performance-Teste2809d.aspx">amCharts</a> have also publishing some very good performance figures as have <a href="http://blogs.telerik.com/vladimirmilev/posts/10-02-23/how-fast-is-your-chart.aspx">Telerik</a>.</p>
 <p>Much has changed in the year and a half since my original performance blog post and I thought it would be a good idea to repeat the tests. However, this time I wanted to be more thorough, including a few different types of tests and also using WPF instead of Silverlight, due to the number of email requests I have had for a WPF charting comparison. </p>
 <h2>The Test Suite</h2>
 <p>In order to allow me to collect performance data for a range of WPF charts across a range of tests, I have written an automated performance test suite. The application uses <a href="http://mef.codeplex.com/">MEF</a> in order to allow me to easily slot in new tests and new charting providers. If you want a copy of the code, please get in touch.</p>
@@ -35,13 +35,13 @@ disqus-id: /blog/colin/2012/04/wpf-charting-performance-comparisons-the-battle-c
 <h2>Line Series Results</h2>
 <p>The results of the line series framerate tests are shown below:</p>
 <p><img src="{{ site.github.url }}/archive/2012/04/LineSeriesFrameRateLogLog.png" alt="" title="LineSeriesFrameRateLogLog" width="650" height="359" class="aligncenter size-full wp-image-2103" /></p>
-<p>NOTE: I am using a <a href="http://en.wikipedia.org/wiki/Logarithmic_scale">log-log scale</a> for the above chart in order to make it easier to see the shape of the various curves.</p>
+<p>NOTE: I am using a <a href="https://en.wikipedia.org/wiki/Logarithmic_scale">log-log scale</a> for the above chart in order to make it easier to see the shape of the various curves.</p>
 <p>Regarding which charting vendors I used for comparison, I tried to include all established and well known vendors in my comparison. For those which have already published performance figures or comments relating to Visiblox, I have included their names. For the others I have simply given them a token name 'Vendor X', in order to comply with the trial licencing terms which typically prohibit the publishing of performance figures.</p>
 <p>One thing worth noting is that some charting vendors use sampling in order to improve framerates. I found that Vendor A (not included above) uses sampling without providing a mechanism for turning it off. Whereas most vendors that do support sampling allow you to turn it on or off and configure the sampling algorithm used. In order to provide a fair comparison, sampling was turned off on all the charts.</p>
 <p>The chart above reveals some interesting patterns, due to the two very different classes of chart under test.</p>
-<p><strong>Vector based charts</strong> - WPF UIs are rendered via <a href="http://en.wikipedia.org/wiki/Retained_mode">retained mode vector graphics</a>. Whilst this approach is what has given rise to the very rich UI framework that WPF applications enjoy, it has been found that this approach just doesn't perform as well as the bitmap-based approach used by Windows Forms when faced with complex UIs. This has led some people to <a href="http://codefornothing.wordpress.com/2011/05/07/and-the-best-wpf-chart-is/">use WinForms charts within their WPF applications</a>! We can see that the faster vector charts from Microsoft Toolkit, Vendor B, the updated Visifire and Visiblox charts are all close to the limit of what is possible with this style of rendering.</p>
+<p><strong>Vector based charts</strong> - WPF UIs are rendered via <a href="https://en.wikipedia.org/wiki/Retained_mode">retained mode vector graphics</a>. Whilst this approach is what has given rise to the very rich UI framework that WPF applications enjoy, it has been found that this approach just doesn't perform as well as the bitmap-based approach used by Windows Forms when faced with complex UIs. This has led some people to <a href="https://codefornothing.wordpress.com/2011/05/07/and-the-best-wpf-chart-is/">use WinForms charts within their WPF applications</a>! We can see that the faster vector charts from Microsoft Toolkit, Vendor B, the updated Visifire and Visiblox charts are all close to the limit of what is possible with this style of rendering.</p>
 <blockquote><p>" ... the major 'partners' cannot create a WPF chart that renders 2000 floating points of data in less that 5 seconds. I have tried them all and they are slow so we have had to regress to a WinForms version that renders the same data in milliseconds." - from the <a href="http://channel9.msdn.com/Forums/Coffeehouse/it-looks-like-the-WPF-team-still-exists-after-all/c451791f0eb7467d9cd29e1800912559">channel 9 forums</a>. </p></blockquote>
-<p><strong>Raster based charts</strong> - Because of the limits of the WPF rendering system the two fastest charts in this test, Visiblox (via the new raster series type as part of the Ultimate Editition) and SciChart (a newcomer that exclusively uses this approach) both use a <a href="http://en.wikipedia.org/wiki/Raster_graphics">raster / bitmap graphics</a> approach, which the WPF and Silverlight frameworks both have support for via the <a href="http://msdn.microsoft.com/en-us/library/system.windows.media.imaging.writeablebitmap.aspx">WriteableBitmap class</a>. This approach yields results which are more than 100 times faster than what is possible with vector graphics.</p>
+<p><strong>Raster based charts</strong> - Because of the limits of the WPF rendering system the two fastest charts in this test, Visiblox (via the new raster series type as part of the Ultimate Editition) and SciChart (a newcomer that exclusively uses this approach) both use a <a href="https://en.wikipedia.org/wiki/Raster_graphics">raster / bitmap graphics</a> approach, which the WPF and Silverlight frameworks both have support for via the <a href="http://msdn.microsoft.com/en-us/library/system.windows.media.imaging.writeablebitmap.aspx">WriteableBitmap class</a>. This approach yields results which are more than 100 times faster than what is possible with vector graphics.</p>
 <p>One of the other common complaints made about WPF charts is the initial render time, with charts containing just a few thousands datapoints taking seconds to show on screen. Whilst this test focusses in framerates, it is also gives a good indication of the initial render times, with raster based charts appearing almost instantly when loaded with tens of thousands of points.</p>
 <h2>Scatter Series Results</h2>
 <p>The results of the Scatter series tests are shown below:</p>
@@ -54,26 +54,3 @@ disqus-id: /blog/colin/2012/04/wpf-charting-performance-comparisons-the-battle-c
 <h2>Conclusions</h2>
 <p>The overall performance of the charting solutions available to WPF (and Silverlight) developers is improving. However, the performance of the WPF rendering system appears to create an upper limit which constrains what can be achieved. The raster-based approach is not subject to these same constraints and as a result provides a considerable improvement in performance.</p>
 <p>If you want to have access to the code I used to make these tests, please get in touch. Also, if you are a charting vendor and think you might be Vendor A, B or C in these tests, and wish to be named, let me know.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

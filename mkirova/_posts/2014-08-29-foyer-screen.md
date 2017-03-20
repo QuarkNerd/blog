@@ -68,7 +68,7 @@ Each group stage slide contains a dynamic ranking table for players with six col
 
 ### Unit Testing
 
-The development of Foyer Screen gave me the opportunity to familiarise myself with creating unit tests. I chose the [QUnit framework](http://qunitjs.com/), as it is straightforward, popular and easy to use. QUnit has a [Node Module](https://www.npmjs.org/package/qunit), so that tests could be run server-side using the command prompt.
+The development of Foyer Screen gave me the opportunity to familiarise myself with creating unit tests. I chose the [QUnit framework](http://qunitjs.com/), as it is straightforward, popular and easy to use. QUnit has a [Node Module](https://www.npmjs.com/package/qunit), so that tests could be run server-side using the command prompt.
 
 Building unit tests taught me that it is *always* a good idea to build code while relying on many smaller, simpler methods and high modularity. It is much easier to test one function at a time, also when the code is modular, less refactoring is necessary at later stages.
 
@@ -87,26 +87,3 @@ This was my first exposure to building an applications of this size from scratch
 ### Reflections
 
 Even though it was challenging, Foyer Screen has been extremely useful and has helped me gain a lot of insight into web development while being fun to work on at the same time. My time at the company provided me with the opportunity to be part of a both dedicated and friendly team and enjoy the advantages of working in a real-world environment. It was an invaluable experience for a student and one that I would definitely repeat!
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

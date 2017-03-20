@@ -15,7 +15,7 @@ image: lpage/assets/featured/aurelia-large.png
 Aurelia is project created by Rob Eisenberg, a former member of the Angular 2.0 team and creator of Durandal and Caliburn. In his own words...
 
  > I left Angular 2.0 to build Aurelia, something that I believe is more in line with what the Angular community had hoped for in 2.0. It also draws from the best parts of Durandal and merges these ideas together into a consistent JavaScript application development experience for mobile, desktop and web.
- 
+
 After reading through [an example of porting a simple app from angular 2 to Aurelia](http://eisenbergeffect.bluespire.com/porting-an-angular-2-0-app-to-aurelia/) I was intrigued and felt it was worth giving it a go to find out what it was like, how different it was and how close it was to being production ready.
 
 ### less2css
@@ -33,7 +33,7 @@ $ git init
 $ npm init
 {% endhighlight %}
 
-Then, following the [getting started guide](http://aurelia.io/get-started.html)...
+Then, following the [getting started guide](http://aurelia.io/hub.html#/doc/article/aurelia/framework/latest/quick-start)...
 
 {% highlight bash %}
 $ npm install -g gulp
@@ -200,7 +200,7 @@ The next risky thing is browser support - as it seems [IE9 support is a new thin
 
 ### Less compilation
 
-I want to set up the bindings and have less compile source code as the user types, so I write a utility class that loads less from our CDN and a static gulp task that generates a list of less versions (since the CDN has no directory listing we can scan). 
+I want to set up the bindings and have less compile source code as the user types, so I write a utility class that loads less from our CDN and a static gulp task that generates a list of less versions (since the CDN has no directory listing we can scan).
 If you are coming from Angular 1, you might expect Aurelia to want to know about services, but it doesn't have its own module system (it uses jspm), you just create a [new ES6 module that does what you want](https://github.com/less/less-preview/blob/dd4a9ca3286d442588c95037f511793d8c23fed8/src/less.js).
 
 I add another `@bindable value;` to the editor, meaning I can bind to it from outside. Then I update the value when code mirror changes...
@@ -316,29 +316,6 @@ I also took the styling from the existing site, so now it is looking more famili
 
 You can see the work in progress [here](http://www.lesscss.org/less-preview) and the [source code is all on github](https://github.com/less/less-preview).
 
-On an external server without bundling, the site takes 12 seconds to load - please see [my next post for how I tackled bundling and how it effected performance]({{ site.github.url }}/2015/06/25/aurelia-part-two.html).
+On an external server without bundling, the site takes 12 seconds to load - please see [my next post for how I tackled bundling and how it effected performance]({{ site.github.url }}/2015/06/29/aurelia-part-two.html).
 
 In later posts I will look at binding the options panel and evaluating what I think of Aurelia.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

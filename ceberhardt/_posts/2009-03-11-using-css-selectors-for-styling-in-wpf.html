@@ -38,7 +38,7 @@ div {
 <li>HTML class (.title) => attached class property (e.g. css:Css.Class="menu")</li>
 </ul>
 <p>The only concept for which there really is no correspondent in WPF is CSS class. This can easily be introduced via an attached property.</p>
-<p>So now that we have the concept mapping, all we need now is a CSS selector engine that can apply our selector in order to extract matching objects from our visual / logical tree. Luckily I found a .NET CSS selector engine implementation in codeplex called Fizzler, you can read about it on the <a href="http://colinramsay.co.uk/diary/2008/10/19/fizzler-a-css-selector-engine-for-c-sharp/">authors blog</a>, or go straight to codeplex to <a href="http://code.google.com/p/fizzler/">download it</a>. The author of this engine, Colin Ramsay, had done a great job of the implementation and had also written an exhaustive set of unit tests. The engine itself was tightly coupled to HtmlDocumentNodes, however I was able to slide a simple interface between the selector engine and the HTML document types as follows:</p>
+<p>So now that we have the concept mapping, all we need now is a CSS selector engine that can apply our selector in order to extract matching objects from our visual / logical tree. Luckily I found a .NET CSS selector engine implementation in codeplex called Fizzler, you can read about it on the <a href="https://colinramsay.co.uk/css/projects/c%23/fizzler/2008/10/19/fizzler-a-css-selector-engine-for-c-sharp.html">authors blog</a>, or go straight to codeplex to <a href="http://code.google.com/p/fizzler/">download it</a>. The author of this engine, Colin Ramsay, had done a great job of the implementation and had also written an exhaustive set of unit tests. The engine itself was tightly coupled to HtmlDocumentNodes, however I was able to slide a simple interface between the selector engine and the HTML document types as follows:</p>
 {% highlight csharp %}
 public interface IDocumentNode
 {
@@ -200,26 +200,3 @@ public class StyleDeclaration
 <p>You can download the code for this blog post here: <a href="{{ site.github.url }}/archive/2009/03/wpfcssstyling.zip">wpfcssstyling.zip</a></p>
 <p><span style="color:red">UPDATE</span> - the concept of using CSS to style WPF and Silvelight applications has been discussed on the <a href="http://groups.google.com/group/wpf-disciples/t/251c90f31f603a8">WPF Discisples Group</a>.</p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

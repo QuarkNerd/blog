@@ -20,7 +20,7 @@ source: wordpress
 disqus-id: /blog/colin/2011/01/automatically-showing-tooltips-on-a-trimmed-textblock-silverlight-wpf/
 ---
 <p><em>Both WPF and Silverlight have a property TextTrimming="WordEllipsis", which trims the text that a TextBlock displays based on the available width. This blog post describes a simple method for automatically showing the full text as a tooltip whenever the text is trimmed. This is presented as an attached behaviour and works in both WPF and Silverlight</em></p>
-<p>A few weeks ago I blogged about a Silverlight solution for <a href="http://www.scottlogic.co.uk/blog/colin/2011/01/showing-tooltips-on-trimmed-textblock-silverlight/">automatically adding tooltips when a TextBlock Text is trimmed</a> and renders an ellipsis. I found a decent looking WPF solutions on the web and linked it in my article, however, based on the comments to my previous blog post, it looks like the WPF solution didn't work too well, failing to respect font size etc... In this blog post I have updated my solution to be cross-platform, working on WPF <strong>and</strong> Silverlight.</p>
+<p>A few weeks ago I blogged about a Silverlight solution for <a href="{{ site.github.url }}/2011/01/06/showing-tooltips-on-trimmed-textblock-silverlight">automatically adding tooltips when a TextBlock Text is trimmed</a> and renders an ellipsis. I found a decent looking WPF solutions on the web and linked it in my article, however, based on the comments to my previous blog post, it looks like the WPF solution didn't work too well, failing to respect font size etc... In this blog post I have updated my solution to be cross-platform, working on WPF <strong>and</strong> Silverlight.</p>
 <p>To briefly recap, my solution for automatically adding tooltips to trimmed text relies on the slightly odd behaviour of the <code>TextBlock</code> where its <code>ActualWidth</code> is reported as the width of the text without trimming:</p>
 <p><img src="{{ site.github.url }}/archive/2011/01/TextTrimming.png" alt="" title="TextTrimming" width="568" height="257" class="aligncenter size-full wp-image-1076" /></p>
 <p>In order to determine whether to show a tooltip, all you have to do is compare the <code>ActualWidth</code> of the <code>TextBlock</code> to the <code>ActualWidth</code> of its parent.</p>
@@ -119,26 +119,3 @@ public class TextBlockUtils
 <p>You can download the full sourcecode, including the WPF and Silverlight demo: <a href='{{ site.github.url }}/archive/2011/01/AutoTooltipTextBlock2.zip'>AutoTooltipTextBlock.zip</a></p>
 <p>Thanks to Daniel Fihnn for a much improved WPF version of this code!</p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

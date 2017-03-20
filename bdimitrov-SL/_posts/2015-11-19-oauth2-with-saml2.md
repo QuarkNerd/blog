@@ -40,7 +40,7 @@ SAML terms with OAuth equivalents in brackets:
 
  * Service Provider (Resource Server) – This is where the resources the client wishes to access reside.
  * Client – How user is interacting with resource server. E.g. web app through browser.
- * Identity Provider (Authorisation Server) – The server that owns user identities and credentials. 
+ * Identity Provider (Authorisation Server) – The server that owns user identities and credentials.
 
 More information found here: [Choosing an SSO Strategy SAML vs OAuth2](https://www.mutuallyhuman.com/blog/2013/05/09/choosing-an-sso-strategy-saml-vs-oauth2/).
 
@@ -71,7 +71,7 @@ The solution consists of the following projects:
  * SAMLIdentityProvider – implementation of a SAML server; authenticates the user and issues a SAML token containing assertions about the user
  * SAMLLibrary – classes and utilities for SAML; based on code from: [C# SAML 2.0 Identity Provider](https://github.com/covermymeds/saml-http-post-reference)
  * AuthorisationServer – implementation of an OAuth server; authorises the client app to access the resources; based on the following post: [OWIN OAuth 2.0 Authorization Server](http://www.asp.net/aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server)
- 
+
 You need to build the entire solution in order to run the demo.
 
 ### User interactions
@@ -116,7 +116,7 @@ The alternating colours indicate the set of actions that occur between the diffe
 
 <img src="{{ site.github.url }}/bdimitrov-SL/assets/oauth_with_saml/code_2.png" />
 
-As the user is not authenticated the Resource server does not receive an OAuthToken and returns Unauthorized to the Client app – this is done by the OWIN middleware. The Client app then redirects the user agent to the SAML server for authentication and includes a SAML request as a query parameter (<code>ClientController.cs</code> line 65). 
+As the user is not authenticated the Resource server does not receive an OAuthToken and returns Unauthorized to the Client app – this is done by the OWIN middleware. The Client app then redirects the user agent to the SAML server for authentication and includes a SAML request as a query parameter (<code>ClientController.cs</code> line 65).
 
 <img src="{{ site.github.url }}/bdimitrov-SL/assets/oauth_with_saml/code_3.png" />
 
@@ -159,7 +159,7 @@ The Client app stores the OAuth access token in a cookie and redirects the user 
 
 <img src="{{ site.github.url }}/bdimitrov-SL/assets/oauth_with_saml/code_12.png" />
 
-7) The user clicks 'Get resource' button in the user agent issuing a GET request to the Client app. The Client app in turn tries to access the resource on behalf of the user by issuing a GET request to the Resource server (<code>ClientController.cs</code> line 54). 
+7) The user clicks 'Get resource' button in the user agent issuing a GET request to the Client app. The Client app in turn tries to access the resource on behalf of the user by issuing a GET request to the Resource server (<code>ClientController.cs</code> line 54).
 
 <img src="{{ site.github.url }}/bdimitrov-SL/assets/oauth_with_saml/code_13.png" />
 

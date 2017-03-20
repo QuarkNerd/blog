@@ -53,7 +53,7 @@ complemented Giles Colborne's wonderfully by delighting in the possibilities for
  oft-forgotten yet powerful tools for adaptive design.  For example, a mere email address can provide you with a
  detailed profile of the user almost instantly by running it through any of the Facebook, Twitter or similar APIs.
  Those of you who read my blog may recall that [Avi's Smashing Magazine article on this topic](http://uxdesign.smashingmagazine.com/2012/12/10/creating-an-adaptive-system-to-enhance-ux/)
- had already excited me enough to write [some cautionary thoughts on the subject of adaptive design](http://www.scottlogic.co.uk/blog/graham/2012/12/when-adaptive-design-goes-wrong/),
+ had already excited me enough to write [some cautionary thoughts on the subject of adaptive design]({{ site.github.url }}/2012/12/20/when-adaptive-design-goes-wrong),
  so it is no surprise that his talk was a real highlight for me.
 
 Context was also the central feature in a goldfish bowl session titled [From Mass Market to personalised Experiences: Broadcasting in the New Multi-Device World](http://lanyrd.com/2013/uxscot/schpkg/),
@@ -77,27 +77,4 @@ actually made a lot of sense.
 
 Thank you to everyone who came along to [my talk](http://lanyrd.com/2013/uxscot/schcrf/)!  It was lovely that there were
  so many of you.  I hope it was useful to you in some way.  The presentation slides are available [here](http://godds.github.io/the-minds-eye)
- (Chrome, Safari and FF only!) and my accompanying notes and references are available [here](https://github.com/godds/the-minds-eye/blob/master/TheMindsEye.pdf).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ (Chrome, Safari and FF only!)

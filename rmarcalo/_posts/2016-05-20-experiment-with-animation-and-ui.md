@@ -63,7 +63,7 @@ At this point, it’s probably best to start by showing how the animation turned
   <source src="{{ site.github.url }}/rmarcalo/assets/experiment-with-animation-and-ui/animation.ogv" type="video/ogg">
 </video>
 
-To achieve the desired chain-like movement, each dot was animated separately along individual arched paths. By rigging the chart line as a skeleton using a plugin called [DUIK](http://duduf.net/index.php/products/after-effects/duik/) (and [this very useful DUIK tutorial](https://www.youtube.com/watch?v=qpgQasDmhI4)), moving a dot caused the lines in between to move automatically, thus maintaining the connection between nodes and achieving the desired effect with significantly less effort. Arching the motion paths made movement feel more natural – a little hint we picked up from [the 12 principles of animation](https://en.wikipedia.org/wiki/12_basic_principles_of_animation).
+To achieve the desired chain-like movement, each dot was animated separately along individual arched paths. By rigging the chart line as a skeleton using a plugin called [DUIK](https://rainboxprod.coop/en/tools/duik/) (and [this very useful DUIK tutorial](https://www.youtube.com/watch?v=qpgQasDmhI4)), moving a dot caused the lines in between to move automatically, thus maintaining the connection between nodes and achieving the desired effect with significantly less effort. Arching the motion paths made movement feel more natural – a little hint we picked up from [the 12 principles of animation](https://en.wikipedia.org/wiki/12_basic_principles_of_animation).
 
 <img class="aligncenter" src="{{ site.github.url }}/rmarcalo/assets/experiment-with-animation-and-ui/ae-ovals.png" alt="Arched Movement Paths" />
 

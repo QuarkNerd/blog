@@ -88,7 +88,7 @@ disqus-id: /blog/colin/2011/09/developing-windows-phone-7-html5-apps-with-phoneg
 </html>
 {% endhighlight %}
 <p>The important parts to note here are, firstly the viewport metadata, which relates to the complications that small mobile screens present to layout, resulting in the need for a separate layout viewport and visual viewport, as described in the article <a href="http://www.quirksmode.org/mobile/viewports2.html">"a tale of two viewports"</a>. Here the width is set to 320px, so each pixel-width in our HTML is two pixels on screen. I prefer one-to-one correlation, so would change this to the physical phone dimensions. The "user-scalable=no" should prevent the user from being able to pinch-zoom the page, unfortunately on my (mango) phone, this doesn't seem to be working. This is a shame, because it really spoils the illusion of this being an application rather than a web-page.</p>
-<p>When the DOM is loaded, the init function is invoked, which adds a handler for the deviceready event. When this has been fired, it is safe to use the PhoneGap APIs. This example does not actually use any of the APIs, but you can make a simple change to get the phone name via <a href="http://docs.phonegap.com/phonegap_device_device.md.html#device.name">device.name</a> for example to verify that PhoneGap really is working.So how does the JavaScript / Silverlight bridge work?  The PhoneGap.js file communicates via window.external.Notify, which raises the <a href="http://msdn.microsoft.com/en-us/library/system.windows.controls.webbrowser.scriptnotify(v=vs.95).aspx">ScriptNotify </a>event within the WebBrowser control. Encoded strings are sent to the PGView control which uses the command pattern to identify the class which performs the required function, and executes it.</p>
+<p>When the DOM is loaded, the init function is invoked, which adds a handler for the deviceready event. When this has been fired, it is safe to use the PhoneGap APIs. This example does not actually use any of the APIs, but you can make a simple change to get the phone name via <a href="http://docs.phonegap.com/en/2.2.0/cordova_device_device.md.html#device.name">device.name</a> for example to verify that PhoneGap really is working.So how does the JavaScript / Silverlight bridge work?  The PhoneGap.js file communicates via window.external.Notify, which raises the <a href="http://msdn.microsoft.com/en-us/library/system.windows.controls.webbrowser.scriptnotify(v=vs.95).aspx">ScriptNotify </a>event within the WebBrowser control. Encoded strings are sent to the PGView control which uses the command pattern to identify the class which performs the required function, and executes it.</p>
 <h2>Creating the Property Search Application</h2>
 <p>Following the principles of <a href="http://en.wikipedia.org/wiki/Unobtrusive_JavaScript">Unobtrusive JavaScript</a>, where presentation is separated from logic, the I have moved application logic into a file <code>propertySearch.js</code> (adding this to <code>GapSourceDictionary.xml</code> of course). The HTML has the following markup, a simple form that can be used to input the string to search for:</p>
 {% highlight xml %}
@@ -142,7 +142,7 @@ function searchProperties() {
 }
 {% endhighlight %}
 <p>NOTE: The application uses the Nestoria UK APIs, so if you are trying it out in your emulator, set your location to somewhere in the UK!</p>
-<p>I am using a <a href="http://api.jquery.com/category/plugins/templates/">jQuery templates</a> to render each item. You can render an array of items via the <code>tmpl()</code> function, however, here I render each one individually, so that I can associate the raw JSON data for each property with the generated element via the jQuery <code>data()</code> function. This is rather like defining the <code>DataContext </code>for a Silverlight FrameworkElement.</p>
+<p>I am using a <a href="http://stephenwalther.com/archive/2010/11/30/an-introduction-to-jquery-templates">jQuery templates</a> to render each item. You can render an array of items via the <code>tmpl()</code> function, however, here I render each one individually, so that I can associate the raw JSON data for each property with the generated element via the jQuery <code>data()</code> function. This is rather like defining the <code>DataContext </code>for a Silverlight FrameworkElement.</p>
 {% highlight xml %}
 <script id="propertyTemplate" type="text/x-jquery-tmpl">
   <li class="property" onClick="propertyClick(this); return false;">
@@ -223,7 +223,7 @@ function showDetailsPage() {
 };
 {% endhighlight %}
 <p>It is worth noting that if the IE9 browser supported CSS3 transitions all of the above could have been done declaratively within CSS, unfortunately animations are not in <a href="http://blogs.windows.com/buildingapps/2011/09/22/ie9-mobile-developer-overview/">the list of supported features</a>. There is nothing wrong with jQuery animations, they have a very concise and simple syntax. However, CSS3 animation give the browser the option to use GPU acceleration, <a href="http://www.html5rocks.com/en/tutorials/speed/html5/">greatly improving performance</a>. The webkit browsers on Android and iOS support this feature (using the -webkit prefix on the required CSS properties).</p>
-<p>The current location is identified via <a href="http://docs.phonegap.com/phonegap_geolocation_geolocation.md.html">navigator.geolocation.getCurrentPosition</a>, using the <a href="http://msdn.microsoft.com/en-us/library/ff701713.aspx">Bing Maps REST APIs</a> to geocode from a lat / long coordinate to a postcode:</p>
+<p>The current location is identified via <a href="http://docs.phonegap.com/en/3.3.0/cordova_geolocation_geolocation.md.html">navigator.geolocation.getCurrentPosition</a>, using the <a href="http://msdn.microsoft.com/en-us/library/ff701713.aspx">Bing Maps REST APIs</a> to geocode from a lat / long coordinate to a postcode:</p>
 {% highlight javascript %}
 // gets the current phone location
 function getGeolocation() {
@@ -353,7 +353,7 @@ function animatePip(element, delay) {
 <p>(Note, sometimes the animation goes a bit crazy, try refreshing your browser to reset it!)</p>
 <p>Again, my comments regarding CSS3 animations and GPU acceleration apply here also.</p>
 <h2>Tombstoning</h2>
-<p>As I have discussed in <a href="http://www.scottlogic.co.uk/blog/colin/2011/05/a-simple-windows-phone-7-mvvm-tombstoning-example">a previous blog post</a>, tombstoning is a tricky task for WP7 developers. When your application is tombstoned you can save application state, page state - and the framework stores your back-stack URIs. It is your responsibility to re-start your application in the same state. Contrary to the belief of some developers I have talked to, Mango does not remove the need to tombstone, it just means that your application is likely to be tombstoned less often, with the suspended state being used to park your application while application switching.</p>
+<p>As I have discussed in <a href="{{ site.github.url }}/2011/05/23/a-simple-windows-phone-7-mvvm-tombstoning-example">a previous blog post</a>, tombstoning is a tricky task for WP7 developers. When your application is tombstoned you can save application state, page state - and the framework stores your back-stack URIs. It is your responsibility to re-start your application in the same state. Contrary to the belief of some developers I have talked to, Mango does not remove the need to tombstone, it just means that your application is likely to be tombstoned less often, with the suspended state being used to park your application while application switching.</p>
 <p>So, how does tombstoning work with a PhoneGap HTML5 application? Good question! Implanting tombstoning would probably require some custom communication, outside of the PhoneGap APIs, that allows the JavaScript application to provide its current state to the Silverlight application that hosts this.</p>
 <p>I would be very interested to hear from anyone who has solved this issue!</p>
 <h2>The Development Process</h2>
@@ -386,26 +386,3 @@ $(document).ready(function () {
 <p>Hopefully these limitations will be resolved. When they do, I am quite sure that HTML5 will be a viable technology for creating quality phone applications.</p>
 <p>You can download the project sourcecode here: <a href='{{ site.github.url }}/archive/2011/09/PhoneGapExample.zip'>PhoneGapExample.zip</a></p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

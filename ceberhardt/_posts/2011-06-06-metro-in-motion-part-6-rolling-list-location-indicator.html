@@ -16,7 +16,7 @@ source: wordpress
 disqus-id: /blog/colin/2011/06/metro-in-motion-part-6-rolling-list-location-indicator/
 ---
 <p><em>This blog post describes the development of a rolling list location indicator. This indicator mirrors the behaviour seen in the native Windows Phone 7 calendar which rolls from one date to the next as the user scrolls.</em></p>
-<p>For those of you who have not been following my Metro-In-Motion series, I'll briefly recap. My aim is to provide an implementation of the 'fluid' UI transitions and effects seen in native Windows Phone 7 applications but absent from the Silverlight APIs. So far I have covered <a href="http://www.scottlogic.co.uk/blog/colin/2011/03/metro-in-motion-fluid-list-animation/">fluid list animations</a>, <a href="http://www.scottlogic.co.uk/blog/colin/2011/03/metro-in-motion-part-2-peel-animations/">'peel' animations</a>, <a href="http://www.scottlogic.co.uk/blog/colin/2011/04/metro-in-motion-3-flying-titles/">flying titles</a> , a <a href="http://www.scottlogic.co.uk/blog/colin/2011/05/metro-in-motion-part-4-tilt-effect/">'tilt' effect</a> and finally <a href="http://www.scottlogic.co.uk/blog/colin/2011/05/metro-in-motion-5-sandwichflow/">SandwichFlow</a> which brought all these effects together and the series to a close. However, a recent <a href="http://stackoverflow.com/questions/6046408/apply-slidetransition-effect-to-a-textblock-in-xaml">StackOverflow</a> questions inspired me to implement another fluid UI effect found in the native calendar application. When scrolling your list of appointments, the small day indicator at the top of the page displays the current date, with graceful roll transitions as you move from day-to-day:</p>
+<p>For those of you who have not been following my Metro-In-Motion series, I'll briefly recap. My aim is to provide an implementation of the 'fluid' UI transitions and effects seen in native Windows Phone 7 applications but absent from the Silverlight APIs. So far I have covered <a href="{{ site.github.url }}/2011/03/22/metro-in-motion-fluid-list-animation">fluid list animations</a>, <a href="{{ site.github.url }}/2011/03/27/metro-in-motion-part-2-peel-animations">'peel' animations</a>, <a href="{{ site.github.url }}/2011/04/04/metro-in-motion-3-flying-titles">flying titles</a> , a <a href="{{ site.github.url }}/2011/05/03/metro-in-motion-part-4-tilt-effect">'tilt' effect</a> and finally <a href="{{ site.github.url }}/2011/05/16/metro-in-motion-5-sandwichflow">SandwichFlow</a> which brought all these effects together and the series to a close. However, a recent <a href="http://stackoverflow.com/questions/6046408/apply-slidetransition-effect-to-a-textblock-in-xaml">StackOverflow</a> questions inspired me to implement another fluid UI effect found in the native calendar application. When scrolling your list of appointments, the small day indicator at the top of the page displays the current date, with graceful roll transitions as you move from day-to-day:</p>
 <p><img src="{{ site.github.url }}/archive/2011/06/WP7Calendar.png" alt="" title="WP7Calendar" width="275" height="203" class="aligncenter size-full wp-image-1525" /></p>
 <p>It's a subtle but the effect is very pleasing!</p>
 <p>You can see my implementation of this effect in the video below:</p>
@@ -55,7 +55,7 @@ private static void OnExposeFirstVisibleItemPropertyChanged(DependencyObject d,
 }
 {% endhighlight %}
 <p>Note, the method <code>WireUpScrollbar</code> returns true if it has located the scrollbar. However, if the template for our <code>ListBox</code> has not yet been instantiated this will fail. In this case, we handle the <code>LayoutUpdated</code> event and retry until this method returns a success. Note, the <code>EventHandler</code> that removes its own subscription to the <code>LayoutUpdated</code> event, a neat pattern that I will certainly use again!</p>
-<p>The <code>WireUpScrollbar</code> method uses <a href="http://www.scottlogic.co.uk/blog/colin/2010/03/linq-to-visual-tree/">Linq-to-VisualTree</a> to locate the <code>ScrollBar</code>.</p>
+<p>The <code>WireUpScrollbar</code> method uses <a href="{{ site.github.url }}/2010/03/04/linq-to-visual-tree">Linq-to-VisualTree</a> to locate the <code>ScrollBar</code>.</p>
 {% highlight csharp %}
 private static bool WireUpScrollbar(ItemsControl itemsControl)
 {
@@ -138,29 +138,6 @@ private static void SetFirstVisibleItem(ItemsControl itemsControl)
 <p>The <code>TransitioningContentControl</code> already has suitable transitions which give a nice roll-up and roll-down effect. These are selected by setting the <code>Transition</code> property to the named transition. In the example above, this is bound to the attached boolean <code>IsScrollingUpwards</code> property of our list, with a simple value converter that converts this into the required string transition identifier.</p>
 <p>And we're done!</p>
 <p>I quite like the way that the implementation of this effect is split into two halves, the one which extends the functionality of the list, and the other which visualises the output. This should give great flexibility, as can be seen in the example which indicates the list location within a contacts list.</p>
-<p>This code also works with the <a href="http://www.scottlogic.co.uk/blog/colin/2011/01/a-windows-phone-7-jump-list-control/">Jump List</a> I created a few months ago, however, it did require a few changes to that code. My current plan is to move all of the WP7 controls and effects I have created into the <a href="http://wp7contrib.codeplex.com/">WP7Contrib</a> project, so watch this (or that) space!).</p>
+<p>This code also works with the <a href="{{ site.github.url }}/2011/01/20/a-windows-phone-7-jump-list-control">Jump List</a> I created a few months ago, however, it did require a few changes to that code. My current plan is to move all of the WP7 controls and effects I have created into the <a href="http://wp7contrib.codeplex.com/">WP7Contrib</a> project, so watch this (or that) space!).</p>
 <p>You can download the sourcecode for this blog here: <a href='{{ site.github.url }}/archive/2011/06/MetroInMotionSix.zip'>MetroInMotionSix.zip</a></p>
 <p>Regards,Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

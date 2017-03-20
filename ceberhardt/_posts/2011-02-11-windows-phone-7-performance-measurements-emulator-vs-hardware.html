@@ -17,7 +17,7 @@ source: wordpress
 disqus-id: /blog/colin/2011/02/windows-phone-7-performance-measurements-emulator-vs-hardware/
 ---
 <p><em>This blog post presents a few performance measurements that detail the relative performance of ItemsControl, ListBox and manual addition of elements to the UI. These performance measurements are also compared when ran on the emulator and the real hardware.</em></p>
-<p>My early experiences of moving from the WP7 emulator to the real hardware revealed that performance is something that needs to be considered when developing an application. The complexity of the UI has a noticeable impact on the time to render a page. These findings lead me to develop the <a href="http://www.scottlogic.co.uk/blog/colin/2011/01/windows-phone-7-deferredloadcontentcontrol/">DeferredLoadContentControl</a> which I blogged about a few days ago. In this blog post I want to explore various ways in which a UI may be constructed and their relative performance.</p>
+<p>My early experiences of moving from the WP7 emulator to the real hardware revealed that performance is something that needs to be considered when developing an application. The complexity of the UI has a noticeable impact on the time to render a page. These findings lead me to develop the <a href="{{ site.github.url }}/2011/01/28/windows-phone-7-deferredloadcontentcontrol">DeferredLoadContentControl</a> which I blogged about a few days ago. In this blog post I want to explore various ways in which a UI may be constructed and their relative performance.</p>
 <p>The test I constructed was quite simple, the MainPage has a number of buttons, each of which navigates to a new page. When the navigation is initiated, the timer starts, and when the Loaded event fires on the target page, the timer is stopped. This accurately records the wait that the user experiences in navigating.</p>
 <p>My tests each construct a number of buttons and add them to the UI. Each test is run twice, once to construct 10 buttons, and another time to create 100. The tests are briefly described below:</p>
 <ol>
@@ -45,30 +45,7 @@ disqus-id: /blog/colin/2011/02/windows-phone-7-performance-measurements-emulator
 <p>I will certainly use the above information to guide the way that I develop WP7 applications, hopefully this data will help others too.</p>
 <p>A few take-home messages ...</p>
 <p>Firstly, because the <code>ItemsControl</code>  (when virtualizing) is faster than the <code>ListBox</code>, don't use a <code>ListBox</code> for navigation ... I have seen a number of examples where a <code>ListBox</code> is used to render items such as email messages, with the <code>SelectionChanged</code> event being used to initiate navigation. Use an <code>ItemsControl</code>, and handled the bubbled events instead!</p>
-<p>Secondly, use techniques such as the <a href="http://www.scottlogic.co.uk/blog/colin/2011/01/windows-phone-7-deferredloadcontentcontrol/">DeferredLoadContentControl</a>, or the <a href="http://blogs.msdn.com/b/delay/archive/2010/09/08/never-do-today-what-you-can-put-off-till-tomorrow-deferredloadlistbox-and-stackpanel-help-windows-phone-7-lists-scroll-smoothly-and-consistently.aspx">DeferredLoadListBox</a> to reduce the amount of UI elements added to the screen before its initial render.</p>
+<p>Secondly, use techniques such as the <a href="{{ site.github.url }}/2011/01/28/windows-phone-7-deferredloadcontentcontrol">DeferredLoadContentControl</a>, or the <a href="http://blogs.msdn.com/b/delay/archive/2010/09/08/never-do-today-what-you-can-put-off-till-tomorrow-deferredloadlistbox-and-stackpanel-help-windows-phone-7-lists-scroll-smoothly-and-consistently.aspx">DeferredLoadListBox</a> to reduce the amount of UI elements added to the screen before its initial render.</p>
 <p>Finally, test on real hardware!</p>
 <p>You can download the code I used to make these measurements here: <a href='{{ site.github.url }}/archive/2011/02/WindowsPhonePerformanceTests.zip'>WindowsPhonePerformanceTests.zip</a></p>
 <p>Regards,Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

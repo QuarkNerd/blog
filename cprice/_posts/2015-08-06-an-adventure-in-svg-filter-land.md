@@ -10,9 +10,9 @@ categories:
   - Charting
 ---
 
-I've been working on an open-source charting library called [d3fc](http://scottlogic.github.io/d3fc). And [following Colin's lead](http://blog.scottlogic.com/2015/07/08/yahoo-finance-chart.html), was looking for a creative example to replicate: I think I found it...
+I've been working on an open-source charting library called [d3fc](https://github.com/d3fc). And [following Colin's lead](http://blog.scottlogic.com/2015/07/08/yahoo-finance-chart.html), was looking for a creative example to replicate: I think I found it...
 
-[<img src="{{ site.github.url }}/cprice/assets/svg-filters/website-example.png" alt="Website example screenshot" width="878"/>](http://d3fc.io/examples/basecoin)
+<img src="{{ site.github.url }}/cprice/assets/svg-filters/website-example.png" alt="Website example screenshot" width="878"/>
 
 # Once upon a time
 
@@ -46,7 +46,7 @@ Also missing from the static screenshot are the parallax (elements moving over e
 
 Let's just say that the dataset used in the video is optimistic. I don't think we can rely on a real stream to give us results like that! We could just use some hard-coded data but the library comes with a configurable random data generator so let's use that.
 
-The [fc.data.random.financial component](http://scottlogic.github.io/d3fc/components/data/financial.html) uses a [GBM model](https://en.wikipedia.org/wiki/Geometric_Brownian_motion). The model includes two configurable properties: the percentage drift (`mu`) and the percentage volatility (`sigma`). [This tool](http://stuartreid.co.za/interactive-stochastic-processes/) lets you play with and see the effect of these values. In this case we want a relatively high positive drift with relatively low volatility -
+The [fc.data.random.financial component](https://github.com/d3fc/d3fc-random-data) uses a [GBM model](https://en.wikipedia.org/wiki/Geometric_Brownian_motion). The model includes two configurable properties: the percentage drift (`mu`) and the percentage volatility (`sigma`). [This tool](http://stuartreid.co.za/interactive-stochastic-processes/) lets you play with and see the effect of these values. In this case we want a relatively high positive drift with relatively low volatility -
 
 {% highlight js %}
 var dataGenerator = fc.data.random.financial()
@@ -133,7 +133,7 @@ var ema = fc.series.line()
     .yValue(function(d) { return d.exponentialMovingAverage; });
 {% endhighlight %}
 
-Now that we have multiple series to add to the chart, rather than manually creating containers for each of them we can use a `multi` series. The `multi` series will also take care of propagating through the scales and allow us to `decorate` ([more details](http://d3fc.io/components/introduction/2-decorate-pattern.html)) the created containers with appropriate class names we can use for styling -
+Now that we have multiple series to add to the chart, rather than manually creating containers for each of them we can use a `multi` series. The `multi` series will also take care of propagating through the scales and allow us to `decorate` ([more details](https://d3fc.io/introduction/decorate-pattern.html)) the created containers with appropriate class names we can use for styling -
 
 {% highlight js %}
 var multi = fc.series.multi()
@@ -361,7 +361,7 @@ We're inching closer -
 
 # Labels
 
-The only component we're missing now is the labels. Whilst the `line` annotation provides a label which we could `decorate` ([more details](http://d3fc.io/components/introduction/2-decorate-pattern.html)) with the arrow graphic, in order to achieve a later effect we need the labels in a different container element. As there's no appropriate component in d3fc, we'll create one from scratch.
+The only component we're missing now is the labels. Whilst the `line` annotation provides a label which we could `decorate` ([more details](https://d3fc.io/introduction/decorate-pattern.html)) with the arrow graphic, in order to achieve a later effect we need the labels in a different container element. As there's no appropriate component in d3fc, we'll create one from scratch.
 
 Most of the d3fc components are built on top of the `dataJoin` component, it provides a couple of useful extensions to the D3 concept of data-join but can be considered identical for the purposes of this example. When each data-joined `g` element enters the document it will have a `path` element added to it for the arrow graphic and a `text` element for the label itself. Then on every update we want the transform to be updated to reflect any changes to the location calculated from the scales.
 
@@ -845,7 +845,7 @@ The `candlestick` rendering is taking a huge proportion of the frame processing 
 
 Whilst that will work well for a small number of bars, it seems an overly complicated structure for our needs. As we're rendering 150 bars, that's a significant amount of DOM nodes to manage. Luckily, the library is designed in a layered fashion so if `candlestick` isn't working for us, let's pull it apart.
 
-Peeking into the source of the component, you can see that the actual candlestick path generation is being done by a separate component `fc.svg.candlestick`. As we want to get things running as fast as possible and we don't need to `decorate` ([more details](http://d3fc.io/components/introduction/2-decorate-pattern.html)) individual bars (the reason behind the g elements), let's directly use this underlying component.
+Peeking into the source of the component, you can see that the actual candlestick path generation is being done by a separate component `fc.svg.candlestick`. As we want to get things running as fast as possible and we don't need to `decorate` ([more details](https://d3fc.io/introduction/decorate-pattern.html)) individual bars (the reason behind the g elements), let's directly use this underlying component.
 
 Starting with the foundation of any component -
 
@@ -1034,6 +1034,6 @@ That's dropped the inter-frame timings to around 33 and whilst that's not the si
 
 # The end result
 
-You can [see the example running on the d3fc website](http://d3fc.io/examples/basecoin), annoyingly though you'll need a webkit-based browser. Testing with the other browsers revealed that their support for ```feImage``` doesn't extend to [referencing local elements by ID](https://bugzilla.mozilla.org/show_bug.cgi?id=455986), you're only able to reference external images. I have an idea on how I can work around that but again that'll have to wait for another day.
+To see the end result you'll need a webkit-based browser; testing with other browsers reveal that their support for ```feImage``` doesn't extend to [referencing local elements by ID](https://bugzilla.mozilla.org/show_bug.cgi?id=455986), you're only able to reference external images. I have an idea on how I can work around that but again that'll have to wait for another day.
 
-[<img src="{{ site.github.url }}/cprice/assets/svg-filters/website-example.png" alt="Website example screenshot" width="878"/>](http://d3fc.io/examples/basecoin)
+<img src="{{ site.github.url }}/cprice/assets/svg-filters/website-example.png" alt="Website example screenshot" width="878"/>

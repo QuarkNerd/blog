@@ -106,7 +106,7 @@ standard library) aren't written with `@Nullable` in mind.  Java allows null
 values by default, so every function from every library that doesn't annotate
 is assumed to be potentially null.
 
-I'm a big fan of Google's [Guava](https://code.google.com/p/guava-libraries/),
+I'm a big fan of Google's [Guava](https://github.com/google/guava),
 which provides lots of very useful helper libraries (some of which wind up
 getting implemented in subsequent Java releases).  One which sees ubiquitous
 use on my projects is the `Preconditions` library, which allows you to
@@ -150,26 +150,3 @@ JSR-305 isn't widely supported.  How much tooling support do you need before
 using a feature like this?  Is it useful to add annotations that won't be
 statically verified by the compiler?  What about annotations that are only
 verified by your IDE and not by your regular build (or CI server)?
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -17,7 +17,7 @@ source: wordpress
 disqus-id: /blog/colin/2011/04/metro-in-motion-3-flying-titles/
 ---
 <p><i>In this blog post I look at how to implement the fly-out fly-in effect seen in native Windows Phone 7 applications. This effect is seen in the native mail application; when you click on a message, the title flies out of the list then flies back in as the title of the message page.</i></p>
-<p>This is the third in my "Metro In Motion" series where I am looking at how to re-create some of the stylish transitions and animations found in native Windows Phone 7 applications. As a Silverlight developer we have controls that adhere to the static Metro styling, but apart from Pivot and Panorama, the more dynamic features of the Metro style are something we have to come up with ourselves. So far previous posts have provided re-useable implementations for the <a href="http://www.scottlogic.co.uk/blog/colin/2011/03/metro-in-motion-fluid-list-animation/">fluid list animations between pivot pages</a> and the <a href="http://www.scottlogic.co.uk/blog/colin/2011/03/metro-in-motion-part-2-peel-animations/">'peel' animation</a> seen when applications exit. In this blog post I provide a simple re-useable implementation of the title fly-out and fly-in effect. This effect is not that easy to describe, so we'll let the following picture do the talking ...</p>
+<p>This is the third in my "Metro In Motion" series where I am looking at how to re-create some of the stylish transitions and animations found in native Windows Phone 7 applications. As a Silverlight developer we have controls that adhere to the static Metro styling, but apart from Pivot and Panorama, the more dynamic features of the Metro style are something we have to come up with ourselves. So far previous posts have provided re-useable implementations for the <a href="{{ site.github.url }}/2011/03/22/metro-in-motion-fluid-list-animation">fluid list animations between pivot pages</a> and the <a href="{{ site.github.url }}/2011/03/27/metro-in-motion-part-2-peel-animations">'peel' animation</a> seen when applications exit. In this blog post I provide a simple re-useable implementation of the title fly-out and fly-in effect. This effect is not that easy to describe, so we'll let the following picture do the talking ...</p>
 <p><img src="{{ site.github.url }}/archive/2011/04/FlyOut.png" alt="" title="FlyOut" width="550" height="333" class="aligncenter size-full wp-image-1351" /></p>
 <p>Here is a video of this effect recorded on the emulator. This code has also been tested on a real device, and performs just fine.</p>
 <p><iframe title="YouTube video player" width="480" height="390" src="http://www.youtube.com/embed/hATXaLAk6VE?rel=0" frameborder="0" allowfullscreen></iframe></p>
@@ -41,7 +41,7 @@ disqus-id: /blog/colin/2011/04/metro-in-motion-3-flying-titles/
           local:MetroInMotion.AnimationLevel="2"/>
 </StackPanel>
 {% endhighlight %}
-<p>The page needs an instance of the class which manages this animation effect. When the ListBox raises its SelectionChanged event we use a bit of <a href="http://www.scottlogic.co.uk/blog/colin/2010/03/linq-to-visual-tree/">Linq-to-VisualTree</a> to locate the element named above, then invoke <code>ItemFlyOut</code>, providing an 'action' which is called when the animation completes.</p>
+<p>The page needs an instance of the class which manages this animation effect. When the ListBox raises its SelectionChanged event we use a bit of <a href="{{ site.github.url }}/2010/03/04/linq-to-visual-tree">Linq-to-VisualTree</a> to locate the element named above, then invoke <code>ItemFlyOut</code>, providing an 'action' which is called when the animation completes.</p>
 {% highlight csharp %}
 private ItemFlyInAndOutAnimations _flyOutAnimation = new ItemFlyInAndOutAnimations();
 
@@ -251,26 +251,3 @@ public void ItemFlyIn()
 <p>And there we have it, Metro style flying titles!</p>
 <p>You can download the full sourcecode here: <a href='{{ site.github.url }}/archive/2011/04/MetroInMotion3.zip'>MetroInMotion3.zip</a></p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

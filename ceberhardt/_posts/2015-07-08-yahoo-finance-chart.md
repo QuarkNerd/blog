@@ -18,7 +18,7 @@ iframe {
 }
 </style>
 
-Most charting libraries are monoliths. The more features they support, the more unwieldy their APIs tend to become. With the [d3fc](http://scottlogic.github.io/d3fc/) project we have been exploring an alternative approach, constructing charts from a set of small components, using the D3 library.
+Most charting libraries are monoliths. The more features they support, the more unwieldy their APIs tend to become. With the [d3fc](https://github.com/d3fc/) project we have been exploring an alternative approach, constructing charts from a set of small components, using the D3 library.
 
 In this post I want to demonstrate the power of both d3fc and D3 by re-creating the [rather complex Yahoo Finance chart](http://finance.yahoo.com/echarts?s=yhoo+Interactive#{"showEma":true,"emaColors":"#cc0000","emaPeriods":"50","emaWidths":"1","emaGhosting":"0","range":"5d","allowChartStacking":true}).
 
@@ -30,7 +30,7 @@ This post takes a step-by-step approach to demonstrate how the Yahoo Finance cha
 
 ## Rendering a simple chart
 
-d3fc and its dependency are available via npm as detailed in the [installation instructions](https://github.com/ScottLogic/d3fc#installation).
+d3fc and its dependency are available via npm as detailed in the [installation instructions](https://github.com/d3fc/d3fc#installation).
 
 d3fc creates charts using SVG, so the first step is to add an SVG element to the page:
 
@@ -38,7 +38,7 @@ d3fc creates charts using SVG, so the first step is to add an SVG element to the
 <svg id='time-series' style='height: 300px; width: 500px;'/>
 {% endhighlight %}
 
-The Yahoo Finance data is available as CSV data through an unsupported, [yet widely used](https://greenido.wordpress.com/2009/12/22/yahoo-finance-hidden-api/) API. D3 has a number of utility functions for fetching and parsing data, including CSV.
+The Yahoo Finance data is available as CSV data through an unsupported, [yet widely used](https://greenido.wordpress.com/2009/12/22/work-like-a-pro-with-yahoo-finance-hidden-api/) API. D3 has a number of utility functions for fetching and parsing data, including CSV.
 
 The following code performs an XHR request via `d3.csv`:
 
@@ -254,8 +254,6 @@ container.layout();
 
 Rather than append a `g` element directly into the container, it is appended within a data join enter selection. This ensures that only a single element is added regardless of how many times the `renderChart` function is called.
 
-The above example is a relatively simple layout, for a more complex example [pop over to the d3fc website](http://scottlogic.github.io/d3fc/components/layout/layout.html).
-
 A volume scale is constructed with a domain based on the input data and a range based on the height of the volume container:
 
 {% highlight js %}
@@ -317,7 +315,7 @@ In this blog post you've seen how d3fc components can be assembled, configured a
 
 In my next post I'll show how d3fc legend and crosshair components can be added to provide some interactivity, and how to create a custom discontinuity provider!
 
-Until then, if you have any questions about d3fc or this example, get in touch either via the comments field below, or [via the GitHub project](https://github.com/ScottLogic/d3fc).
+Until then, if you have any questions about d3fc or this example, get in touch either via the comments field below, or [via the GitHub project](https://github.com/d3fc/d3fc).
 
 <b>Update:</b> The [second part of this two-part series has been published]({{ site.github.url }}/2015/07/22/yahoo-finance-chart-part-two.html), so you can see the complete example in action!
 

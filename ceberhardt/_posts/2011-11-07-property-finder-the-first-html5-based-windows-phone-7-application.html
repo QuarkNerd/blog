@@ -28,10 +28,10 @@ disqus-id: /blog/colin/2011/11/property-finder-the-first-html5-based-windows-pho
 <li><a href="http://jquery.com/">jQuery</a> - everyone's favourite JavaScript UI framework.</li>
 <li><a href="http://code.google.com/p/jquery-jsonp/">jQuery-JSONP</a> - A very small library that provides a much better JSONP implementation than the one provided by jQuery.</li>
 </ul>
-<p>I have already written a couple of blog posts about PhoneGap / Windows Phone 7, including <a href="http://www.scottlogic.co.uk/blog/colin/2011/09/developing-windows-phone-7-html5-apps-with-phonegap/" title="Developing Windows Phone 7 HTML5 apps with PhoneGap">one which introduces the basic concepts</a>, and a second one which <a href="http://www.scottlogic.co.uk/blog/colin/2011/10/tombstoning-with-phonegap-for-windows-phone-7-and-knockoutjs/" title="Tombstoning with PhoneGap for Windows Phone 7 (and KnockoutJS)">tackles the problem of tombstoning</a>. I plan to write a few more blog posts about how Property Finder was implemented, covering topics such as back-stack handling and how to disable the WebBrowser control's pinch / scroll behaviours.</p>
+<p>I have already written a couple of blog posts about PhoneGap / Windows Phone 7, including <a href="{{ site.github.url }}/2011/09/29/developing-windows-phone-7-html5-apps-with-phonegap" title="Developing Windows Phone 7 HTML5 apps with PhoneGap">one which introduces the basic concepts</a>, and a second one which <a href="{{ site.github.url }}/2011/10/24/tombstoning-with-phonegap-for-windows-phone-7-and-knockoutjs" title="Tombstoning with PhoneGap for Windows Phone 7 (and KnockoutJS)">tackles the problem of tombstoning</a>. I plan to write a few more blog posts about how Property Finder was implemented, covering topics such as back-stack handling and how to disable the WebBrowser control's pinch / scroll behaviours.</p>
 <h2 id="why">Why HTML5?</h2>
 <p>So why did I go to all this bother of implementing this application using HTML5? Why not write it in Silverlight instead?</p>
-<p>There is one simple answer to that question - HTML5 is cross-platform. The code I have written for this application will work eqally well on a desktop browser, or within a browser-control on other mobile phoen devices (Android, iPhone, ...). If you look at the current smartphone market-share, Android has suddenly leaped into the lead with WP7 a long way behind. Fortunately for WP7 developers, <a href="http://www.scottlogic.co.uk/blog/colin/2011/04/gartner-predicts-a-promising-future-for-windows-phone-7-developers/" title="Gartner Predicts a Promising Future for Windows Phone 7 Developers">Gartner predicts a promising future, with a significant market-share by 2015</a>. Also, recent analysis predicts <a href="http://www.computerworld.com.au/article/406060/windows_phone_tipped_rival_blackberry_by_2016_ovum/">WP7 will make a lot of impact in the enterprise</a>. </p>
+<p>There is one simple answer to that question - HTML5 is cross-platform. The code I have written for this application will work eqally well on a desktop browser, or within a browser-control on other mobile phoen devices (Android, iPhone, ...). If you look at the current smartphone market-share, Android has suddenly leaped into the lead with WP7 a long way behind. Fortunately for WP7 developers, <a href="{{ site.github.url }}/2011/04/08/gartner-predicts-a-promising-future-for-windows-phone-7-developers" title="Gartner Predicts a Promising Future for Windows Phone 7 Developers">Gartner predicts a promising future, with a significant market-share by 2015</a>. Also, recent analysis predicts <a href="http://www.computerworld.com.au/article/406060/windows_phone_tipped_rival_blackberry_by_2016_ovum/">WP7 will make a lot of impact in the enterprise</a>. </p>
 <p>However, whether these predictions are right or wrong, the one thing you can be sure of is that the future smartphone market will not be dominated by a single OS. Now and in the future, if you want to make your applications available to smartphone users in general, rather than the users of a specific smartphone model, you have to either write your application multiple times, once for each OS, or use a cross-platform technology.</p>
 <h2 id="ux">Will the user-experience suffer?</h2>
 <p>This is a big question. Developing WP7 applications with Silverlight makes it easy to create the authentic Metro theme, however, most of the libraries for creating HTML5-mobile UIs focus on immitating the iPhone look and feel.</p>
@@ -45,7 +45,7 @@ disqus-id: /blog/colin/2011/11/property-finder-the-first-html5-based-windows-pho
 <h2 id="loose">Loose ends</h2>
 <p>Property Finder shows a lot of promise, however, it is not quite ready for putting in front of end users yet. There are a couple of technical issues that still need to be resolved before this application, and HTML5-based WP7 applications in general, are ready for prime-time:</p>
 <p><b>The IE9 gray-boxes</b></p>
-<p>If you download the application, or <a href="http://www.youtube.com/watch?v=QyYsri9kKUI">watch the video closely</a>, you will notice that every time you click on a button, and image or the app-bar, a small gray rectangular overlay is render. This totally spoils the illusion I am trying to create! I have asked on the Microsoft <a href="http://blogs.windows.com/buildingapps/2011/09/22/ie9-mobile-developer-overview/">Windows Phone Blog</a>, asked on  <a href="http://stackoverflow.com/questions/6378008/windows-phone-7-browser-turn-off-the-gray-shading-when-links-are-clicked">StackOverflow</a> and <a href="https://github.com/phonegap/phonegap-wp7/issues/26">raised an issue against PhoneGap</a>, but to no avail.</p>
+<p>If you download the application, or <a href="http://www.youtube.com/watch?v=QyYsri9kKUI">watch the video closely</a>, you will notice that every time you click on a button, and image or the app-bar, a small gray rectangular overlay is render. This totally spoils the illusion I am trying to create! I have asked on the Microsoft <a href="http://blogs.windows.com/buildingapps/2011/09/22/ie9-mobile-developer-overview/">Windows Phone Blog</a>, and asked on  <a href="http://stackoverflow.com/questions/6378008/windows-phone-7-browser-turn-off-the-gray-shading-when-links-are-clicked">StackOverflow</a>, but to no avail.</p>
 <p>If someone from Microsoft is reading this, please address this issue! It will seriously hamper the use of HTML5 for web-applications on Windows Phone 7. (And after you have fixed that, please add CSS 3D transforms, and transitions - thanks!)</p>
 <p><b>Device capabilities</b></p>
 <p>Before submitting my application to the marketplace I was careful to detail its capabilities, listing it as requiring:</p>
@@ -60,26 +60,3 @@ disqus-id: /blog/colin/2011/11/property-finder-the-first-html5-based-windows-pho
 <p>I am happy to see that my first attempt at a HTML5-based WP7 application was accepted by the Windows Marketplace. I am sure that HTML5 will play a significant part in the future of mobile application development and it is re-assuring that Windows Phone 7 can be a part of it.</p>
 <p>More blog posts and technical details to follow ...</p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -114,16 +114,16 @@ Yikes! Let's take a closer look at that. First, we create an instance of WebDriv
 Even the last bit, where we're just checking the DOM, is an asynchronous call. WebDriver goes off to find the matching elements and calls back with the result. WebDriver uses promises to make all these asynchronous calls a bit easier to handle, and it has an internal queue of promises so you can simplify the client code a little. For example, `driver.wait()` is asynchronous and returns a promise, but so does the next line (`driver.findElements()`), so WebDriver puts it in the queue to be executed after the first one finishes. The final line (`.then(done);`) tells Jasmine that the test has finished, and we need to make sure that doesn't happen until after the last promise in the queue.
 
 The first two parts of the test above are going to be needed for every test, so lets pull that out into a new Node module and generalise it a bit:
-	
+
     {% highlight js %}
     var webdriver = require('selenium-webdriver');
-	
+
     function DriverController() {
         // Create and initialise the web driver
         var driver = new webdriver.Builder().
             withCapabilities(webdriver.Capabilities.chrome()).
             build();
-	
+
         this.get = function (path, selector) {
             // navigate to the requested path
             driver.get('http://127.0.0.1:8089' + '/' + path);
@@ -140,7 +140,7 @@ The first two parts of the test above are going to be needed for every test, so 
         // Make the selector available
         this.by = webdriver.By;
     };
-	
+
     // Export an instance of the driver controller
     module.exports = new DriverController();
 {% endhighlight %}
@@ -176,7 +176,7 @@ Now we can re-write that test for the Knockout version:
 {% endhighlight %}
 
 That's not quite as easy as the Angular version, but we're much closer. As it happens, this version of the test would actually work on both the Angular and Knockout websites.
- 
+
 Let's try a more complicated test. This time, we want to type something in the filter query text box, let it query the server and check that we display the correct number of results.
 
 In the Angular version:
@@ -307,7 +307,7 @@ The mocked server has a `get` function that creates a mocked response (the JSON 
 Now I can setup a mocked response like this:
 
     {% highlight js %}
-    // Return full investment list for '/analysis' 
+    // Return full investment list for '/analysis'
     mockServer.get("/analysis", [
         { name: "Investment-1" },
         { name: "Investment-2" },
@@ -325,7 +325,7 @@ Now I can setup a mocked response like this:
 
 So far, all my tests still require that the website itself is already running before I start testing. However, I created a Node module that starts and stops a mocked back-end web service, so why not do the same for the web server?
 
-The SPA is just a set of static files (html, css, javascript), so we just need a static web server to listen to a port and serve those files. I've used [connect](https://www.npmjs.org/package/connect) and [serve-static](https://www.npmjs.org/package/serve-static).
+The SPA is just a set of static files (html, css, javascript), so we just need a static web server to listen to a port and serve those files. I've used [connect](https://www.npmjs.com/package/connect) and [serve-static](https://www.npmjs.org/package/serve-static).
 
     {% highlight js %}
     var http = require('http'),
@@ -351,27 +351,3 @@ With this in place, we now have a set of robust e2e tests (ok, middle-to-end tes
 I've shown how to implement e2e tests for an SPA created with either Angular or Knockout. The Angular version has a clear advantage thanks to the Angular-specific test tool Protractor, which makes tests easier to write. However, it's possible to do the same things in the Knockout version and it's not really that much harder.
 
 I promised to talk about the 'value' of e2e tests, and the 'cost' of creating and maintaining them, due to their often brittle nature. Of course, this boils down to the question of whether you should be writing e2e tests for your application. I won't presume to answer that for you, but I've tried to show how they can be made as robust as unit tests, and nearly as easy to write. Hopefully when you next ask yourself that question, you'll be more inclined to answer "yes".
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

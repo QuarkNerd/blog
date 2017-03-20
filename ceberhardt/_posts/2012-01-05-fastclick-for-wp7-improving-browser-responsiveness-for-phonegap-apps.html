@@ -26,7 +26,7 @@ disqus-id: /blog/colin/2012/01/fastclick-for-wp7-improving-browser-responsivenes
 <p><small>Stock image courtesy of <a href="http://www.sxc.hu/photo/313551">lovetheson</a></small></p>
 <p>The need to handle gestures in the native layer causes numerous issues for the browser event handling. Thankfully these issues are relatively minor for most websites, but if your aim is to create a HTML-based application with a native look and feel, these issues become quite major.</p>
 <p><strong>Improving responsiveness</strong></p>
-<p>The problem I want to tackle in this blog post is that of the click DOM event firing delay to support the double-tap gesture. With HTML5-based applications you will typically want to disable pinch zoom, double-tap zoom and (optionally) scrolling <a href="http://www.scottlogic.co.uk/blog/colin/2011/11/suppressing-zoom-and-scroll-interactions-in-the-windows-phone-7-browser-control/" title="Suppressing Zoom and Scroll interactions in the Windows Phone 7 WebBrowser Control">as I described in a previous blog post</a>. As a result your application has no need for the double-tap and pinch gestures and we are safe to short-circuit this behaviour, immediately raising DOM click events when the user taps the screen.</p>
+<p>The problem I want to tackle in this blog post is that of the click DOM event firing delay to support the double-tap gesture. With HTML5-based applications you will typically want to disable pinch zoom, double-tap zoom and (optionally) scrolling <a href="{{ site.github.url }}/2011/11/17/suppressing-zoom-and-scroll-interactions-in-the-windows-phone-7-browser-control" title="Suppressing Zoom and Scroll interactions in the Windows Phone 7 WebBrowser Control">as I described in a previous blog post</a>. As a result your application has no need for the double-tap and pinch gestures and we are safe to short-circuit this behaviour, immediately raising DOM click events when the user taps the screen.</p>
 <p>My solution follows a similar approach to the utility class I wrote for suppressing pan / zoom, where event handlers are added to the <code>Border </code>that sits within the <code>WebBrowser </code>control visual tree:</p>
 <pre>
 \-WebBrowser
@@ -86,26 +86,3 @@ new BrowserFastClick(PGView.Browser);
 <p>The net result is that your application becomes more responsive, with the browser immediately navigating links when they are first tapped.</p>
 <p>I have updated the HTML5 SandwichFlow application I blogged about a few weeks ago to use this FastClick code. You can download the complete example here: <a href='{{ site.github.url }}/archive/2012/01/HTML5SandwichFlow.zip'>HTML5SandwichFlow.zip</a></p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

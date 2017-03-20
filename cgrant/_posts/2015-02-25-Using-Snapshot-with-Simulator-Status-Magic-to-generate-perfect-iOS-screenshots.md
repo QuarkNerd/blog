@@ -2,14 +2,14 @@
 author: cgrant
 categories:
  - cgrant
-tags: 
+tags:
  - featured
 image: "cgrant/assets/featured/phone.jpg"
 image-attribution: "image courtesy of <a href='https://www.flickr.com/photos/janitors/'>Kārlis Dambrāns</a>"
 layout: default_post
 ---
 
-I have recently been using a set of tools called [fastlane](http://fastlane.tools/), developed by [Felix Krause](http://www.krausefx.com/). fastlane helps to automate the steps involved in building and deploying iOS applications to the App Store.
+I have recently been using a set of tools called [fastlane](http://fastlane.tools/), developed by [Felix Krause](https://krausefx.com/). fastlane helps to automate the steps involved in building and deploying iOS applications to the App Store.
 
 <p style='text-align:center'>
 <a href='http://fastlane.tools/'>
@@ -27,20 +27,20 @@ One of my favourite fastlane tools is [snapshot](https://github.com/KrauseFx/sna
 	  "iPhone 5",
 	  "iPhone 4s"
 	])
-	
+
 	languages([
 	  'en-US',
 	  'en-GB',
 	  'de-DE'
 	])
-	
+
 	screenshots_path "./screenshots"
 	clear_previous_screenshots
-	
+
 *A simplified version of the Snapfile script I use with fastlane to generate the screenshots*
 
 ## Simulator Status Magic
-One issue that I originally came across when setting up snapshot was the status bar. Because snapshot runs on the simulator, the status bar is not realistic and inconsistent. I wanted to display a perfect, consistent status bar on the screenshots that match Apple's [marketing materials](http://www.apple.com/ios/). This led me to [Simulator Status Magic](https://github.com/shinydevelopment/Simulator Status Magic). Simulator Status Magic is a tool that modifies the iOS Simulator so that it has a perfect status bar. You can then launch your app and take perfect screenshots every time. The modifications made are designed to match the images you see on the Apple site and are as follows:
+One issue that I originally came across when setting up snapshot was the status bar. Because snapshot runs on the simulator, the status bar is not realistic and inconsistent. I wanted to display a perfect, consistent status bar on the screenshots that match Apple's [marketing materials](http://www.apple.com/ios/). This led me to [Simulator Status Magic](https://github.com/shinydevelopment/SimulatorStatusMagic). Simulator Status Magic is a tool that modifies the iOS Simulator so that it has a perfect status bar. You can then launch your app and take perfect screenshots every time. The modifications made are designed to match the images you see on the Apple site and are as follows:
 
 - 9:41 AM is displayed for the time.
 - The battery is full and shows 100%.
@@ -66,21 +66,21 @@ Now, whenever you launch the simulator, the time will be displayed as 9:41 AM, t
 
 ## Conditional Compilation
 This works great, but you definitely don't want to leave this in your production code! Thankfully however, there is a way around this. In your Snapfile, you can specify `custom_args` that are passed to the project when it is build in preparation for taking the screenshots. By specifying a `SCREENSHOTS` preprocessor definition in your Snapfile, like so.
-	
+
 	custom_args "GCC_PREPROCESSOR_DEFINITIONS='SCREENSHOTS'"
-	
+
 You can then surround the import and the `enableOverrides` call in your AppDelegate.m file, so that it is only activated when these custom arguments are specified.
 
 
 	#ifdef SCREENSHOTS
 	#import <SDStatusBarManager.h>
 	#endif
-	
+
 	...
-	    
+
 
 	#ifdef SCREENSHOTS
     [[SDStatusBarManager sharedInstance] enableOverrides];
 	#endif
-	
+
 Your status bar will now only be overridden when `SCREENSHOTS` is specified. This short piece of code used in combination with snapshot and simulator status magic should give you a perfect status bar in all of your screenshots for your iOS App Store applications!

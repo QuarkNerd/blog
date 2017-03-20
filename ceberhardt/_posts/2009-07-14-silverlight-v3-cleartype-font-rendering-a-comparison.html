@@ -16,7 +16,7 @@ source: wordpress
 disqus-id: /blog/colin/2009/07/silverlight-v3-cleartype-font-rendering-a-comparison/
 ---
 <p>Text rendering has been a problem for both Silverlight and WPF for a while. This blog post looks at ClearType in Silverlight v3 and compares it to WPF and WinForms text rendering.</p>
-<p>Text clarity is something that concerns me quite a bit. In financial applications, such as our <a href="http://www.scottlogic.co.uk/market_overview/">market overview pages</a>, often large quantities of both graphical and textual data are rendered to the screen. Users of these applications need to be able to rapidly digest information, hence clarity is very important.</p>
+<p>Text clarity is something that concerns me quite a bit. In financial applications, often large quantities of both graphical and textual data are rendered to the screen. Users of these applications need to be able to rapidly digest information, hence clarity is very important.</p>
 <p>I was very happy to see that text rendering in Silverlight has been improved by the introduction use of the <a href="http://en.wikipedia.org/wiki/ClearType">ClearType</a> sub-pixel rendering algorithm. The following table contrasts the same Tahoma text rendering using Silverlight, WPF and WinForms in order to compare the text clarity.</p>
 <table border="0" cellspacing="0">
 <tbody>
@@ -58,29 +58,6 @@ disqus-id: /blog/colin/2009/07/silverlight-v3-cleartype-font-rendering-a-compari
 </tbody>
 </table>
 <p>From the above table you can see the tell-tale colour-halos around text in Silverlight v3.0 indicating that ClearType rendering is being used. Previously Silverlight used the same anti-aliasing approach used by WPF. </p>
-<p>The text rendering of WPF has been criticised quite a bit. The main problem is that text glyphs are not snapping to pixel boundaries, which results in some rather unpleasant artefacts when <a href="http://goneale.com/2009/03/20/wpf-blurriness-washed-out-explained/">text is animated</a>. However, the good news is that this will be <a href="http://blogs.msdn.com/text/Default.aspx">fixed in .NET 4.0</a>.</p>
+<p>The text rendering of WPF has been criticised quite a bit. The main problem is that text glyphs are not snapping to pixel boundaries, which results in some rather unpleasant artefacts when <a href="http://goneale.com/2009/03/20/wpf-blurriness-washed-out-explained/">text is animated</a>. However, the good news is that this will be <a href="https://blogs.msdn.microsoft.com/text/2009/06/24/new-wpf-4-0-features/">fixed in .NET 4.0</a>.</p>
 <p>The addition of ClearType text rendering in Silverlight v3.0 is certainly good news. However, if you compare the images above, I still find that the WinForms ClearType rendered text is clearer that its WPF / Silverlight counterparts. If you inspect the word 'bold' which is rendered in white text on a blue background, the WinForms text is much clearer. The WPF / Silverlight fonts appear much 'fatter' with less space between the letters. All the above applications used exactly the same font (Tahoma) and the same font size.</p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -13,7 +13,7 @@ disqus-id: /2014/12/19/angular-hero-transitions.html
 ---
 
 
-*How to create hero transitions with [AngularJS](https://angularjs.org/), similar to those implemented by Google's Material Design and Polymer's [core-animated-pages](https://www.polymer-project.org/docs/elements/core-elements.html#core-animated-pages).*
+*How to create hero transitions with [AngularJS](https://angularjs.org/), similar to those implemented by Google's Material Design and Polymer's [core-animated-pages](https://github.com/Polymer/core-animated-pages).*
 
 In <a href="{{ site.github.url }}/2014/12/12/html5-android-optimisation.html">my last post</a> I learned a lot about optimising animated transitions for mobile devices. New screens would slide in from the right, while elements that were common between the two screens would animate from their old position to the new position. In that case, it was the header of a card in a list view, which animated to the header of the page on the next screen. The code for animating the elements was very specific to that project though, so I thought I'd try to build a re-usable component for generic hero transitions, with minimal dependencies (other than Angular).
 
@@ -75,7 +75,7 @@ You can also animate other styles in the same way, such as corner-radius and bor
 
 AngularJS has great support for animations, with good [documentation](https://docs.angularjs.org/guide/animations).
 
-In my example, I've used one class for the page-level transition (`page-transition`), and a separate one for the hero transitions (`hero-transition`, which is defined by the component). 
+In my example, I've used one class for the page-level transition (`page-transition`), and a separate one for the hero transitions (`hero-transition`, which is defined by the component).
 I used a CSS animation to implement a basic cross-fade transition between pages like this:
 
     {% highlight css %}
@@ -144,29 +144,6 @@ Finally, the `transitionend` events fire for all the Hero elements, and `hero-tr
 
 ### Conclusion
 
-While I've been building the `angular-hero` component, I've learned a lot about CSS transitions generally and Angular animations in particular. It's surprisingly easy to do and can help build an engaging user experience. 
+While I've been building the `angular-hero` component, I've learned a lot about CSS transitions generally and Angular animations in particular. It's surprisingly easy to do and can help build an engaging user experience.
 
 Hopefully you can find a use for it too. Hero transitions in Angular are easy with `angular-hero`.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

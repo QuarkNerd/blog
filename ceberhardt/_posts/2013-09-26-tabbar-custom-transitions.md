@@ -10,7 +10,7 @@ disqus-id: /2013/09/26/tabbar-custom-transitions.html
 ---
 In my previous blog post on <a href="{{ site.github.url }}/2013/09/20/creating-a-custom-flip-view-controller-transition.html">view controller transitions</a> I demonstrated how to create a page-fold animation controller. In this blog post, I'll take the concepts a step further by showing how to create interactive tab bar controller transitions.
 
-If you watched the [WWDC video #228](https://developer.apple.com/wwdc/videos/) "Custom Transitions Using View Controllers" you will have seen a demonstration that showed a tabbed interface where you can swipe left and right to navigate, with the view controllers folding like paper:
+If you watched the [WWDC video #218](https://developer.apple.com/videos/play/wwdc2013/218/) "Custom Transitions Using View Controllers" you will have seen a demonstration that showed a tabbed interface where you can swipe left and right to navigate, with the view controllers folding like paper:
 
 <img src="{{ site.github.url }}/ceberhardt/assets/TabBarTransitions/WWDCTransition.png"/>
 
@@ -28,7 +28,7 @@ There are two key classes involved in a custom transition:
 
  + **Animation controller** - this class is responsible for performing the custom transitions. When you indicate that a custom transitions should be used, you provide an animation controller. This class performs the required animation, then informs the framework when it has completed.
  + **Interaction controller** - this class is responsible for managing interactive transitions - these are transitions that typically controlled by a gesture, allowing the user to swipe, pinch or perform some other action to navigate between view controllers. Importantly, interaction controllers allow transitions to be cancelled, i.e. a user can start the navigation, change their mind, and reverse it!
- 
+
 **NOTE:** Animation and interaction controllers are entirely independent, this means you can wire up any interaction controller with any animation controller - which is pretty awesome.
 
 ## Setting up the animation
@@ -48,26 +48,26 @@ NSMutableArray* toViewFolds = [NSMutableArray new];
 // create the folds for the form- and to- views
 for (int i=0 ;i<self.folds; i++){
     float offset = (float)i * foldWidth * 2;
-    
+
     // the left and right side of the fold for the from- view
     UIView *leftFromViewFold = [self createSnapshotFromView:fromView
                                     afterUpdates:NO location:offset left:YES];
     leftFromViewFold.layer.position = CGPointMake(offset, size.height/2);
     [fromViewFolds addObject:leftFromViewFold];
-    
+
     UIView *rightFromViewFold = [self createSnapshotFromView:fromView
                            afterUpdates:NO location:offset + foldWidth left:NO];
     rightFromViewFold.layer.position = CGPointMake(offset + foldWidth * 2,
                                                              size.height/2);
     [fromViewFolds addObject:rightFromViewFold];
-    
+
     // the left and right side of the fold for the to- view
     UIView *leftToViewFold = [self createSnapshotFromView:toView
                                afterUpdates:YES location:offset left:YES];
     leftToViewFold.layer.position = CGPointMake(0.0, size.height/2);
     leftToViewFold.layer.transform = CATransform3DMakeRotation(M_PI_2, 0.0, 1.0, 0.0);
     [toViewFolds addObject:leftToViewFold];
-    
+
     UIView *rightToViewFold = [self createSnapshotFromView:toView
                             afterUpdates:YES location:offset + foldWidth left:NO];
     rightToViewFold.layer.position = CGPointMake(0.0, size.height/2);
@@ -83,23 +83,23 @@ This makes use of a utility method which creates a 'strip' at the given offset l
                      afterUpdates:(BOOL)afterUpdates
                          location:(CGFloat)offset
                               left:(BOOL)left {
-    
+
     CGSize size = view.frame.size;
     UIView *containerView = view.superview;
     float foldWidth = size.width * 0.5 / (float)self.folds;
-    
+
     // create a snapshot
     CGRect snapshotRegion = CGRectMake(offset, 0.0, foldWidth, size.height);
     UIView* snapshotView = [view resizableSnapshotViewFromRect:snapshotRegion
                                             afterScreenUpdates:afterUpdates
                                                  withCapInsets:UIEdgeInsetsZero];
-    
+
     // add to the container
     [containerView addSubview:snapshotView];
-    
+
     // set the anchor to the left or right edge of the view
     snapshotView.layer.anchorPoint = CGPointMake( left ? 0.0 : 1.0, 0.5);
-    
+
     return snapshotView;
 }
 {% endhighlight %}
@@ -117,7 +117,7 @@ leftToViewFold.layer.position = CGPointMake(0.0, size.height/2);
 leftToViewFold.layer.transform = CATransform3DMakeRotation(M_PI_2, 0.0, 1.0, 0.0);
 {% endhighlight %}
 
-All the to- views are located on the left hand edge of the screen and rotate by 90 degrees so that they are not visible to the viewer. 
+All the to- views are located on the left hand edge of the screen and rotate by 90 degrees so that they are not visible to the viewer.
 
 If we rotate the viewport just a little, and make the layers opaque, you can see the to- views all bunched up at the edge:
 
@@ -133,30 +133,30 @@ NSTimeInterval duration = [self transitionDuration:transitionContext];
 [UIView animateWithDuration:duration animations:^{
     // set the final state for each fold
     for (int i=0; i<self.folds; i++){
-        
+
         float offset = (float)i * foldWidth * 2;
-        
+
         // the from- view snapshots        
         UIView* leftFromView = fromViewFolds[i*2];
         leftFromView.layer.position = CGPointMake(size.width, size.height/2);
         leftFromView.layer.transform =
                           CATransform3DRotate(transform, M_PI_2, 0.0, 1.0, 0);
-        
+
         UIView* rightFromView = fromViewFolds[i*2+1];
         rightFromView.layer.position = CGPointMake(size.width, size.height/2);
         rightFromView.layer.transform =
                           CATransform3DRotate(transform, -M_PI_2, 0.0, 1.0, 0);
-        
+
         // the to- view snapshots
         UIView* leftToView = toViewFolds[i*2];
         leftToView.layer.position = CGPointMake(offset, size.height/2);
         leftToView.layer.transform = CATransform3DIdentity;
-        
+
         UIView* rightToView = toViewFolds[i*2+1];
         rightToView.layer.position = CGPointMake(offset + foldWidth * 2,
                                                            size.height/2);
         rightToView.layer.transform = CATransform3DIdentity;
-        
+
     }
 }  completion:^(BOOL finished) {
     // tidy up code goes here ...
@@ -194,10 +194,10 @@ In order to add a bit of realism and depth, I used the same technique as I descr
 
 {% highlight objc %}
 - (UIView*)addShadowToView:(UIView*)view reverse:(BOOL)reverse {
-    
+
     // create a view with the same frame
     UIView* viewWithShadow = [[UIView alloc] initWithFrame:view.frame];
-    
+
     // create a shadow
     UIView* shadowView = [[UIView alloc] initWithFrame:viewWithShadow.bounds];
     CAGradientLayer *gradient = [CAGradientLayer layer];
@@ -207,14 +207,14 @@ In order to add a bit of realism and depth, I used the same technique as I descr
     gradient.startPoint = CGPointMake(reverse ? 0.0 : 1.0, reverse ? 0.2 : 0.0);
     gradient.endPoint = CGPointMake(reverse ? 1.0 : 0.0, reverse ? 0.0 : 1.0);
     [shadowView.layer insertSublayer:gradient atIndex:1];
-    
+
     // add the original view into our new view
     view.frame = view.bounds;
     [viewWithShadow addSubview:view];
-    
+
     // place the shadow on top
     [viewWithShadow addSubview:shadowView];
-    
+
     return viewWithShadow;
 }
 {% endhighlight %}
@@ -244,7 +244,7 @@ if (rightToLeftSwipe) {
         self.interactionInProgress = YES;
         _viewController.tabBarController.selectedIndex++;
     }
-    
+
 } else {
     if (_viewController.tabBarController.selectedIndex > 0) {
         self.interactionInProgress = YES;
@@ -260,33 +260,3 @@ You can obtain the source code for this interactive transition form the [VCTrans
 Regards, Colin E.
 
 <a href="http://www.shinobicontrols.com"><img src="{{ site.github.url }}/ceberhardt/assets/shinobiad.jpg"/></a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -15,8 +15,8 @@ layout: default_post
 source: wordpress
 disqus-id: /blog/colin/2009/04/binding-a-silverlight-datagrid-to-dynamic-data-part-2-editable-data-and-inotifypropertychanged/
 ---
-<p><strong>UPDATE</strong>: This blog post was written with a SL2 DataGrid, for SL3, please see my <a href="http://www.scottlogic.co.uk/blog/colin/2010/03/binding-a-silverlight-3-datagrid-to-dynamic-data-via-idictionary-updated/">updated blog post</a>.</p>
-<p>In my <a href="http://www.scottlogic.co.uk/blog/colin/2009/04/binding-a-silverlight-datagrid-to-dynamic-data-via-idictionary/">previous blog post</a> I described a method for solving the commonly faced problem of binding a Silverlight DataGrid to dynamic data, the form of which is not know at compile time. This blog post extends on the method previously described, adding change notification, allowing the DataGrid to synchronise the UI with changes to the bound data and to allow the user to edit the DataGrid's contents.</p>
+<p><strong>UPDATE</strong>: This blog post was written with a SL2 DataGrid, for SL3, please see my <a href="{{ site.github.url }}/2010/03/26/binding-a-silverlight-3-datagrid-to-dynamic-data-via-idictionary-updated">updated blog post</a>.</p>
+<p>In my <a href="{{ site.github.url }}/2009/04/17/binding-a-silverlight-datagrid-to-dynamic-data-via-idictionary">previous blog post</a> I described a method for solving the commonly faced problem of binding a Silverlight DataGrid to dynamic data, the form of which is not know at compile time. This blog post extends on the method previously described, adding change notification, allowing the DataGrid to synchronise the UI with changes to the bound data and to allow the user to edit the DataGrid's contents.</p>
 <p>To briefly recap my previous post, the dynamic data is copied to a collection of Rows:</p>
 {% highlight csharp %}
 public class Row
@@ -56,7 +56,7 @@ public class RowIndexConverter : IValueConverter
   }
 }
 {% endhighlight %}
-<p>It is important to note that the Binding does not have a Path defined. As a result, the binding source is the Row instance itself rather than a property of the Row as would more normally be the case when binding data. The rest of the post described how to create a collection view which sorts the collection via the Row's string indexer. You can read about this in full in my <a href="http://www.scottlogic.co.uk/blog/colin/2009/04/binding-a-silverlight-datagrid-to-dynamic-data-via-idictionary/">previous blog post</a>.</p>
+<p>It is important to note that the Binding does not have a Path defined. As a result, the binding source is the Row instance itself rather than a property of the Row as would more normally be the case when binding data. The rest of the post described how to create a collection view which sorts the collection via the Row's string indexer. You can read about this in full in my <a href="{{ site.github.url }}/2009/04/17/binding-a-silverlight-datagrid-to-dynamic-data-via-idictionary">previous blog post</a>.</p>
 <p>Now, one question a few people have asked me is how to implement INotifyPropertyChanged on the Row class in order to make the DataGrid editable. Simply implementing INotifyPropertyChanged on the Row class, with events raised from the index setter, will not make the grid editable or synchronised with the bound data. The underlying problem here is that the Binding does not have a Path specified, therefore, the binding framework does not know which property name to look out for when handling PropertyChanged events. Interestingly I would expect the above bindings to be updated if a PropertyChanged event were raised with a null or empty PropertyName string, however they do not.</p>
 <p>So if the Binding framework needs a Path for the binding in order for change notification to work, we will have to fabricate one for this purpose! We can modify the Row class as follows, adding a Data property which is simply a reference to the Row instance itself:</p>
 {% highlight csharp %}
@@ -182,26 +182,3 @@ private void Button_Click(object sender, RoutedEventArgs e)
 <p>So there you have it, binding to dynamic data with INotifyPropertyChanged implemented and an editable DataGrid. The only reservation I have with this technique is that I am really bending the binding framework to achieve the results, having a Data property which expects different types for the getter and setter is a little ugly ... use with caution!</p>
 <p>You can download the project sourcecode: <a href='{{ site.github.url }}/archive/2009/04/silverlightdynamicbinding2.zip'>silverlightdynamicbinding2.zip</a></p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

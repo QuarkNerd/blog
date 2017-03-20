@@ -12,7 +12,7 @@ categories:
 
 My previous blog post [took a first look at ReactiveCocoa 3.0 (RC3)](http://blog.scottlogic.com/2015/04/24/first-look-reactive-cocoa-3.html), where I described the new `Signal` interface, and the pipe forward operator. In this blog post I continue my exploration of the RC3 APIs and turn my attention to signal producers. I also discuss a few points around the overall clarity of the new ReactiveCocoa APIs.
 
-If you've used ReactiveCocoa before you might have come across the concept of hot and cold signals. The distinction between the two has been a source of confusion, partly because the two concepts are represented by the same type, `RACSignal`. The ReactiveCocoa design guidelines [recommend naming conventions](https://github.com/ReactiveCocoa/ReactiveCocoa/blob/swift-development/Documentation/DesignGuidelines.md#use-descriptive-declarations-for-methods-and-properties-that-return-a-signal) for distinguishing between hot and cold signals, however they are pretty subtle!
+If you've used ReactiveCocoa before you might have come across the concept of hot and cold signals. The distinction between the two has been a source of confusion, partly because the two concepts are represented by the same type, `RACSignal`.
 
 With RC3 the difference between these two concepts is made much more explicit by representing each with a different type (`Signal` and `SignalProducer`), and a subtle difference in operation naming (you observe a signal but start a signal producer). With RC3 the confusing terms 'hot' and 'cold' have disappeared completely.
 

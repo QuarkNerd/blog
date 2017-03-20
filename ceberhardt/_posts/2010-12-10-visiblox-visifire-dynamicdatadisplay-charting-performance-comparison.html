@@ -19,8 +19,8 @@ layout: default_post
 source: wordpress
 disqus-id: /blog/colin/2010/12/visiblox-visifire-dynamicdatadisplay-charting-performance-comparison/
 ---
-<p>A few weeks ago I <a href="http://www.scottlogic.co.uk/blog/colin/2010/11/visiblox-charts-vs-silverlight-toolkit-charts-a-test-of-performance-2/">published a blog post</a> which compared the performance of the <a href="http://www.visiblox.com/">Visiblox</a> charts and the <a href="http://silverlight.codeplex.com/">Silverlight Toolkit</a> charts. The results indicated that the Visblox charts are considerably faster than the Toolkit charts, however Microsoft's David Anson did point out that the Toolkit charts were not designed <a href="http://www.scottlogic.co.uk/blog/colin/2010/11/visiblox-charts-vs-silverlight-toolkit-charts-a-test-of-performance-2/#comment-25026">with performance in mind</a>, and that a comparison would be more fair if the 'FastLineSeries' series that has been on the TODO list for a while were implemented.</p>
-<div style="background-color:#ddd; margin:10px; padding:20px;"><b>UPDATE:</b> I have published a more up-to-date and <a href="http://www.scottlogic.co.uk/blog/colin/2012/04/wpf-charting-performance-comparisons-the-battle-continues/">extensive test of WPF charting components in a more recent blog post</a>. This new test looks at how raster-graphics can be used to significantly enhance performance.</div>
+<p>A few weeks ago I <a href="{{ site.github.url }}/2010/11/08/visiblox-charts-vs-silverlight-toolkit-charts-a-test-of-performance-2">published a blog post</a> which compared the performance of the <a href="http://www.visiblox.com/">Visiblox</a> charts and the <a href="http://silverlight.codeplex.com/">Silverlight Toolkit</a> charts. The results indicated that the Visblox charts are considerably faster than the Toolkit charts, however Microsoft's David Anson did point out that the Toolkit charts were not designed <a href="{{ site.github.com }}/2010/11/08/visiblox-charts-vs-silverlight-toolkit-charts-a-test-of-performance-2#comment-932620486">with performance in mind</a>, and that a comparison would be more fair if the 'FastLineSeries' series that has been on the TODO list for a while were implemented.</p>
+<div style="background-color:#ddd; margin:10px; padding:20px;"><b>UPDATE:</b> I have published a more up-to-date and <a href="{{ site.github.url }}/2012/04/24/wpf-charting-performance-comparisons-the-battle-continues">extensive test of WPF charting components in a more recent blog post</a>. This new test looks at how raster-graphics can be used to significantly enhance performance.</div>
 <p>I have been asked by a few people to extend the performance test to include a few other Silverlight charts to see how they compare. I have refactored the test code so that different charts can be plugged in more easily. This not only makes it easier to test the performance of other charting components, but has also allowed me to compare the different charting APIs more easily. </p>
 <p>This blog post compares the performance of <a href="http://www.visiblox.com/">Visiblox</a>, <a href="http://www.visifire.com/">Visifire</a>, <a href="http://silverlight.codeplex.com/">Silverlight Toolkit</a> and <a href="http://dynamicdatadisplay.codeplex.com/">Dynamic Data Display</a> (D<sub>3</sub>) charts. I also compared a few other charting components, however the terms of their trial license prohibit me from publishing the results.</p>
 <p>A summary of the performance measurement is given below, where each chart is used to plot rapidly changing data, with the framerate being used as a measure of performance.</p>
@@ -106,7 +106,7 @@ private DataSeries<double, double> ListToSeries(List<Histogram.DataPoint> data)
 }
 {% endhighlight %}
 <h2>Visifire</h2>
-<p>Visifire also has a reasonably concise XAML markup, however in order to provide maximum performance, there are a number of chart features that need to be disabled. The Visifire charts have a Line series which could be used for this comparison, however they recently released a <a href="http://www.visifire.com/documentation/Visifire_Documentation/Chart_Types/QuickLine_Chart.htm">QuickLine</a> series type which removes certain features to provide better performance.</p>
+<p>Visifire also has a reasonably concise XAML markup, however in order to provide maximum performance, there are a number of chart features that need to be disabled. The Visifire charts have a Line series which could be used for this comparison, however they recently released a <a href="http://www.visifire.com/documentation/Visifire_Documentation/Charts/Chart_Types/QuickLine_Chart.htm">QuickLine</a> series type which removes certain features to provide better performance.</p>
 {% highlight xml %}
 <Grid x:Name="LayoutRoot" Background="White">
   <vc:Chart x:Name="chart"
@@ -169,7 +169,7 @@ private void AddDataToSeries(DataSeries series, List<Histogram.DataPoint> list)
 }
 {% endhighlight %}
 <h2>Silverlight Toolkit</h2>
-<p>The Silverlight Toolkit XAML is quite verbose, mostly due to the performance enhancements described in my <a href="http://www.scottlogic.co.uk/blog/colin/2010/11/visiblox-charts-vs-silverlight-toolkit-charts-a-test-of-performance-2/">previous blog post</a>.</p>
+<p>The Silverlight Toolkit XAML is quite verbose, mostly due to the performance enhancements described in my <a href="{{ site.github.url }}/2010/11/08/visiblox-charts-vs-silverlight-toolkit-charts-a-test-of-performance-2">previous blog post</a>.</p>
 {% highlight xml %}
 <UserControl.Resources>
   <Style TargetType="dataVis:Legend" x:Key="CollapsedLegendStyle">
@@ -248,7 +248,7 @@ protected override void RenderDataToChart(List<List<DataPoint>> rgbData)
 }
 {% endhighlight %}
 <h2>Dynamic Data Display</h2>
-<p>The D<sub>3</sub> charts are quite different to the others which I have tested. These charts were developed by a Microsoft team based in Russia and are released on codeplex. They claim outstanding performance with large volumes of data, and are often recommended on sites such as stackoverflow when questions relating to <a href="http://stackoverflow.com/questions/428425/recommendation-for-high-performance-wpf-chart">charting performance arise</a>.</p>
+<p>The D<sub>3</sub> charts are quite different to the others which I have tested. These charts were developed by a Microsoft team based in Russia and are released on codeplex. They claim outstanding performance with large volumes of data, and are often recommended on sites such as stackoverflow when questions relating to charting performance arise</a>.</p>
 <p>The XAML markup for the D<sub>3</sub> charts is pretty minimal! </p>
 {% highlight xml %}
 <Grid x:Name="LayoutRoot" Background="White">
@@ -257,7 +257,7 @@ protected override void RenderDataToChart(List<List<DataPoint>> rgbData)
 </Grid>
 {% endhighlight %}
 <p>However, this is because the D<sub>3</sub> charts do not support configuration via markup. It took me quite a while to work out how to configure the charts in code-behind, the  D<sub>3</sub> APIs are not very intuitive. I am not the only one to have noticed this; Lee Campbell, in his "<a href="http://leecampbell.blogspot.com/2010/01/my-wpf-charting-comparisons.html">WPF Charting Comparisons</a>" blog post stated " ... it took me hours of reading forums, looking at samples and coding to just get my Model showing on the screen". Oh dear!</p>
-<p>I had to resort to navigating the visual tree (using<a href="http://www.scottlogic.co.uk/blog/colin/2010/03/linq-to-visual-tree/"> Linq to VisualTree</a>) to locate the pan and zoom controls which are added to the chart by default, and remove them.</p>
+<p>I had to resort to navigating the visual tree (using<a href="{{ site.github.url }}/2010/03/04/linq-to-visual-tree"> Linq to VisualTree</a>) to locate the pan and zoom controls which are added to the chart by default, and remove them.</p>
 <p>However, in fairness, the <a href="http://dynamicdatadisplay.codeplex.com/wikipage?title=DynamicDataDisplay%20Silverlight&referringTitle=Home">Silverlight version of D<sub>3</sub> charts</a> is a partial port of the WPF version, but both share a similar programmatic style of usage. </p>
 <p>The following code is used to configure the chart in code-behind:</p>
 {% highlight csharp %}
@@ -353,28 +353,5 @@ private void RenderDataToGraph(LineGraph graph, List<DataPoint> histogram)
 <li><a href="http://silverlight.codeplex.com/">Silverlight Toolkit</a></li>
 <li><a href="http://dynamicdatadisplay.codeplex.com/releases/view/42438">D<sub>3</sub></a></li>
 </ul>
-<p>Finally, a couple of my colleagues have created similar charting tests using other technologies, you might be interested in <a href="http://www.scottlogic.co.uk/blog/graham/2010/11/flex-charts-vs-silverlight-charts-a-test-of-performance/">Graham's Flex implementation</a>, or <a href="http://www.scottlogic.co.uk/blog/chris/2010/11/html5-charts-vs-flex-charts-vs-silverlight-charts-a-test-of-performance/">Chris's cute HTML5 implementation</a>.</p>
+<p>Finally, a couple of my colleagues have created similar charting tests using other technologies, you might be interested in <a href="{{ site.github.url }}/2010/11/16/flex-charts-vs-silverlight-charts-a-test-of-performance">Graham's Flex implementation</a>, or <a href="{{ site.github.url }}/2010/11/29/html5-charts-vs-flex-charts-vs-silverlight-charts-a-test-of-performance">Chris's cute HTML5 implementation</a>.</p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

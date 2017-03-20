@@ -17,8 +17,8 @@ source: wordpress
 disqus-id: /blog/colin/2009/04/binding-a-silverlight-datagrid-to-dynamic-data-via-idictionary/
 ---
 <p>This post demonstrates a technique for binding a Silverlight DataGrid to dynamic data, the structure of which is not know at compile-time ... </p>
-<p><b>UPDATE #1</b>: I have extended this technique to add include change notification so that the DataGrid can be made editable. Read all about it in <a href="http://www.scottlogic.co.uk/blog/colin/2009/04/binding-a-silverlight-datagrid-to-dynamic-data-part-2-editable-data-and-inotifypropertychanged/">part two</a>.</p>
-<p><strong>UPDATE #2</strong>: This blog post was written with a SL2 DataGrid, for SL3, please see my <a href="http://www.scottlogic.co.uk/blog/colin/2010/03/binding-a-silverlight-3-datagrid-to-dynamic-data-via-idictionary-updated/">updated blog post</a>.</p>
+<p><b>UPDATE #1</b>: I have extended this technique to add include change notification so that the DataGrid can be made editable. Read all about it in <a href="{{ site.github.url }}/2009/04/22/binding-a-silverlight-datagrid-to-dynamic-data-part-2-editable-data-and-inotifypropertychanged">part two</a>.</p>
+<p><strong>UPDATE #2</strong>: This blog post was written with a SL2 DataGrid, for SL3, please see my <a href="{{ site.github.url }}/2010/03/26/binding-a-silverlight-3-datagrid-to-dynamic-data-via-idictionary-updated">updated blog post</a>.</p>
 <p>With Silverlight binding data to a DataGrid is a very straightforward process. With an XML datasource, you can simply parse your data via Linq to SQL into an anonymous type then bind the resulting collection to the grid. Just a few simple lines of code. But, what if the data you want to bind to your grid is dynamic? That is, at compile time you do not know how many columns are required, or what their contents is. This is a common problem that Silverlight users have faced <a href="http://silverlight.net/forums/p/54804/187532.aspx">again</a>, and <a href="http://silverlight.net/themes/silverlight/forums/thread.aspx?ThreadID=11570">again</a>, and <a href="http://stackoverflow.com/questions/685513/displaying-a-dynamic-data-structure-in-silverlight-datagrid">again</a> and <a href="http://stackoverflow.com/questions/681495/array-binding-xaml-by-position-silverlight-on-datagrid">again</a>!</p>
 <p>The most obvious solution to this problem is to create a dictionary for each row of your DataGrid, and bind your columns to your values via the dictionary's string indexer:</p>
 <p><code>Binding="{Binding Path=[Name]}"</code></p>
@@ -90,7 +90,7 @@ public class RowIndexConverter : IValueConverter
 <p><i style="margin-left:15px">The DataGrid control uses this interface to access the indicated functionality in the data source assigned to its ItemsSource property. If the ItemsSource implements IList, but does not implement ICollectionView, the DataGrid wraps the ItemsSource in an internal ICollectionView implementation. </i></p>
 <p>The ICollectionView interface is responsible for filtering, sorting and grouping of the data bound to the DataGrid. WPF also has the <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.icollectionview.aspx">ICollectionView</a>interface, you can read a good overview of its features on <a href="http://marlongrech.wordpress.com/2008/11/22/icollectionview-explained/">Marlon Grech's blog</a>. However, whereas WPF wraps the DataContext itself in a view which is shared across multiple controls, it would appear that Silverlight restricts its usage to the DataGrid. This causes problems if, for example, you want to synchronize the current item between controls (However, Laurent Bugnion has a novel solution for <a href="http://geekswithblogs.net/lbugnion/archive/2009/02/18/simulating-issynchronizedwithcurrentitem-in-silverlight-part-2.aspx">emulating this behaviour</a>).</p>
 <p>So, it is the ICollectionView which is responsible for sorting our data. The internal implementation of this interface which the DataGrid creates will expects our object to expose the bound properties, which explains why it does not work. However, if we supply our own ICollectionView interface, we can take control of sorting and implement it ourselves, accessing our 'property' values via the Row's string indexer.</p>
-<p>The ICollectionView interface has a lot of methods, events and properties, fortunately I was able to find a suitable implementation of this interface on <a href="http://weblogs.asp.net/manishdalal/archive/2008/12/30/silverlight-datagrid-custom-sorting.aspx">Manish Dalal's blog</a>. He had implemented this interface, on a class which extends ObservableCollection, in order to bind a DataGrid to a collection where the data from the server is being paged, hence sorting must be done server side. This gives us pretty much everything we need here, a collection class which is able to manage sorting itself. The only change required is to the ICollectiomView.Refresh() method which is responsible for refreshing the view after the SortDescriptions have changed.</p>
+<p>The ICollectionView interface has a lot of methods, events and properties, fortunately I was able to find a suitable implementation of this interface on Manish Dalal's blog. He had implemented this interface, on a class which extends ObservableCollection, in order to bind a DataGrid to a collection where the data from the server is being paged, hence sorting must be done server side. This gives us pretty much everything we need here, a collection class which is able to manage sorting itself. The only change required is to the ICollectiomView.Refresh() method which is responsible for refreshing the view after the SortDescriptions have changed.</p>
 <p>The implementation of this method is as follows:</p>
 {% highlight csharp %}
 public class SortableCollectionView : ObservableCollection<Row>, ICollectionView
@@ -166,26 +166,3 @@ public class SortableCollectionView : ObservableCollection<Row>, ICollectionView
 <div id="slPluginHost"> <object id="SilverlightPlugin" width="300" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.github.url }}/archive/2009/04/silverlighttable.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <p>You can download the complete solution here: <a href='{{ site.github.url }}/archive/2009/04/silverlightdynamicbinding.zip'>silverlightdynamicbinding.zip</a>.</p>
 <p>Regards,Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

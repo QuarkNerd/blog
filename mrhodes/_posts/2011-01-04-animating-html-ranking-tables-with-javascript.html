@@ -266,7 +266,7 @@ disqus-id: /2011/01/animating-html-ranking-tables-with-javascript/
 </ul>
 <p>I guess if it's not customisable enough for you then rewrite it yourself!  If you're not up for that, contact me and if I've got the time and sufficient motivation I'll take a look.</p>
 <p><a name="usage" style="color: black; text-decoration: none;"><strong>How to use it</strong></a>First a disclaimer! Please bare in mind that the code supplied should be considered as experimental - it's not a finished product, so don't expect it to work in all circumstances on all browsers!</p>
-<p>The plugin assumes you're using <a href="{{ site.github.url }}/archive/2010/12/jquery-1.4.3.js">jQuery version 1.4.3</a> and also makes use of a lesser known Javascript animation library by <a href="http://berniesumption.com/">Bernie Sumption</a> available here: <a href="http://berniesumption.com/software/files/2010/09/animator.zip">animator.js</a>, so remember to import both these before the <a href="{{ site.github.url }}/archive/2010/12/rankingTableUpdate.js">rankingTableUpdate.js</a> file.</p>
+<p>The plugin assumes you're using <a href="{{ site.github.url }}/archive/2010/12/jquery-1.4.3.js">jQuery version 1.4.3</a> and also makes use of a lesser known Javascript animation library by <a href="http://berniesumption.com/">Bernie Sumption</a> available here: <a href="http://blog.berniesumption.com/software/animator/">animator.js</a>, so remember to import both these before the <a href="{{ site.github.url }}/archive/2010/12/rankingTableUpdate.js">rankingTableUpdate.js</a> file.</p>
 <p>The plugin adds a single function to the <code>jQuery.fn</code> namespace called "<code>rankingTableUpdate</code>". This function operates on the first element of the jQuery object on which it is run, which must be an HTML table, and takes 2 parameters; the new table to animate the old one to (which can be an HTML element or a jQuery object in which the first element is an HTML table) and an optional "<em>options</em>" object which describes how the animation should proceed.  A typical invocation, using the standard style setting (as seen in the above two examples) would be something like:</p>
 {% highlight javascript %}
 $(oldTableElement).rankingTableUpdate(newTableElement);
@@ -431,7 +431,7 @@ $(oldTableElement).rankingTableUpdate(newTableElement, {
 <p>In Opera they work fine except that the bottom border of the last row is chopped off.  In IE6 they work as normal, except that the values do no fade in and out, they just get switched over.</p>
 <p>As yet, I've not tested any other browsers, so if it's pot luck whether the plugin will work or not!</p>
 <p><strong>Behind the Magic</strong>If you're like me when it comes to films, and don't want to spoil the illusion of "the plugin does some magic", you may not want to read this section!  As with most things written in Javascript, what you want to accomplish is typically relatively straight forward (or you'd try and avoid using it!) but it's a case of the devil in the details - actually getting it to do exactly as you want is rather difficult!  Due to this I'll just give an overview of how it works and if you're really interested in the gritty details, then I refer you to the source code.</p>
-<p>The basic idea behind the animation is the same as with this <a href="http://www.mitya.co.uk/scripts/Table-sort---now-REGEXP-friendly-111">table sorting animation</a>.  Each cell's content is wrapped in the <code>div</code> and it's the attributes of this wrapping div that are altered to give the impression of animation.  The wrapping div is given relative positioning and moved around by changing it's <code>left</code> and <code>top</code> style attributes, it's <code>backgroundColor</code> is also altered to fit the animation.  The fade in and out of the updating values is done by wrapping the content of the wrapping div once again in new div which has it's <code>opacity</code> (or <code>filter:alpha</code> value if IE) affected by the animation.</p>
+<p>The basic idea behind the animation is as follows: Each cell's content is wrapped in the <code>div</code> and it's the attributes of this wrapping div that are altered to give the impression of animation.  The wrapping div is given relative positioning and moved around by changing it's <code>left</code> and <code>top</code> style attributes, it's <code>backgroundColor</code> is also altered to fit the animation.  The fade in and out of the updating values is done by wrapping the content of the wrapping div once again in new div which has it's <code>opacity</code> (or <code>filter:alpha</code> value if IE) affected by the animation.</p>
 <p>e.g. if the original cell in an updating column looks is defined as:</p>
 {% highlight html %}
 <td>value</td>
@@ -468,26 +468,3 @@ $(oldTableElement).rankingTableUpdate(newTableElement, {
 <p>Then the animation expands the height of the table wrapping div so that it shows the dummy row, but not the fresh one.  Note that some text is added to the dummy row which is the same colour as the background so that the row is not artificially small (which it could be with no content at all).</p>
 <p>Apart from that, the rest of the code deals with figuring out what has happened to the rows (did they go up, down, etc.) and dealing with an array of annoying details, like figuring out what colour to set things or what distance to move things.  I should probably point out that one great (and almost remarkable) thing about this code, is that it doesn't need to mess with the z-index.  The rows all move over/under each other like you'd (or at least I did!) expect.  I was prepared for some horrible fixes around this, but, as chance would have it, the top down way in which the DOM elements are processed and added to the page causes the effect I wanted.</p>
 <p>If you like it, please feel free to use it and let me know what you think.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -18,7 +18,7 @@ MVC frameworks are libraries that can be included alongside JavaScript to provid
 
 * **Model** - Represents the data of the application. This matches up with the type of data a web application is dealing with, such as a user, video, picture or comment. Changes made to the model notify any subscribed parties within the application.
 * **View** - The user interface of the application. Most frameworks treat views as a thin adapter that sits just on top of the DOM. The view observes a model and updates itself should it change in any way.
-* **Controller** - Used to handle any form of input such as clicks or browser events. It's the controller's job to update the model when necessary (i.e. if a user changes their name). 
+* **Controller** - Used to handle any form of input such as clicks or browser events. It's the controller's job to update the model when necessary (i.e. if a user changes their name).
 
 Not all frameworks follow the MVC pattern. You may see some frameworks utilize a variation of the MVC pattern such as [MVVM](http://addyosmani.com/blog/understanding-mvvm-a-guide-for-javascript-developers/) or [MVP](http://www.roypeled.com/an-mvp-guide-to-javascript-model-view-presenter/).
 
@@ -26,29 +26,29 @@ If you're unfamiliar with the MVC pattern or the variations used by some framewo
 
 ## Why are they needed?
 
-A DOM manipulation library such as [jQuery](http://www.jquery.com) coupled with utility libraries ([underscore](http://underscorejs.org), [modernizr](http://modernizr.com)) can make building webpages much easier. However, these libraries lose their usefulness when used to build web applications. 
+A DOM manipulation library such as [jQuery](http://www.jquery.com) coupled with utility libraries ([underscore](http://underscorejs.org), [modernizr](http://modernizr.com)) can make building webpages much easier. However, these libraries lose their usefulness when used to build web applications.
 
-Web applications are unlike a normal web page, they tend to feature more user interaction as well as needing to communicate with a backend server in real time. If you were to handle this behaviour without an MVC framework you'd end up writing [messy](http://tritarget.org/blog/2012/11/28/the-pyramid-of-doom-a-javascript-style-trap/), unstructured, unmaintainable and untestable code.
+Web applications are unlike a normal web page, they tend to feature more user interaction as well as needing to communicate with a backend server in real time. If you were to handle this behaviour without an MVC framework you'd end up writing [messy](http://web.archive.org/web/20151209151711/http://tritarget.org/blog/2012/11/28/the-pyramid-of-doom-a-javascript-style-trap), unstructured, unmaintainable and untestable code.
 
 ## When should you use them?
 
-You should consider utilizing an MVC framework if you're building an application with enough heavy-lifting on the client-side to struggle with JavaScript alone. Choose incorrectly and you'll end up re-inventing the functionality provided by an MVC framework. 
+You should consider utilizing an MVC framework if you're building an application with enough heavy-lifting on the client-side to struggle with JavaScript alone. Choose incorrectly and you'll end up re-inventing the functionality provided by an MVC framework.
 
-Be aware, if you're just building an application that still has a lot of the heavy lifting on the server-side (i.e. view generation) and there is little interaction on the client-side, you'll find using an MVC framework is likely overkill. In that case, it's better to use a simpler setup such as a DOM manipulation library with a few utility add-ons. 
+Be aware, if you're just building an application that still has a lot of the heavy lifting on the server-side (i.e. view generation) and there is little interaction on the client-side, you'll find using an MVC framework is likely overkill. In that case, it's better to use a simpler setup such as a DOM manipulation library with a few utility add-ons.
 
 The following checklist is not exhaustive but hopefully provides enough context to help decide whether an MVC framework is suitable for what you're building:
 
 1. Your application needs an asynchronous connection to the backend
 2. Your application has functionality that shouldn't result in a full page reload (i.e. adding a comment to a post, infinite scrolling)
 3. Much of the viewing or manipulation of data will be within the browser rather than on the server
-4. The same data is being rendered in different ways on the page 
+4. The same data is being rendered in different ways on the page
 5. Your application has many trivial interactions that modify data (buttons, switches)
 
 Good examples of web applications that fulfil these criteria are [Google Docs](http://docs.google.com), [Gmail](https://mail.google.com) or [Spotify](https://play.spotify.com/).
 
 ## Introduction to the most popular frameworks
 
-Arguably the four most popular frameworks available today are [Backbone.js](http://backbonejs.org/), [Angular.js](http://angularjs.org/), [EmberJS](http://emberjs.com/) and [KnockoutJS](http://knockoutjs.com/). This section aims to provide a high level comparison of these frameworks. 
+Arguably the four most popular frameworks available today are [Backbone.js](http://backbonejs.org/), [Angular.js](http://angularjs.org/), [EmberJS](http://emberjs.com/) and [KnockoutJS](http://knockoutjs.com/). This section aims to provide a high level comparison of these frameworks.
 
 The reason why it's helpful to concentrate on these frameworks is that each one has been used extensively in the wild and provides excellent documentation and community support. This means you can be confident that any framework you pick will fulfil your requirements as well as having help and support available if needed.
 
@@ -75,11 +75,11 @@ Backbone.js has a [library of plugins and add-ons](http://backplug.io/) that can
 
 ## <img src="{{ site.github.url }}/dkerr/assets/angular.png"/>
 
-Angular.js is designed and built by Google and is quickly gaining popularity. The stand out feature of Angular is its use of custom HTML tags and components to specify the intentions of your application. 
+Angular.js is designed and built by Google and is quickly gaining popularity. The stand out feature of Angular is its use of custom HTML tags and components to specify the intentions of your application.
 
-It provides a [HTML compiler](http://docs.angularjs.org/guide/compiler) that allows users to create their own [domain specific language](http://en.wikipedia.org/wiki/Domain-specific_language); this can be an extremely powerful tool. The approach is different than other frameworks which seek to deal with HTML's shortcomings by abstracting away the HTML, CSS and JavaScript by providing alternative ways to manipulate the DOM. 
+It provides a [HTML compiler](http://docs.angularjs.org/guide/compiler) that allows users to create their own [domain specific language](http://en.wikipedia.org/wiki/Domain-specific_language); this can be an extremely powerful tool. The approach is different than other frameworks which seek to deal with HTML's shortcomings by abstracting away the HTML, CSS and JavaScript by providing alternative ways to manipulate the DOM.
 
-**Pros**: Dependency injection, backed by Google, testing framework built in, built-in form validation, [directives](http://docs.angularjs.org/guide/directive), extremely easy to debug, 
+**Pros**: Dependency injection, backed by Google, testing framework built in, built-in form validation, [directives](http://docs.angularjs.org/guide/directive), extremely easy to debug,
 
 **Cons**: Steep learning curve, [data-binding can be problematic for pages with large amounts of information](http://stackoverflow.com/questions/9682092/databinding-in-angularjs), hard to implement transitions when showing / hiding views
 
@@ -105,7 +105,7 @@ If you've had experience working with Ruby on Rails you'll find it feels quite f
 
 KnockoutJS aims to simplify dynamic UIs with a MVVM (Model - View - ViewModel) pattern.
 
-It provides declarative bindings that make it easy to build even the most complex UIs while ensuring that the underlying data model is left clean. 
+It provides declarative bindings that make it easy to build even the most complex UIs while ensuring that the underlying data model is left clean.
 
 Custom behaviours [such as sorting a table](http://knockoutjs.com/examples/grid.html) can be easily implemented via bindings in just a few lines of code.
 
@@ -124,12 +124,12 @@ Due diligence should be paid before selecting a framework to use for your web ap
 Here are some summaries to help steer your thought process on which ones to try out.
 
 **Use Backbone.js if:**
-1. Your web application has uncertain requirements and as a result flexibility is vital. 
-2. You need to be able to easily change or pull out parts your web application (i.e. templating engine). 
+1. Your web application has uncertain requirements and as a result flexibility is vital.
+2. You need to be able to easily change or pull out parts your web application (i.e. templating engine).
 3. You'd like to start with a minimalist solution to help understand the fundamentals of MVC frameworks.
 
 **Use Angular.js if:**
-1. You want your MVC framework to be backed by a large reputable company to ensure its reliability and stability. 
+1. You want your MVC framework to be backed by a large reputable company to ensure its reliability and stability.
 2. The use of a domain-specific language could help reduce the complexity of my web application.
 3. Your web application requires extensive testing to verify its functionality. You need a testing framework that has been built from the ground up to work with the MVC framework rather than against it.
 
@@ -145,30 +145,6 @@ Here are some summaries to help steer your thought process on which ones to try 
 
 ## Conclusion
 
-The discussion above illustrates how there isn't a one-size-fits-all framework that is best for all scenarios. Each framework has its own advantages that make it suitable in different cases. You should try out each framework for a short while to get a feel for each one. 
+The discussion above illustrates how there isn't a one-size-fits-all framework that is best for all scenarios. Each framework has its own advantages that make it suitable in different cases. You should try out each framework for a short while to get a feel for each one.
 
 Finally, try to build some proof of concept prototypes in each framework and compare the implementations. This is similar to what the authors behind [TodoMVC](http://www.todomvc.com) started which highlights the differences between a huge number of MVC frameworks by implementing a simple TODO application in each one.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

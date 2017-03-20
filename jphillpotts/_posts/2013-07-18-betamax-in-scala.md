@@ -102,8 +102,7 @@ other fragments using functions like `should` and `in`. The test fragments are t
 filtered and run after the class has been initialised (and your code has been stored
 as a partially applied function for execution when needed).
 
-Looking through the [specs2 documentation](http://etorreborre.github.io/specs2/guide/org.specs2.guide.Structure.html#Around)
-we discover that there's a trait for wrapping around a test specification, `Around`.
+Looking through the specs2 documentation we discover that there's a trait for wrapping around a test specification, `Around`.
 We can implement that to do the Betamax jiggery-pokery without interfering with the
 readability of the test:
 

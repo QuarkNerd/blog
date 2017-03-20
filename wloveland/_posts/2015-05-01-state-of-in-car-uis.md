@@ -63,26 +63,3 @@ Software development is a volatile sector: in order to remain on the forefront m
 ### The UI is part of the experience
 
 Manufacturers must encourage the development of on-screen content and recognise that the in-car experience plays a significant role in defining the broader product and brand. Manufacturers must do away with their ‘star-trek-esk’ fantasy concepts, and focus on software design and development through suitable processes and management structures. Whether we like it or not Apple Carplay and Android Auto are currently the must have feature of any contemporary car. Their introduction has already sparked [a bidding war](http://www.wired.com/2014/06/carplay-android-auto-automakers/), with automotive companies starting to pick sides. However these systems should not be seen as substitutes for a well designed native system that integrates the entire in-car experience and empathetically portrays a brand’s experience.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -29,30 +29,7 @@ disqus-id: /blog/colin/2008/12/layouttransform-vs-rendertransform-whats-the-diff
 <li>Render</li>
 </ul>
 <p>As a result, any transformations associated with an elements LayoutTransform property will have an impact on the subsequent Measure and Arrange steps. Whereas a RenderTransform will not have any impact on the layout process and will only effect rendering.  The difference is probably best illustrated by an example:</p>
-<p><a href="http://wpfadventures.files.wordpress.com/2008/12/transforms.png"></a><a href="http://wpfadventures.files.wordpress.com/2008/12/transforms1.png"><img class="alignnone size-full wp-image-49" title="transforms" src="http://wpfadventures.files.wordpress.com/2008/12/transforms1.png" alt="transforms" width="440" height="350" /></a></p>
+<p><a href="http://wpfadventures.files.wordpress.com/2008/12/transforms1.png"><img class="alignnone size-full wp-image-49" title="transforms" src="http://wpfadventures.files.wordpress.com/2008/12/transforms1.png" alt="transforms" width="440" height="350" /></a></p>
 <p>In the above examples, it can be seen that when a LayoutTransform is applied, neighbouring elements are re-positioned to accommodate the transformed elements, whereas with the RenderTransform they are not. One common use of WPF transforms is to rotate ListView column headings. With the above examples it should be obvious that a LayoutTransform is required to achieve this effect.</p>
 <p>You can download the demo project, <a href="http://wpfadventures.files.wordpress.com/2008/12/wpfrenderandlayouttransforms.doc">wpfrenderandlayouttransforms</a>, changing the file extension from .doc to .zip.</p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

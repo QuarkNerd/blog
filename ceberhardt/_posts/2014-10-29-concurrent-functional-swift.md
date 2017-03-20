@@ -21,7 +21,7 @@ This post shows how the simple task of computing a Mandelbrot set can be split u
 {% highlight csharp %}
 generateDatapoints().concurrentMap({
   // a closure that is executed concurrently for each datapoint
-  (location: ComplexNumber) in 
+  (location: ComplexNumber) in
   self.computeTterationsForLocation(location)
 }, {
   // when the above computation completes, send the data to the UI
@@ -43,7 +43,7 @@ While studying this equation Benoit Mandelbrot coined the term 'fractal' as a de
 
 > Clouds are not spheres, mountains are not cones, coastlines are not circles, and bark is not smooth, nor does lightning travel in a straight line. - Benoit Mandelbrot
 
-I can still remember many years ago using the freeware [Fracint](http://en.wikipedia.org/wiki/Fractint) software to render fractals, pixel by pixel, on a 386 computer!
+I can still remember many years ago using the freeware [Fracint](https://en.wikipedia.org/wiki/Fractint) software to render fractals, pixel by pixel, on a 386 computer!
 
 Anyhow, back to Swift ...
 
@@ -56,7 +56,7 @@ let CONSTANTS = (
   iterations: 10_000,
   escape: 2.0
  )
-  
+
 func iterationsForLocation(cx: Double, cy: Double) -> Int? {
   let bounds = CONSTANTS.escape * CONSTANTS.escape
   var iteration = 0
@@ -83,7 +83,7 @@ struct ComplexNumber
 {
   let real = 0.0
   let imaginary = 0.0
-  
+
   func normal() -> Double {
     return real * real + imaginary * imaginary
   }
@@ -110,7 +110,7 @@ class func iterationsForLocation(c: ComplexNumber) -> Int? {
     z = z * z + c
     iteration++
   } while (z.normal() < CONSTANTS.escape && iteration < CONSTANTS.iterations)
-  
+
   return iteration < CONSTANTS.iterations ? iteration : nil
 }
 {% endhighlight %}
@@ -128,11 +128,11 @@ struct Scale {
   let start: Double
   let end: Double
   let step: Double
-  
+
   func toStride() -> StrideThrough<Double>  {
     return stride(from: start, through: end, by: step)
   }
-  
+
   func steps() -> Int {
     return Int(floor((end - start) / step))
   }
@@ -210,18 +210,18 @@ func synchronized(sync: AnyObject, fn: ()->()) {
 
 
 extension Array {
-  
+
   func concurrentMap<U>(transform: (T) -> U,
                         callback: (SequenceOf<U>) -> ()) {
     let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
     let group = dispatch_group_create()
     let sync = NSObject()
     var index = 0;
-    
+
     // populate the array
     let r = transform(self[0] as T)
     var results = Array<U>(count: self.count, repeatedValue:r)
-    
+
     for (index, item) in enumerate(self[1..<self.count-1]) {
       dispatch_group_async(group, queue) {
         let r = transform(item as T)
@@ -230,7 +230,7 @@ extension Array {
         }
       }
     }
-    
+
     dispatch_group_notify(group, queue) {
       callback(SequenceOf(results))
     }
@@ -276,7 +276,7 @@ func concurrent<U>(transform: (T) -> U,
                    callback: (SequenceOf<U>) -> ()) {
   let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
   let group = dispatch_group_create()
-  
+
   // populate the array
   let r = transform(self[0] as T)
   var results = Array<U>(count: self.count, repeatedValue:r)
@@ -288,7 +288,7 @@ func concurrent<U>(transform: (T) -> U,
         buffer[index] = transform(item)
       }
     }
-    
+
     dispatch_group_notify(group, queue) {
       callback(SequenceOf(buffer))
     }
@@ -309,14 +309,14 @@ func concurrentMap<U>(chunks: Int, transform: (T) -> U,
                       callback: (SequenceOf<U>) -> ()) {
   let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
   let group = dispatch_group_create()
-  
+
   // populate the array
   let r = transform(self[0] as T)
   var results = Array<U>(count: self.count, repeatedValue:r)
-  
+
   results.withUnsafeMutableBufferPointer {
     (inout buffer: UnsafeMutableBufferPointer<U>) -> () in
-    
+
     for startIndex in stride(from: 1, through: self.count, by: chunks) {
       dispatch_group_async(group, queue) {
         let endIndex = min(startIndex + chunks, self.count)
@@ -327,7 +327,7 @@ func concurrentMap<U>(chunks: Int, transform: (T) -> U,
         }
       }
     }
-    
+
     dispatch_group_notify(group, queue) {
       callback(SequenceOf(buffer))
     }
@@ -360,26 +360,3 @@ As you can see, for very small numbers of iterations the non-concurrent implemen
 You can find the source code for this example application on [GitHub](https://github.com/ColinEberhardt/SwiftMandelbrot).
 
 Regards, Colin E.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

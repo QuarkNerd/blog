@@ -20,7 +20,7 @@ disqus-id: /2012/06/creating-an-earthquake-monitoring-application-with-visiblox/
 <p>When developing applications for Silverlight, the <a href="http://www.codeproject.com/KB/silverlight/mvvm-explained.aspx" title="MVVM pattern" target="_blank">MVVM pattern</a> provides an ideal architecture. MVVM makes code much more manageable and allows the use of data binding with limited code behind for the different views of the application.</p>
 <p>The view should contain the xaml files and components that are visible to the users of the application. In this case, this will be the map view, the charts and the various configuration and comparison windows. In this project, we have model objects representing Earthquakes, Feeds and Feed Categories. The ViewModel sits between these two layers. The logic to load, parse and filter the data received from the USGS will is contained within the ViewModel, and it presents this data to the View. If you want to find out more information about the MVVM pattern, Jeremy Likness has a great introductory article over <a href="http://www.codeproject.com/KB/silverlight/mvvm-explained.aspx" title="MVVM pattern" target="_blank">CodeProject</a>. </p>
 <h3>Loading Data from the USGS</h3>
-<p>The first challenge presented when developing Earthquake Monitor is how to load data on the latest global earthquakes into the Silverlight project. The <a href="http://www.usgs.gov/">USGS</a> provides a list of RSS feeds on their <a href="http://earthquake.usgs.gov/earthquakes/catalogs/">Latest Earthquakes: Feeds & Data</a> page. These feeds are updated with the latest earthquake data from around the world. There are 8 feeds in total, containing various quake information based on data from the past hour, day or week and for different magnitude ranges. </p>
+<p>The first challenge presented when developing Earthquake Monitor is how to load data on the latest global earthquakes into the Silverlight project. The <a href="http://www.usgs.gov/">USGS</a> provides a list of RSS feeds on their <a href="https://earthquake.usgs.gov/earthquakes/feed/">Latest Earthquakes: Feeds & Data</a> page. These feeds are updated with the latest earthquake data from around the world. There are 8 feeds in total, containing various quake information based on data from the past hour, day or week and for different magnitude ranges. </p>
 <h3>Accessing Feeds without a CrossDomain or ClientAccessPolicy</h3>
 <p>Unfortunately, when using Silverlight, it is not possible to access these feeds directly. When a Silverlight xap file and the feed that it accesses are not located in the same domain, Silverlight requires that either <a href="http://msdn.microsoft.com/en-us/library/cc197955(v=vs.95).aspx" title="ClientAccessPolicy.xml description" target="_blank">a clientaccesspolicy.xml or a crossdomain.xml file</a> be in place alongside the feed. If this is not the case, you will receive the infamous Silverlight SecurityException. The USGS site does not have a clientaccesspolicy or a crossdomain file on their site that will allow your Silverlight project access to their feeds. This is a common problem when using a Silverlight to consume feeds from the Internet that you don't have any control over. One solution is to use <a href="http://feedburner.google.com" title="FeedBurner" target="_blank">FeedBurner</a>. FeedBurner allows you to take an existing feed and republish it with a new URL. Thankfully, FeedBurner does have a ClientAccessPolicy.xml file that allows access from all domains. This makes it perfect for accessing feeds without client access or cross domain policy files in their domain.</p>
 <h3>Downloading and Parsing RSS in Silverlight</h3>
@@ -111,7 +111,7 @@ private void ViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
 {% endhighlight %}
 <p>If the <em>QuakeListProperty</em> changes, we start by clearing all maps of all earthquake circles through the <em>ClearMaps</em> method. We then draw new circles for every quake in the QuakeList, attaching property changed handlers so we know when to hide/display quakes when their visibility is changed. Finally, we call <em>CalculateTrends</em>, as the data displayed in the analysis charts is no longer valid. This is discussed further in the charting section below.</p>
 <h2>Using Visiblox to Plot the Earthquake Data</h2>
-<p>In order to compare the earthquakes in the application and help to visualise the data, I decided to add charts to the application. In order to do so, I used the <a href="http://visiblox.com/" title="Visiblox Charts">Visiblox Charting Library</a>. Visiblox offers high performance, great interactivity and an easy to use API. Visiblox also has strong support for the MVVM architecture, supporting binding directly to a series with it's BindableDataSeries class.</p>
+<p>In order to compare the earthquakes in the application and help to visualise the data, I decided to add charts to the application. In order to do so, I used the <a href="https://www.visiblox.com/" title="Visiblox Charts">Visiblox Charting Library</a>. Visiblox offers high performance, great interactivity and an easy to use API. Visiblox also has strong support for the MVVM architecture, supporting binding directly to a series with it's BindableDataSeries class.</p>
 <h3>Adding Data to the Magnitude Chart</h3>
 <p>The magnitude chart is the main chart that is visible when the application is opened. It is set up in MainPage.xaml. Within this XAML, we create the chart "Series" using the following code:</p>
 {% highlight xml %}
@@ -179,32 +179,9 @@ else
 <p>Using Bing Maps is simple once you have a Credentials Key. The XAML to add a map to your application is concise, and drawing UIElements to a map through its <em>Children</em> property is surprisingly easy. Drawing the circles in the correct place was made even easier by the incredibly helpful tutorial by <a href="http://pietschsoft.com/post/2010/06/28/Silverlight-Bing-Maps-Draw-Circle-Around-Latitude-Longitude-Location.aspx" title="Chris Pietschmann Blog" target="_blank">Chris Pietschmann</a>.</p>
 <p>When using Visiblox to add charts to the application, I found their API to be simple, clear and easy to use. The speed of interaction with the charts was great, and the library had no adverse effects on the application's performance. Thanks to the BindableDataSeries (and the ability to bind to the SelectedItem) it was incredibly easy to set up the charts and synchronise any changes to selection throughout the entire application.</p>
 <p>Thanks go to <strong>Ian Sullivan</strong> who helped to implement the charts on the analysis tab and calculating the various trends. </p>
-<p>Please send any questions to cgrant@scottlogic.co.uk, and I'd love to hear your comments below!</p>
+<p>Please send any questions to cgrant@scottlogic.com, and I'd love to hear your comments below!</p>
 <h2>Source Files & Downloads</h2>
-<p>You can download the source code for Earthquake monitor below. Please note that this download will not work out of the box. First, you will have to download Visiblox from the <a href="http://visiblox.com/" title="Visiblox">Visiblox website</a> and add the Silverlight .dll file to the project. Then, download the Bing Maps Silverlight Control SDK from the <a href="http://www.microsoft.com/en-us/download/details.aspx?id=2949">Microsoft Download Center</a>, and add the Microsoft.Maps.MapControl.Common.dll and Microsoft.Maps.MapControl.dll files into the project libraries. Finally, you'll have to replace the <em>YOUR CREDENTIALS HERE</em> text on line 132 of MainPage.xaml with a Credentials Provider string. For more information on installing the Bing Maps Silverlight Control SDK, please refer to the <a href="http://msdn.microsoft.com/en-us/library/ee681890.aspx">getting started guide</a>.</p>
+<p>You can download the source code for Earthquake monitor below. Please note that this download will not work out of the box. First, you will have to download Visiblox from the <a href="https://www.visiblox.com/" title="Visiblox">Visiblox website</a> and add the Silverlight .dll file to the project. Then, download the Bing Maps Silverlight Control SDK from the <a href="http://www.microsoft.com/en-us/download/details.aspx?id=2949">Microsoft Download Center</a>, and add the Microsoft.Maps.MapControl.Common.dll and Microsoft.Maps.MapControl.dll files into the project libraries. Finally, you'll have to replace the <em>YOUR CREDENTIALS HERE</em> text on line 132 of MainPage.xaml with a Credentials Provider string. For more information on installing the Bing Maps Silverlight Control SDK, please refer to the <a href="http://msdn.microsoft.com/en-us/library/ee681890.aspx">getting started guide</a>.</p>
 <p><a href='{{ site.github.url }}/archive/2012/06/EarthquakeMonitorRELEASE.zip'>Download Earthquake Monitor Source</a>.</p>
 <p><script type="text/javascript">function open_win(){var strVar="";strVar += "<object data=\"data:application\/x-silverlight-2,\" type=\"application\/x-silverlight-2\" width=\"1000\" height=\"700\">";strVar += "<param name=\"source\" value=\"http:\/\/www.scottlogic.co.uk\/wp-content\/uploads\/2012\/06\/EarthquakeMonitor.xap\"\/>";strVar += "<param name=\"onError\" value=\"onSilverlightError\" \/>";strVar += "<param name=\"background\" value=\"white\" \/>";strVar += "<param name=\"minRuntimeVersion\" value=\"4.0.50826.0\" \/>";strVar += "<param name=\"autoUpgrade\" value=\"true\" \/>";strVar += "		  <a href=\"http:\/\/go.microsoft.com\/fwlink\/?LinkID=149156&v=4.0.50826.0\" style=\"text-decoration:none\">";strVar += " 			  <img src=\"http:\/\/go.microsoft.com\/fwlink\/?LinkId=161376\" alt=\"Get Microsoft Silverlight\" style=\"border-style:none\"\/>";strVar += "		  <\/a>";strVar += "	    <\/object>";myWindow=window.open('','','width=1100,height=800');myWindow.document.write(strVar);myWindow.focus();}</script></p>
 <p><a href="#" onclick="open_win();return false;">Open Earthquake Monitor</a></p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

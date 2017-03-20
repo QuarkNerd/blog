@@ -15,10 +15,10 @@ source: wordpress
 disqus-id: /blog/colin/2012/04/everything-you-wanted-to-know-about-databinding-in-wpf-silverlight-and-wp7-part-two/
 ---
 <h2>Introduction</h2>
-<p>This is the second post in my series about databinding in Silverlight and WPF. In <a href="http://www.scottlogic.co.uk/blog/colin/2012/04/everything-you-wanted-to-know-about-databinding-in-wpf-silverlight-and-wp7-part-one/">the first post</a> I looked at how you wire-up UI controls to a model in the absence of a databinding framework. I showed how databindings can be created in code-behind, removing the need for the various event handlers that the manual method requires, resulting in more readable code, where the connection between a UI control and a model property is all in one place. In this blog post I'll look at how bindings can be defined in XAML, providing a more concise and flexible method of wiring model objects to your view.</p>
+<p>This is the second post in my series about databinding in Silverlight and WPF. In <a href="{{ site.github.url }}/2012/04/05/everything-you-wanted-to-know-about-databinding-in-wpf-silverlight-and-wp7-part-one">the first post</a> I looked at how you wire-up UI controls to a model in the absence of a databinding framework. I showed how databindings can be created in code-behind, removing the need for the various event handlers that the manual method requires, resulting in more readable code, where the connection between a UI control and a model property is all in one place. In this blog post I'll look at how bindings can be defined in XAML, providing a more concise and flexible method of wiring model objects to your view.</p>
 <p>The rough outline for this series is as follows:</p>
 <ul>
-<li><a href="http://www.scottlogic.co.uk/blog/colin/2012/04/everything-you-wanted-to-know-about-databinding-in-wpf-silverlight-and-wp7-part-one/">Part One</a> - Life before binding, <code>INotifyPropertyChanged </code>and creating bindings in code-behind
+<li><a href="{{ site.github.url }}/2012/04/05/everything-you-wanted-to-know-about-databinding-in-wpf-silverlight-and-wp7-part-one">Part One</a> - Life before binding, <code>INotifyPropertyChanged </code>and creating bindings in code-behind
 <li>Part Two <strong>(this one)</strong> - The binding markup extensions, the <code>DataContext </code>and path syntax
 <li>Part Three - Other binding sources, <code>ElementName</code>, <code>TemplatedParent</code>, <code>TemplateBinding</code>
 <li>Part Four - Value converters
@@ -256,26 +256,3 @@ private void Button_Click(object sender, RoutedEventArgs e)
 <p>In the next instalment we'll look at some of the other ways we can specify the binding source and when you might use them, but now we'll take a well-earned break ... see you next time.</p>
 <p>You can download the sourcecode for the examples described in this blogpost: <a href='{{ site.github.url }}/archive/2012/04/DatabindingExamplesPartTwo.zip'>DatabindingExamplesPartTwo.zip</a></p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -42,10 +42,10 @@ _allSeries.Add(new TelemetrySeries("Series_Name", IndexInCSVFile));
 <p>The <code>TelemetryChannelViewModel</code> contains the properties and values required to display a chart. It provides the data context for a <code>TelemetryChannelView</code> and contains two data series to display on the chart from that view. It also contains behaviours and operations to modify, remove and add data series to the chart.</p>
 <h3>Charts</h3>
 <h4>Custom Zoom Behaviour</h4>
-<p>To add the charts to the application, I used <a href="http://www.visiblox.com/download">Visiblox Silverlight Charts</a>. I chose to use Visiblox as I was looking for a high performance charting component. I knew I would be plotting a lot of data on the charts and the performance comparisons on Colin Eberhardt's blog <a href="http://www.scottlogic.co.uk/blog/colin/2010/12/visiblox-visifire-dynamicdatadisplay-charting-performance-comparison/">here</a>, as well as opinions on <a href="http://stackoverflow.com/questions/428425/recommendation-for-high-performance-wpf-chart">Stack Overflow</a>led me to select Visiblox. I found the <a href="http://www.visiblox.com/examples">examples</a> to be a great help when setting up the charts for the application.</p>
+<p>To add the charts to the application, I used <a href="http://www.visiblox.com/download">Visiblox Silverlight Charts</a>. I chose to use Visiblox as I was looking for a high performance charting component. I knew I would be plotting a lot of data on the charts and the performance comparisons on Colin Eberhardt's blog <a href="{{ site.github.url }}/2010/12/10/visiblox-visifire-dynamicdatadisplay-charting-performance-comparison">here</a>, as well as opinions on <a href="http://stackoverflow.com/">Stack Overflow</a> led me to select Visiblox. I found the <a href="http://www.visiblox.com/examples">examples</a> to be a great help when setting up the charts for the application.</p>
 <p>Sticking to the MVVM architecture for the charts, the data for the charts comes from the Model, is converted by the ViewModel and displayed by the View, using the following method. Each chart is populated by its <code>TelemetryChannelViewModel</code>, which obtains data for the two series from the <code>GetChannelData</code> method in <code>TelemetryViewModel</code>. This method retrieves the relevant <code>TelemetrySeries</code> from the Data Provider in the Model, and calls <code>TelemetryDataToVisibloxDataSeries</code>, which adds each point in the <code>TelemetrySeries</code> to a <code>Visiblox DataSeries<DateTime, double></code> type. The <code>Visiblox LineSeries</code>' <code>DataSeries </code>in <code>TelemetryChannelView </code>then has a binding to the <code>TelemetryChannelViewModel</code>'s <code>LivePrimaryChartDataSeries</code>/<code>LiveSecondaryChartDataSeries </code>property.</p>
 {% highlight xml %}<visi:LineSeries DataSeries="{Binding Path=LivePrimaryChartDataSeries}" ...{% endhighlight %}
-<p>To keep the data series on each of the charts in context, I decided it would be a good idea to restrict the zoom behaviours to the X-Axis. There is no way to restrict the standard Visiblox <code>ZoomBehaviour</code> to the X-Axis, so I had to define a new one. <code>XAxisZoomBehaviour</code> implements the Visiblox <code><a href="http://www.visiblox.com/static/releases/1.8.1/Docs/html/d761bb02-0427-89d0-109c-b7d950037e62.htm">BehaviourBase</a></code> abstract Class. The <code>MouseLeftButtonDown</code> method sets a zoom rectangle to the height of the chart, and when the <code>MouseMove</code> method is called, the width of this rectangle is modified to the value of the mouse position minus the start position. The method also checks if the rectangle covers a large enough area on the chart to allow a zoom. By checking this, it stops the zoom area from becoming too small.If the mouse is released and the zoom area is large enough, the <code>ZoomTo</code> method is called.</p>
+<p>To keep the data series on each of the charts in context, I decided it would be a good idea to restrict the zoom behaviours to the X-Axis. There is no way to restrict the standard Visiblox <code>ZoomBehaviour</code> to the X-Axis, so I had to define a new one. <code>XAxisZoomBehaviour</code> implements the Visiblox <code><a href="https://www.visiblox.com/docs/Visiblox/4.0/WPF/Index.html">BehaviourBase</a></code> abstract Class. The <code>MouseLeftButtonDown</code> method sets a zoom rectangle to the height of the chart, and when the <code>MouseMove</code> method is called, the width of this rectangle is modified to the value of the mouse position minus the start position. The method also checks if the rectangle covers a large enough area on the chart to allow a zoom. By checking this, it stops the zoom area from becoming too small.If the mouse is released and the zoom area is large enough, the <code>ZoomTo</code> method is called.</p>
 {% highlight csharp %}
 Storyboard sb = new Storyboard();
 DoubleAnimation b = new DoubleAnimation() { From = Chart.XAxis.Zoom.Scale, To = zoom.Scale };
@@ -87,7 +87,7 @@ Storyboard.SetTargetProperty(b2, new PropertyPath("(Offset)"));
 <p>The layout for the controls and the templates are defined in the <em>Generic.xaml</em> file.</p>
 <h2>Points of Interest</h2>
 <p>This was the first time I had used the MVVM architecture, and I will certainly use it again in the future. I had developed a prototype version of this application without MVVM. I had planned on building on this to create the final version, but found that it was much harder to modify and add additional functionality to. Mixing UI code with Logic code is bad practice, and it is something I will now be keen to avoid in the future.</p>
-<p>It was also the first time I had used a charting component in Silverlight, other than the toolkit version. I decided on <a href="http://www.visiblox.com/">Visiblox</a> after reading this <a href="http://www.scottlogic.co.uk/blog/colin/2010/12/visiblox-visifire-dynamicdatadisplay-charting-performance-comparison">article</a> from Colin Eberhardt and others like it, as well as reading <a href="http://stackoverflow.com/questions/428425/recommendation-for-high-performance-wpf-chart">charting recommendations</a> from members of Stack Overflow.</p>
+<p>It was also the first time I had used a charting component in Silverlight, other than the toolkit version. I decided on <a href="http://www.visiblox.com/">Visiblox</a> after reading this <a href="{{ site.github.url }}/2010/12/10/visiblox-visifire-dynamicdatadisplay-charting-performance-comparison">article</a> from Colin Eberhardt and others like it, as well as reading charting recommendations from members of <a href="http://stackoverflow.com/">Stack Overflow</a>.</p>
 <h4>Exporting Data From MoTeC</h4>
 <p>Using the import data button in the top left of the application, it is possible to load your own MoTeC data into SilverTrack. If you do not wish to use the sample files provided, and have your own way to import telemetry data to MoTeC, exporting to the <em>.csv</em> format used by the application is relatively straightforward:</p>
 <ul>
@@ -104,26 +104,3 @@ Storyboard.SetTargetProperty(b2, new PropertyPath("(Offset)"));
 <ul>
 <li><a href="{{ site.github.url }}/archive/2012/06/SilverTrack.zip">Download source code for SilverTrack - 474.34 K</a></li>
 </ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -110,7 +110,7 @@ var query =  from p in PersonCollection
 
 var query = PersonCollection.Where(p => p.age < 10);
 {% endhighlight %}
-<p>Whilst the application of Linq for querying database is obvious, Linq can be used to query practically anything. The .NET framework supplies Linq to SQL, XML and Objects - while the community has added Linq to CSV, JSON, DataSets, Facebook, and my own contribution <a href="http://www.scottlogic.co.uk/blog/colin/2010/03/linq-to-visual-tree/">Linq-to-VisualTree</a>.</p>
+<p>Whilst the application of Linq for querying database is obvious, Linq can be used to query practically anything. The .NET framework supplies Linq to SQL, XML and Objects - while the community has added Linq to CSV, JSON, DataSets, Facebook, and my own contribution <a href="{{ site.github.url }}/2010/03/04/linq-to-visual-tree">Linq-to-VisualTree</a>.</p>
 <p>I've found myself using Linq in virtually every .NET application I have ever written - and I miss it!</p>
 <p>Fortunately the ~25 different Linq extensions methods are actually quite easy to implement, as the C# guru Jon Skeet demonstrated in an <a href="http://codeblog.jonskeet.uk/2011/02/23/reimplementing-linq-to-objects-part-45-conclusion-and-list-of-posts/">epic series of blog posts</a>. So, why not bring this API to Objective-C?</p>
 <h2>Linq to Objective-C</h2>
@@ -440,26 +440,3 @@ var query = PersonCollection.Where(p => p.Age < 10)
 <p>Creating a Linq-style API for Objective-C has proven to be relatively simple (and fun!). I have provided implementations for some of the most common and useful Linq methods, however the .NET Linq APIs for querying collections have a great many more methods than the ones I have covered. </p>
 <p>If you are interested, why not <a href="https://github.com/ColinEberhardt/LinqToObjectiveC">pop over to github</a>, fork and add a few more? I'll probably add to this project myself over time.</p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

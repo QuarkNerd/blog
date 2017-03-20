@@ -18,7 +18,7 @@ Yep, it's WebGL and Native together. This is a short tutorial on using [Emscript
 
 [Github project](https://github.com/ilyalopatkin/emscripten_webgl_simmer_gently) for sources.
 
-Build instructions: 
+Build instructions:
 
 1. Install the [Emscripten](https://github.com/kripken/emscripten) toolset
 2. Build the project using `make` (or `mingw32-make`)
@@ -28,7 +28,7 @@ Build instructions:
 
 In this tutorial we give an introduction to how Emscripten-generated code could be integrated with the rest of your web-app, and there are some sources and build files that might be helpful for a quick start. It's a simplified outcome of what we actually did as a (successful) experiment over one of our commercial products.
 
-Emscripten is an LLVM-to-Javascript compiler that... well.. if you know what a compiler is, that pretty much explains the whole thing. Now we can write code in anything that compiles to LLVM (and this includes C++), run Emscripten and get a JS equivalent. It does not bring full coverage of C++ features but a reasonable subset of features is there and if you are not using anything fancy (and most people don't) you should be able to convert your code to JS without much trouble. The major feature here is that the resultant JS code is not a syntactical translation but a bytecode-level translation which means things like pointers to functions returning pointers to pointers to.. would work. You can see the output as a kind of a virtual machine written in JS that executes your C++ code. Plus it uses [WebGL]({{ site.github.url }}/2014/03/11/a-developers-intro-to-webgl.html) as a back-end for your normal GL calls. As a result, all sorts of native libraries and apps are now possible to port to JS that would seem crazy some few years ago: [Unreal Engine 3](http://www.unrealengine.com/en/news/epic_games_releases_epic_citadel_on_the_web), [Nebula 3](http://www.flohofwoe.net/demos.html), [ffmpeg](http://bgrins.github.io/videoconverter.js), etc.
+Emscripten is an LLVM-to-Javascript compiler that... well.. if you know what a compiler is, that pretty much explains the whole thing. Now we can write code in anything that compiles to LLVM (and this includes C++), run Emscripten and get a JS equivalent. It does not bring full coverage of C++ features but a reasonable subset of features is there and if you are not using anything fancy (and most people don't) you should be able to convert your code to JS without much trouble. The major feature here is that the resultant JS code is not a syntactical translation but a bytecode-level translation which means things like pointers to functions returning pointers to pointers to.. would work. You can see the output as a kind of a virtual machine written in JS that executes your C++ code. Plus it uses [WebGL]({{ site.github.url }}/2014/03/11/a-developers-intro-to-webgl.html) as a back-end for your normal GL calls. As a result, all sorts of native libraries and apps are now possible to port to JS that would seem crazy some few years ago: [Unreal Engine 3](https://www.unrealengine.com/news/epic-games-releases-epic-citadel-on-the-web), [Nebula 3](http://www.flohofwoe.net/demos.html), [ffmpeg](http://bgrins.github.io/videoconverter.js), etc.
 
 ## Setup
 
@@ -85,7 +85,7 @@ GLint uniformOriginX, uniformOriginY, uniformZoom;
 extern "C" int initGL(int width, int height)
 {
     //initialise SDL
-    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_TIMER) == 0) 
+    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_TIMER) == 0)
         //set video mode
     else return 0;
 
@@ -199,8 +199,8 @@ module TriangleExample {
         private render() {
             //convert the JS array to an emscripten float array
             var translationPtr = HeapUtils.floatArrayToHeap(
-                [this.translation.originX, 
-                 this.translation.originY, 
+                [this.translation.originX,
+                 this.translation.originY,
                  this.translation.zoom]);
             //call the native draw function
             Bindings.drawTriangle(translationPtr);
@@ -297,9 +297,9 @@ OUTPUT=glcore.js
 
 all: $(SOURCES) $(OUTPUT)
 
-$(OUTPUT): $(SOURCES) 
-    $(CC) $(SOURCES) --bind -s FULL_ES2=1 
-        -s EXPORTED_FUNCTIONS=@$(EXPORTS_FILE) 
+$(OUTPUT): $(SOURCES)
+    $(CC) $(SOURCES) --bind -s FULL_ES2=1
+        -s EXPORTED_FUNCTIONS=@$(EXPORTS_FILE)
         -std=c++11 $(LDFLAGS) -o $(OUTPUT)
 
 clean:
@@ -315,7 +315,7 @@ Also, move the array you supplied to `EXPORTED_FUNCTIONS` to a separate file:
 ["_initGL", "_drawTriangle"]
 {% endhighlight %}
 
-Now you can call 
+Now you can call
 
 {% highlight sh %}
 make all
@@ -354,32 +354,8 @@ There are two levels of optimisation available with the Emscripten tool chain. T
 
 ## Other considerations
 
-All in all, we had almost no problems porting our C++ code to JS using the Emscripten toolchain. We hope this tutorial was useful to those looking at porting native code to JS as a possible solution. There is indeed a bit of learning and tweaking to do but it's quite a flat learning curve for those who has some C++ and JS coding experience. And it is definitely easier than re-writing your library in JS from scratch so it looks like a viable solution in certain cases. 
+All in all, we had almost no problems porting our C++ code to JS using the Emscripten toolchain. We hope this tutorial was useful to those looking at porting native code to JS as a possible solution. There is indeed a bit of learning and tweaking to do but it's quite a flat learning curve for those who has some C++ and JS coding experience. And it is definitely easier than re-writing your library in JS from scratch so it looks like a viable solution in certain cases.
 
 The only issue that might arise in a commercial project is the final size of the generated JS code. It is somewhat larger than the native binaries, and JS version needs to be loaded by a browser, so some measures need to be taken to not put off your customer while he/she waits for this to finish. This might be only necessary to do once and hope the browser would cache it, but again, deal with care. If you need to load a 20MB script and the user has only got a 1Mb connection, it would take him/her more than 2m 40s at best.
 
 The story of WebGL is not so bright though. Since it is a standard and not a particular implementation, browser vendors need to actually make efforts to support it and not all do. You can have a look to what extent different browsers support WebGL (e.g. [http://caniuse.com/webgl](http://caniuse.com/webgl)), but in our experience, recent Chrome and Opera (which is Chrome's clone feature-wise) are the only browsers capable of rendering whatever we render natively. Others either do not support WebGL at all or produce visual artefacts given the same sequence of GL commands that we feed to GLES 2.0 capable devices. The example given in this tutorial does produce artefacts in Firefox 27, and we had artefacts in IE 11 with some of our other examples when we used VBOs. So, unless you can "suggest" your customers to only use Chrome, WebGL is not there yet for commercial products (as of March 2014) but it as well may be there in a couple of years if Firefox, IE and Safari catch up.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

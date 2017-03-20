@@ -35,7 +35,7 @@ The easiest way to add ReactiveCocoa to a project is to use [Carthage](https://g
 
 Then run `carthage update` as described in the documentation.
 
-ReactiveCocoa 3.0 contains an all-new Swift API, but also has supported for Objective-C, as described by the [detailed changelog](https://github.com/ReactiveCocoa/ReactiveCocoa/blob/swift-development/CHANGELOG.md). As a result, you'll find two different types of signal, the Obj-C `RACSignal`, and the new Swift `Signal`.
+ReactiveCocoa 3.0 contains an all-new Swift API, but also has supported for Objective-C, as described by the [detailed changelog](https://github.com/ReactiveCocoa/ReactiveCocoa/blob/master/CHANGELOG.md). As a result, you'll find two different types of signal, the Obj-C `RACSignal`, and the new Swift `Signal`.
 
 A very important feature of the Swift signal is that it is generic:
 
@@ -135,7 +135,7 @@ func map(signal: Signal, transform: ...) -> Signal
 
 {% endhighlight %}
 
-Unfortunately by moving from methods to free functions, the interface is no longer [fluent](http://en.wikipedia.org/wiki/Fluent_interface). For example a map followed by a filter would look something like this:
+Unfortunately by moving from methods to free functions, the interface is no longer [fluent](https://en.wikipedia.org/wiki/Fluent_interface). For example a map followed by a filter would look something like this:
 
 {% highlight swift %}
 let transformedSignal = filter(map(signal, { ... }), { ... })

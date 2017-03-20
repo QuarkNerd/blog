@@ -18,7 +18,7 @@ To register a new client, from an Administrative PowerShell prompt, run the foll
 Add-ADFSClient -Name "OAUTH2 Test Client" -ClientId "some-uid-or-other" -RedirectUri="http://localhost:3000/getAToken"
 {% endhighlight %}
 
-This registers a client called ```OAUTH2 Test Client``` which will identify itself as ```some-uid-or-other``` and provide ```http://localhost:3000/getAToken``` as the redirect location when performing the authorization request ```(A)``` to the ```Authorization Server``` (in this case ADFS). 
+This registers a client called ```OAUTH2 Test Client``` which will identify itself as ```some-uid-or-other``` and provide ```http://localhost:3000/getAToken``` as the redirect location when performing the authorization request ```(A)``` to the ```Authorization Server``` (in this case ADFS).
 
 ## The Authorization Code Flow
 
@@ -50,7 +50,7 @@ This registers a client called ```OAUTH2 Test Client``` which will identify itse
 +---------+       (w/ Optional Refresh Token)
 {% endhighlight %}
 
-The diagram above, taken from the [OAUTH2 RFC](http://tools.ietf.org/html/rfc6749#section-4.1), represents the ```Authorization Code Flow``` which is the only flow implemented by ADFS 3.0. This is the exchange that’s going to end up taking place to grant a user access. It’s pretty easy to understand but it’s worth pointing out that -
+The diagram above, taken from the [OAUTH2 RFC](https://tools.ietf.org/html/rfc6749#section-4.1), represents the ```Authorization Code Flow``` which is the only flow implemented by ADFS 3.0. This is the exchange that’s going to end up taking place to grant a user access. It’s pretty easy to understand but it’s worth pointing out that -
 Some of the requests and responses go via the ```User-Agent``` i.e. they’re HTTP redirects.
 ```(B)``` is a double-headed arrow because it represents an arbitrary exchange between the ```Authorization Server``` (ADFS) and the ```Resource Owner``` (user) e.g. ```login form -> submit -> wrong password -> submit```.
 
@@ -96,7 +96,7 @@ grant_type=authorization_code&client_id=some-uid-or-other&redirect_uri=http%3A%2
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
 
-{ 
+{
     "access_token":"<access_token>",
     "token_type":"bearer",
     "expires_in":3600
@@ -135,11 +135,11 @@ Set-AdfsRelyingPartyTrust -TargetName "RPT Name" -TokenLifetime 10
 Set-AdfsProperties -SSOLifetime 480
 {% endhighlight %}
 
-This would issue access tokens with a lifetime of 10 minutes and refresh tokens to all clients with a lifetime of 8 hours. 
+This would issue access tokens with a lifetime of 10 minutes and refresh tokens to all clients with a lifetime of 8 hours.
 
 ## Conclusion
 
-Whilst I did get the OAUTH2 integration to work, I was left a bit underwhelmed by it especially when compared to the [features touted by AzureAD](http://www.cloudidentity.com/blog/2015/02/19/introducing-adal-js-v1/). Encouraged by [TechNet library docs](https://technet.microsoft.com/en-gb/library/dn633593.aspx), I’d initially  considered ADFS to be compatible with AzureAD and tried to get ADAL to work with ADFS. However, I quickly discovered that it’s expecting an [OpenID Connect](http://openid.net/connect/) compatible implementation and that’s something ADFS does not currently offer. 
+Whilst I did get the OAUTH2 integration to work, I was left a bit underwhelmed by it especially when compared to the [features touted by AzureAD](http://www.cloudidentity.com/blog/2015/02/19/introducing-adal-js-v1/). Encouraged by [TechNet library docs](https://technet.microsoft.com/en-gb/library/dn633593.aspx), I’d initially  considered ADFS to be compatible with AzureAD and tried to get ADAL to work with ADFS. However, I quickly discovered that it’s expecting an [OpenID Connect](http://openid.net/connect/) compatible implementation and that’s something ADFS does not currently offer.
 
 It might be my lack of Google foo, but this became typical of the problems I had finding definitive documentation. I think this is just one of the problems associated with the *non-standardised* OAUTH2 *standard*. Another is the vast amount of customisation you must do to make an OAUTH2 library work with a given implementation. OpenID Connect looks like a promising solution to this, but only time will tell if it gains significant adoption.
 
@@ -147,11 +147,11 @@ It might be my lack of Google foo, but this became typical of the problems I had
 
 Whilst trying to work out the correct configuration, I ran into a number of errors along the way. Most of them pop out in the ADFS event log but occasionally you might also get a helpful error response to an HTTP request. Here’s a brief summary of some of the ones I encountered and how to fix them -
 
-> Microsoft.IdentityServer.Web.Protocols.OAuth.Exceptions. OAuthInvalidClientException: MSIS9223: Received invalid OAuth authorization request. The received 'client_id' is invalid as no registered client was found with this client identifier. Make sure that the client is registered. Received client_id: '...'. 
+> Microsoft.IdentityServer.Web.Protocols.OAuth.Exceptions. OAuthInvalidClientException: MSIS9223: Received invalid OAuth authorization request. The received 'client_id' is invalid as no registered client was found with this client identifier. Make sure that the client is registered. Received client_id: '...'.
 
 When making the authorize request, you either need to follow the process above for registering a new OAUTH2 client or you’ve mistyped the identifier (n.b. not the name).
 
-> Microsoft.IdentityServer.Web.Protocols.OAuth.Exceptions. OAuthInvalidResourceException: MSIS9329: Received invalid OAuth authorization request. The 'resource' parameter's value does not correspond to any valid registered relying party. Received resource: '...'. 
+> Microsoft.IdentityServer.Web.Protocols.OAuth.Exceptions. OAuthInvalidResourceException: MSIS9329: Received invalid OAuth authorization request. The 'resource' parameter's value does not correspond to any valid registered relying party. Received resource: '...'.
 
 When making the authorize request you’ve either got a typo in your RPT identifier, you need to create an RPT with the given identifier or you need to register it against an existing RPT.
 
@@ -162,26 +162,3 @@ When making the authorize request, you’ve not specified a resource parameter, 
 > HTTP error 503
 
 This normally meant I had a typo in the ```/adfs/oauth2/authorize``` or ```/adfs/oauth2/token``` URLs (don’t forget the 2).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

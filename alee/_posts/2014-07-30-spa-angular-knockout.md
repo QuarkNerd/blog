@@ -13,11 +13,11 @@ disqus-id: /2014/07/30/spa-angular-knockout.html
 
 A few weeks ago I finished working on a project that made extensive use of Knockout. It wasn't a Single Page Application (SPA), but Knockout allowed us to create a very rich and engaging user experience. During my time on the project, I had seen blogs and posts mentioning Angular as an alternative to Knockout, and colleagues had asked me whether I would consider Angular in future projects. It was time for me to learn more about Angular.
 
-I discovered that while Angular and Knockout are very different, they're both excellent tools for building SPAs, and the solutions ended up being quite similar. 
+I discovered that while Angular and Knockout are very different, they're both excellent tools for building SPAs, and the solutions ended up being quite similar.
 
 "Angular is great - it works with plain old JavaScript objects, so you don't need to clutter your code with 'observables'" (paraphrased), but it doesn't take long to realise that Angular and Knockout aren't very similar at all. Knockout is a tool for binding your model to the view, and automatically updating the view when things change. Angular does this too, but it also does much more. In fact Angular is more like a framework for building an SPA. It implements hashtag routing for different page views, and an MVC pattern for wiring up controllers and models. It also has its own modules and dependency injection to help you build an application at enterprise scale.
 
-Knockout doesn't have any of that, but then it isn't supposed to. Instead, it gets out of the way so you can plug in other tools to do those tasks. Recently, Steve Sanderson gave a great talk at <a href="http://briste.ch/event/archive/2014/07/03/july-2014.html">Bristech</a> showing how well this can work (and also demonstrating the new "Components" feature in the preview version). You can see the talk at the <a href="https://www.youtube.com/watch?v=UyQNARf2bQs">Bristech YouTube Channel</a>.
+Knockout doesn't have any of that, but then it isn't supposed to. Instead, it gets out of the way so you can plug in other tools to do those tasks. Recently, Steve Sanderson gave a great talk at <a href="http://bris.tech/">Bristech</a> showing how well this can work (and also demonstrating the new "Components" feature in the preview version). You can see the talk at the <a href="https://www.youtube.com/watch?v=UyQNARf2bQs">Bristech YouTube Channel</a>.
 
 If I'm going to compare Angular with Knockout, then I need to plug in some of these other tools to make it a fair comparison. I think my title needs updating:
 
@@ -32,7 +32,7 @@ I wanted to build a sample application using both tools. It had to be simple eno
 I chose a simple investment portfolio, showing a list of investments with transactions, and some related charts. You can filter the investments by name, and can also click through on each investment to view additional details.
 The finished project is on GitHub: <a href="https://github.com/DevAndyLee/Angular-vs-Knockout/">Angular-vs-Knockout</a>, with a live demo of both versions of the app here:
 
-The <a href="{{ site.github.url }}/alee/assets/spa-an-ko/Knockout/index.html" target="_blank">Knockout version</a>, and the 
+The <a href="{{ site.github.url }}/alee/assets/spa-an-ko/Knockout/index.html" target="_blank">Knockout version</a>, and the
 <a href="{{ site.github.url }}/alee/assets/spa-an-ko/Angular/index.html" target="_blank">Angular version</a>.
 
 Try entering text into the filter box, and clicking on individual investments. Here's an example screenshot (the Knockout and Angular versions look identical, other than the title):
@@ -158,7 +158,7 @@ In this case, the component parameters (including the searchModel) get passed in
 
     <investment-filter params="search: search"></investment-filter>
 
-Knockout components are currently a preview feature, and they're pretty neat. When used with RequireJS, it's also smart enough to only load the JavaScript and template files when the component is actually used. 
+Knockout components are currently a preview feature, and they're pretty neat. When used with RequireJS, it's also smart enough to only load the JavaScript and template files when the component is actually used.
 
 ### Binding to controls
 
@@ -320,7 +320,7 @@ The Knockout version uses a custom binding to do the same thing in a slightly di
 Adding the chart is equally simple:
 
     <div data-bind="chart: sectors"></div>
-	
+
 In the completed project, I've expanded on the chart directive and binding to provide a more generic method for binding to multiple types of chart (bar and column charts are implemented).
 
 ## Unit testing
@@ -369,7 +369,7 @@ If you're making ajax requests directly by injecting the $http service, then Ang
             // Check that the server was called and we saved the correct data
             expect(backEndServer.analysis).toHaveBeenCalledWith({ name: 'f-1' });
             expect(scope.investments).toEqualData([{ name: 'i-1' }]);
-            
+
             // Let Jasmine know the test has completed
             done();
         }, 20);
@@ -452,32 +452,8 @@ In Knockout, animated transitions can be built using custom bindings and jQuery.
 
 Both Angular and Knockout (with CrossroadsJS and RequireJS) are brilliant tools for building enterprise scale single page applications. My sample application looks and behaves identically in the two versions, and the development process was pretty smooth in both cases. I'd certainly be more than happy working with either of them.
 
-There are a few differences between the two solutions, but they are fairly minor. Angular was more verbose in some cases (creating a component from a directive and a controller), but the Knockout version was more verbose in others (watching for model changes and getting data from the server). Angular is a fully integrated solution. Knockout lets you choose the best tools to solve your problems, but you have to integrate them yourself. 
+There are a few differences between the two solutions, but they are fairly minor. Angular was more verbose in some cases (creating a component from a directive and a controller), but the Knockout version was more verbose in others (watching for model changes and getting data from the server). Angular is a fully integrated solution. Knockout lets you choose the best tools to solve your problems, but you have to integrate them yourself.
 
 If you don't like having Knockout's observables all over your JavaScript code, then you'll probably lean towards Angular. Personally, I'm used to observables, so I don't mind them at all. I appreciate having direct control over when and where I'm changing something that will trigger updates to other objects and the view. I also like how RequireJS pulls in dependencies, and can build specific packages for different parts of the SPA. On the other hand, I like the MVC pattern used by Angular, and the dependency injection system, and the ability to easily create mocked dependencies in tests.
 
 While there are pros and cons to both solutions, I still don't have a clear preference for either Angular or Knockout. At least I can be confident that neither one would be the wrong choice.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -22,7 +22,7 @@ An important note before starting:
 ## What are these attacks?
 
 In this module we return to the theme of users having their sessions or accounts hijacked - taken over by an attacker. We saw this in previous modules in the context of insecure transport of credentials and session IDs, and in exfiltration of credentials by injection attacks. However, there
-are many other ways of taking over a user's account, based on attacking account management features such as registration and login, and we will now take a look at those. 
+are many other ways of taking over a user's account, based on attacking account management features such as registration and login, and we will now take a look at those.
 
 Closely related to this is the detail of how sessions are handled in your application - how the concepts of identity/authentication and authorization persist during the course of a user's session with a site, and how that increases or decreases their vulnerability to session and/or account hijacks.
 
@@ -38,7 +38,7 @@ Sarah Palin. Quite old now, but still a classic story of how not to choose secur
 
 GitHub. An automated brute force password guessing from a botnet, which got past their detection systems. A creditable response here [https://github.com/blog/1698-weak-passwords-brute-forced](https://github.com/blog/1698-weak-passwords-brute-forced)
 
-Mat Honan. A frightening tale of a hack facilitated by weak human-operated processes. [http://www.wired.com/2012/08/apple-amazon-mat-honan-hacking/all/](http://www.wired.com/2012/08/apple-amazon-mat-honan-hacking/all/) 
+Mat Honan. A frightening tale of a hack facilitated by weak human-operated processes. [http://www.wired.com/2012/08/apple-amazon-mat-honan-hacking/all/](http://www.wired.com/2012/08/apple-amazon-mat-honan-hacking/all/)
 
 ## Getting Started
 
@@ -52,14 +52,14 @@ This blog post is intended to be a hands-on discussion - at various points I'll 
 If you're moving on from a different article in this series you may want to clean up your system somewhat:
 
 * Kill the sample app VMs with vagrant destroy.
-* Recreate the sample apps (and new databases) with vagrant up. 
+* Recreate the sample apps (and new databases) with vagrant up.
 
 
 ## Application feature design
 
 There are several 'standard' user-visible features related to account and session management, and we'll be implementing/securing them in some sample apps later on. But before we do that, let's take a moment to consider the bigger picture.
 
-If you are building a system to launch nuclear missiles, you might want quite a secure authentication process, so as to avoid embarrassing incidents. 
+If you are building a system to launch nuclear missiles, you might want quite a secure authentication process, so as to avoid embarrassing incidents.
 
 <img src="{{ site.github.url }}/rsillem/assets/security-session/nuclear_football.jpg" style="display: block; margin: auto;"/>
 
@@ -70,7 +70,7 @@ On the other hand you might find [Gold Codes](https://en.wikipedia.org/wiki/Gold
 - Security risks and the mechanics of attacks are not widely understood, which makes agreed prioritisation difficult.
 - Business/management priorities have a habit of changing rapidly when Something Bad happens, and when the blame game starts, the developers will be finger-pointing magnets.
 
-So this means that as a developer you have to 
+So this means that as a developer you have to
 
 - Understand security risks and the mechanics of attacks, and be able to explain them clearly to a non-technical audience
 - Involve yourself in application design, not just implementation
@@ -84,11 +84,11 @@ Returning to the account and session management features - login, logout, regist
 #### User IDs
 
 There is a design choice here - where to use email addresses as user IDs, or to keep them as separate entities, and the choice comes with usability trade-offs to consider in the context of your specific application:
- 
+
 - Email addresses are unique, user-generated names (e.g. fred1) are not, so there is some additional UI and implementation complexity to use user-generated names.
 - Email address often contain real-world personal names, and are generally traceable back to individuals, so there may be privacy issues in using emails.
 - Using the same user ID (your email address) for multiple sites makes your user ID very guessable, so users may want to have different IDs on different site, to reduce their vulnerability to brute-force attacks.
-- People sometimes change their email addresses, or have more than one and want to change which one they use, but may not want multiple accounts on your site. 
+- People sometimes change their email addresses, or have more than one and want to change which one they use, but may not want multiple accounts on your site.
 - It's generally easier to forget an arbitrary user name than it is to forget your email address, so they are less convenient.
 - Email addresses can be used in many of the authentication patterns described below, as a secondary channel for verification, so we may need email addresses even if they aren't the primary user ID.
 
@@ -227,11 +227,11 @@ Optionally, you might also add a CAPTCHA to the sample apps.
 **Practical**
 Now add a password strength indication control to the registration page, as described in the section on passwords above.
 
-You'll notice that I'm not suggesting you implement a 'secret question' or password hint feature. That's not an oversight. 
+You'll notice that I'm not suggesting you implement a 'secret question' or password hint feature. That's not an oversight.
 
 ### 3. Redesign and build the login feature
 
-The basic use case for this feature is for a registered user to authenticate himself with your site. He must present some set of credentials which the site can verify. 
+The basic use case for this feature is for a registered user to authenticate himself with your site. He must present some set of credentials which the site can verify.
 
 There are some very obvious attacks against this feature, and some less obvious ones:
 
@@ -249,17 +249,17 @@ The second attack bypasses all the above defences, but 2 factor authentication p
 Ensure that the error message presented by the login UI do not indicate whether the user name or the password is incorrect.
 
 **Practical**
-As with the previous section, use the browser console as a 2 factor authentication channel, as if a short numeric code had been sent to the user via text. 
+As with the previous section, use the browser console as a 2 factor authentication channel, as if a short numeric code had been sent to the user via text.
 
 ### 4. Implement a robust session management scheme
 
 In the first article in this series I briefly apologized for conflating session tokens and authentication tokens - it was a simplification to make the discussion of transport layer security easier. In this article we'll dig a bit deeper, and the first step is to explore some concepts involved.
 
 - **Session**. An ongoing conversation between client and server
-- **Identity**. A very elusive philosophical concept, and one that is a bit too debatable for use here. Is rsillem@scottlogic.com the same identity as robin.sillem@someemailprovider.com? That depends on who's asking and why, I reckon, so lets use something a bit more formally defined: 
-- **Principal**. An independent entity that can be authenticated (Hmm. Sounds like we're getting into a circular definition here...). A principal may or not represent a person, and you may or may not know who that person is. A principal has some associated identifier - an immutable and unique piece of data. 
+- **Identity**. A very elusive philosophical concept, and one that is a bit too debatable for use here. Is rsillem@scottlogic.com the same identity as robin.sillem@someemailprovider.com? That depends on who's asking and why, I reckon, so lets use something a bit more formally defined:
+- **Principal**. An independent entity that can be authenticated (Hmm. Sounds like we're getting into a circular definition here...). A principal may or not represent a person, and you may or may not know who that person is. A principal has some associated identifier - an immutable and unique piece of data.
 - **Authentication**. The process of checking that a received request came from a specific principal. This is another really hard problem, because it's basically a question of trust. If I say to you "I am [Spartacus](http://knowyourmeme.com/memes/i-am-spartacus)", you'll probably laugh and say "No, I am Spartacus". If someone you trust (take a moment to unpick what that actually means) then tells you "No, he really is Spartacus", you're going to think something funny is going on. If I then show you a passport - i.e. present my credentials - in the name of Spartacus with a picture that looks like me, you might be convinced enough to tweet about it, but not enough to lend me £100,000 - maybe the passport is forged, maybe that's not me in the picture. And anyway, isn't Spartacus supposed to be dead?
-- **Authorization**. Granting different access to behaviour/resources to different principals. Now we're back on slightly safer ground. 
+- **Authorization**. Granting different access to behaviour/resources to different principals. Now we're back on slightly safer ground.
 
 It would be nice to say that clarified matters, but the longer you think about identity and authentication the slipperier it all gets. It is **always** a case of picking some arbitrary protocol by which you can sufficiently assure yourself that you should honour the request, depending entirely on the needs of your application. So let's consider the requirements of the toy social media site implemented in the sample apps.
 
@@ -270,7 +270,7 @@ The problem with this app is that it is just too simple. The anonymous user scen
 
 The stateless, token-based approach taken by the MEAN\_Stack sample is more modern, and deals better with architectural issues such as scalability, but also has various security pros and cons, which we'll address shortly. The specific session management design of the Jade\_Express\_MySQL sample has some security problems, however. Consider what happens to an anonymous user who visits the site. Let's assume that an attacker captures the session ID - maybe the site is served to anonymous users over HTTP, not HTTPS. The attacker can use this session, but it doesn't help him because he's not logged in. But as soon as the genuine user logs in, he's logged the attacker in too. The solution to this is to regenerate the session ID after any privilege level change (i.e. log in and log out), so the hijacked session no longer exists (this also defends against session fixation attacks, where the attacker forces the victim to use a specific sessions of the attacker's choosing). One good way to think about this is as separate conversations:
 
-1. Conversation 1, between unknown user and the site. 		Session ID: 56392476394625342 
+1. Conversation 1, between unknown user and the site. 		Session ID: 56392476394625342
 2. Conversation 2, between a.user@foobar.com and the site. 	Session ID: 87359561048350238
 3. Conversation 3, between unknown user and the site. 		Session ID: 12399372621450654
 
@@ -279,7 +279,7 @@ Fix the Jade\_Express\_MySQL sample vulnerability by regenerating the session on
 
 N.B. Those session IDs above are just numbers I typed in 'at random'. Be very careful if you are rolling your own session IDs (not recommended). Don't use short IDs, they're easily enumerable - e.g. if your IDs are 4 digits long an attacker could quickly construct all 10000 possible session cookies and hijack by a brute force attack.
 
-In a more complex application you might consider separating session and authentication state, depending on your requirements. This would allow you (for instance) to have a long-running notion of user identity, but only permit sensitive operations after a re-authentication step. However, there are trade-offs here too. Over-frequent re-authentication is burdensome and annoying for the user, and increases their risk of leaking their credentials by MITM attacks or simply by having other people see them typing. 
+In a more complex application you might consider separating session and authentication state, depending on your requirements. This would allow you (for instance) to have a long-running notion of user identity, but only permit sensitive operations after a re-authentication step. However, there are trade-offs here too. Over-frequent re-authentication is burdensome and annoying for the user, and increases their risk of leaking their credentials by MITM attacks or simply by having other people see them typing.
 
 **Digression**
 The architecture of both sample apps makes it possible to have multiple independently authenticated sessions on separate browsers/devices. This may or may not be a good thing in the context of your applications. If you need to be able to remotely log off/ de-authenticate users centrally from all sessions, or actively defend against stolen auth tokens, or if you have an application that might suffer data integrity issues from multiple simultaneous user sessions you may need to consider central tracking of authentication state. However, this will give you a complexity overhead and single point of failure. It's yet another design trade-off, security vs cost this time, but does allow some nice features, such as emailing the user if a login has come from new IP or machine, maybe with geolocation.  
@@ -305,7 +305,7 @@ What is not so easy is to design a robust and suitable session expiration system
 The techniques for implementing this revolve around expiry dates for cookies (including session expiry, where the cookie *should* expire when the browser closes) and tokens. Fixing these times is a problem as you don't know how long the user might want to stay logged in for, and so you are likely to have to use some form of renewal mechanism (this is the sort of thing that is built into identity-as-a-service offerings). One gotcha with session cookies is that you can completely override the expiry behaviour with browser settings (e.g. Chrome's 'Continue where you left off' setting).
 
 **Practical**
-Modify both sample apps so that the login has a Remember Me option. If this is not checked the user should be logged out after 2 minutes of inactivity (That's ridiculously short for an app of this type, but OK for learning and test purposes). The user should remain logged in if he keeps interacting without as 2 minute gap. 
+Modify both sample apps so that the login has a Remember Me option. If this is not checked the user should be logged out after 2 minutes of inactivity (That's ridiculously short for an app of this type, but OK for learning and test purposes). The user should remain logged in if he keeps interacting without as 2 minute gap.
 
 This is just a very light skim of a complex subject, and you should consult [OWASP Session Management Cheat Sheet](https://www.owasp.org/index.php/Session_Management_Cheat_Sheet) for more details
 
@@ -316,11 +316,11 @@ If an attacker can gain access to wherever your app presents the user's personal
 
 If an attacker can change a victim's password, he can lock the victim out and make it hard for him to regain control. Even if the attacker does no direct harm to the user, this is a denial-of-service attack against your site.
 
-In either case, it's worth pointing out that users will be less troubled by additional security on these features, because a. The information is obviously sensitive, and b. they don't actually change account details or password that often. 
+In either case, it's worth pointing out that users will be less troubled by additional security on these features, because a. The information is obviously sensitive, and b. they don't actually change account details or password that often.
 
 There are various attack vectors for this: session hijack, by whatever route (including shared computers), credential theft (including social engineering), Cross-Site Request Forgery. The solution is re-authentication for the duration of the operation, preferably with some out-of-band or 2 factor strengthening.
 
-Don't ask the user for personal information you have no need for. Many users are very sensitive to this kind of thing. 
+Don't ask the user for personal information you have no need for. Many users are very sensitive to this kind of thing.
 
 Separate password change from account details change. Ask for the user's original password. Notify users of password change by email. Likewise notify about any authentication related events - SSH keys, personal details etc. As well as helping to catch unauthorized access, it also lets your users know that you are taking their security seriously.
 
@@ -329,13 +329,13 @@ Require confirmation of email address change by a separate channel (e.g. text, o
 
 ### 7. The Forgot Your Password feature
 
-Users forget passwords, and you're going to have to deal with it. It's not the same as a password change, because the user is by definition not logged in. This makes the solution similar to the one used for registration. 
+Users forget passwords, and you're going to have to deal with it. It's not the same as a password change, because the user is by definition not logged in. This makes the solution similar to the one used for registration.
 
 Don't: email an existing password to user (the app shouldn't even have access to the plain-text password in the first place, let alone transmit it over SMTP - that password would be insecure in transit and at rest).
 
 Don't: generate a persistent new password for the user and email it to user - the same remarks apply as above. It also open a Denial of Service vector, because the attacker can reset, and the user is not expecting it and may not immediately check his email - timing is key, a temporary DOS may log a genuine user out while the attacker has control.
 
-Do email a reset link with a time-limited nonce token to the user. The link allows a new password to be submitted without the old one. Nothing actually happens until the final step. 
+Do email a reset link with a time-limited nonce token to the user. The link allows a new password to be submitted without the old one. Nothing actually happens until the final step.
 
 
 ### 8. Add CSRF protection
@@ -360,13 +360,11 @@ HTTPS everything. See the first article in this series. MITM vulnerabilities can
 
 Protect against XSS and injection attacks.
 
-Consider *additional* intrusion detection system or web application firewalls (e.g. [http://www.iis.net/downloads/microsoft/urlscan](http://www.iis.net/downloads/microsoft/urlscan) or Barracuda [https://www.barracuda.com/](https://www.barracuda.com/) or Cloudflare [https://www.cloudflare.com/](https://www.cloudflare.com/). 
+Consider *additional* intrusion detection system or web application firewalls (e.g. [http://www.iis.net/downloads/microsoft/urlscan](http://www.iis.net/downloads/microsoft/urlscan) or Barracuda [https://www.barracuda.com/](https://www.barracuda.com/) or Cloudflare [https://www.cloudflare.com/](https://www.cloudflare.com/).
 
-Log appropriately - you should be collecting evidence for identifying attacks, but not sensitive user data. 
+Log appropriately - you should be collecting evidence for identifying attacks, but not sensitive user data.
 
 
 ## Further reading
 
 Troy Hunt's Secure Account Management Fundamental course on pluralsight.com is absolute gold, and provided much of the learning for this article. Thoroughly recommended.
-
-

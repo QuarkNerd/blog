@@ -72,7 +72,7 @@ Both of the above probably sound like quite abstract concepts, so let's see how 
 
 ## A Fibonacci sequence
 
-Let's say you want to perform some calculations on a [Fibonacci sequence](http://en.wikipedia.org/wiki/Fibonacci_number). You could populate an array with the first 100 terms and use this for your calculation, but Swift sequences offer an elegant alternative.
+Let's say you want to perform some calculations on a [Fibonacci sequence](https://en.wikipedia.org/wiki/Fibonacci_number). You could populate an array with the first 100 terms and use this for your calculation, but Swift sequences offer an elegant alternative.
 
 Here is a simple implementation using a Swift sequence:
 

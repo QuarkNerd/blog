@@ -16,7 +16,7 @@ source: wordpress
 disqus-id: /blog/colin/2011/10/winrt-transitions-creating-fast-and-fluid-metro-uis/
 ---
 <p><em>This blog post looks at the new concept of 'transitions' that WinRT, within Windows 8, introduces. This concept makes it very easy for you to create a fluid and interactive UI without going anywhere near storyboards!</em></p>
-<p>I have to admit it, I am a big fan of the <a href="http://en.wikipedia.org/wiki/Metro_(design_language)">Metro Design Language</a>; the clean chrome-free graphics, combined with typography inspired by signage and designed for maximum legibility, has given Windows Phone 7 an instantly recognisable style. However, whilst Silvelight applications developed for Windows Phone 7 look like the native metro phone apps, they do not move like them. Motion is an important part of metro, with one of the tenants being that it is "Alive In Motion". This lead me to publish a multi-part blog series, called Metro In Motion, which provided implementations of the various native animations and transitions (<a href="http://www.scottlogic.co.uk/blog/colin/2011/03/metro-in-motion-fluid-list-animation/">1</a>, <a href="http://www.scottlogic.co.uk/blog/colin/2011/03/metro-in-motion-part-2-peel-animations/">2</a>, <a href="http://www.scottlogic.co.uk/blog/colin/2011/04/metro-in-motion-3-flying-titles/">3</a>, <a href="http://www.scottlogic.co.uk/blog/colin/2011/05/metro-in-motion-part-4-tilt-effect/">4</a>, <a href="http://www.scottlogic.co.uk/blog/colin/2011/05/metro-in-motion-5-sandwichflow/">5</a>, <a href="http://www.scottlogic.co.uk/blog/colin/2011/06/metro-in-motion-part-6-rolling-list-location-indicator/">6</a> & <a href="http://www.scottlogic.co.uk/blog/colin/2011/06/metro-in-motion-part-7-panorama-prettiness-and-opacity/">7</a>).</p>
+<p>I have to admit it, I am a big fan of the <a href="http://en.wikipedia.org/wiki/Metro_(design_language)">Metro Design Language</a>; the clean chrome-free graphics, combined with typography inspired by signage and designed for maximum legibility, has given Windows Phone 7 an instantly recognisable style. However, whilst Silvelight applications developed for Windows Phone 7 look like the native metro phone apps, they do not move like them. Motion is an important part of metro, with one of the tenants being that it is "Alive In Motion". This lead me to publish a multi-part blog series, called Metro In Motion, which provided implementations of the various native animations and transitions (<a href="{{ site.github.url }}/2011/03/22/metro-in-motion-fluid-list-animation">1</a>, <a href="{{ site.github.url }}/2011/03/27/metro-in-motion-part-2-peel-animations">2</a>, <a href="{{ site.github.url }}/2011/04/04/metro-in-motion-3-flying-titles">3</a>, <a href="{{ site.github.url }}/2011/05/03/metro-in-motion-part-4-tilt-effect">4</a>, <a href="{{ site.github.url }}/2011/05/16/metro-in-motion-5-sandwichflow">5</a>, <a href="{{ site.github.url }}/2011/06/06/metro-in-motion-part-6-rolling-list-location-indicator">6</a> & <a href="{{ site.github.url }}/2011/06/14/metro-in-motion-part-7-panorama-prettiness-and-opacity">7</a>).</p>
 <p>Windows 8 again is built using the Metro Design Language, and again the tools make it easy for you to create an application which has the Metro look. However, where Windows 8 differs from Windows Phone 7 is that developer APIs make it very easy for you to create applications that move like a Metro application. WinRT introduces a new XAML concept, transitions, which is the focus of this blog post. </p>
 <p>I was inspired to explore transitions after watching John Papa's excellent //build/ session <a href="http://channel9.msdn.com/Events/BUILD/BUILD2011/APP-494T">"Stand out with styling and animation in your XAML app"</a>, I would thoroughly encourage you to watch it!</p>
 <p>I have a (very shaky) video of the demo code included with this blog post below:</p>
@@ -127,26 +127,3 @@ disqus-id: /blog/colin/2011/10/winrt-transitions-creating-fast-and-fluid-metro-u
 <p>I have covered all the theme-transitions except one, ReorderThemeTransition, I have not yet found out how to use this transition, I think this might be because of <a href="http://social.msdn.microsoft.com/Forums/en-AU/winappswithcsharp/thread/fc3705c1-ae0c-483e-a209-8c3aeefd02c8">a lack of sorting / filtering of collections in WinRT</a>. This is probably functionality that will be added at a later date.</p>
 <p>You can download the full sourcecode for this blog post: <a href='{{ site.github.url }}/archive/2011/10/WinRTTransitions.zip'>WinRTTransitions.zip</a></p>
 <p>Regards, Colin E</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -65,7 +65,7 @@ disqus-id: /2012/11/the-world-of-less/
 <p>The disadvantage here is that you can't use longhand properties like margin-right and that you still have to remember to use the function.</p>
 <p>So, I needed a way to modify the CSS based on comments or some other way. I wanted it to be possible for less to reverse all the properties without any strange CSS being written - this required the ability to extend less.</p>
 <h4>Plugins</h4>
-<p>The plugins were architected to allow either an <a href="https://github.com/dotless/dotless/blob/master/src/dotless.Core/Plugins/IFunctionPlugin.cs>IFunctionPlugin</a>, which provided one or more functions (so you write a C# function that accepts one or more CSS values and outputs one or more CSS values) and an <a href="https://github.com/dotless/dotless/blob/master/src/dotless.Core/Plugins/IVisitorPlugin.cs">IVisitorPlugin</a>.</p>
+<p>The plugins were architected to allow either an <a href="https://github.com/dotless/dotless/blob/master/src/dotless.Core/Plugins/IFunctionPlugin.cs">IFunctionPlugin</a>, which provided one or more functions (so you write a C# function that accepts one or more CSS values and outputs one or more CSS values) and an <a href="https://github.com/dotless/dotless/blob/master/src/dotless.Core/Plugins/IVisitorPlugin.cs">IVisitorPlugin</a>.</p>
 <p>To understand the visitor plugin you must first understand how dotless converts less to CSS.</p>
 <ol>
 <li>Tokenizer - This is a very simple version of a tokenizer, it just detects comments and breaks up the strings so that later regular expressions have a smaller string to work on for performance.</li>
@@ -135,7 +135,7 @@ background-image: url("sprite-handler.ashx?id=1");
 background-position: -44px -12px;
 {% endhighlight %}
 <p>It would work by using a function plugin, providing sprite functions which would return it's own sprite node, during evaluation and then the first time a sprite node was asked to output, the node would know (from the function call) all the nodes that had been referenced during stage 1 (so it knew what images it had to include), it could generate the image and the mapping from image to position and then output the correct positions.Through the use of caches and configuration it would generate the images once (with the option of doing it during build) and then reference the pre-created map.</p>
-<p>This <a href="https://github.com/agatronic/Sprite-dotless">plugin I created</a> outside of dotless and it is in an incomplete stage - unfortunately I decided to allow images to be specified as having to be next to one of the 4 sides or 4 corners or even specifying it was a horizontal image that had to be tied to 2 edges - whilst my algorithm bin packs images that can be anywhere, it is yet to pass <a href="https://github.com/agatronic/Sprite-dotless/blob/master/src/spritedotless.test/Tests/BinPackingFixture.cs#L782">my unit tests</a> (which use a pre-set seed and random numbers in order to try out 1000's of different combinations of positions, parse the output and then check every image is in its right place and not overlapping). Hopefully I'll get some time to finish it soon.</p>
+<p>This <a href="https://github.com/lukeapage/Sprite-dotless">plugin I created</a> outside of dotless and it is in an incomplete stage - unfortunately I decided to allow images to be specified as having to be next to one of the 4 sides or 4 corners or even specifying it was a horizontal image that had to be tied to 2 edges - whilst my algorithm bin packs images that can be anywhere, it is yet to pass <a href="https://github.com/lukeapage/Sprite-dotless/blob/master/src/spritedotless.test/Tests/BinPackingFixture.cs#L782">my unit tests</a> (which use a pre-set seed and random numbers in order to try out 1000's of different combinations of positions, parse the output and then check every image is in its right place and not overlapping). Hopefully I'll get some time to finish it soon.</p>
 <p>It was around this time that I saw that there was <a href="https://github.com/cloudhead/less.js/issues/867">a large amount of frustration</a> around less.js. Requests for new language features and bug fixes weren't being addressed. Unfortunately, although dotless is great on its own, without less having an overall high market share, dotless would become non-viable and niche to new adoption.</p>
 <h4>less.js contributions</h4>
 <p>So, less.js appeared the most important thing to work on and I offered to help out clear up the issues and pull requests and take the language forward.. Through 4 or 5 weekends of work I have managed to close a lot of duplicate and non-bugs, fix a large number of bugs, introduce some of the other enhancements I did for dotless (more powerful support of the parent referencing selector '&') and finally, last weekend, I got push access to the website <a href="http://lesscss.org">lesscss.org</a> and published <a href="https://github.com/cloudhead/less.js/blob/master/CHANGELOG.md">1.3.1</a>.</p>
@@ -222,26 +222,3 @@ background-position: -44px -12px;
 <p>This is a work in progress for 1.4.0 - <a href="https://github.com/cloudhead/less.js/issues/1014">There are still some questions</a> over more complicated chaining of selectors.</p>
 <h4>The future</h4>
 <p>Unfortunately there is lots to do and as well as people demanding new features in less we also have to cope with changes to the CSS specification which we have to support. If anyone reading this thinks it sounds interesting and wants to help out, please get in touch!</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

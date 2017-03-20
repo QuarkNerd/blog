@@ -22,7 +22,7 @@ disqus-id: /blog/colin/2011/10/adding-error-bars-to-visiblox-silverlight-charts/
 <p><img src="{{ site.github.url }}/archive/2011/10/VisibloxErrorBars.png" alt="" title="VisibloxErrorBars" width="499" height="240" class="aligncenter size-full wp-image-1767" /></p>
 <p>(The data in the above chart is from a page which details how to calculate the <a href="http://www.ncsu.edu/labwrite/res/gt/gt-stat-home.html">standard error from experimental results</a>).</p>
 <h2>Creating a Custom Series</h2>
-<p>As described in my previous blog post on <a href="http://www.scottlogic.co.uk/blog/colin/2010/11/adding-a-smoothed-line-series-bezier-curve-to-a-visiblox-chart/" title="Adding a Smoothed Line Series (B&eacute;zier curve) to a Visiblox Chart">creating a spline series</a>, to create a new series type, you sub-class one of the Visiblox base-classes, in this case <code>MultiValueSeriesBase </code>is a suitable starting point:</p>
+<p>As described in my previous blog post on <a href="{{ site.github.url }}/2010/11/22/adding-a-smoothed-line-series-bezier-curve-to-a-visiblox-chart" title="Adding a Smoothed Line Series (B&eacute;zier curve) to a Visiblox Chart">creating a spline series</a>, to create a new series type, you sub-class one of the Visiblox base-classes, in this case <code>MultiValueSeriesBase </code>is a suitable starting point:</p>
 {% highlight csharp %}
 public class ErrorBarSeries : MultiValueSeriesBase
 {
@@ -237,26 +237,3 @@ private Measurement CreateMeasurement(double x, double y, double error)
 <p>You can edit the values, with the changes reflected immediately in the chart above.</p>
 <p>You can download the sourcecode for the above example here:  <a href='{{ site.github.url }}/archive/2011/10/VisibloxErrorBarSeries.zip'>VisibloxErrorBarSeries.zip</a></p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -97,7 +97,7 @@ public override void OnApplyTemplate()
 {% endhighlight %}
 <p>Here you can see how the needle is scaled by its parent Grid:</p>
 <p><img src="{{ site.github.url }}/archive/2010/08/needle.jpg" alt="" title="needle" width="237" height="232" class="aligncenter size-full wp-image-768" /></p>
-<p>Rotating the needle to reflect the current Gauge Value is achieved quite simply via RotateTransform. However, this needs to be converted into a rotation angle which depends on the Gauge Maximum /Minimum values together with the overall angle of sweep on the gauge. I initially approach this problem by applying bindings via value converters and <a href="http://www.scottlogic.co.uk/blog/colin/2010/08/silverlight-multibinding-updated-adding-support-for-elementname-and-twoway-binding/">multibindings</a>, however I found myself repeating the same conversion logic in numerous places within the template in order to render the ticks etc... Ideally the angle of rotation would be something that the template could bind to. The template DataContext is bound to the Gauge control itself, however as stated earlier I do not want 'circular' concepts to leak into the control.</p>
+<p>Rotating the needle to reflect the current Gauge Value is achieved quite simply via RotateTransform. However, this needs to be converted into a rotation angle which depends on the Gauge Maximum /Minimum values together with the overall angle of sweep on the gauge. I initially approach this problem by applying bindings via value converters and <a href="{{ site.github.url }}/2010/08/12/silverlight-multibinding-updated-adding-support-for-elementname-and-twoway-binding">multibindings</a>, however I found myself repeating the same conversion logic in numerous places within the template in order to render the ticks etc... Ideally the angle of rotation would be something that the template could bind to. The template DataContext is bound to the Gauge control itself, however as stated earlier I do not want 'circular' concepts to leak into the control.</p>
 <h2>An attached View Model</h2>
 <p>The solution I came up with for this problem was to create a view model that lives entirely within the control template that acts as an adapter for the Gauge, supplementing its properties with the needed 'circular' concepts. In keeping with my aims I could not instantiate this view model within the Gauge control itself, so instead it is created via an attached behaviour within the control template:</p>
 {% highlight xml %}
@@ -331,26 +331,3 @@ public double GridHeight
 <p>You can download the full source for this article: <a href='{{ site.github.url }}/archive/2010/08/GaugeControl.zip'>GaugeControl.zip</a></p>
 <p>(Apologies for the lack of project structure, this code was written using VS 2010 Express).</p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -14,7 +14,7 @@ iframe {
 }
 </style>
 
-Every year Scott Logic takes on a number of interns who spend 12 weeks writing code, working on projects and having a great time in the offices. My name is Ruth, and along with Chris Barrett, I am an intern in the Newcastle office; and this summer we’ve been working on creating a real-time financial charting application. The application is built on top of Scott Logic’s own open source [d3fc](http://scottlogic.github.io/d3fc) library, which itself is built upon the increasingly popular [d3.js](http://d3js.org/) (Data driven documents) library for javascript.
+Every year Scott Logic takes on a number of interns who spend 12 weeks writing code, working on projects and having a great time in the offices. My name is Ruth, and along with Chris Barrett, I am an intern in the Newcastle office; and this summer we’ve been working on creating a real-time financial charting application. The application is built on top of Scott Logic’s own open source [d3fc](https://d3fc.io/) library, which itself is built upon the increasingly popular [d3.js](http://d3js.org/) (Data driven documents) library for javascript.
 
 
 Our goal was to create an application similar to many commercial, mid-range chart offerings, and in doing so test the approach and capability of d3fc. Our chart has a number of typical features, including:
@@ -62,7 +62,7 @@ My data is: 16
 
 d3fc is an open source library based on, and influenced by, D3.js. It is built with a variety of re-usable components. There are relatively low-level examples like gridlines, or very many useful chart types, such as the line, bar or area series.
 
-There also are higher level components made out of a number of sub-components, like linearTimeSeries, and components for financial indicators In these components, algorithms calculate new data - such as that needed for a set of Bollinger bands – and a separate renderer will draw it to the screen. Each component has options for customisation and many even allow customisation of the internal logic using the [decorate pattern](http://scottlogic.github.io/d3fc/components/introduction/2-decorate-pattern.html).
+There also are higher level components made out of a number of sub-components, like linearTimeSeries, and components for financial indicators In these components, algorithms calculate new data - such as that needed for a set of Bollinger bands – and a separate renderer will draw it to the screen. Each component has options for customisation and many even allow customisation of the internal logic using the [decorate pattern](https://d3fc.io/introduction/decorate-pattern.html).
 
 For an example of how simple it can be to create charts using d3fc:
 
@@ -76,7 +76,7 @@ d3.select('#an-svg-element')
 
 {% endhighlight %}
 
-<small>More [d3fc examples](http://scottlogic.github.io/d3fc/examples/)</small>
+<small>More [d3fc examples](https://d3fc.io/examples/bubble/)</small>
 
 And that’s it!
 
@@ -167,7 +167,7 @@ function createNewBasket(datum, time) {
 
 ## Creating the Chart
 
-The key component of creating our Primary Chart was a fantastic and easy to use component from d3fc - [multi]( http://scottlogic.github.io/d3fc/components/series/multi.html). This gave us the ability to use multiple components from d3fc and our own code at the same time:
+The key component of creating our Primary Chart was a fantastic and easy to use component from d3fc - [multi](https://d3fc.io/api/series-api.html#multi). This gave us the ability to use multiple components from d3fc and our own code at the same time:
  {% highlight js %}
 var gridlines = fc.annotation.gridline();
 var candlestick = fc.series.candlestick();

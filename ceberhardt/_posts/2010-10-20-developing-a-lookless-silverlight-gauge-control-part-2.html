@@ -17,7 +17,7 @@ source: wordpress
 disqus-id: /blog/colin/2010/10/developing-a-lookless-silverlight-gauge-control-part-2/
 ---
 <p><em>In a previous blog post I described the process of creating a lookless gauge control. I introduced the concept of an attached view model which separates view specific concepts from the control. In this post I demonstrate how this allows for great flexibility when re-templating the control.</em></p>
-<p>In <a href="http://www.scottlogic.co.uk/blog/colin/2010/08/developing-a-very-lookless-silverlight-radial-gauge-control/">my previous post</a> I described the development of a radial gauge control where I removed any view-specific logic and properties from the control by introducing an attached view model into the control's template. My reasons for doing this were to create a completely lookless control in the order that this would permit greater flexibility when re-templating or themeing. The control I created was a gauge control, which in my previous blog post I rendered as a radial gauge. The 'radial concepts' of angle, and other derived properties are contained within the attached view model, with the Gauge control itself only containing concepts that are common across all gauges (radial or otherwise). The control is shown below:</p>
+<p>In <a href="{{ site.github.url }}/2010/08/19/developing-a-very-lookless-silverlight-radial-gauge-control">my previous post</a> I described the development of a radial gauge control where I removed any view-specific logic and properties from the control by introducing an attached view model into the control's template. My reasons for doing this were to create a completely lookless control in the order that this would permit greater flexibility when re-templating or themeing. The control I created was a gauge control, which in my previous blog post I rendered as a radial gauge. The 'radial concepts' of angle, and other derived properties are contained within the attached view model, with the Gauge control itself only containing concepts that are common across all gauges (radial or otherwise). The control is shown below:</p>
 <div style="text-align: center; "><object width="300" height="240" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.github.url }}/archive/2010/10/GaugeControlTwo.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <p>In this post I will create two different templates for this control. The first is a small variation on the radial gauge which is rendered as a semi-circle. The second is very different, a bullet graph, where the gauge is rendered as a linear indicator. With each, an attached view model is introduced into the controls template in order to compute properties that aid in the rendering of the control.</p>
 <p><img src="{{ site.github.url }}/archive/2010/10/BulletAndSemiGauge.jpg" alt="" title="BulletAndSemiGauge" width="400" height="126" class="aligncenter size-full wp-image-869" /></p>
@@ -374,26 +374,3 @@ public class RangeItem
 <p>In conclusion, the use of an attached view model provides a mechanism for exposing view-specific properties to the view logic within the XAML template. This enables the construction of a control which really is entirely lookless.</p>
 <p>You can download the sourcecode for this project:  <a href='{{ site.github.url }}/archive/2010/10/GaugeControl.zip'>GaugeControl.zip</a></p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

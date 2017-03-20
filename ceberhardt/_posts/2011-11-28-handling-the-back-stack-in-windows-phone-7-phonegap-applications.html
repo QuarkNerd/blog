@@ -15,14 +15,14 @@ layout: default_post
 source: wordpress
 disqus-id: /blog/colin/2011/11/handling-the-back-stack-in-windows-phone-7-phonegap-applications/
 ---
-<p>Recently I have been researching the use of PhoneGap for creating HTML5 Windows Phone 7 applications. I have written an <a href="http://www.scottlogic.co.uk/blog/colin/2011/09/developing-windows-phone-7-html5-apps-with-phonegap/" title="Developing Windows Phone 7 HTML5 apps with PhoneGap">introductory post</a> on the subject and also managed to have a <a href="http://www.scottlogic.co.uk/blog/colin/2011/11/property-finder-the-first-html5-based-windows-phone-7-application/" title="Property Finder - the first HTML5-based Windows Phone 7 Application">HTML5-based application accepted into the marketplace</a>.</p>
-<p>The Windows Phone 7 execution model has a few unique features (when compared to Android and iOS) that need to be considered when developing HTML5 applications. The first one, <a href="http://www.scottlogic.co.uk/blog/colin/2011/10/tombstoning-with-phonegap-for-windows-phone-7-and-knockoutjs/" title="Tombstoning with PhoneGap for Windows Phone 7 (and KnockoutJS)">tombstoning</a>, is something I dealt with in an earlier blogpost. In this post I want to look at how to handle the back-button and the application back-stack.</p>
+<p>Recently I have been researching the use of PhoneGap for creating HTML5 Windows Phone 7 applications. I have written an <a href="{{ site.github.url }}/2011/09/29/developing-windows-phone-7-html5-apps-with-phonegap" title="Developing Windows Phone 7 HTML5 apps with PhoneGap">introductory post</a> on the subject and also managed to have a <a href="{{ site.github.url }}/2011/11/07/property-finder-the-first-html5-based-windows-phone-7-application" title="Property Finder - the first HTML5-based Windows Phone 7 Application">HTML5-based application accepted into the marketplace</a>.</p>
+<p>The Windows Phone 7 execution model has a few unique features (when compared to Android and iOS) that need to be considered when developing HTML5 applications. The first one, <a href="{{ site.github.url }}/2011/10/24/tombstoning-with-phonegap-for-windows-phone-7-and-knockoutjs" title="Tombstoning with PhoneGap for Windows Phone 7 (and KnockoutJS)">tombstoning</a>, is something I dealt with in an earlier blogpost. In this post I want to look at how to handle the back-button and the application back-stack.</p>
 <p><img src="{{ site.github.url }}/archive/2011/11/BackStack.png" alt="" title="BackStack" width="600" height="279" class="aligncenter size-full wp-image-1853" /></p>
 <p>With Windows Phone 7, as the user navigates from one page to the next, the latest page is added to the top of a stack (the back-stack). The back-button is used to navigate back through the pages within your application by pulling them from the top of this stack. When the back stack holds a single page, i.e. the initial entry point into your application, pressing the back-button should exit the application.</p>
 <p>So, how do you support this with a HTML5 / PhoneGap application? The PhoneGap APIs expose the <a href="http://docs.phonegap.com/en/1.0.0/phonegap_events_events.md.html#backbutton">back-button as a JavaScript event</a>. If you subscribe to this event, your JavaScript code is notified each time the user hits the back button. Also, if the JavaScript event is subscribed to, the 'native' (C#) event is cancelled, which means application back-stack remains unchanged and your PhoneGap application does not exit.</p>
 <p>In order to emulate the back-stack functionality in a PhoneGap application you need to subscribe to the PhoneGap backbutton when back-navigation is possible within your application, and unsubscribe when it is not. This means that when the user hits the back-button at the entry-point of your application, the application is terminated as expected.</p>
 <h2>A JavaScript Back-Stack</h2>
-<p>In order to handle the PhoenGap backbutton event, I felt the easiest approach would be to structure my JavaScript application so that it more closely resembles a Windows Phone 7 application. I have already discussed in my blog post on <a href="http://www.scottlogic.co.uk/blog/colin/2011/10/tombstoning-with-phonegap-for-windows-phone-7-and-knockoutjs/" title="Tombstoning with PhoneGap for Windows Phone 7 (and KnockoutJS)">tombstoning how this task was made easier by using KnockoutJS</a> to structure my code using the Model-View-ViewModel (MVVM) pattern.</p>
+<p>In order to handle the PhoenGap backbutton event, I felt the easiest approach would be to structure my JavaScript application so that it more closely resembles a Windows Phone 7 application. I have already discussed in my blog post on <a href="{{ site.github.url }}/2011/10/24/tombstoning-with-phonegap-for-windows-phone-7-and-knockoutjs" title="Tombstoning with PhoneGap for Windows Phone 7 (and KnockoutJS)">tombstoning how this task was made easier by using KnockoutJS</a> to structure my code using the Model-View-ViewModel (MVVM) pattern.</p>
 <p>In this blog I'll add further structure to the code, starting with an <code>ApplicationViewModel</code>. This view model contains a stack of view-models, with the one that is at the top of the stack, exposed via the <code>currentViewModel</code> observable property, being the one which is rendered on screen. The ApplicationViewModel also exposes functions for adding to and removing items from this stack:</p>
 {% highlight javascript %}
 function ApplicationViewModel() {
@@ -139,26 +139,3 @@ function onBackButton() {
 <p>This technique for handling the back-stack is simple and elegant, this example has just two simple pages, however this same pattern should scale well for more complex HTML5 applications.</p>
 <p>You can download the full sourcecode here: <a href='{{ site.github.url }}/archive/2011/11/PhoneGapBackStack.zip'>PhoneGapBackStack.zip</a></p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

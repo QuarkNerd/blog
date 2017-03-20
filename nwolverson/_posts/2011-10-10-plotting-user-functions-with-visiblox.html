@@ -13,7 +13,7 @@ layout: default_post
 source: site
 disqus-id: /2011/10/plotting-user-functions-with-visiblox/
 ---
-<p><a href="http://www.scottlogic.co.uk/2011/06/mathematical-style-plots-retemplating-visiblox-charts/">Some time ago</a> I wrote about plotting mathematical functions with Visiblox Charts, and Jesse <a href="http://www.visiblox.com/blog/2011/06/plotting-mathematical-functions-on-visiblox">responded</a> by showing how to wrap a function in a data series to feed into a chart. I'm going to show how to take this idea a bit further, generating additional data on interaction, and allowing the user to specify a function to chart.</p>
+<p><a href="http://blog.scottlogic.com/2011/06/13/mathematical-style-plots-retemplating-visiblox-charts.html">Some time ago</a> I wrote about plotting mathematical functions with Visiblox Charts, and Jesse <a href="http://www.visiblox.com/blog/2011/06/plotting-mathematical-functions-on-visiblox">responded</a> by showing how to wrap a function in a data series to feed into a chart. I'm going to show how to take this idea a bit further, generating additional data on interaction, and allowing the user to specify a function to chart.</p>
 <p><!--more--></p>
 <p>One limitation of the approach Jesse outlined is that the function range (and to a lesser extent its step) are explicitly specified. You can see that if you pan the chart, as this predefined limit is reached we go into uncharted territory (if you'll pardon the pun). What we'd really like to do is view any part of the function output - without generating more function outputs than required. There are two ways that spring to mind: firstly, bind the chart range to the function data range (which requires either making the data series a dependency object, or setting up the binding in reverse/via an intermediary); and secondly, via some magic which I will show below! My goal is to have a dataseries which will wrap a function (<code>double -> double</code> for now) and chart the visible portion as appropriate, requiring no setup other than dropping it into the chart.</p>
 <h4>Basic Function Data Series</h4>
@@ -204,26 +204,3 @@ atomImpl := num <|> var  <|> mathExpr <|> between (sym "(") (sym ")") expr
 <p>Putting it all together:       <object data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="400" height="400"><param name="source" value="{{ site.github.url }}/archive/2011/10/UserFunctionPlotter.xap"/><param name="background" value="white" /><param name="minRuntimeVersion" value="4.0.50826.0" /><param name="autoUpgrade" value="true" /><a href="http://go.microsoft.com/fwlink/?LinkID=149156&v=4.0.50826.0" style="text-decoration:none"> 			  <img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight" style="border-style:none"/>		  </a>	    </object></p>
 <p>(Try writing arithmetic expressions in x using *,/,+,-, sin(), cos() - note spaces are not permitted with this simple parser.)</p>
 <p>The source code to this <a href='{{ site.github.url }}/archive/2011/10/UserFunctionPlotter.zip'>is available here</a>, this requires the free version of Visiblox Charts which can be <a href="http://www.visiblox.com/download">downloaded here</a>.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

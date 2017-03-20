@@ -23,7 +23,7 @@ disqus-id: /blog/graham/2013/03/illusions-in-css/
 </pre>
 <p>This is a variation on a motion illusion originally created by <a href="http://illusionoftheyear.com/2005/motion-illusion-building-blocks/" target="_blank">Arthur Shapiro & Justin Charles</a>.  It appears to us as though the "bracelet of diamonds" is moving around in 3D space, but actually all that is happening is that the fill colours are oscillating between dark and light (while the edge colours stay constant).</p>
 <p>As far as the CSS is concerned, there were a number of interesting parts.  Firstly, <a href="http://css-tricks.com/examples/ShapesOfCSS/" target="_blank">a commonly found way to create a diamond shape</a> involves playing around with a combination of borders and pseudo-elements.  Unfortunately, support for animating pseudo-elements isn't particularly widespread yet so I wasn't able to change the background colour suitably.  Furthermore, this approach meant I had to use wrapper divs to fake up borders... yuck!  Instead, I used a combination of rotation and scaling transforms to achieve a diamond shape with a border, no faking involved!</p>
-<p>Laying out the circle of diamonds was a doddle.  After realising that by appropriately using a translation in the transform sequence you can rotate around different origins, I was able to combine <code>:nth-child</code> selectors and a LESS parametric mixin to create a very simple way of not only creating the diamond shapes but also positioning them.  The mixin looks like this (updated! Thank you <a href="http://www.scottlogic.co.uk/blog/luke-page/">Luke</a>):</p>
+<p>Laying out the circle of diamonds was a doddle.  After realising that by appropriately using a translation in the transform sequence you can rotate around different origins, I was able to combine <code>:nth-child</code> selectors and a LESS parametric mixin to create a very simple way of not only creating the diamond shapes but also positioning them.  The mixin looks like this (updated! Thank you <a href="{{ site.github.url }}/lpage/">Luke</a>):</p>
 {% highlight css %}
 .diamondPosition (@index) {
   @degs: (45deg * @index);
@@ -58,26 +58,3 @@ disqus-id: /blog/graham/2013/03/illusions-in-css/
 <p><em>The full code is available <a href="https://github.com/godds/css-illusions/tree/master/grouping-by-contrast" target="_blank">here</a>.</em></p>
 
 <script async src="http://www.codepen.io/assets/embed/ei.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

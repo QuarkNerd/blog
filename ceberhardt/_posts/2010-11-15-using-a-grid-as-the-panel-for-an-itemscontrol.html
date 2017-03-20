@@ -78,7 +78,7 @@ private static void OnItemsPerRowPropertyChanged(DependencyObject d,
     };
 }
 {% endhighlight %}
-<p>Note the use of a lambda expression for the event handler in order to 'capture' a reference to the Grid (as described in my previous blog post on <a href="http://www.scottlogic.co.uk/blog/colin/2010/07/exposing-and-binding-to-a-silverlight-scrollviewer%E2%80%99s-scrollbars/">binding the ScrollViewers offset properties</a>).</p>
+<p>Note the use of a lambda expression for the event handler in order to 'capture' a reference to the Grid (as described in my previous blog post on <a href="{{ site.github.url }}/2010/07/21/exposing-and-binding-to-a-silverlight-scrollviewers-scrollbars">binding the ScrollViewers offset properties</a>).</p>
 <p>Changing our markup to use the above attached property:</p>
 {% highlight xml %}
 <ItemsControl ItemsSource="{Binding}">
@@ -271,26 +271,3 @@ private static void OnItemsSourcePropertyChanged(DependencyObject d,
 <p>If anyone has any ideas on how to improve on this technique, please leave a comment below:</p>
 <p>You can download the full project sourcecode: <a href='{{ site.github.url }}/archive/2010/11/ItemsControlGrid.zip'>ItemsControlGrid.zip</a></p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

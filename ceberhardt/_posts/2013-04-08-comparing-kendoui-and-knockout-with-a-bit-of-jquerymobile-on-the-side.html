@@ -19,10 +19,10 @@ disqus-id: /blog/colin/2013/04/comparing-kendoui-and-knockout-with-a-bit-of-jque
 <h2>Introduction</h2>
 <p>I've always been a big fan of Knockout, most likely because it reminds me of Silverlight (rest in peace).</p>
 <blockquote><p>For my thoughts on how Silverlight and Knockout compare, head over to codeproject where I wrote <a href="http://www.codeproject.com/Articles/365120/KnockoutJS-vs-Silverlight">quite a lengthy article on the subject</a>.</p></blockquote>
-<p>More recently I have been dabbling with the use of Knockout for writing mobile applications. Because Knockout is an MVVM framework and doesn't have any UI components of its own, I used a combination of jQuery Mobile (jQM) and Knockout. I must admit, the integration of these two frameworks <a href="http://www.scottlogic.co.uk/blog/colin/2012/10/integrating-knockout-and-jquerymobile/">wasn't entirely painless</a>!.</p>
+<p>More recently I have been dabbling with the use of Knockout for writing mobile applications. Because Knockout is an MVVM framework and doesn't have any UI components of its own, I used a combination of jQuery Mobile (jQM) and Knockout. I must admit, the integration of these two frameworks <a href="{{ site.github.url }}/2012/10/23/integrating-knockout-and-jquerymobile">wasn't entirely painless</a>!.</p>
 <p>It is the integration pain I experienced with jQM and Knockout that has resulted in my interest in KendoUI. </p>
 <p>KendoUI (<a href="http://www.kendoui.com/">www.kendoui.com</a>) is a commercial JavaScript framework that includes web and mobile UI widgets together with an MVVM framework, which, on initial inspection, closely resembles Knockout. The promise of an MVVM framework and mobile widgets that play nicely together is quite appealing!</p>
-<p>In order to compare Kendo with Knockout + jQM I re-implemented the twitter-search application that <a href="http://www.scottlogic.co.uk/blog/colin/2012/10/integrating-knockout-and-jquerymobile/">I blogged about a few months ago</a>. The rest of this blog post is a collection of thoughts, commentary on the differences and personal opinions.</p>
+<p>In order to compare Kendo with Knockout + jQM I re-implemented the twitter-search application that <a href="{{ site.github.url }}/2012/10/23/integrating-knockout-and-jquerymobile">I blogged about a few months ago</a>. The rest of this blog post is a collection of thoughts, commentary on the differences and personal opinions.</p>
 <p>The two version of the code are available on github:</p>
 <ul>
 <li><a href="https://github.com/ColinEberhardt/Knockout-jQueryMobile">https://github.com/ColinEberhardt/Knockout-jQueryMobile</a></li>
@@ -188,7 +188,7 @@ this.recentSearches.unshift({ searchString: this.searchTerm });
 <p>Again, a pretty minor limitation.</p>
 <h3><a id="widgets"></a>Kendo has its own UI widgets!</h3>
 <p>So far much of my discussion has focussed on Knockout features which Kendo does not support. However, Kendo is much more than just an MVVM framework, it includes a large number of web and mobile UI widgets.</p>
-<p>In the context of this comparison, I integrated jQM with Knockout to create my mobile UI - and as I mentioned earlier, <a href="http://www.scottlogic.co.uk/blog/colin/2012/10/integrating-knockout-and-jquerymobile/">this integration was pretty painful</a>. In contrast, the Kendo UI Mobile framework integrates seamlessly with the Kendo MVVM framework - as you might expected!</p>
+<p>In the context of this comparison, I integrated jQM with Knockout to create my mobile UI - and as I mentioned earlier, <a href="{{ site.github.url }}/2012/10/23/integrating-knockout-and-jquerymobile">this integration was pretty painful</a>. In contrast, the Kendo UI Mobile framework integrates seamlessly with the Kendo MVVM framework - as you might expected!</p>
 <h3><a id="dom"></a>Kendo UI does not mangle the DOM</h3>
 <p>While we are on the subject of the UI, one of the features of jQM that I really disliked is the way that it totally mangles the DOM.</p>
 <p>In order to support the jQM styling it requires a large number of 'supporting' elements. As an example a button is transformed from this:</p>
@@ -229,7 +229,7 @@ this.recentSearches.unshift({ searchString: this.searchTerm });
 <p>This is just one example of many - jQM is a <em>big</em> framework.</p>
 <h3><a id="themes"></a>Kendo supports multiple mobile themes</h3>
 <p>The jQM UI is designed to look at home on iOS devices, which is just fine for the ~30% of people who own an iPhone. However, this UI just looks plain wrong on an Android or Windows Phone. </p>
-<p>There are a few open source Android themes for jQM, but I didn't get a satisfactory result with any of them. Also, Microsoft have <a href="http://www.scottlogic.co.uk/blog/colin/2012/04/introducing-the-jquery-mobile-metro-theme/">contributed a Metro theme to jQM, but it is rather ugly</a>!</p>
+<p>There are a few open source Android themes for jQM, but I didn't get a satisfactory result with any of them. Also, Microsoft have <a href="{{ site.github.url }}/2012/04/30/introducing-the-jquery-mobile-metro-theme">contributed a Metro theme to jQM, but it is rather ugly</a>!</p>
 <p>In contrast, Kendo supports iOS, Android, BlackBerry and Windows Phone, <a href="http://demos.kendoui.com/mobile/overview/index.html#/">as shown on their online demo</a>. This is pretty neat!</p>
 <h3><a id="datasource"></a>Kendo has a datasource concept</h3>
 <p>With the Knockout + jQM application I wrote a very simple <code>TwitterSearchService</code> which acts as a datasource. The Kendo framework has a <a href="http://docs.kendoui.com/getting-started/framework/datasource/overview"><code>DataSource</code> component</a> which makes integrating with services such as Twitter much easier, you typically provide configuration to the <code>DataSource </code>and it does the rest. Also, the UI components like the <code>ListView </code>integrate directly with the <code>DataSource</code>, with features like pull-to-load-more available out-of-the-box.</p>
@@ -242,27 +242,3 @@ this.recentSearches.unshift({ searchString: this.searchTerm });
 <p>I certainly prefer the Knockout implementation of MVVM, I find it more powerful and flexible than the Kendo equivalent. However, Kendo's MVVM framework is certainly adequate.</p>
 <p>When it comes to building mobile applications, the fully integrated Kendo solution has some pretty big advantages over Knockout and jQuery Mobile.</p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

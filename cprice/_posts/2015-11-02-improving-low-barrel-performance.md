@@ -178,7 +178,7 @@ Currently the chart mixes HTML and SVG nodes to produce the desired layout (styl
 
 Interlacing the reads and writes of layout-sensitive DOM properties, causes multiple reflows. In this case the `.layout()` call within each chart first triggers a synchronous layout by attempting to measure the containing element (via `fc.util.innerDimensions`) and then, by setting SVG attributes (`width`/`height`), triggers a layout invalidation.
 
-We can avoid these multiple reflows by removing the multiple calls to `fc.util.innerDimensions`. Internally, the `.layout()` logic has been enhanced (as [described here](http://d3fc.io/components/layout/layout.html)) to only measure a node if it hasn't already been assigned dimensions by a `.layout()` call to an ancestor node. Therefore we can remove all but the first call to `fc.util.innerDimensions` by moving all of the chart panels into one top-level SVG node rather than mixing DOM layout with SVG `.layout()` -
+We can avoid these multiple reflows by removing the multiple calls to `fc.util.innerDimensions`. Internally, the `.layout()` logic has been enhanced to only measure a node if it hasn't already been assigned dimensions by a `.layout()` call to an ancestor node. Therefore we can remove all but the first call to `fc.util.innerDimensions` by moving all of the chart panels into one top-level SVG node rather than mixing DOM layout with SVG `.layout()` -
 
 {% highlight html %}
 <svg id="container">
@@ -209,7 +209,7 @@ render();
 
 ## Avoiding layout calculations altogether
 
-Whilst removing the forced synchronous layouts speeds things up, there's still a non-zero cost to the `.layout()` code. As layout code is not required for the vast majority of chart operations (with the exception of e.g. resizing), the `.layout()` code has also been modified internally to respect a flag which allows for suspending it manually (as [described here](http://d3fc.io/components/layout/layout.html)).
+Whilst removing the forced synchronous layouts speeds things up, there's still a non-zero cost to the `.layout()` code. As layout code is not required for the vast majority of chart operations (with the exception of e.g. resizing), the `.layout()` code has also been modified internally to respect a flag which allows for suspending it manually.
 
 {% highlight js %}
 var render = fc.util.render(function() {
@@ -225,7 +225,7 @@ This could be considered a cheat based on the initial requirements of rendering 
 
 ## The results
 
-The [example on the website](http://d3fc.io/examples/low-barrel/index.html) is now updated with the performance fixes above. There are still some performance issues I'd like to investigate on older browsers and certain mobile platforms, but it renders much more consistently at 60fps on most platforms/browsers.
+There are still some performance issues I'd like to investigate on older browsers and certain mobile platforms, but it renders much more consistently at 60fps on most platforms/browsers.
 
 <img src="{{ site.github.url }}/cprice/assets/low-barrel/timeline-1.png" alt="Chrome's Timeline" width="878"/>
 

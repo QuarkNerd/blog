@@ -202,7 +202,7 @@ public class ValuesController : Controller
 }
 {% endhighlight %}
 
-My first observation was the base class. Pretty much all Web API 2 controllers inherit from `ApiController` but [`Controller`](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNet.Mvc.ViewFeatures/Controller.cs) is the base class in the new world. In MVC 6 the same `Controller` base class can be used whether you are writing a RESTful API or an MVC website. The framework also supports [POCO](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object) controllers so you can remove the base class completely and a request to 'api/values' will still work. This is made possible by [convention based controller discovery](http://www.strathweb.com/2015/04/asp-net-mvc-6-discovers-controllers/), which is completely pluggable.
+My first observation was the base class. Pretty much all Web API 2 controllers inherit from `ApiController` but [`Controller`](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.ViewFeatures/Controller.cs) is the base class in the new world. In MVC 6 the same `Controller` base class can be used whether you are writing a RESTful API or an MVC website. The framework also supports [POCO](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object) controllers so you can remove the base class completely and a request to 'api/values' will still work. This is made possible by [convention based controller discovery](http://www.strathweb.com/2015/04/asp-net-mvc-6-discovers-controllers/), which is completely pluggable.
 
 ### ControllerBase
 
@@ -466,7 +466,7 @@ Note that we always have the option of creating a concrete implementation of `IA
 
 Incidentally, RC1 does not provide a helper method for creating a `NoContentResult` but [Microsoft have since added one](https://github.com/aspnet/Mvc/blame/2063356f2442cee3c538bd2abc47b6cbbef7cf3a/src/Microsoft.AspNet.Mvc.Core/ControllerBase.cs#L286). The usefulness of this helper is questionable, but it looks like it will be part of  `ControllerBase` in RC2.
 
-These should all feel familiar enough to Web API 2 developers (although I admit that `CreatedAtRoute()` was new to me). There are plenty of other helpers that will be familiar to MVC and Web API 2 developers alike so it would be worth checking out the source code for [`Controller`](https://github.com/aspnet/Mvc/blob/master/src/Microsoft.AspNet.Mvc.ViewFeatures/Controller.cs) or [`ControllerBase`](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNet.Mvc.Core/ControllerBase.cs) to see what is available.
+These should all feel familiar enough to Web API 2 developers (although I admit that `CreatedAtRoute()` was new to me). There are plenty of other helpers that will be familiar to MVC and Web API 2 developers alike so it would be worth checking out the source code for [`Controller`](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.ViewFeatures/Controller.cs) or [`ControllerBase`](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.Core/ControllerBase.cs) to see what is available.
 
 ### Other return types
 

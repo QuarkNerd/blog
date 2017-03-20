@@ -115,7 +115,7 @@ For example, take this excerpt from [an article by Rachel Andrew](http://alistap
 
 *The blue text inherently stands out to us*
 
-Because our seeing similarly coloured elements as being part of a group (see the [Gestalt Principles](http://en.wikipedia.org/wiki/Gestalt_psychology#Gestalt_laws_of_grouping), for more, the Head of UX Practice at Scott Logic Graham Odds’ [presentation on data visualisation]({{ site.github.url }}/2013/08/09/the-science-behind-data-visualisation.html)), we see the blue text ‘Cascading To Do List’ as inherently different from the surrounding text.  This difference draws our attention, signifying that there may be something functionally different about it.  If we move our cursor over this blue text, we trigger more actions:
+Because our seeing similarly coloured elements as being part of a group (see the [Gestalt Principles](https://en.wikipedia.org/wiki/Gestalt_psychology#Gestalt_laws_of_grouping), for more, the Head of UX Practice at Scott Logic Graham Odds’ [presentation on data visualisation]({{ site.github.url }}/2013/08/09/the-science-behind-data-visualisation.html)), we see the blue text ‘Cascading To Do List’ as inherently different from the surrounding text.  This difference draws our attention, signifying that there may be something functionally different about it.  If we move our cursor over this blue text, we trigger more actions:
 
 <img src="{{ site.github.url }}/sduncan/assets/2014-02-04-intro-to-ixd/underline.png" alt="underlined link" class="aligncenter" />
 
@@ -134,27 +134,3 @@ Our cursor changes from a regular arrow to a pointer-finger; simultaneously, an 
 Leveraging our understanding of how real material/'content' would appear if it was leaving our field of view/sight, these tiles continue off the viewport, hinting that there is more content to be had in that direction.  There are no explicit cues at work here; nothing is explicitly stating “Scroll to the right to discover more content”.  The tiles and their nested content being clipped by the edge of the viewport subconsciously imply this.
 
 Unlike the train toilet door, but like the push plate, these forms of digital interfaces afford; they do not insist. Breakdowns in interaction design often begin with a poor use of affordance. Forcing users to stop and consider how to achieve their task takes them away from their reasons for performing their task to begin with. Strong interaction design is born from a strong use of affordance. Affording users to subconsciously understand how while focusing on the more important what and why leads towards a positive experience.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

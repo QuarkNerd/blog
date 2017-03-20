@@ -95,7 +95,7 @@ private static void OnVerticalOffsetPropertyChanged(DependencyObject d,
   }
 }
 {% endhighlight %}
-<p>Firstly, we check whether we have already got a reference to the scrollbar, if not, we attached a LayoutUpdated event handler. But instead of defining this handler as a method, it is written as an  lambda expression (i.e. an anonymous delegate), so that the ScrollViewer reference is <a href="http://diditwith.net/PermaLink,guid,235646ae-3476-4893-899d-105e4d48c25b.aspx">captured using closure</a>.</p>
+<p>Firstly, we check whether we have already got a reference to the scrollbar, if not, we attached a LayoutUpdated event handler. But instead of defining this handler as a method, it is written as an  lambda expression (i.e. an anonymous delegate), so that the ScrollViewer reference is captured using closure.</p>
 <p>When the LayoutUpdated event is fired the following method is invoked:</p>
 {% highlight csharp %}
 /// <summary>
@@ -136,7 +136,7 @@ private static ScrollBar GetScrollBar(FrameworkElement fe, Orientation orientati
 
 }
 {% endhighlight %}
-<p>The GetScrollBar method is invoked, which then uses <a href="http://www.scottlogic.co.uk/blog/colin/2010/03/linq-to-visual-tree/">Linq-to-VisualTree</a> to walk the descendants of the ScrollViewer in an attempt  to find scrollbars of a given orientation. If one is found, it is stored in the private attached property. We also subscribe to the events which the scrollbar raises when its value changes, in order to update the VerticalOffsetProperty. Again, a lambda expression is used to capture the ScrollViewer which this scrollbar is associated with, so that we do not have to store a relationship from scrollbar to scrollviewer.</p>
+<p>The GetScrollBar method is invoked, which then uses <a href="{{ site.github.url }}/2010/03/04/linq-to-visual-tree">Linq-to-VisualTree</a> to walk the descendants of the ScrollViewer in an attempt  to find scrollbars of a given orientation. If one is found, it is stored in the private attached property. We also subscribe to the events which the scrollbar raises when its value changes, in order to update the VerticalOffsetProperty. Again, a lambda expression is used to capture the ScrollViewer which this scrollbar is associated with, so that we do not have to store a relationship from scrollbar to scrollviewer.</p>
 <p>As an aside, it would have been a bit more elegant to use binding to connect our VerticalScrollOffset to the scrollbar value as follows:</p>
 {% highlight csharp %}
 scroll.SetBinding(ScrollBar.ValueProperty,
@@ -158,26 +158,3 @@ scroll.SetBinding(ScrollBar.ValueProperty,
 <div id="slPluginHost1" > <object id="SilverlightPlugin1" width="400" height="180" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.github.url }}/archive/2010/07/ScrollOffsetBinding.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <p>You can download the complete sourcecode for this blog post: <a href='{{ site.github.url }}/archive/2010/07/ScrollOffsetBinding.zip'>ScrollOffsetBinding.zip</a></p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

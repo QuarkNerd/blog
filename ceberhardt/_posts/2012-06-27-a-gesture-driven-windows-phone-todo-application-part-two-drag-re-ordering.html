@@ -15,12 +15,12 @@ layout: default_post
 source: wordpress
 disqus-id: /blog/colin/2012/06/a-gesture-driven-windows-phone-todo-application-part-two-drag-re-ordering/
 ---
-<p><em>A couple of weeks ago <a href="http://www.scottlogic.co.uk/blog/colin/2012/06/a-gesture-driven-windows-phone-to-do-application/" title="A gesture-driven Windows Phone to-do application">I blogged about a todo list application</a> which uses gestures to achieve its basic functions, a left swipe deletes an item, while a right-swipe marks it as complete. In this blog post I am adding re-ordering which is initiated via a tap-and-hold gesture and performed via a drag.</em></p>
+<p><em>A couple of weeks ago <a href="{{ site.github.url }}/2012/06/06/a-gesture-driven-windows-phone-to-do-application" title="A gesture-driven Windows Phone to-do application">I blogged about a todo list application</a> which uses gestures to achieve its basic functions, a left swipe deletes an item, while a right-swipe marks it as complete. In this blog post I am adding re-ordering which is initiated via a tap-and-hold gesture and performed via a drag.</em></p>
 <p>As mentioned previously, this application is heavily inspired by the <a href="http://www.realmacsoftware.com/clear/">iPhone application Clear</a>, who I give full credit for coming up with such an innovative user-interface design. This blog post is for fun an education, you are strictly prohibited from using this as the basis of a 'Clear' clone for WP7.</p>
 <p>The video below shows the application so far, with the new re-order functionality:</p>
 <p><iframe width="480" height="360" src="http://www.youtube.com/embed/Hd2szlUmwyA" frameborder="0" allowfullscreen></iframe></p>
 <h3>Initiating a Drag</h3>
-<p>In the <a href="http://www.scottlogic.co.uk/blog/colin/2012/06/a-gesture-driven-windows-phone-to-do-application/" title="A gesture-driven Windows Phone to-do application">previous blog post</a> we saw how the Toolkit <code>GestureListener </code>can be used to convert the low-level manipulation events into high level gestures. In order to initiate an item drag we could use the Hold event that the <code>GestureListener </code>exposes. The Hold event is fired when the user taps and holds the location of their finger for a few seconds. When I published my previous blogpost one of my readers <a href="http://www.scottlogic.co.uk/blog/colin/2012/06/a-gesture-driven-windows-phone-to-do-application/#comment-104611">Simon (Darkside) Jackson kindly pointed out</a> that some of the gesture events are now supported by <code>FrameworkElement </code>directly, <code>Hold </code>is one such event. For this reason I'll use <code>FrameworkElement.Hold</code>, the equivalent event on <code>GestureListener </code>should be considered deprecated. </p>
+<p>In the <a href="{{ site.github.url }}/2012/06/06/a-gesture-driven-windows-phone-to-do-application" title="A gesture-driven Windows Phone to-do application">previous blog post</a> we saw how the Toolkit <code>GestureListener </code>can be used to convert the low-level manipulation events into high level gestures. In order to initiate an item drag we could use the Hold event that the <code>GestureListener </code>exposes. The Hold event is fired when the user taps and holds the location of their finger for a few seconds. When I published my previous blogpost one of my readers <a href="{{ site.github.url }}/2012/06/06/a-gesture-driven-windows-phone-to-do-application#post-932621365">Simon (Darkside) Jackson kindly pointed out</a> that some of the gesture events are now supported by <code>FrameworkElement </code>directly, <code>Hold </code>is one such event. For this reason I'll use <code>FrameworkElement.Hold</code>, the equivalent event on <code>GestureListener </code>should be considered deprecated. </p>
 <p>The easiest way to allow the user to 'pick up' and drag the item is to clone it using a <code>WriteableBitmap</code>, hiding the original. This technique allows us to place the item at a higher Z-index than the list which it comes from, so that it will always be top-most as it is moved up and down the list.</p>
 <p>We'll add the element that is used to render the dragged item to the XAML:</p>
 {% highlight xml %}
@@ -172,7 +172,7 @@ private ScrollViewer VerticalScrollViewer
   }
 }
 {% endhighlight %}
-<p>The above code needs to take the current scroll location into consideration, which is why the ScrollViewer property above uses <a href="http://www.scottlogic.co.uk/blog/colin/2010/03/linq-to-visual-tree/" title="Linq to Visual Tree">Linq-to-VisualTree</a> to find the <code>ScrollViewer </code>that the <code>ItemsControl </code>generates to hosts our elements.</p>
+<p>The above code needs to take the current scroll location into consideration, which is why the ScrollViewer property above uses <a href="{{ site.github.url }}/2010/03/04/linq-to-visual-tree" title="Linq to Visual Tree">Linq-to-VisualTree</a> to find the <code>ScrollViewer </code>that the <code>ItemsControl </code>generates to hosts our elements.</p>
 <p><code>ShuffleItemsOnDrag </code>is where the fun begins, we want to create an effect where the dragged item 'pushes' the other items out of the way as it hovers over them, giving the impression that the list is re-ordering as we drag.</p>
 <p>The method below iterates over all of the items in the list to determine whether they need to be offset. An item needs to be offset if it is between the current dragged item index and the items original location.</p>
 {% highlight csharp %}
@@ -294,26 +294,3 @@ private void AutoScrollList()
 <p>And finally, we are all done! With our todo application you can use flick and drag gestures to mark items as complete or delete them, and now use hold and drag to re-order. I think it's about time I made it so that you can add or edit items. We'll get to that next time!</p>
 <p>You can download the sourcecode here: <a href='{{ site.github.url }}/archive/2012/06/ClearStyle1.zip'>ClearStyle.zip</a></p>
 <p>Regards, Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -171,7 +171,7 @@ If connecting over HTTPS, the protocol negotiation is handled by the
 [TLS-ALPN][7] extension, which causes the protocol to be decided during the TLS
 handshake.
 
-[7]: <http://tools.ietf.org/html/rfc7301>
+[7]: <https://tools.ietf.org/html/rfc7301>
 
 Encryption
 ----------
@@ -198,7 +198,7 @@ re-encrypt your traffic, for caching purposes. This has obviously caused a
 further outcry over privacy concerns, and while it currently does not have a
 resolution it looks unlikely the proposal will be adopted in its current state.
 
-[9]: <http://tools.ietf.org/html/draft-loreto-httpbis-trusted-proxy20-01>
+[9]: <https://tools.ietf.org/html/draft-loreto-httpbis-trusted-proxy20-01>
 
 A Binary protocol
 -----------------
@@ -216,7 +216,7 @@ simply the complexity of knowing when a [message][11] [ends][12].
 
 [10]: <https://www.owasp.org/index.php/HTTP_Response_Splitting>
 
-[11]: <http://tools.ietf.org/html/draft-ietf-httpbis-p1-messaging-25\#section-3.3.3>
+[11]: <https://tools.ietf.org/html/draft-ietf-httpbis-p1-messaging-25#section-3.3.3>
 
 [12]: <http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.4>
 
@@ -245,26 +245,3 @@ also amplify things such as packet loss on the connection.
 But overall, what's clear is that because HTTP/2 can plug in silently beside
 HTTP/1, we're going to see a slow and undramatic adoption over the next few
 years, possibly decades. The web will continue to do what it does: evolve.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

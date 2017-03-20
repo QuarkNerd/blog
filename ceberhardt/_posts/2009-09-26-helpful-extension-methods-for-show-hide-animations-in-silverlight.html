@@ -63,7 +63,7 @@ public static void Hide(this FrameworkElement element)
 }
 {% endhighlight %}
 <p>What each of these extension methods does is check for the presence of a <code>Storyboard</code> named <code>"ShowAnim"</code> or <code>"HideAnim"</code>, prefixed with the element name in order to ensure uniqueness. If the storyboard is present, the animation is played. Otherwise, the element visibility is set directly. This is a very useful feature, in that the <code>Show() </code>and<code> Hide()</code> extension methods can be used if you want to change an elements visibility without animation. If, at a  later date, you then decide that you want this change in visibility to be animated, you simple add a storyboard to the XAML, without having to change the code. </p>
-<p>Here is a simple example based on a <a href="http://www.scottlogic.co.uk/blog/colin/2009/03/adding-a-location-crosshair-to-silverlight-charts-again/">previous blog post of mine</a>:</p>
+<p>Here is a simple example based on a <a href="{{ site.github.url }}/2009/03/23/adding-a-location-crosshair-to-silverlight-charts-again">previous blog post of mine</a>:</p>
 <div id="slPluginHost" > <object id="SilverlightPlugin" width="400" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.github.url }}/archive/2009/09/SLLineChartCrossHair.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <p>Here is a XAML snippet from the example:</p>
 {% highlight xml %}
@@ -106,26 +106,3 @@ private void CrosshairContainer_MouseLeave(object sender, MouseEventArgs e)
 {% endhighlight %}
 <p>You can download the full sourcecode for the example project: <a href='{{ site.github.url }}/archive/2009/09/showHideAnimations.zip'>showHideAnimations.zip</a>.</p>
 <p>Regards,Colin E.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

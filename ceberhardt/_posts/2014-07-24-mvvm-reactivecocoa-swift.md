@@ -25,7 +25,7 @@ This blog post isn't going to describe the workings of this app in detail. For t
 
 ## A Quick MVVM Refresher
 
-This app uses the Model-View-ViewModel ([MVVM](http://en.wikipedia.org/wiki/Model_View_ViewModel)) pattern. At the core of this pattern is the ViewModel which is a special type of model that represents the UI state of the application. It contains properties that detail the state of each and every UI control, for example the current text for a text field or whether a specific button is enabled. It also exposes the actions that the view is able to perform, for example button taps or gestures.
+This app uses the Model-View-ViewModel ([MVVM](https://en.wikipedia.org/wiki/Model_View_ViewModel)) pattern. At the core of this pattern is the ViewModel which is a special type of model that represents the UI state of the application. It contains properties that detail the state of each and every UI control, for example the current text for a text field or whether a specific button is enabled. It also exposes the actions that the view is able to perform, for example button taps or gestures.
 
 <img src="{{ site.github.url }}/ceberhardt/assets/MVVMSwift/MVVMPattern.png" />
 

@@ -17,7 +17,7 @@ If you are interested in my experiences with this tool - read on ...
 
 ## App Studio - Hardly a Groundbreaking Idea!
 
-Recently there has been a veritable explosion of rapid app-builder solutions. When I attended [last year's AppsWorld event](http://www.shinobicontrols.com/blog/posts/2012/10/08/shinobicontrols-and-the-apps-world-experience/), there were at least ten such companies exhibiting, including [Snappii](https://www.snappii.com/search.aspx), [AnyPresence](http://www.anypresence.com/), and [TheAppBuilder](http://www.theappbuilder.com/). It's easy to see how these solutions are quite appealing - everyone seems to want to have a presence in the App Store and Marketplaces. However, a professionally produced app will cost thousands of pounds to produce. These app-builders provide a very low cost alternative, and will often produce cross platform apps as a bonus.
+Recently there has been a veritable explosion of rapid app-builder solutions. When I attended [last year's AppsWorld event](http://www.shinobicontrols.com/blog/posts/2012/10/08/shinobicontrols-and-the-apps-world-experience/), there were at least ten such companies exhibiting, including [Snappii](https://www.snappii.com/search.aspx), [AnyPresence](http://www.anypresence.com/), and [TheAppBuilder](https://www.theappbuilder.com/). It's easy to see how these solutions are quite appealing - everyone seems to want to have a presence in the App Store and Marketplaces. However, a professionally produced app will cost thousands of pounds to produce. These app-builders provide a very low cost alternative, and will often produce cross platform apps as a bonus.
 
 I've been meaning to give these app-builder solutions a try for a long time now. It is clear that developing apps through system that don't require programming knowledge will result in some limitations, but I have no idea how limiting this approach is. The App Studio has given me an excuse to give rapid app-building a try ...
 
@@ -40,7 +40,7 @@ Time for a re-think ... instead I decided to re-implement [SandwichFlow]({{ site
 ## Adding Content
 
 Once you select a template, you proceed to the next screen where you add content. The App Studio has the concept of datasource, which can be RSS feeds, or static data, which you add directly via the web interface:
- 
+
 <img src="{{ site.github.url }}/ceberhardt/assets/SandwichFlowContent.png" alt="App Studio Content Editing"/>
 
 At this point you can add / remove datasources and add pages that render this data. I did find that regardless of which template you select at the start, you basically end up with the same structure. In other words, the templates provide suggestions for how you might use App Studio, however, each results in the same 'panorama' style application.
@@ -73,7 +73,7 @@ Once your content and layout is complete you move onto styling your app. At this
 
 Again, this is pretty limited, you cannot change fonts for example.
 
-The changes you make are reflected in the web preview, which is a welcome feature. 
+The changes you make are reflected in the web preview, which is a welcome feature.
 
 ## Generating Your App
 
@@ -95,9 +95,9 @@ So, what did the final SandwichFlow app look like?
 
 I've recorded a brief video of the app which you can see on [YouTube](https://www.youtube.com/watch?v=nZMGrKI91ck). As you can see, it is pretty basic and uninspiring. Because I got bored of adding static data, I also included an RSS feed from my blog. The finished app works just as you would expect and looks very similar to the web-based previews. However, I did have an issue with the splashscreen image dimensions, which you can see in the video, there are no indications or hints on the web interface regarding what the dimensions should be.
 
-As a developer, I of course know the correct dimensions, and could easily fix this, although I do wonder whether the target audience for App Studio would have this knowledge? 
+As a developer, I of course know the correct dimensions, and could easily fix this, although I do wonder whether the target audience for App Studio would have this knowledge?
 
-## Make 'personal apps' central to App Studio 
+## Make 'personal apps' central to App Studio
 
 The App Studio is in beta, so I am going to avoid picking too many holes in it. As a general observation, the idea of a web-based app-generator is not a new one, and existing commercial offerings have the cross-platform advantage.
 
@@ -108,26 +108,3 @@ Personally I think the most powerful and interesting feature of the App Studio i
 The templates should be changed so that they do not just pre-populate the layout / content. Instead, each template should produce a distinct 'type' of application. For example; A 'Photo Album' template that makes it very easy for people to bulk-upload images, with an application that allows pinch-zoom and social media sharing. A "My Trip", template which allows you to share memories of a holiday, with a travel-blog style interface.
 
 If Microsoft make it really easy to create and share personal apps, they might be onto a winner. At the moment App Studio tries to be too generic and versatile. Unfortunately the end result is an interface that makes it hard to create a decent application of any type.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
