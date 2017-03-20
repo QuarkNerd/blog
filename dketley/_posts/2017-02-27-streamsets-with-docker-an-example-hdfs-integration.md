@@ -1,5 +1,7 @@
 ---
 author: dketley
+contributors: 
+ - jwhite
 title: StreamSets with Docker - an example HDFS integration
 tags:
  - Docker

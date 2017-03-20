@@ -32,6 +32,7 @@ active-authors:
   - jdunkerley
   - jharris
   - jhill
+  - jwhite
   - lcollingwood
   - lpage
   - mdunsdon
@@ -456,3 +457,7 @@ authors:
         email: msuperina@scottlogic.com
         gravatar: 4c10e298294956f7d395af53cdde07e2
         twitter-url: https://twitter.com/marziosuperina
+    jwhite:
+      name: James White
+      email: jwhite:scottlogic.com
+      gravatar: fc543a54ca224e361b6db5b238771703
