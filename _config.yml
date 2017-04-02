@@ -45,3 +45,12 @@ exclude:
 #github:
 #    url: http://blog.scottlogic.com
 #    owner_name: ScottLogic
+#
+
+# Uncomment the lines below to enable requried Jekyll plugins when building locally.
+#gems:
+#    - jekyll-gist
+#    - jekyll-paginate
+#whitelist:
+#    - jekyll-gist
+#    - jekyll-paginate
