@@ -31,7 +31,7 @@ var zoom = d3.behavior.zoom()
 
 Here, we're passing in the time scale of our chart (`xScale`) as the scale that the zoom behaviour should operate on. The zoom behaviour will automatically adjust the domain of the scale when zooming. We'll handle the zooming itself in the `zoomed` function.
 
-In the <a href="{{site.github.url}}{% post_url 2014-08-19-an-ohlc-chart-component-for-d3 %}">earlier OHLC post</a>, we set up a static chart with an OHLC series in a group element which we called the 'plotArea'. Now we'll put another element in this group - a `rect` element with the same width and height as the 'plotArea'. We'll call the zoom behaviour on this element.
+In the <a href="{{site.github.url}}{% post_url tsimmons/2014-08-19-an-ohlc-chart-component-for-d3 %}">earlier OHLC post</a>, we set up a static chart with an OHLC series in a group element which we called the 'plotArea'. Now we'll put another element in this group - a `rect` element with the same width and height as the 'plotArea'. We'll call the zoom behaviour on this element.
 
 {% highlight javascript %}
 plotArea.append('rect')

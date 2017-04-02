@@ -67,8 +67,9 @@ I wanted my GoViolin app to be able to respond to a request for a scale and disp
 3. Allow the user to make a selection.
 4. Respond based on the user's selection.
 
-
+{% raw %}
 For steps 1 and 2, generating the radio buttons and displaying them, I was able to accomplish this using a template and {{range}} to generate a series of radio buttons using values stored in a struct.
+{% endraw %}
 
 For step 3, when the user makes a selection, I wanted to send the user's selection in a POST request to the back-end. I was able to do this by creating a form and using jquery to submit the form when a radio button is changed.
 
@@ -78,7 +79,9 @@ I have written some code to demonstrate how a web app can respond to a request. 
 
 <script src="https://gist.github.com/Rosalita/41abfd1d8f7d84dea0265bc6ee5f1a6c.js"></script>
 
+{% raw %}
 Lets start by looking at select.html this the template which will be used to generate both pages (the page that asks the user for their input and also the page that responds to their input and displays their answer). The select.html template uses {{with}} and {{end}} tags to define two sections of html code. The html inbetween {{with $1:=.PageRadioButtons}} and  {{end}} will only display if the template is parsed with a variable called PageRadioButtons. If PageRadioButtons is not passed to the template when it is executed, then this section won't appear and no radio buttons will display. The same thing happens in between the template tags {{with $2:=.Answer}} {{end}}. If the template receives a value for .Answer it displays it, if not this section does not display. The radio buttons are generated using {{range}} this loops through all the values of PageRadioButtons and generates the input tags for each radio button.  We also want the page title to update depending on which of the two pages is being displayed so {{.PageTitle}} has been added to the template to control this for us. The snippet of JavaScript between the script tags uses jquery to submit the form when the user clicks on a radio button. The form submits its data to "/selected"
+{% endraw %}
 
 The corresponding select.go file contains the web server code. Generating the default page when a request to "/" is received is handled by a function named DisplayRadioButtons. This function generates the page that asks the user for their input. A second handler responds when a request is made to "/selected" and this handler uses a function UserSelected. The UserSelected function is where the users request is read by parsing the form data which has been sent to "/selected". The http request received by the UserSelected function has a method called ParseForm which when called parses the submitted form, takes all the url values and makes them available as r.Form. The r.Form.Get method can then be used to find out which animal the user selected.
 
