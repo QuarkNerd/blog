@@ -9,6 +9,13 @@ categories:
   - D3
   - Charting
 ---
+
+## 2017 update
+A lot has changed in the world of JavaScript and D3 since this post was written.
+Check out [the d3fc project](https://d3fc.io/) to see what some of the ideas in this post have evolved into!
+
+---
+
 In this post, we'll take a look at some of the performance issues you might encounter when making interactive charts using SVG, and how you might go about fixing them. We'll use the chart component developed in <a href="{{site.github.url}}{% post_url 2014-08-19-an-ohlc-chart-component-for-d3 %}">this post</a> to make a basic OHLC stock chart with zooming/panning. While the chart will be implemented using the [D3](http://d3js.org/) library, the performance considerations are the same for any interactive chart using SVG. We're aiming to be able to smoothly pan and zoom an OHLC chart which shows multiple years of OHLC bars.
 
 ## Zooming and Panning

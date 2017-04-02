@@ -14,9 +14,15 @@ categories:
   - Charting
 ---
 
+## 2017 update
+A lot has changed in the world of JavaScript and D3 since this post was written.
+Check out [the d3fc project](https://d3fc.io/) to see what some of the ideas in this post have evolved into!
+
+---
+
 An open-high-low-close (OHLC) chart is a type of financial chart used to show price movements and help identify trends in a financial instrument over time. For each unit of time, a vertical line is plotted showing the highest and lowest prices reached in that time. Horizontal tick marks are plotted on each side of the line - the opening price for that time period on the left, and the closing price on the right. Usually an OHLC line will be coloured green if on that day the closing price exceeded the opening price (an 'up day'), and coloured red if not (a 'down day').
 
-[D3](http://d3js.org/) is a javascript library for data visualisation on the web. It is not a charting library. Instead, it gives us the flexibility to bind data to web graphics, utilising modern web standards such as SVG, HTML5 and CSS3. Charts are just one type of visualisation we can make with it. This post assumes some familiarity with D3. There are already lots of great introductory tutorials available on the [D3 wiki](https://github.com/mbostock/d3/wiki/Tutorials) if you need to get up to speed. 
+[D3](http://d3js.org/) is a JavaScript library for data visualisation on the web. It is not a charting library. Instead, it gives us the flexibility to bind data to web graphics, utilising modern web standards such as SVG, HTML5 and CSS3. Charts are just one type of visualisation we can make with it. This post assumes some familiarity with D3. There are already lots of great introductory tutorials available on the [D3 wiki](https://github.com/mbostock/d3/wiki/Tutorials) if you need to get up to speed. 
 
 While D3 does have a component to draw a line series on a chart ([see here](http://bl.ocks.org/mbostock/3883245)), it does not have an inbuilt component we can use to render an OHLC series. In this post, we'll make one.
 

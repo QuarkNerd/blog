@@ -10,6 +10,13 @@ categories:
   - D3
   - Charting
 ---
+
+## 2017 update
+A lot has changed in the world of JavaScript and D3 since this post was written.
+Check out [the d3fc project](https://d3fc.io/) to see what some of the ideas in this post have evolved into!
+
+---
+
 Comparison charts, as their name suggests, are great for comparing the percentage price change of multiple stocks in time. In this post, we'll make one using [D3](http://d3js.org/).
 
 This post continues a series of posts on making financial charts using D3. We've seen how to use the pattern of reusable components to make <a href="{{site.github.url}}{% post_url 2014-08-19-an-ohlc-chart-component-for-d3 %}">simple OHLC and candlestick charts</a> with 
