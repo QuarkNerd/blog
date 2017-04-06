@@ -94,10 +94,10 @@ const dataSeries = nested[7].values;
 const yExtent = fc.extentLinear()
   .accessors([d => d.n])
   .pad([0, 0.2])
-	.include([0]);
+  .include([0]);
 
 const xExtent = fc.extentLinear()
-	.accessors([d => d.year]);
+  .accessors([d => d.year]);
 
 const line = fc.seriesSvgLine()
   .crossValue(d => d.year)
@@ -107,9 +107,9 @@ const chart = fc.chartSvgCartesian(
     d3.scaleLinear(),
     d3.scaleLinear())
   .yDomain(yExtent(data))
-	.xDomain(xExtent(data))
+  .xDomain(xExtent(data))
   .yOrient('left')
-	.plotArea(line);
+  .plotArea(line);
 
 // render
 d3.select('#small-multiples')
@@ -171,7 +171,7 @@ const gridlines = fc.annotationSvgGridline()
 const multi = fc.seriesSvgMulti()
   .series([area, line, gridlines])
   .mapping(function(data) {
-  	return data.values;
+    return data.values;
   });
 
 const chart = fc.chartSvgCartesian()
@@ -312,13 +312,13 @@ The following code wraps the small multiples data join in a `render` function th
 
 ~~~javascript
 function render() {
-	const update = d3.select('#small-multiples')
+  const update = d3.select('#small-multiples')
     .selectAll('div.multiple')
     .data(nested);
   update.enter()
     .append('div')
-  	.classed('multiple', true)
-  	.merge(update)
+    .classed('multiple', true)
+    .merge(update)
     .call(chart);
 
   const pointer = fc.pointer()
