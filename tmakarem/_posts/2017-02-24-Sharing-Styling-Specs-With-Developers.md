@@ -6,7 +6,8 @@ categories:
   - UX
 tags:
   - UX
-image: tmakarem/assets/featured/038_zeplin6.png
+  - featured
+image: tmakarem/assets/featured/spec.png
 summary: "This post looks at the pros and cons of some of the automated handoff tools available for designers to share style specs with developers."
 ---
 

@@ -4,7 +4,9 @@ title: Visualising London Marathon Training Data From Strava
 layout: default_post
 categories:
   - D3
-image: ceberhardt/assets/marathon2/run-heatmap.png.png
+tags:
+  - featured
+image: ceberhardt/assets/featured/heatmap.png
 summary: I downloaded an analysed the training data for 1,000 athlete who ran the London Marathon in 2016. From this data I've learnt that people put in ~30% less mileage than popular plans suggest, Sunday mornings are a firm favourite for long runs, and that Saturday morning parkruns are very popular!
 ---
 
