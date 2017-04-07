@@ -1,6 +1,6 @@
 ---
 author: ceberhardt
-title: Interactice and Responsive Small Multiples with D3
+title: Interactive and Responsive Small Multiples with D3
 layout: default_post
 categories:
   - D3
