@@ -22,18 +22,19 @@ disqus-id: /2015/01/20/typescript-compiler-api.html
     <!-- -->
 </style>
 
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous">
+</script>
+
+
 <script type="application/javascript">
     hljs.initHighlightingOnLoad();
-    <!-- -->
 </script>
 <script src="{{ site.github.url }}/nwolverson/assets/tsc/tips.js">
-<!-- maruku :( -->
 </script>
 <script src="{{ site.github.url }}/nwolverson/assets/tsc/typescriptServices.js">
-<!-- maruku :( -->
 </script>
 <script src="{{ site.github.url }}/nwolverson/assets/tsc/blog.js">
-<!-- maruku :( -->
 </script>
 
 
