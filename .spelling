@@ -731,6 +731,8 @@ StreamSets
 Dockerhub
 heatmap
 gridline
+devops
+Atlassian
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
 line.y
@@ -2273,3 +2275,9 @@ Monzo
 TSTypeInfo
 ts-simple-ast
 dts-dom
+ - bjedrzejewski/_posts/2017-05-04-how-to-make-your-team-more-productive-as-a-developer.md
+qa
+ - bjedrzejewski/_posts/2017-05-05-how-to-make-your-team-more-productive-as-a-developer.md
+qa
+ - bjedrzejewski/_posts/2017-05-05-making-agile-teams-more-productive-from-the-inside.md
+qa
