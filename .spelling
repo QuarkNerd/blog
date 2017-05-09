@@ -733,6 +733,7 @@ heatmap
 gridline
 devops
 Atlassian
+CloudWatch
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
 line.y
@@ -2281,3 +2282,12 @@ qa
 qa
  - bjedrzejewski/_posts/2017-05-05-making-agile-teams-more-productive-from-the-inside.md
 qa
+ - ceberhardt/_posts/2017-05-08-aws-lambda-github-bot.md
+CLAs
+PRs
+clabot
+cla-assistant
+CLAHub
+cla
+2xx
+ursa
