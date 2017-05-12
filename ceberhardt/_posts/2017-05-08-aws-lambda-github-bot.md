@@ -139,7 +139,7 @@ $ npm run deploy
 { FunctionName: 'clabot-test',
   Code: { ZipFile: <Buffer 50 4b 03 04 14 00 00 00 08 00 a2 31 a9 4a 85 f2 0d 35 62 04 00 00 04 20 00 00 09 00 1c 00 2e 44 53 5f 53 74 6f 72 65 55 54 09 00 03 df 4f 11 59 df 4f ... > },
   ...
-  Environment: { Variables: { GITHUB_ACCESS_TOKEN: '35fcb36b9eb3f20db201fe17e61045273608a0f0' } },
+  Environment: { Variables: { GITHUB_ACCESS_TOKEN: '---' } },
   DeadLetterConfig: { TargetArn: null } }
 => Zip file(s) done uploading. Results follow:
 { FunctionName: 'clabot-test',
