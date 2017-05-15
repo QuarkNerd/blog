@@ -734,6 +734,7 @@ gridline
 devops
 Atlassian
 CloudWatch
+proto-personas
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
 line.y
@@ -2291,3 +2292,5 @@ CLAHub
 cla
 2xx
 ursa
+ - jrice/_posts/2017-05-15-insurance-a-customers-perspective.md
+mHealth

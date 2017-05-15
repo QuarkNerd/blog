@@ -22,6 +22,7 @@ active-authors:
   - jdunkerley
   - jharris
   - jhill
+  - jrice
   - jwhite
   - lcollingwood
   - mdunsdon
@@ -441,3 +442,9 @@ authors:
       name: James White
       email: jwhite:scottlogic.com
       gravatar: fc543a54ca224e361b6db5b238771703
+    jrice:
+        name: James Rice
+        email: jrice@scottlogic.com
+        author-summary: <p>I am a User Experience Designer at Scott Logic. With a background in Product Design I combine the three areas of People, Design and Technology to create meaningful responses to challenging problems.</p>
+        gravatar: c2fb020ac7234edb376a0837fcb80e9a
+        twitter-url: https://twitter.com/jamesricedesign

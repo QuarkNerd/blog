@@ -5,3 +5,4 @@ _site
 .sass-cache
 .jekyll-metadata
 *.css.map
+.DS_Store
