@@ -1,6 +1,8 @@
 ---
 author: shunton
 title: What it means to be Agile
+categories:
+  - Agile
 layout: default_post
 ---
 While there is much written about Agile, it’s important to understand not only the principles of the frameworks but also what it means to *be* Agile.
