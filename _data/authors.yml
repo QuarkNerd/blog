@@ -135,7 +135,7 @@ authors:
         email: shunton@scottlogic.com
         gravatar: 9bc56e857c141a4b43ac3533f5bf4249
         feed-description: Steve's adventures in all things Agile
-        author-summary: I'm a Technical Project Manager at Scott Logic. I have a distant memory of being a developer with the past decade or so dedicated to project delivery, scaling and expanding Agile for large organisations and sharing what I learn along the way.
+        author-summary: <p>I'm a Technical Project Manager at Scott Logic. I have a distant memory of being a developer with the past decade or so dedicated to project delivery, scaling and expanding Agile for large organisations and sharing what I learn along the way.</p>
     shogarth:
         name: Sam Hogarth
         email: shogarth@scottlogic.com
