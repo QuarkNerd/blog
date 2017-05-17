@@ -36,6 +36,7 @@ active-authors:
   - rwilliams
   - sbulut
   - shogarth
+  - shunton
   - tkelly
   - tmakarem
   - tsimmons
@@ -129,6 +130,12 @@ authors:
         email: SBulut@scottlogic.com
         gravatar: e87a9930b17b716ce8215440461bef61
         author-summary: <p>Full-time learner and Test Engineer at Scott Logic</p>
+    shunton:
+        name: Steven Hunton
+        email: shunton@scottlogic.com
+        gravatar: 9bc56e857c141a4b43ac3533f5bf4249
+        feed-description: Steve's adventures in all things Agile
+        author-summary: I'm a Technical Project Manager at Scott Logic. I have a distant memory of being a developer with the past decade or so dedicated to project delivery, scaling and expanding Agile for large organisations and sharing what I learn along the way.
     shogarth:
         name: Sam Hogarth
         email: shogarth@scottlogic.com
