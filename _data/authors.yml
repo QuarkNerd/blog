@@ -29,6 +29,7 @@ active-authors:
   - mjose
   - msuperina
   - nhemley
+  - nowen
   - nwolverson
   - rhamilton
   - rhendry
@@ -446,9 +447,14 @@ authors:
         gravatar: 4c10e298294956f7d395af53cdde07e2
         twitter-url: https://twitter.com/marziosuperina
     jwhite:
-      name: James White
-      email: jwhite:scottlogic.com
-      gravatar: fc543a54ca224e361b6db5b238771703
+        name: James White
+        email: jwhite@scottlogic.com
+        gravatar: fc543a54ca224e361b6db5b238771703
+    nowen:
+        name: Nick Owen
+        email: nowen@scottlogic.com
+        author-summary: <p>I'm a Senior Developer at Scott Logic, with many years of C# experience. Recently I've immersed myself in JavaScript, including Angular 2 and React.
+        gravatar: e07dcd9d88f35cabf65f669f0de7750a
     jrice:
         name: James Rice
         email: jrice@scottlogic.com
