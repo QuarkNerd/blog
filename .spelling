@@ -736,6 +736,8 @@ Atlassian
 CloudWatch
 cssnext
 proto-personas
+transclusion
+transcluded
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
 line.y
@@ -2306,3 +2308,8 @@ gifbot
 GIFs
 ReadmeCritic
 jsonwebtoken
+ - nowen/_posts/2017-05-24-creating-semantic-components-in-angular-and-react.md
+_ERRORS
+_SCHEMA
+v1
+app.module
