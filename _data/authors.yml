@@ -38,6 +38,7 @@ active-authors:
   - sbulut
   - shogarth
   - shunton
+  - sbaker
   - tkelly
   - tmakarem
   - tsimmons
@@ -144,6 +145,12 @@ authors:
         author-summary: <p>Frequently found developing Android applications, playing with web technologies and musing about patterns and process.</p>
         feed-description: Sam Hogarth is a developer working primarily with web technologies, with a side-interest in Android development.
         author-summary: <p>I am a developer at Scott Logic, working primarily with HTML5 web technologies. Previously, I've developed for ShinobiControls for Android and I maintain an interest in Android development.</p>
+    sbaker:
+        name: Sioned Baker
+        email: sbaker@scottlogic.com
+        gravatar: 158d59d1c9832d826e5c6e8624a79ef7
+        author-summary: <p>I am a senior developer at Scott Logic, working primarily with Java. I'm currently fascinated by data science and machine learning</p>
+        feed-description: Sioned is a developer working primarily Java, with a side-interest in data science.
     nwolverson:
         name: Nicholas Wolverson
         email: nwolverson@scottlogic.com
