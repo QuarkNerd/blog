@@ -1,5 +1,6 @@
 active-authors:
   - aaiken
+  - acarr
   - alee
   - amjones
   - asheehan
@@ -61,6 +62,12 @@ authors:
         twitter-url: https://twitter.com/im_alisd
         author-summary: <p>I'm Ali, and I'm new here</p>
         feed-description: Ali's thoughts on life and technology
+    acarr:
+        name: Andrew Carr
+        email: andrew.carr@scottlogic.com
+        gravatar: bbde3f354aab8d561df7374fd3d0a61c 
+        author-summary: <p>I am a Principal Consultant leading the Big Data services within Scott Logic. I have a strong interest and expertise in low latency Front Office trading systems, software managing very large networks and the technologies involved in processing large volumes of data.</p>
+        feed-description: Andrew's thoughts on technology
     ceberhardt:
         name: Colin Eberhardt
         email: ceberhardt@scottlogic.com
