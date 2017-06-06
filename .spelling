@@ -740,6 +740,8 @@ transclusion
 transcluded
 grep
 i
+lockfile
+switchover
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
 line.y
@@ -2340,3 +2342,14 @@ subcubes
 goroutine
 goroutines
 ParaView
+ - nowen/_posts/2017-06-06-does-npm5-deprecate-yarn.md
+neato
+5x
+1m15.6s
+58.1s
+1m7.7s
+1m3.3s
+30.3s
+0m55.5s
+26.6s
+0m49.3s
