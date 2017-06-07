@@ -10,7 +10,7 @@ categories:
 image: jdunkerley/assets/electron/buildprocess.jpg
 ---
 
-Having spent a few days experimenting with setting up a build process for creating an Electron-based thought I would put together a post describing the setup. First, a disclaimer that this is still a work in progress and as with everything within the JavaScript world it seems like there are a thousand ways to do it and this is just one way. Secondly, I am by no means an expert and this is just the process I wanted to create - I am sure there are improvements that can be made and would value suggestions!
+Having spent a few days experimenting with setting up a build process for creating an Electron-based application thought I would put together a post describing the setup. First, a disclaimer that this is still a work in progress and as with everything within the JavaScript world it seems like there are a thousand ways to do it and this is just one way. Secondly, I am by no means an expert and this is just the process I wanted to create - I am sure there are improvements that can be made and would value suggestions!
 
 So my requirements are:
 
@@ -20,7 +20,7 @@ So my requirements are:
 * Want the TypeScript code to be linted by [ts-lint](https://palantir.github.io/tslint/) but conforming to consistent rules with standardjs
 * Want to use [WebPack](https://webpack.js.org/) (version 2) to control the build process
 * Want to use [babel](https://babeljs.io/) to transpile from ES6 to ES5 as needed for node, and to compile the JSX
-* Want to [React](https://facebook.github.io/react/) and `tsx` on the front end
+* Want to use [React](https://facebook.github.io/react/) and `tsx` on the front end
 * Want to use the [Jest](https://facebook.github.io/jest/) unit testing framework
 * **Want to have one place to control how TypeScript / TSX is linted and built, one place to control how JavaScript / JSX is linted and build and one place to run all the tests!**
 
@@ -60,9 +60,9 @@ yarn add babel-core babel-loader babel-preset-es2015-node babel-preset-react sta
 
 ## Setting Up The Build Process ##
 
-In order to set this up, we need to set up a fair few pieces. Let's start by getting the TypeScript process set up to build a file from the `src` directory to the `dist` folder. To configure the TypeScript compile, add a new file called `tsconfig.json` to the root folder of the project with the following content:
+In order to set this up, we need to set up a fair few pieces. Let's start by getting the TypeScript process set up to build a file from the `src` directory to the `dist` folder. To configure the TypeScript compiler, add a new file called `tsconfig.json` to the root folder of the project with the following content:
 
-~~~js
+~~~json
 {
     "compileOnSave": false,
     "compilerOptions": {
@@ -103,7 +103,7 @@ This tells the TypeScript compiler not to compile on save (as we are going to us
 
 In order to set up tslint to be consistent with StandardJS, add another new file to the root directory called `tslint.json` with the following content:
 
-~~~js
+~~~json
 {
   "extends": "tslint-config-standard",
   "rules": {
@@ -163,7 +163,7 @@ The first rule tells WebPack to run tslint at the prebuild step, before then mov
 
 To add the build command to yarn or npm, add the following code to the `packages.json`. This is assuming you don't have `scripts` section already if you do merge it in.
 
-~~~js
+~~~json
   "scripts": {
     "build": "webpack --config webpack.config.js"
   },
@@ -177,7 +177,7 @@ In order to run this build from within Visual Studio Code, the next step is to c
 
 Press `Ctrl-Shift-B` and then click `Configure Build Task`. Choose `npm` as a starting point, and then replace the default `tasks` array with:
 
-~~~js
+~~~json
     "tasks": [
         {
             "taskName": "build",
@@ -191,7 +191,7 @@ If using `yarn`, then change the command from `npm` to `yarn`.
 
 The last part of setting up the editor is to add a `settings.json` within the `.vscode` folder (which should have been created for the `tasks.json` file) specifying the number of spaces and line endings to match the linting settings:
 
-~~~js
+~~~json
 {
     "editor.tabSize": 2,
     "files.eol": "\n"
@@ -258,7 +258,7 @@ console.log(simpleClass.Add(2, 3));
 
 The next goal is to use babel-js to convert from this to fully compatible JavaScript for Node. As of Babel 6, a `.babelrc` file is used to tell it what 'presets' to load. The following will tell it to understand both ES2015 and React, and to transpile down as needed for Node:
 
-~~~js
+~~~json
 {
   "presets": ["es2015-node", "react"]
 }
@@ -298,7 +298,7 @@ Having set up Babel for the second step in TypeScript build, need to also config
       }
 ~~~
 
-If you also want to target browsers you could switch from `es2015-node` preset to the `es2015` preset. 
+If you also want to target browsers you could switch from `es2015-node` preset to the `es2015` preset.
 
 ## Electron ##
 
@@ -379,7 +379,7 @@ document.getElementsByTagName('body')[0].innerHTML = `node Version: ${process.ve
 
 The last adjustment is to add a new task the `packages.json` file. The `prestart` entry makes it build it as well.
 
-~~~js
+~~~json
     "prestart": "yarn run build",
     "start": "electron ./dist/main.js",
 ~~~
@@ -474,7 +474,7 @@ To add the `test` command to `yarn`, add the following to `packages.json`. The `
 
 By default, Jest will search for the test files within the `__tests__` folder or any JavaScript file with a filename ending either spec or test. Adding the configuration below (to `package.json`) limits Jests to just reading the `__tests__` folder. The second part configures `jest-junit` to write out an XML file containing the test results - this is for Visual Studio Team Services to be able to read the results.
 
-~~~js
+~~~json
   "jest": {
     "testRegex": "/__tests__/.*\\.jsx?",
     "testResultsProcessor": "./node_modules/jest-junit"
