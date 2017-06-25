@@ -744,6 +744,8 @@ lockfile
 switchover
 mapreduce
 graphx
+TopoJSON
+GeoJSON
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
 line.y
@@ -2359,3 +2361,17 @@ neato
 standardjs
 ts-lint
 linter
+ - ceberhardt/_posts/2017-06-25-uk-place-names.md
+Geo
+Topo
+1x
+20MBytes
+geo2topo
+toposimplify
+topo2geo
+topomerge
+topoquantize
+Geoprojection
+24Mb
+1.7Mb
+bl.ock
