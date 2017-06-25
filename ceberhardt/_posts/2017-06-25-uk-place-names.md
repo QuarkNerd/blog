@@ -120,7 +120,7 @@ With the datasets normalised, combining them into a single file was easy:
 cat england-wales.normalised.geo.ndjson  \
    scotland.normalised.geo.ndjson  \
    ireland.normalised.geo.ndjson > great-britain.ndjson
- ~~~
+~~~
 
 ## Transforming Counties
 
