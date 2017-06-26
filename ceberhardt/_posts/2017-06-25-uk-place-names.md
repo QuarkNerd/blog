@@ -5,11 +5,11 @@ layout: default_post
 categories:
   - JavaScript
   - D3
-summary: UK place names are very much influenced by their surroundings, with endings such as -hill, -ford, and -wood quite clearly referencing local geography. This blog post uses the new NDJSON command line tools for processing, transforming and joining datasets to create an optimised visualisation.
+summary: Place names in UK and Ireland are very much influenced by their surroundings, with endings such as -hill, -ford, and -wood quite clearly referencing local geography. This blog post uses the new NDJSON command line tools for processing, transforming and joining datasets to create an optimised visualisation.
 image: ceberhardt/assets/featured/uk-place-names.png
 ---
 
-UK place names are very much influenced by their surroundings, with endings such as -hill, -ford, and -wood quite clearly referencing local geography. This post describes the creation of an interactive map that allows you to explore UK place name endings. The creation of this map involved using a number of the new D3 command line tools for manipulating geographic data, which allow the creation of optimised datasets that improve performance.
+Place names in UK and Ireland are very much influenced by their surroundings, with endings such as -hill, -ford, and -wood quite clearly referencing local geography. This post describes the creation of an interactive map that allows you to explore UK place name endings. The creation of this map involved using a number of the new D3 command line tools for manipulating geographic data, which allow the creation of optimised datasets that improve performance.
 
 If you're not so interested in the tech, here's an overview of the results:
 
