@@ -746,6 +746,21 @@ mapreduce
 graphx
 TopoJSON
 GeoJSON
+HMC-SHA1
+JMeter
+BeanShell
+io.gatling.highcharts
+io.gatling
+gatling
+conf
+logback.xml.
+ScenarioBuilder
+scn.inject
+atOnceUsers
+OAuthSignatureCalculator
+bouncycastle
+OAuth1
+OAuthBible
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
 line.y
@@ -2361,6 +2376,10 @@ neato
 standardjs
 ts-lint
 linter
+ - zwali/_posts/2017-06-22-a-developer's-test.md
+un-minified
+normalizeParams
+generateHmac
  - ceberhardt/_posts/2017-06-25-uk-place-names.md
 Geo
 Topo
