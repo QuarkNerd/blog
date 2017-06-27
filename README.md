@@ -32,6 +32,7 @@ post meta-data
 ---  
 post contents, markdown/html  
 ```
+Note that meta-data takes the form of [front-matter](https://jekyllrb.com/docs/frontmatter/).
 
 ##### Mandatory post meta-data
 * **author** - This should be your author name, which will be your Scott Logic 'name', i.e. first-letter-of-forename and surname. This should match the author meta-data in ```_config.yml```.  
@@ -90,7 +91,7 @@ username
         // Put blog posts here
 ```
 
-* ```index.html``` is your author page, which requires the following front-matter:
+* ```index.html``` is your author page, which requires the following meta-data:
 
 ```yml
 ---
