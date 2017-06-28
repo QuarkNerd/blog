@@ -112,7 +112,7 @@ In Sketch, you can edit the width of the box. In Illustrator, you edit the heigh
 
 **Overflow text**
 
-Sketch doesn’t support overflow text. Illustrator on the other hand does. It shows you that the’re more text hidden beyond the bounding box with a red + icon. You can click on the icon to continue the text in a different text box. Threading text between objects can be very useful if your design has multiple columns.
+Sketch doesn’t support overflow text. Illustrator on the other hand does. It shows you that there's more text hidden beyond the bounding box with a red + icon. You can click on the icon to continue the text in a different text box. Threading text between objects can be very useful if your design has multiple columns.
 
 ![Illustrator, overflow text threaded into a second text box]({{ site.github.url }}/tmakarem/assets/049_Overflow.png "Illustrator, overflow text threaded into a second text box")
 
