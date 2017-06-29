@@ -2,9 +2,15 @@
 layout: default
 title: Swift
 ---
-
-{% include hero.html %}
-{% include featured.html %}
-
-{% assign posts = site.categories["Swift"] %}
-{% include blog_index.html posts=posts paginate=false categoryIndex=13 %}
+<!--depreciated, redirected to latest articles-->
+<!DOCTYPE html>
+<html lang="en-US">
+  <meta charset="utf-8">
+  <title>Redirecting</title>
+  <link rel="canonical" href="{{ site.github.url }}/index.html">
+  <meta http-equiv="refresh" content="0; url={{ site.github.url }}/index.html">
+  <meta name="robots" content="noindex">
+  <h1>Redirecting</h1>
+  <a href="{{ site.github.url }}/index.html">Click here if you are not redirected.</a>
+  <script>location="{{ site.github.url }}/index.html"</script>
+</html>

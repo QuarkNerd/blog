@@ -1,6 +1,11 @@
 {% assign paginate = include.paginate %}
 {% assign posts = include.posts %}
-{% assign categoryIndex = include.categoryIndex %}
+{% assign categoryName = include.categoryName %}
+{% for category in site.data.categories %}
+    {% if categoryName == category.title%}
+        {% assign categoryIndex = forloop.index0 %}
+    {% endif %}
+{% endfor %}
 
 <section>
     <div class="container blog-post-container">

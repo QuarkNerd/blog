@@ -11,4 +11,4 @@ title: Web
   {% assign posts = posts | push: d3post %}
 {% endfor %}
 {% assign posts = posts | sort: 'date' | reverse | uniq %}
-{% include blog_index.html posts=posts paginate=false categoryIndex=2 %}
+{% include blog_index.html posts=posts paginate=false categoryName="Web" %}

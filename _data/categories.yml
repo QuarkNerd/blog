@@ -1,23 +1,32 @@
 -  title: Latest Articles
    url: /index.html
 
--  title: News
-   url: /category/news.html
-
 -  title: Web
    url: /category/web.html
+
+-  title: JavaScript
+   url: /category/javascript.html
+
+-  title: HTML5
+   url: /category/html5.html
 
 -  title: Mobile
    url: /category/mobile.html
 
--  title: iOS
-   url: /category/ios.html
+-  title: UX
+   url: /category/ux.html
+
+-  title: Agile
+   url: /category/agile.html
+
+-  title: Testing
+   url: /category/test.html
+
+-  title: D3
+   url: /category/d3.html
 
 -  title: WPF
    url: /category/wpf.html
-
--  title: HTML5
-   url: /category/html5.html
 
 -  title: Charting
    url: /category/charting.html
@@ -31,26 +40,5 @@
 -  title: Java
    url: /category/java.html
 
--  title: C#
-   url: /category/csharp.html
-
--  title: JavaScript
-   url: /category/javascript.html
-
--  title: Swift
-   url: /category/swift.html
-
--  title: UX
-   url: /category/ux.html
-
 -  title: Events
    url: /category/events.html
-
--  title: D3
-   url: /category/d3.html
-
--  title: Agile
-   url: /category/agile.html
-
--  title: Testing
-   url: /category/test.html
