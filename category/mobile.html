@@ -7,4 +7,11 @@ title: Mobile
 {% include featured.html %}
 
 {% assign posts = site.categories["Mobile"] %}
-{% include blog_index.html posts=posts paginate=false categoryIndex=3 %}
+{% for iosposts in site.categories["iOS"] %}
+  {% assign posts = posts | push: iosposts %}
+{% endfor %}
+{% for swiftposts in site.categories["Swift"] %}
+  {% assign posts = posts | push: swiftposts %}
+{% endfor %}
+{% assign posts = posts | sort: 'date' | reverse | uniq %}
+{% include blog_index.html posts=posts paginate=false categoryName="Mobile" %}

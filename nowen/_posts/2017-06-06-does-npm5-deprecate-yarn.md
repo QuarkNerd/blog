@@ -6,6 +6,9 @@ layout: default_post
 categories:
   - JavaScript
   - Web
+image: nowen/assets/featured/npm-yarn-benchmark-og.png
+tags:
+  - featured
 ---
 
 Recently npm announced the release of their new version, [npm 5](http://blog.npmjs.org/post/161276872334/npm5-is-now-npmlatest). This new version has several improvements, and when reading the changelog I started to wonder: does this deprecate [yarn](https://yarnpkg.com/lang/en/) for me?
@@ -74,7 +77,7 @@ As a note: to time here I was using [bash time](https://ss64.com/bash/time.html)
 
 Okay so I didn't compare _every_ new feature of npm 5 to yarn -- just the ones that matter to me. I have a feeling that the cache improvements and speed gains advertised by npm might improve with (a) time and (b) a larger list of dependencies. However, I don't see how this can then outstrip yarn.
 
-Also each of these new features is playing catch-up -- I don't see anything specific that is an *improvement* over yarn, or is more forward-thinking. 
+Also each of these new features is playing catch-up -- I don't see anything specific that is an *improvement* over yarn, or is more forward-thinking.
 
 Overall I'm going to continue to use yarn. It looks like it is just quicker, right now. That and if in the future npm should outpace fellow yarn I'm comfortable that the switchover will be quite easy.
 

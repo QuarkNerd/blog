@@ -762,12 +762,17 @@ OAuthSignatureCalculator
 bouncycastle
 OAuth1
 OAuthBible
+<<<<<<< HEAD
 roboto
 24pt
 26pt
 roman
 opentype
 oldstyle
+=======
+slopegraph
+slopegraphs
+>>>>>>> ScottLogic/gh-pages
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
 line.y
@@ -2403,3 +2408,5 @@ Geoprojection
 bl.ock
  - shunton/_posts/2017-06-27-continuous-change-culture.md
 siloed
+ - godds/_posts/2017-06-29-change-presented-two-ways.md
+Publics

@@ -11,4 +11,4 @@ title: HTML5
   {% assign posts = posts | push: d3post %}
 {% endfor %}
 {% assign posts = posts | sort: 'date' | reverse | uniq %}
-{% include blog_index.html posts=posts paginate=false categoryIndex=6 %}
+{% include blog_index.html posts=posts paginate=false categoryName="HTML5" %}

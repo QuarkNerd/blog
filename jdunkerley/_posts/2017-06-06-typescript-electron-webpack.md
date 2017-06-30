@@ -1,13 +1,15 @@
 ---
 author: jdunkerley
-title: Setting up a TypeScript Electron app in WebPack 
+title: Setting up a TypeScript Electron app in WebPack
 summary: "A walkthrough of setting up a WebPack 2 based build process for creating an Electron application in TypeScript, including configuring a build in Visual Studio Team Services."
 layout: default_post
 categories:
   - Electron
   - TypeScript
   - WebPack
-image: jdunkerley/assets/electron/buildprocess.jpg
+image: jdunkerley/assets/featured/electron.png
+tags:
+  - featured
 ---
 
 Having spent a few days experimenting with setting up a build process for creating an Electron-based application thought I would put together a post describing the setup. First, a disclaimer that this is still a work in progress and as with everything within the JavaScript world it seems like there are a thousand ways to do it and this is just one way. Secondly, I am by no means an expert and this is just the process I wanted to create - I am sure there are improvements that can be made and would value suggestions!
@@ -552,7 +554,7 @@ Since I started writing this Electron has updated with [support for TypeScript](
 ~~~
 yarn upgrade electron -D
 yarn remove @types/electron @types/node -D
-~~~ 
+~~~
 
 Currently, I don't have a good solution for watching tests. While watch mode works fine for `build` (run `yarn run build -- --watch`) the `test` command set up doesn't support watching yet. I'll inevitably spend a fair chunk of time mucking around trying to get this bit set up as well but at present, I accept just having to run the command to run my tests.
 
