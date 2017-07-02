@@ -9,7 +9,7 @@ tags:
 summary: "In this post, I go over the similarities and differences between Sketch and Illustrator when working with type."
 ---
 
-For people moving from *[Illustrator](http://www.adobe.com/uk/products/illustrator.html?mv=search&s_kwcid=AL!3085!3!75270349970!b!!g!!illustrator%20adobe&ef_id=VuFCbQAABM2qoHFs:20170309093627:s)* to *[Sketch](https://www.sketchapp.com/)*, you might find that working with type in Sketch is a bit limiting compared to Illustrator. In this post, I go over the similarities and differences between the two tools when working with type.
+People moving from *[Illustrator](http://www.adobe.com/uk/products/illustrator.html?mv=search&s_kwcid=AL!3085!3!75270349970!b!!g!!illustrator%20adobe&ef_id=VuFCbQAABM2qoHFs:20170309093627:s)* to *[Sketch](https://www.sketchapp.com/)* might find that working with type in Sketch is a bit limiting compared to Illustrator. In this post, I go over the similarities and differences between the two tools when working with type.
 
 ###CHARACTER STYLES / TEXT STYLES
 
@@ -20,7 +20,7 @@ Illustrator assigns a “Normal character style” by default to any new text bo
 
 **Setting text styles**
 
-You can set text styles in both Sketch and Illustrator and apply a style to multiple text boxes and update it to apply global edits to any text that inherits that style. In Illustrator you can apply different text styles to selected text within the same text box, whereas in Sketch, each text box can inherit only one style.
+You can set text styles in both Sketch and Illustrator and apply that style to multiple text boxes. You can then update that text style once to apply global edits to any text that inherits that style. In Illustrator you can apply different text styles to selected text within the same text box, whereas in Sketch, each text box can inherit only one style.
 
 **Customising an instance of a  text style**
 
@@ -45,13 +45,15 @@ You can edit a text style and apply the edit globally to any text that inherits 
 
 To do that in Illustrator, you double click on the style you created, edit it and it automatically updates all the texts inheriting that style in your design.
 
-When you do that, Illustrator preserves the previous customisation of an instance of a text style. For example, if we take the example I mentioned above, changing the header style size from 24pt to 26pt would not affect the colours of the headers. You would still have an instance of the header that is blue but all the headers including the customised blue one would change to 26pt. That is not the case in Sketch.
+When you do that, Illustrator preserves the previous customisation of an instance of a text style. In the example I mention above, changing the header style size from 24pt to 26pt would not affect the colours of the headers. You would still have an instance of the header that is blue but all the headers including the customised blue one would change to 26pt. That is not the case in Sketch.
 
 In Sketch, to update text styles, you have to update a textbox first, then click on the refresh icon that appears next to the text style. Clicking the refresh icon will update all the texts that inherit that style and will override any previously customised instances of that style.
 
-Also, having to click on the refresh icon to update the style is not very intuitive because you might not think of changing a specific textbox to update a text style. You might think that editing a text style is not supported in Sketch.
+Also, having to click on the refresh icon to update the style is not very immediately clear because you might not think of changing a specific textbox to update a text style. You might think that editing a text style is not supported in Sketch.
 
-However, a nice feature that Sketch offers and that Illustrator doesn’t is the preview of the text style. In Sketch the name of the text style inherits the settings of that style.
+**Previewing text styles**
+
+A nice feature that Sketch offers and that Illustrator doesn’t is the preview of the text style. In Sketch the name of the text style inherits the settings of that style.
 
 ![Sketch, text style preview]({{ site.github.url }}/tmakarem/assets/042_Style-Preview.png "Sketch, text style preview")
 
@@ -59,13 +61,13 @@ However, a nice feature that Sketch offers and that Illustrator doesn’t is the
 
 ###PARAGRAPH STYLES
 
-Illustrator distinguished between character styles and paragraph styles whereas Sketch combines both under text styles. In both tools, you can set the justification / alignment, the leading, and the spacing at the end of a paragraph.
+Illustrator distinguishes between character styles and paragraph styles whereas Sketch combines both under text styles. In both tools, you can set the text justification, the leading, and the spacing at the end of a paragraph.
 
 However, Illustrator supports a few additional features such as preferences for hyphenation, first line indent, right/left indent, and roman hanging punctuation.  
 
 ###OUTLINE FONT
 
-Both Illustrator and Sketch allow you to outline a font, which converts text into an outline so you can use it as a shape. This can also be useful if you want to share a file with someone who doesn’t have the typeface you used, if you want to use the font as shape or if you want to slice the letters.
+Both Illustrator and Sketch allow you to outline a font, which converts text to an outline so you can use the text as a shape. This can also be useful if you want to share a file with someone who doesn’t have the typeface you used, if you want to use the font as shape or if you want to slice the letters.
 
 ![Outlined font in Illustrator]({{ site.github.url }}/tmakarem/assets/043_Outlined-Font.png "Outlined font in Illustrator")
 
@@ -95,7 +97,7 @@ In Illustrator, you can make the word superscript or subscript with one click an
 
 **Text box edges as a mask**
 
-In Sketch, the height of the text box is used as a mask, which allows you to crop the letters. This is very useful for example if you want to show that there’s content beyond the screen you’re designing for, and that the user can scroll. In Illustrator, you can’t crop the letters. Text that goes beyond the height of the text box is hidden. You would need to outline the font to make it a shape and then add a mask to crop the letters.
+In Sketch, the height of the text box is used as a mask, which allows you to crop the letters. This is very useful, for example, if you want to show that there’s content beyond the screen you’re designing for, and that the user can scroll. In Illustrator, you can’t crop the letters. Text that goes beyond the height of the text box is hidden. You would need to outline the font to make it a shape and then add a mask to crop the letters.
 
 ![Sketch text box masks part of the letters]({{ site.github.url }}/tmakarem/assets/047_Textbox-Sketch.png "Sketch text box masks part of the letters")
 
@@ -108,18 +110,18 @@ In Sketch, the height of the text box is used as a mask, which allows you to cro
 
 **Editing the text box**
 
-In Sketch, you can edit the width of the box. In Illustrator, you edit the height and width of the text box simultaneously which is more practical. Both tools allow you to change the shape of the text box and type on a path. However, text wrapping around images and objects is supported in Illustrator but not is Sketch.
+In Sketch, you can edit the width of the box. In Illustrator, you edit the height and width of the text box simultaneously which is more practical. Both tools allow you to change the shape of the text box and type on a path. However, text wrapping around images and objects is supported in Illustrator but not in Sketch.
 
 **Overflow text**
 
-Sketch doesn’t support overflow text. Illustrator on the other hand does. It shows you that there's more text hidden beyond the bounding box with a red + icon. You can click on the icon to continue the text in a different text box. Threading text between objects can be very useful if your design has multiple columns.
+Sketch doesn’t support overflow text. Illustrator on the other hand does. In Illustrator, a red + icon indicates that there is more text hidden beyond the bounding box. You can click on the icon to continue the text in a different text box. Threading text between objects can be very useful if your design has multiple columns.
 
 ![Illustrator, overflow text threaded into a second text box]({{ site.github.url }}/tmakarem/assets/049_Overflow.png "Illustrator, overflow text threaded into a second text box")
 
 *Illustrator, overflow text threaded into a second text box*
 
 ###SEARCHING AND REPLACING FONTS
-In Illustrator, you can search for typefaces used in file and replace them. You can view if any fonts are missing and replace them.  This feature is not available in Sketch.
+In Illustrator, you can search for typefaces used in file and replace them. You can view if any fonts are missing and replace them. This feature is not available in Sketch.
 
 ![Illustrator find font]({{ site.github.url }}/tmakarem/assets/050_Find-font.png "Illustrator find font")
 
@@ -131,7 +133,7 @@ In Illustrator, you can search for typefaces used in file and replace them. You 
 
 *Illustrator Opentype options*
 
-Illustrator has very useful options for glyphs under the Opentype panel. You can select between tabular or proportional and oldstyle or lining. You can choose the position of type (superscript, subscript, numerator, denominator).
+Illustrator also has very useful options for glyphs under the Opentype panel. You can select between tabular or proportional and oldstyle or lining. You can choose the position of type (superscript, subscript, numerator, denominator).
 
 ![Tabular, Proportional, Lining, Oldstyle]({{ site.github.url }}/tmakarem/assets/052_Numbers.png "Tabular, Proportional, Lining, Oldstyle")
 
@@ -145,6 +147,6 @@ You can add decorative elements to your type using stylized characters like swas
 
 *Ordinals and fractions in Illustrator*
 
-Sketch only supports ligatures out of the characters that you find under the Opentype panel in Illustrator. However, most of these characters are rarely used when designing web and mobile applications. Also, the Opentype panel in Illustrator only works for Opentype fonts and many of these fonts don’t include these characters.
+Sketch only supports ligatures out of the characters that you find under the Opentype panel in Illustrator. However, most of these characters are rarely used when designing web and mobile applications. Also, the Opentype panel in Illustrator only works for Opentype fonts and many of Opentype fonts don’t include these characters.
 
 When I first started using Sketch, it seemed to be less comprehensive than Illustrator when working with type. However, while Sketch does not offer all the advanced options available in Illustrator, it covers all the basics ones and there are workarounds some of the missing ones.
