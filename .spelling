@@ -730,6 +730,7 @@ sharable
 StreamSets
 Dockerhub
 heatmap
+
 gridline
 devops
 Atlassian
@@ -761,8 +762,17 @@ OAuthSignatureCalculator
 bouncycastle
 OAuth1
 OAuthBible
+<<<<<<< HEAD
+roboto
+24pt
+26pt
+roman
+opentype
+oldstyle
+=======
 slopegraph
 slopegraphs
+>>>>>>> ScottLogic/gh-pages
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
 line.y
