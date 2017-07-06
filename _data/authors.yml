@@ -28,6 +28,7 @@ active-authors:
   - lcollingwood
   - mdunsdon
   - mjose
+  - mmathew
   - msuperina
   - nhemley
   - nowen
@@ -481,3 +482,9 @@ authors:
         email: zwali@scottlogic.co.uk
         author-summary: <p>I am a Senior Developer at Scott Logic. I like exploring technology and have a keen interest in Big Data and Machine Learning.</p>
         gravatar: 8a075afb0f40d47039cdac411f58f5d3
+    mmathew:
+        name: Mili Mathew
+        email: mmathew@scottlogic.com
+        author-summary: <p>I'm a Lead Test Consultant at Scott Logic, London. I like solving problems with innovation and pragmatism</p>
+        gravatar: 14d5011ea7d1add863f3436a74ed9474
+        twitter-url: https://twitter.com/Testflaneuse
