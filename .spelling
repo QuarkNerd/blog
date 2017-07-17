@@ -777,6 +777,14 @@ testhouse
 slideshare
 prezi
 wannacry
+serverless
+gradle
+kubernetes
+memcached
+redis
+disposability
+sqlite
+splunk
  - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
 callout
 line.y
