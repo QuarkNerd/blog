@@ -40,7 +40,7 @@ The vast quantities of data collected by BPs sensors represent not only a challe
 
 BP have made a big investment in improving their monitoring to get early warnings of an impending issues - which in BPs case could have prevented a disaster plus a $62bn fine. Technologies such as Kafka which is a distributed log, Apache NiFi (a bi directional streaming system), Apex, Amazon Kinesis, Google Pub/Sub are all gaining significant momentum displacing older messaging and streaming technologies and helping to get very large volumes of data from source systems or sensors to their destination ready for timely processing. Getting the data to the destination with low latency can be key for monitoring applications to spot early warning signs of issues developing.
 
-# Data Processing
+## Data Processing
 
 But BP wouldn't be able to make significant savings without applying Machine Learning algorithms to these large datasets. Luckily there has been a huge amount of innovation in this area and technologies such as Apache Spark, Hadoop, Flink, Samza, Apex. Some of these technologies are mostly streaming technologies such as Apache Flink and Samza, which can be low latency. Whereas technologies such as Hadoop or Spark in batch mode typically have higher latencies. Apache Spark also has a streaming API, which is strictly speaking Micro batching but is often looked upon as a happy medium between batch and stream processing. It appears that BP uses a few technologies for its machine learning, including Apache Spark and Hadoop. Apache Spark has very recently become the most popular open source processing engine and is able to process data at scale easier than ever before with the inclusion of out-of-the-box machine learning algorithms.
 
