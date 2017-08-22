@@ -1,22 +1,28 @@
+.no-padding {
+  padding: 0;
+}
+
+.featured-container{
+  max-width: 1005px;
+  overflow-x: auto;
+}
+
 .row.featured {
-  @media (max-width: map-get($grid-breakpoints, md)) {
-    overflow-x: scroll;
-  }
+
   >div {
-    min-width: map-get($grid-breakpoints, md);
     margin-bottom: $largeLayoutUnit;
 
     .cell {
+      width: 100%;
       padding: 0;
       position: relative;
       border: 1px solid white;
-      width: calc(100% / $numberOfFeaturedArticles);
       display: inline-block;
       &:after {
         padding-top: $featuredArticleImageAspectRatio;
         display: block;
         content: '';
-      }
+        }
 
       img, .overlay {
         position: absolute;
@@ -29,18 +35,44 @@
       .overlay {
         z-index: 1;
         background-color: rgba(0, 0, 0, 0.4);
-        padding: $smallLayoutUnit 0 0 $layoutUnit;
+        padding: $smallLayoutUnit $layoutUnit;
 
         h4 {
           color: white;
-          font-size: $baseFontSize;
           text-shadow: 0 1px 2px rgba(0,0,0,0.6);
-
-          @media (max-width: map-get($grid-breakpoints, md)) {
-            font-size: $smallFontSize;
-          }
         }
       }
     }
+
+    .cell3 {
+      min-width: 136px;
+    }
+
+    .cell4 {
+      min-width: 182.5px;
+    }
   }
 }
+
+.featured-width-3 {
+  min-width: 408px;
+}
+
+.featured-width-4 {
+  min-width: map-get($grid-breakpoints, md);
+}
+
+.shrinking-text-3 {
+  font-size: $baseFontSize;
+  @media (max-width: map-get($grid-breakpoints, lg)) and (min-width: map-get($grid-breakpoints, md)), (max-width: map-get($grid-breakpoints, sm)) {
+    font-size: $smallFontSize;
+  }
+}
+
+.shrinking-text-4 {
+  font-size: $baseFontSize;
+  @media (max-width: map-get($grid-breakpoints, md)) {
+    font-size: $smallFontSize;
+  }
+}
+

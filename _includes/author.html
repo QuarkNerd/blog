@@ -1,13 +1,29 @@
 {% assign author = include.author %}
 {% assign suppressSummary = include.suppressSummary %}
 {% assign suppressName = include.suppressName %}
+{% assign authorPage = include.authorPage %}
 
+{% if authorPage %}
+<div id="author-page" class="author-page">
+{% else %}
 <div class="author">
+{% endif%}
+    {% if authorPage %}
+    <div class="author-box">
+        <div class="author-image">
+    {% endif%}
     {% if author.gravatar %}
         <img src="//www.gravatar.com/avatar/{{ author.gravatar }}" alt="{{ author.name }}"/>
     {% else %}
         <img src="{{ site.github.url }}/assets/avatar.png" alt="{{ author.name }}"/>
     {% endif %}
+    {% if authorPage %}
+        </div>
+        <div class="author-name-box">
+            <div id="author-name" class="authorName">{{ author.name }}</div>
+        </div>
+    </div>
+    {% endif%}
     {% if suppressName != true %}
     <a class="authorName highlight" rel="author" href="{{ site.github.url }}/{{ page.author }}">{{ author.name }}</a>
     {% endif %}
@@ -19,3 +35,13 @@
         <a class="authorSocialMediaLink highlight" rel="author" href="{{ author.twitter-url}}">@{{ twitter-url-split[3] }}</a>
     {% endif %}
 </div>
+
+<script src="{{ site.github.url | remove_first: 'http:' }}/script.js" type="text/javascript"></script>
+<script type="text/javascript">jQuery.noConflict();</script>
+<script type="text/javascript">
+jQuery(window).resize(function() {
+    if (jQuery("#author-page").width() < jQuery("#author-name").width()) {
+        jQuery("#author-name").css("font-size", "24px");
+    }
+}).resize();
+</script>

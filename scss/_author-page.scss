@@ -1,0 +1,80 @@
+.column-label {
+  color: #af025c;
+  font-size: 24px;
+  margin-top: 0px;
+}
+
+.blog-container {
+	max-width: 1005px;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+@media (max-width: 1030px) {
+    .blog-container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+.dividing-line{
+  @media (max-width: (map-get($grid-breakpoints, md) - 1px)) {
+    border-bottom: 1px solid #ddd;
+    padding: 0 $largeLayoutUnit;
+    height: $smallLayoutUnit;
+    margin-bottom: $largeLayoutUnit;
+  }
+}
+
+.author-page {
+  padding-bottom: $largeLayoutUnit;
+
+  img {
+    border-radius: 50%;
+  }
+
+  .authorName {
+  	font-size:  30px;
+  	font-family: $futuraPT;
+  	text-transform: uppercase;
+  }
+
+  .author-box {
+  	display: flex;
+  	flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .author-image {
+  	flex: initial;
+  	display: flex;
+  	min-width: 80px;
+  	height: auto;
+  	flex-direction: column;
+  	justify-content: center;
+    margin-right: $smallLayoutUnit;
+  }
+
+  .author-name-box {
+  	flex: 1;
+  	display: flex;
+  	flex-direction: column;
+  	justify-content: center;
+  	word-wrap: break-word;
+    min-height: 80px;
+  }
+
+  .authorSummary {
+  	font-size:  16px;
+  	font-family: $helvetica;
+  	margin-top: $largeLayoutUnit;
+    // Links in author summary should be displayed inline.
+    a {
+      display: initial;
+    }
+  }
+
+  > a {
+  	color: #af025c;
+  }
+}

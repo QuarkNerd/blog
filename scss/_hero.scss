@@ -3,6 +3,8 @@ $heroHeightCompact: 80px;
 $heroHeightVeryCompact: 50px;
 
 .hero {
+    max-width: 1005px;
+    padding: 0px;
 
   .row {
     height: $heroHeight;
