@@ -10,15 +10,12 @@ active-authors:
   - bjedrzejewski
   - ceberhardt
   - cprice
-  - dcook
-  - dketley
   - dsmith
   - dgorst
   - dkerr
   - dmcnamee
   - dogle
   - dtheasby
-  - dwybourn
   - godds
   - jdunkerley
   - jharris
@@ -264,7 +261,6 @@ authors:
         name: Joe Bandenburg
         email: jbandenburg@scottlogic.co.uk
         gravatar: 785c4b4fe07574c8350791f355195f36
-        author-summary: <p>Software engineer.</p>
         twitter-url: https://twitter.com/joebandenburg
     wreilly:
         name: William Reilly
@@ -358,7 +354,6 @@ authors:
     mtinning:
         name: Michael Tinning
         email: mtinning@scottlogic.com
-        author-summary: <p>I am a Senior Software Developer at Scott Logic, specialising in .NET technologies but excitable about many more. I am also involved in the organisation of <a href="http://www.meetup.com/bristech/">BrisTech</a>, a vibrant community of technology enthusiasts in Bristol and the South West.</p>
         twitter-url: https://twitter.com/mttinning
         gravatar: c0800747d0696e49dc753be3c345f049
     bjedrzejewski:
@@ -369,18 +364,15 @@ authors:
     dwybourn:
         name: David Wybourn
         email: dwybourn@scottlogic.com
-        author-summary: <p>I am a software developer at Scott Logic, my experience is in back end server software in C/C++ and Java, however I'm continuously learning new higher level and specilist languages such as Groovy, Scala, Python, Go, etc.</p>
         gravatar: ebdfd47c91385d9c1d45995d06f5cc0b
     nsoper:
         name: Nick Soper
         email: nsoper@scottlogic.com
-        author-summary: <p>I am a Senior Software Developer at Scott Logic. I have many years C# experience but recently I've been writing a lot of JavaScript. I am interested in functional programming and would love to get stuck into some client work using F# one day. I also enjoy music (metal and jazz), reading and cats.</p>
         gravatar: 5aaeb8af94f81312997215b90cd6d1af
         twitter-url: https://twitter.com/devsoper
     csmith:
         name: Chris Smith
         email: csmith@scottlogic.co.uk
-        author-summary: <p>I'm a Lead Developer at Scott Logic. I have a lot of experience with C# and JavaScript. I'm currently interested in DevOps (especially Docker) and functional programming, e.g. F#, Erlang, Clojure.</p>
         gravatar: 2c3c188fa868c9e20e809e5af1d1aa29
         twitter-url: https://twitter.com/cjsmithie
     rsillem:
@@ -404,12 +396,10 @@ authors:
         name: Saber King
         email: sking@scottlogic.com
         gravatar: c02644e4b21947da7787247349954f96
-        author-summary: <p>I am a graduate developer at Scott Logic</p>
     acheshire:
         name: Alexander Cheshire
         email: acheshire@scottlogic.com
         gravatar: 0dad4b3bf82f4c1370397af505f0cb86
-        author-summary: <p>I am a developer with experience in JavaScript and Java</p>
     rrahim:
         name: Rhianna Rahim
         email: rrahim@scottlogic.co.uk
@@ -424,7 +414,6 @@ authors:
         name: Drew Miley
         email: dmiley@scottlogic.co.uk
         gravatar: 6fc5270bd445b6a20cf7354b0003e035
-        author-summary: <p>Scott Logician. My chatbot is my analyst. For latest <a href="https://github.com/drewmiley">developments</a></p>
     jharris:
         name: Jon Harris
         email: jharris@scottlogic.com
@@ -446,7 +435,6 @@ authors:
     dcook:
         name: Daniel Cook
         email: dcook@scottlogic.com
-        author-summary: <p>Big Data Lead at Scott Logic with a passion for all things Hadoop. I've architected real time streaming Big Data solutions as well as huge data lakes.</p>
         feed-description: Dan Cook's thoughts on all things Big Data.
         gravatar: 477b06f3eb1e0a496918328c43a91ca3
         twitter-url: https://twitter.com/dancookdev
@@ -455,7 +443,6 @@ authors:
     dketley:
         name: Dominic Ketley
         email: dketley@scottlogic.com
-        author-summary: <p>I'm a Developer at Scott Logic, based in Edinburgh.</p>
         gravatar: 6c79499e6992a81bdea5587ed6bfa6f6
     msuperina:
         name: Marzio Superina
