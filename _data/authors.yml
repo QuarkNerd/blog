@@ -73,7 +73,10 @@ authors:
         gravatar: 458f2e0d08d4114f8b323798cfea141d
         feed-description: Colin Eberhardt's Technology Adventures
         twitter-url: https://twitter.com/ColinEberhardt
-        author-summary: <p>I am Technology Director at Scott Logic and am a prolific technical author, blogger and speaker on a range of technologies. For a number of years I worked with the Microsoft stack of technologies, including WPF, WCF, Silverlight and Windows Phone. More recently I have diversified to include HTML5, JavaScript and iOS development.</p>
+        author-summary: |
+            <p>I am Technology Director at Scott Logic and am a prolific technical author, blogger and speaker on a range of technologies.</p>
+            <p>My blog includes posts on a wide range of topics, including HTML5 / JavaScript and data visualisation with D3 and <a href="https://d3fc.io/">d3fc</a>. You'll also find a whole host of posts about previous technology interests including iOS, Swift, WPF and Silverlight.</p>
+            <p>I'm a member of <a href="https://symphony.foundation/">Symphony Foundation</a>, which is encouraging open source collaboration in the financial sector. I'm also <a href="https://github.com/ColinEberhardt">very active on GitHub</a>, contributing to a number of different projects.</p>  
     cprice:
         name: Chris Price
         email: cprice@scottlogic.com
@@ -291,11 +294,8 @@ authors:
         name: Sam Davies
         email: sdavies@scottlogic.com
         gravatar: ddd6d3bac7772fa67fc5e312a18bdaec
-        author-summary: <p>Writes and speaks a lot about mobile development. Author of <a href="http://shinobicontrols.com/ios8">iOS8 Day-by-Day</a>. Trombonist. <br/><br/>Technical Evangelist @ <a href="http://www.shinobicontrols.com">shinobicontrols</a></p>
         twitter-url: https://twitter.com/iwantmyrealname
         google-plus-url: https://plus.google.com/+SamDavies_ActuallyMyRealName
-        author-summary: |
-            <p>Having escaped first from academia, and then the public sector, Sam is very happy to be working in the software industry. His role as Technical Evangelist at <a href="http://shinobicontrols.com/">shinobicontrols</a> involves a huge amount of writing, speaking at conferences and catching up with customers. His specialism is in mobile, but he has wide ranging experience, and a passion for the emerging "Internet of Things".</p><p>He is a member of the <a href="http://www.raywenderlich.com/u/samdavies">Ray Wenderlich tutorial team</a> and in addition to writing tutorials for the site, he was a lead author on the <a href="https://store.raywenderlich.com/products/ios-8-by-tutorials">iOS 8 by Tutorials</a> book, as well as a speaker at RWDevCon 2015. He blogs prolifically on the <a href="http://www.shinobicontrols.com/blog?author=sdavies">shinobicontrols</a> site, as well as writing articles for other sites such as <a href="http://www.objc.io">objc.io</a>.</p><p>Sam has also written a selection of free e-books about mobile development over recent years, including the very popular <a href="https://leanpub.com/ios7daybyday">iOS 7: Day-by-Day</a>, <a href="http://www.shinobicontrols.com/ios8">iOS 8: Day-by-Day</a> and <a href="https://leanpub.com/bitesizekitkat">Bitesize Android KitKat</a>.</p>
     wloveland:
         name: Will Loveland
         email: wloveland@scottlogic.com
