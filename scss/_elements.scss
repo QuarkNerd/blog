@@ -40,7 +40,8 @@ header {
   margin-bottom: $layoutUnit;
 }
 
-p+h1, p+h2, p+h3, p+h4, p+h5 {
+p+h1, p+h2, p+h3, p+h4, p+h5,
+div.highlighter-rouge+h1, div.highlighter-rouge+h2, div.highlighter-rouge+h3, div.highlighter-rouge+h4, div.highlighter-rouge+h5 {
   margin-top: $layoutUnit * 3;
 }
 

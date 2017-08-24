@@ -730,6 +730,9 @@ sharable
 StreamSets
 Dockerhub
 heatmap
+specs
+jsdom
+baseUrl
 
 gridline
 devops
