@@ -287,7 +287,7 @@ a joy to play!
 ##Conclusion and what is next
 
 I really enjoyed using Apache Spark and working with the amazing lichess dataset. I feel that I have only scratched the
-surface of what exciting facts can be mined from that dataset. I encourage you to [download the spreadsheet]((https://github.com/bjedrzejewski/chess-spark-miner/raw/master/consolidatedOpeningFiles/2017-consolidatedOpeningFile.xlsx))
+surface of what exciting facts can be mined from that dataset. I encourage you to [download the spreadsheet](https://github.com/bjedrzejewski/chess-spark-miner/raw/master/consolidatedOpeningFiles/2017-consolidatedOpeningFile.xlsx)
 yourself and share your insights and findings!
 
 On the purely technical side- I have only focused on the metadata and did not make use of over 2,000,000 games in that
