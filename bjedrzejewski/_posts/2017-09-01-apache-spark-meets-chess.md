@@ -81,7 +81,7 @@ after that I can run Spark shell with simple:
 spark-shell
 ~~~
 
-Installation was simple enough, the next step is actually being able to parse one of the data sets. I started by making a small Java problem,
+Installation was simple enough, the next step is actually being able to parse one of the data sets. I started by making a small Java program,
 where all that was needed in the maven file was:
 
 ~~~xml
