@@ -917,6 +917,7 @@ skspritenodes
 skspritenode
 sks
 lodash
+lichess
  - mmathew/_posts/2017-07-20-MeetUps-and-SWT-Bristol.md
 rosicadia
 Loughran
@@ -2610,3 +2611,17 @@ timeframe
 brownian
 d3.stack
 autobandwidth
+- janakerman/_posts/2017-09-01-thoughts-on-jest-snapshots.md
+SpringBoot
+Todomvc
+diffs
+- bjedrzejewski/_posts/2017-09-01-apache-spark-meets-chess.md
+Homebrew
+processPGNFile
+consolidateOpeningFiles
+Defense
+e4
+e5
+Alekhine
+Caro
+Kann

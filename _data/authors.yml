@@ -17,6 +17,7 @@ active-authors:
   - dogle
   - dtheasby
   - godds
+  - janakerman
   - jdunkerley
   - jharris
   - jhill
@@ -77,7 +78,7 @@ authors:
         author-summary: |
             <p>I am Technology Director at Scott Logic and am a prolific technical author, blogger and speaker on a range of technologies.</p>
             <p>My blog includes posts on a wide range of topics, including HTML5 / JavaScript and data visualisation with D3 and <a href="https://d3fc.io/">d3fc</a>. You'll also find a whole host of posts about previous technology interests including iOS, Swift, WPF and Silverlight.</p>
-            <p>I'm a member of <a href="https://symphony.foundation/">Symphony Foundation</a>, which is encouraging open source collaboration in the financial sector. I'm also <a href="https://github.com/ColinEberhardt">very active on GitHub</a>, contributing to a number of different projects.</p>  
+            <p>I'm a member of <a href="https://symphony.foundation/">Symphony Foundation</a>, which is encouraging open source collaboration in the financial sector. I'm also <a href="https://github.com/ColinEberhardt">very active on GitHub</a>, contributing to a number of different projects.</p>
     cprice:
         name: Chris Price
         email: cprice@scottlogic.com
@@ -481,3 +482,8 @@ authors:
         email: rrhodes@scottlogic.com
         author-summary: <p>I'm a Graduate Developer at Scott Logic, Edinburgh. I joined in August 2017 after four years of study at the University of Edinburgh.</p>
         gravatar: 97c297e1087e4f95f2b1389fec46d0c9
+    janakerman:
+        name: Jan Akerman
+        email: jakerman@scottlogic.com
+        author-summary: <p>I am a Senior Developer at Scott Logic, based in London.</p>
+        gravatar: 682fd441bf8e2ff3dc12eae048fd2ed0
