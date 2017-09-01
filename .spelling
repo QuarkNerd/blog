@@ -917,6 +917,7 @@ skspritenodes
 skspritenode
 sks
 lodash
+lichess
  - mmathew/_posts/2017-07-20-MeetUps-and-SWT-Bristol.md
 rosicadia
 Loughran
@@ -2614,3 +2615,13 @@ autobandwidth
 SpringBoot
 Todomvc
 diffs
+- bjedrzejewski/_posts/2017-09-01-apache-spark-meets-chess.md
+Homebrew
+processPGNFile
+consolidateOpeningFiles
+Defense
+e4
+e5
+Alekhine
+Caro
+Kann
