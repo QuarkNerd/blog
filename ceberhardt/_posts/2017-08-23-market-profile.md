@@ -4,6 +4,9 @@ title: Creating a Market Profile Chart with D3
 layout: default_post
 summary: Market profile charts are relatively complicated and specialised charts used by financial traders. This blog post looks at how to render a market profile chart using D3.
 image: ceberhardt/assets/market-profile/market-profile.png
+categories:
+  - JavaScript
+  - D3
 ---
 
 Financial traders who make their living (or at least some extra spending money) from the financial markets have developed a whole host of [indicators](https://en.wikipedia.org/wiki/Technical_analysis#Charting_terms_and_indicators) that overlay the price of an instrument, providing signals for when to buy or sell.
