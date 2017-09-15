@@ -3,7 +3,9 @@ author: acarr
 title: The Big Data technologies that saved BP $7bn
 summary: "Yesterday the Financial Times boldly declared that BP saved $7bn since 2014 by investing in Big Data technologies. I spent a couple of hours researching Big Data technologies associated with BP members of staff to try and build up a picture of exactly which technologies they are using."
 layout: default_post
-image: acarr/assets/oil.jpg
+tags:
+  - featured
+image: acarr/assets/featured/oil.jpg
 ---
 
 Yesterday the Financial Times published an article on the front cover of their Companies and Markets section that boldly declared [BP made $7bn annual savings since 2014 by investing in Big Data technologies](https://www.ft.com/content/16261952-6a28-11e7-bfeb-33fe0c5b7eaa). This is a colossal saving, even for a company with an $87bn market capital!

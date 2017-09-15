@@ -6,6 +6,8 @@ summary: Creating asynchronous functions that are recursive can be a bit of a ch
 image: ceberhardt/assets/featured/spiral.jpg
 categories:
   - JavaScript
+tags:
+  - featured
 ---
 
 Creating asynchronous functions that are recursive can be a bit of a challenge. This blog post takes a look at various different approaches, including callbacks and promises, and ultimately demonstrates how async functions result in a much simpler and cleaner solution.

@@ -3,8 +3,11 @@ author: bjedrzejewski
 title: Chess data mining with Apache Spark and Lichess
 summary: "Lichess makes over 100GB of chess games from 2017 available on their website. This post shows how this data can be transformed with Apache Spark and analysed. Something for Data Engineers and Chess Enthusiasts alike!"
 layout: default_post
+image: bjedrzejewski/assets/featured/chess.jpg
 categories:
   - Java
+tags:
+- featured
 ---
 
 In Scott Logic we have an active group of big data enthusiasts. We also have a good number of passionate chess players.
@@ -13,7 +16,7 @@ It is a (at the time of writing) a collection of more than 202,000,000 chess gam
 The data from 2017 alone, after unpacking was over 100GB. [Apache Spark](https://spark.apache.org/) is a perfect
 technology for making this immense data set easier to explore. In this blog post I will show how this data
 set can be reduced to the size that makes it explorable with Excel and show some interesting chess statistic that
-can be mined from it. If you are really impatient, you can [checkout the code](https://github.com/bjedrzejewski/chess-spark-miner) and download the 
+can be mined from it. If you are really impatient, you can [checkout the code](https://github.com/bjedrzejewski/chess-spark-miner) and download the
 [Excel spreadsheet](https://github.com/bjedrzejewski/chess-spark-miner/raw/master/consolidatedOpeningFiles/2017-consolidatedOpeningFile.xlsx) right now!
 
 ## First look at Lichess data set
@@ -120,7 +123,7 @@ public class ChessSparkMiner {
 }
 ~~~
 
-This does not work very well, as the actual result appears at the end of the game, in the metadata and can 
+This does not work very well, as the actual result appears at the end of the game, in the metadata and can
 appear in other places (for example usernames). The main issue here is that Spark by default splits by line. This is
 not what we want and it can be easily fixed by splitting on some other distinct part of the file. I chose the `"[Event"`
 which starts the metadata. Code for doing that smarter split is as follows:
@@ -135,7 +138,7 @@ which starts the metadata. Code for doing that smarter split is as follows:
         sc.hadoopConfiguration().set("textinputformat.record.delimiter", "[Event");
         JavaRDD<String> pgnData = sc.textFile(filePath);
 ~~~
- 
+
 With this out of the way, we are ready to start looking at this dataset seriously!
 
 ## Processing Lichess Dataset with Apache Spark
