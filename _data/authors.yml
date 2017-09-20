@@ -17,6 +17,7 @@ active-authors:
   - dogle
   - dtheasby
   - godds
+  - gthompson
   - janakerman
   - jdunkerley
   - jharris
@@ -133,6 +134,12 @@ authors:
         google-plus-url: https://plus.google.com/u/0/106838695703708413394
         feed-description: Graham Odds' thoughts about design, technology and data visualisation.
         author-summary: <p>I'm a designer working on complex systems across desktop, web and mobile.  As Head of User Experience at Scott Logic, I work primarily with financial services and energy trading institutions, creating everything from direct-to-consumer investment applications to research, trading and analysis tools. I delight in pushing at what is possible to discover beautiful, effective solutions to problems.</p>
+    gthompson:
+         name: Gary Thompson
+         email: gthompson@scottlogic.com
+         gravatar: 59a83a758ac4cd7385be9ed0df32c18e
+         feed-description: Gary's thoughts on Agile, Scrum, and all things Tech Project Management.
+         author-summary: <p>I'm a Technical Project Manager at Scott Logic with a background in development and engineering. I moved to project management in 2009 and have experience in traditional and agile methodologies from large to small projects in both the public and private sectors.</p>
     isullivan:
         name: Ian Sullivan
         email: isullivan@scottlogic.com
