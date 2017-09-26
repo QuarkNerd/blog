@@ -2648,3 +2648,16 @@ glanceable
 100km
 500m
 99.5km
+ - jwhite/_posts/2017-09-25-mutation-testing.md
+com
+FullMutationCoverage
+isIntegerGreaterThanOrLessThanZero
+RuntimeException
+FooTest
+TestFoo
+unmutated
+mutationCoverage
+historyInputFile
+historyOutputFile
+excludedClasses
+excludedMethods
