@@ -14,7 +14,7 @@
 {% endif %}
 
 {% assign numPosts = featuredPosts | size %}
-{% if numPosts > visiblePosts -1 %}
+{% if numPosts >= visiblePosts %}
 <section class="container featured-container">
   <div class="row featured featured-width-{{ visiblePosts }}">
     {% for post in featuredPosts limit: visiblePosts  %}
