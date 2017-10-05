@@ -6,6 +6,7 @@ image: dwybourn/assets/featured/swarm.png
 categories:
   - Docker
   - DevOps
+  - Data
 ---
 For the last few months we've been working on a very DevOps focused project. As such we've used AWS, infrastructure as code, Docker and microservices. The different microservices were initially running all on one box, each with a different port. This solution wasn't scalable or very practical. We couldn't have all our services on one machine and it was getting tiresome and error prone having to remember/lookup which port each service was on. We needed our services to run on separate machines, and we needed a way to communicate with them without having to hard-code IP addresses or port numbers. What we needed was service discovery. As we had already been using Docker for each service, Docker Swarm was a natural candidate.
 

@@ -3,6 +3,8 @@ author: csmith
 title: Declarative CI / CD with Concourse
 summary: "This post describes the Concourse build system and explains why declarative CI / CD is so compelling. No more pet build servers!"
 layout: default_post
+categories:
+  - Data
 ---
 
 ## No more pet build servers!

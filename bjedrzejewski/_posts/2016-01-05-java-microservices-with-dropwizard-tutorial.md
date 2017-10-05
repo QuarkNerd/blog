@@ -6,6 +6,7 @@ summary: "This blog shows how to get started with microservices using Dropwizard
 categories:
   - Web
   - Java
+  - Data
 ---
 This blog shows how to get started with microservices using [Dropwizard](http://www.dropwizard.io/0.9.1/docs/). It guides the reader through building a simple task-list service.
 
@@ -316,4 +317,3 @@ Or even see some server diagnostics on: <http://localhost:8081/>
 Congratulations on building your Dropwizard microservice! With this knowledge it should be easy to dive deeper, by reading
 [the official documentation](http://www.dropwizard.io/0.9.1/docs/manual/index.html), hacking on your own or checking some of the popular books on the subject. I strongly believe
 that microservices are here to stay and hope that this introduction proved fun and useful.
-

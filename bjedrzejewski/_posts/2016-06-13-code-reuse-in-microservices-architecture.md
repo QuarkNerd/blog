@@ -7,6 +7,7 @@ categories:
   - Java
   - Microservices
   - Web
+  - Data
 ---
 
 In most microservice architectures, there are many opportunities and temptations for sharing code. In this post
@@ -385,4 +386,3 @@ are actually easier than many developers think. If you want to explore further, 
 from Github](https://github.com/bjedrzejewski/microservices-reuse-example) and see if you can take it further!
 
 Good luck with your microservices development!
-

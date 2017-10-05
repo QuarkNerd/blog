@@ -7,6 +7,7 @@ categories:
   - Java
   - Web
   - .Net
+  - Data
 ---
 
 ## Introduction
@@ -101,7 +102,7 @@ leads to the sub-par solution. This can be fixed in your company by implementing
 
 This is a common practice already and not something that professional developers get wrong often. The idea is that your
 services should be easily interchangeable. If you are referencing them as simple urls with login credentials there is no
-reason why they shouldn't be. This will ensure good portability and helps maintain your system. 
+reason why they shouldn't be. This will ensure good portability and helps maintain your system.
 
 ### 5. Build, release, run
 >Strictly separate build and run stages

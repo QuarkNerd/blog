@@ -4,6 +4,7 @@ layout: default_post
 title: "Creating Simple Web Services in Go"
 categories:
   - Go
+  - Data
 summary: "Following on from making a simple particle simulation in Go, I decided to try and implement a simple set of web services too."
 ---
 
@@ -133,7 +134,7 @@ func main() {
 }
 {% endhighlight %}
 
-This listens on port `8080` for any request - the `/` path is a catch-all handler. 
+This listens on port `8080` for any request - the `/` path is a catch-all handler.
 
 
 ### List

@@ -6,6 +6,8 @@ categories:
   - BigData
   - HPC
   - Java
+categories:
+  - Data
 ---
 ### What is 'Big' Data?
 Big data is one of those buzz phrases that gets thrown round a lot, companies love saying they work with ‘Big’ data, but what is ‘Big’ data?

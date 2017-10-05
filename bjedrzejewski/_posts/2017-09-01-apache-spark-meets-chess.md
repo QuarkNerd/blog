@@ -6,6 +6,7 @@ layout: default_post
 image: bjedrzejewski/assets/featured/chess.jpg
 categories:
   - Java
+  - Data
 tags:
 - featured
 ---

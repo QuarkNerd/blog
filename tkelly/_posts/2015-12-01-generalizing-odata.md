@@ -10,11 +10,12 @@ tags:
 categories:
   - .NET
   - C#
+  - Data
 ---
 
 In this blog post, we take a look at how to create an OData controller which leverages generics to offer the same CRUD services for multiple models. The full source is available [on GitHub](https://github.com/tpkelly/generalizing-odata).
 
-OData is a great way to wrap data sources in a standard and simple access method. It is a mature protocol, having been created by Microsoft in 2007, offering a simple abstraction layer to accessing data. It provides a common protocol for accessing any type of data source, allowing clients and data sources to be mixed and matched together, while allowing the flexibility to say how data should be sorted or filtered at request-time. 
+OData is a great way to wrap data sources in a standard and simple access method. It is a mature protocol, having been created by Microsoft in 2007, offering a simple abstraction layer to accessing data. It provides a common protocol for accessing any type of data source, allowing clients and data sources to be mixed and matched together, while allowing the flexibility to say how data should be sorted or filtered at request-time.
 
 Sometimes when working with OData, each OData Controller needs to treat it's model differently and has a lot of business logic built into each controller. However sometimes, all you need to provide is a thin middle-ware abstraction between the data layer and the application. I found myself working on a problem of the latter kind recently, and thought I could save some time by building an OData Controller making use of Generics in C#. Initially I tried to find a solution via Google, but only found fixes to individual issues rather than an overall solution to the problem.
 
@@ -147,7 +148,7 @@ public class CustomControllerSelector : IHttpControllerSelector
 
     return dictionary;
   }
-  
+
   ...
 }
 {% endhighlight %}
@@ -160,7 +161,7 @@ With this in place, the two required methods for ```IHttpControllerSelector``` b
 public class CustomControllerSelector: IHttpControllerSelector
 {
   ...
-  
+
   public HttpControllerDescriptor SelectController(HttpRequestMessage request)
   {
     var path = request.RequestUri.LocalPath.Split('/','(');

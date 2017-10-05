@@ -7,6 +7,7 @@ disqus-id: /2015/11/15/stock-ticker.html
 categories:
   - Web
   - Haskell
+  - Data
 ---
 
 This post demonstrates how to create an efficient stock ticker app using HTML5 WebSockets and a Haskell server. The stock ticker itself simply shows a list of symbols and prices that dynamically update:
@@ -115,7 +116,7 @@ The top (optional!) line is the type signature. It says: "there is a function ca
 
 The second line is the implementation of `add`. The arguments are named `a` and `b` and the result is simply `a + b` (there is no need for the return keyword). Functions are called by writing the function name followed by its arguments separated by spaces, there is no need for any parenthesis for example `add 3 4 == 7` returns `True`.
 
-As mentioned above, Haskell supports green threads. These are threads that are managed by the Haskell runtime and not the OS. They are extremely lightweight and it is perfectly reasonable to spawn thousands of these threads without a noticeable impact on performance. The runtime splits the work of these green threads across all cores of a processor. 
+As mentioned above, Haskell supports green threads. These are threads that are managed by the Haskell runtime and not the OS. They are extremely lightweight and it is perfectly reasonable to spawn thousands of these threads without a noticeable impact on performance. The runtime splits the work of these green threads across all cores of a processor.
 
 Threads can communicate with one another using the `Chan` (Channel) type. This is a FIFO queue that threads can read from and write to. A channel that integers can be written to to has the type `Chan Int` (analogous to Java's generic `Chan<Int>` syntax). There are several useful functions when working with channels:
 

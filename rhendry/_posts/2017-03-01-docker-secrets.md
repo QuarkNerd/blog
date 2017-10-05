@@ -5,6 +5,8 @@ summary: Docker 1.13 introduces a simple way of providing secrets to containers
 layout: default_post
 tags:
   - docker
+categories:
+  - Data
 ---
 Keeping secrets in Docker containers has been a problem for a while now, and there have been a number of solutions
 suggested by the internet at large. There's a good write-up of these over on the [issues

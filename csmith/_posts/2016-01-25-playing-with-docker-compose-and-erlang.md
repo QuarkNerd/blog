@@ -3,6 +3,8 @@ author: csmith
 title: Playing with Docker Compose and Erlang
 summary: "This post uses Docker Compose to spin up a three container HTTP server. One container services the HTTP requests and delegates work to two other containers in a load-balanced way. Erlang is used for development to add a bit of extra challenge!"
 layout: default_post
+categories:
+  - Data
 ---
 I recently had some free time and decided to play with two technologies that I've long been interested in - [Docker](https://www.docker.com/) and [Erlang](http://www.erlang.org/). I set myself the task of getting a three container system up and running in a completely automated way. I approached the task incrementally, from getting Erlang working locally, to working in a container, to working between containers. I've set out the journey in this blog post and hope you find it as interesting as I did!
 
@@ -245,4 +247,3 @@ in a terminal, you'll see images for each of the workers and the gateway and cor
 At this point, I decided I'd achieved my objective of getting a multi-container system up and running in an automated way, but I wanted to see how it looked on someone else's machine. I asked one of my colleagues to clone the repo onto his Ubuntu VM and bring up the system. We watched as Docker pulled the official Erlang image, built the custom images, started the containers and linked them up. It was impressive and I started to think of ways of using it to speed up development and deployment of systems built on microservices.
 
 I hope you've found this journey interesting and feel inspired as well. Docker is a powerful tool that's gaining a lot of traction in the world of IT. Erlang is definitely more niche, but I think we'll be seeing more and more about functional programming in 2016 and beyond. I'm now hoping to start a development project using Docker and a functional language and I'll blog about my experiences.
-

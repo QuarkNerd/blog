@@ -9,6 +9,8 @@ tags:
   - Blockchain
   - Scottcoin
   - featured
+categories:
+  - Data
 title-short: Bitcoin payments and the Lightning Network
 image: jhill/assets/featured/lightning.jpg
 ---

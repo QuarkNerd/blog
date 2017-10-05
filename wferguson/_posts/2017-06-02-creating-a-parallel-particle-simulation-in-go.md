@@ -4,6 +4,7 @@ layout: default_post
 title: "Creating a Parallel Particle Simulation in Go"
 categories:
   - Go
+  - Data
 summary: "Following on from my previous blog post where I created a simple particle simulation using Go, I looked at adding some complexity."
 ---
 
@@ -24,7 +25,7 @@ func (p *Particle) Tick(duration float64, otherParticles *[]Particle) {
         xDiff, yDiff, zDiff := p.Position.X-otherParticle.Position.X,
             p.Position.Y-otherParticle.Position.Y,
             p.Position.Z-otherParticle.Position.Z
-        
+
         // Combine the magnitudes of the differences together so that it can be used to divide up
         // the portions of the calculated force into the x, y, and z components
         combinedDifferences := math.Abs(xDiff) + math.Abs(yDiff) + math.Abs(zDiff)
@@ -50,7 +51,7 @@ Having to calculate distance between potentially thousands of other points many 
 
 ## Running in Parallel
 
-The gravity approach in the previous post was great for parallelisation as the particles didn't interact with each other, and as a result parallelisation was easy: allocate certain particles on each thread. For attraction and repulsion, the particles' positions to each other determine the force acting upon it. Although the previous approach would work, would mean each thread would need every particle's positions as well as which particles need to be updated, which would have large overheads both computationally and in memory footprint. 
+The gravity approach in the previous post was great for parallelisation as the particles didn't interact with each other, and as a result parallelisation was easy: allocate certain particles on each thread. For attraction and repulsion, the particles' positions to each other determine the force acting upon it. Although the previous approach would work, would mean each thread would need every particle's positions as well as which particles need to be updated, which would have large overheads both computationally and in memory footprint.
 
 As previously mentioned, the formula is essentially `force = 1 / (distance between particles squared)`. If that were to be plotted on a chart, it would look like:
 
@@ -143,7 +144,7 @@ func (s *Subcubes) UpdateParticlePositions(particles *[]Particle) {
     s.Particles = *particles
 
     for i := range s.Particles {
-        // Get the x, y, z indices of the subcube the particle is in through simple math.Floor operations. 
+        // Get the x, y, z indices of the subcube the particle is in through simple math.Floor operations.
         x, y, z := getIntendedSubcube(&s.Particles[i], s.subcubeAxisSize)
         intendedSubcube := &s.Cubes[x][y][z]
 

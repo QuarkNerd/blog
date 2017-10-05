@@ -1,10 +1,12 @@
 ---
 author: jwhite
-contributors: 
+contributors:
  - dketley
 title: Cassandra vs. MariaDB, Scaling
 summary: In this post we compare how Cassandra and MariaDB can be configured to operate in clusters and how this affects response time for queries. We found Cassandra to scale well and to be highly configurable. MariaDB can be used with Galera Cluster but it does not provide horizontal scaling. Also NDB can be used to scale MySQL but it was not as configurable as Cassandra.
 layout: default_post
+categories:
+  - Data
 ---
 ## Keeping Ahead of the Demand
 In a [previous post]({{ site.github.url }}/2017/03/01/cassandra-vs-mariadb.html), Dave and Laurie, compared running the database of a theoretical hat shop on single node instances of [Cassandra](http://cassandra.apache.org/) and [MariaDB](https://mariadb.org/). In that scenario, the unoptimised performance of the two databases is fairly equivalent. But, what shall we do as the hat shop grows more popular? How do we scale out the new database, or is the shop's size doomed to be... *capped*?
@@ -27,13 +29,13 @@ Since we didn't have multiple unused PCs to hand, we opted to build the clusters
 
 We used [Vagrant](https://www.vagrantup.com/) to automate spinning up and provisioning our VMs. In addition to the cluster hosts, we created a separate test client host in the same region and subnet (previously we were running the tests locally) thus minimising the effect of network latency on our results.
 
-## Configuring Cassandra Cluster 
+## Configuring Cassandra Cluster
 
 As soon as a database spans multiple hosts then some decisions need to be made about how the data is split across those machines and how communication failures between the hosts should be handled.
 
 ### Replication Factor
 
-The replication factor defines how many copies of the data are created on different nodes and is set when the keyspace is created. Increasing the replication factor naturally increases the availability of the data.  **Fig 3** shows the different response times for different replication strategies in a five node cluster. 
+The replication factor defines how many copies of the data are created on different nodes and is set when the keyspace is created. Increasing the replication factor naturally increases the availability of the data.  **Fig 3** shows the different response times for different replication strategies in a five node cluster.
 
 **Fig 3**
 [![Response times for different Cassandra replication factors in a 5 node cluster]({{ site.github.url }}/jwhite/assets/cass_vs_mdb_fig3.png "Response times for different Cassandra replication factors in a 5 node cluster")]({{ site.github.url }}/jwhite/assets/cass_vs_mdb_fig3.png)
@@ -88,11 +90,11 @@ This trade-off is controlled via the *consistency level* parameter. The consiste
   </tbody>
 </table>
 
-There are other consistency levels that are data centre aware which we did not look at as our database was restricted to a single data centre. 
+There are other consistency levels that are data centre aware which we did not look at as our database was restricted to a single data centre.
 
-The less strict the consistency level is the higher the availability of the system will be, and the lower the latency, but there will be a greater chance of stale data being read. For example a write operation with consistency of `ANY` can succeed even if none of the replica nodes are available but it will not be possible to read that data until the nodes are available again. 
+The less strict the consistency level is the higher the availability of the system will be, and the lower the latency, but there will be a greater chance of stale data being read. For example a write operation with consistency of `ANY` can succeed even if none of the replica nodes are available but it will not be possible to read that data until the nodes are available again.
 
-Conversely, higher consistency levels give a higher likelihood of the data being up to date at a cost of lower availability and higher latency. The extreme example of `ALL` illustrates this best. The latency of the query will be determined by the slowest replica node in the cluster. If *any* replica nodes are down then the operation will not succeed. **Fig 4** show the performance of the different consistency levels in a 5 node cluster with a replication factor of 3. As expected, higher consistency levels lead to higher latency. 
+Conversely, higher consistency levels give a higher likelihood of the data being up to date at a cost of lower availability and higher latency. The extreme example of `ALL` illustrates this best. The latency of the query will be determined by the slowest replica node in the cluster. If *any* replica nodes are down then the operation will not succeed. **Fig 4** show the performance of the different consistency levels in a 5 node cluster with a replication factor of 3. As expected, higher consistency levels lead to higher latency.
 
 **Fig 4**
 [![Response times for different Cassandra consistency levels]({{ site.github.url }}/jwhite/assets/cass_vs_mdb_fig4.png "Response times for different Cassandra consistency levels")]({{ site.github.url }}/jwhite/assets/cass_vs_mdb_fig4.png)
@@ -104,7 +106,7 @@ Conversely, higher consistency levels give a higher likelihood of the data being
 Though MariaDB does not by itself support clustering, the API for [Galera cluster](http://galeracluster.com/products/) is included with MariaDB.
 Therefore this was the first approach we tried for creating a SQL cluster.
 
-Galera cluster is a multi-master system which offers synchronous replication across all the nodes so that each one contains the same data. Galera cluster is not directly equivalent to a Cassandra cluster; the aim of Cassandra cluster is to provide horizontal scaling. Conversely, Galera only provides mild read scaling but negative write scaling -  the aim of Galera cluster is to improve availability without compromising the consistency of the data. 
+Galera cluster is a multi-master system which offers synchronous replication across all the nodes so that each one contains the same data. Galera cluster is not directly equivalent to a Cassandra cluster; the aim of Cassandra cluster is to provide horizontal scaling. Conversely, Galera only provides mild read scaling but negative write scaling -  the aim of Galera cluster is to improve availability without compromising the consistency of the data.
 
 ## Comparing Galera and Cassandra
 

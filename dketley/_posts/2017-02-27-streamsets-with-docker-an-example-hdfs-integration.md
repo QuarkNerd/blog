@@ -1,6 +1,6 @@
 ---
 author: dketley
-contributors: 
+contributors:
  - jwhite
 title: StreamSets with Docker - an example HDFS integration
 tags:
@@ -9,11 +9,13 @@ tags:
  - HDFS
  - Big Data
 layout: default_post
+categories:
+  - Data
 ---
 
 [StreamSets Data Collector (SDC)](https://streamsets.com/products/sdc/)  is an open source tool for stream-based extracting, transforming and loading large quantities of data. It provides an easy to use UI on top of the underlying processing power of YARN and Spark Streaming with a large number of installable integrations with source and destination systems.
 
-We found the process of setting up an SDC system with an HDFS output somewhat fiddly, so here we provide a push button solution for spinning up this example system, based on the Docker containers provided by StreamSets and Hadoop. 
+We found the process of setting up an SDC system with an HDFS output somewhat fiddly, so here we provide a push button solution for spinning up this example system, based on the Docker containers provided by StreamSets and Hadoop.
 
 You can find the Git repository for this example [here](https://github.com/dketley/streamsets-hdfs-demo). Read on for the details of how we created this system!
 
@@ -54,7 +56,7 @@ ARG PACKAGES_TO_INSTALL=streamsets-datacollector-hdp_2_5-lib
 RUN if [[ ! -z $PACKAGES_TO_INSTALL ]]; then $SDC_DIST/bin/streamsets stagelibs -install=$PACKAGES_TO_INSTALL ; fi
 ~~~
 
-Once this container is built, we're back to our one line command. 
+Once this container is built, we're back to our one line command.
 
 ## Installing Hadoop
 

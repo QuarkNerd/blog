@@ -7,6 +7,7 @@ categories:
   - Java
   - Microservices
   - Web
+  - Data
 ---
 
 About three weeks ago I was giving a workshop titled 'Spring Boot and RESTful web services' at the

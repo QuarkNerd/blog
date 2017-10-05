@@ -5,6 +5,8 @@ summary: An experiment in writing a volume plugin for Docker
 layout: default_post
 tags:
   - docker
+categories:
+  - Data
 ---
 
 While giving a talk about my recent experiences with Docker, I touched briefly on the subject of [data only containers][1]. In the ever changing world of containers, this practice has been superseded by [named volumes][2]. For the small examples I was presenting, creating volumes on the Docker host clashed with my goals, and I lamented that while solutions such as [flocker][3] exist to allow data volumes which back onto cloud storage, these were more involved than creating a simple volume that does the same.
