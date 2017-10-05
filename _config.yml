@@ -18,6 +18,8 @@ paginate: 20
 
 excerpt_separator: ""
 
+emptyArray: []
+
 exclude:
     - checkdups
     - CNAME

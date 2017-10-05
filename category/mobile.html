@@ -4,7 +4,6 @@ title: Mobile
 ---
 
 {% include hero.html %}
-{% include featured.html %}
 
 {% assign posts = site.categories["Mobile"] %}
 {% for iosposts in site.categories["iOS"] %}
@@ -14,4 +13,7 @@ title: Mobile
   {% assign posts = posts | push: swiftposts %}
 {% endfor %}
 {% assign posts = posts | sort: 'date' | reverse | uniq %}
+
+{% include featured.html postsToFilter=posts %}
+
 {% include blog_index.html posts=posts paginate=false categoryName="Mobile" %}

@@ -1,7 +1,14 @@
-{% assign visiblePosts = include.visiblePosts %}
+{% assign visiblePosts = include.visiblePosts | default: 4 %}
 
 {% if include.featuredPosts %}
   {% assign featuredPosts = include.featuredPosts %}
+{% elsif include.postsToFilter %}
+  {% assign featuredPosts = site.emptyArray %}
+  {% for post in include.postsToFilter %}
+    {% if post.tags contains 'featured' %}
+      {% assign featuredPosts = featuredPosts | push: post %}
+    {% endif %}
+  {% endfor %}
 {% else %}
   {% assign featuredPosts = site.tags.featured %}
 {% endif %}

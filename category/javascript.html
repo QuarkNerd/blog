@@ -4,7 +4,9 @@ title: JavaScript
 ---
 
 {% include hero.html %}
-{% include featured.html %}
 
 {% assign posts = site.categories["JavaScript"] %}
+
+{% include featured.html postsToFilter=posts %}
+
 {% include blog_index.html posts=posts paginate=false categoryName="JavaScript" %}

@@ -4,7 +4,9 @@ title: D3
 ---
 
 {% include hero.html %}
-{% include featured.html %}
 
 {% assign posts = site.categories["D3"] %}
+
+{% include featured.html postsToFilter=posts %}
+
 {% include blog_index.html posts=posts paginate=false categoryName="D3" %}

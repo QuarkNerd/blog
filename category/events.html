@@ -4,7 +4,9 @@ title: Web
 ---
 
 {% include hero.html %}
-{% include featured.html %}
 
 {% assign posts = site.categories["Events"] %}
+
+{% include featured.html postsToFilter=posts %}
+
 {% include blog_index.html posts=posts paginate=false categoryName="Events" %}

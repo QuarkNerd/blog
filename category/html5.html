@@ -4,11 +4,14 @@ title: HTML5
 ---
 
 {% include hero.html %}
-{% include featured.html %}
 
 {% assign posts = site.categories["HTML5"] %}
 {% for d3post in site.categories["D3"] %}
   {% assign posts = posts | push: d3post %}
 {% endfor %}
 {% assign posts = posts | sort: 'date' | reverse | uniq %}
+
+{% include featured.html postsToFilter=posts %}
+
+
 {% include blog_index.html posts=posts paginate=false categoryName="HTML5" %}
