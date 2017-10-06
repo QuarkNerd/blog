@@ -2612,6 +2612,17 @@ timeframe
 brownian
 d3.stack
 autobandwidth
+- zwali/_posts/2017-10-06-cassandra-eventual-consistency.md
+DataStax
+dc1
+dc2
+5-node
+datacentres
+gc
+_grace
+_seconds
+_QUORUM
+superfast
 - janakerman/_posts/2017-09-01-thoughts-on-jest-snapshots.md
 SpringBoot
 Todomvc
