@@ -2678,3 +2678,6 @@ historyInputFile
 historyOutputFile
 excludedClasses
 excludedMethods
+ - jwhite/_posts/2017-10-10-junit-5.md
+Surefire
+Netbeans
