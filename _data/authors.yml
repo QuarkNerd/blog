@@ -22,6 +22,7 @@ active-authors:
   - jdunkerley
   - jharris
   - jhill
+  - jayphi11ips
   - jrice
   - jwhite
   - lcollingwood
@@ -499,3 +500,8 @@ authors:
         email: jakerman@scottlogic.com
         author-summary: <p>I am a Senior Developer at Scott Logic, based in London.</p>
         gravatar: 682fd441bf8e2ff3dc12eae048fd2ed0
+    jayphi11ips:
+        name: Jason Phillips
+        email: jphillips@scottlogic.com
+        author-summary: <p>I am the first dedicated BA at Scott Logic, based in London.</p>
+        gravatar: 2aa2833a68ae271b368d96642db9c9ea
