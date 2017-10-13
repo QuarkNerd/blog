@@ -4,7 +4,7 @@ title: "Using Kafka and Grafana to monitor meteorological conditions"
 layout: default_post
 categories:
   - Java
-  - Data Engineering
+  - Data
   - Charting
 summary: "Apache Kafka provides distributed log store used by increasing numbers of companies and often forming the heart of systems processing huge amounts of data. This post shows how to use it for storing meteorological data and displaying this in a graphical dashboard with Graphite and Grafana"
 ---
@@ -53,7 +53,7 @@ services:
       ADVERTISED_HOST: kafka
       ADVERTISED_PORT: 9092
       LOG_RETENTION_HOURS: 1440
-  
+
   graphite:
     image: sitespeedio/graphite
     ports:
@@ -71,7 +71,7 @@ services:
       - graphite
 ~~~
 
-Before typing *docker-compose-up*, create the directories /storage/grafana and /storage/kafka on the host machine. These are mounted as volumes in the containers and give us persistent storage for the data. Kafka is configured here to keep data for 60 days, after which older stuff will be deleted. It would be possible to make this value much higher given the relatively low volume of data coming in, but 2 months is plenty for our purposes. 
+Before typing *docker-compose-up*, create the directories /storage/grafana and /storage/kafka on the host machine. These are mounted as volumes in the containers and give us persistent storage for the data. Kafka is configured here to keep data for 60 days, after which older stuff will be deleted. It would be possible to make this value much higher given the relatively low volume of data coming in, but 2 months is plenty for our purposes.
 
 
 
@@ -157,9 +157,9 @@ The list is passed to a *KafkaSender* class, by calling the *send* method. This 
     }
 ~~~
 
-The first argument passed to the constructor of the *ProducerRecord* is the name of the Kafka topic the record is being sent to. We want a topic per location, because the consumers will be interested in particular locations. The Met Office gives each location an identifier, for example "3065" is the value of *dataPoint.locationIdentifer* for the station on the summit of [Cairn Gorm](http://cairngormweather.eps.hw.ac.uk/). 
+The first argument passed to the constructor of the *ProducerRecord* is the name of the Kafka topic the record is being sent to. We want a topic per location, because the consumers will be interested in particular locations. The Met Office gives each location an identifier, for example "3065" is the value of *dataPoint.locationIdentifer* for the station on the summit of [Cairn Gorm](http://cairngormweather.eps.hw.ac.uk/).
 
-The *KafkaProducer* requires two generic type arguments, these are the type of each record's key and value. The value will be our *KafkaObservationData* class, and the key is set to be a string. The key is optional and controls how Kafka partitions the data. [Partitioning is an important subject](https://www.confluent.io/blog/how-to-choose-the-number-of-topicspartitions-in-a-kafka-cluster/), but for the purposes of this application, the default value of 1 per topic is used, so a record key is not needed. 
+The *KafkaProducer* requires two generic type arguments, these are the type of each record's key and value. The value will be our *KafkaObservationData* class, and the key is set to be a string. The key is optional and controls how Kafka partitions the data. [Partitioning is an important subject](https://www.confluent.io/blog/how-to-choose-the-number-of-topicspartitions-in-a-kafka-cluster/), but for the purposes of this application, the default value of 1 per topic is used, so a record key is not needed.
 
 Before connecting to the broker, you need to supply a producer config, this has quite a lot of potential options: [Kafka Producer Options](https://kafka.apache.org/documentation/#producerconfigs). Here we send the most basic and important ones:
 
@@ -176,7 +176,7 @@ private static Properties getProducerConfig() {
 ~~~
 
 The main detail here that needs attention is the serializer classes. For simple objects like Strings, Integers and Doubles, Kafka provides implementations, but for anything else you need to create your own. When creating the serializers there are a few things to consider, the data can be placed in Kafka as a byte
-array, as JSON or using some other format, for example [Apache Avro](https://avro.apache.org/docs/current/). 
+array, as JSON or using some other format, for example [Apache Avro](https://avro.apache.org/docs/current/).
 
 The serialization and deserialization of data going through Kafka is a potential performance bottleneck in high volume systems, and also you need to consider consumer compatibility. For example it may be best to pick a language-neutral format that doesn't make things difficult for future consumers written in other programming languages. Another important consideration is that the incoming data format may need to change in the future, in a way that doesn't break existing consumers.  For this example application, performance considerations are outweighed by the ease of use and compatibility of JSON. So the serializer looks like this:
 
@@ -222,11 +222,11 @@ The complete code for the Kafka producer is available on [GitHub](https://github
 
 ##Consuming from Kafka
 
-After running the producer with *Config.fetchHistoricalData* set to return true, we should now have 24 hourly readings for all 140 available sites in Kafka, with another reading for each site coming every hour if the producer is left running. 
+After running the producer with *Config.fetchHistoricalData* set to return true, we should now have 24 hourly readings for all 140 available sites in Kafka, with another reading for each site coming every hour if the producer is left running.
 
 What I wanted to do next was to look at the data visually. In order to do this, we need a consumer that subscribes to a subset of the data from Kafka, and puts it into something that lets us graph it. Graphite has been around for a while and provides an easy and scalable way to do this. I'm going to use Graphite as a data source to Grafana rather than to show graphs itself, as Grafana provides better features and looks a lot nicer.
 
-Again the consumer is going to use Java. First we identify the data to visualize. I'm interested in a small selection of the available locations, so I pass the Met Office identifiers of these into a *Consumer* class which will subscribe to these topics in Kafka: 
+Again the consumer is going to use Java. First we identify the data to visualize. I'm interested in a small selection of the available locations, so I pass the Met Office identifiers of these into a *Consumer* class which will subscribe to these topics in Kafka:
 
 ~~~java
     public static void main(String[] arguments) {
@@ -280,9 +280,9 @@ public void run() {
     }
 ~~~
 
-The Kafka cluster keeps track of the last read offset of each consumer. So by default if a consumer gets restarted, when it comes back up it'll carry on where it left off. For this application I have built in the ability for the consumer to override this and start at the beginning of the available data. This is mainly because the Graphite container I created doesn't have persistent storage, so might need to be repopulated. Doing this in a high volume production system may not always be a great idea, but Kafka does allow it. It's also possible to seek to a specific offset, which could be very useful in some situations. 
+The Kafka cluster keeps track of the last read offset of each consumer. So by default if a consumer gets restarted, when it comes back up it'll carry on where it left off. For this application I have built in the ability for the consumer to override this and start at the beginning of the available data. This is mainly because the Graphite container I created doesn't have persistent storage, so might need to be repopulated. Doing this in a high volume production system may not always be a great idea, but Kafka does allow it. It's also possible to seek to a specific offset, which could be very useful in some situations.
 
-The consumer repeatedly calls poll on the *KafkaConsumer* class, which is provided by the client library. If some records are returned, these are sent to Graphite. As with the producer, there are some required config settings: 
+The consumer repeatedly calls poll on the *KafkaConsumer* class, which is provided by the client library. If some records are returned, these are sent to Graphite. As with the producer, there are some required config settings:
 
 ~~~java
   private Properties getConsumerProperties() {
@@ -296,7 +296,7 @@ The consumer repeatedly calls poll on the *KafkaConsumer* class, which is provid
     }
 ~~~
 
-We have deserializers, which do the opposite of the serializers used by the producer, and of most interest here is the *GROUP_ID_CONFIG*. This setting puts our consumer in a group called *GraphiteConsumers*. When multiple consumers subscribe from the same group, Kafka divides the events up between the consumers in the group allowing parallel processing. If two consumers subscribe from different groups, each will receive a copy of every event. 
+We have deserializers, which do the opposite of the serializers used by the producer, and of most interest here is the *GROUP_ID_CONFIG*. This setting puts our consumer in a group called *GraphiteConsumers*. When multiple consumers subscribe from the same group, Kafka divides the events up between the consumers in the group allowing parallel processing. If two consumers subscribe from different groups, each will receive a copy of every event.
 
 The graphiteSender is pretty simple, it makes use of [Graphite's Pickle Protocol](http://graphite.readthedocs.io/en/latest/feeding-carbon.html#the-pickle-protocol) to send batches of records together in a compressed format. This is quite easy to do directly in Java thanks to the [jython library](http://www.jython.org/).
 
@@ -387,4 +387,4 @@ Grafana has time selection facilities very similar to Kibana, and so it's easy t
 
 This post has shown how to get going with Kafka very easily and show live graphs of the data. The code for the alerter component shown in the diagram at the top is not shown, but is easy to implement based on the structure used in the Graphite consumer. I implemented it by keeping a moving average of temperature in memory and triggering an alert if it the average was below zero for a certain amount of time.
 
-There are many more considerations related to configuring and using Kafka effectively, but hopefully this offers a starting point and some inspiration. 
+There are many more considerations related to configuring and using Kafka effectively, but hopefully this offers a starting point and some inspiration.
