@@ -33,6 +33,7 @@ active-authors:
   - nhemley
   - nowen
   - nwolverson
+  - okenyon
   - rhamilton
   - rhendry
   - rmarcalo
@@ -179,6 +180,10 @@ authors:
         name: Nicholas Wolverson
         email: nwolverson@scottlogic.com
         gravatar: c2fa082fa1ffbab1293262c599d459fb
+    okenyon:
+        name: Oliver Kenyon
+        email: okenyon@scottlogic.com
+        gravatar: fb87fc3b96203c2cf0d1d2a060ae740a
     jphillpotts:
         name: James Phillpotts
         email: jphillpotts@scottlogic.com

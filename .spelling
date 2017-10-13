@@ -472,6 +472,10 @@ foreach
 github.com
 typesafe
 deserialize
+deserialization
+deserializers
+serializer
+serializers
 datatype
 flatmap
 IoC
@@ -733,7 +737,8 @@ heatmap
 specs
 jsdom
 baseUrl
-
+Avro
+Grafana
 gridline
 devops
 Atlassian
@@ -2681,3 +2686,20 @@ excludedMethods
  - jwhite/_posts/2017-10-10-junit-5.md
 Surefire
 Netbeans
+ - okenyon/_posts/2017-10-16-MetOfficeKafka.md
+KafkaSender
+KafkaProducer
+ProducerRecord
+dataPoint.locationIdentifer
+Gorm
+KafkaObservationData
+jython
+graphiteSender
+GraphiteConsumers
+_CONFIG
+KafkaConsumer
+Config.fetchHistoricalData
+logResult
+logSend
+grafana
+kafka
