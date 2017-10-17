@@ -930,6 +930,10 @@ sellable
 16-week
 Axure
 OmniGraffle
+webassembly
+assemblyscript
+mandelbrot
+wasm
  - mmathew/_posts/2017-07-20-MeetUps-and-SWT-Bristol.md
 rosicadia
 Loughran
@@ -2703,3 +2707,16 @@ logResult
 logSend
 grafana
 kafka
+ - ceberhardt/_posts/2017-10-17-wasm-mandelbrot.md
+toolchains
+LLVM-based
+fastcomp
+llc
+asm.js.
+BinaryEn
+wasm-toolchain
+TurboScript
+speedy.js
+x84
+asm
+x86-64
