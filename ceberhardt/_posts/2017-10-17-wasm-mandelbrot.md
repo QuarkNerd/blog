@@ -130,7 +130,7 @@ This returns a value of type `unsigned char*`, which is a pointer to an `unsigne
 
 Rendering the mandelbrot to a canvas involves using this offset to create an array, `Uint8Array`, as a 'view' on the underlying module memory, then copying the data into the canvas.
 
-~~~JavaScript
+~~~javascript
 const imgData = context.createImageData(WIDTH, HEIGHT);
 const offset = instance.exports._getImage();
 const linearMemory = new Uint8Array(imports.env.memory.buffer,
@@ -186,7 +186,7 @@ Despite these restrictions, which are pretty much a direct reflection of the WAS
 
 Here's a snippet of the AssemblyScript module:
 
-~~~JavaScript
+~~~javascript
 const WIDTH: f64 = 1200, HEIGHT: f64 = 800;
 const data: Uint8Array = new Uint8Array(1200 * 800 * 4);
 
