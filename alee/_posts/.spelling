@@ -1,0 +1,25 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - alee/_posts/2014-07-30-spa-angular-knockout.md
+searchModel
+rateLimit
+backEndServer
+beforeEach
+httpBackend
+MockJax
+dist
+gulp-angular-templatecache
+TemplateCache
+fadeVisible
+ - alee/_posts/2014-08-06-angular-knockout-e2e-testing.md
+HttpGet
+ - alee/_posts/2014-08-18-asp-angular-optimisation.md
+AppSettings
+testSPA
+ - alee/_posts/2014-10-27-xplatform-mobile-cordova-ionic.md
+popover
+ - alee/_posts/2014-11-25-ionic-sorter.md
+1px

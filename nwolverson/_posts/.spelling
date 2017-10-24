@@ -1,0 +1,59 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - nwolverson/_posts/2013-08-08-interactive-dotnet-1.md
+EN.URB.LCTY
+cmdlet
+pipelining
+FSharp.Data
+XmlProvider
+typedef
+ - nwolverson/_posts/2013-08-15-interactive-dotnet-2.md
+LINQ-like
+ - nwolverson/_posts/2013-09-10-typescript-0.9.md
+noImplicitAny
+any.ts
+Enumerable.Repeat
+ - nwolverson/_posts/2013-12-18-wpf-snoop-powershell.md
+DataContext
+appdomains
+non-wpf
+snoopui
+datacontext
+cmdlet
+ - nwolverson/_posts/2014-08-08-signalr-typed.md
+Hubs.tt
+F#-to-JavaScript
+SignalRProvider
+ - nwolverson/_posts/2015-01-20-typescript-compiler-api.md
+_
+val
+int
+Test.factorial
+System.IComparable
+System.IFormattable
+System.IConvertible
+System.IEquatable
+System.ValueType
+getNodes
+ts.SourceFile
+ts.Node
+allNodes
+ts.forEachChild
+nodes.push
+ES6-related
+rec
+ - nwolverson/_posts/2015-08-10-ts-vs-proj.md
+_references.ts
+NoLib
+tsconfig.json
+TypeScriptEnabled
+ - nwolverson/_posts/2015-09-03-d3-without-d3.md
+react.animate
+tweening
+ - nwolverson/_posts/2017-05-02-typescript-compiler-api-revisited.md
+TSTypeInfo
+ts-simple-ast
+dts-dom

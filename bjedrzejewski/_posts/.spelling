@@ -1,0 +1,45 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - bjedrzejewski/_posts/2016-01-05-java-microservices-with-dropwizard-tutorial.md
+maxLength
+tasklist-service
+TaskList
+ - bjedrzejewski/_posts/2016-05-21-recommended-reading-for-java-developers.md
+JUnit
+Mockito
+Tomek
+Kaczanowski
+Raoul-Gabriel
+Urma
+Fusco
+Mycroft
+Gayle
+Laakmann
+ - bjedrzejewski/_posts/2016-06-13-code-reuse-in-microservices-architecture.md
+reusability
+Nginx
+ - bjedrzejewski/_posts/2016-07-28-java-enums-how-to-use-them-smarter.md
+java.lang.Enum
+transactionComplete
+ - bjedrzejewski/_posts/2016-11-22-spring-boot-and-mongodb.md
+Initializr
+standalone
+ - bjedrzejewski/_posts/2017-05-04-how-to-make-your-team-more-productive-as-a-developer.md
+qa
+ - bjedrzejewski/_posts/2017-05-05-how-to-make-your-team-more-productive-as-a-developer.md
+qa
+ - bjedrzejewski/_posts/2017-05-05-making-agile-teams-more-productive-from-the-inside.md
+qa
+ - bjedrzejewski/_posts/2017-09-01-apache-spark-meets-chess.md
+Homebrew
+processPGNFile
+consolidateOpeningFiles
+Defense
+e4
+e5
+Alekhine
+Caro
+Kann

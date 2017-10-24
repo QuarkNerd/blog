@@ -7,7 +7,7 @@
     "bootstrap": "4.0.0-alpha.2"
   },
   "devDependencies": {
-    "markdown-spellcheck": "^0.6.2",
+    "markdown-spellcheck": "jacoburton104/node-markdown-spellcheck.git#v0.1",
     "node-sass": "^4.5.3",
     "uglify-js": "^2.6.2"
   },
@@ -19,7 +19,7 @@
     "url": "https://github.com/ScottLogic/blog/issues"
   },
   "scripts": {
-    "test": "mdspell \"*/_posts/**/*.md\" --en-gb --ignore-acronyms --ignore-numbers -r -x",
+    "test": "mdspell \"*/_posts/**/*.md\" --en-gb -a -n -x -t",
     "style": "node-sass --omit-source-map-url --include-path=node_modules/bootstrap/scss/ --output-style=compressed scss/style.scss style.css",
     "scripts": "uglifyjs scripts/jquery-1.9.1.js scripts/jquery.jscroll-2.2.4.js scripts/disqus-comment-count.js scripts/elapsed.js scripts/tweet.js scripts/search.js -o script.js"
   },

@@ -162,10 +162,10 @@ npm i markdown-spellcheck -g
 Then run the following:
 
 ```
-mdspell */_posts/**/*.md -n -a
+mdspell */_posts/**/*.md -n -a -t
 ```
 
-This will spell check all of the files allowing you to add words to the global or local (post specific) sections of the `.spelling` file.
+This will spell check all of the files allowing you to add words to the global or local (post specific) `.spelling` file.
 
 #### Manual
 

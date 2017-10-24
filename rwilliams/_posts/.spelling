@@ -1,0 +1,11 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - rwilliams/_posts/2014-02-28-developing-large-scale-knockoutjs-applications.md
+ko.mapping
+noConflict
+subscribable
+ - rwilliams/_posts/2015-07-10-applying-styles-to-parent-elements-before-children-in-angularjs.md
+ui-grid

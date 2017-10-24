@@ -1,0 +1,86 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - rsillem/_posts/2016-02-11-SQL-injection.md
+VTech
+Stuxnet
+SQLi
+customrules.js
+Fiddler2
+5xx
+passwordless
+Cloudflare
+_Prevention
+_Cheat
+_Sheet
+_Testing
+_Guide
+_Table
+_of
+_Contents
+_Injection
+eval
+urlscan
+_v4
+ - rsillem/_posts/Cross-site-scripting.md
+XMLHttpRequest
+whitelists
+_presentation
+_Stack
+_stack
+sce.trustAsHtml
+shorteners
+ - rsillem/_posts/2016-02-08-SQL-injection.md
+VTech
+Stuxnet
+SQLi
+_Injection
+customrules.js
+Fiddler2
+5xx
+passwordless
+_Prevention
+_Cheat
+_Sheet
+_Testing
+_Guide
+_v4
+_Table
+_of
+_Contents
+ - rsillem/_posts/2016-02-29-Cross-site-scripting.md
+v4
+_Stack
+whitelists
+src
+url-report
+
+ - rsillem/_posts/2016-04-07-Account-management.md
+fred1
+rufustfirely
+rufus.t.firefly
+rufustfirefly
+grouchomarx
+_Storage
+rsillem
+robin.sillem
+someemailprovider.com
+a.user
+foobar.com
+_Request
+_icloud
+ - rsillem/_posts/2016-05-03-Account-management.md
+_icloud
+fred1
+rufustfirefly
+rufus.t.firefly
+grouchomarx
+_Storage
+rsillem
+robin.sillem
+someemailprovider.com
+a.user
+foobar.com
+_Request
