@@ -1,0 +1,184 @@
+prose:
+    rooturl: CURRENT_USER/_posts
+    media: CURRENT_USER/assets
+    siteurl: http://blog.scottlogic.com
+    metadata:
+      "":
+        - name: "author"
+          field:
+              element: "hidden"
+              value: "CURRENT_USER"
+        - name: "title"
+          field:
+              element: "text"
+              label: "Title"
+        - name: "published"
+          field:
+              element: "hidden"
+              value: "true"
+        - name: "layout"
+          field:
+              element: "select"
+              label: "Post Layout"
+              value: "default_post"
+              options:
+                 - name: "Default Post"
+                   value: "default_post"
+        - name: "summary"
+          field:
+              element: "text"
+              label: "Summary"
+              value: ""
+        - name: "tags"
+          field:
+              element: "text"
+              label: "Tags"
+              value: ""
+        - name: "categories"
+          field:
+              element: "multiselect"
+              label: "Categories"
+              options:
+                 - name: "Web"
+                   value: "web"
+                 - name: "Data Engineering"
+                   value: "data-engineering"
+                 - name: "JavaScript"
+                   value: "javascript"
+                 - name: "HTML5"
+                   value: "html5"
+                 - name: "Mobile"
+                   value: "mobile"
+                 - name: "UX"
+                   value: "ux"
+                 - name: "Agile"
+                   value: "agile"
+                 - name: "Testing"
+                   value: "testing"
+                 - name: "D3"
+                   value: "d3"
+                 - name: "WPF"
+                   value: "wpf"
+                 - name: "Charting"
+                   value: "charting"
+                 - name: ".Net"
+                   value: "dotnet"
+                 - name: "CSS"
+                   value: "css"
+                 - name: "Java"
+                   value: "java"
+                 - name: "Events"
+                   value: "events"
+
+    users:
+        -
+            login: andyaiken
+            user: aaiken
+        -
+            login: andrewcarrblue
+            user: acarr
+        -
+            login: DevAndyLee
+            user: alee
+        -
+            login: JohnEz
+            user: amjones
+        -
+            login: alisd23
+            user: asheehan
+        -
+            login: awallis-scottlogic
+            user: awallis
+        -
+            login: bdimitrov-SL
+            user: bdimitrov-SL
+        -
+            login: bjedrzejewski
+            user: bjedrzejewski
+        -
+            login: ColinEberhardt
+            user: ceberhardt
+        -
+            login: chrisprice
+            user: cprice
+        -
+            login: oriondean
+            user: dkerr
+        -
+            login: demcnamee
+            user: dmcnamee
+        -
+            login: dtheasby
+            user: dtheasby
+        -
+            login: godds
+            user: godds
+        -
+            login: gthompson-sl
+            user: gthompson
+        -
+            login: jayphi11ips
+            user: jayphi11ips
+        -
+            login: jdunkerley
+            user: jdunkerley
+        -
+            login: JMVHill
+            user: jhill
+        -
+            login: j-n-white
+            user: jwhite
+        -
+            login: matthewdunsdon
+            user: mdunsdon
+        -
+            login: markjose
+            user: mjose
+        -
+            login: m-ili-m
+            user: mmathew
+        -
+            login: msuperina
+            user: msuperina
+        -
+            login: owennw
+            user: nowen
+        -
+            login: nwolverson
+            user: nwolverson
+        -
+            login: Rosalita
+            user: rhamilton
+        -
+            login: rrhodes
+            user: rrhodes
+        -
+            login: rwilliams-scottlogic
+            user: rwilliams
+        -
+            login: sionedbaker
+            user: sbaker
+        -
+            login: sh1989
+            user: shogarth
+        -
+            login: huntons
+            user: shunton
+        -
+            login: tamaramakarem
+            user: tmakarem
+        -
+            login: tlsim
+            user: tsimmons
+        -
+            login: WPFerg
+            user: wferguson
+        -
+            login: wloveland
+            user: wloveland
+        -
+            login: w-reilly
+            user: wreilly
+        -
+            login: ZinatWali
+            user: zwali
