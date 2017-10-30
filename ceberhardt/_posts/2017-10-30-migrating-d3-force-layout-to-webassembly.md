@@ -42,7 +42,7 @@ var simulation = d3wasm.forceSimulation(graph.nodes, true)
 
 As you can see, they are identical.
 
-You can see the [WASM force layout in action here](https://bl.ocks.org/ColinEberhardt/6ceb7ca74aabac9c8534d7120d31b382).
+You can see the [WASM force layout in action here](https://bl.ocks.org/ColinEberhardt/6ceb7ca74aabac9c8534d7120d31b382). The sourcecode for this demo is [also available on GitHub](https://github.com/ColinEberhardt/d3-wasm-force).
 
 ## AssemblyScript
 
@@ -321,3 +321,5 @@ Most people are currently focussing on the use of WebAssembly to bring performan
 However, I think that AssemblyScript (and [TurboScript](https://github.com/01alchemist/TurboScript), [speedy.js](https://github.com/MichaReiser/speedy.js)) demonstrate that we could be doing a lot more with this technology. If at some point in the future you could easily compile your JavaScript code to WASM, and enjoy improved load / parse times and performance, why wouldn't you?
 
 We're clearly not there yet, posting JavaScript to AssemblyScript is not straightforward - however, this technology is very much in its infancy.
+
+Remember, the [full sourcecode for this demo is available on GitHub](https://github.com/ColinEberhardt/d3-wasm-force).
