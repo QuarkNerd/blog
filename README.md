@@ -153,17 +153,9 @@ If there's a word that's classed as incorrectly spelled and you want it to be cl
 
 #### Via the mdspell interactive tool
 
-The preferred route is to use the interactive `mdspell` tool. Install mdspell globally:
+The preferred route is to use the interactive `mdspell` tool. You can do this by running
 
-```
-npm i markdown-spellcheck -g
-```
-
-Then run the following:
-
-```
-mdspell */_posts/**/*.md -n -a -t
-```
+`npm run spellcheck`
 
 This will spell check all of the files allowing you to add words to the global or local (post specific) `.spelling` file.
 

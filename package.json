@@ -19,7 +19,8 @@
     "url": "https://github.com/ScottLogic/blog/issues"
   },
   "scripts": {
-    "test": "mdspell \"*/_posts/**/*.md\" --en-gb -a -n -x -t",
+    "test": "mdspell \"*/_posts/**/*.md\" --en-gb -a -n -x -t -r",
+    "spellcheck": "mdspell \"*/_posts/**/*.md\" --en-gb -a -n -x -t",
     "style": "node-sass --omit-source-map-url --include-path=node_modules/bootstrap/scss/ --output-style=compressed scss/style.scss style.css",
     "scripts": "uglifyjs scripts/jquery-1.9.1.js scripts/jquery.jscroll-2.2.4.js scripts/disqus-comment-count.js scripts/elapsed.js scripts/tweet.js scripts/search.js -o script.js"
   },
