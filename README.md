@@ -19,7 +19,7 @@ N.B. Changes can also be made [directly in GitHub](https://help.github.com/artic
 
 **If this if your first post please see [first post setup](https://github.com/scottlogic/blog#first-post-setup).**
 
-Blog posts can be written in either HTML or markdown. Markdown is processed via Kramdown, with the the details of the (very simple) formatting found on [Kramdown website](http://kramdown.gettalong.org/index.html)
+Blog posts can be written in either HTML or markdown. Markdown is processed via Kramdown, with the the details of the (very simple) formatting found on in the [official quick reference](https://kramdown.gettalong.org/quickref.html).
 
 The post name should be formatted as: [Current date: YYYY-MM-DD]-[post name].
 
@@ -157,7 +157,7 @@ The preferred route is to use the interactive `mdspell` tool. You can do this by
 
 `npm run spellcheck`
 
-This will spell check all of the files allowing you to add words to the global or local (post specific) `.spelling` file.
+This will spell check all of the files allowing you to add words to the global or local (author specific) `.spelling` file. For local, use the `[Relative]` option at the arrow-key prompt.
 
 #### Manual
 
