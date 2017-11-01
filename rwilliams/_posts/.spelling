@@ -9,3 +9,8 @@ noConflict
 subscribable
  - rwilliams/_posts/2015-07-10-applying-styles-to-parent-elements-before-children-in-angularjs.md
 ui-grid
+ - rwilliams/_posts/2017-11-01-webpack-source-map-options-quick-guide.md
+nosources-source-map
+minifier
+publically
+SourceMapDevToolPlugin
