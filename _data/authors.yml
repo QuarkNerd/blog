@@ -23,6 +23,7 @@ active-authors:
   - jharris
   - jhill
   - jayphi11ips
+  - jmelon
   - jrice
   - jwhite
   - lcollingwood
@@ -510,3 +511,8 @@ authors:
         email: jphillips@scottlogic.com
         author-summary: <p>I am the first dedicated BA at Scott Logic, based in London.</p>
         gravatar: 2aa2833a68ae271b368d96642db9c9ea
+    jmelon:
+        name: Jean-Sacha Melon
+        email: jmelon@scottlogic.com
+        author-summary: <p>I am a London based Delivery Principal at Scott Logic. Coming from a developer background I am passionate about Agile, love working with our amazing teams and all those enthusiastic people at our customers.</p>
+        gravatar: 7b9bfa1dda9523dcbd5e6089c3519286
