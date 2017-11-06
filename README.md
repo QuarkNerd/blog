@@ -19,6 +19,29 @@ N.B. Changes can also be made [directly in GitHub](https://help.github.com/artic
 
 **If this if your first post please see [first post setup](https://github.com/scottlogic/blog#first-post-setup).**
 
+#### Using Prose
+
+Go to [Prose](http://prose.io), it will prompt you to authorise Prose using github and ask you for your password, enter and proceed.
+
+After authorising prose, you should see the `Explore Projects` page. Using the `Filter Projects` bar search for `blog` and you should see at least two items, one is your forked repository and one is the original, you need to select the forked version which is indicated by a small 'F' in the lower left of the folder icon (You can also hover over the icon and it should tell you if its forked).
+
+![search.png](assets/search.png)
+
+Click the `New File` button.
+
+You should be able to change the blog post title from `Untitled` at the top of the page.
+>The post name should be formatted as: [Current date: YYYY-MM-DD]-[post name]
+
+On the right hand side you should see a set of action buttons, Edit, Preview, Meta Data and Save.
+
+The Meta Data button allows you to enter your post tags, summary, categories into textboxes and any additional will need to be added to the Raw metadata in the form of `key:value`, see [Optional post meta-data](#optionalmetadata) below for more information.
+
+![meta.png](assets/meta.png)
+
+You should be able to flip between preview and edit whilst writing your blog. When you are done editing the post, you can save it by clicking the `save` button on the right hand side. This will commit the new file and any associated images to your fork ready for a pull request. Before the save is finalised it will give you a chance to write a commit message, this is optional.
+
+#### Manual Editing
+
 Blog posts can be written in either HTML or markdown. Markdown is processed via Kramdown, with the the details of the (very simple) formatting found on in the [official quick reference](https://kramdown.gettalong.org/quickref.html).
 
 The post name should be formatted as: [Current date: YYYY-MM-DD]-[post name].
@@ -39,7 +62,7 @@ Note that meta-data takes the form of [front-matter](https://jekyllrb.com/docs/f
 * **title** - The title of the blog post (quotes are not required).
 * **layout** - This informs Jekyll of the page template to use for this file. If you don't know which layout to use, you should use ```default_post```.
 
-##### Optional post meta-data
+##### <a name="optionalmetadata"></a> Optional post meta-data
 * **summary** - The index pages for the blog and author pages includes summaries of each blog post. You can use summary to provide a **summary** for your blog post, otherwise the first 50 words of the post itself are used. When writing your own summaries, please try to make them roughly 50 words in length.
 * **tags** - An array of keywords that describe the blog post contents:
   * Add the `featured` tag to have your article displayed in the blog's featured carousel.
@@ -119,7 +142,7 @@ layout: rss_feed
 ---  
 ```
 
-* Edit the ```/_data/authors.yml``` file and add your username to ```active-authors``` and your details to ```authors```.
+* Edit the ```/_data/authors.yml``` file and add your username (i.e. folder name) to ```active-authors``` and your details to ```authors```.
 
 When adding your details to authors you'll need to add the following:
 
@@ -131,6 +154,8 @@ When adding your details to authors you'll need to add the following:
 * **twitter-url** - The author's Twitter account.
 * **google-plus-url** - The author's Google+ url.
 * **author-summary** - A short paragraph introducing the author.
+
+Finally, edit ```prose.yml```, adding yourself to the users section. The `login` field is your GitHub username, while the `user` is the username added it the ```authors.yml``` file. 
 
 ### Testing
 To test that your post works and looks as expected, push your changes to your GitHub repository, entering your username/password when prompted:
