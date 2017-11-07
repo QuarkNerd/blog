@@ -7,7 +7,9 @@ layout: default
   <div class="row">
     <aside class="col-md-2 hidden-sm-down">
       <div class="hidden-md-down">
-        {% include categories_menu.html %}
+        {% if site.data.categories %}
+          {% include categories_menu.html %}
+        {% endif %}
       </div>
     </aside>
     <div class="col-xs-12 col-md-8 body">
@@ -22,7 +24,9 @@ layout: default
     </div>
     <aside class="col-md-2 hidden-sm-down">
       <div class="hidden-md-down">
-        {% include author.html author=author %}
+        {% if site.data.authors %}
+          {% include author.html author=author %}
+        {% endif %}
       </div>
       {% for contributorId in contributors %}
         {% assign contributor = site.data.authors.authors[contributorId] %}

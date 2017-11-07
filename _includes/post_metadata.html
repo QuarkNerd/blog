@@ -12,9 +12,11 @@
       <span>&middot;</span>
     </span>
   {% endif %}
-  <span class="timestamp" date-published="{{ post.date }}">
-     {% include format_date.html date=post.date %}
-  </span>
-  &middot;
-  <span>{% include reading_time.html post=post %}</span>
+  {% if site.data %}
+    <span class="timestamp" date-published="{{ post.date }}">
+        {% include format_date.html date=post.date %}
+    </span>
+    &middot;
+    <span>{% include reading_time.html post=post %}</span>
+  {% endif %}
 </h5>
