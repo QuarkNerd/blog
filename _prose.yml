@@ -29,11 +29,20 @@ prose:
               element: "text"
               label: "Summary"
               value: ""
+              help: "The index pages for the blog and author pages includes summaries of each blog post. You can use summary to provide a summary for your blog post, otherwise the first 50 words of the post itself are used. When writing your own summary, please try to make it roughly two sentences."
+        - name: "image"
+          field:
+              element: "text"
+              label: "Image"
+              value: ""
+              placeholder: "username/assets/foo.png"
+              help: "The image used for social cards (Twitter/Facebook etc) and the ScottLogic image carousel when featured. The image path should be your username, the assets folder and name of your image (e.g. ceberhardt/assets/foo.png)"
         - name: "tags"
           field:
               element: "text"
               label: "Tags"
               value: ""
+              help: "List of keywords that describe the blog post contents (Add the featured tag to have your article displayed in the blog's featured carousel)."
         - name: "categories"
           field:
               element: "multiselect"
