@@ -1,5 +1,33 @@
 ## Scott Logic Blogs
 
+### Getting Set up
+You can either follow the manual process of setting up a blog by using the [Getting a local copy to work with](https://github.com/scottlogic/blog#getting-a-local-copy-to-work-with) and [first post setup](https://github.com/scottlogic/blog#first-post-setup), or you can use the interactive tool that will do this for you.
+
+If you go to the [Scott Logic Blog Tool](https://gb0edr0dg0.execute-api.eu-west-2.amazonaws.com/dev/), the required setup will be done for you in a few steps. First you'll need to authorise the Github ScottLogic Blog Tool app to access your account, specifically your repositories.
+
+![sl-auth.png](assets/sl-auth.png)
+
+Click `Authorize on GitHub` and you will be redirected to `GitHub.com` where it will confirm the applications request for access and specific permissions, click `Authorize` and confirm your account password.
+
+![sl-gl-auth.png](assets/sl-gh-auth.png)
+
+You will now be redirected back to the Blog Tool where it will give you the option to create a fork, click `Create Fork`.
+
+![sl-create-fork.png](assets/sl-create-fork.png)
+
+It will ask you for your username which should be the first part of your email e.g. `jbloggs@scottlogic.com` will be `jbloggs`. Enter your username and click `Set User`.
+
+![sl-set-user.png](assets/sl-set-user.png)
+
+Fill in your name and email address, if you dont have a gravatar account already then you can use the `setup` button which will open a new tab for you to register. Once you have registered with gravatar (using your scott logic email), use the `refresh` button next to `setup` to automatically fill out the gravatar box with your id.
+
+![sl-submit.png](assets/sl-submit.png)
+
+Optionally, add an Author summary and Twitter URL and click `Submit`. This has now completed all the steps in [first post setup](https://github.com/scottlogic/blog#first-post-setup) and you should be left with a forked blog on github with a series of commits that reflect the information you have entered.
+
+You should now see a `Ready` section at the bottom with a link to Prose, to create a blog post using prose, see the [Using Prose](https://github.com/scottlogic/blog#using-prose) section.
+
+![sl-prose.png](assets/sl-prose.png)
 
 ### Getting a local copy to work with
 To author a blog post, go to the [Scott Logic Blog Repository](https://github.com/ScottLogic/blog) and click on the Fork button on the right (see [GitHub's help](https://help.github.com/articles/fork-a-repo) for more info on forking). N.B. this will trigger an email to the address associated with your GitHub account warning you about the CNAME being taken, just ignore it.
