@@ -27,7 +27,7 @@ In addition to these points, Bramble MVC additional advantages compared to many 
 
 * There are no configuration files.
 * There is next to no learning curve.
-* Clean urls - pages can be accessed without files extensions eg '/shop/outdoor/green-tent' instead of '/shop/outdoor/green-tent.html'.
+* Clean urls - pages can be accessed without files extensions e.g. '/shop/outdoor/green-tent' instead of '/shop/outdoor/green-tent.html'.
 * All pages are generated from code rather than configuration. You are not forced to use files as a data source for content. Use a database or a web service if you like.
 * It is not just for blogs - you can structure your urls and pages in any way you like.
 * Features such as pagination are easy and don't require plugins.
@@ -142,7 +142,7 @@ Calling `bramble.build` will kick off the build process and will output generate
 After sprinkling some CSS, the site now looks like the image shown at the top of this post.
 
 ### Multiple Pages
-Currently the blog resembles twitter, but lets pretend the posts have interesting content amounting to more than 140 characters. The list of posts on the front page only show a preview of posts and should link pages showing the full post content. The posts should be accessed with a nice url eg 'post/post-title' therefore we need to add a new controller function in `build.js`
+Currently the blog resembles twitter, but lets pretend the posts have interesting content amounting to more than 140 characters. The list of posts on the front page only show a preview of posts and should link pages showing the full post content. The posts should be accessed with a nice url e.g. 'post/post-title' therefore we need to add a new controller function in `build.js`
 
 {% highlight javascript %}
 {% raw %}
@@ -169,7 +169,7 @@ Bramble MVC needs to know what files to create when `build` is called. The singl
 
 I've wrapped the header in an anchor tag and set the `href` attribute to point to the post page. By passing the url through the `url` function, Bramble MVC knows the target url should be rendered. This turns broken links into build time errors! Running `build.js` will now generate a page for each post that is linked to.
 
-Aside: I mentioned above that pages in the built site can be accessed by using a nice url without file extensions eg 'post/weclome-to-the-blog'. This is because the url 'post/weclome-to-the-blog' will output a file called 'post/welcome-to-the-blog/index.html'.
+Aside: I mentioned above that pages in the built site can be accessed by using a nice url without file extensions e.g. 'post/weclome-to-the-blog'. This is because the url 'post/weclome-to-the-blog' will output a file called 'post/welcome-to-the-blog/index.html'.
 
 ### Paging
 

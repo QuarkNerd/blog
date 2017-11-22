@@ -8,7 +8,6 @@ tags:
 categories:
   - Web
   - HTML5
-layout: default_post
 image: dsmith/assets/featured/contracts.jpg
 ---
 

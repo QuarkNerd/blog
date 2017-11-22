@@ -24,6 +24,33 @@ _Injection
 eval
 urlscan
 _v4
+ssh
+cd
+sudo
+mysql
+db
+db.js
+Fiddlerscript
+automatable
+sql-inject-me
+20Zed
+20Attack
+20Proxy
+20User
+20Guide.pdf
+sqlmap
+isolatable
+vm
+_statement
+mysql2
+packages.json
+server.js
+_bootstrap.sh
+sqlmap.py
+u
+dbs
+_training
+SPs
  - rsillem/_posts/Cross-site-scripting.md
 XMLHttpRequest
 whitelists
@@ -56,6 +83,12 @@ _Stack
 whitelists
 src
 url-report
+scriptless
+Samy
+Jira
+_stack
+XMLHttpRequest
+sce.trustAsHtml
 
  - rsillem/_posts/2016-04-07-Account-management.md
 fred1
@@ -84,3 +117,14 @@ someemailprovider.com
 a.user
 foobar.com
 _Request
+ - rsillem/_posts/2016-02-01-man-in-the-middle.md
+unminified
+FiddlerScript
+FiddlerRules
+HTTPSs
+10.10.10.xx
+_express
+_mysql.com
+hsts
+FiddlerRoot
+wss

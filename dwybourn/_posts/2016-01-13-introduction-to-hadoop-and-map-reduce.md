@@ -6,7 +6,6 @@ categories:
   - BigData
   - HPC
   - Java
-categories:
   - Data
 ---
 ### What is 'Big' Data?

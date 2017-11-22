@@ -10,8 +10,6 @@ tags:
 categories:
   - Web
 layout: default_post
-image: rhamilton/assets/gocode.png
-
 ---
 
 <img src="{{ site.github.url }}/rhamilton/assets/gocode.png" alt="title image" title="title image"/>

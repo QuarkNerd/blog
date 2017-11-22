@@ -7,7 +7,7 @@
     "bootstrap": "4.0.0-alpha.2"
   },
   "devDependencies": {
-    "markdown-spellcheck": "jacoburton104/node-markdown-spellcheck.git#v0.1",
+    "markdown-spellcheck": "^1.3.1",
     "node-sass": "^4.5.3",
     "uglify-js": "^2.6.2"
   },

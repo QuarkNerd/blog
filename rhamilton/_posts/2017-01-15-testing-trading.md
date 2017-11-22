@@ -3,7 +3,6 @@ author: rhamilton
 title: Foreign Currency Trading Heuristic Testing Cheat Sheet
 title-short: Foreign Currency Trading Heuristic Testing Cheat Sheet
 summary: "After 18 months testing FX trading software I decided to create and share a heuristic cheat sheet to help explore trading apps."
-image: rhamilton/assets/currency.jpg
 tags:  
   - software testing
   - exploratory testing
@@ -15,7 +14,6 @@ categories:
   - Test
 layout: default_post
 image: rhamilton/assets/featured/fx-cheat-sheet.jpg
-
 ---
 
 <img src="{{ site.github.url }}/rhamilton/assets/currency.jpg" alt="title image" title="title image"/>

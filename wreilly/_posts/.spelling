@@ -5,6 +5,11 @@
 # where filename is relative to this configuration file
  - wreilly/_posts/2014-11-07-http-2-a-quick-look.md
 HTTPbis
+wreilly
+http2
+TLS-ALPN
+anymore
+wireshark
  - wreilly/_posts/2015-10-02-ionic-master-detail.md
 UISplitViewController
 ui-sref-active

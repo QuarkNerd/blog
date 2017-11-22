@@ -4,7 +4,6 @@ title: Exploring the Web Audio API with D3
 summary: "In this post, I investigate the HTML5 Web Audio API, using it with D3 to perform real-time audio visualisation."
 title-short: Web Audio with D3
 layout: default_post
-image: /wferguson/assets/audio-1/frequency-waveform.png
 categories:
   - Web
   - D3

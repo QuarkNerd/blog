@@ -10,6 +10,8 @@ pipelining
 FSharp.Data
 XmlProvider
 typedef
+alt-enter
+alt
  - nwolverson/_posts/2013-08-15-interactive-dotnet-2.md
 LINQ-like
  - nwolverson/_posts/2013-09-10-typescript-0.9.md
@@ -63,3 +65,7 @@ Smalltalk
 mathsy
 Amin
 finitizing
+- nwolverson/_posts/2014-09-15-jekyll-d3js.md
+Webkit
+headlessly
+domjs
