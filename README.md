@@ -100,6 +100,7 @@ Note that meta-data takes the form of [front-matter](https://jekyllrb.com/docs/f
 * **disqus-id** - A unique ID for the Disqus thread. If this is left blank the page's URL path will be used instead.
 * **originalArticleLink** - A URL to the original content. This is only needed if the blog post is just a reference to an article/blog in another location. Including this link will disable the page's Disqus thread so that readers post comments on the original content.
 * **categories** - An array of categories for the post. These are added to the `<categories>` tag on the post's RSS & Atom feed entries.
+* **contributors** - An array of author identifiers who also contributed to the post.
 
 ##### Legacy post meta-data (not needed)
 * **oldlink** - This is a blog post's original link; I.E. including the canonical domain at the time the post was published, this ensures Twitter counts/Disqus threads still work; new posts (any posts published after the migration) don't need this. It may be useful for future migrations.
@@ -183,7 +184,7 @@ When adding your details to authors you'll need to add the following:
 * **google-plus-url** - The author's Google+ url.
 * **author-summary** - A short paragraph introducing the author.
 
-Finally, edit ```prose.yml```, adding yourself to the users section. The `login` field is your GitHub username, while the `user` is the username added it the ```authors.yml``` file. 
+Finally, edit ```prose.yml```, adding yourself to the users section. The `login` field is your GitHub username, while the `user` is the username added it the ```authors.yml``` file.
 
 ### Testing
 To test that your post works and looks as expected, push your changes to your GitHub repository, entering your username/password when prompted:
