@@ -1,84 +1,107 @@
 prose:
     rooturl: CURRENT_USER/_posts
     media: CURRENT_USER/assets
-    siteurl: http://blog.scottlogic.com
+    siteurl: 'http://blog.scottlogic.com'
     metadata:
-      "":
-        - name: "author"
-          field:
-              element: "hidden"
-              value: "CURRENT_USER"
-        - name: "title"
-          field:
-              element: "text"
-              label: "Title"
-        - name: "published"
-          field:
-              element: "hidden"
-              value: "true"
-        - name: "layout"
-          field:
-              element: "select"
-              label: "Post Layout"
-              value: "default_post"
-              options:
-                 - name: "Default Post"
-                   value: "default_post"
-        - name: "summary"
-          field:
-              element: "text"
-              label: "Summary"
-              value: ""
-              help: "The index pages for the blog and author pages includes summaries of each blog post. You can use summary to provide a summary for your blog post, otherwise the first 50 words of the post itself are used. When writing your own summary, please try to make it roughly two sentences."
-        - name: "image"
-          field:
-              element: "text"
-              label: "Image"
-              value: ""
-              placeholder: "username/assets/foo.png"
-              help: "The image used for social cards (Twitter/Facebook etc) and the ScottLogic image carousel when featured. The image path should be your username, the assets folder and name of your image (e.g. ceberhardt/assets/foo.png)"
-        - name: "tags"
-          field:
-              element: "text"
-              label: "Tags"
-              value: ""
-              help: "List of keywords that describe the blog post contents (Add the featured tag to have your article displayed in the blog's featured carousel)."
-        - name: "categories"
-          field:
-              element: "multiselect"
-              label: "Categories"
-              options:
-                 - name: "Web"
-                   value: "web"
-                 - name: "Data Engineering"
-                   value: "data-engineering"
-                 - name: "JavaScript"
-                   value: "javascript"
-                 - name: "HTML5"
-                   value: "html5"
-                 - name: "Mobile"
-                   value: "mobile"
-                 - name: "UX"
-                   value: "ux"
-                 - name: "Agile"
-                   value: "agile"
-                 - name: "Testing"
-                   value: "testing"
-                 - name: "D3"
-                   value: "d3"
-                 - name: "WPF"
-                   value: "wpf"
-                 - name: "Charting"
-                   value: "charting"
-                 - name: ".Net"
-                   value: "dotnet"
-                 - name: "CSS"
-                   value: "css"
-                 - name: "Java"
-                   value: "java"
-                 - name: "Events"
-                   value: "events"
-
+        "":
+            -
+                name: author
+                field:
+                    element: hidden
+                    value: CURRENT_USER
+            -
+                name: title
+                field:
+                    element: text
+                    label: Title
+            -
+                name: published
+                field:
+                    element: hidden
+                    value: 'true'
+            -
+                name: layout
+                field:
+                    element: select
+                    label: 'Post Layout'
+                    value: default_post
+                    options:
+                        -
+                            name: 'Default Post'
+                            value: default_post
+            -
+                name: summary
+                field:
+                    element: text
+                    label: Summary
+                    value: ""
+                    help: 'The index pages for the blog and author pages includes summaries of each blog post. You can use summary to provide a summary for your blog post, otherwise the first 50 words of the post itself are used. When writing your own summary, please try to make it roughly two sentences.'
+            -
+                name: image
+                field:
+                    element: text
+                    label: Image
+                    value: ""
+                    placeholder: username/assets/foo.png
+                    help: 'The image used for social cards (Twitter/Facebook etc) and the ScottLogic image carousel when featured. The image path should be your username, the assets folder and name of your image (e.g. ceberhardt/assets/foo.png)'
+            -
+                name: tags
+                field:
+                    element: text
+                    label: Tags
+                    value: ""
+                    help: 'List of keywords that describe the blog post contents (Add the featured tag to have your article displayed in the blog''s featured carousel).'
+            -
+                name: categories
+                field:
+                    element: multiselect
+                    label: Categories
+                    options:
+                        -
+                            name: Web
+                            value: web
+                        -
+                            name: 'Data Engineering'
+                            value: data-engineering
+                        -
+                            name: JavaScript
+                            value: javascript
+                        -
+                            name: HTML5
+                            value: html5
+                        -
+                            name: Mobile
+                            value: mobile
+                        -
+                            name: UX
+                            value: ux
+                        -
+                            name: Agile
+                            value: agile
+                        -
+                            name: Testing
+                            value: testing
+                        -
+                            name: D3
+                            value: d3
+                        -
+                            name: WPF
+                            value: wpf
+                        -
+                            name: Charting
+                            value: charting
+                        -
+                            name: .Net
+                            value: dotnet
+                        -
+                            name: CSS
+                            value: css
+                        -
+                            name: Java
+                            value: java
+                        -
+                            name: Events
+                            value: events
     users:
         -
             login: andyaiken
@@ -194,3 +217,6 @@ prose:
         -
             login: ZinatWali
             user: zwali
+        -
+            login: cmeehanSL
+            user: cmeehan
