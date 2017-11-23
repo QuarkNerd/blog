@@ -512,7 +512,11 @@ authors:
         author-summary: '<p>I am a London based Delivery Principal at Scott Logic. Coming from a developer background I am passionate about Agile, love working with our amazing teams and all those enthusiastic people at our customers.</p>'
         gravatar: 7b9bfa1dda9523dcbd5e6089c3519286
     cmeehan:
-        name: cmeehansl
+        name: 'Chris Meehan'
         email: cmeehan@scottlogic.com
         gravatar: 829049ee7cd812f0d571ede452322acb
-        author-summary: "<p>I'm a software developer at Scott Logic focusing primarily on Javascript development, particularly with React. Recently, I've also taken an interest in mobile development.</p>\n\n<p>I joined the company after company after studying Mechanical Engineering at Bath and Computer Science (MSc) at Bristol. The fantastic learning opportunities at Scott Logic are one of the main reasons I joined, and as a result I'm currently learning functional programming (F#) in between project work.</p>"
+        author-summary: "<p>I'm a software developer at Scott Logic focusing primarily on JavaScript development, particularly with React. Recently, I've also taken an interest in mobile development.</p>\n\n<p>I joined the company after studying Mechanical Engineering at Bath and Computer Science (MSc) at Bristol. The fantastic learning opportunities at Scott Logic are one of the main reasons I joined, and as a result I'm currently learning functional programming (F#) in between projects.</p>"
+    gginghina:
+        name: 'Georgiana Ginghina'
+        email: gginghina@scottlogic.com
+        gravatar: a2acd70692a21caacdc9dc459b7cf079
