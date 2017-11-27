@@ -2,15 +2,19 @@
 published: true
 author: ceberhardt
 contributors:
- - gginghina
- - cmeehan
+  - gginghina
+  - cmeehan
 layout: default_post
 title: Developing Bristol Pound - An Open Source React Native App
-summary: A few weeks ago the new Bristol Pound mobile app was launched, allowing users of this local currency to find vendors, view transactions and make payments on both iOS and Android. This post describes our experience of writing this application using React Native.
+summary: >-
+  A few weeks ago the new Bristol Pound mobile app was launched, allowing users
+  of this local currency to find vendors, view transactions and make payments on
+  both iOS and Android. This post describes our experience of writing this
+  application using React Native.
 image: ceberhardt/assets/bristol-pound/bristol-pound-app.jpg
-tags: ''
 categories:
- - Mobile
+  - Mobile
+tags: ''
 ---
 A few weeks ago the new Bristol Pound mobile app was launched, allowing users of this local currency to find vendors, view transactions and make payments on both iOS and Android.
 
@@ -83,6 +87,7 @@ Moreover, utilising Expo meant we’d have to provide build secrets to the serve
 In order to overcome all the issues mentioned above and gain full control over the Android / iOS specific build files (input modes, compliance information etc), we decided not to fully embrace Expo.
 
 When ejecting / detaching, there are three options:
+
 1. Full ejection back to the standard react native format (iOS / Android folders generated)
 1. Detaching to ‘Expo kit’ - generates build folders in the Expo flavour (allows continued use of Expo specific npm packages.
 1. Using “Expo build” - no ejection, build process takes place on a remote server
@@ -95,6 +100,7 @@ In itself, this is not a ‘clean’ process. The auto generated Android / iOS f
 However, once done, this didn’t need to be repeated very often, if at all. The ‘ejected’ code was placed in a different directory, with the remote of the git repo pointing to the open sourced repository. No changes to the functionality of the app itself were performed in this directory, but rather, whenever the code was changed, these changes would just be pulled into the ejected code. This would only ever cause issues if using the aforementioned Expo specific npm packages, which was very rarely.
 
 Then, when it was time to make a release, we would follow the following procedure:
+
 1. Go into the ejected code directory
 1. Make a new branch for the current release version
 1. Pull in the changes from the master from the public git repo
@@ -127,6 +133,7 @@ During the early development stages of the app, we used a standard `ListView` co
 For the general navigation of the app, we used a tab bar, storing the current page index in redux and rendering accordingly. This tab bar worked quite well overall with no noticeable performance issues. There were other places in the app where we placed sequential modals on top of each other to guide the user through the transaction procedure. While both of these navigational methods were implemented in purely javascript, it would have been better to use native navigation.
 
 The native navigation uses specific `Navigator` components that can be nested as desired. In our case, we could have had used a `TabNavigator` at the outermost layer, and nest a `StackNavigator` within it, using card views for each progressive screen through the transaction process. This approach comes with a number of advantages:
+
 1. The stack navigator uses the native device method to ‘go back’, so the android back button could be used to pop a card off the stack and go back to the previous screen. The state of each screen component is also stored. We did all this manually, adding an unnecessary degree of complexity.
 1. As the navigation is done on the native thread, the performance will always be better. We used an animation for the transaction confirmation screen sliding up from the bottom which would sometimes be a bit jittery. A wide range of native transition animations are available within the native navigator components, guaranteeing smooth transitions.
 1. There is wide support for integrating Redux into these navigators, easily allowing navigation actions etc. to be dispatched from anywhere.
