@@ -2,6 +2,11 @@
 {% assign suppressSummary = include.suppressSummary %}
 {% assign suppressName = include.suppressName %}
 {% assign authorPage = include.authorPage %}
+{% assign authorUsername = page.author %}
+
+{% if include.contributorId %}
+    {% assign authorUsername = include.contributorId %}
+{% endif %}
 
 {% if authorPage %}
 <div id="author-page" class="author-page">
@@ -25,7 +30,7 @@
     </div>
     {% endif%}
     {% if suppressName != true %}
-    <a class="authorName highlight" rel="author" href="{{ site.github.url }}/{{ page.author }}">{{ author.name }}</a>
+    <a class="authorName highlight" rel="author" href="{{ site.github.url }}/{{ authorUsername }}">{{ author.name }}</a>
     {% endif %}
     {% if author.author-summary and suppressSummary != true %}
         <div class="authorSummary">{{ author.author-summary }}</div>
