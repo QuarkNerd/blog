@@ -6,7 +6,7 @@ title: 'White Paper: Optimising Data Lakes for Financial Services'
 ---
 ## Four Key Questions and a Word of Warning
 
-Data lakes?  Most financial service organisations either have one or are considering one.
+Data lakes?  Most Financial Service organisations either have one or are considering one.
 
 They can lead to cost savings or revenue generation when they are used correctly.
   
