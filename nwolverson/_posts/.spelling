@@ -69,3 +69,15 @@ finitizing
 Webkit
 headlessly
 domjs
+ - nwolverson/_posts/2017-12-15-aws-fargate.md
+Fargate
+Cloud9
+vCPU
+t2.nano
+t2.micro
+t2.small
+t2.medium
+container-task-service-cluster
+CloudFormation
+EC2-based
+CLIs
