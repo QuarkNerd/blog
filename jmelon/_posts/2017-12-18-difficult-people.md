@@ -2,7 +2,7 @@
 published: true
 author: jmelon
 layout: default_post
-title: Difficult-People
+title: Difficult People
 categories:
   - agile
 summary: >-
@@ -79,7 +79,7 @@ If we have a working relationship we only need to look for the specifics of one 
 
 #### Why not just ask?
 Sometimes we will still not get the reaction we are looking for. It is important then to check with powerful open questions why they are reacting in this way and to make sure the message you were intending to get across has arrived undamaged.
-If you need someone to do something to fulfill your need it is more powerful to explain your need and ask for their help instead of asking them to do something that fulfills our need. That way they can come up with a solution to our problem that suits them, we get much more buy-in because it is their idea and not us pushing something on them.
+If you need someone to do something to fulfil your need it is more powerful to explain your need and ask for their help instead of asking them to do something that fulfils our need. That way they can come up with a solution to our problem that suits them, we get much more buy-in because it is their idea and not us pushing something on them.
 Even if we try your best, friction can still occur. The other person might still not be helpful. Hopefully we will at least understand better why - enabling us in turn to look for other solutions or getting the right kind of help. Often it can help to ask how to get the person's support such that they are able to help. Maybe they feel not empowered to change their priorities or they don’t have the confidence to do the task.
 
 #### Escalation
