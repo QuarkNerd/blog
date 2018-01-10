@@ -17,6 +17,7 @@ active-authors:
     - dogle
     - dsmith
     - dtheasby
+    - ffarhadi
     - godds
     - gthompson
     - janakerman
@@ -521,7 +522,12 @@ authors:
         email: gginghina@scottlogic.com
         gravatar: a2acd70692a21caacdc9dc459b7cf079
     jbrunton:
-        name: James Brunton
+        name: 'James Brunton'
         email: jbrunton@scottlogic.co.uk
-        author-summary: <p>James was an Intern at Scott Logic, based in Newcastle.</p>
+        author-summary: '<p>James was an Intern at Scott Logic, based in Newcastle.</p>'
         gravatar: 4e9543151138e991d29b62387ce86234
+    ffarhadi:
+        name: 'Farzaneh Farhadi'
+        email: ffarhadi@scottlogic.com
+        gravatar: 47aa293125520032c7f327b5c62c33cb
+        author-summary: "<p>I have been working for more than five years as a test engineer.\nIn my spare time I enjoy playing piano and painting.</p>"
