@@ -238,11 +238,12 @@ Featured articles are selected at the discretion of Colin Eberhardt (bribes acce
 
 To make an article appear on the featured carousel, simply add the `featured` tag to your post. The featured carousel will show the 10 most recent `featured` blogs.
 
-### Comments and notifications
-When you have posted your first blog post there are a few of other things you should consider doing:  
-
+### Community and announcements
+* Join the ```#blog``` channel on Slack. This is a great place to ask for help.
 * Join the ```bloggers``` email distribution list. Raise an IT ticket to have yourself added to this list.  
-* Sign up for Disqus so that you can interact with people who comment on your blog posts. Once you have created an account you need to be added to the ```Scott Logic Ltd``` site. Raise an IT ticket for this. Once you are added to the Scott Logic site you might want to change your notification settings so that you receive an email whenever someone comments on the site.
+
+### Comments and notifications
+When you have posted your first blog post, you should consider signing up for Disqus so that you can interact with people who comment on your blog posts. Once you have created an account you need to be added to the ```Scott Logic Ltd``` site. Raise an IT ticket for this. Once you are added to the Scott Logic site you might want to change your notification settings so that you receive an email whenever someone comments on the site.
 
 ### Developing
 
