@@ -164,8 +164,8 @@ authors:
         name: 'Sam Hogarth'
         email: shogarth@scottlogic.com
         gravatar: d4534a4d64ddf89c318221d9f0e766da
-        author-summary: '<p>Frequently found developing Android applications, playing with web technologies and musing about patterns and process.</p>'
-        feed-description: 'Sam Hogarth is a developer working primarily with web technologies, with a side-interest in Android development.'
+        author-summary: '<p>I am a Lead Developer at Scott Logic, frequently found playing with web technologies and musing about patterns and process. I blog to assist developers when making technical decisions.</p>'
+        feed-description: 'Sam''s musings on web tech'
     sbaker:
         name: 'Sioned Baker'
         email: sbaker@scottlogic.com
