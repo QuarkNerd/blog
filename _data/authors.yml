@@ -44,6 +44,7 @@ active-authors:
     - sbulut
     - shogarth
     - shunton
+    - tclarke-scottlogic
     - tkelly
     - tmakarem
     - tsimmons
@@ -293,6 +294,12 @@ authors:
         email: mjose@scottlogic.com
         gravatar: 6113027b6f67ad9f5f50a90f1481c0ed
         author-summary: '<p>I''m a lead developer at Scott Logic, working with HTML5 web technologies and C# / .NET development.</p><p>When I''m not coding you''ll normally find me tinkering with cars or at the race track, but coding is a less expensive pass time.</p><p>I also contribute to a <a href="https://github.com/markjose">few open source projects</a>.</p>'
+    tclarke-scottlogic:
+        name: 'Thomas Clarke'
+        email: tclarke@scottlogic.com
+        gravatar: db2362179a6feed97f2051df2db68b8b
+        author-summary: '<p>I started at ScottLogic in 2018 as a member of the Development team.</p><p>Prior to Scott Logic, I''ve worked around the UK, as a full system product developer, using C++, C#, javascript, ruby, shell scripts and what seems like dozens of company-specific frameworks.</p><p>As a product developer, I''m interested in making sure I''m solving meaningful problems for our clients, and providing an experience that <a href="http://seriouspony.com/blog/2013/7/24/your-app-makes-me-fat">doesn''t make them fat</a>.</p>'
+        twitter-url: 'https://twitter.com/deworde'
     tkelly:
         name: 'Thomas Kelly'
         email: tkelly@scottlogic.com
