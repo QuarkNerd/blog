@@ -4,7 +4,7 @@ author: dogle
 title: Looking At R
 layout: default_post
 summary: >-
- In this quick look at the R language and tools I'll look briefly at the syntax of the language and have a go at creating a few chats with a data set.
+ In this quick look at the R language and tools I'll look briefly at the syntax of the language and have a go at creating a few charts with a data set.
 tags: 'R, Data Engineering'
 categories:
  - data-engineering
