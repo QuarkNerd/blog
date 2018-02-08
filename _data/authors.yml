@@ -28,6 +28,7 @@ active-authors:
     - jrice
     - jwhite
     - lcollingwood
+    - lpisani
     - mdunsdon
     - mjose
     - mmathew
@@ -537,3 +538,8 @@ authors:
         email: ffarhadi@scottlogic.com
         gravatar: 47aa293125520032c7f327b5c62c33cb
         author-summary: "<p>I have been working for more than five years as a test engineer.\nIn my spare time I enjoy playing piano and painting.</p>"
+    lpisani:
+        name: 'Laurence Pisani'
+        email: lpisani@scottlogic.com
+        gravatar: ea8c9f854073c5f00b7d67886fe5ad87
+        author-summary: '<p> I am Head of Testing at Scott Logic, responsible for the overall direction of the practice and how we deliver testing to our clients. I have a background in combining psychology with software engineering, with a keen interest in Human Factors testing and how we interact with technology.</p>'
