@@ -117,7 +117,7 @@ for (int r = 1; r < numRows; r++) {
 With each of these code segments combined, we have our complete DP algorithm to traverse the map exactly once. When the cell at the bottom-right corner (i.e. our final destination) is populated, we have our answer.
 
 ~~~java
-public static int maximumPassengerPickup(int[][] map) {
+public static int maxPassengerPickup(int[][] map) {
   int numRows = map.length;
 
   if (numRows == 0) return 0;
@@ -180,7 +180,7 @@ arithmetic operations. However, matrix multiplication is associative, meaning th
 
 It turns out our original approach required the most arithmetic operations! The most efficient approach would be to compute A(B(CD)), which involves 9300 arithmetic operations. This pattern doesn’t necessary hold for all cases - the answer is dependent entirely on the dimensions of the matrices provided. As the number of matrices involved grows, so do the number of possible approaches to performing the multiplication. So how could we work out the most efficient approach for any chain of matrices? You guessed it - DP!
 
-The DP approach to this problem considers first the base case: If we only have two matrices to multiply, then multiple them. Otherwise, from left-to-right, determine the cost of multiplying every pair of adjacent matrices in the sequence. Following our example, this would be AB, BC, and CD.
+The DP approach to this problem considers first the base case: If we only have two matrices to multiply, then multiply them. Otherwise, from left-to-right, determine the cost of multiplying every pair of adjacent matrices in the sequence. Following our example, this would be AB, BC, and CD.
 
 Having worked out the minimal costs for each pair, the DP algorithm moves on to consider all possible chains of length three: ABC, and BCD. For each of these chains, there's two points where we could split them into two separate matrices: ABC has A(BC) and (AB)C, whilst BCD has B(CD) and (BC)D. There's no need to break this down any further since we already know the minimal costs of computing each parenthesised pair!
 
@@ -250,7 +250,7 @@ public static void matrixChainMulOrder(int[] dims) {
   int column;
 
   for (int chainLen = 2; chainLen <= n; chainLen++) {
-    for (int i = 0; i < n - chainLen - 1; i++) {
+    for (int i = 0; i < n - (chainLen - 1); i++) {
       column = i + chainLen - 1;
       M[i][column] = Integer.MAX_VALUE;
 
