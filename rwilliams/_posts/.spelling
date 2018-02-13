@@ -22,3 +22,9 @@ microlibrary
 microlibraries
 Renminbi
 Ruble
+- rwilliams/_posts/2018-02-13-npm-shrikwrap-merges-and-conflicts.md
+3-way
+gitattributes
+lockfiles
+polyfilla
+shrinkwraps
