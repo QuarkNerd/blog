@@ -502,8 +502,9 @@ authors:
     rrhodes:
         name: 'Ross Rhodes'
         email: rrhodes@scottlogic.com
-        author-summary: '<p>I''m a Graduate Developer at Scott Logic, Edinburgh. I joined in August 2017 after four years of study at the University of Edinburgh.</p>'
+        author-summary: '<p>I''m a Graduate Developer at Scott Logic, Edinburgh. I joined in August 2017 after four years studying Computer Science and Mathematics at the University of Edinburgh.</p>'
         gravatar: 97c297e1087e4f95f2b1389fec46d0c9
+        twitter-url: 'https://twitter.com/trrhodes'
     janakerman:
         name: 'Jan Akerman'
         email: jakerman@scottlogic.com
