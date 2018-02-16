@@ -19,6 +19,7 @@ active-authors:
     - ffarhadi
     - godds
     - gthompson
+    - hubinf@scottlogic.com
     - janakerman
     - jayphi11ips
     - jdunkerley
@@ -544,3 +545,8 @@ authors:
         email: lpisani@scottlogic.com
         gravatar: ea8c9f854073c5f00b7d67886fe5ad87
         author-summary: '<p> I am Head of Testing at Scott Logic, responsible for the overall direction of the practice and how we deliver testing to our clients. I have a background in combining psychology with software engineering, with a keen interest in Human Factors testing and how we interact with technology.</p>'
+    hubinf@scottlogic.com:
+        name: 'Frank Hubin'
+        email: frank.hubin@gmail.com
+        gravatar: f1653046285a5fd35cdc7e89700b9fd5
+        author-summary: 'I am a Technical Project Manager at Scott Logic. Using a lean approach, Agile values and team empowerment, I build bridges between business and technical teams to improve collaboration and make delivery a reality.'
