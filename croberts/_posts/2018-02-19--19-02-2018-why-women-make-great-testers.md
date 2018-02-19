@@ -12,7 +12,6 @@ summary: >-
   attributes to excelling in the field of testing.
 tags: 'Tester, Women in Tech, Testing'
 ---
-## A New Post
 
 ##Why Women Make Great Testers
 
