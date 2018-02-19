@@ -10,7 +10,7 @@ summary: >-
   critical and sometimes overlooked aspects to being a great tester.  This
   article will explore why and how these predispositions are necessary
   attributes to excelling in the field of testing.
-tags: 'Tester, Women in Tech, Testing, Women Testers'
+tags: 'Tester, Women in Tech, Testing'
 ---
 ## A New Post
 
