@@ -69,4 +69,3 @@ Women are nurturers which can be excellent for building teams. They enjoy collab
 To summarise, there are qualities women have that are not just what make us women, but are actually fantastic qualities to bring to work and that can make us successful in our careers! It is these qualities that can make us effective in a tester role. It seems too many women may not be aware of the opportunities that exist for them in tech or may not realise the value they can bring. If you are a woman interested in tech, then testing could be the perfect career choice for you!  
 
 [http://www.scottlogic.com/careers/vacancies/ ](http://www.scottlogic.com/careers/vacancies/ )
-
