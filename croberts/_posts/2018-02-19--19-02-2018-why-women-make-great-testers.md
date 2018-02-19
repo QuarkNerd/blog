@@ -5,12 +5,12 @@ layout: default_post
 title: Why Women Make Great Testers
 categories:
   - testing
-image: 'Tester, Women in Tech, Testing, Women Testers'
 summary: >-
   Women often possess traits, skills and experiences that lend themselves to
   critical and sometimes overlooked aspects to being a great tester.  This
   article will explore why and how these predispositions are necessary
   attributes to excelling in the field of testing.
+tags: 'Tester, Women in Tech, Testing, Women Testers'
 ---
 ## A New Post
 
