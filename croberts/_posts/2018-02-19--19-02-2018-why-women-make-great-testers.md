@@ -2,7 +2,7 @@
 published: true
 author: croberts
 layout: default_post
-title: '[19/02/2018] - [Why Women Make Great Testers]'
+title: Why Women Make Great Testers
 categories:
   - testing
 image: 'Tester, Women in Tech, Testing, Women Testers'
