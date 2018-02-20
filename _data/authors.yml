@@ -30,6 +30,7 @@ active-authors:
     - jwhite
     - lcollingwood
     - lpisani
+    - lramchandani
     - mdunsdon
     - mjose
     - mmathew
@@ -550,3 +551,8 @@ authors:
         email: frank.hubin@gmail.com
         gravatar: f1653046285a5fd35cdc7e89700b9fd5
         author-summary: 'I am a Technical Project Manager at Scott Logic. Using a lean approach, Agile values and team empowerment, I build bridges between business and technical teams to improve collaboration and make delivery a reality.'
+    lramchandani:
+        name: 'Laveena Ramchandani'
+        email: lramchandani@scottlogic.com
+        gravatar: 59b0ecbbecd68965a58d5c5105e30fca
+        author-summary: 'Test Engineer, working at Scott Logic. I am based in the London Office. '
