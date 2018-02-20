@@ -10,6 +10,7 @@ active-authors:
     - ceberhardt
     - cmeehan
     - cprice
+    - croberts
     - dgorst
     - dkerr
     - dmcnamee
@@ -551,6 +552,11 @@ authors:
         email: frank.hubin@gmail.com
         gravatar: f1653046285a5fd35cdc7e89700b9fd5
         author-summary: 'I am a Technical Project Manager at Scott Logic. Using a lean approach, Agile values and team empowerment, I build bridges between business and technical teams to improve collaboration and make delivery a reality.'
+    croberts:
+        name: 'Charlotte Roberts'
+        email: croberts@scottlogic.com
+        gravatar: 64c5cdea265090dbf5e299ffe541935b
+        author-summary: 'Test Engineer at Scott Logic. Based in the London office.'
     lramchandani:
         name: 'Laveena Ramchandani'
         email: lramchandani@scottlogic.com
