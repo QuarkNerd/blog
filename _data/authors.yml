@@ -31,6 +31,7 @@ active-authors:
     - jwhite
     - lcollingwood
     - lpisani
+    - lramchandani
     - mdunsdon
     - mjose
     - mmathew
@@ -556,3 +557,8 @@ authors:
         email: croberts@scottlogic.com
         gravatar: 64c5cdea265090dbf5e299ffe541935b
         author-summary: 'Test Engineer at Scott Logic. Based in the London office.'
+    lramchandani:
+        name: 'Laveena Ramchandani'
+        email: lramchandani@scottlogic.com
+        gravatar: 59b0ecbbecd68965a58d5c5105e30fca
+        author-summary: 'Test Engineer, working at Scott Logic. I am based in the London Office. '
