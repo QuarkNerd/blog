@@ -9,7 +9,7 @@ categories:
 ---
 How many times have you heard that from a client?
 
-Usually, a sponsor, or an old-school project manager embarks on a tirade:
+Usually, a sponsor, or a traditional project manager embarks on a tirade:
 
 _"Back in the day, we would use ideal engineering man-days as a benchmark. Then the work would be estimated in hours, which would then be fit into ideal engineering man-days (ca 80% of a full-time day). The developers would work through the tasks and we could easily monitor spending and progress. With your Agile ways, how can I know if a project is on track and on budget?"_
 
@@ -30,7 +30,7 @@ Let us pick the bits of that tirade one by one, and build up context in order to
 ### 1) Use ideal engineering man-days vs. story points to measure effort
 
 The Internet is full of articles explaining in detail why story points (SP) became the industry standard to estimate work packages ([here](http://blog.scottlogic.com/2017/09/19/how-big-is-a-story-point.html) is one). In short, when estimating in man-hours or man-days, different developers will estimate differently, based on their skills, experience, domain knowledge or other. Story points are a scale that caters for those parameters. 3 SP might translate into a different duration for different developers, but that is not an issue -- in fact, it is the point.
-It is tempting here for the sponsor or the old-school project manager to want to gauge the developer's worth based on that. _"Sprint after sprint, Paul completes twice as many SP as John. Surely, John is not performing."_
+It is tempting here for the sponsor or the traditional project manager to want to gauge the developer's worth based on that. _"Sprint after sprint, Paul completes twice as many SP as John. Surely, John is not performing."_
 The reasons might be many -- e.g. John started recently, whereas Paul designed the system, two years ago; or John spends a lot of time code reviewing, or pairing with Paul, effectively helping Paul tally up the story points.
 Regardless of the reasons, story points must never be used to measure an individual’s ability. The team’s output is the only metric to measure. If an individual is indeed not performing, it is the self-organised team’s responsibility to discuss options, e.g. in a retrospective.
 The important thing to understand, here, and take away from it, is that story points have no meaning outside of the Scrum team and the sprint. Another team will estimate differently. The same team working on another work stream will estimate differently.
@@ -40,12 +40,12 @@ _"In that case, what is the point? With ideal engineering man-days, one was able
 
 Bluntly put: no and no. Estimates in man-days were more often wrong than right, which gave no reliable visibility over how long development was really meant to take. All it provided was an unrealistic baseline, with all the inherent challenges that came along when the inevitable re-planning moment hit. As for gauging performance, estimation in man-days merely drove rivalry and resentment, instead of collaboration and mentoring. That was not a good thing for the client or the business, either culturally, or in terms of business value delivered.
 
-Estimating in man-days gave a false sense of control to sponsors and old-school project managers. It made no sense for anyone else and inevitably ended in tears.
-Story points, on the other hand, make no sense to sponsors and old-school project managers who insist on applying their faulty techniques, but do make sense to teams who see it as a more reliable way to measure and forecast progress -- and, ultimately, serve the business.
+Estimating in man-days gave a false sense of control to sponsors and traditional project managers. It made no sense for anyone else and inevitably ended in tears.
+Story points, on the other hand, make no sense to sponsors and traditional project managers who insist on applying their faulty techniques, but do make sense to teams who see it as a more reliable way to measure and forecast progress -- and, ultimately, serve the business.
 
 ### 2) Break down all the work into work packages and estimate them
 
-It is that period at the beginning of a project, where the old-school project manager sits down with a subset of the team to break down the work into palatable chunks, so they can each be estimated, before the work actually starts.
+It is that period at the beginning of a project, where the traditional project manager sits down with a subset of the team to break down the work into palatable chunks, so they can each be estimated, before the work actually starts.
 
 **Why it makes sense:**
 It gives a clear picture of all the activities that need to take place, the interdependencies, and forms the basis of the project plan. In turn, the plan shows the critical path that illustrates the milestones (what is needed when), and how likely it is that those milestones will be hit.
@@ -60,7 +60,7 @@ The alternative is to have different planning horizons, with a detailed plan for
 
 ### 3) Burn down through work packages
 
-During implementation, the sponsor and the old-school project manager will likely want to monitor spending and progress. In other words, ensure that the required, fixed requirements are not taking more time to implement than forecast and, are not more expensive than forecast. The old-school project manager will likely use that to gauge how hard or efficiently the dev team is working.
+During implementation, the sponsor and the traditional project manager will likely want to monitor spending and progress. In other words, ensure that the required, fixed requirements are not taking more time to implement than forecast and, are not more expensive than forecast. The traditional project manager will likely use that to gauge how hard or efficiently the dev team is working.
 
 **Why it makes sense:**
 After all, the sponsor has likely battled hard to secure a budget for this implementation and is keen not to overspend. It is also extremely likely that the sponsor has publicly announced a release date, so users can gear up for the change. Understandably, they want the solution to be rolled out when they announced it would be.
@@ -71,21 +71,21 @@ In any case, a team does not accurately know how long something will take to bui
 
 In those circumstances, a traditional project will often be deemed "not on track," because the scope has changed, or because hurdles were encountered that could not be planned around.
 
-As for the old-school project manager using the burndown chart to gauge how hard a team is really working, it also makes no sense: a team might be working twice as hard as required and still be "late," if the requirements are thrice as complex as anticipated, or if new, urgent requirements are constantly thrown into the mix.
+As for the traditional project manager using the burndown chart to gauge how hard a team is really working, it also makes no sense: a team might be working twice as hard as required and still be "late," if the requirements are thrice as complex as anticipated, or if new, urgent requirements are constantly thrown into the mix.
 A more useful gauge is the burn-up chart, where effort consumption is tracked, rather than "progress." That will better represent what the budget is spent on, and help the sponsor decide whether it is spent on the right priorities or not and act accordingly. It also shows how hard the team really is working -- although the focus should be on value and upcoming priorities instead of team effort.
 
-The old-school project manager might argue that it is necessary to control scope change, or lock down the scope altogether. It makes for a more stable and predictable development cycle indeed. Unfortunately, it also almost inevitably leads to a solution that does not fulfil business needs and, therefore, does not achieve the sponsor's targets (also known as: a waste of money).
+The traditional project manager might argue that it is necessary to control scope change, or lock down the scope altogether. It makes for a more stable and predictable development cycle indeed. Unfortunately, it also almost inevitably leads to a solution that does not fulfil business needs and, therefore, does not achieve the sponsor's targets (also known as: a waste of money).
 By fixing the time and the cost instead, but not the scope, Agile/Scrum promises to accommodate changes to scope, so the team can deliver what the business really needs and help the sponsor achieve their targets. 
 
 In summary, that model of fixed scope, controlled-variable time, controlled-variable cost does not work, because the scope never really is fixed.
-Scrum spins that on its head and fixes the time and cost, whilst leaving the scope variable. A Scrum sprint has a set duration and a set cost. The only variable is what comes out at the end of the sprint. The old-school project manager does not need to try and determine the cost of a work package, because it is irrelevant. The only unit that has a cost and a duration is the sprint.
+Scrum spins that on its head and fixes the time and cost, whilst leaving the scope variable. A Scrum sprint has a set duration and a set cost. The only variable is what comes out at the end of the sprint. The traditional project manager does not need to try and determine the cost of a work package, because it is irrelevant. The only unit that has a cost and a duration is the sprint.
 
 ### 4) Measure overall progress based on work package burndown
 
-This is a way for the sponsor and the old-school project manager to monitor overall progress on the project. If an individual work package does not follow the expected burn-down, the implications can be highlighted for the overall timeline and cost.
+This is a way for the sponsor and the traditional project manager to monitor overall progress on the project. If an individual work package does not follow the expected burn-down, the implications can be highlighted for the overall timeline and cost.
 
 **Why it makes sense:**
-The sponsor, who is keen to not overspend and has likely announced a release date, wants to confirm that their projections are still valid. Perhaps the old-school project manager wants to measure how the development team, who might be a third party, is performing.
+The sponsor, who is keen to not overspend and has likely announced a release date, wants to confirm that their projections are still valid. Perhaps the traditional project manager wants to measure how the development team, who might be a third party, is performing.
 
 **Why it makes no sense:**
 Think of all the arguments against monitoring burn-down of one work package and raise them to the power of the number of work packages. Fluctuating requirements will have an amplified impact on the whole project, inevitably delaying delivery, and potentially affecting the overall cost.
@@ -106,7 +106,7 @@ Although the intent, at the start of the sprint, is to complete the chosen stori
 
 ### 6) Cost of a work unit
 
-Easy. The team tells the sponsor and the old-school project manager how many man-days are needed to complete the requirements, and, leaving rate negotiation for another article, the sponsor can negotiate a budget with their own boss (with a bit of contingency, just in case).
+Easy. The team tells the sponsor and the traditional project manager how many man-days are needed to complete the requirements, and, leaving rate negotiation for another article, the sponsor can negotiate a budget with their own boss (with a bit of contingency, just in case).
 
 **Why it makes sense:**
 A budget needs to be secured for the project to start. In order to plan for the right budget, the sponsor needs to understand the anticipated cost. That is traditionally a simple multiplication of the cost of a work unit (man-day or story point) and the number of work units.
@@ -121,7 +121,7 @@ In an Agile approach, the only work unit that can be cost is the sprint. The spr
 
 ### What is the cost of a feature?
 
-Only once the sprint is complete, is it safe to evaluate the cost of a feature, relating its estimation to the total output of the sprint. E.g. if the sprint cost is £50,000 and the velocity is 30, a 3 SP story can be estimated to cost 3/30, or 10% of £50,000, or £5,000. That is not a particularly useful exercise, yet it will reassure the sponsor and the old-school project manager that the team is indeed tracking costs. Until the sponsor and the old-school project manager are comfortable with an Agile approach, that might come in handy.
+Only once the sprint is complete, is it safe to evaluate the cost of a feature, relating its estimation to the total output of the sprint. E.g. if the sprint cost is £50,000 and the velocity is 30, a 3 SP story can be estimated to cost 3/30, or 10% of £50,000, or £5,000. That is not a particularly useful exercise, yet it will reassure the sponsor and the traditional project manager that the team is indeed tracking costs. Until the sponsor and the project manager are comfortable with an Agile approach, that might come in handy.
 
 ### Conclusions
 
