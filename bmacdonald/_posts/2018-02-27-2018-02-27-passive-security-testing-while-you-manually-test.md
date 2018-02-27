@@ -26,7 +26,7 @@ As a Software Tester, I spend a lot of time running manual tests on websites. I 
 2. [Configure](https://github.com/zaproxy/zap-core-help/wiki/HelpStartProxies) your browser to use Zap as a proxy.
 3. [Install](https://github.com/zaproxy/zap-core-help/wiki/HelpUiDialogsOptionsDynsslcert#install-zap-root-ca-certificate) the Zap root CA certificate into your browser's list of trusted root certificates.
 
-### How to test
+### Test execution
 1. Open Zap - this will automatically launch the proxy server and the passive scanner.
 2. Open a browser.
 3. Navigate to the website you want to test.
@@ -52,4 +52,4 @@ There is a lot more you can do with this approach:
 - mobile application testing by proxying a device through your machine and Zap
 - and many more. 
 
-You can also explore the many options within Zap which we will do in future posts. 
+You can also explore the many other tools within Zap which we will do in future posts. 
