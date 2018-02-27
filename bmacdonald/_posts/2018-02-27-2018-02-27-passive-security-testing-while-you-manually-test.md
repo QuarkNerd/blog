@@ -36,7 +36,8 @@ As a Software Tester, I spend a lot of time executing manual tests on websites. 
 
 ### Results
 The _Alerts_ tab will display all of the issues that the passive scanner detected while you were running your manual tests. 
-![alerts]({{site.baseurl}}/bmacdonald/assets/Alert.jpg)
+![alerts]({{site.baseurl}}/bmacdonald/assets/Alert.png)
+
 The alerts will be displayed in a tree structure grouped by Alert Type, and will show the number found along with the URL they occurred on. 
 These will vary depending on your application but can include:
  - X-Frame-Options Header Scanner
