@@ -7,6 +7,7 @@ active-authors:
     - asheehan
     - bdimitrov-SL
     - bjedrzejewski
+    - bmacdonald
     - ceberhardt
     - cmeehan
     - cprice
@@ -30,9 +31,9 @@ active-authors:
     - jrice
     - jwhite
     - lcollingwood
-    - mamos
     - lpisani
     - lramchandani
+    - mamos
     - mdunsdon
     - mjose
     - mmathew
@@ -547,7 +548,7 @@ authors:
         name: 'Matthew Amos'
         email: mamos@scottlogic.com
         gravatar: 1e51a60a7a672a4d5956529d2ff0446a
-        author-summary: "I'm a Lead Developer at Scott Logic, based in London, with over 10 years experience in Java"
+        author-summary: 'I''m a Lead Developer at Scott Logic, based in London, with over 10 years experience in Java'
     lpisani:
         name: 'Laurence Pisani'
         email: lpisani@scottlogic.com
@@ -568,4 +569,8 @@ authors:
         email: lramchandani@scottlogic.com
         gravatar: 59b0ecbbecd68965a58d5c5105e30fca
         author-summary: 'Test Engineer, working at Scott Logic. I am based in the London Office. '
-
+    bmacdonald:
+        name: 'Brendan MacDonald'
+        email: bmacdonald@scottlogic.com
+        gravatar: ""
+        author-summary: '<p>Software Test Engineer working at Scott Logic</p>'
