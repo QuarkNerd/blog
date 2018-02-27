@@ -232,9 +232,6 @@ prose:
         -
             login: blackmamo
             user: mamos
-
-            login: lpisani-SL
-            user: lpisani
         -
             login: hubinf
             user: hubinf@scottlogic.com
@@ -244,4 +241,6 @@ prose:
         -
             login: laveenaramchandani01
             user: lramchandani
-
+        -
+            login: brendanmacdonald
+            user: bmacdonald
