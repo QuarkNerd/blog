@@ -7,6 +7,7 @@ active-authors:
     - asheehan
     - bdimitrov-SL
     - bjedrzejewski
+    - cburbidge
     - ceberhardt
     - cmeehan
     - cprice
@@ -568,4 +569,10 @@ authors:
         email: lramchandani@scottlogic.com
         gravatar: 59b0ecbbecd68965a58d5c5105e30fca
         author-summary: 'Test Engineer, working at Scott Logic. I am based in the London Office. '
+    cburbidge:
+        name: 'Chester Burbidge'
+        email: cburbidge@scottlogic.com
+        gravatar: 82bcea382ccc612686216d2c931fbc01
+        author-summary: 'Software Engineer at Scott Logic. Experienced in dotnet but interested in all areas of software development, especially ''devops'' and functional programming.'
+        twitter-url: 'https://twitter.com/burbdude'
 

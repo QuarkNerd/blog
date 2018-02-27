@@ -6,3 +6,4 @@ _site
 .jekyll-metadata
 *.css.map
 .DS_Store
+Gemfile.lock
