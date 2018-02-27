@@ -37,7 +37,13 @@ As a Software Tester, I spend a lot of time running manual tests on websites. I 
 ### Results
 The _Alerts_ tab will display all of the issues that the passive scanner detected while you were running your manual tests. 
 ![alerts]({{site.baseurl}}/bmacdonald/assets/Alert.jpg)
-The alerts will be displayed in a tree structure grouped by Alert Type, and will show the number found along with the URL they occurred on. You can click on these to get advice from Zap on how to address them, and then discuss your findings within your team.
+The alerts will be displayed in a tree structure grouped by Alert Type, and will show the number found along with the URL they occurred on. 
+These will vary depending on your application but can include:
+ - X-Frame-Options Header Scanner
+ - Session ID in URL Rewrite
+ - Cookie Without Secure Flag
+ - Private IP Disclosure
+You can click on these to get advice from Zap on how to address them, and then discuss your findings within your team. 
 
 ### Extend
 There is a lot more you can do with this approach: 
