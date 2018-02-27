@@ -19,7 +19,7 @@ As a Software Tester, I spend a lot of time executing manual tests on websites. 
 
 **Owasp Zap** is an open source Security Testing tool. This tool is used by experienced Penetration Testers and is packed with a range of useful tools. For this blog post, we’re going to use the simple, yet extremely useful, [Passive Scanner](https://github.com/zaproxy/zap-core-help/wiki/HelpStartConceptsPscan). We will configure Zap to act as a proxy between a browser and a server which will allow Zap to  scan all of the HTTP request and response messages.
 
-**Owasp Juice Shop** is your own private, intentionally insecure web application which makes it great for practicing Security Testing on without getting into trouble. This is an optional requirement - if you already have a local website running on your machine that you want to test on, then use that instead.
+**Owasp Juice Shop** is your own private, intentionally insecure web application which makes it great to practice Security Testing on without getting into trouble. This is an optional requirement - if you already have a local website running on your machine that you want to test on, then use that instead.
 
 ### Preparation
 1. [Install](https://github.com/zaproxy/zaproxy/wiki/Downloads) Zap (requires Java).
@@ -31,7 +31,7 @@ As a Software Tester, I spend a lot of time executing manual tests on websites. 
 2. Open a browser.
 3. Navigate to the website you want to test.
 4. Start the manual execution of your tests.
-5. Some time laster, stop the manual execution of your tests.
+5. Some time later, stop the manual execution of your tests.
 6. Go to Zap and look in the _Alerts_ tab.
 
 ### Results
