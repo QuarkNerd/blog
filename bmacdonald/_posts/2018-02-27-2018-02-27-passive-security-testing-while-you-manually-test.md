@@ -43,6 +43,7 @@ These will vary depending on your application but can include:
  - Session ID in URL Rewrite
  - Cookie Without Secure Flag
  - Private IP Disclosure
+ 
 You can click on these to get advice from Zap on how to address them, and then discuss your findings within your team. 
 
 ### Extend
