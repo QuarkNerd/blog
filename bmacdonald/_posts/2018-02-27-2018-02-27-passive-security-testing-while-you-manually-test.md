@@ -17,21 +17,21 @@ As a Software Tester, I spend a lot of time running manual tests on websites. I 
 - Owasp Zap - [https://github.com/zaproxy/zaproxy/wiki/Downloads](https://github.com/zaproxy/zaproxy/wiki/Downloads)
 - Owasp Juice Shop - [https://github.com/bkimminich/juice-shop](https://github.com/bkimminich/juice-shop)
 
-**Owasp Zap** is an open source Security Testing tool. This tool is used by experienced Penetration Testers and is packed with a range of useful tools. For this blog post, we’re going to use the simple, yet extremely useful, [Passive Scanner](https://github.com/zaproxy/zap-core-help/wiki/HelpStartConceptsPscan). We will configure Zap to act as a proxy between your browser and the server which will allow Zap to  scan all HTTP request and response messages.
+**Owasp Zap** is an open source Security Testing tool. This tool is used by experienced Penetration Testers and is packed with a range of useful tools. For this blog post, we’re going to use the simple, yet extremely useful, [Passive Scanner](https://github.com/zaproxy/zap-core-help/wiki/HelpStartConceptsPscan). We will configure Zap to act as a proxy between a browser and a server which will allow Zap to  scan all of the HTTP request and response messages.
 
 **Owasp Juice Shop** is your own private, intentionally insecure web application which makes it great for practicing Security Testing on without getting into trouble. This is an optional requirement - if you already have a local website running on your machine that you want to test on, then use that instead.
 
 ### Preparation
-1. Install Zap (requires Java).
-2. Configure your browser to use Zap as a proxy.
-3. Install the Zap root CA certificate into your browser's list of trusted root certificates.
+1. [Install](https://github.com/zaproxy/zaproxy/wiki/Downloads) Zap (requires Java).
+2. [Configure](https://github.com/zaproxy/zap-core-help/wiki/HelpStartProxies) your browser to use Zap as a proxy.
+3. [Install](https://github.com/zaproxy/zap-core-help/wiki/HelpUiDialogsOptionsDynsslcert#install-zap-root-ca-certificate) the Zap root CA certificate into your browser's list of trusted root certificates.
 
-### Workflow
-1. Open Zap - this will launch the proxy server and passive scanner.
-2. Open your browser.
+### How to test
+1. Open Zap - this will automatically launch the proxy server and the passive scanner.
+2. Open a browser.
 3. Navigate to the website you want to test.
 4. Start the manual execution of your tests.
-5. Stop the manual execution of your tests.
+5. Some time laster, stop the manual execution of your tests.
 6. Go to Zap and look in the _Alerts_ tab.
 
 ### Results
