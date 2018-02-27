@@ -11,7 +11,7 @@ image: ''
 ---
 ## Automatic website Security Testing while you manually test
 
-As a Software Tester, I spend a lot of time running manual tests on websites. I recently discovered a really simple way to include Security Testing into your Manual Testing workflow  - the bonus is that it requires very little setup, no prior knowledge of security testing, and happens passively in the background while you are performing your manual tests.
+As a Software Tester, I spend a lot of time executing manual tests on websites. I recently discovered a really simple way to incorporate Security Testing into your Manual Testing workflow  - the bonus is that it requires very little setup, no prior knowledge of security testing, and happens automatically in the background while you are performing your manual tests.
 
 ### Tools required
 - Owasp Zap - [https://github.com/zaproxy/zaproxy/wiki/Downloads](https://github.com/zaproxy/zaproxy/wiki/Downloads)
