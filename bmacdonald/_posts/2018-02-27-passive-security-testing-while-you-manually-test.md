@@ -2,7 +2,7 @@
 published: true
 author: bmacdonald
 layout: default_post
-title: Automatic security testing during exploratory testing
+title: Automatic security testing while exploratory testing
 tags: security testing zap
 categories:
   - testing
