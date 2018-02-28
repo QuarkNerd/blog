@@ -2,23 +2,23 @@
 published: true
 author: bmacdonald
 layout: default_post
-title: Automatic security testing while you manually test
+title: Automatic security testing during exploratory testing
 tags: security testing zap
 categories:
   - testing
   - security
   - test
   - Test
-summary: How to automatically security test a website as part of your manual testing workflow
+summary: How to automatically security test a website as part of your exploratory testing workflow
 image: ''
 ---
-As a Software Tester, I spend a lot of time executing manual tests on websites. 
-Recently I came across a simple method to incorporate Security Testing into a Manual Testing workflow. 
+As a Software Tester, I spend a lot of time executing exploratory tests on websites. 
+Recently I came across a simple method to incorporate Security Testing into a manual testing workflow. 
 The bonuses of this method are:
 
 - the security tool setup is quick
 - no prior knowledge of security testing is required
-- the security testing happens automatically in the background while you are performing your manual tests
+- the security testing happens automatically in the background while you are performing your exploratory tests
 
 
 ### Tools required
