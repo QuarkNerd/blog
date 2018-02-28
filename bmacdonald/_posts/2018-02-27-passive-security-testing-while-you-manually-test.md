@@ -2,7 +2,7 @@
 published: true
 author: bmacdonald
 layout: default_post
-title: 2018-02-27-passive-security-testing-while-you-manually-test
+title: Automatic security testing while you manually test
 tags: security testing zap
 categories:
   - testing
