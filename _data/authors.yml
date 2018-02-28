@@ -8,6 +8,7 @@ active-authors:
     - bdimitrov-SL
     - bjedrzejewski
     - bmacdonald
+    - cburbidge
     - ceberhardt
     - cmeehan
     - cprice
@@ -574,3 +575,11 @@ authors:
         email: bmacdonald@scottlogic.com
         gravatar: 59283a0eeb576c7405f9b99b3ac2f513
         author-summary: 'Senior Test Engineer working at Scott Logic based in the Edinburgh office.'
+    cburbidge:
+        name: 'Chester Burbidge'
+        email: cburbidge@scottlogic.com
+        gravatar: 82bcea382ccc612686216d2c931fbc01
+        author-summary: 'Software Engineer at Scott Logic. Experienced in dotnet but interested in all areas of software development, especially ''devops'' and functional programming.'
+        twitter-url: 'https://twitter.com/burbdude'
+
+
