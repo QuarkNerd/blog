@@ -14,9 +14,10 @@ image: ''
 As a Software Tester, I spend a lot of time executing manual tests on websites. 
 Recently I came across a simple method to incorporate Security Testing into a Manual Testing workflow. 
 The bonuses of this method are:
-  - the security tool setup is quick
-  - no prior knowledge of security testing is required
-  - the security testing happens automatically in the background while you are performing your manual tests
+
+- the security tool setup is quick
+- no prior knowledge of security testing is required
+- the security testing happens automatically in the background while you are performing your manual tests
 
 ### Tools required
 - Owasp Zap - [https://github.com/zaproxy/zaproxy/wiki/Downloads](https://github.com/zaproxy/zaproxy/wiki/Downloads)
@@ -42,19 +43,21 @@ The bonuses of this method are:
 ### Results
 The _Alerts_ tab will display all of the issues that the passive scanner detected while the manual tests were being executed. 
 
-![alerts](../assets/Alerts.png)
+![alerts]({{site.baseurl}}/bmacdonald/assets/Alerts.png)
 
 The alerts will be displayed in a tree structure grouped by Alert Type, and will show the number found along with the URL they occurred on. 
 The types of alerts found will vary depending on the website but can include:
- - _X-Frame-Options Header Scanner_
- - _Session ID in URL Rewrite_
- - _Cookie Without Secure Flag_
- - _Private IP Disclosure_
+
+- _X-Frame-Options Header Scanner_
+- _Session ID in URL Rewrite_
+- _Cookie Without Secure Flag_
+- _Private IP Disclosure_
  
 You can click on these to get advice from Zap on how to address them, and then discuss your findings within your team. 
 
 ### Extend
 There is a lot more you can do with the Passive Scanner: 
+
 - execute your automated UI tests through the passive scanner
 - mobile website testing by proxying a device through your machine and Zap
 - and many more 
