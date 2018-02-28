@@ -8,6 +8,7 @@ categories:
   - testing
   - security
   - test
+  - Test
 summary: Automatic security testing of websites while you manually test them
 image: ''
 ---
