@@ -16,7 +16,7 @@ Recently I came across a simple method to incorporate Security Testing into a Ma
 The bonuses of this method are:
   - the security tool setup is quick
   - no prior knowledge of security testing is required
-  - the security testing happens automatically in the background while you are performing your manual tests.
+  - the security testing happens automatically in the background while you are performing your manual tests
 
 ### Tools required
 - Owasp Zap - [https://github.com/zaproxy/zaproxy/wiki/Downloads](https://github.com/zaproxy/zaproxy/wiki/Downloads)
