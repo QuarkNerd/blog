@@ -25,7 +25,7 @@ The bonuses of this method are:
 - Owasp Zap - [https://github.com/zaproxy/zaproxy/wiki/Downloads](https://github.com/zaproxy/zaproxy/wiki/Downloads)
 - Owasp Juice Shop - [https://github.com/bkimminich/juice-shop](https://github.com/bkimminich/juice-shop)
 
-**Owasp Zap** is an open source Security Testing tool. This tool is used by experienced Security Testers and is packed with a range of useful tools. For this blog post, we’re going to use the simple, yet extremely useful, [Passive Scanner](https://github.com/zaproxy/zap-core-help/wiki/HelpStartConceptsPscan). We will configure Zap to act as a proxy between a browser and server, permitting it to automatically scan the HTTP request and response messages generated during the manual testing.
+**Owasp Zap** is an open source Security Testing tool. This tool is used by experienced Security Testers and is packed with a range of useful tools. For this blog post, we’re going to use the simple, yet extremely useful, [Passive Scanner](https://github.com/zaproxy/zap-core-help/wiki/HelpStartConceptsPscan). We will configure Zap to act as a proxy between a browser and server, permitting it to automatically scan the HTTP request and response messages generated during the testing.
 
 **Owasp Juice Shop** is your own private, intentionally insecure web application which makes it great to practice Security Testing on without getting into trouble. This is an optional requirement - if you already have a local website running on your machine that you want to test on, then use that instead.
 
@@ -38,12 +38,12 @@ The bonuses of this method are:
 1. Open Zap - this will automatically launch the proxy server and the passive scanner.
 2. Open a browser.
 3. Navigate to the website you want to test.
-4. Start the manual execution of your tests.
-5. Some time later, stop the manual execution of your tests.
+4. Start the execution of your tests.
+5. Some time later, stop the execution of your tests.
 6. Go to Zap and look in the _Alerts_ tab.
 
 ### Results
-The _Alerts_ tab will display all of the issues that the passive scanner detected while the manual tests were being executed. 
+The _Alerts_ tab will display all of the issues that the passive scanner detected while the tests were being executed. 
 
 ![alerts]({{site.baseurl}}/bmacdonald/assets/Alerts.png)
 
