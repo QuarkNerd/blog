@@ -6,7 +6,8 @@ title: 2018-02-27-passive-security-testing-while-you-manually-test
 tags: security testing zap
 categories:
   - testing
-summary: Passive Security Testing of websites while you manually test them
+  - security
+summary: Automatic security testing of websites while you manually test them
 image: ''
 ---
 ## Automatic website Security Testing while you manually test
@@ -50,8 +51,8 @@ You can click on these to get advice from Zap on how to address them, and then d
 
 ### Extend
 There is a lot more you can do with this approach: 
-- run your automated UI tests with the passive scanner on
-- mobile application testing by proxying a device through your machine and Zap
+- run your automated UI tests through the passive scanner
+- mobile website testing by proxying a device through your machine and Zap
 - and many more. 
 
 You can also explore the many other tools within Zap which we will do in future posts. 
