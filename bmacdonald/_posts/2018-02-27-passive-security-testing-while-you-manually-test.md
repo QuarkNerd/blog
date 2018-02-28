@@ -12,7 +12,6 @@ categories:
 summary: How to automatically security test a website as part of your manual testing workflow
 image: ''
 ---
-## Automatic website Security Testing while you manually test
 As a Software Tester, I spend a lot of time executing manual tests on websites. 
 Recently I came across a simple method to incorporate Security Testing into a Manual Testing workflow. 
 The bonuses of this method are:
