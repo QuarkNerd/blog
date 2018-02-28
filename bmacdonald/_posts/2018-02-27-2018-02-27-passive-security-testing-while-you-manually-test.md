@@ -11,14 +11,18 @@ summary: Automatic security testing of websites while you manually test them
 image: ''
 ---
 ## Automatic website Security Testing while you manually test
-
-As a Software Tester, I spend a lot of time executing manual tests on websites. Recently I came across a simple method to incorporate Security Testing into a Manual Testing workflow. The bonuses of this method are that it requires very little setup, no prior knowledge of security testing, and happens automatically in the background while you are performing your manual tests.
+As a Software Tester, I spend a lot of time executing manual tests on websites. 
+Recently I came across a simple method to incorporate Security Testing into a Manual Testing workflow. 
+The bonuses of this method are:
+  - the security tool setup is quick
+  - no prior knowledge of security testing is required
+  - the security testing happens automatically in the background while you are performing your manual tests.
 
 ### Tools required
 - Owasp Zap - [https://github.com/zaproxy/zaproxy/wiki/Downloads](https://github.com/zaproxy/zaproxy/wiki/Downloads)
 - Owasp Juice Shop - [https://github.com/bkimminich/juice-shop](https://github.com/bkimminich/juice-shop)
 
-**Owasp Zap** is an open source Security Testing tool. This tool is used by experienced Penetration Testers and is packed with a range of useful tools. For this blog post, we’re going to use the simple, yet extremely useful, [Passive Scanner](https://github.com/zaproxy/zap-core-help/wiki/HelpStartConceptsPscan). We will configure Zap to act as a proxy between a browser and server permitting it to scan HTTP request and response messages.
+**Owasp Zap** is an open source Security Testing tool. This tool is used by experienced Security Testers and is packed with a range of useful tools. For this blog post, we’re going to use the simple, yet extremely useful, [Passive Scanner](https://github.com/zaproxy/zap-core-help/wiki/HelpStartConceptsPscan). We will configure Zap to act as a proxy between a browser and server, permitting it to automatically scan the HTTP request and response messages generated during the manual testing.
 
 **Owasp Juice Shop** is your own private, intentionally insecure web application which makes it great to practice Security Testing on without getting into trouble. This is an optional requirement - if you already have a local website running on your machine that you want to test on, then use that instead.
 
