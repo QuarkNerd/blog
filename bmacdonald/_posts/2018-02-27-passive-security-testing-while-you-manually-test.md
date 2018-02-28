@@ -13,7 +13,7 @@ summary: How to automatically security test a website as part of your explorator
 image: ''
 ---
 As a Software Tester, I spend a lot of time executing exploratory tests on websites. 
-Recently I came across a simple method to incorporate Security Testing into a manual testing workflow. 
+Recently I came across a simple method to incorporate Security Testing into an exploratory testing workflow. 
 The bonuses of this method are:
 
 - the security tool setup is quick
