@@ -9,7 +9,7 @@ categories:
   - security
   - test
   - Test
-summary: Automatic security testing of websites while you manually test them
+summary: How to automatically security test a website as part of your manual testing workflow
 image: ''
 ---
 ## Automatic website Security Testing while you manually test
