@@ -8,6 +8,9 @@ summary: >-
   dividends. It shouldn’t just be a priority to test early to decrease the cost
   of fixing issues, it should also be a priority to test in the right way from
   the start, to ensure we are meeting the needs of our users.
+categories:
+  - testing
+  - test
 ---
 Knowing how much time to spend on testing software can be difficult. The pressures of time and cost often skew our perception of what it means to properly quality assure our products, and moving towards rapid software development can exacerbate that situation. 
 
