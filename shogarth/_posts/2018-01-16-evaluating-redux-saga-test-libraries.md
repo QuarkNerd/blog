@@ -4,6 +4,8 @@ title: Evaluating Redux Saga Test Libraries
 layout: default_post
 tags:
   - HTML5
+categories:
+  - Tech
 summary: If you're a fan of Redux Saga then you will have noticed the abundance of libraries to assist testing your sagas. This post takes an in-depth look into the different approaches to testing sagas, describing where five popular testing libraries fit into these approaches.
 ---
 

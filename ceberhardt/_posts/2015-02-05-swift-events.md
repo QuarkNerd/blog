@@ -2,13 +2,14 @@
 author: ceberhardt
 title: Implementing Events in Swift
 layout: default_post
-summary: Swift does not have a built in eventing mechanism. This post explores a few different ways events can be implemented in Swift and how to avoid problems of retain cycles and closure reference equality.
-oldlink: "http://www.scottlogic.com/blog/2015/02/05/swift-events.html"
+summary: >-
+  Swift does not have a built in eventing mechanism. This post explores a few
+  different ways events can be implemented in Swift and how to avoid problems of
+  retain cycles and closure reference equality.
+oldlink: 'http://www.scottlogic.com/blog/2015/02/05/swift-events.html'
 disqus-id: /2015/02/05/swift-events.html
 categories:
-  - Swift
-  - iOS
-  - Mobile
+  - Tech
 ---
 
 I initially started writing a blog post that discussed various alternatives to Key-Value-Observing (KVO) in Swift, however, I found myself writing more about the task of implementing events in Swift. So, I've decided to split the problem in two, in this post I'll cover events, and I'll follow-up with the KVO post later on.

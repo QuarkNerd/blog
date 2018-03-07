@@ -3,11 +3,13 @@ author: rrhodes
 title: Bugathon at Heriot-Watt University
 layout: default_post
 summary: Following the success of Scott Logic's first Bugathon in Newcastle last March, members of the Edinburgh and Newcastle teams grouped together to organise another Bugathon at Heriot-Watt University's Edinburgh campus. Held on Wednesday, October 18th, this post gives an insight into the work carried out by Scott Logic to prepare and run the event.
+categories:
+  - Careers
 ---
 
 "What's a Bugathon?", I hear you ask. Perhaps Hackathons spring to mind? The two ideas share a common purpose - racing against the clock to complete a given challenge. However, unlike a Hackathon, you’re not aiming to build new software. Instead you're aiming to rigorously test existing software to find (and report) as many bugs as possible with the hope of winning a prize. Following the success of Scott Logic's first Bugathon in Newcastle earlier this year, members of the Edinburgh and Newcastle teams grouped together to plan a second Bugathon for Wednesday, October 18th, at Heriot-Watt University.
 
-<img src='{{ site.github.url }}/rrhodes/assets/bugathon.png' alt='Bugathon'/>
+<img src='{{ site.baseurl }}/rrhodes/assets/bugathon.png' alt='Bugathon'/>
 
 Bugathon participants group together to form teams of up to four. Their aim is to find as many bugs as possible within a given time, and provide good quality bug reports for developers to be able to reproduce and rectify the bugs which have been found. Each team is given a score based on two things: First, the difficulty rating of each bug found, and second, the quality of each bug report submitted to developers. Whichever team scores highest wins!
 
@@ -28,7 +30,7 @@ The key goal with the chat app in our project was to introduce new features and 
 ### The Bugtracker
 The Bugtracker tool comes in two forms: Participant mode, targeted at the student teams, and admin mode, targeted at the Scott Logic team. Given a team name and password, student teams generate bug reports as Bugtracker participants following a standard template provided. With bug reports submitted, participants could observe their ranking against other teams on a leaderboard, and browse found bugs to avoid reporting a bug already discovered earlier in the Bugathon.
 
-<img src='{{ site.github.url }}/rrhodes/assets/bugtracker.JPG' alt='Bugtracker'/>
+<img src='{{ site.baseurl }}/rrhodes/assets/bugtracker.JPG' alt='Bugtracker'/>
 
 The Bugtracker adopts an entirely different range of tools from the chat app. For starters, there's no pre-build API for this bespoke app. C# and the .NET framework were used to develop the Bugtracker backend, with a PostgreSQL database running behind the scenes to hold data on teams, bugs to be found, submitted bug reports, and more. The frontend uses Typescript along with Angular as opposed to React.
 

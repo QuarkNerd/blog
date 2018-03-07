@@ -75,7 +75,7 @@ In each case, you should start the app and register a user named 'Robin', log in
 
 In the Jade\_Express\_mySQL sample go to the second ssh shell and start a mysql command line session (`mysql --user=root --password=sec_training`, then `use sec_training;`) and run the SELECT command you see in the first ssh shell. You'll see (hopefully) 1 row - the registered user, with the given email and password. If you use the wrong password you'll get no rows back.
 
-<img src="{{ site.github.url }}/rsillem/assets/security-injection/MySQL1.PNG" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/rsillem/assets/security-injection/MySQL1.PNG" style="display: block; margin: auto;"/>
 
 However, if you add
 
@@ -105,11 +105,11 @@ But wait, it gets worse. Even with this very simple injection we can replace 'Ro
 (select password from users where name = 'Robin') p
 ```
 
-<img src="{{ site.github.url }}/rsillem/assets/security-injection/Injection1.PNG" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/rsillem/assets/security-injection/Injection1.PNG" style="display: block; margin: auto;"/>
 
 and the app will helpfully display a password in the place you normally see a user name.
 
-<img src="{{ site.github.url }}/rsillem/assets/security-injection/Injection2.PNG" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/rsillem/assets/security-injection/Injection2.PNG" style="display: block; margin: auto;"/>
 
 You could also try piggybacking an additional SQL command onto the query, like:
 
@@ -193,7 +193,7 @@ So now you know enough to interpret what the first tool I will introduce is tell
 
 [sql-inject-me](https://addons.mozilla.org/en-GB/firefox/addon/sql-inject-me/) is a firefox add-on that performs simple fuzz testing on a page. Fuzz testing basically means hitting the page with a bunch of canned likely attack strings to see what it does. This tool is not all that sophisticated, but as soon as you see '500 Internal Server Error' or worse 'You have an error in your SQL syntax' you know you're vulnerable. Install it and point it at our favourite victim, that poor login page.
 
-<img src="{{ site.github.url }}/rsillem/assets/security-injection/sqlinjectme.PNG" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/rsillem/assets/security-injection/sqlinjectme.PNG" style="display: block; margin: auto;"/>
 
 Next up is [ZAP](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project). This is one of OWASP's flagship projects and actually does a lot more than just injection tests - it's an easy to use scanner for all manner of vulnerabilities, and is something you should familiarise yourself with. Rather than me explaining it all myself, look at the [ZAP Getting Started Guide](http://shadowsgovernment.com/shadows-library/User%20Guide/OWASP%20Zed%20Attack%20Proxy%20(18894)/OWASP%20Zed%20Attack%20Proxy%20-%20User%20Guide.pdf). Download ZAP and start digging into the sample apps.
 
@@ -227,7 +227,7 @@ Try the error based attack from the last section again:
 ' AND foo = '' --
 ```
 
-<img src="{{ site.github.url }}/rsillem/assets/security-injection/Error1.PNG" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/rsillem/assets/security-injection/Error1.PNG" style="display: block; margin: auto;"/>
 
 You will see a 500 response with a visible stack trace. This is giving away a ton of information to an attacker, not just about the DB schema, but the identity of all the components in the execution stack, and possibly version numbers as well, as he could partially infer them from the line numbers and source code listings obtained separately.
 

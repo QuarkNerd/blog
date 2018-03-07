@@ -8,8 +8,7 @@ summary: >-
   using a Redis Database.
 tags: 'Storm, Redis, Java'
 categories:
-  - data-engineering
-  - java
+  - Tech
 image: dogle/assets/storm-taster/storm-flow.png
 ---
 In this post I am going to have a look at [Apache Storm](http://storm.apache.org/) and put together a small example using Java with [Apache Maven](https://maven.apache.org/) based on ["Getting Started With Storm"](http://ifeve.com/wp-content/uploads/2014/03/Getting-Started-With-Storm-Jonathan-Leibiusky-Gabriel-E_1276.pdf).

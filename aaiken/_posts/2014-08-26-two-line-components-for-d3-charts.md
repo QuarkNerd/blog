@@ -1,15 +1,17 @@
 ---
 author: aaiken
 title: Two Reusable Line Components for D3 Charts
-summary: "In this article I'm going to create two simple, reusable D3 components for adding line annotations to charts."
+summary: >-
+  In this article I'm going to create two simple, reusable D3 components for
+  adding line annotations to charts.
 image: aaiken/assets/featured/annotation.png
 tags:
   - d3
 categories:
-  - D3
-  - Charting
+  - Tech
 layout: default_post
-oldlink: "http://www.scottlogic.com/blog/2014/08/26/two-line-components-for-d3-charts.html"
+oldlink: >-
+  http://www.scottlogic.com/blog/2014/08/26/two-line-components-for-d3-charts.html
 disqus-id: /2014/08/26/two-line-components-for-d3-charts.html
 ---
 
@@ -29,7 +31,7 @@ var line = sl.series.annotation()
 
 ... to create a chart that looks like this:
 
-<img src="{{ site.github.url }}/aaiken/assets/annotation.png"/>
+<img src="{{ site.baseurl }}/aaiken/assets/annotation.png"/>
 
 The second component will be a line which follows any field on the data model, and includes an optional [moving average](https://en.wikipedia.org/wiki/Moving_average) calculation; adding it to the chart will take only 6 lines of code...
 
@@ -44,9 +46,9 @@ var line = sl.series.tracker()
 
 ... to create a chart that looks like this:
 
-<img src="{{ site.github.url }}/aaiken/assets/average.png"/>
+<img src="{{ site.baseurl }}/aaiken/assets/average.png"/>
 
-I'm not proposing to cover what D3 is in this post; Tom's done that admirably in his article on [OHLC and candlestick components]({{ site.github.url }}/2014/08/19/an-ohlc-chart-component-for-d3.html), and in fact I'm going to be lazy and build on the chart he developed there.
+I'm not proposing to cover what D3 is in this post; Tom's done that admirably in his article on [OHLC and candlestick components]({{ site.baseurl }}/2014/08/19/an-ohlc-chart-component-for-d3.html), and in fact I'm going to be lazy and build on the chart he developed there.
 
 ## Line Annotation Component
 
@@ -170,7 +172,7 @@ Obviously, one final step is to style the line - I've chosen to display it as a 
 
 This is all we need to display the chart.
 
-<img src="{{ site.github.url }}/aaiken/assets/annotation.png"/>
+<img src="{{ site.baseurl }}/aaiken/assets/annotation.png"/>
 
 ### Enhancements
 
@@ -342,7 +344,7 @@ Finally we style the line (I'm cheating slightly by using the same style as befo
 
 And here's the result:
 
-<img src="{{ site.github.url }}/aaiken/assets/average.png"/>
+<img src="{{ site.baseurl }}/aaiken/assets/average.png"/>
 
 Notice that the blue dashed line seems to lag behind the data; this is because of the moving average calculation.
 

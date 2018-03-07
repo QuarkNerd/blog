@@ -2,16 +2,17 @@
 author: rwilliams
 title: Mapping currency strength changes with D3
 layout: default_post
-summary: "In this post, I create an interactive map of relative changes in currency strength, using D3's geographic projections, world map data, and a currency exchange API."
+summary: >-
+  In this post, I create an interactive map of relative changes in currency
+  strength, using D3's geographic projections, world map data, and a currency
+  exchange API.
 categories:
-  - Web
-  - JavaScript
-  - D3
+  - Tech
 ---
 
 In this post, I'll describe how I used D3 and free currency exchange data to create an interactive map of relative changes in currency strength. The end result is an interactive world map where you can select your base country and reference (past) date, to view which countries' currencies have strengthened or weakened since that date.
 
-<img src='{{ site.github.url }}/rwilliams/assets/2018-currencies-then-and-now-d3-map/end-product.png' title="World map of currency strength changes - end product" />
+<img src='{{ site.baseurl }}/rwilliams/assets/2018-currencies-then-and-now-d3-map/end-product.png' title="World map of currency strength changes - end product" />
 
 If you want to try it out, it's [available on the D3 Blocks website](https://bl.ocks.org/robatwilliams/1e2866c783618207545c8e9bea652d66).
 
@@ -58,7 +59,7 @@ svg.append('path')
 
 The generator is used similarly to generate the background of the world (i.e. the sea), using `.datum({ type: 'Sphere' })`, and individual countries and their borders using data joins against our `countries` and `borders` data.
 
-<img src='{{ site.github.url }}/rwilliams/assets/2018-currencies-then-and-now-d3-map/world-green.png' title="World map of countries" />
+<img src='{{ site.baseurl }}/rwilliams/assets/2018-currencies-then-and-now-d3-map/world-green.png' title="World map of countries" />
 
 ## Sourcing currency data
 I used the free [Fixer](http://fixer.io/) API for currency data, which sources its data from the European Central Bank. Historical data is available back to 1998, but many of the less significant currencies aren't included.
@@ -139,7 +140,7 @@ function countryColor(country) {
 }
 {% endhighlight %}
 
-<img src='{{ site.github.url }}/rwilliams/assets/2018-currencies-then-and-now-d3-map/colouring.png' title="Coloured countries" />
+<img src='{{ site.baseurl }}/rwilliams/assets/2018-currencies-then-and-now-d3-map/colouring.png' title="Coloured countries" />
 
 ## Interactivity - changing the base country and reference date
 Allowing the base country to be changed is quite straightforward - a click handler is added to each rendered country, which re-fetches currency data with that country's currency as the base currency. Changing the reference (past) date is done similarly - a native HTML date picker is used, which triggers a data fetch using the selected reference date.
@@ -149,7 +150,7 @@ Once the new data in either case has been received, it's a case of updating the 
 ## Other libraries
 The legend uses the [D3 SVG Legend](http://d3-legend.susielu.com/) component. So that the zero pivot (white) is included, it needs to be configured using an odd number of cells. It's positioned using the projection function to be out of the way in the Pacific ocean.
 
-<img src='{{ site.github.url }}/rwilliams/assets/2018-currencies-then-and-now-d3-map/legend.png' title="Legend" />
+<img src='{{ site.baseurl }}/rwilliams/assets/2018-currencies-then-and-now-d3-map/legend.png' title="Legend" />
 
 I'm using two [D3FC](https://d3fc.io/) components to simplify a few things. The [custom elements](https://d3fc.io/api/element-api.html) make it easier to re-render when the size of the element changes, and the [data join wrapper](https://d3fc.io/api/data-join-api.html) removes much of boilerplate that tends to occur with enter/append/update. Both are available as standalone microlibraries. You can read more about the motivation behind them in [these](http://blog.scottlogic.com/2017/01/10/efficient-svg-layout-with-d3.html) [two](http://blog.scottlogic.com/2016/08/17/building-components-with-d3-data-join.html) posts.
 

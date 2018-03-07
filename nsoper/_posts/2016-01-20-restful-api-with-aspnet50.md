@@ -2,14 +2,15 @@
 author: nsoper
 title: Building a RESTful API with ASP.NET 5
 layout: default_post
-summary: "This blog describes my first experience of writing a RESTful API with Microsoft's new MVC 6 framework which is due to be released as part of ASP.NET 5 in early 2016."
+summary: >-
+  This blog describes my first experience of writing a RESTful API with
+  Microsoft's new MVC 6 framework which is due to be released as part of ASP.NET
+  5 in early 2016.
 categories:
-  - .NET
-  - Web
-  - C#
+  - Tech
 ---
 
-*Very soon after we first published this post, Microsoft announced they had changed the name from **ASP.NET 5** to **ASP.NET Core 1.0**. Rather than re-writing this post, I've summarised the reasons for the change [in a new post]({{site.github.url}}/2016/01/21/aspnet5-to-aspnetcore.html).*
+*Very soon after we first published this post, Microsoft announced they had changed the name from **ASP.NET 5** to **ASP.NET Core 1.0**. Rather than re-writing this post, I've summarised the reasons for the change [in a new post]({{site.baseurl}}/2016/01/21/aspnet5-to-aspnetcore.html).*
 
 Since we [last wrote about ASP.NET 5](http://blog.scottlogic.com/2015/05/14/aspnet50-intro.html) Microsoft have pushed the [first release candidate (RC1)](https://github.com/aspnet/home/releases/v1.0.0-rc1-final) for the new platform. According to Microsoft's [Schedule and Roadmap](https://github.com/aspnet/Home/wiki/Roadmap) we will be seeing <span id="version5-of-1">version 1.0.0 (of version 5?)</span> in Q1 2016.
 
@@ -25,11 +26,11 @@ The API itself is just going to be simple CRUD (create, read, update, delete) lo
 
 I'm using Visual Studio 2015 Update 1. The process for creating a new ASP.NET 5 project is identical to that for creating an ASP.NET 4.6.1 project. Selecting *ASP.NET Web Application* from the *New Project* dialog results in the following dialog:
 
-<img src="{{ site.github.url }}/nsoper/assets/new-project.png"/>
+<img src="{{ site.baseurl }}/nsoper/assets/new-project.png"/>
 
 No prizes for guessing that I'm going to choose *Web API* from the *ASP.NET 5* templates. For comparison, I'm also going to create another new web application using the *Azure API App* template (I'm not interested in Azure for this article but there is no plain old Web API option under ASP.NET 4.6.1 - don't worry, there is actually nothing Azure specific in the screenshot anyway). The results are shown below:
 
-<img src="{{ site.github.url }}/nsoper/assets/new-solution-compare.png"/>
+<img src="{{ site.baseurl }}/nsoper/assets/new-solution-compare.png"/>
 
 So there are a few obvious differences:
 
@@ -88,7 +89,7 @@ public class Startup
 
 The `Configure` method is required by convention. Let's see what happens if you take it out:
 
-<img src="{{ site.github.url }}/nsoper/assets/missing-configuration.PNG"/>
+<img src="{{ site.baseurl }}/nsoper/assets/missing-configuration.PNG"/>
 
 This error message reveals that the framework will look for a method named either `Configure` or `ConfigureDevelopment`. The framework will actually look for a method named `Configure{EnvironmentName}` on the `Startup` class, where `{EnvironmentName}` is read from the **ASPNET_ENV** or **Hosting:Environment** environment variable which you can set in the environment itself (**GOTCHA:** I had to restart Visual Studio after changing the Windows 7 system environment variable before the value would be picked up) or using **launchSettings.json**:
 
@@ -371,7 +372,7 @@ The `[FromBody]` attribute looks familiar enough to Web API 2 developers, but in
 
 Let's try removing the `[FromBody]` attribute:
 
-<img src="{{ site.github.url }}/nsoper/assets/book-null-props.png"/>
+<img src="{{ site.baseurl }}/nsoper/assets/book-null-props.png"/>
 
 The above screen shot shows that neither the `Author` nor the `Title` property was set, even though the request contained these values as JSON.
 
@@ -392,7 +393,7 @@ Content-Type: application/json
 
 In this case the body is ignored and the title and author are bound from the query string. Note the `Author` and `Title` properties shown in the Locals window below:
 
-<img src="{{ site.github.url }}/nsoper/assets/book-query-props.png"/>
+<img src="{{ site.baseurl }}/nsoper/assets/book-query-props.png"/>
 
 The fun doesn't stop there. If you use content-type 'application/x-www-form-urlencoded' you can also mix and match between query string and body like this:
 
@@ -404,7 +405,7 @@ Content-Type: application/x-www-form-urlencoded
 title=form+title&author=form+author
 </pre>
 
-<img src="{{ site.github.url }}/nsoper/assets/book-mixed-props.png"/>
+<img src="{{ site.baseurl }}/nsoper/assets/book-mixed-props.png"/>
 
 This time the body contains the author and title, and the query string also contains the title. This means the `Title` property is bound from the query string, not the body.
 
@@ -497,7 +498,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 The `AddConsole()` and `AddDebug()` methods that you see here are extension methods that call `ILoggerFactory.AddProvider()`. I've set a breakpoint and added the `loggerFactory` to the watch window:
 
-<img src="{{ site.github.url }}/nsoper/assets/default-logger-providers.PNG"/>
+<img src="{{ site.baseurl }}/nsoper/assets/default-logger-providers.PNG"/>
 
 So we automatically get console logging and debug logging (Visual Studio output window) in our application. This is all very nice but these loggers aren't going to be of much use in production so I'm going to add another provider that will log to a text file (I don't want to be distracted by setting up a database).
 
@@ -518,7 +519,7 @@ I've chosen to override the default serilog `outputTemplate` because I want to i
 
 The `AddSerilog()` method adds a provider using the given serilog configuration:
 
-<img src="{{ site.github.url }}/nsoper/assets/added-serilogger-provider.PNG"/>
+<img src="{{ site.baseurl }}/nsoper/assets/added-serilogger-provider.PNG"/>
 
 We now have three providers configured so we'll get logs to the console, debug output and a local file.
 
@@ -526,7 +527,7 @@ We now have three providers configured so we'll get logs to the console, debug o
 
 You will only be able to see console logs if you launch the application from the console. You can do this by running **`dnx web`** from the project directory (the one containing **project.json**), or you can use Visual Studio to do the same thing:
 
-<img src="{{ site.github.url }}/nsoper/assets/dnx-web.PNG"/>
+<img src="{{ site.baseurl }}/nsoper/assets/dnx-web.PNG"/>
 
 What you are actually doing is running the `web` command from **project.json**:
 
@@ -630,7 +631,7 @@ This is what **appsettings.json** looks like:
 
 The ability to set the minimum log level using a JSON configuration file is a [relatively new addition](https://github.com/aspnet/Logging/pull/276) to the framework so it is currently only supported by the `ConsoleLoggerProvider` and the use of the 'Default', 'System' and 'Microsoft' properties above is not very well documented. Having played around a little, I can confirm that the ASP.NET framework will log as `"Microsoft"`, so with the default value of 'Information' I get the following log messages when POSTing a new book:
 
-<img src="{{ site.github.url }}/nsoper/assets/console-logging.png"/>
+<img src="{{ site.baseurl }}/nsoper/assets/console-logging.png"/>
 
 If I now change the minimum logging level for 'Microsoft' to 'Error' then the ASP.NET log messages are not included and I only see my message:
 
@@ -647,7 +648,7 @@ If I now change the minimum logging level for 'Microsoft' to 'Error' then the AS
 }
 </pre>
 
-<img src="{{ site.github.url }}/nsoper/assets/console-logging-no-aspnet.png"/>
+<img src="{{ site.baseurl }}/nsoper/assets/console-logging-no-aspnet.png"/>
 
 #### A note on serilog
 

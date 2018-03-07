@@ -1,4 +1,4 @@
-<img src="{{ site.github.url }}/dmcnamee/assets/istqb.png" alt="iSTQB" title="istqb" width="100%"/>
+<img src="{{ site.baseurl }}/dmcnamee/assets/istqb.png" alt="iSTQB" title="istqb" width="100%"/>
 
 **Schools of testing**
 There are various schools of thought or approaches to testing; Factory testing; Agile; Context-driven; Rapid Software Testing to name a few and there are various certification programs for testers that are aligned to some of these.
@@ -44,7 +44,7 @@ A tester can have studied design patterns or user experience. A user interaction
 A tester can be a product expert, well versed in multiple business models.
 
 @katrina_tester calls this a T-shaped model.
-<img src="{{ site.github.url }}/dmcnamee/assets/t-shaped-team.png" alt="T-shaped-team" title="t-shaped-team" width="100%"/>
+<img src="{{ site.baseurl }}/dmcnamee/assets/t-shaped-team.png" alt="T-shaped-team" title="t-shaped-team" width="100%"/>
 
 Having a diversity of ways of mapping, based on how we look at something, we will have different ways of controlling it, which leads to better outcomes
 

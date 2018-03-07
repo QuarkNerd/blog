@@ -2,11 +2,10 @@
 author: lpage
 title: Making a RTL plugin in less
 categories:
-  - Web
-  - CSS
+  - Tech
 tags: null
 layout: default_post
-oldlink: "http://www.scottlogic.com/blog/2015/02/19/rtl-plugin.html"
+oldlink: 'http://www.scottlogic.com/blog/2015/02/19/rtl-plugin.html'
 disqus-id: /2015/02/19/rtl-plugin.html
 ---
 I mentioned in the previous post that I would create a plugin for less which converted from LTR to RTL. Here is a tutorial post on creating that plugin.

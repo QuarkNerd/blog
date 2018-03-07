@@ -3,8 +3,7 @@ author: wferguson
 layout: default_post
 title: "Creating a Simple Particle Simulation with Go"
 categories:
-  - Go
-  - Data
+  - Tech
 summary: "In this post, I take a look at writing a simple particle simulation as a way of learning some of the basics of the Go language."
 image: wferguson/assets/featured/particles.png
 tags:

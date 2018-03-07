@@ -2,7 +2,7 @@
 author: cprice
 title: "ELK - 3 things I wish I'd known"
 categories:
-  - NoSQL
+  - Tech
 tags: null
 layout: default_post
 oldlink: "http://www.scottlogic.com/blog/2014/12/19/elk-3-things-i-wish-id-known.html"
@@ -13,7 +13,7 @@ I’ve recently completed an ELK (Elasticsearch, Logstash & Kibana) real-time lo
 
 # ELK
 
-<img src="{{ site.github.url }}/cprice/assets/ELKOverview.png" title="ELK Overview"/>
+<img src="{{ site.baseurl }}/cprice/assets/ELKOverview.png" title="ELK Overview"/>
 
 The ELK stack is made up of 3 components -
 
@@ -23,7 +23,7 @@ The ELK stack is made up of 3 components -
 
 * Kibana - A browser-based interface served up from a web server. It's job is to allow you to build tabular and graphical visualisations of the log data based on elasticsearch queries. Typically these are based on simple text queries, time-ranges or even far more complex aggregations.
 
-<img src="{{ site.github.url }}/cprice/assets/Kibana4beta3.png" title="Kibana 4 beta 3 (taken from the release blog post)"/>
+<img src="{{ site.baseurl }}/cprice/assets/Kibana4beta3.png" title="Kibana 4 beta 3 (taken from the release blog post)"/>
 
 # A brief case study
 
@@ -35,7 +35,7 @@ The ELK implementation greatly simplified the aggregation and searching of data 
 
 Simple examples of this were unique session counts over time, live concurrent session lifecycle overviews and even breakdowns of the session load by service. A particularly valuable example was a real-time conversion rate of FX quotes, showing not only how many quotes were being requested over time but the ratio of those which were eventually traded.
 
-<img src="{{ site.github.url }}/cprice/assets/ELKSessionLifecycle.png" title="An example chart showing the concurrent session lifecyle overview in Kibana"/>
+<img src="{{ site.baseurl }}/cprice/assets/ELKSessionLifecycle.png" title="An example chart showing the concurrent session lifecyle overview in Kibana"/>
 
 Over time the ELK stack will allow for the replacement of bespoke components, for example those collecting usage data for audit purposes. Using Kibana, these statistics are now easily made available in a real-time dashboard. Similarly, valuable business statistics which were previously judged too costly to extract from the logs can now be made available at a greatly reduced cost.
 

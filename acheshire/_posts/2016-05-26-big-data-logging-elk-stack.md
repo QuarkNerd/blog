@@ -4,13 +4,12 @@ title: "Log-driven big data: The ELK stack"
 title-short: "The ELK stack"
 layout: default_post
 categories:
-  - Big data
-  - Logging
+  - Data
 summary: "An insight into the ELK stack and how we used it on a big data project"
 ---
 
 <p style="text-align: center">
-	<img src='{{ site.github.url }}/acheshire/assets/log-lady.png' title="Log lady" />
+	<img src='{{ site.baseurl }}/acheshire/assets/log-lady.png' title="Log lady" />
 </p>
 
 When working with big data it is common that your technology stack will, much like an onion, have many layers between the data source and the end point.
@@ -39,7 +38,7 @@ In the ELK stack Logstash uses Elasticsearch as the store.
 Below is a diagram showing the flow of data.
 
 <p style="text-align: center">
-	<img src='{{ site.github.url }}/acheshire/assets/elk-data-flow.png' title="ELK data flow" />
+	<img src='{{ site.baseurl }}/acheshire/assets/elk-data-flow.png' title="ELK data flow" />
 </p>
 
 ## The ELK stack for big data

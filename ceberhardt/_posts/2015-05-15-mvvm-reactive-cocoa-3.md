@@ -2,11 +2,12 @@
 author: ceberhardt
 title: MVVM With ReactiveCocoa 3.0
 layout: default_post
-summary: "This is my final article on ReactiveCocoa 3.0 (RAC3), where I demonstrate some more complex RAC3 usages within the context of an application built using the Model-View-ViewModel (MVVM) pattern."
+summary: >-
+  This is my final article on ReactiveCocoa 3.0 (RAC3), where I demonstrate some
+  more complex RAC3 usages within the context of an application built using the
+  Model-View-ViewModel (MVVM) pattern.
 categories:
-  - iOS
-  - Swift
-  - Mobile
+  - Tech
 ---
 
 
@@ -22,11 +23,11 @@ ReactiveCocoa is not an MVVM framework in itself, however, it provides functiona
 
 At the core of this pattern is the ViewModel which is a special type of model that represents the UI state of the application. It contains properties that detail the state of each and every UI control, for example the current text for a text field or whether a specific button is enabled. It also exposes the actions that the view is able to perform, for example button taps or gestures.
 
-<img src="{{ site.github.url }}/ceberhardt/assets/rac3/MVVMPattern.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/rac3/MVVMPattern.png" />
 
 Looking at the MVVM pattern specifically from the perspective of iOS development, the View is composed of the ViewController plus its associated UI (whether that is a nib, storyboard or constructed though code):
 
-<img src="{{ site.github.url }}/ceberhardt/assets/rac3/MVVMReactiveCocoa.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/rac3/MVVMReactiveCocoa.png" />
 
 With MVVM your Views should be very simple, doing little more than just reflecting the current UI state.
 
@@ -94,7 +95,7 @@ The above code binds the `queryExecutionTime` view model property to the `rac_te
 
 As promised, this blog post includes a more in-depth RAC3 example. A twitter search example:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/rac3/MVVMRAC3.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/rac3/MVVMRAC3.png" />
 
 (Yes, all my example code seems to involve either Twitter or Flickr APIs! - if you have some more creative ideas that you'd like to share, please do)
 

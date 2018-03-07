@@ -1,10 +1,8 @@
 ---
 layout: default
-title: Latest Articles
+title: Blog
 paginated: true
 summary: This blog is brought to you by Scott Logic's team of technical authors and bloggers, covering topics including HTML5, iOS, C#, process, UX and practically anything else relating to software development.
 ---
 
-{% include hero.html %}
-{% include featured.html %}
-{% include blog_index.html posts=paginator.posts paginate=true postsHeader="Latest Articles" categoryName="Latest Articles" %}
+{% include post_index.html posts=paginator.posts categoryName="Latest Articles" paginated=page.paginated %}

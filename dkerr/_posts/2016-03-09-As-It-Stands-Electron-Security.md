@@ -1,13 +1,11 @@
 ---
 author: dkerr
-title: "As It Stands - Electron Security"
-title-short: "Electron Security"
+title: As It Stands - Electron Security
+title-short: Electron Security
 layout: default_post
 categories:
-  - Web
-  - Electron
-  - Security
-summary: "A brief look at the current state of application security in Electron"
+  - Tech
+summary: A brief look at the current state of application security in Electron
 image: dkerr/assets/featured/electron.jpg
 tags:
   - featured
@@ -20,7 +18,7 @@ Back in early 2014, the [Atom IDE](https://atom.io) was released by GitHub with 
 Ever since Atom's release, Electron has been rapidly gaining popularity and is being used to build an [extensive variety](http://electron.atom.io/#built-on-electron) of desktop applications. Companies such as Facebook, Slack, Docker and Microsoft are using it to build applications from the eponymously named [Slack](https://slack.com/), a messaging client inspired by IRC, to [Kinematic](https://kitematic.com), a GUI used to visualise and manage docker containers.
 
 <p style="text-align: center">
-	<img src='{{ site.github.url }}/dkerr/assets/atom-electron-chromium.png' title="Atom stack" alt="Atom + Electron + Chromium stack" />
+	<img src='{{ site.baseurl }}/dkerr/assets/atom-electron-chromium.png' title="Atom stack" alt="Atom + Electron + Chromium stack" />
 </p>
 
 To allow web applications to run as desktop applications, Electron uses [Chromium](https://www.chromium.org/Home). Chromium is the open source foundation on which the Chrome web browser is based. Effectively, an Electron application is running inside a customised Chromium wrapper. Therefore, the security challenges an Electron application faces are almost identical to if it was running inside Chrome or any other web browser.
@@ -28,7 +26,7 @@ To allow web applications to run as desktop applications, Electron uses [Chromiu
 ## Goodbye Sandbox
 
 <p style="text-align: center">
-	<img src='{{ site.github.url }}/dkerr/assets/chromium-sandbox.png' title="Chromum Sandbox" alt="Chromium sandbox" />
+	<img src='{{ site.baseurl }}/dkerr/assets/chromium-sandbox.png' title="Chromum Sandbox" alt="Chromium sandbox" />
 </p>
 
 The [Chromium sandbox](https://www.chromium.org/developers/design-documents/sandbox) encapsulates processes inside a very restrictive environment. The only resources sandboxed processes can freely use are CPU cycles and memory. What processes can do is controlled by a well-defined policy, this prevents bugs or attacks from performing IO operations (e.g. reading / writing files) on the user's system.
@@ -36,7 +34,7 @@ The [Chromium sandbox](https://www.chromium.org/developers/design-documents/sand
 To provide applications with desktop functionality, the Electron team modified Chromium to introduce a runtime to access native APIs as well as Node.js's built in and third-party modules. To do this the Chromium sandbox protection was disabled, meaning any application running inside Electron is given unfiltered access to the operating system.
 
 <p style="text-align: center">
-	<img src='{{ site.github.url }}/dkerr/assets/electron-sandbox.png' title="Electron Sandbox" alt="Electron sandbox" />
+	<img src='{{ site.baseurl }}/dkerr/assets/electron-sandbox.png' title="Electron Sandbox" alt="Electron sandbox" />
 </p>
 
 This is not a concern for a lot of Electron applications, especially those that don't pull in remote data and need extensive operating system privileges anyway (such as an IDE). However, this is a (potentially) serious and unnecessary security risk for applications that do pull in remote data, any successful XSS attack would give the attacker full control over the victim's machine!
@@ -88,7 +86,7 @@ Once those workarounds have been patched, Electron applications should be a lot 
 One notable contribution that's underway is the return of sandbox protection for any Electron applications that don't need node integration. This work is being undertaken by the developers of [Brave](https://www.brave.com/), a recently-announced web browser which aims to block ads and trackers to protect user's privacy and enhance browsing speed. They've been incredibly open about [their plan](https://twitter.com/BrendanEich/status/696610645693730816) which is to contribute their progress back to the community, once the work on their forked version of Electron is finished.
 
 <p style="text-align: center">
-	<img src='{{ site.github.url }}/dkerr/assets/brave-sandbox.png' title="Brave Sandbox" alt="Brave sandbox" />
+	<img src='{{ site.baseurl }}/dkerr/assets/brave-sandbox.png' title="Brave Sandbox" alt="Brave sandbox" />
 </p>
 
 They're using Electron to wrap the webpage content shown by their browser, this means they're not in control of the content being shown and so are far more vulnerable to attacks. The content they are showing needs no node or desktop integration, so the loss of this functionality caused by re-enabling the sandbox protection isn't an issue to them.

@@ -3,11 +3,12 @@ author: alee
 title: HTML5 Mobile - Optimising for older or slower devices
 tags: null
 categories:
-  - Mobile
-  - HTML5
-summary: "Some lessons I've learned trying to optimise a HTML5 mobile App so that it's fast and responsive even on old or budget phones with limited performance."
+  - Tech
+summary: >-
+  Some lessons I've learned trying to optimise a HTML5 mobile App so that it's
+  fast and responsive even on old or budget phones with limited performance.
 layout: default_post
-oldlink: "http://www.scottlogic.com/blog/2014/12/12/html5-android-optimisation.html"
+oldlink: 'http://www.scottlogic.com/blog/2014/12/12/html5-android-optimisation.html'
 disqus-id: /2014/12/12/html5-android-optimisation.html
 ---
 
@@ -22,7 +23,7 @@ Google's success at making the OS available at lower price points means that man
 
 My proof of concept App consists of a home screen showing a scrollable list of cards. Each card shows some summary information, and clicking on the card initiates a transition to the details screen. Some of the the card content also appears in the header of the details screen, so it uses a "Hero" transition to move it to its new position. This diagram illustrates the transition:
 
-<img src="{{ site.github.url }}/alee/assets/android-optimise/app-layout.png"/>
+<img src="{{ site.baseurl }}/alee/assets/android-optimise/app-layout.png"/>
 
 I built my App using [Ionic Framework](http://ionicframework.com), which is based on [AngularJS](https://angularjs.org/), but these lessons should apply to other frameworks too. Angular has built-in support for animations, and Ionic comes with some default transitions for sliding pages left and right. I used that, and added a Javascript animation for the "Hero" element. It extracts the element from the card and positions it so it's in the same place on screen, then animates it to it's new location before removing it. The corresponding element in the details page is initially hidden during the animation, and revealed at the end so it appears to be the same element.
 

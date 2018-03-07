@@ -1,13 +1,15 @@
 ---
 author: wferguson
 title: Sampling Large Datasets in d3fc
-summary: "Libraries like d3 and d3fc do a fantastic job at making interactive charts. However, when the data size is in the hundreds of thousands, performance suffers. In this post, I'll have a look at some sampling techniques recently implemented in d3fc, and show them off with a demo."
+summary: >-
+  Libraries like d3 and d3fc do a fantastic job at making interactive charts.
+  However, when the data size is in the hundreds of thousands, performance
+  suffers. In this post, I'll have a look at some sampling techniques recently
+  implemented in d3fc, and show them off with a demo.
 layout: default_post
 image: /wferguson/assets/d3fc-sampling/image.png
 categories:
-  - Web
-  - D3
-  - Charting
+  - Tech
 ---
 At Scott Logic, we've been developing a collection of charting components building on the popular [d3](http://d3js.org/) library. These components should complement d3, making it easier to build complex charts. You can see what we've done so far on the [d3fc website](http://d3fc.io/). I've been adding a few data samplers into d3fc, and this post will show the results.
 
@@ -47,7 +49,7 @@ The "one bucket" [implementation](https://d3fc.io/api/sample-api.html#largest-tr
 
 The "three bucket" [implementation](https://d3fc.io/api/sample-api.html#largest-triangle-three-buckets) is where the two predetermined points are chosen from the buckets before and after the bucket being evaluated. The first point is the point chosen to represent the bucket before the current bucket. The second is a "ghost point" representing the next bucket, which in this case is simply an average of the x and y values of that bucket.
 
-<img src="{{ site.github.url }}/wferguson/assets/d3fc-sampling/image.PNG" />
+<img src="{{ site.baseurl }}/wferguson/assets/d3fc-sampling/image.PNG" />
 
 ### Implementation
 

@@ -2,7 +2,8 @@
 id: 56
 author: cprice
 title: HTML5 Charts vs Flex Charts vs Silverlight Charts - a Test of Performance
-oldlink: "http://www.scottlogic.co.uk/2010/11/html5-charts-vs-flex-charts-vs-silverlight-charts-a-test-of-performance/"
+oldlink: >-
+  http://www.scottlogic.co.uk/2010/11/html5-charts-vs-flex-charts-vs-silverlight-charts-a-test-of-performance/
 tags:
   - Closure
   - Javascript
@@ -14,14 +15,13 @@ tags:
   - VML
   - blog
 categories:
-  - Web
-  - HTML5
-  - Charting
+  - Tech
 layout: default_post
 source: site
-disqus-id: /2010/11/html5-charts-vs-flex-charts-vs-silverlight-charts-a-test-of-performance/
+disqus-id: >-
+  /2010/11/html5-charts-vs-flex-charts-vs-silverlight-charts-a-test-of-performance/
 ---
-<p><em>This post follows on from the comparisons by <a href="{{ site.github.url }}/2010/11/08/visiblox-charts-vs-silverlight-toolkit-charts-a-test-of-performance-2">Colin</a>, of two Silverlight chart libraries, and <a href="{{ site.github.url }}/2010/11/29/html5-charts-vs-flex-charts-vs-silverlight-charts-a-test-of-performance.html">Graham</a>, of Flex and Silverlight chart libraries. In this post I add an HTML5 chart library into the mix. The results show that the HTML5 Charts perform easily as well as the others in HTML5 browsers (Chrome, FireFox, Safari, Opera, IE9*).</em><br/><small>* Note this is predicted performance in IE9 as the library does not yet support it during its preview phase, <a href="http://code.google.com/p/closure-charts/wiki/IE9Preview">there is work being done on this</a>.</small></p>
+<p><em>This post follows on from the comparisons by <a href="{{ site.baseurl }}/2010/11/08/visiblox-charts-vs-silverlight-toolkit-charts-a-test-of-performance-2">Colin</a>, of two Silverlight chart libraries, and <a href="{{ site.baseurl }}/2010/11/29/html5-charts-vs-flex-charts-vs-silverlight-charts-a-test-of-performance.html">Graham</a>, of Flex and Silverlight chart libraries. In this post I add an HTML5 chart library into the mix. The results show that the HTML5 Charts perform easily as well as the others in HTML5 browsers (Chrome, FireFox, Safari, Opera, IE9*).</em><br/><small>* Note this is predicted performance in IE9 as the library does not yet support it during its preview phase, <a href="http://code.google.com/p/closure-charts/wiki/IE9Preview">there is work being done on this</a>.</small></p>
 <p>There's been some interest in how Flex, HTML5 and Silverlight stack up against each other, and whether there's any stand out reason to choose one technology over the others. To aid in this comparison I've reproduced the example from Colin and Grahams posts using an open-sourced charting library.</p>
 <h3>Closure Charts</h3>
 <p>The charting library is called Closure Charts, an open source project managed by Scott Logic aimed at producing fast and functional charts without requiring any browser plug-ins. It is built on top of the Closure Library framework and is fully annotated for use with the Closure Compiler. It has support for VML, SVG and canvas based rendering which means that it works on virtually all desktop web-browsers (including IE 6-8) and most smartphone browsers. For more information on the library visit the <a href="http://code.google.com/p/closure-charts/">website on Google Code</a>.</p>
@@ -45,13 +45,13 @@ disqus-id: /2010/11/html5-charts-vs-flex-charts-vs-silverlight-charts-a-test-of-
 </tr>
 <tr>
 <td style="text-align: center;" id="html5example"></td>
-<td style="text-align:center;">[kml_flashembed movie="{{ site.github.url }}/archive/2010/11/FlexChartsPerformance.swf" height="380" width="280" /]</td>
-<td style="text-align:center;"> <object height="400" width="300" type="application/x-silverlight-2" data="data:application/x-silverlight,"><param value="{{ site.github.url }}/archive/2010/11/HistogramVisiblox.xap" name="source"><a style="text-decoration: none;" href="http://go.microsoft.com/fwlink/?LinkID=124807"><br /> <img style="border-style: none;" alt="Get Microsoft Silverlight" src="http://go.microsoft.com/fwlink/?LinkId=108181"><br /> </a><br /> </object> </td>
+<td style="text-align:center;">[kml_flashembed movie="{{ site.baseurl }}/archive/2010/11/FlexChartsPerformance.swf" height="380" width="280" /]</td>
+<td style="text-align:center;"> <object height="400" width="300" type="application/x-silverlight-2" data="data:application/x-silverlight,"><param value="{{ site.baseurl }}/archive/2010/11/HistogramVisiblox.xap" name="source"><a style="text-decoration: none;" href="http://go.microsoft.com/fwlink/?LinkID=124807"><br /> <img style="border-style: none;" alt="Get Microsoft Silverlight" src="http://go.microsoft.com/fwlink/?LinkId=108181"><br /> </a><br /> </object> </td>
 </tr>
 </table>
 <p><small>Image credit to<a href="http://www.flickr.com/photos/clevergrrl/218312595/sizes/s/in/photostream/">Clevergrrl</a></small></p>
 <style>	#imageDataComponentRootElement {		width: 280px;padding: 10px;	}	#chartcanvas {		height: 180px;		border: 1px solid #ededed;	}</style>
-<p><script type="text/javascript" src="{{ site.github.url }}/archive/2010/11/compiled.js"></script><script type="text/javascript">bootstrap('html5example');</script></p>
+<p><script type="text/javascript" src="{{ site.baseurl }}/archive/2010/11/compiled.js"></script><script type="text/javascript">bootstrap('html5example');</script></p>
 <p>The example is implemented as a Closure Component, an interesting snippet is the mouse move code which is very similar to the Flex example -</p>
 {% highlight javascript %}
 if (this.startPos) {

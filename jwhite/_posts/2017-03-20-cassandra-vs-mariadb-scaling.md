@@ -9,7 +9,7 @@ categories:
   - Data
 ---
 ## Keeping Ahead of the Demand
-In a [previous post]({{ site.github.url }}/2017/03/01/cassandra-vs-mariadb.html), Dave and Laurie, compared running the database of a theoretical hat shop on single node instances of [Cassandra](http://cassandra.apache.org/) and [MariaDB](https://mariadb.org/). In that scenario, the unoptimised performance of the two databases is fairly equivalent. But, what shall we do as the hat shop grows more popular? How do we scale out the new database, or is the shop's size doomed to be... *capped*?
+In a [previous post]({{ site.baseurl }}/2017/03/01/cassandra-vs-mariadb.html), Dave and Laurie, compared running the database of a theoretical hat shop on single node instances of [Cassandra](http://cassandra.apache.org/) and [MariaDB](https://mariadb.org/). In that scenario, the unoptimised performance of the two databases is fairly equivalent. But, what shall we do as the hat shop grows more popular? How do we scale out the new database, or is the shop's size doomed to be... *capped*?
 
 Previously Dave and Laurie claimed that it's a foregone conclusion that Cassandra should out scale a traditional relational database. In this post, we test that assumption to see how well the databases scale in reality and look at some of the options available.
 
@@ -20,10 +20,10 @@ For assessing the performance of the different clusters we made use of the datab
 It quickly became apparent that this approach was unrealistic, **Fig 1** shows a slow down in write response times as the number of nodes was increased and **Fig 2** shows a drastic slow down in read response times. As more nodes are added the more they end up competing for the same limited hardware resources of the host. In order to make any kind of realistic assessment of the scaling it was necessary to run the nodes on separate machines.   
 
 **Fig 1**
-[![Write operation response times for multiple Cassandra nodes running on the same machine]({{ site.github.url }}/jwhite/assets/cass_vs_mdb_fig1.png "Write operation response times for multiple Cassandra nodes running on the same machine")]({{ site.github.url }}/jwhite/assets/cass_vs_mdb_fig1.png)
+[![Write operation response times for multiple Cassandra nodes running on the same machine]({{ site.baseurl }}/jwhite/assets/cass_vs_mdb_fig1.png "Write operation response times for multiple Cassandra nodes running on the same machine")]({{ site.baseurl }}/jwhite/assets/cass_vs_mdb_fig1.png)
 
 **Fig 2**
-[![Read response times for multiple Cassandra nodes running on the same machine]({{ site.github.url }}/jwhite/assets/cass_vs_mdb_fig2.png "Read response times for multiple Cassandra nodes running on the same machine")]({{ site.github.url }}/jwhite/assets/cass_vs_mdb_fig2.png)
+[![Read response times for multiple Cassandra nodes running on the same machine]({{ site.baseurl }}/jwhite/assets/cass_vs_mdb_fig2.png "Read response times for multiple Cassandra nodes running on the same machine")]({{ site.baseurl }}/jwhite/assets/cass_vs_mdb_fig2.png)
 
 Since we didn't have multiple unused PCs to hand, we opted to build the clusters on [Amazon Web Services](https://aws.amazon.com/). AWS is well established and numerous tools integrate with its EC2 VM service.
 
@@ -38,7 +38,7 @@ As soon as a database spans multiple hosts then some decisions need to be made a
 The replication factor defines how many copies of the data are created on different nodes and is set when the keyspace is created. Increasing the replication factor naturally increases the availability of the data.  **Fig 3** shows the different response times for different replication strategies in a five node cluster.
 
 **Fig 3**
-[![Response times for different Cassandra replication factors in a 5 node cluster]({{ site.github.url }}/jwhite/assets/cass_vs_mdb_fig3.png "Response times for different Cassandra replication factors in a 5 node cluster")]({{ site.github.url }}/jwhite/assets/cass_vs_mdb_fig3.png)
+[![Response times for different Cassandra replication factors in a 5 node cluster]({{ site.baseurl }}/jwhite/assets/cass_vs_mdb_fig3.png "Response times for different Cassandra replication factors in a 5 node cluster")]({{ site.baseurl }}/jwhite/assets/cass_vs_mdb_fig3.png)
 
 We saw there was a slight overhead for the higher replication factors. Since this is set at the keyspace level, greater replication can be configured for more important data. Two kinds of replication strategy are available in Cassandra.  We used the `SimpleStrategy` which is rack and data centre unaware. In this strategy, replicas are stored on the next nodes on the ring. Alternatively there is the `NetworkTopologyStrategy` in which replicas are stored in distinct racks to minimise the chances of the nodes going offline at the same time.
 
@@ -97,7 +97,7 @@ The less strict the consistency level is the higher the availability of the syst
 Conversely, higher consistency levels give a higher likelihood of the data being up to date at a cost of lower availability and higher latency. The extreme example of `ALL` illustrates this best. The latency of the query will be determined by the slowest replica node in the cluster. If *any* replica nodes are down then the operation will not succeed. **Fig 4** show the performance of the different consistency levels in a 5 node cluster with a replication factor of 3. As expected, higher consistency levels lead to higher latency.
 
 **Fig 4**
-[![Response times for different Cassandra consistency levels]({{ site.github.url }}/jwhite/assets/cass_vs_mdb_fig4.png "Response times for different Cassandra consistency levels")]({{ site.github.url }}/jwhite/assets/cass_vs_mdb_fig4.png)
+[![Response times for different Cassandra consistency levels]({{ site.baseurl }}/jwhite/assets/cass_vs_mdb_fig4.png "Response times for different Cassandra consistency levels")]({{ site.baseurl }}/jwhite/assets/cass_vs_mdb_fig4.png)
 
 ## Clustering: the SQL
 
@@ -113,7 +113,7 @@ Galera cluster is a multi-master system which offers synchronous replication acr
 Since all of the nodes in a Galera cluster have all the data and can handle requests, we used a simple round robin load balancing strategy in our tests.  **Fig 5** shows what happened to response times as more nodes were added to Cassandra and Galera clusters.
 
 **Fig 5**
-[![Response times for different cluster sizes for Cassandra and Galera]({{ site.github.url }}/jwhite/assets/cass_vs_mdb_fig5.png "Response times for different cluster sizes for Cassandra and Galera")]({{ site.github.url }}/jwhite/assets/cass_vs_mdb_fig5.png)
+[![Response times for different cluster sizes for Cassandra and Galera]({{ site.baseurl }}/jwhite/assets/cass_vs_mdb_fig5.png "Response times for different cluster sizes for Cassandra and Galera")]({{ site.baseurl }}/jwhite/assets/cass_vs_mdb_fig5.png)
 
 As more nodes were added the response times of Cassandra decreased whereas the MariaDB write times increased. For Cassandra the update status was noticeably slower than the similar update operation. This was because this query used the `IF EXISTS` condition to ensure the item is present before it is updated. By default Cassandra creates a new row with the updated data without any check to see if the row already exists. The updated data is then combined with the previous record on read. Adding this extra check adds a significant overhead to the operation.
 
@@ -122,14 +122,14 @@ The MariaDB read times stayed roughly the same as they were effectively still re
 This comparison isn't particularly informative as we are comparing apples with oranges and top hats with fezzes. Galera cluster replicates data to every node, so as more nodes are added the cost of storing that data is increased. Conversely, Cassandra is configured to store only two copies of the data, irrespective of the number of nodes.  We can achieved a fair, yet artificial comparison by requiring Cassandra to replicate data to every node. **Fig 6** shows the resulting response times.
 
 **Fig 6**
-[![Response times for a Cassandra cluster with a replication factor equal to the nodes compared with a Galera cluster]({{ site.github.url }}/jwhite/assets/cass_vs_mdb_fig6.png "Response times for a Cassandra cluster with a replication factor equal to the nodes compared with a Galera cluster")]({{ site.github.url }}/jwhite/assets/cass_vs_mdb_fig6.png)
+[![Response times for a Cassandra cluster with a replication factor equal to the nodes compared with a Galera cluster]({{ site.baseurl }}/jwhite/assets/cass_vs_mdb_fig6.png "Response times for a Cassandra cluster with a replication factor equal to the nodes compared with a Galera cluster")]({{ site.baseurl }}/jwhite/assets/cass_vs_mdb_fig6.png)
 
 With this configuration the performance difference was less striking, though Cassandra still scaled better. Cassandra's performance remained fairly constant whilst Galera response times increased with the number of nodes.
 
 Whilst Galera cluster might theoretically offer some [mild scaling](https://www.percona.com/blog/2014/11/17/typical-misconceptions-on-galera-for-mysql/) due to there being multiple nodes to handle requests it is not what we observed here and certainly not the primary function of a Galera cluster. Additionally as more nodes were added we saw greater numbers of deadlocks where two nodes tried to edit the same data at the same time (see **Fig 7**).
 
 **Fig 7**
-[![Number of deadlocks in a Galera cluster as more nodes were added]({{ site.github.url }}/jwhite/assets/cass_vs_mdb_fig7.png "Number of deadlocks in a Galera cluster as more nodes were added")]({{ site.github.url }}/jwhite/assets/cass_vs_mdb_fig7.png)
+[![Number of deadlocks in a Galera cluster as more nodes were added]({{ site.baseurl }}/jwhite/assets/cass_vs_mdb_fig7.png "Number of deadlocks in a Galera cluster as more nodes were added")]({{ site.baseurl }}/jwhite/assets/cass_vs_mdb_fig7.png)
 
 Each of these failed requests would need to be retried by the application for them to be applied. However with Cassandra if two conflicting writes occurred concurrently both would have succeeded. On the next read, Cassandra will consider the one with the most recent timestamp as the correct version. So with Galera it is immediately clear when data has failed to be updated whereas in Cassandra there is a chance that the update will silently not be applied.
 
@@ -149,19 +149,19 @@ Unexpectedly, when we varied the number of data nodes, we saw that the performan
 **Fig 8** shows the difference in response times these changes made.
 
 **Fig 8**
-[![NDB cluster response times before and after optimisation]({{ site.github.url }}/jwhite/assets/cass_vs_mdb_fig8.png "NDB cluster response times before and after optimisation")]({{ site.github.url }}/jwhite/assets/cass_vs_mdb_fig8.png)
+[![NDB cluster response times before and after optimisation]({{ site.baseurl }}/jwhite/assets/cass_vs_mdb_fig8.png "NDB cluster response times before and after optimisation")]({{ site.baseurl }}/jwhite/assets/cass_vs_mdb_fig8.png)
 
 Having made these optimisations we then compared NDB to Cassandra. **Fig 9** shows the response times for the two clusters.
 
 **Fig 9**
-[![NDB and Cassandra cluster response times]({{ site.github.url }}/jwhite/assets/cass_vs_mdb_fig9.png "NDB and Cassandra cluster response times")]({{ site.github.url }}/jwhite/assets/cass_vs_mdb_fig9.png)
+[![NDB and Cassandra cluster response times]({{ site.baseurl }}/jwhite/assets/cass_vs_mdb_fig9.png "NDB and Cassandra cluster response times")]({{ site.baseurl }}/jwhite/assets/cass_vs_mdb_fig9.png)
 
 As can be seen in this graph the performance of the two clusters were reasonably similar but the NBD response times did appear to be increasing as more nodes were added.
 
 In this comparison we increased the number of data nodes by increasing the fragments. We also investigated increasing the number of replicas instead. **Fig 10** shows how this affected response times.
 ​         
 **Fig 10**
-[![Response times as more replicas were added]({{ site.github.url }}/jwhite/assets/cass_vs_mdb_fig10.png "Response times as more replicas were added")]({{ site.github.url }}/jwhite/assets/cass_vs_mdb_fig10.png)
+[![Response times as more replicas were added]({{ site.baseurl }}/jwhite/assets/cass_vs_mdb_fig10.png "Response times as more replicas were added")]({{ site.baseurl }}/jwhite/assets/cass_vs_mdb_fig10.png)
 
 As might be expected, like Cassandra the response times increased as more replicas are stored but for NDB the read times remained fairly consistently low.
 

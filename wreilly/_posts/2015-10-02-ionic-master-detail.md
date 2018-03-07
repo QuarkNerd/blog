@@ -16,7 +16,7 @@ summary: "Ionic is a framework built on angular-js, targeted at creating mobile 
 
 Ionic is a framework built on angular-js, targeted at creating mobile applications. However, one component that isn't part of the standard controls is the master detail layout.
 
-A recent project I worked on required this type of layout, so I spent some time researching and then creating a custom control. This post describes that process, but if you just want to see the end result, check out the [demo project]({{site.github.url}}/wreilly/assets/ionic-master-detail/demo).
+A recent project I worked on required this type of layout, so I spent some time researching and then creating a custom control. This post describes that process, but if you just want to see the end result, check out the [demo project]({{site.baseurl}}/wreilly/assets/ionic-master-detail/demo).
 
 ## What is a Master Detail layout? ##
 
@@ -24,7 +24,7 @@ A master detail layout is a responsive layout for tablets and phones, that allow
 
 On small devices (i.e. phones), the control should behave similar to a navigation control, where the user only sees one screen at a time and has the ability to navigate forwards backwards between the master and detail views. On larger devices (i.e. tablets), the control should be a split-screen view so the user sees the master view down the left edge of the screen with the detail view filling the remaining space.
 
-![iPhone and iPad master-detail layouts]({{site.github.url}}/wreilly/assets/ionic-master-detail/master-detail-example.png)
+![iPhone and iPad master-detail layouts]({{site.baseurl}}/wreilly/assets/ionic-master-detail/master-detail-example.png)
 
 When writing a native iOS app, this type of view is part of UISplitViewController. For a great write up on this, I'd strongly suggest reading Sam Davies's [write up over](https://www.shinobicontrols.com/blog/ios8-day-by-day-day-18-uisplitviewcontroller) on the ShinobiControls blog.
 
@@ -103,4 +103,4 @@ I also ended up not being very happy with the need to both define the master det
 
 ## Demo ###
 
-A [demo]({{site.github.url}}/wreilly/assets/ionic-master-detail/demo) of this control is available. Note, this was designed to work with Chrome/Safari, but it should also work in most other browsers.
+A [demo]({{site.baseurl}}/wreilly/assets/ionic-master-detail/demo) of this control is available. Note, this was designed to work with Chrome/Safari, but it should also work in most other browsers.

@@ -3,21 +3,22 @@ author: alee
 title: End-to-End testing with Angular and Knockout
 tags: null
 categories:
-  - HTML5
-  - Test
-summary: "Writing end-to-end tests for a Single Page Application (SPA) built with Angular or Knockout, and how to improve the robustness of those tests."
+  - Tech
+summary: >-
+  Writing end-to-end tests for a Single Page Application (SPA) built with
+  Angular or Knockout, and how to improve the robustness of those tests.
 layout: default_post
-oldlink: "http://www.scottlogic.com/blog/2014/08/06/angular-knockout-e2e-testing.html"
+oldlink: 'http://www.scottlogic.com/blog/2014/08/06/angular-knockout-e2e-testing.html'
 disqus-id: /2014/08/06/angular-knockout-e2e-testing.html
 ---
 
 
-In my last post [Single Page Applications - Angular vs Knockout]({{ site.github.url }}/2014/07/30/spa-angular-knockout.html), I built a Single Page Application (SPA) using Angular and Knockout (with CrossroadsJS and RequireJS). Both solutions unit tested the model code, but I glossed over the idea of end-to-end (e2e) testing, so I'd like to take a closer look at that now.
+In my last post [Single Page Applications - Angular vs Knockout]({{ site.baseurl }}/2014/07/30/spa-angular-knockout.html), I built a Single Page Application (SPA) using Angular and Knockout (with CrossroadsJS and RequireJS). Both solutions unit tested the model code, but I glossed over the idea of end-to-end (e2e) testing, so I'd like to take a closer look at that now.
 
 I'll start by looking at how we can implement e2e tests in both solutions. Next, I'll consider the value of having these tests, how brittle they can be, and therefore the cost of writing and maintaining them. Finally, I'll suggest a couple of ways to reduce the cost by making the tests more robust.
 
-As before, I've put the finished project on GitHub: [e2e-Angular-Knockout](https://github.com/DevAndyLee/e2e-Angular-Knockout). To make the tests more realistic, I've replaced the mocked server I used previously with a real web service (implemented in Node). Having a real server means no live demo this time, but it still looks just like the previous version (<a href="{{ site.github.url }}/alee/assets/spa-an-ko/Knockout/index.html" target="_blank">Knockout demo</a> and
-<a href="{{ site.github.url }}/alee/assets/spa-an-ko/Angular/index.html" target="_blank">Angular demo</a>).
+As before, I've put the finished project on GitHub: [e2e-Angular-Knockout](https://github.com/DevAndyLee/e2e-Angular-Knockout). To make the tests more realistic, I've replaced the mocked server I used previously with a real web service (implemented in Node). Having a real server means no live demo this time, but it still looks just like the previous version (<a href="{{ site.baseurl }}/alee/assets/spa-an-ko/Knockout/index.html" target="_blank">Knockout demo</a> and
+<a href="{{ site.baseurl }}/alee/assets/spa-an-ko/Angular/index.html" target="_blank">Angular demo</a>).
 
 
 ## Test frameworks
@@ -43,7 +44,7 @@ Then run the tests:
 
 Protractor runs the Jasmine tests, making a `browser` object available so that the test can navigate to and control the website under test:
 
-<img src="{{ site.github.url }}/alee/assets/e2e-an-ko/angular-flow.png"/>
+<img src="{{ site.baseurl }}/alee/assets/e2e-an-ko/angular-flow.png"/>
 
 
 ### Test Knockout using Jasmine-Node and WebDriverJS
@@ -60,7 +61,7 @@ Then run the tests:
 
     jasmine-node test/e2e/ --captureExceptions
 
-<img src="{{ site.github.url }}/alee/assets/e2e-an-ko/knockout-flow.png"/>
+<img src="{{ site.baseurl }}/alee/assets/e2e-an-ko/knockout-flow.png"/>
 
 
 
@@ -247,7 +248,7 @@ A good way to solve the problem of conflicting data in the test database is to m
 
 We'll still have a test database, but at the start of each test (or small group of tests), the database is empty (created from the schema, or copied from a template, or emptied from the previous test). The test itself will have a direct connection to the test database, and will insert the data it needs before loading up the website and running the test.
 
-<img src="{{ site.github.url }}/alee/assets/e2e-an-ko/test-data.png"/>
+<img src="{{ site.baseurl }}/alee/assets/e2e-an-ko/test-data.png"/>
 
 I've often used this approach for integration testing of repository code, and it works very well indeed. The tests are robust because they are no longer dependent on each other's data. Copying an empty database (with just schema) is pretty quick, so the performance is still good.
 
@@ -257,7 +258,7 @@ As the application gets bigger, it may be that a lot more data is required just 
 
 An alternative to seeding the database is to remove the back-end server completely, and instead provide mocked responses to Ajax requests. If we mock out the server, then it isn't really an end-to-end test any more (more like a middle-to-end test). However, it may still make sense if you're developing an SPA and you're interested in testing the behaviour of the website itself based on predictable responses from back-end services. Another benefit is that you don't need to get the real server running (with its test database) before running the tests.
 
-<img src="{{ site.github.url }}/alee/assets/e2e-an-ko/mock-server.png"/>
+<img src="{{ site.baseurl }}/alee/assets/e2e-an-ko/mock-server.png"/>
 
 Implementing a (very simple) mocked server is easy with a Node module:
 

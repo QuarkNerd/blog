@@ -1,13 +1,13 @@
 ---
 author: wferguson
 title: Exploring the Web Audio API with D3
-summary: "In this post, I investigate the HTML5 Web Audio API, using it with D3 to perform real-time audio visualisation."
+summary: >-
+  In this post, I investigate the HTML5 Web Audio API, using it with D3 to
+  perform real-time audio visualisation.
 title-short: Web Audio with D3
 layout: default_post
 categories:
-  - Web
-  - D3
-  - HTML5
+  - Tech
 image: wferguson/assets/featured/webaudio.png
 tags:
   - featured
@@ -15,7 +15,7 @@ tags:
 
 HTML5 adds a lot of new features for developers to make use of to build rich web applications. One of these is the Web Audio API -- not to be confused with just the `<audio>` element -- which allows access to raw audio data. This data can then be analysed and visualised through the HTML5 canvas or using charting libraries like D3.
 
-<img src="{{ site.github.url }}/wferguson/assets/audio-1/preview.gif" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/wferguson/assets/audio-1/preview.gif" style="display: block; margin: auto;"/>
 
 **You can see the application on [GitHub Pages](http://wpferg.github.io/MusicVisualisation/)**
 
@@ -36,7 +36,7 @@ The audio pipeline needs to be set up in the correct way in order for us to visu
 
 The pipeline for the audio in this project is pretty straightforward. The `MediaElementAudioSourceNode` is linked to an `AnalyserNode` (where audio data is extracted for visualisation), which is then linked to the speakers.
 
-<img src="{{ site.github.url }}/wferguson/assets/audio-1/pipeline.png" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/wferguson/assets/audio-1/pipeline.png" style="display: block; margin: auto;"/>
 
 For ease of use, the user drags and drops the audio files they wish to play onto the page ([HTML5 Rocks](http://www.html5rocks.com/en/tutorials/dnd/basics/) has a guide to show how this is done). After they've done that, an `<audio>` element is created, and its source is set using an Object URL, which in this case acts like a remote URL but references a file or blob object.
 
@@ -103,7 +103,7 @@ selector.select("path")
     .attr("d", line);
 {% endhighlight %}
 
-<img src="{{ site.github.url }}/wferguson/assets/audio-1/waveform.png" />
+<img src="{{ site.baseurl }}/wferguson/assets/audio-1/waveform.png" />
 
 This works pretty well -- there's only one element in the DOM that is being changed, so the costliest part is the redraw. This cost was further reduced by subsampling the waveform to only draw `width / 2` points, making the draw cheaper.
 
@@ -157,7 +157,7 @@ When considering the height, the actual computation is a tiny bit more complicat
     });
 {% endhighlight %}
 
-<img src="{{ site.github.url }}/wferguson/assets/audio-1/frequency.png" />
+<img src="{{ site.baseurl }}/wferguson/assets/audio-1/frequency.png" />
 
 This is just another simple bar chart-like component, tailored for the use of audio. In terms of performance, it's a bit more of a hit here because hundreds of DOM elements are changed each frame (up to 60fps), each needing a redraw.
 

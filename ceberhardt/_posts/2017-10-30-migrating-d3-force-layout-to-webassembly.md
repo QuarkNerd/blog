@@ -9,9 +9,10 @@ summary: >-
   replacement for the D3 APIs, compiled to WASM using AssemblyScript
   (TypeScript).
 categories:
-  - web
-  - javascript
+  - Tech
 image: ceberhardt/assets/ForceLayout.png
+colour: teal
+header-shape: shape4
 ---
 
 In this blog post I'll take a look at a real-world application of WebAssembly (WASM), the re-implementation of D3 force layout. The end result is a drop-in replacement for the D3 APIs, compiled to WASM using AssemblyScript (TypeScript).

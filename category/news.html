@@ -2,15 +2,15 @@
 layout: default
 title: News
 ---
-<!--depreciated, redirected to latest articles-->
-<!DOCTYPE html>
-<html lang="en-US">
-  <meta charset="utf-8">
-  <title>Redirecting</title>
-  <link rel="canonical" href="{{ site.github.url }}/index.html">
-  <meta http-equiv="refresh" content="0; url={{ site.github.url }}/index.html">
-  <meta name="robots" content="noindex">
-  <h1>Redirecting</h1>
-  <a href="{{ site.github.url }}/index.html">Click here if you are not redirected.</a>
-  <script>location="{{ site.github.url }}/index.html"</script>
-</html>
+
+{% assign posts = site.categories["News"] %}
+
+{% for eventposts in site.categories["Events"] %}
+    {% assign posts = posts | push: eventposts %}
+{% endfor %}
+
+{% if posts %}
+  {% assign posts = posts | sort: 'date' | reverse | uniq %}
+{% endif %}
+
+{% include post_index.html posts=posts categoryName="News" %}

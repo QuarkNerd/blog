@@ -1,16 +1,18 @@
 ---
 author: tkelly
-title: "Generalizing OData"
+title: Generalizing OData
 layout: default_post
-summary: "OData Controllers offer an easy interface between data and your application, but require one controller per model type. These controllers often have a large amount of almost identical code. In this blog post, we look at using C# Generics to remove this duplication."
-summary-short: "Creating an OData Controller making use of Generics."
+summary: >-
+  OData Controllers offer an easy interface between data and your application,
+  but require one controller per model type. These controllers often have a
+  large amount of almost identical code. In this blog post, we look at using C#
+  Generics to remove this duplication.
+summary-short: Creating an OData Controller making use of Generics.
 tags:
   - .net
   - odata
 categories:
-  - .NET
-  - C#
-  - Data
+  - Tech
 ---
 
 In this blog post, we take a look at how to create an OData controller which leverages generics to offer the same CRUD services for multiple models. The full source is available [on GitHub](https://github.com/tpkelly/generalizing-odata).
@@ -110,7 +112,7 @@ public static class WebApiConfig
 
 We tell the app that we're using the route "Products" to correspond to the ```Product``` model and ```DbSet<Product>``` database object on our context. However running this will give us a new error.
 
-![No type was found that matches the controller named 'Products'.]({{ site.github.url }}/tkelly/assets/2015-12-01-generalizing-odata/NoControllerProducts.png)
+![No type was found that matches the controller named 'Products'.]({{ site.baseurl }}/tkelly/assets/2015-12-01-generalizing-odata/NoControllerProducts.png)
 
 This is where the magic happens. The controller selector is used to seeing ```Product``` as a model and trying to find the ```ProductsController```, but we don't have one of those, we only have a ```GenericController<Product>``` to use.
 

@@ -2,15 +2,16 @@
 author: ceberhardt
 title: A First Look at ReactiveCocoa 3.0
 layout: default_post
-summary: "This blog post takes a look at the new ReactiveCocoa 3.0 swift interface, which introduces generics, a pipe-forward operator and an interesting use of curried functions."
+summary: >-
+  This blog post takes a look at the new ReactiveCocoa 3.0 swift interface,
+  which introduces generics, a pipe-forward operator and an interesting use of
+  curried functions.
 image: ceberhardt/assets/featured/reactive-cocoa.png
 title-short: ReactiveCocoa 3.0
 tags:
   - featured
 categories:
-  - iOS
-  - Swift
-  - Mobile
+  - Tech
 ---
 
 This blog post takes a look at the new ReactiveCocoa 3.0 swift interface, which introduces generics, a pipe-forward operator and an interesting use of curried functions.
@@ -227,7 +228,7 @@ The map operation above creates a function that transforms from `Signal<String, 
 
 You can see how the type of the data conveyed by the next event has changed through the pipeline:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/rac3/map.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/rac3/map.png" />
 
 The way that pipe forward and these curried functions work together certainly takes some getting your head around. The function signatures are made more complex due to the additional generic parameters associated with `Signal`.
 
@@ -239,7 +240,7 @@ The core concepts of RC3 are the same as RC2, signals that emit events, however 
 
 The compilation errors you are faced with when working with RC3 are often misleading and rarely located at the true source of the problem:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/rac3/error.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/rac3/error.png" />
 
 It really helps to be able to pull these pipelines apart, so that you can locate the source of the error.
 

@@ -16,7 +16,7 @@ The oil and gas industry is asset-sensitive, with capital assets ranging from dr
 
 In the current Internet-of-Things (IoT) Big Data era, asset optimization focuses on continuously monitoring key operating characteristics of assets and applying advanced machine learning to maximize asset performance and minimize unplanned outages. The Financial Times article highlights how BP rolled out a vast array of sensors to more than 99% of their oil and gas wells, and as a result are looking to increase their data capacity by 5 fold in the next 3 years. This data, coupled with predictive maintenance techniques, allows BP to better optimise their assets, by scheduling preventative maintenance, or delivering replacements parts at just the right time.
 
-<img src="{{ site.github.url }}/acarr/assets/oil.jpg" />
+<img src="{{ site.baseurl }}/acarr/assets/oil.jpg" />
 
 <small>Photo by [SMelindo on Flickr](https://www.flickr.com/photos/melindo/8206088016/in/photolist-dv9m59-SM4Z5k-98G8NB-cMkkPJ-6q5MDF-2vJWPo-QQbgYz-cj2RnA-5zmEbT-3iEE3D-cXGJ5m-QGAKC3-4zs6A7-oNA4R-9YTrqE-5PuWw1-iffL2-Ui99Ze-7ZfGXv-7ZfBed-7ZfGjN-7ZfFuF-4zdrKN-cj3bc7-6ZQvDd-6HpMDu-fQhgWR-aWruST-8fuK6L-iwkGaE-9sQtyZ-pyhUb-SM4Z6c-iffdZ-9YQvJa-71Pb5L-9YTqkU-9YQnp6-6ZQwF9-8xU1KP-6F4AwJ-ei9gGX-qiDChF-4d7qJq-71Karr-54ErBN-nCMq2e-54AdyT-8mAkSb-6k5mMT)</small>
 

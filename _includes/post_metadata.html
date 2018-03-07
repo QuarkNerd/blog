@@ -1,22 +1,16 @@
-{% assign showAuthorInfo = include.showAuthorInfo %}
-{% assign post = include.post %}
-{% assign allContributors = post.contributors | join: '|' | prepend: '|' | prepend: post.author | split: '|' %}
-
-<h5 class="post-metadata">
-  {% if showAuthorInfo %}
-    <span class="author-name">
-      {% for contributorId in allContributors %}
-        {% assign contributor = site.data.authors.authors[contributorId] %}
-        <a href="{{ site.github.url }}/{{ contributorId }}">{{ contributor.name }}</a>{% unless forloop.last %}, {% endunless %}
-      {% endfor%}
-      <span>&middot;</span>
-    </span>
-  {% endif %}
-  {% if site.data %}
-    <span class="timestamp" date-published="{{ post.date }}">
-        {% include format_date.html date=post.date %}
-    </span>
-    &middot;
-    <span>{% include reading_time.html post=post %}</span>
-  {% endif %}
-</h5>
+{%- assign post = include.post -%}
+{%- assign allContributors = post.contributors | join: '|' | prepend: '|' | prepend: post.author | split: '|' -%}
+<div>
+  <span>
+    {%- for contributorId in allContributors -%}
+      {%- assign contributor = site.data.authors.authors[contributorId] -%}
+      <a href="{{ site.baseurl }}/{{ contributorId }}">{{ contributor.name }}</a>{% unless forloop.last %}, {% endunless %}
+    {%- endfor -%}
+    <span> &middot;</span>
+  </span>
+  <span class="timestamp" date-published="{{ post.date }}">
+    {% include format_date.html date=post.date %}
+  </span>
+  <span>&middot;</span>
+  <span>{% include reading_time.html post=post %}</span>
+</div>

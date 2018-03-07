@@ -3,15 +3,13 @@ author: cprice
 layout: default_post
 title: Highlights from JSConf.IS
 categories:
-  - JavaScript
-  - Web
-  - Events
-summary: "My highlights from the inaugural JSConf.IS 2016 hosted at Harpa, Reykjavik."
+  - Tech
+summary: 'My highlights from the inaugural JSConf.IS 2016 hosted at Harpa, Reykjavik.'
 ---
 
 I recently attended the very first [JSConf.IS](https://jsconf.is) in Reykjavik. It was a great conference and one that I can highly recommend for next year. In this post I wanted to cover off some of my highlights from the conference. I've also published another blog post covering some of the [evening activities](using-d3-force-to-control-a-massive-display.html).
 
-<img src="{{ site.github.url }}/cprice/assets/northern-lights/welcome.jpg" alt="Welcome to JSConf Iceland" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/cprice/assets/northern-lights/welcome.jpg" alt="Welcome to JSConf Iceland" style="display: block; margin: auto;"/>
 
 ## The New Mobile Web: Service Worker, Push, and App Manifests
 [Dan Callahan](https://twitter.com/callahad)
@@ -40,7 +38,7 @@ Also in my notes -
 * When training up a team in a new framework produce a suggested learning order for the various technologies and sub-frameworks involved.
 * If possible when moving between frameworks, you can try to iteratively update the semantics of framework A to be ever closer to framework B to ease the migration.
 
-<img src="{{ site.github.url }}/cprice/assets/northern-lights/harpa-ceiling.jpg" alt="View from inside looking up, Harpa" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/cprice/assets/northern-lights/harpa-ceiling.jpg" alt="View from inside looking up, Harpa" style="display: block; margin: auto;"/>
 
 ## JavaScript on tiny, wearable hardware
 [Heiko Behrens](https://twitter.com/HBehrens)

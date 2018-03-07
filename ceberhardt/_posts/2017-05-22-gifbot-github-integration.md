@@ -14,7 +14,7 @@ The GitHub documentation for App development is great at the detail level, howev
 
 This blog post describes the development of gifbot, a simple GitHub App, that responds to comments with animated GIFs:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/gifbot/surprise-anim.gif" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/gifbot/surprise-anim.gif" />
 
 Feel free to install this app in your repo, via this link [https://github.com/integration/gifbot](https://github.com/integration/gifbot).
 
@@ -141,7 +141,7 @@ That's quite a bit of configuration effort, especially as steps 2 & 3 need to be
 
 Once configured, this bot dutifully serves up animated GIFs on demand:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/gifbot/webhook-comment.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/gifbot/webhook-comment.png" />
 
 Notice that the bot in the above image is using my identity, which is not ideal.
 
@@ -151,11 +151,11 @@ You can create new Apps via [Settings / Developer Settings / GitHub Apps](https:
 
 Once your App is created you can share it via a public link. For example, gifbot is shareable via [https://github.com/integration/gifbot](https://github.com/integration/gifbot).
 
-<img src="{{ site.github.url }}/ceberhardt/assets/gifbot/add-app.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/gifbot/add-app.png" />
 
 This page gives end users a chance to review the features of your bot / App and the option to install it. When they click the Install button they get to review the requested permissions in more detail and can decide which repos this App will be integrated with:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/gifbot/integration-permissions.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/gifbot/integration-permissions.png" />
 
 As you can see, this approach allow the installation of the bot across many repositories with a single click. Also, if the user has suitable administration permissions, they can also install it across multiple organisations.
 
@@ -240,7 +240,7 @@ return installationToken(body.installation.id)
 
 From the end-user perspective, the App works just the same as the webhook integrated version:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/gifbot/integration-comment.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/gifbot/integration-comment.png" />
 
 However, the App now has it's own identity, and is clearly labelled as a 'bot'.
 

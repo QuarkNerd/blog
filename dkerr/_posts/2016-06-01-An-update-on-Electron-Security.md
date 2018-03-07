@@ -1,13 +1,14 @@
 ---
 author: dkerr
-title: "An update on Electron Security"
-title-short: "Electron Security update"
+title: An update on Electron Security
+title-short: Electron Security update
 layout: default_post
 categories:
-  - Web
-  - Electron
-  - Security
-summary: "It’s been a couple of months since my first post about the security of Electron. With v1.0 having recently been released I felt it was time for a a fresh look"
+  - Tech
+summary: >-
+  It’s been a couple of months since my first post about the security of
+  Electron. With v1.0 having recently been released I felt it was time for a a
+  fresh look
 image: dkerr/assets/featured/electron.jpg
 tags:
   - featured
@@ -18,7 +19,7 @@ It’s been a couple of months since [my post](http://blog.scottlogic.com/2016/0
 ## Growth + Maturity
 
 <p style="text-align: center">
-	<img src='{{ site.github.url }}/dkerr/assets/electron-growth.png' title="Electron Growth" alt="Growth of the Electron framework over time" />
+	<img src='{{ site.baseurl }}/dkerr/assets/electron-growth.png' title="Electron Growth" alt="Growth of the Electron framework over time" />
 	<br />
 	<span style="font-style: italic; font-size: 12px">Image taken from Electron v1.0 release announcement</span>
 </p>

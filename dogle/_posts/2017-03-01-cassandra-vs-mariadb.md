@@ -138,7 +138,7 @@ The table now has a composite Primary Key made up of **order\_id** and **line\_i
 
 *Fig 1*
 
-![]({{ site.github.url }}/dogle/assets/cassandra-vs-maria/PYXSA3X.png "Cassandra times before and after table restructure")
+![]({{ site.baseurl }}/dogle/assets/cassandra-vs-maria/PYXSA3X.png "Cassandra times before and after table restructure")
 
 \* *Or virtual nodes (vNodes) in our case as we are only using a single node instance*
 
@@ -149,7 +149,7 @@ The table now has a composite Primary Key made up of **order\_id** and **line\_i
 *Fig 2* shows the influence of the *maximum connections* setting on performance in terms of the overall execution time. To produce this chart we took the average of the total execution times of 5 runs of 50,000 'create' operations against MariaDB at each max-connection parameter we tried from 1 to 30.
 
 *Fig 2*
-![]({{ site.github.url }}/dogle/assets/cassandra-vs-maria/ifVrUCC.png "MariaDB average times over max pool size")
+![]({{ site.baseurl }}/dogle/assets/cassandra-vs-maria/ifVrUCC.png "MariaDB average times over max pool size")
 
 At a maximum connection pool size of _1_, operations are effectively running synchronously, taking nearly 2 minutes to complete the operations. At a maximum of _2_, the total execution time is reduced to just over 80 seconds. At _4_ we stop seeing the benefit of increasing the size of the connection pool further, achieving an execution time of just over 1 minute.
 
@@ -242,7 +242,7 @@ Running 200,000 random events against a relatively small number of orders (500) 
 We ran multiple 'update' events against both databases in sizes of 500, 5000, 10,000 and 100,000. The results of this showed that whilst the average time taken for an update to succeed remained a relative constant for each database, in MariaDB the time taken to perform updates is roughly double the time taken in Cassandra and there is less consistency. This is perhaps a result of the fact that in Cassandra updates are treated the same as writes to increase performance.
 
 *Fig 3*
-![]({{ site.github.url }}/dogle/assets/cassandra-vs-maria//updates.png "Standard Deviation of 'update' event times")
+![]({{ site.baseurl }}/dogle/assets/cassandra-vs-maria//updates.png "Standard Deviation of 'update' event times")
 
 
 ### Average Response Times & Overall Execution Times
@@ -253,7 +253,7 @@ We ran multiple 'update' events against both databases in sizes of 500, 5000, 10
 These figures should not be considered as rigorous benchmarks, we attempted to bring the MariaDB driver into line with Cassandra driver by making it work asynchronously with the connection pool but neither database has been optimised beyond default settings. Our single-node setup lets us play with the performance features that are under the control of the developer but neither database would be deployed to production in the way we have it set up. That said, it is still interesting to note that as well as having comparable response times to our single-node instance of Cassandra, the overall execution time of MariaDB was just below 55.7 Seconds compared to Cassandra's 4 minutes and 30.
 
 *Fig 4*
-![]({{ site.github.url }}/dogle/assets/cassandra-vs-maria/HqSSmOG.png "Average Response times, Cassandra and MariaDB. All Events")
+![]({{ site.baseurl }}/dogle/assets/cassandra-vs-maria/HqSSmOG.png "Average Response times, Cassandra and MariaDB. All Events")
 
 
 ### Conclusion - Hats all folks

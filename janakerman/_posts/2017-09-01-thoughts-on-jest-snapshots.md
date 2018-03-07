@@ -2,7 +2,11 @@
 author: janakerman
 title: Thoughts on Jest Snapshots
 layout: default_post
-summary: Jest is a testing framework that provides the testing tools we now expect to see in a modern software project. It provides fast parallelised test running, with a familiar assertion syntax, built in code coverage, Snapshots and more. In this post, I'll be investigating Snapshots and laying out some thoughts!
+summary: >-
+  Jest is a testing framework that provides the testing tools we now expect to
+  see in a modern software project. It provides fast parallelised test running,
+  with a familiar assertion syntax, built in code coverage, Snapshots and more.
+  In this post, I'll be investigating Snapshots and laying out some thoughts!
 summary-short: Investigating Jest Snapshots
 tags:
   - JavaScript
@@ -12,9 +16,7 @@ tags:
   - Snapshots
   - React
 categories:
-  - JavaScript
-  - Web
-  - Testing
+  - Tech
 ---
 
 Jest is a testing framework that provides the testing tools we now expect to see in a modern software project. It provides fast parallelised test running, with a familiar assertion syntax, built in code coverage, **Snapshots** and more. In this post, I'll be investigating Snapshots and laying out some thoughts!
@@ -55,11 +57,11 @@ React already produces an in memory representation of our DOM. Jest simply seria
 
 I'm going to take [Redux's Todomvc example](https://github.com/reactjs/redux/tree/master/examples/todomvc) and convert the tests in their `Footer` component over to using Jest Snapshots. Here's the running application.
 
-<img src="{{ site.github.url }}/janakerman/assets/thoughts_on_snapshots/todo_mvc_preview.png"/>
+<img src="{{ site.baseurl }}/janakerman/assets/thoughts_on_snapshots/todo_mvc_preview.png"/>
 
 I'm going to be changing the tests for the Footer component at the bottom of the screen.
 
-<img src="{{ site.github.url }}/janakerman/assets/thoughts_on_snapshots/footer_component.png"/>
+<img src="{{ site.baseurl }}/janakerman/assets/thoughts_on_snapshots/footer_component.png"/>
 
 ### Current tests
 
@@ -200,11 +202,11 @@ components › Footer › should render correctly
 
 It's obvious from the change I made that this diff is expected. So, all I need to do now is tell just via it's task runner to update the snapshots (as simple as pressing the U key).
 
-<img src="{{ site.github.url }}/janakerman/assets/thoughts_on_snapshots/failing_snapshots.png"/>
+<img src="{{ site.baseurl }}/janakerman/assets/thoughts_on_snapshots/failing_snapshots.png"/>
 
 Job done.
 
-<img src="{{ site.github.url }}/janakerman/assets/thoughts_on_snapshots/snapshots_updated.png"/>
+<img src="{{ site.baseurl }}/janakerman/assets/thoughts_on_snapshots/snapshots_updated.png"/>
 
 ## Why Snapshots are great
 

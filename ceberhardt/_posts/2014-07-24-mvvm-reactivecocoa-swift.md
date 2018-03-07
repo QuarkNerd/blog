@@ -1,14 +1,14 @@
 ---
 author: ceberhardt
-title: "MVVM, Swift and ReactiveCocoa - It's all good!"
+title: 'MVVM, Swift and ReactiveCocoa - It''s all good!'
 categories:
-  - Swift
-  - iOS
-  - Mobile
+  - Tech
 tags: null
-summary: This blog post looks out how Swift makes the combination of ReactiveCocoa and MVVM even better ...
+summary: >-
+  This blog post looks out how Swift makes the combination of ReactiveCocoa and
+  MVVM even better ...
 layout: default_post
-oldlink: "http://www.scottlogic.com/blog/2014/07/24/mvvm-reactivecocoa-swift.html"
+oldlink: 'http://www.scottlogic.com/blog/2014/07/24/mvvm-reactivecocoa-swift.html'
 disqus-id: /2014/07/24/mvvm-reactivecocoa-swift.html
 ---
 
@@ -19,7 +19,7 @@ I've ported the app to Swift, and the code looks much more elegant as a result. 
 
 The complete Swift version of this app can be found on [GitHub](https://github.com/ColinEberhardt/ReactiveSwiftFlickrSearch). Here are a couple of screenshots of the app that searches for pictures on the popular photo sharing site, Flickr.
 
-<img src="{{ site.github.url }}/ceberhardt/assets/MVVMSwift/FinishedApp.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/MVVMSwift/FinishedApp.png" />
 
 This blog post isn't going to describe the workings of this app in detail. For that I'd refer you to the original tutorials. Instead this blog post highlights some of the significant differences between the Swift and Objective-C implementations.
 
@@ -27,11 +27,11 @@ This blog post isn't going to describe the workings of this app in detail. For t
 
 This app uses the Model-View-ViewModel ([MVVM](https://en.wikipedia.org/wiki/Model_View_ViewModel)) pattern. At the core of this pattern is the ViewModel which is a special type of model that represents the UI state of the application. It contains properties that detail the state of each and every UI control, for example the current text for a text field or whether a specific button is enabled. It also exposes the actions that the view is able to perform, for example button taps or gestures.
 
-<img src="{{ site.github.url }}/ceberhardt/assets/MVVMSwift/MVVMPattern.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/MVVMSwift/MVVMPattern.png" />
 
 Looking at the MVVM pattern specifically from the perspective of iOS development, the View is composed of the ViewController plus its associated UI (whether that is a nib, storyboard or constructed though code):
 
-<img src="{{ site.github.url }}/ceberhardt/assets/MVVMSwift/MVVMReactiveCocoa.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/MVVMSwift/MVVMReactiveCocoa.png" />
 
 With MVVM your Views should be very simple, doing little more than just reflecting the current UI state.
 

@@ -3,16 +3,17 @@ author: cprice
 layout: default_post
 title: An Adventure in SVG Filter Land
 title-short: Adventures with SVG Filters
-summary-short: This post looks at a creative application of our d3fc charting library, creating a streaming 3D SVG chart.
+summary-short: >-
+  This post looks at a creative application of our d3fc charting library,
+  creating a streaming 3D SVG chart.
 image: cprice/assets/featured/bitcoin.jpg
 categories:
-  - D3
-  - Charting
+  - Tech
 ---
 
 I've been working on an open-source charting library called [d3fc](https://github.com/d3fc). And [following Colin's lead](http://blog.scottlogic.com/2015/07/08/yahoo-finance-chart.html), was looking for a creative example to replicate: I think I found it...
 
-<img src="{{ site.github.url }}/cprice/assets/svg-filters/website-example.png" alt="Website example screenshot" width="878"/>
+<img src="{{ site.baseurl }}/cprice/assets/svg-filters/website-example.png" alt="Website example screenshot" width="878"/>
 
 # Once upon a time
 
@@ -20,7 +21,7 @@ The story starts with [Coinbase](https://www.coinbase.com/), a well-known(/funde
 
 As you'd expect, the [Coinbase Exchange](https://exchange.coinbase.com/) has an [API](https://docs.gdax.com/) and the [public market data](https://docs.gdax.com/#market-data) is freely-available in historic and streaming forms. I quickly knocked up a little wrapper which has evolved into [this](https://d3fc.io/api/financial-feed-api.html) to make the historic API easier to deal with and was about to start on a pretty boring example when I noticed a tab I still had open -
 
-<img src="{{ site.github.url }}/cprice/assets/svg-filters/coinbase.png" alt="Coinbase Exchange homepage screenshot" width="878"/>
+<img src="{{ site.baseurl }}/cprice/assets/svg-filters/coinbase.png" alt="Coinbase Exchange homepage screenshot" width="878"/>
 
 Now that chart in the background looks interesting.
 
@@ -28,7 +29,7 @@ Now that chart in the background looks interesting.
 
 I dug in to the source and found that the chart was in fact a looping [video](https://d39t78klvcw2nr.cloudfront.net/price_chart_anime.mp4). Here's a screenshot -
 
-<img src="{{ site.github.url }}/cprice/assets/svg-filters/video.png" alt="Video screenshot" width="878"/>
+<img src="{{ site.baseurl }}/cprice/assets/svg-filters/video.png" alt="Video screenshot" width="878"/>
 
 I'm going to go out on a limb and assume this isn't a real chart from their platform. However, it does contain a number of recognisable components from real charts -
 
@@ -107,7 +108,7 @@ svg {
 
 Our progress so far -
 
-<img src="{{ site.github.url }}/cprice/assets/svg-filters/series.png" alt="Series screenshot" width="878"/>
+<img src="{{ site.baseurl }}/cprice/assets/svg-filters/series.png" alt="Series screenshot" width="878"/>
 
 # Indicators
 
@@ -173,7 +174,7 @@ The styling this time is a little bit more involved because we need to hide the 
 
 It's not quite the same but I think it looks close enough at this stage -
 
-<img src="{{ site.github.url }}/cprice/assets/svg-filters/indicators.png" alt="Indicators screenshot" width="878"/>
+<img src="{{ site.baseurl }}/cprice/assets/svg-filters/indicators.png" alt="Indicators screenshot" width="878"/>
 
 # Components
 
@@ -269,7 +270,7 @@ And finally the styling -
 
 It's looking a little cluttered at the minute, but we're be adding in some transforms shortly which should help sort things out -
 
-<img src="{{ site.github.url }}/cprice/assets/svg-filters/gridlines.png" alt="Gridlines screenshot" width="878"/>
+<img src="{{ site.baseurl }}/cprice/assets/svg-filters/gridlines.png" alt="Gridlines screenshot" width="878"/>
 
 # Annotations
 
@@ -357,7 +358,7 @@ And add some appropriate styling -
 
 We're inching closer -
 
-<img src="{{ site.github.url }}/cprice/assets/svg-filters/vertical-lines.png" alt="Annotations screenshot" width="878"/>
+<img src="{{ site.baseurl }}/cprice/assets/svg-filters/vertical-lines.png" alt="Annotations screenshot" width="878"/>
 
 # Labels
 
@@ -467,7 +468,7 @@ And yet again we need some DOM and styling changes -
 
 Other than the odd overlapping label, I think it's a passible approximation for realistic data -
 
-<img src="{{ site.github.url }}/cprice/assets/svg-filters/labels.png" alt="Labels screenshot" width="878"/>
+<img src="{{ site.baseurl }}/cprice/assets/svg-filters/labels.png" alt="Labels screenshot" width="878"/>
 
 # SVG mask
 
@@ -504,7 +505,7 @@ We'll use two stacked linear gradients to get the effect we want, and for now, a
 
 There are no code or styling changes needed. It ends up looking like this, on the left is the actual result, on the right I've included the raw mask -
 
-<img src="{{ site.github.url }}/cprice/assets/svg-filters/mask.png" alt="Mask screenshot" width="878"/>
+<img src="{{ site.baseurl }}/cprice/assets/svg-filters/mask.png" alt="Mask screenshot" width="878"/>
 
 # SVG blur filter
 
@@ -526,7 +527,7 @@ Adding a blur effect in SVG requires creating a filter. A filter is in many ways
 
 Which unsurprisingly adds a blur to the entire SVG -
 
-<img src="{{ site.github.url }}/cprice/assets/svg-filters/blur.png" alt="Blur screenshot" width="878"/>
+<img src="{{ site.baseurl }}/cprice/assets/svg-filters/blur.png" alt="Blur screenshot" width="878"/>
 
 We don't want the effect applied to the whole SVG though, we want a progressive blur from the left tapering out after a before it reaches the center. To get that effect we need to add a little bit more to the filter and then combine the last two techniques.
 
@@ -572,7 +573,7 @@ As well as moving around where the masks and filters are applied, the above snip
 
 And here's the result -
 
-<img src="{{ site.github.url }}/cprice/assets/svg-filters/blur-mask.png" alt="Blur mask screenshot" width="878"/>
+<img src="{{ site.baseurl }}/cprice/assets/svg-filters/blur-mask.png" alt="Blur mask screenshot" width="878"/>
 
 # SVG flare effect
 
@@ -598,7 +599,7 @@ Let's start with the most striking feature, the intensity of the flare. As white
 
 The above snippet introduces the `feComposite` primitive which allows us to control how two source primitives are composited. In this case we've chosen the `atop` `operator` which will take the white flood and apply it only when the opacity of the image is non-zero. Here's the rendered result -
 
-<img src="{{ site.github.url }}/cprice/assets/svg-filters/flare-white.png" alt="Flare white screenshot" width="878"/>
+<img src="{{ site.baseurl }}/cprice/assets/svg-filters/flare-white.png" alt="Flare white screenshot" width="878"/>
 
 Next, we'll blur the result, mix in an over saturated version using the `feColorMatrix` primitive and apply an appropriate mask -
 
@@ -630,7 +631,7 @@ Next, we'll blur the result, mix in an over saturated version using the `feColor
 
 And here's the end result -
 
-<img src="{{ site.github.url }}/cprice/assets/svg-filters/flare.png" alt="Flare screenshot" width="878"/>
+<img src="{{ site.baseurl }}/cprice/assets/svg-filters/flare.png" alt="Flare screenshot" width="878"/>
 
 # CSS 3D transforms
 
@@ -710,7 +711,7 @@ Most of the styling is self-explanatory but the following is worth a little more
 
 This all ends up rendering as -
 
-<img src="{{ site.github.url }}/cprice/assets/svg-filters/transforms.png" alt="Tranform screenshot" width="878"/>
+<img src="{{ site.baseurl }}/cprice/assets/svg-filters/transforms.png" alt="Tranform screenshot" width="878"/>
 
 # Animation
 
@@ -819,7 +820,7 @@ So far all you've seen is static screenshots. That was for a good reason...
 
 Times like these call for the Chrome Timeline view. In this case it really doesn't make pretty reading -
 
-<img src="{{ site.github.url }}/cprice/assets/svg-filters/timeline-before.png" alt="Timeline screenshot" width="878"/>
+<img src="{{ site.baseurl }}/cprice/assets/svg-filters/timeline-before.png" alt="Timeline screenshot" width="878"/>
 
 There are a number of things we can see from the results -
 
@@ -833,7 +834,7 @@ Luckily there are a few tricks we can use to speed things up, let's start with t
 
 As always with performance profiling it's easy to guess wrongly at the cause of any problems, so let's take an analytical approach using the Chrome Debug tools. Here's the CPU profile flamegraph for a frame (left to right is time, top to bottom is an inverted call stack) -
 
-<img src="{{ site.github.url }}/cprice/assets/svg-filters/flame.png" alt="CPU profile flamegraph screenshot" width="878"/>
+<img src="{{ site.baseurl }}/cprice/assets/svg-filters/flame.png" alt="CPU profile flamegraph screenshot" width="878"/>
 
 The `candlestick` rendering is taking a huge proportion of the frame processing time, let's start with that. Out of the box it generates the following DOM structure for every bar -
 
@@ -966,11 +967,11 @@ Finally a small tweak to the styling, due to the DOM changes -
 
 And it looks exactly the same visually, but what's that done to the performance -
 
-<img src="{{ site.github.url }}/cprice/assets/svg-filters/flame-candlestick.png" alt="CPU profile flamegraph after candlestick optimisation screenshot" width="878"/>
+<img src="{{ site.baseurl }}/cprice/assets/svg-filters/flame-candlestick.png" alt="CPU profile flamegraph after candlestick optimisation screenshot" width="878"/>
 
 That's done the trick! Let's see what that's done to the timeline -
 
-<img src="{{ site.github.url }}/cprice/assets/svg-filters/timeline-candlestick.png" alt="Timeline after candlestick optimisation screenshot" width="878"/>
+<img src="{{ site.baseurl }}/cprice/assets/svg-filters/timeline-candlestick.png" alt="Timeline after candlestick optimisation screenshot" width="878"/>
 
 We're now within the magic 60fps for processing time (yellow section of vertical bars), we've reduced the DOM node thrashing (green lines) and paint time (green section of vertical bars). However, we're still losing a lot of time to painting.
 
@@ -978,7 +979,7 @@ We're now within the magic 60fps for processing time (yellow section of vertical
 
 Digging into the painting problems is going to require a less analytical approach. Whilst the frame-by-frame view at the top of the timeline shows a significant paint time, the flame chart is showing barely any painting time and the aggregated time at the bottom shows a very different story -
 
-<img src="{{ site.github.url }}/cprice/assets/svg-filters/timeline-broken.png" alt="Broken timeline? screenshot" width="878"/>
+<img src="{{ site.baseurl }}/cprice/assets/svg-filters/timeline-broken.png" alt="Broken timeline? screenshot" width="878"/>
 
 Time for some old-skool binary debugging i.e. turning things off to see what improves performance. Before we do that thought, let's add a little snippet to give us some hard numbers -
 
@@ -1036,4 +1037,4 @@ That's dropped the inter-frame timings to around 33 and whilst that's not the si
 
 To see the end result you'll need a webkit-based browser; testing with other browsers reveal that their support for ```feImage``` doesn't extend to [referencing local elements by ID](https://bugzilla.mozilla.org/show_bug.cgi?id=455986), you're only able to reference external images. I have an idea on how I can work around that but again that'll have to wait for another day.
 
-<img src="{{ site.github.url }}/cprice/assets/svg-filters/website-example.png" alt="Website example screenshot" width="878"/>
+<img src="{{ site.baseurl }}/cprice/assets/svg-filters/website-example.png" alt="Website example screenshot" width="878"/>

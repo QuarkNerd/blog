@@ -3,17 +3,19 @@ author: dpizzi
 title: Strong Typing With AngularJS
 title-short: TypingScript & AngularJS
 layout: default_post
-summary: This article demonstrates a successful integration of TypeScript with AngularJS to provide a strongly-typed environment for development of HTML5 apps.
+summary: >-
+  This article demonstrates a successful integration of TypeScript with
+  AngularJS to provide a strongly-typed environment for development of HTML5
+  apps.
 tags: featured
 image: dpizzi/assets/featured/Strong.png
-oldlink: "http://www.scottlogic.com/blog/2014/08/26/StrongTypingWithAngularJS.html"
+oldlink: 'http://www.scottlogic.com/blog/2014/08/26/StrongTypingWithAngularJS.html'
 disqus-id: /2014/08/26/StrongTypingWithAngularJS.html
 categories:
-  - Web
-  - TypeScript
+  - Tech
 ---
 
-A few weeks ago my colleague presented a detailed article about [strong typing for SignalR]({{ site.github.url }}/2014/08/08/signalr-typed.html). This article presents the integration of TypeScript with the AngularJS framework. Whilst both technologies are widely adopted, and thoroughly documented, their integration seems however to rather lack documentation.
+A few weeks ago my colleague presented a detailed article about [strong typing for SignalR]({{ site.baseurl }}/2014/08/08/signalr-typed.html). This article presents the integration of TypeScript with the AngularJS framework. Whilst both technologies are widely adopted, and thoroughly documented, their integration seems however to rather lack documentation.
 
 [AngularJS](https://angularjs.org/) is a JavaScript Model-View-Whatever ([MVW](https://plus.google.com/+AngularJS/posts/aZNVhj355G2)) framework that allows the writing of dynamic Single Page web Applications, and is becoming widely embraced because of its simplicity and completeness. Amongst its exhaustive list of features, the framework includes Dynamic Data Binding, Client-side Routing, Unit and End2End Testing or even HTML language extension.
 
@@ -76,7 +78,7 @@ tsc --out app.js _app.ts
 The resulting app.js file will just need to be included within our main HTML file.
 For Visual Studio users, where TypeScript has been included within VS 2012 and 2013 since Update 2, the JavaScript compiled files can be combined into one by setting the Project Properties:
 
-<img src="{{ site.github.url }}/dpizzi/assets/StrongTypingWithAngularJS/VSProjectSettings.jpg"/>
+<img src="{{ site.baseurl }}/dpizzi/assets/StrongTypingWithAngularJS/VSProjectSettings.jpg"/>
 
 ## Defining Angular Components
 

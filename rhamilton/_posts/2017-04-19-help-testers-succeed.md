@@ -16,7 +16,7 @@ layout: default_post
 
 ---
 
-<img src="{{ site.github.url }}/rhamilton/assets/passion.jpg" alt="title image" title="title image"/>
+<img src="{{ site.baseurl }}/rhamilton/assets/passion.jpg" alt="title image" title="title image"/>
 
 2017 has been a stressful year for me so far. I bought a really ugly flat in February, then found myself with two months to make it habitable and move into it. While frantically arranging appointments with trades people and deliveries of essential things (like carpet and furniture), a call for speakers came up for the [Agile North East Lightning Talk competition](https://www.meetup.com/Agile-North-East/events/237476141/).
 
@@ -42,6 +42,6 @@ My lightning talk ["How to Help Testers Succeed"](https://youtu.be/wuy8d-4HCBA) 
 
 I was voted 3rd place by the audience and I was absolutely shocked that the 1st and 2nd place winners didn't choose the Lego prize. This let me choose the Lego Millennium Falcon. I've already given the Falcon to my boyfriend as a thank you for all the help he gave me decorating my flat and helping me move in, but we're going to build it together :)
 
-<img src="{{ site.github.url }}/rhamilton/assets/falcon.jpg" alt="image" title="image"/>
+<img src="{{ site.baseurl }}/rhamilton/assets/falcon.jpg" alt="image" title="image"/>
 
 This post was also published on my software testing blog [Mega Ultra Super Happy Software Testing Fun time](http://testingfuntime.blogspot.co.uk/).

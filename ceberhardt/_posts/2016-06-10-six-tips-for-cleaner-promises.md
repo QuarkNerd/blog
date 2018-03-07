@@ -2,11 +2,11 @@
 author: ceberhardt
 title: Six tips for cleaner javascript promises
 layout: default_post
-summary: This blog post shares a few quick tips and patterns that I've been using to structure JavaScript promises; keeping them clean, simple and readable.
+summary: >-
+  This blog post shares a few quick tips and patterns that I've been using to
+  structure JavaScript promises; keeping them clean, simple and readable.
 categories:
-  - Web
-  - HTML5
-  - JavaScript
+  - Tech
 ---
 
 This blog post shares a few quick tips and patterns that I've been using to structure JavaScript promises; keeping them clean, simple and readable.

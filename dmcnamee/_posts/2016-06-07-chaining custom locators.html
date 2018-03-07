@@ -11,12 +11,11 @@ tags:
   - locators
   - elements
 categories:
-  - dmcnamee
   - Test
 layout: default_post
 ---
 
-<p><img src="{{ site.github.url }}/dmcnamee/assets/complex.jpg" alt="complex" title="complex" width="100%"></p>
+<p><img src="{{ site.baseurl }}/dmcnamee/assets/complex.jpg" alt="complex" title="complex" width="100%"></p>
 <h2>A brief history</h2>
 <p><a href="http://blog.scottlogic.com/2016/03/11/independent-testers-question.html">I have previously written here</a> about how test ids can help with UI automation and that using custom locators enable more readable code. Something I didn’t tackle was the chaining of elements. Sometimes, you wanted to get a nested element where there are test ids that are the same. In our previous case, the locator will get the first element it finds and this may not be the one we require.</p>
 

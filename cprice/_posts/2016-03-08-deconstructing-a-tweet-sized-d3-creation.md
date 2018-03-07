@@ -3,9 +3,7 @@ author: cprice
 layout: default_post
 title: Deconstructing a tweet-sized D3 creation
 categories:
-  - Web
-  - HTML5
-  - D3
+  - Tech
 ---
 
 I recently created a [site](https://t.d3fc.io) which I'm proud to say now hosts an impressive collection of tweet-sized D3 creations from the hugely creative people of the internet. In this post I'll talk through deconstructing one or two of those creations with the aim of giving any aspiring artists a starting point.
@@ -18,13 +16,13 @@ Now I'm not the first one to have the idea, code golf competitions have been run
 
 The site itself is pretty simple, it periodically polls the Twitter search API for tweets containing the term `t.d3fc.io` and attempts to parse them as ES6. If this succeeds it will add an entry to the site and attempt to render the animation as a GIF (assuming it's not too CPU/memory intensive). The real magic happens in the tweets...
 
-<p style="text-align:center"><a href="https://t.d3fc.io/status/694815740449398784"><img src="{{ site.github.url }}/cprice/assets/t-d3fc/voronoi.gif"></a></p>
+<p style="text-align:center"><a href="https://t.d3fc.io/status/694815740449398784"><img src="{{ site.baseurl }}/cprice/assets/t-d3fc/voronoi.gif"></a></p>
 
 ## Deconstructing the hello world tweet
 
 To launch the site I tweeted the rather uninspiring -
 
-<p style="text-align:center"><a href="https://t.d3fc.io/status/693087332682088449"><img src="{{ site.github.url }}/cprice/assets/t-d3fc/hello-world.gif"></a></p>
+<p style="text-align:center"><a href="https://t.d3fc.io/status/693087332682088449"><img src="{{ site.baseurl }}/cprice/assets/t-d3fc/hello-world.gif"></a></p>
 
 {% highlight js %}
 T().a({transform:d=>sc(4+s(d/1e3)),x:d=>mo[0]*10,y:d=>mo[1]*10}).t('Hello World') https://t.d3fc.io
@@ -84,7 +82,7 @@ And finally we set the `t`-ext content of the text element.
 
 This was by no means the most exciting example but I hope it has provided some clues as to how the more complex animations work. It would be great to see your attempts, so please give it a go in the [playground](https://t.d3fc.io/playground).
 
-<p style="text-align:center"><a href="https://t.d3fc.io/status/694572223596761088"><img src="{{ site.github.url }}/cprice/assets/t-d3fc/helix.gif"></a></p>
-<p style="text-align:center"><a href="https://t.d3fc.io/status/695490817863987201"><img src="{{ site.github.url }}/cprice/assets/t-d3fc/jfire.gif"></a></p>
-<p style="text-align:center"><a href="https://t.d3fc.io/status/695201842968543232"><img src="{{ site.github.url }}/cprice/assets/t-d3fc/man.gif"></a></p>
-<p style="text-align:center"><a href="https://t.d3fc.io/status/693101547396452353"><img src="{{ site.github.url }}/cprice/assets/t-d3fc/moire.gif"></a></p>
+<p style="text-align:center"><a href="https://t.d3fc.io/status/694572223596761088"><img src="{{ site.baseurl }}/cprice/assets/t-d3fc/helix.gif"></a></p>
+<p style="text-align:center"><a href="https://t.d3fc.io/status/695490817863987201"><img src="{{ site.baseurl }}/cprice/assets/t-d3fc/jfire.gif"></a></p>
+<p style="text-align:center"><a href="https://t.d3fc.io/status/695201842968543232"><img src="{{ site.baseurl }}/cprice/assets/t-d3fc/man.gif"></a></p>
+<p style="text-align:center"><a href="https://t.d3fc.io/status/693101547396452353"><img src="{{ site.baseurl }}/cprice/assets/t-d3fc/moire.gif"></a></p>

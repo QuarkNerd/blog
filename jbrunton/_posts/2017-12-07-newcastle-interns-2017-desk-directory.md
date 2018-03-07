@@ -18,21 +18,21 @@ categories:
 
 As interns at the Newcastle office we were tasked with creating an interactive desk directory to allow new employees to better acquaint themselves with their building and colleagues, with the speculative goal of replacing the company-wide internal phone directory. The original brief specified we should present a graphical view of the office layout generated from an existing office plan stored in Google Sheets.
 
-![Initial concept as presented by project brief]({{ site.github.url }}/jbrunton/assets/OriginalBrief.png "Initial concept as presented by project brief")
+![Initial concept as presented by project brief]({{ site.baseurl }}/jbrunton/assets/OriginalBrief.png "Initial concept as presented by project brief")
 
 The project brief required the data to come from Google Sheets so we had to create a schema for the source spreadsheet. We decided that the cell colour would define the type of data that the cell represents (Desks, Walls, Rooms, etc.) as it would make the different data types visually clear in the spreadsheet, reducing the chance of formatting errors. The schema was designed to be usable both by the people editing the sheets and by the spreadsheet parser. Only relatively minor changes were needed to the established office plan sheets.
 
-![Formatted Google Sheet following schema]({{ site.github.url }}/jbrunton/assets/SpreadsheetExample.png "Formatted Google Sheet following schema")
+![Formatted Google Sheet following schema]({{ site.baseurl }}/jbrunton/assets/SpreadsheetExample.png "Formatted Google Sheet following schema")
 
 In contrast to the initial mockup which displayed employee details such as names, photographs, or phone extensions directly on the desk plan, we made a decision early on in the development process to use a sidebar for this information. This made the desk plans more compact, and more importantly better supported the use-case of finding user details across offices, a flow likely to be common if our app replaced the existing phone directory.
 
 By the end of the project we had successfully created a graphical desk planner with animated dragging and zooming capabilities, support for multiple offices, and the ability to display a variety of different office landmarks.
 
-![Desk planner interface]({{ site.github.url }}/jbrunton/assets/CensoredDeskPlan.png "Desk planner interface")
+![Desk planner interface]({{ site.baseurl }}/jbrunton/assets/CensoredDeskPlan.png "Desk planner interface")
 
 We also felt strongly that since formatting errors were likely (due to the Google Sheets backend), we needed good support for error handling. Because of this, we designed the sheet parser to track any errors it found (such as incorrect usernames or missing data) and send specific cell references to the frontend so an administrator would be able to easily locate the errors in the spreadsheets.
 
-![Admin page to show errors in the spreadsheets]({{ site.github.url }}/jbrunton/assets/AdminScreen.png "Admin page to show errors in the spreadsheets")
+![Admin page to show errors in the spreadsheets]({{ site.baseurl }}/jbrunton/assets/AdminScreen.png "Admin page to show errors in the spreadsheets")
 
 
 ## Which technologies did we use?
@@ -48,7 +48,7 @@ For the next several weeks after the training, we split the workload so that one
 
 In order to deploy the components of our app, we wrote a docker compose file which built our code from a fresh git clone and used a reverse proxy to run the backend and frontend on the same URL. When it was time to launch, we copied over the required credentials and set our app running on an internal Ubuntu VM.
 
-![The architecture of the app, at the time of deployment]({{ site.github.url }}/jbrunton/assets/Architecture.png "The architecture of the app, at the time of deployment")
+![The architecture of the app, at the time of deployment]({{ site.baseurl }}/jbrunton/assets/Architecture.png "The architecture of the app, at the time of deployment")
 
 
 ## Real world experience

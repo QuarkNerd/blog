@@ -12,7 +12,7 @@ categories:
 layout: default_post
 ---
 
-<img src="{{ site.github.url }}/rhamilton/assets/gocode.png" alt="title image" title="title image"/>
+<img src="{{ site.baseurl }}/rhamilton/assets/gocode.png" alt="title image" title="title image"/>
 
 ## Learning Go
 I started learning Go in March 2016. I felt like I had reached a point with software testing where I would not be able to improve unless I started really putting more effort into my coding skills. I had previously written a bit of test automation in Python but I was seeing and reading lots of cool things about Go. I had heard that Go was 25 times faster than Python and I also really liked the [Go song](https://www.youtube.com/watch?v=LJvEIjRBSDA).

@@ -3,17 +3,20 @@ author: ceberhardt
 title: Interactive and Responsive Small Multiples with D3
 layout: default_post
 categories:
-  - D3
-  - charts
+  - Tech
 image: ceberhardt/assets/small-multiples/small-multiples.png
-summary: Small multiples repeat the same basic chart, typically with the same axes, to display different slices of a dataset. They are an excellent way of showing rich multi-dimensional data, without becoming a dense mess of lines. This post looks at how to implement small multiples with D3 and d3fc.
+summary: >-
+  Small multiples repeat the same basic chart, typically with the same axes, to
+  display different slices of a dataset. They are an excellent way of showing
+  rich multi-dimensional data, without becoming a dense mess of lines. This post
+  looks at how to implement small multiples with D3 and d3fc.
 ---
 
 Small multiples repeat the same basic chart, typically with the same axes, to display different slices of a dataset. They are an excellent way of showing rich multi-dimensional data, without becoming a dense mess of lines. They are also one of my favourite charts!
 
 The repetitive nature of small multiples makes them highly suited to rendering with D3. This blog post describes the process of building the following visualisation:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/small-multiples/small-multiples.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/small-multiples/small-multiples.png" />
 
 (View the [interactive version](https://bl.ocks.org/ColinEberhardt/3c780088c363d1515403f50a87a87121))
 
@@ -118,7 +121,7 @@ d3.select('#small-multiples')
   .call(chart);
 ~~~
 
-<img src="{{ site.github.url }}/ceberhardt/assets/small-multiples/basic-chart.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/small-multiples/basic-chart.png" />
 
 (View the [source code for this chart](http://bl.ocks.org/ColinEberhardt/9b8b198a81e749c5ab8b1e06b455db61))
 
@@ -146,7 +149,7 @@ const chart = fc.chartSvgCartesian()
 
 The chart now renders the data for all the categories ... and is a bit of a mess:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/small-multiples/repeat-series.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/small-multiples/repeat-series.png" />
 
 (View the [source code for this chart](https://bl.ocks.org/ColinEberhardt/79239a40a94cbc65efbc374f21e22954))
 
@@ -209,7 +212,7 @@ If you inspect the rendered you'll notice that the cartesian chart component use
 
 With these changes, we now have a single small multiple:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/small-multiples/small-multiple.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/small-multiples/small-multiple.png" />
 
 (View the [source code for this chart](https://bl.ocks.org/ColinEberhardt/21cd8d6533df723694796948a14b4da1))
 
@@ -238,7 +241,7 @@ With a small tweak to the styling:
 
 We now have a small multiples visualisation:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/small-multiples/basic-multiples.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/small-multiples/basic-multiples.png" />
 
 (View the [source code for this chart](https://bl.ocks.org/ColinEberhardt/5f0c84f0ae23f87e8c9a4c81d1aabd65))
 
@@ -299,7 +302,7 @@ Notice that the mapping function is now a little more complex, with the point se
 
 With these changes each chart now has a non-interactive (and somewhat useless) trackball:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/small-multiples/trackball.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/small-multiples/trackball.png" />
 
 (View the [source code for this chart](https://bl.ocks.org/ColinEberhardt/a0334f2553e1a3dba53fb0a048e2758f))
 
@@ -368,7 +371,7 @@ const pointer = fc.pointer()
 
 With this in place the trackball is now interactive and highlights the value for each series:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/small-multiples/small-multiples.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/small-multiples/small-multiples.png" />
 
 (View the [source code for this chart](https://bl.ocks.org/ColinEberhardt/f70c7de43bb91fb7fc7d5bbc3e46a134))
 

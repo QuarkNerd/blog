@@ -1,0 +1,20 @@
+@import "blog-external";
+
+.category-list {
+    a {
+        font-weight: $font-regular;
+    }
+
+    li {
+    	margin: .4rem 0;
+
+    	a {
+    		font-weight: $font-light;
+    	}
+    }
+
+  a:hover {
+    color: $black;
+    border-bottom: 3px solid $turquoise;
+  }
+}

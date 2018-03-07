@@ -1,12 +1,12 @@
 ---
 author: nowen
 title: Creating semantic components in Angular and React
-summary: "Using two of the currently most popular web frameworks I'll demonstrate how to create semantic looking code."
+summary: >-
+  Using two of the currently most popular web frameworks I'll demonstrate how to
+  create semantic looking code.
 layout: default_post
 categories:
-  - HTML5
-  - JavaScript
-  - Web
+  - Tech
 ---
 
 This post is to compare, what I would say are, the two currently most popular web front-end frameworks: [React](https://facebook.github.io/react/) and [Angular](https://angular.io/).
@@ -204,7 +204,7 @@ And if we now apply some styling:
 
 we can see the final result.
 
-<img src="{{ site.github.url }}/nowen/assets/semantic-components/semantic-components-page-react.jpg" alt="React page" />
+<img src="{{ site.baseurl }}/nowen/assets/semantic-components/semantic-components-page-react.jpg" alt="React page" />
 
 ## Angular
 
@@ -274,7 +274,7 @@ In both of these components we demonstrate multiple transclusion -- a fancy way 
 
 Wrapping this all up with the same stylesheet as before yields:
 
-<img src="{{ site.github.url }}/nowen/assets/semantic-components/semantic-components-page-angular2.jpg" alt="Angular page" />
+<img src="{{ site.baseurl }}/nowen/assets/semantic-components/semantic-components-page-angular2.jpg" alt="Angular page" />
 
 As we can see this page is identical in layout when rendered.
 

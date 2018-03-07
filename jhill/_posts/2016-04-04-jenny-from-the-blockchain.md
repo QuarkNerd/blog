@@ -9,6 +9,8 @@ tags:
   - Blockchain
   - Scottcoin
 title-short: Jenny from the blockchain
+categories:
+  - Tech
 ---
 Over the past several years there has been a lot of talk about cryptocurrencies, such as bitcoin, and the blockchain technology that underpins them. However it can be difficult to understand how the blockchain actually works in practice, and why it is such a clever method for currency exchange. Two of our graduates are currently developing our own cryptocurrency for use within Scott Logic, as an attempt to better understand the practical uses of the blockchain. In this blog post, we aim to explain the inner workings of the blockchain and help people to understand how it manages to keep transactions both secure and anonymous. This post will go into the low level algorithms of blockchain and provide verified examples alongside each algorithm; this post is not for the faint of heart!
 
@@ -26,7 +28,7 @@ Let us first go through some common terminology which is useful to know when rea
 * A node is a server that is able to relay information between other peers in the network
 * A miner is someone who works to find the hash of the next block
 
-<img src="{{ site.github.url }}/jhill/assets/blockchain_connection_between_block_headers.png" alt="connections between blocks in the blockchain" title="connections between blocks in the blockchain"/>
+<img src="{{ site.baseurl }}/jhill/assets/blockchain_connection_between_block_headers.png" alt="connections between blocks in the blockchain" title="connections between blocks in the blockchain"/>
 
 The blockchain, as the name suggests, is a chain of individual blocks, where each block consists of a header and a body. The main body is a list of all transactions which occurred between the creation of a given block, and its predecessor in the chain. The header of a block contains identification information used to prove the authenticity of both the block and the transactions contained. Blocks are being added to the chain all the time at an average rate of one every ten minutes. Each time a block is created, whoever created it is paid a reward, currently standing at 25BTC (10809 USD). So what is stopping everyone from minting money? Well firstly everyone in the bitcoin network (5000 major registered nodes) are racing each other to mine the next block. Secondly, in order to claim a block, you need to solve a very difficult maths problem, known as the proof of work (more on this later). This problem would take an individual miner working on an average spec PC thousands (if not millions) of years to compute. Before we explain how the maths puzzle is solved, we need to know what the six fields which comprise the header are, how they relate to the rest of the block and how they are used to create the block hash.
 
@@ -367,7 +369,7 @@ When a new block is being mined, the transactions it will contain have been lock
 
 *(Angela) Merkle Root Diagram*
 
-<img src="{{ site.github.url }}/jhill/assets/blockchain_merkle_root_comparison.png" alt="merkle root composition" title="merkleroot composition"/>
+<img src="{{ site.baseurl }}/jhill/assets/blockchain_merkle_root_comparison.png" alt="merkle root composition" title="merkleroot composition"/>
 
 ##In the End (ian)
 

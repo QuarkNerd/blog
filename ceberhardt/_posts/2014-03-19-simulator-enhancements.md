@@ -12,7 +12,7 @@ disqus-id: /2014/03/19/simulator-enhancements.html
 
 This blog post looks at how to simulate accelerometer and location data so that you can test iOS apps without the need for a physical device. The simulated data is provided by an interactive UI which allows you to rotate the phone and mark paths on a map which can then be replayed.
 
-<img src="{{ site.github.url }}/ceberhardt/assets/SimulatorEnhancements.jpg"/>
+<img src="{{ site.baseurl }}/ceberhardt/assets/SimulatorEnhancements.jpg"/>
 
 The drives for each of my computers are littered with half-finished concepts and experiments, moments of inspiration that I either tire of or decide are of no real value. However, more often than not, these ideas are interrupted by 'real' work and are never returned to. This is why I quite like travelling - the hours spent in airports and on aeroplanes can be some of my most productive. The lack of internet and other distractions means that I tend to finish a project rather than start ten new ones! 
 
@@ -22,7 +22,7 @@ If you have written an app that uses accelerometer input, you will no doubt have
 
 With location, Xcode does allow you to specify the location via a menu option:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/xcodeLocationSelector.png"/>
+<img src="{{ site.baseurl }}/ceberhardt/assets/xcodeLocationSelector.png"/>
 
 This is useful for apps that perform spacial searches, e.g. find restaurants in my area, but if you are writing an app that relies on location changes, such as a running app, this isn't much good.
 
@@ -136,7 +136,7 @@ I'll look at where the simulated location data comes from shortly. In the meanti
 
 Inspecting the stack trace I spotted that an internal method,  `onClientEventLocation` was being called just before the delegate method:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/StackTraceLocation.png"/>
+<img src="{{ site.baseurl }}/ceberhardt/assets/StackTraceLocation.png"/>
 
 Suppressing this behaviour is as simple as swizzling the method, but without calling the original implementation:
 
@@ -237,13 +237,13 @@ The web UI uses [Knockout](http://knockoutjs.com/) to create a model of the simu
 
 The accelerometer view is a very simple rendering of a squashed cube using [three.js](http://threejs.org/):
 
-<img src="{{ site.github.url }}/ceberhardt/assets/AccelerometerSimulation.png"/>
+<img src="{{ site.baseurl }}/ceberhardt/assets/AccelerometerSimulation.png"/>
 
 I must admit, 3D graphics is not my strong-point! The code is a pretty simple adaptation of one of the examples provided by the [awesome mrdoob](http://mrdoob.github.io/three.js/examples/canvas_geometry_cube.html).
 
 The location view uses a Google map, with the JavaScript API being used to record and replay paths:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/LocationSimulation.png"/>
+<img src="{{ site.baseurl }}/ceberhardt/assets/LocationSimulation.png"/>
 
 Both of these views update the underlying model, with the updated data being sent to the node back-end. The iOS simulator, which is polling the same node app, picks up these changes. Somewhat brute-force, but simple and effective!
 

@@ -3,12 +3,11 @@ author: cprice
 layout: default_post
 title: Using d3-force to control a massive tiny display
 categories:
-  - Charting
-  - D3
-  - JavaScript
-  - Web
-  - Events
-summary: "This post describes my entry into one of the hack events at JSConf.IS which challenged us to take control of the Northern Lights. It hopefully also serves as a nice introduction to creating visualisations with d3-force."
+  - Tech
+summary: >-
+  This post describes my entry into one of the hack events at JSConf.IS which
+  challenged us to take control of the Northern Lights. It hopefully also serves
+  as a nice introduction to creating visualisations with d3-force.
 ---
 
 I recently attended the very first [JSConf.IS](https://jsconf.is) in Reykjavik. It was a great conference and I can highly recommend it for next year. I've already blogged about [my highlights](highlights-from-jsconfis.html) so I thought I'd cover some of the other festivities.
@@ -19,7 +18,7 @@ On the Thursday evening the organising team ran two hack events. The first ran a
 
 Not that hard you might think. But you'd be wrong! The big twist was for competitors to code up their creations without access to Google... and... Without being able to preview their work until the time was up.
 
-<img src="{{ site.github.url }}/cprice/assets/northern-lights/street-countdown.jpg" alt="Street Countdown" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/cprice/assets/northern-lights/street-countdown.jpg" alt="Street Countdown" style="display: block; margin: auto;"/>
 
 Whilst I'd not heard of this type of event before, it turns out the same concept has been running for a little while under the name [Code in the Dark](http://codeinthedark.com/).
 
@@ -29,7 +28,7 @@ As I don't know my main axis from my cross axis, I bowed out of this event. Howe
 
 The venue for both events was the Nordurljos or Northern Lights room inside Harpa. So named because of the custom lighting installation which covers the walls of the room and is normally used to provide a nice backdrop for music recitals. However, for one night only, the organisers created a JavaScript playground which allowed the creation of room-scale visualisations!
 
-<img src="{{ site.github.url }}/cprice/assets/northern-lights/room.jpg" alt="Nordurljos/Northern Lights, Harpa - Meet in Reykjavik" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/cprice/assets/northern-lights/room.jpg" alt="Nordurljos/Northern Lights, Harpa - Meet in Reykjavik" style="display: block; margin: auto;"/>
 <p style="text-align: center; font-size: smaller">Eypor Arnason - Nordurljos or Northern Lights, Harpa - <a href="http://www.meetinreykjavik.is/ourservices/mediacentre/images/viewall">Meet in Reykjavik</a></p>
 
 I didn't find out any of the specifics of how it was all plumbed together but here's my best guess -
@@ -40,7 +39,7 @@ I didn't find out any of the specifics of how it was all plumbed together but he
 
 Here it is again but this time exercising the full gamut of my design skills (which should go some way to explaining why I didn't create my visualisation from scratch...) -
 
-<img src="{{ site.github.url }}/cprice/assets/northern-lights/setup.jpg" alt="Northern Lights Setup" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/cprice/assets/northern-lights/setup.jpg" alt="Northern Lights Setup" style="display: block; margin: auto;"/>
 
 The outside of Harpa actually has a very similar lighting setup (which looks [stunning](https://twitter.com/Extreme_Iceland/status/767856543660380161) at night). Now it might just be a vicious rumour but apparently the original intention was to allow for these to be controlled... but this was blocked by the building's architect.
 
@@ -55,7 +54,7 @@ Whilst it's rough around the edges I think it captures the essence of the origin
 
 The `lights` array corresponds to the physical lights as follows -
 
-<img src="{{ site.github.url }}/cprice/assets/northern-lights/numbering.jpg" alt="Northern Lights Numbering" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/cprice/assets/northern-lights/numbering.jpg" alt="Northern Lights Numbering" style="display: block; margin: auto;"/>
 
 The default implementation of `update` sets all of the `lights` to have the same `color`. The colour is derived from the current `time` and is defined in [HSL notation](https://developer.mozilla.org/en/docs/Web/CSS/color_value#hsl()) to allow smooth transitioning through the spectrum.
 
@@ -67,7 +66,7 @@ At its core is the [`forceSimulation`](https://github.com/d3/d3-force#forceSimul
 
 In my head I settled on creating a simulation something like -
 
-<img src="{{ site.github.url }}/cprice/assets/northern-lights/flowchart.jpg" alt="Northern Lights Flowchart" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/cprice/assets/northern-lights/flowchart.jpg" alt="Northern Lights Flowchart" style="display: block; margin: auto;"/>
 
 Which conveniently maps onto the following primitives -
 
@@ -109,7 +108,7 @@ If you're looking carefully you'll probably have spotted that the very first thi
 
 The only missing piece of the puzzle is to render the simulation onto the lights. Currently we have the simulation assigning each node an `x`/`y` position, somehow we need to map those positions on to the array of lights detailed above. On reflection, in D3 parlance, we're actually just creating the `xScale` and `yScale` for the visualisation.
 
-<img src="{{ site.github.url }}/cprice/assets/northern-lights/ring.jpg" alt="Northern Lights Ring" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/cprice/assets/northern-lights/ring.jpg" alt="Northern Lights Ring" style="display: block; margin: auto;"/>
 
 I decided to use the top row of lights to represent all positive `y` values, the bottom row of lights to represent all negative `y` values and, as I was left with zero, I used both to represent it (why not?!). In the `x` direction, I simply rounded the number to an integer than wrapped the domain from the last column back to the first column.
 

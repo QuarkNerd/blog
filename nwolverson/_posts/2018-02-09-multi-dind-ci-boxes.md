@@ -7,6 +7,8 @@ summary: >
   With an objective of building some docker images on cloud CI infrastructure I introduce one build-template sledgehammer I've
   been using recently, multi-stage docker builds running in docker-in-docker host container, with examples of AWS CodeBuild and
   Gitlab CI, and musing on other options.
+categories:
+  - Tech
 ---
 
 With an objective of building some docker images on cloud CI infrastructure, I'm going to introduce one build-template sledgehammer I've
@@ -41,7 +43,7 @@ So again repeating the above diagram in this new world, we have:
 
 ![dind with tools]({{site.baseurl}}/nwolverson/assets/msdind/dind-with-tools.svg)
 
-if we want to build a base image with our chosen tools, or 
+if we want to build a base image with our chosen tools, or
 
 ![dind installing tools]({{site.baseurl}}/nwolverson/assets/msdind/dind-installing-tools.svg)
 
@@ -145,7 +147,7 @@ For me the first place that download-the-world hits is case 2, so lets consider 
 
 What we can do instead is leverage Docker's layer caching instead. For every layer in a docker image which modifies the file system, the resulting layer is cached in the local registry, and reused if there are no changes (though it's crucial to understand for a `RUN` that modifies the file system, the cache is used so long as the command doesn't change, even if the results would for some reason have been different).
 
-Unfortunately the Dockerfile I showed above has a big flaw, the `COPY . .` line means that as soon as any file has changed in the project, the cache will be discarded as the layer has changed, leading to the `RUN cargo build --release` being executed again. What we must do is split out the process of pulling in dependencies from the build itself, so that we can cache the former. 
+Unfortunately the Dockerfile I showed above has a big flaw, the `COPY . .` line means that as soon as any file has changed in the project, the cache will be discarded as the layer has changed, leading to the `RUN cargo build --release` being executed again. What we must do is split out the process of pulling in dependencies from the build itself, so that we can cache the former.
 
 Step 1 is to copy only the manifest that specifies our dependencies, in the case of Rust `Cargo.toml`, and pull in (and build) those. `cargo` won't build an empty project but we can trick it:
 

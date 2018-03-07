@@ -1,7 +1,0 @@
-#!/bin/bash
-
-grep 'title: ' */_posts/*.html | cut -d ':' -f 2- | sort | uniq -c | sort -n | egrep -v '^      1 ' | sed -r 's/^      [0-9]+ //g' > duptitles.txt
-
-cat duptitles.txt | while read line ; do echo ;  echo $line ; find */_posts/ -exec grep -q "$line" {} \; -and -printf "%s %p\n"  ; done
-
-rm duptitles.txt

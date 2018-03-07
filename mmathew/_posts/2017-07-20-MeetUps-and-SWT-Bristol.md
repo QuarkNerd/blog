@@ -5,9 +5,8 @@ layout: default_post
 summary: "This blog describes the MeetUp trend in Testing, attending and hosting them"
 categories:
   - Test
-  - Events
 ---
-![MyImage]({{ site.github.url }}/mmathew/assets/tea.png "SWT")
+![MyImage]({{ site.baseurl }}/mmathew/assets/tea.png "SWT")
 
 A meetup is very similar to having a chat with friends over a cup of tea with biscuits or beer with pizza, although the latter seems to be the beverage of choice! I first heard of a test meetup when I went to the Assurance Leadership Forum (ALF) with a fellow test enthusiast that I had the pleasure of making the acquaintance of; which was coincidentally at a pub so beer was aplenty. At that point, I didn’t know that there was an organisation also named Meetup! 
 [Meetup](https://www.meetup.com/about/) brings people together in thousands of cities to do more of what they want to do in life. It is organised around one simple idea: when we get together and do the things that matter to us, we’re at our best. And that’s what Meetup does. It brings people together to do, explore, teach and learn the things that help them come alive.
@@ -29,7 +28,7 @@ There were 3 talks at SWT, 2 lightening talks by Steve Loughran and Kevlin Henne
 Steve’s talk was about how Mocking can become a maintenance nightmare with code changes in the context of an enterprise application. Heads nodding in different directions, I’m sure this was a topic of discussions during post session networking. He explained how his current work on Hadoop has influenced his opinion of mocking, more on his [blog](http://steveloughran.blogspot.co.uk/2017/04/mocking-enemy-of-maintenance.html).
 
 ### <a name="talk2"></a> Kevlin Henney: "The Rule of Three"
-![MyImage]({{ site.github.url }}/mmathew/assets/Kevlin_SWT.jpg "Kevlin")
+![MyImage]({{ site.baseurl }}/mmathew/assets/Kevlin_SWT.jpg "Kevlin")
 
 This was a good talk from Kevlin referencing Gerald Weinberg – where he quotes “nothing is more dangerous than an idea, if you only have one!”. If you can’t think of 3 different interpretations, then you haven’t thought enough. A very powerful thinking method transcending SDLC methodologies. [Here](https://www.youtube.com/watch?v=buEB5zLAHl8) is the full version of his lightening talk on YouTube.
 Tweets on this: 
@@ -38,7 +37,7 @@ Tweets on this:
 
 
 ### <a name="talk3"></a> Rosie Hamilton - “Discovering Logic in Testing”
-![MyImage]({{ site.github.url }}/mmathew/assets/Rosie_SWT.png "Rosie")
+![MyImage]({{ site.baseurl }}/mmathew/assets/Rosie_SWT.png "Rosie")
 
 I really enjoyed this talk and I’m not just saying this because Rosie is a fellow Scott Logician! She describes the types of logical reasoning as defined by expert Logicians, and explains how and which ones are more relevant for a tester.
 

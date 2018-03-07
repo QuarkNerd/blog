@@ -33,7 +33,7 @@ In this post I’ll go over what the MEAN stack is and how easy it is to setup a
 <br>
 <br>
 
-<h2 style="text-indent: -9999px; background-image:url('{{ site.github.url }}/soneill/assets/2014-11-21-introducing-the-mean-stack/what-header.png'); height:265px; background-repeat: no-repeat; background-position: center;" class="aligncenter">What is MEAN.IO</h2>
+<h2 style="text-indent: -9999px; background-image:url('{{ site.baseurl }}/soneill/assets/2014-11-21-introducing-the-mean-stack/what-header.png'); height:265px; background-repeat: no-repeat; background-position: center;" class="aligncenter">What is MEAN.IO</h2>
 
 
 Mean.io is a full stack, Javascript, [web application framework](http://en.wikipedia.org/wiki/Web_application_framework). Full stack means that we're involved in each level of the application, so that's database + server + front end + UI. There are other stacks but MEAN.IO stands out in it's use of Javascript at every level. This means that you can reduce context switching, use a common data format and common tools. The name mean.io is an acronym of its constituent parts:
@@ -48,32 +48,32 @@ Let’s take a quick look at each technology and why it’s in the stack. Althou
 <br>
 <br>
 
-<img title="mongodb" class="alignleft" src="{{ site.github.url }}/soneill/assets/2014-11-21-introducing-the-mean-stack/mongologo.svg"/>
+<img title="mongodb" class="alignleft" src="{{ site.baseurl }}/soneill/assets/2014-11-21-introducing-the-mean-stack/mongologo.svg"/>
 MongoDB is a NoSQL Database. It's designed for storing non-relational data. It's included in the stack because it's queried using JSON and can persist objects as serialized JSON, making it ideal for Javascript clients. It's fast, cheap and flexible, suited for simpler applications. [more info](http://www.mongodb.org/)
 
 <br>
 <br>
 
-<img title="node" class="alignleft" src="{{ site.github.url }}/soneill/assets/2014-11-21-introducing-the-mean-stack/nodelogo.svg"/>
+<img title="node" class="alignleft" src="{{ site.baseurl }}/soneill/assets/2014-11-21-introducing-the-mean-stack/nodelogo.svg"/>
 Node is a runtime environment for server-side applications. Node is useful as it allows the server to push to the client over websockets, helping to create responsive web applications. It was included in the stack to as it provides the server-side processing and it's applications are written in Javascript. It also brings npm, a package popular package manager, to the party. [more info](http://nodejs.org/)
 
 <br>
 <br>
 
-<img title="express" class="alignleft" src="{{ site.github.url }}/soneill/assets/2014-11-21-introducing-the-mean-stack/express.png"/>
+<img title="express" class="alignleft" src="{{ site.baseurl }}/soneill/assets/2014-11-21-introducing-the-mean-stack/express.png"/>
 Express is a lightweight Node.js web application framework. Node provides a http module by default but it's very low level. Express wraps this up to provide simple get/post methods and other routing. In the stack, it glues everything together... and it's also written in Javascript (Are you seeing the theme yet?).[more info](http://expressjs.com/)
 
 <br>
 <br>
 
-<img title="angular" class="alignleft" src="{{ site.github.url }}/soneill/assets/2014-11-21-introducing-the-mean-stack/angularlogo.svg"/>
+<img title="angular" class="alignleft" src="{{ site.baseurl }}/soneill/assets/2014-11-21-introducing-the-mean-stack/angularlogo.svg"/>
 AngularJS is the front end, UI and client side logic of the stack. The application's structure is defined in HTML and extended by AngularJS directives. Control logic is nicely separated into Controllers which are easy to re-use and organize. Angular brings a lot to bear in reducing complexity but at the cost of less control. [more info](https://angularjs.org/)
 
 <br>
 <br>
 <br>
 
-<h2 style="text-indent: -9999px; background-image:url('{{ site.github.url }}/soneill/assets/2014-11-21-introducing-the-mean-stack/install-header.png'); height:206px; background-repeat: no-repeat; background-position: center;" class="aligncenter">Install MEAN.IO</h2>
+<h2 style="text-indent: -9999px; background-image:url('{{ site.baseurl }}/soneill/assets/2014-11-21-introducing-the-mean-stack/install-header.png'); height:206px; background-repeat: no-repeat; background-position: center;" class="aligncenter">Install MEAN.IO</h2>
 
 ### Installing dependencies
 
@@ -147,7 +147,7 @@ You'll notice the similarities between the front end and back end. You might als
 <br>
 <br>
 
-<h2 style="text-indent: -9999px; background-image:url('{{ site.github.url }}/soneill/assets/2014-11-21-introducing-the-mean-stack/hello-header.png'); height:243px; background-repeat: no-repeat; background-position: center;" class="aligncenter">Hello, World! In MEAN.IO</h2>
+<h2 style="text-indent: -9999px; background-image:url('{{ site.baseurl }}/soneill/assets/2014-11-21-introducing-the-mean-stack/hello-header.png'); height:243px; background-repeat: no-repeat; background-position: center;" class="aligncenter">Hello, World! In MEAN.IO</h2>
 
 With all this default structure and code, where do we jump in and start coding? Let's be original and create a website that displays 'Hello World'.
 
@@ -181,7 +181,7 @@ If you got lost or stuck take a look at the official [MEAN.IO guide](http://lear
 <br>
 <br>
 
-<h2 style="text-indent: -9999px; background-image:url('{{ site.github.url }}/soneill/assets/2014-11-21-introducing-the-mean-stack/develop-header.png'); height:200px" class="aligncenter">Developing the mean stack</h2>
+<h2 style="text-indent: -9999px; background-image:url('{{ site.baseurl }}/soneill/assets/2014-11-21-introducing-the-mean-stack/develop-header.png'); height:200px" class="aligncenter">Developing the mean stack</h2>
 
 The default app involves creating articles which only members can see. It also shows every article to every user. Let's add some extra functionality to the default app that shows us the structure of the stack. Here’s our token [user story](https://en.wikipedia.org/wiki/User_story) to rectify that.
 

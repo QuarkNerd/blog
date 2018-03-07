@@ -2,14 +2,14 @@
 id: 491
 author: ceberhardt
 title: Declarative Dependency Property Definition with T4 + DTE
-oldlink: "http://www.scottlogic.co.uk/blog/colin/2009/08/declarative-dependency-property-definition-with-t4-dte/"
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2009/08/declarative-dependency-property-definition-with-t4-dte/
 tags:
   - dependency properties
   - t4
   - codeproject
 categories:
-  - WPF
-  - C#
+  - Tech
 layout: default_post
 source: wordpress
 disqus-id: /blog/colin/2009/08/declarative-dependency-property-definition-with-t4-dte/
@@ -271,7 +271,7 @@ public partial class RangeControl : UserControl
 <p>When using this approach the workflow is quite simple, create your class, add the DependencyPropertyDecl attributes, then execute the code generation template. The output is an accompanying partial class which contains the DP code itself, plus partial methods which can be implemented in order to perform logic when the property changes.</p>
 <p>I have not-yet completely ported my XML-based DP generation templates to this new declarative approach, for example the DependencyPropertyDecl attribute needs to also indicate property meta-data, whether a property is attached etc ... However, I thought I would share my ideas in case I didn't get the time (or urge) to make a complete  implementation. </p>
 <p>I feel that this approach has great potential far beyond DP code generation, simple examples could include attributes that indicate that a T4 template should generate a 'generic' INotifyPropertyChanged or IEditableObject implementation, and of course, the more complex application-specific possibilities are endless. </p>
-<p>You can download an example project containing the RangeControl above: <a href='{{ site.github.url }}/archive/2009/08/WpfDeclarativeDpCodeGen1.zip'>WpfDeclarativeDpCodeGen.zip</a></p>
+<p>You can download an example project containing the RangeControl above: <a href='{{ site.baseurl }}/archive/2009/08/WpfDeclarativeDpCodeGen1.zip'>WpfDeclarativeDpCodeGen.zip</a></p>
 <p>Try adding new DependencyPropertyDecl attributes, and re-run the code generation template (right click CodeGen/GeneratedObjects.tt -> Run Custom Tool), and inspect the generated output - CodeGen/GeneratedObjects.cs.</p>
 <p>Finally, thanks to Daniel Vaughan for the inspiration.</p>
 <p>Regards,Colin E.</p>

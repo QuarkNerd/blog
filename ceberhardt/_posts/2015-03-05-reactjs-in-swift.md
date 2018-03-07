@@ -2,11 +2,12 @@
 author: ceberhardt
 title: Implementing React.js in Swift
 layout: default_post
-summary: "This blog post explores the novel approach taken by the React.js team, where the UI is expressed as a function of the current application state, and re-implements it with Swift."
+summary: >-
+  This blog post explores the novel approach taken by the React.js team, where
+  the UI is expressed as a function of the current application state, and
+  re-implements it with Swift.
 categories:
-  - Swift
-  - iOS
-  - Mobile
+  - Tech
 ---
 
 This blog post explores the novel approach taken by the [React.js](http://facebook.github.io/react/) team, where the UI is expressed as a function of the current application state, and re-implements it with Swift.
@@ -173,7 +174,7 @@ The above is pretty self explanatory, the switch statement is used to determine 
 
 Wiring up the renderer within a view controller results in the following UI:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/ReactSwift/ReactiveTime.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/ReactSwift/ReactiveTime.png" />
 
 I'd forgive you for being slightly unimpressed at this point. I've simply taken a variable, which never changes, and constructed a UIKit view via some intermediate format.
 
@@ -224,7 +225,7 @@ NSTimer.scheduledTimerWithTimeInterval(0.02, target: self,
 
 This repeatedly tears down the UI then re-creates it. As a result the time now updates quite nicely:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/ReactSwift/timer.gif" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/ReactSwift/timer.gif" />
 
 If we ignore the rather glaring performance issues, this is a surprisingly elegant solution. There is no need to determine which UI components need to be updated based on the change of application state,removing the need for manual wire-up or bindings. Whilst this is a trivial example, it could be updated to render a much more complex UI with many dynamic parts.
 
@@ -293,7 +294,7 @@ struct Toolbar: ReactComponent {
 
 Here's the app in action:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/ReactSwift/CounterApp.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/ReactSwift/CounterApp.png" />
 
 In this more complex example you can see that the `CounterApp` render function makes use of the ReactView primitives as well as another component, `Toolbar`. Whilst `Toolbar` knows the current count, so that it can increment or decrement it, within this component it is a constant.
 
@@ -309,7 +310,7 @@ The previous example still feels a little trivial, how do you render a collectio
 
 The final example is a simple to-do list app:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/ReactSwift/ToDoApp.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/ReactSwift/ToDoApp.png" />
 
 The top-level component contains a mutable array of strings, and a variable which represents the current state of the text field at the top of the application:
 

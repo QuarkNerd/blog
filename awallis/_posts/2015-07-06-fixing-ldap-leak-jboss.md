@@ -14,7 +14,7 @@ Tomcat and Jetty web application containers provide factory-fitted workarounds, 
 Since I struggled to find anything online, I had to come up with my own workaround. I've described it in this post in 
 the hopes it may help someone else.
 
-<img src='{{ site.github.url }}/awallis/assets/fixing_permgen_leak.jpg' title="Fixing Leaks" alt="Firemen fixing a leak" />
+<img src='{{ site.baseurl }}/awallis/assets/fixing_permgen_leak.jpg' title="Fixing Leaks" alt="Firemen fixing a leak" />
 
 ## Leak Background
 

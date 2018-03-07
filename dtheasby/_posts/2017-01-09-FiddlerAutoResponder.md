@@ -32,21 +32,21 @@ https://api.spotify.com/v1/tracks/{id}
 With Fiddler up and running and setting `1xKHE01UMBq2j6FurzGoIB` as the track ID, I can use Postman to fire off a GET request to `https://api.spotify.com/v1/tracks/1xKHE01UMBq2j6FurzGoIB`
 and look for the result in Fiddler, it should look something like this(click to enlarge): 
 
-[![Fiddler Session List]({{ site.github.url }}/dtheasby/assets/fiddler/fiddlerSession.png)]({{ site.github.url }}/dtheasby/assets/fiddler/fiddlerSession.png)
+[![Fiddler Session List]({{ site.baseurl }}/dtheasby/assets/fiddler/fiddlerSession.png)]({{ site.baseurl }}/dtheasby/assets/fiddler/fiddlerSession.png)
 
 Clicking on the session row will allow you to inspect the request and response data. Clicking on JSON in the bottom right window will show you the JSON body that the API responded with (You may need to click “Response body is encoded. Click to Decode”), this will be the data that is manipulated in the mocked response. The first thing we need to do to manipulate this is get a local copy of it, you can do so by right clicking the session row and then Save -> Response -> Entire Response and saving this as a text file. You can open the file as is, or change the extension to .json and open it in a code editor. You can edit the body data in any way you wish as long as the headers remain the same and the Content-Length header matches the character count of the body once you’ve finished.
 
-[![Edited Response]({{ site.github.url }}/dtheasby/assets/fiddler/response.png)]({{ site.github.url }}/dtheasby/assets/fiddler/response.png)
+[![Edited Response]({{ site.baseurl }}/dtheasby/assets/fiddler/response.png)]({{ site.baseurl }}/dtheasby/assets/fiddler/response.png)
 
 With the response body edited to return the data you wish (and the extension returned to .txt if you changed it), we can now set up AutoResponder to use this file as a response. In Fiddler, click on the “AutoResponder” tab and either click on the session row created by the postman request above and then “Add Rule”, or drag and drop the session row into the rule window. This will add a rule to match that URL, with each rule having its own request and response options. By using the rule editor, you can choose the criteria by which it matches requests - this could be regex matching partial URLs, certain headers, or HTTP methods. By default the rule will match the exact URL, which will work for the moment as we only want a response for this particular URL and track ID.
 
-[![Auto Responder]({{ site.github.url}}/dtheasby/assets/fiddler/autoResponder.png)]({{ site.github.url}}/dtheasby/assets/fiddler/autoResponder.png)
+[![Auto Responder]({{ site.baseurl}}/dtheasby/assets/fiddler/autoResponder.png)]({{ site.baseurl}}/dtheasby/assets/fiddler/autoResponder.png)
 
 The response is set by using the second dropdown in the rule editor. There are multiple defaults such as 200 OK, 401 Unauthorized, or 404 Not Found, which are handy for testing your site against missing data or other responses. For now, we want to respond with the text file we edited earlier, so need to pick “Find a File” and choose the one we edited. Click Save and then “Enable Rules”. 
 
 Send the Postman request once again and observe the response body. It should match the body of the file we edited.
 
-[![Edited Response Session]({{ site.github.url }}/dtheasby/assets/fiddler/editedResponse.png)]({{ site.github.url }}/dtheasby/assets/fiddler/editedResponse.png)
+[![Edited Response Session]({{ site.baseurl }}/dtheasby/assets/fiddler/editedResponse.png)]({{ site.baseurl }}/dtheasby/assets/fiddler/editedResponse.png)
 
 ## Summary
 And that’s it. It’s a fairly simple technique but provides some very powerful testing options and hopefully this can now be applied across the sites that you need to test. The API call and response from the web app will appear in fiddler just like the Spotify request from Postman did. Overall, Fiddler is a great tool for throwing light on the less observable end of web app testing, and has become an essential tool in my web testing kit.

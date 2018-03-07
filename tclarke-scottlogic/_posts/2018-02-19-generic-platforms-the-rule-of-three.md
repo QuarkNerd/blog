@@ -3,9 +3,10 @@ published: true
 author: tclarke-scottlogic
 title: Generic Platforms - The Rule of Three
 layout: default_post
-categories:
 summary: >-
   When is it time to make something a generic re-usable class? And how do you manage the additional complexity of a generic solution? A potential solution lies in an incremental approach.
+categories:
+  - Tech
 ---
 
 In this post, I'm going to consider how you end up with unnecessarily complex systems, and how to avoid them. Let's consider the two most common examples of this issue.
@@ -48,7 +49,7 @@ The core principle of the Rule of Three is that you should limit genericisation 
 
 #### Pass One
 
-![Wuff]({{ site.github.url }}/tclarke-scottlogic/assets/doge.jpg)
+![Wuff]({{ site.baseurl }}/tclarke-scottlogic/assets/doge.jpg)
 
 You have been asked to do a `DogReport` class that produces individual reports about dogs. You suspect it will one day be extended to cover other animals or different types of reports, and your instinct is to try and make it able to handle them now.
 
@@ -70,7 +71,7 @@ Your product owner/client/user asked for `DogReport`s for a reason. They want th
 
 #### Pass Two
 
-![Mew]({{ site.github.url }}/tclarke-scottlogic/assets/kitteh.jpg)
+![Mew]({{ site.baseurl }}/tclarke-scottlogic/assets/kitteh.jpg)
 
 A Wild Tiddles has appeared! Your client now wants you to cover a second input type, with a very similar report (except now you have to cope with whiskers, litter boxes and hairballs as well).
 
@@ -100,7 +101,7 @@ So minimise your changes to existing code, and focus on the new input type exclu
 
 #### Pass Two-And-A-Bit
 
-![Dogs and Cats living together]({{ site.github.url }}/tclarke-scottlogic/assets/dogcat.jpg "AKA Dogs and Cats living together!")
+![Dogs and Cats living together]({{ site.baseurl }}/tclarke-scottlogic/assets/dogcat.jpg "AKA Dogs and Cats living together!")
 
 Now you have two separate classes, you will start to be able to gather and encode knowledge about their shared behaviour as enhancements start to roll in.
 
@@ -120,7 +121,7 @@ Obviously, the disadvantage of doing ad-hoc common code extraction is that you'r
 
 #### Pass Three
 
-![Ook]({{ site.github.url }}/tclarke-scottlogic/assets/monkeh.jpg)
+![Ook]({{ site.baseurl }}/tclarke-scottlogic/assets/monkeh.jpg)
 
 Okay, Banana Joe has turned up. *Now* is the time to look into proper generic design.
 

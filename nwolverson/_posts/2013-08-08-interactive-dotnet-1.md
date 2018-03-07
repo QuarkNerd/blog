@@ -4,12 +4,14 @@ title: Interactive.NET (1)
 tags:
   - blog
 categories:
-  - .NET
-  - C#
+  - Tech
 layout: default_post
 source: site
-summary: "In the first part of a series on running an interactive environment (REPL) on .NET, I talk a little about why you might want one, and cover the non-C# options."
-oldlink: "http://www.scottlogic.com/blog/2013/08/08/interactive-dotnet-1.html"
+summary: >-
+  In the first part of a series on running an interactive environment (REPL) on
+  .NET, I talk a little about why you might want one, and cover the non-C#
+  options.
+oldlink: 'http://www.scottlogic.com/blog/2013/08/08/interactive-dotnet-1.html'
 disqus-id: /2013/08/08/interactive-dotnet-1.html
 ---
 If you ever programmed in a functional language, a dynamic language like Python
@@ -19,7 +21,7 @@ I'm going to talk about options for running a REPL on .NET, and a little
 about why you might want one.
 
 I'll start with an overview of the non-C# options in this post, and finally get around to C#
-<a href="{{site.github.url}}/2013/08/15/interactive-dotnet-2.html">in part 2</a>. The
+<a href="{{site.baseurl}}/2013/08/15/interactive-dotnet-2.html">in part 2</a>. The
 collected source of the examples in this post/series is
 [available here](https://github.com/nwolverson/blog-interactivenet).
 
@@ -93,19 +95,19 @@ it now seems that IronPython is going strong but IronRuby is looking rather dead
 [IronPython](http://ironpython.net/) comes out of the box with "IronPython Console",
 the IronPython REPL in a console window:
 
-![IronPython Console screenshot]({{ site.github.url }}/nwolverson/assets/interactive.net/ipy-interactive.png)
+![IronPython Console screenshot]({{ site.baseurl }}/nwolverson/assets/interactive.net/ipy-interactive.png)
 
 This comes with standard command history etc, and you could run it in a better (non default) console,
 but to be frank it's a little painful. A better experience is in Visual Studio 2010 or 2012 with
 [Python tools](http://pytools.codeplex.com/). This gives you standard IDE features, syntax highlighting,
 and even better IntelliSense for both standard python libraries and .NET libraries.
 
-![Python Tools intellisense screenshot]({{ site.github.url }}/nwolverson/assets/interactive.net/python-intellisense.png)
+![Python Tools intellisense screenshot]({{ site.baseurl }}/nwolverson/assets/interactive.net/python-intellisense.png)
 
 Then you have the IronPython interactive window where the code is executed, again supporting easy editing, "send to interactive",
 syntax highlighting, IntelliSense (this time dynamically based on the actual objects rather than static analysis).
 
-![IronPython interactive window screenshot]({{ site.github.url }}/nwolverson/assets/interactive.net/python-interactive.png)
+![IronPython interactive window screenshot]({{ site.baseurl }}/nwolverson/assets/interactive.net/python-interactive.png)
 
 #### The code
 
@@ -182,11 +184,11 @@ as per traditional shells, but consists of fully structured objects, meaning it 
 
 Powershell runs in the console as standard:
 
-![PowerShell console screenshot]({{ site.github.url }}/nwolverson/assets/interactive.net/powershell-console.png)
+![PowerShell console screenshot]({{ site.baseurl }}/nwolverson/assets/interactive.net/powershell-console.png)
 
 However a richer environment is found in the PowerShell ISE.
 
-![PowerShell ISE screenshot]({{ site.github.url }}/nwolverson/assets/interactive.net/powershell-ise.png)
+![PowerShell ISE screenshot]({{ site.baseurl }}/nwolverson/assets/interactive.net/powershell-ise.png)
 
 The great thing is that now PowerShell comes with Windows as standard.
 
@@ -270,7 +272,7 @@ F# enjoys Visual Studio support in the interactive environment. It's slightly un
 IntelliSense are not permitted in the interactive window, the appropriate methodology being to edit a F# script
 file or program and send snippets to the interactive window (alt-enter and alt-#).
 
-![F# intellisense screenshot]({{ site.github.url }}/nwolverson/assets/interactive.net/fsharp-intellisense.png)
+![F# intellisense screenshot]({{ site.baseurl }}/nwolverson/assets/interactive.net/fsharp-intellisense.png)
 
 #### The code
 
@@ -353,7 +355,7 @@ let data = WorldBankData.GetDataContext()
 Then while in the editor, the type provider will enable intellisense based on actual data fetched
 from the WorldBank API:
 
-![FSharp TypeProvider IntelliSense]({{ site.github.url }}/nwolverson/assets/interactive.net/fsharp-worldbankprovider-intellisense.png)
+![FSharp TypeProvider IntelliSense]({{ site.baseurl }}/nwolverson/assets/interactive.net/fsharp-worldbankprovider-intellisense.png)
 
 You can see here that properties are generated automatically based on the data.
 
@@ -383,7 +385,7 @@ let data = xmlData.GetDatas() |> Seq.where(fun v -> v.Value.IsSome)
 
 Then the data itself is typed with properties according to the XML:
 
-![FSharp XMl provider IntelliSense]({{ site.github.url }}/nwolverson/assets/interactive.net/fsharp-xml-provider-intellisense.png)
+![FSharp XMl provider IntelliSense]({{ site.baseurl }}/nwolverson/assets/interactive.net/fsharp-xml-provider-intellisense.png)
 
 The complete code is as follows:
 

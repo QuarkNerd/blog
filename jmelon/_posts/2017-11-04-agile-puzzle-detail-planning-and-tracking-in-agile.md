@@ -2,8 +2,15 @@
 author: jmelon
 title: Agile Puzzle - Detailed planning and tracking in Agile
 layout: default_post
-categories: Agile
-summary: A common misconception I have frequently observed in organisations that are adopting agile is around using story points for planning, forecasting and progress tracking. Long- and mid-term planning in agile can have devastating effects on teams, which is why I’d like to shed some light on it and talk about how the situation can be tackled in an agile way providing much better results for the project and the organisation itself.
+categories:
+  - Tech
+summary: >-
+  A common misconception I have frequently observed in organisations that are
+  adopting agile is around using story points for planning, forecasting and
+  progress tracking. Long- and mid-term planning in agile can have devastating
+  effects on teams, which is why I’d like to shed some light on it and talk
+  about how the situation can be tackled in an agile way providing much better
+  results for the project and the organisation itself.
 ---
 
 Over the years I have witnessed a number of organisations adopting agile - often starting with just one team. Moving from traditional waterfall to agile is a challenging and exciting journey that can uncover a lot of false assumptions and misunderstandings about agile during its course. One misconception I have often seen is around using story points for planning, forecasting and progress tracking. Long- and mid-term planning in agile can negatively impact teams, which is why I’d like to shed some light on it and talk about how the situation can be tackled in an agile way providing much better results for the project and the organisation itself.

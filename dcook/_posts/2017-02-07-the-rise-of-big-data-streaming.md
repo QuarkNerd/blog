@@ -13,13 +13,13 @@ summary: "With the advent of the Internet of Things, the world of Big Data could
 layout: default_post
 ---
 
-<img src="{{ site.github.url }}/dcook/assets/chapmanFalls.jpg" alt="Waterfall"/>
+<img src="{{ site.baseurl }}/dcook/assets/chapmanFalls.jpg" alt="Waterfall"/>
 
 Frequently I'm asked what all the hype behind this Big Data nonsense is about.   To some extent I think dropping the 'Big' would get more buy in from developers.  Streaming architectures supported by technologies such as Kafka, Storm, Spark and Flink can really scale to the Big in Big Data, however we're missing the real use case.  These architectures enable us to alert end users in real time of significant events, for example consider a use case where we alert users when air pollution becomes unacceptable.
 
 ## What we used to do (and sometimes still do ...)
 
-<img src="{{ site.github.url }}/dcook/assets/sqlFlow.png" alt="SQL Batch Process Flow"/>
+<img src="{{ site.baseurl }}/dcook/assets/sqlFlow.png" alt="SQL Batch Process Flow"/>
 
 Throughout the day we feed our sensor readings through an ingest pipeline into our relational database.  Periodically we run an SQL query something like the following:
 
@@ -44,7 +44,7 @@ But what's wrong with this?
 
 ## What innovating companies are currently doing
 
-<img src="{{ site.github.url }}/dcook/assets/sparkFlow.png" alt="Spark Streaming Process Flow"/>
+<img src="{{ site.baseurl }}/dcook/assets/sparkFlow.png" alt="Spark Streaming Process Flow"/>
 
 Kafka is a message broker that scales across machines and provides resilience, lose a machine and you don't lose any of your data currently in the pipeline.  Combine this with a processing engine such as Apache Spark and you can scale to IoT proportions.  Spark Streaming allows you to micro batch enabling you to perform calculations over the past time window and alert immediately if the pollution is high. This core Spark logic looks something like the below:
 
@@ -107,7 +107,7 @@ But again what's wrong with this?
 
 ## The future?
 
-<img src="{{ site.github.url }}/dcook/assets/flinkFlow.png" alt="Flink Process Flow"/>
+<img src="{{ site.baseurl }}/dcook/assets/flinkFlow.png" alt="Flink Process Flow"/>
 
 Take Spark Streaming, layer on logic for processing windows based on event time and remove the dependence on window size for throughput and you've got Apache Flink.  It has a similar relationship with Kafka and it looks and feels like Spark.  The ideas behind processing based on event time came out of Google Cloud Data Flow but with Flink you get the open source implementation.  Let's specify that ordinarily sensor readings don't arrive more than 2 seconds late:
 

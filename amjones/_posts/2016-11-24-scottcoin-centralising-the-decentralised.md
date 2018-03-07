@@ -1,15 +1,15 @@
 ---
 author: amjones
 layout: default_post
-title: Scottcoin, centralising the decentralised
+title: 'Scottcoin, centralising the decentralised'
 title-short: Scottcoin
 categories:
-  - Bitcoin
-  - Cryptocurrency
-  - Altcoin
-  - Blockchain
-  - Scottcoin
-summary: We’ve recently been investigating uses for the blockchain and as part of this, we’ve developed our own system called Scottcoin. This post will explore the core components of the Bitcoin system, how a transaction goes through it, how our internal version differs and what advantages and disadvantages it brings.
+  - Tech
+summary: >-
+  We’ve recently been investigating uses for the blockchain and as part of this,
+  we’ve developed our own system called Scottcoin. This post will explore the
+  core components of the Bitcoin system, how a transaction goes through it, how
+  our internal version differs and what advantages and disadvantages it brings.
 ---
 
 We’ve recently been investigating uses for the blockchain and as part of this, we’ve developed our own system called Scottcoin which powers our office tuck shop. This post will explore the core components of the Bitcoin system, how a transaction goes through it, how our internal version differs and what advantages and disadvantages it brings.
@@ -21,7 +21,7 @@ This post will cover things at a very high level of detail, if you are intereste
 ##The Structure of Bitcoin
 
 
-![Bitcoin Structure]({{ site.github.url }}/amjones/assets/structure.png "Bitcoin Structure")
+![Bitcoin Structure]({{ site.baseurl }}/amjones/assets/structure.png "Bitcoin Structure")
 
 
 Bitcoin is primarily made up of 3 main components, transactions, the network and miners.
@@ -52,7 +52,7 @@ With these 3 core components, Bitcoin provides a system which lets its users tra
 
 
 ##The Journey of a Transaction
-![Transaction Journey]({{ site.github.url }}/amjones/assets/transactionJourney.png "The Journey of a Transaction")
+![Transaction Journey]({{ site.baseurl }}/amjones/assets/transactionJourney.png "The Journey of a Transaction")
 
 ###Transactions
 
@@ -110,7 +110,7 @@ As discussed, in Bitcoin users can add fees to their transactions. There are mul
 
 ##Why Scottcoin will (won’t) take over the world!
 
-![Some of the spoils of Scottcoin available in our tuck shop]({{ site.github.url }}/amjones/assets/tuckShop.jpg "Some of the spoils of Scottcoin available in our tuck shop")
+![Some of the spoils of Scottcoin available in our tuck shop]({{ site.baseurl }}/amjones/assets/tuckShop.jpg "Some of the spoils of Scottcoin available in our tuck shop")
 
 
 Whilst our system allows us to have all the features we need to run a simple tuck shop, it’s far from perfect.. Fundamentally we’ve taken a system full of the complexity required for running in a decentralised manner and centralised it without removing any of the complexity!

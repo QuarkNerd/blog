@@ -4,13 +4,11 @@ layout: default_post
 title: A Lazy Isomorphic React Experiment
 title-short: Lazy Isomorphic React
 categories:
-  - Web
-  - HTML5
-  - React
-  - Isomorphic
-  - Webpack
-  - Redux
-summary: If you've used React and Flux, you'll know how powerful this combination is when building single page applications. But how practical is it when building truly large scale applications with multiple sections?.
+  - Tech
+summary: >-
+  If you've used React and Flux, you'll know how powerful this combination is
+  when building single page applications. But how practical is it when building
+  truly large scale applications with multiple sections?.
 image: asheehan/assets/featured/react.png
 tags:
   - main_featured
@@ -89,7 +87,7 @@ This page sits at the base root.
 3. **Checkout page** `/checkout` - Shows the cart only, along with the buy button, which checks out
 the items and deducts the total from the users balance.
 
-![Shop page]({{ site.github.url }}/asheehan/assets/shop-page.png "The shop page")
+![Shop page]({{ site.baseurl }}/asheehan/assets/shop-page.png "The shop page")
 
 **Check out the code on the [GitHub repository](https://github.com/alisd23/lazy-isomorphic-react)**
 **And [try the application](https://shopping-cart.alisd.io/)**

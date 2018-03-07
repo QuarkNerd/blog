@@ -14,16 +14,16 @@ source: site
 summary: This post details a jQuery plugin which animates updates to HTML tables representing rankings.
 disqus-id: /2011/01/animating-html-ranking-tables-with-javascript/
 ---
-<p><script src="{{ site.github.url }}/archive/2010/12/jquery-1.4.3.js"></script><script src="{{ site.github.url }}/archive/2010/12/animator.js"></script><script src="{{ site.github.url }}/archive/2010/12/rankingTableUpdate.js"></script><em>This post details a jQuery plugin which animates updates to html tables representing rankings</em>.  The code can be downloaded here: <a href="{{ site.github.url }}/archive/2010/12/rankingTableUpdate.js"><strong>rankingTableUpdate.js</strong></a>.  If you're just interested in how to use the plugin your web page skip ahead to <a href="#usage">the usage section</a>.</p>
+<p><script src="{{ site.baseurl }}/archive/2010/12/jquery-1.4.3.js"></script><script src="{{ site.baseurl }}/archive/2010/12/animator.js"></script><script src="{{ site.baseurl }}/archive/2010/12/rankingTableUpdate.js"></script><em>This post details a jQuery plugin which animates updates to html tables representing rankings</em>.  The code can be downloaded here: <a href="{{ site.baseurl }}/archive/2010/12/rankingTableUpdate.js"><strong>rankingTableUpdate.js</strong></a>.  If you're just interested in how to use the plugin your web page skip ahead to <a href="#usage">the usage section</a>.</p>
 <p><a name="f1Example" style="color: black; text-decoration: none;">The example below shows the plugin at work, looking at the final few race results of the 2010 F1 season:</a></p>
-<link rel="stylesheet" type="text/css" href="{{ site.github.url }}/archive/2010/12/examples.css" /><script src="{{ site.github.url }}/archive/2010/12/f1Example.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/archive/2010/12/examples.css" /><script src="{{ site.baseurl }}/archive/2010/12/f1Example.js" type="text/javascript"></script>
 <div style=>
 <div id="f1">
 <table>
 <tr style="border:0px;">
-<td style="width: 25px;"><a href="#" id="back"><img style="opacity: 0; filter: alpha(opacity=0);" src="{{ site.github.url }}/archive/2010/12/back_button.jpeg"/></a></td>
+<td style="width: 25px;"><a href="#" id="back"><img style="opacity: 0; filter: alpha(opacity=0);" src="{{ site.baseurl }}/archive/2010/12/back_button.jpeg"/></a></td>
 <td id="title" style="font-weight: bold; width: 200px; text-align: center;">Standings after Korea</td>
-<td class="width: 25px; text-align: right;"><a href="#" id="forward"><img src="{{ site.github.url }}/archive/2010/12/forward_button.jpeg"/></a>      </td>
+<td class="width: 25px; text-align: right;"><a href="#" id="forward"><img src="{{ site.baseurl }}/archive/2010/12/forward_button.jpeg"/></a>      </td>
 </tr>
 </table>
 <table class="afterKorea">
@@ -146,7 +146,7 @@ disqus-id: /2011/01/animating-html-ranking-tables-with-javascript/
 <li>Stay in the Same Place</li>
 </ul>
 <p>It makes sense to think of the top of the table always being position one, the second as position two etc., rather than thinking of the bottom of the table as the last position and work up.  This is significant since the table may vary in size between transitions, like in the following results table which shows the best mile times over 2009 and 2010 in the ScottLogic running club:</p>
-<link rel="stylesheet" type="text/css" href="{{ site.github.url }}/archive/2010/12/examples2.css" /><script type="text/javascript" src="{{ site.github.url }}/archive/2010/12/runningExample.js"></script>
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/archive/2010/12/examples2.css" /><script type="text/javascript" src="{{ site.baseurl }}/archive/2010/12/runningExample.js"></script>
 <div id="running" style="background-color: white;">
 <div class="header">            <a href="#" id="nextYear" style="color:black; font-size: 10px;">Show Results for 2010</a>        </div>
 <table class="2009">
@@ -266,7 +266,7 @@ disqus-id: /2011/01/animating-html-ranking-tables-with-javascript/
 </ul>
 <p>I guess if it's not customisable enough for you then rewrite it yourself!  If you're not up for that, contact me and if I've got the time and sufficient motivation I'll take a look.</p>
 <p><a name="usage" style="color: black; text-decoration: none;"><strong>How to use it</strong></a>First a disclaimer! Please bare in mind that the code supplied should be considered as experimental - it's not a finished product, so don't expect it to work in all circumstances on all browsers!</p>
-<p>The plugin assumes you're using <a href="{{ site.github.url }}/archive/2010/12/jquery-1.4.3.js">jQuery version 1.4.3</a> and also makes use of a lesser known Javascript animation library by <a href="http://berniesumption.com/">Bernie Sumption</a> available here: <a href="http://blog.berniesumption.com/software/animator/">animator.js</a>, so remember to import both these before the <a href="{{ site.github.url }}/archive/2010/12/rankingTableUpdate.js">rankingTableUpdate.js</a> file.</p>
+<p>The plugin assumes you're using <a href="{{ site.baseurl }}/archive/2010/12/jquery-1.4.3.js">jQuery version 1.4.3</a> and also makes use of a lesser known Javascript animation library by <a href="http://berniesumption.com/">Bernie Sumption</a> available here: <a href="http://blog.berniesumption.com/software/animator/">animator.js</a>, so remember to import both these before the <a href="{{ site.baseurl }}/archive/2010/12/rankingTableUpdate.js">rankingTableUpdate.js</a> file.</p>
 <p>The plugin adds a single function to the <code>jQuery.fn</code> namespace called "<code>rankingTableUpdate</code>". This function operates on the first element of the jQuery object on which it is run, which must be an HTML table, and takes 2 parameters; the new table to animate the old one to (which can be an HTML element or a jQuery object in which the first element is an HTML table) and an optional "<em>options</em>" object which describes how the animation should proceed.  A typical invocation, using the standard style setting (as seen in the above two examples) would be something like:</p>
 {% highlight javascript %}
 $(oldTableElement).rankingTableUpdate(newTableElement);
@@ -386,7 +386,7 @@ $(oldTableElement).rankingTableUpdate(newTableElement, {
 {% endhighlight %}
 <p>Line 4 in the above code, sets an <code>updating</code> flag to false to show that the animation is finished.  This is fairly typical as it's nearly always the case that you want to prevent the update being called whilst it's currently animating.  </p>
 <p>The following finance-inspired example shows a portfolio of fake shares, which (when you click on the red link!) updates every 10 seconds with new "live" prices and occasional changes to the number of positions as they are closed and opened.  The example uses the plugin when updating and also when sorting the table:</p>
-<link rel="stylesheet" type="text/css" href="{{ site.github.url }}/archive/2010/12/financialExample.css" /><script src="{{ site.github.url }}/archive/2010/12/financialExample.js" type="text/javascript"></script><div id="stocks" style="width:100%;">  <a href="#" class="triggerUpdates">Start "live" updates..</a>
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/archive/2010/12/financialExample.css" /><script src="{{ site.baseurl }}/archive/2010/12/financialExample.js" type="text/javascript"></script><div id="stocks" style="width:100%;">  <a href="#" class="triggerUpdates">Start "live" updates..</a>
 <div class="tableHolder">
 <table class="template" style="display:none;">
 <thead>

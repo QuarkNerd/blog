@@ -9,7 +9,7 @@ summary: This post looks at integrating Angular 2 with Immutable.js and Redux, a
 
 This post looks at integrating Angular 2 with Immutable.js and Redux, a popular Flux store implementation. It also demonstrates that the functional approach, encouraged by these technologies, allow for powerful concepts such as time travel, where you can replay actions and application state.
 
-<img src="{{ site.github.url }}/ceberhardt/assets/angular2/monitor.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/angular2/monitor.png" />
 
 As a brief recap, I've been describing the development of a todo list application with Angular 2 over a number of blog posts:
 
@@ -316,7 +316,7 @@ this.store = creator(reducer, items);
 
 With the above code in place, the `StateMonitor` class can be injected into an Angular 2 component which displays each action and the state after the action has been applied (or reduced):
 
-<img src="{{ site.github.url }}/ceberhardt/assets/angular2/monitor.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/angular2/monitor.png" />
 
 The component that renders the action / state log on the left-pane detects click events, dispatching a `ROLLBACK` action to the store when this occurs.
 

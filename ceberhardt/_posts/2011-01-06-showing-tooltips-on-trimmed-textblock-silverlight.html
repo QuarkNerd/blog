@@ -2,27 +2,27 @@
 id: 1073
 author: ceberhardt
 title: Automatically Showing ToolTips on a Trimmed TextBlock (Silverlight)
-oldlink: "http://www.scottlogic.co.uk/blog/colin/2011/01/showing-tooltips-on-trimmed-textblock-silverlight/"
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2011/01/showing-tooltips-on-trimmed-textblock-silverlight/
 tags:
   - attached behaviour
   - textblock
   - ellipsis
   - blog
 categories:
-  - Web
-  - C#
+  - Tech
 layout: default_post
 source: wordpress
 disqus-id: /blog/colin/2011/01/showing-tooltips-on-trimmed-textblock-silverlight/
 ---
 <p><em>Silverlight 4 added TextTrimming="WordEllipsis", which trims the text that a TextBlock displays based on the available width. This blog post describes a simple method for automatically showing the full text  as a tooltip whenever the text is trimmed. This is presented as an attached behaviour.</em></p>
-<p><b>UPDATE:</b> I have updated this solution to support both WPF and Silverlight, see my <a href="{{ site.github.url }}/2011/01/31/automatically-showing-tooltips-on-a-trimmed-textblock-silverlight-wpf">recent blog post</a>.</p>
+<p><b>UPDATE:</b> I have updated this solution to support both WPF and Silverlight, see my <a href="{{ site.baseurl }}/2011/01/31/automatically-showing-tooltips-on-a-trimmed-textblock-silverlight-wpf">recent blog post</a>.</p>
 <p>The TextTrimming feature of SL4 allows us to worry a little less about the layout of our applications, giving the option to use fixed widths when rendering text. This can be particularly useful if you have to localize your application. However, arbitrarily trimming the text without providing the user with a mechanism to see the full text is not great for the user. A simple solution is to use a tooltip to present the full text. </p>
 <p>Detecting whether the a TextBlock's text is being trimmed is not something that is available from the TextBlock's API, there is no IsTrimmed property! A quick search of the Silverlight forums <a href="http://forums.silverlight.net/forums/p/200034/466651.aspx">drew a dead end</a>. I did find a decent WPF solution, however this uses various parts of the WPF API that are not present in Silverlight.</p>
 <p>Eventually I found that there is a very simple solution ... quoting from the MSDN page on <a href="http://msdn.microsoft.com/en-us/library/cc189010%28VS.95%29.aspx">Text and Fonts</a>:</p>
 <blockquote><p>You can detect clipped text programmatically because ActualWidth for a TextBlock always reports the expanded size of the text, even if it does not fit in the layout container. If you know where to read the Width for the layout container that is doing the clipping, you can compare these two values.</p></blockquote>
 <p>Therefore, if a TextBlock is trimming the text, the reported ActualWidth of the TextBlock will be the width that the TextBlock requires to render the text in its entirety, not the <em>actual</em> width of the rendered text!</p>
-<p><img src="{{ site.github.url }}/archive/2011/01/TextTrimming.png" alt="" title="TextTrimming" width="568" height="257" class="aligncenter size-full wp-image-1076" /></p>
+<p><img src="{{ site.baseurl }}/archive/2011/01/TextTrimming.png" alt="" title="TextTrimming" width="568" height="257" class="aligncenter size-full wp-image-1076" /></p>
 <p>In the example above, the Width of the TextBlock is set explicity, however it is more common that the width of TextBlock is determined by its parent container, a Grid for example.</p>
 <p>To wrap this functionality up into something re-useable, I have created a AutoToolTip attached behaviour. The code for this is shown below:</p>
 {% highlight csharp %}
@@ -133,7 +133,7 @@ public class TextBlockUtils
   </Grid>
 </Grid>
 {% endhighlight %}
-<p>Note the use of the <a href="{{ site.github.url }}/2010/12/21/a-simplified-grid-markup-for-silverlight-and-wpf">simplified grid syntax which I blogged about earlier</a>. You can see this code in action below. Move the grid splitter to see the tooltips automatically enabled when an ellipsis is displayed:</p>
-<div style="text-align: center;"><object width="400" height="80" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.github.url }}/archive/2011/01/AutoTooltipTextBlock.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
-<p>You can download the full sourcecode here: <a href='{{ site.github.url }}/archive/2011/01/AutoTooltipTextBlock.zip'>AutoTooltipTextBlock.zip</a></p>
+<p>Note the use of the <a href="{{ site.baseurl }}/2010/12/21/a-simplified-grid-markup-for-silverlight-and-wpf">simplified grid syntax which I blogged about earlier</a>. You can see this code in action below. Move the grid splitter to see the tooltips automatically enabled when an ellipsis is displayed:</p>
+<div style="text-align: center;"><object width="400" height="80" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2011/01/AutoTooltipTextBlock.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>You can download the full sourcecode here: <a href='{{ site.baseurl }}/archive/2011/01/AutoTooltipTextBlock.zip'>AutoTooltipTextBlock.zip</a></p>
 <p>Regards, Colin E.</p>

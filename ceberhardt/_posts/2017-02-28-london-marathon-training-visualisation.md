@@ -16,7 +16,7 @@ Last month I downloaded the race data for the [7,190 athletes who recorded their
 
 The following chart shows the average weekly mileage of athletes grouped by finish time:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/marathon2/weekly-mileage.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/marathon2/weekly-mileage.png" />
 
 ([view the code for this chart](https://bl.ocks.org/ColinEberhardt/2c098c4f9e93f6de827aaf827282a7e1))
 
@@ -26,7 +26,7 @@ The above chart isn't terribly surprising, with the faster finishers putting in 
 
 The following chart takes a closer look at the relationship between finish time and weekly mileage, with the training data from the 1,000 athletes rendered as a scatter chart. The solid line shows the average weekly miles, by finish time, bucketed by 30 minute intervals.
 
-<img src="{{ site.github.url }}/ceberhardt/assets/marathon2/mileage-vs-finish.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/marathon2/mileage-vs-finish.png" />
 
 ([view the code for this chart](https://bl.ocks.org/ColinEberhardt/bdf2fb1ac3cfb9b388cfe6c876758a90))
 
@@ -36,7 +36,7 @@ As an athlete gets faster, the benefit of adding additional training miles reduc
 
 The following charts plots the average number of days each week that athletes log a run on Strava:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/marathon2/training-days.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/marathon2/training-days.png" />
 
 ([view the code for this chart](https://bl.ocks.org/ColinEberhardt/66ae2df764efe8448b9b12c0c699f5b5)
 
@@ -54,7 +54,7 @@ The following charts show the plan mileage (these are 16 week plans, hence the m
 
 The upper dotted line is the training plan mileage, whereas the solid line below is the average mileage from the Strava dataset. The filled band area highlights the difference.
 
-<img src="{{ site.github.url }}/ceberhardt/assets/marathon2/plan-vs-mileage.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/marathon2/plan-vs-mileage.png" />
 
 ([view the code for this chart](https://bl.ocks.org/ColinEberhardt/32b0782562f83566fa82d2a4f2a2543f)
 
@@ -80,7 +80,7 @@ Back to the data ...
 
 By looking at when athlete log runs I found that Sunday was the most popular training day, however, a more detailed heatmap of runs, showing the time and day of week, reveals some really interesting patterns:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/marathon2/run-heatmap.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/marathon2/run-heatmap.png" />
 
 During the week, the most popular time to go for a run is Tuesday at 18:00. Friday is by far the least popular day for running (pub?!). On the weekdays you can see small peaks at 6:00 and 12:00, most likely people running before work or on their lunch break. Saturday morning sees a big peak around 9:00 most likely due to [parkrun](http://www.parkrun.com/).
 
@@ -88,7 +88,7 @@ Overall the most popular time to head out for a run is 9:00 on a Sunday morning.
 
 Splitting the data into three broad distance categories reveals some more interesting patterns:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/marathon2/heatmap-multiples.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/marathon2/heatmap-multiples.png" />
 
 The Saturday morning peak in the 0-5 mile category confirms that parkruns are a very popular part of people's weekly running routine. Mid-distance runs, of a 5-10 mile distance are typically run on Tuesdays-to-Thursdays at 18:00. And finally, long runs are almost exclusively a Sunday morning pursuit.
 

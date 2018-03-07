@@ -5,7 +5,7 @@ image: ""
 tags:
   - blog
 categories:
-  - TypeScript
+  - Tech
 layout: default_post
 summary: "SignalR is an easy to use framework for .NET and the browser which enables bi-directional communication over a variety of transports (from WebSockets to Ajax long-polling). The SignalR Hubs API is dynamically typed, in this post I will summarise some existing tools which can be used to provide strong typing for calls between C# and TypeScript, as well as a more experimental approach via F#, FunScript and Type Providers."
 oldlink: "http://www.scottlogic.com/blog/2014/08/08/signalr-typed.html"
@@ -158,7 +158,7 @@ have the correct name and type, and that the C# server code and the TypeScript c
 code share a corresponding type for the client hub methods (but no static checking of actual
 calls from server to client hub).
 
-![TypeScript IntelliSense]({{ site.github.url }}/nwolverson/assets/signalrtyped/typescript-intellisense.png)
+![TypeScript IntelliSense]({{ site.baseurl }}/nwolverson/assets/signalrtyped/typescript-intellisense.png)
 
 You can see a working example project of this approach [here](https://github.com/nwolverson/blog-signalrtyped/tree/master/SRHubExampleHubsTT).
 
@@ -196,7 +196,7 @@ private IChatHubClient AllClients
 {% endhighlight %}
 
 
-![Strong client hubs Intellisense]({{ site.github.url }}/nwolverson/assets/signalrtyped/stronghub-autocomplete.png)
+![Strong client hubs Intellisense]({{ site.baseurl }}/nwolverson/assets/signalrtyped/stronghub-autocomplete.png)
 
 
 You can find a complete example [here](https://github.com/nwolverson/blog-signalrtyped/tree/master/SRHubExampleHubsTT) which puts everything together with `Hubs.tt` plus this Castle proxy approach. Here every call
@@ -258,7 +258,7 @@ serverHub.foo(10) // Fail to compile
 
 We also get intellisense on these methods, so that whenever the server hub API is updated, we can see the full list of methods when writing the client side.
 
-![SignalRProvider IntelliSense]({{ site.github.url }}/nwolverson/assets/signalrtyped/signalrprovider-autocomplete.png)
+![SignalRProvider IntelliSense]({{ site.baseurl }}/nwolverson/assets/signalrtyped/signalrprovider-autocomplete.png)
 
 The current version of this provider is unfinished, in particular lacking support for server calls to client hubs, so I can't give the same chat example here.
 

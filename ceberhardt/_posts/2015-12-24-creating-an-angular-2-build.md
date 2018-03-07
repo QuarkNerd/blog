@@ -20,7 +20,7 @@ In this blog post I'll take the 'Tour of Heroes' app from the Angular 2 tutorial
 
 Tour of Heroes is a simple Angular 2 app that demonstrates the core concepts (DI, components, routing, binding, ... ):
 
-<img src="{{ site.github.url }}/ceberhardt/assets/angular2/tour-of-heros.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/angular2/tour-of-heros.png" />
 
 John Papa has a [repo on GitHub](https://github.com/johnpapa/angular2-tour-of-heroes) for this app, which is what I used as a starting point for my build.
 
@@ -54,7 +54,7 @@ When you use `npm run` to run one of your scripts, npm adds `node_modules/.bin` 
 
 One drawback of using the command-line compiler is that the generated JavaScript and sourcemap files are output directly alongside the source TypeScript files:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/angular2/generated-files.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/angular2/generated-files.png" />
 
 This looks a bit messy to me!
 
@@ -432,7 +432,7 @@ export var HEROES = List<Hero>([
 
 If you update the build to copy the immutable library to the `dist/lib` folder then run the application ... it doesn't work:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/angular2/error.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/angular2/error.png" />
 
 The error indicates that the SystemJS module loader is attempting to load the immutable module via an XHR request, however the file cannot be found.
 

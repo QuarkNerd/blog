@@ -80,7 +80,7 @@ RAC([UIApplication sharedApplication], networkActivityIndicatorVisible) =
       
 I've even thrown in a few little extras like hiding the keyboard when the 'go' button is pressed, and binding the network activity indicator to the `searchCommand.executing` signal.
 
-<img src="{{ site.github.url }}/ceberhardt/assets/mvvm/UIBinding.png"/>
+<img src="{{ site.baseurl }}/ceberhardt/assets/mvvm/UIBinding.png"/>
 
 That's two of the three ViewModel properties bound to the UI ... so far, so good!
 
@@ -208,7 +208,7 @@ Note that the source signal is created using the `RACObserve` macro which create
 The cells are implemented much like the view controllers; their UI controls are defined within the nib and wired to outlet properties. Here's what the nib that defines the cells in this simple application looks like:
 
 
-<img src="{{ site.github.url }}/ceberhardt/assets/mvvm/CellNib.png"/>
+<img src="{{ site.baseurl }}/ceberhardt/assets/mvvm/CellNib.png"/>
 
 
 The ViewModel binding, as defined by the `CEReactiveView` protocol, is implemented as follows:
@@ -277,7 +277,7 @@ With this in place we retain the elegance of binding the top-level view model to
 
 Here's what the complete application looks like:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/mvvm/CellBinding.png"/>
+<img src="{{ site.baseurl }}/ceberhardt/assets/mvvm/CellBinding.png"/>
 
 ## Handling Selection
 

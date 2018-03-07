@@ -3,7 +3,7 @@ author: jrice
 title: "Insurance: A Customer's Perspective"
 image: jrice/assets/featured/insurance.jpg
 categories:
-  - UX
+  - UX Design
 tags:
   - featured
 layout: default_post
@@ -20,7 +20,7 @@ So how do insurance companies engage with both new and existing customers when t
 
 We started by looking at how technology could be used to gather information and relay this to the customer's insurer. Most people nowadays have a huge array of sensors carried on their body and networked within their home and we thought we could take advantage of that.
 
-<img class="aligncenter" src="{{ site.github.url }}/jrice/assets/insurance1.jpg" />
+<img class="aligncenter" src="{{ site.baseurl }}/jrice/assets/insurance1.jpg" />
 
 By researching information that could be populated via these sensors, we started to evolve small insights combining certain device’s functionality and the information certain policies require. Contents insurance premiums could be calibrated based on exact data gathered from automated assistants about when policy holder’s homes are actually occupied. Customer’s car insurance premiums could alter if GPS data from their phone indicated they were doing less city driving. Life insurance providers could tap into the wearables market and adjust policies according to their subscriber’s health and fitness.
 
@@ -30,13 +30,13 @@ However, it quickly became clear that we were trying to force technology into th
 
 Instead, we looked to further understand what was contributing to the negative experience customers were experiencing around insurance. We focused on the first direct interaction customers have with an insurer: getting a quote. This, of course, meant that we had to apply for insurance, and lots of it. Split across eight personal insurance products (Life, Travel, Health, Income, Home, Contents and Pets) we documented every field that we were asked to complete before returning a quote. We quickly found this can amount to thirty-five plus questions in return for one car insurance quote, with the average across all policies coming in at almost twenty separate pieces of information needed. Even with comparison sites mitigating (some) of the need for re-entry across separate companies, it was no surprise that customers are lethargic before they even pay the first premium.
 
-<img class="aligncenter" src="{{ site.github.url }}/jrice/assets/insurance2.jpg" />
+<img class="aligncenter" src="{{ site.baseurl }}/jrice/assets/insurance2.jpg" />
 
 We decided to illustrate how this process felt from the customer’s perspective. The entire process until now had been guided by the provider and we wanted to move forward with the user in mind rather than reflecting on the insurer’s point of view. Do to this we had the idea of gathering all the questions as a whole and to begin matching duplicates across policies. This meant taking over the UX department’s wall and sticking up one question per Post-It for each type of insurance. As expected there were core questions that appeared for all policies such as name, date of birth, address, marital status, employment status, job title and industry. However, once this ‘core profile’ is removed we were able to visualise (with string) the less obvious crossovers.
 
-<img class="aligncenter" src="{{ site.github.url }}/jrice/assets/insurance3.jpg" />
+<img class="aligncenter" src="{{ site.baseurl }}/jrice/assets/insurance3.jpg" />
 
-<img class="aligncenter" src="{{ site.github.url }}/jrice/assets/insurance4.jpg" />
+<img class="aligncenter" src="{{ site.baseurl }}/jrice/assets/insurance4.jpg" />
 
 This map of interconnecting questions pinpointed the similar required information that appeared across several policies. For example, someone with pet insurance will have to declare their pets when applying for contents insurance. If you are a smoker, not only will your life and health insurance policies be affected but your income premiums will also be hit. While being a homeowner – with a mortgage that requires home insurance – often entitles you to a discount on your car insurance.
 
@@ -44,7 +44,7 @@ A lot can change in a person’s life over the period of a year and even one cha
 
 ###How a customer perceives your product
 
-<img class="aligncenter" src="{{ site.github.url }}/jrice/assets/insurance5.png" />
+<img class="aligncenter" src="{{ site.baseurl }}/jrice/assets/insurance5.png" />
 
 Our next step was to develop some proto-personas – personas that encapsulate our understanding of who is using a company's services – to empathise with different customers and understand how they may view their insurance provider. One persona was completely new to insurance, another used comparison sites to search out the best deal while the third was loyal to one company. This step allowed us to understand that while a company may view itself as vastly different to its competitors, we as customers rarely see it that way. There are people, for example, that view travel insurance as a catch all name for an identical product, sold by different companies with the only variable being price. Many people find themselves like our persona Karen above, using a comparison site to get the cheapest cover while not understanding the intricacies between the products on offer.
 

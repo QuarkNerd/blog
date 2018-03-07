@@ -1,29 +1,12 @@
-$social-height:   16px;
+@import "blog-main";
 
 .social {
-  div {
-    margin-right: $layoutUnit;
-    display: inline-block;
-    height: $social-height;
-    transition: opacity 1s;
+  align-items: center;
 
-    * {
-      display: block;
-      float: left;
-    }
-
-    span {
-      height: $social-height;
-      line-height: $social-height;
-      font-size: $smallFontSize;
-      color: $grey;
-    }
-
-    svg {
-      margin-right: 3px;
-      path {
-        fill: $grey;
-      }
+  @include breakpoint(large) {
+    align-items: start;
+    .count {
+      text-align: center;
     }
   }
 }

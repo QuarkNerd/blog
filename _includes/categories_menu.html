@@ -1,9 +1,0 @@
-{% assign selectedIndex = include.selectedIndex %}
-<div class="side-menu">
-    <h3>Categories</h3>
-    <ul>
-        {% for category in site.data.categories %}
-            <li class="{% if selectedIndex == forloop.index0 %}active {% endif %}"><a href="{{ site.github.url }}{{ category.url }}">{{ category.title }}</a></li>
-        {% endfor %}
-    </ul>
-</div>

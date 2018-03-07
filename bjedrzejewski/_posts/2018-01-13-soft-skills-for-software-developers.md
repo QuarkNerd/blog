@@ -5,6 +5,9 @@ summary: "Being software developer requires technical insight and analytical app
 layout: default_post
 categories:
   - Agile
+tags:
+  - featured
+image: bjedrzejewski/assets/featured/rabbit.jpg
 ---
 
 # Introduction
@@ -17,7 +20,7 @@ and suggest what we can do to improve them.
 
 ## Listening
 
-<img src="{{ site.github.url }}/bjedrzejewski/assets/soft-listen.jpg" />
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/soft-listen.jpg" />
 
 Listening is one of these skills that most of us take for granted. After all, how hard can it be to listen to someone? 
 It turns out that there is more than one type of listening we can practice. People have different classifications but 
@@ -43,7 +46,7 @@ and rewarding.
 
 ##Conversations (the crucial ones)
 
-<img src="{{ site.github.url }}/bjedrzejewski/assets/soft-conv.jpg" />
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/soft-conv.jpg" />
 
 While listening is important you often can’t do much without actually talking! I am not writing here about the general 
 chit chat or even arguing merits of the latest Star Wars instalment. There are conversations that can dramatically 
@@ -73,7 +76,7 @@ hope that you are now convinced- learning how to have a conversation is importan
 
 ##Mentoring
 
-<img src="{{ site.github.url }}/bjedrzejewski/assets/soft-mentor.jpeg" />
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/soft-mentor.jpeg" />
 
 As you become more experienced software developer you are often put in a position where you can teach others. To start
 mentoring it is not necessary to be in a leadership position. One of the most effective ways to learn new things that I found is:
@@ -96,7 +99,7 @@ becoming a lead developer is where you want to head.
 
 ##Selling
 
-<img src="{{ site.github.url }}/bjedrzejewski/assets/soft-sell.jpg" />
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/soft-sell.jpg" />
 
 Most people when thinking about selling imagine sales meetings and conversations where the goal is to get some money
 for a product being offered. This is the most basic understanding of what selling is, albeit a very incomplete one.

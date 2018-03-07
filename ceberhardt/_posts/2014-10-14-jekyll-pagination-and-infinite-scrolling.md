@@ -6,7 +6,7 @@ summary: "Recently I updated the Scott Logic blog to implement infinite scrollin
 oldlink: "http://www.scottlogic.com/blog/2014/10/14/jekyll-pagination-and-infinite-scrolling.html"
 disqus-id: /2014/10/14/jekyll-pagination-and-infinite-scrolling.html
 categories:
-  - Server
+  - Tech
 ---
 Recently I updated the Scott Logic blog to implement infinite scrolling using a combination of Jekyll pagination and [jScroll](http://jscroll.com/). Both of these components are quite fussy about their respective configuration, meaning that integrating them took longer than expected. I thought I'd share my solution in this blog post, hopefully saving others from the hours I spent digging into jScroll code or cursing Jekyll!
 
@@ -58,7 +58,7 @@ This will cause the posts to be divided into pages and made accessible via the `
 
 Generating your site using the pagination option results in Jekyll creating multiple copies of the index page, each containing the posts for the given page. The first page, `index.html` resides in the usual location, whereas subsequent pages reside in numbered sub-folders starting at `page2`:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/JekyllPagination.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/JekyllPagination.png" />
 
 This slightly peculiar structure makes the next part a little more tricky ...
 

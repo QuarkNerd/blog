@@ -5,10 +5,11 @@ title: JavaScript Closure
 layout: default_post
 summary: >-
  In this blog post I'll be exploring Lexical Scope in JavaScript and answering the question "What is Closure?"
-tags: 'JavaScript'
 categories:
  - JavaScript
-image: ''
+tags:
+  - featured
+image: dogle/assets/featured/fence.jpg
 ---
 I've been looking into the concept of closure in JavaScript, trying to really understand what it means. In the process I learnt quite a few new things about how JavaScript compiles and runs and why things happen the way they do and I thought I'd share.
 

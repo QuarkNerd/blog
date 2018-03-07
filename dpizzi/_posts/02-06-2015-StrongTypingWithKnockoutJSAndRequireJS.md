@@ -2,16 +2,19 @@
 author: dpizzi
 title: Strong Typing With KnockoutJS and RequireJS
 layout: default_post
-summary: This article demonstrates a successful integration of TypeScript with KnockoutJS and RequireJS to provide a strongly-typed environment for development of HTML5 apps.
+summary: >-
+  This article demonstrates a successful integration of TypeScript with
+  KnockoutJS and RequireJS to provide a strongly-typed environment for
+  development of HTML5 apps.
 image: dpizzi/assets/featured/Strong.png
-oldlink: "http://www.scottlogic.com/blog/2015/06/02/StrongTypingWithKnockoutJSAndRequireJS.html"
+oldlink: >-
+  http://www.scottlogic.com/blog/2015/06/02/StrongTypingWithKnockoutJSAndRequireJS.html
 disqus-id: /2015/06/02/StrongTypingWithKnockoutJSAndRequireJS.html
 categories:
-  - TypeScript
-  - Web
+  - Tech
 ---
 
-Following my previous post on [Strong Typing With AngularJS]({{ site.github.url }}/2014/08/26/StrongTypingWithAngularJS.html), this article presents the integration of TypeScript with an other client MVC framework: _KnockoutJS_. We will also integrate RequireJS that allows the use of the [Asynchronous Module Definition](https://github.com/amdjs/amdjs-api/wiki/AMD) (AMD) API.  
+Following my previous post on [Strong Typing With AngularJS]({{ site.baseurl }}/2014/08/26/StrongTypingWithAngularJS.html), this article presents the integration of TypeScript with an other client MVC framework: _KnockoutJS_. We will also integrate RequireJS that allows the use of the [Asynchronous Module Definition](https://github.com/amdjs/amdjs-api/wiki/AMD) (AMD) API.  
 
 [KnockoutJS](http://knockoutjs.com/) is a JavaScript front-end library based on the Model-View-ViewModel ([MVVM](http://addyosmani.com/blog/understanding-mvvm-a-guide-for-javascript-developers/)) pattern that helps in the creation of rich and dynamic User Interface (UI).
 
@@ -27,7 +30,7 @@ The Visual Studio 2013 (VS) solution containing the code for this article is ava
 
 For this tutorial, we use a Visual Studio (VS) template project of type _HTML Application with TypeScript_ which is included in the VS extension [Web Essentials 2013 for Update 4](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.WebEssentials20135) .
 
-<img src="{{ site.github.url }}/dpizzi/assets/StrongTypingWithKnockoutJS/AddNewProject.jpg"/>
+<img src="{{ site.baseurl }}/dpizzi/assets/StrongTypingWithKnockoutJS/AddNewProject.jpg"/>
 
 _NOTE: The [version 1.4 of TypeScript](https://marketplace.visualstudio.com/items?itemName=TypeScriptTeam.TypeScript14forVisualStudio2013-13057) is also needed for the latest KnockoutJS TypeScript declaration file._
 
@@ -36,7 +39,7 @@ Once created, simply remove the files _app.css_ and _app.ts_ from the project as
 This tutorial makes use of AMD modules (e.g. we will use `export` and `import` keywords) that we will be loaded asynchronously when needed at runtime.
 In order to support this, TypeScript requires the `--module` flag on compilation which you can specify on the _TypeScript Build_ settings on the project properties by choosing _AMD_ in _Module system_.
 
-<img src="{{ site.github.url }}/dpizzi/assets/StrongTypingWithKnockoutJS/TypeScriptBuild.jpg"/>
+<img src="{{ site.baseurl }}/dpizzi/assets/StrongTypingWithKnockoutJS/TypeScriptBuild.jpg"/>
 
 ### Importing NuGet Packages
 
@@ -101,7 +104,7 @@ require(["jQuery"], function ($) {
 });
 {% endhighlight %}
 
-We will see later the definition of the page viewmodel when [integrating everything together]({{ site.github.url }}/2015/06/02/StrongTypingWithKnockoutJSAndRequireJS.html#integrating-everything-together).
+We will see later the definition of the page viewmodel when [integrating everything together]({{ site.baseurl }}/2015/06/02/StrongTypingWithKnockoutJSAndRequireJS.html#integrating-everything-together).
 
 ## Component Creation
 
@@ -111,7 +114,7 @@ Custom elements are an optional but convenient syntax for consuming components.
 In this example, we are creating a widget that displays a list of people within a table.
 The full name field is computed from the first and last names but is also editable.
 
-<img src="{{ site.github.url }}/dpizzi/assets/StrongTypingWithKnockoutJS/Component.jpg"/>
+<img src="{{ site.baseurl }}/dpizzi/assets/StrongTypingWithKnockoutJS/Component.jpg"/>
 
 ### Models
 

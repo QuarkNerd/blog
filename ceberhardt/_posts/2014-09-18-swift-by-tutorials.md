@@ -2,20 +2,22 @@
 author: ceberhardt
 title: Swift By Tutorials is Published
 layout: default_post
-summary: "Apple released the first public beta of the Swift programming language just over three months ago. Within days of the release myself and Matt Galloway started working on our book Swift by Tutorials, which as of yesterday is finally finished and shipping!"
-oldlink: "http://www.scottlogic.com/blog/2014/09/18/swift-by-tutorials.html"
+summary: >-
+  Apple released the first public beta of the Swift programming language just
+  over three months ago. Within days of the release myself and Matt Galloway
+  started working on our book Swift by Tutorials, which as of yesterday is
+  finally finished and shipping!
+oldlink: 'http://www.scottlogic.com/blog/2014/09/18/swift-by-tutorials.html'
 disqus-id: /2014/09/18/swift-by-tutorials.html
 categories:
-  - Swift
-  - iOS
-  - Mobile
+  - Tech
 ---
 
 Apple released the first public beta of the Swift programming language just over three months ago. Within days of the release myself and Matt Galloway (author of [Effective Objective-C](http://www.effectiveobjectivec.com/)) started working on our book <a href="http://www.raywenderlich.com/store/swift-by-tutorials?source=ceberhardt">Swift by Tutorials</a>.
 
 After a tremendous amount of work, that has seen us update our chapters numerous times through 6 different beta releases, I am happy to say that the book is finally finished and shipping:
 
-<a href="http://www.raywenderlich.com/store/swift-by-tutorials?source=ceberhardt"><img src="{{ site.github.url }}/ceberhardt/assets/swift-by-tutorials.png" /></a>
+<a href="http://www.raywenderlich.com/store/swift-by-tutorials?source=ceberhardt"><img src="{{ site.baseurl }}/ceberhardt/assets/swift-by-tutorials.png" /></a>
 
 ... all this just days after Swift 1.0 was released and the NDA lifted!
 

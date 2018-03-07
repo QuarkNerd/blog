@@ -28,7 +28,7 @@ Build instructions:
 
 In this tutorial we give an introduction to how Emscripten-generated code could be integrated with the rest of your web-app, and there are some sources and build files that might be helpful for a quick start. It's a simplified outcome of what we actually did as a (successful) experiment over one of our commercial products.
 
-Emscripten is an LLVM-to-Javascript compiler that... well.. if you know what a compiler is, that pretty much explains the whole thing. Now we can write code in anything that compiles to LLVM (and this includes C++), run Emscripten and get a JS equivalent. It does not bring full coverage of C++ features but a reasonable subset of features is there and if you are not using anything fancy (and most people don't) you should be able to convert your code to JS without much trouble. The major feature here is that the resultant JS code is not a syntactical translation but a bytecode-level translation which means things like pointers to functions returning pointers to pointers to.. would work. You can see the output as a kind of a virtual machine written in JS that executes your C++ code. Plus it uses [WebGL]({{ site.github.url }}/2014/03/11/a-developers-intro-to-webgl.html) as a back-end for your normal GL calls. As a result, all sorts of native libraries and apps are now possible to port to JS that would seem crazy some few years ago: [Unreal Engine 3](https://www.unrealengine.com/news/epic-games-releases-epic-citadel-on-the-web), [Nebula 3](http://www.flohofwoe.net/demos.html), [ffmpeg](http://bgrins.github.io/videoconverter.js), etc.
+Emscripten is an LLVM-to-Javascript compiler that... well.. if you know what a compiler is, that pretty much explains the whole thing. Now we can write code in anything that compiles to LLVM (and this includes C++), run Emscripten and get a JS equivalent. It does not bring full coverage of C++ features but a reasonable subset of features is there and if you are not using anything fancy (and most people don't) you should be able to convert your code to JS without much trouble. The major feature here is that the resultant JS code is not a syntactical translation but a bytecode-level translation which means things like pointers to functions returning pointers to pointers to.. would work. You can see the output as a kind of a virtual machine written in JS that executes your C++ code. Plus it uses [WebGL]({{ site.baseurl }}/2014/03/11/a-developers-intro-to-webgl.html) as a back-end for your normal GL calls. As a result, all sorts of native libraries and apps are now possible to port to JS that would seem crazy some few years ago: [Unreal Engine 3](https://www.unrealengine.com/news/epic-games-releases-epic-citadel-on-the-web), [Nebula 3](http://www.flohofwoe.net/demos.html), [ffmpeg](http://bgrins.github.io/videoconverter.js), etc.
 
 ## Setup
 
@@ -280,7 +280,7 @@ You can read more details about name mangling and interaction with the native co
 
 Now build the library and open `index.html`. You should see a nicely coloured triangle which we can actually move around and zoom with a mouse.
 
-<a href="http://ilyalopatkin.github.io/emscripten_webgl_simmer_gently"><img src="{{ site.github.url }}/ilopatkin/assets/emscripten_screenshot.png" alt="Emscripten WebGL screenshot"/></a>
+<a href="http://ilyalopatkin.github.io/emscripten_webgl_simmer_gently"><img src="{{ site.baseurl }}/ilopatkin/assets/emscripten_screenshot.png" alt="Emscripten WebGL screenshot"/></a>
 
 ## Automating the build process
 
@@ -342,7 +342,7 @@ This would generate an additional `.map` file sitting next to the output file (i
 
 Refresh your `index.html`, open the developer console (in Chrome press F12), go to the Sources tab, open up the list of source files and you should see and able to open our original `.cpp` files. Breakpoints and stepping through should all work as expected. The only thing is the variable viewer would not be able to resolve things like Emscripten pointers which would naturally appear as numbers. Otherwise you should be able to debug just fine although I would imagine writing a simple wrapper and using a native debugger and a native IDE would certainly bring its advantages in debugging.
 
-<img src="{{ site.github.url }}/ilopatkin/assets/emscripten_debug.png"/>
+<img src="{{ site.baseurl }}/ilopatkin/assets/emscripten_debug.png"/>
 
 ## Optimisation
 

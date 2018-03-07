@@ -3,6 +3,8 @@ author: rrhodes
 title: Exploring Dynamic Programming
 layout: default_post
 summary: First introduced to me as “upside-down recursion”, dynamic programming is a technique used to write efficient algorithms to solve a wide range of problems, often replacing recursive approaches. Having met many examples in the past few years, this post explores three applications I’ve seen for the benefit of those new to the technique.
+categories:
+  - Tech
 ---
 
 <style type="text/css">
@@ -45,7 +47,7 @@ public static long recursiveFib(int n) {
 
 This approach is short, simple, and more importantly, returns the correct answer for small cases of n. That's great, so why the incentive to apply DP here? Suppose n > 5, then calls to `recursiveFib` begin as follows:
 
-<img src='{{ site.github.url }}/rrhodes/assets/recursive_fib_tree.JPG' alt='Recursive Fibonacci Calls'/>
+<img src='{{ site.baseurl }}/rrhodes/assets/recursive_fib_tree.JPG' alt='Recursive Fibonacci Calls'/>
 
 Clearly `recursiveFib` is repeating calculations. Four times it calls itself with input n - 4, when really this should only be calculated once. Observe adjacent layers *a* and *b* of the tree, where *a* is immediately above *b*, with *x* and *y* nodes respectively. Then we see that *y* = 2<sup>*x*</sup>. As n increases in size, the number of calls `recursiveFib` makes to itself grows significantly. Surely there's a better approach for solving this problem?
 

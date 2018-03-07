@@ -16,7 +16,7 @@ Imagine you are testing a piece of software which displays the names of local bu
 
 This software might look something like this...
 
-<img src="{{ site.github.url }}/rhamilton/assets/select1.png" alt="select drop-down1" title="select drop-down1"/>
+<img src="{{ site.baseurl }}/rhamilton/assets/select1.png" alt="select drop-down1" title="select drop-down1"/>
 
 There are only three items on this list at the moment, but this may not always be the case.
 
@@ -69,7 +69,7 @@ If we wanted to test what happens when the list has many values, we could just c
 
 Once this new mock is fed back into the application, it might look something like this...
 
-<img src="{{ site.github.url }}/rhamilton/assets/select2.png" alt="select drop-down2" title="select drop-down2"/>
+<img src="{{ site.baseurl }}/rhamilton/assets/select2.png" alt="select drop-down2" title="select drop-down2"/>
 
 When there are 7 items on the list, the contents of the list now covers the Submit button. We may also find that application performance is degraded when a larger number of items are displayed.
 

@@ -1,15 +1,20 @@
 ---
 author: tbarclay
-title: "Building a Jump Scroll Marketing Page with Meteor and OrionJS"
-title-short: "Meteor and OrionJS"
+title: Building a Jump Scroll Marketing Page with Meteor and OrionJS
+title-short: Meteor and OrionJS
 categories:
-  - HTML5
-  - Web
+  - Tech
 image: tbarclay/assets/featured/spluxr.jpg
 tags:
   - featured
-summary: "Recently I needed to make a site for a personal project, and although I work on dynamic web apps for a living, I hadn't had to make a proper, honest-to-goodness website for years. There are plenty of well-known options out there for making sites quickly, like Wordpress and Squarespace, but why go for the quick option, I said to myself, when there's a learning opportunity to be had!"
-summary-short: "This looks at building a jump-scroll website using Meteor and OrionJS"
+summary: >-
+  Recently I needed to make a site for a personal project, and although I work
+  on dynamic web apps for a living, I hadn't had to make a proper,
+  honest-to-goodness website for years. There are plenty of well-known options
+  out there for making sites quickly, like Wordpress and Squarespace, but why go
+  for the quick option, I said to myself, when there's a learning opportunity to
+  be had!
+summary-short: This looks at building a jump-scroll website using Meteor and OrionJS
 layout: default_post
 ---
 
@@ -28,7 +33,7 @@ Now, I don't know much about product marketing, but I do know that if you have a
 
 You can find the source of this project on [GitHub](https://github.com/timbarclay/jump-scroll-site).
 
-<img src='{{ site.github.url }}/tbarclay/assets/meteor/title.png' title="Spluxr" alt="Spluxr title screen" />
+<img src='{{ site.baseurl }}/tbarclay/assets/meteor/title.png' title="Spluxr" alt="Spluxr title screen" />
 
 ## Tooling up
 
@@ -142,7 +147,7 @@ orion.dictionary.addDefinition('description', 'site', {
 
 Now the dictionary will show up in the admin menu and clicking it brings up a form where I can set my title and description values.
 
-<img src='{{ site.github.url }}/tbarclay/assets/meteor/dictionary.png' title="Dictionary" alt="Setting values in the dictionary" />
+<img src='{{ site.baseurl }}/tbarclay/assets/meteor/dictionary.png' title="Dictionary" alt="Setting values in the dictionary" />
 
 Once that's set up I can show those values in the site.
 
@@ -245,7 +250,7 @@ Sections.attachSchema(new SimpleSchema({
 
 Here I've set up the basic template of what a section will include. Now the menu in the admin interface will contain a link entitled Sections and from there we can add some content.
 
-<img src='{{ site.github.url }}/tbarclay/assets/meteor/section.png' title="Section form" alt="Adding a section" />
+<img src='{{ site.baseurl }}/tbarclay/assets/meteor/section.png' title="Section form" alt="Adding a section" />
 
 To show the sections on screen I'll need another template. So in client/templates/section.html:
 
@@ -434,7 +439,7 @@ function updateOnScroll(){
 
 Having these nice, proper URL paths for our sections isn't much use unless people can link to them and bookmark them. At the moment I can scroll to a section and see its path in the address bar, but if I try to navigate straight to that URL, I'll get an error message from Iron Router complaining that there's no route set up.
 
-<img src='{{ site.github.url }}/tbarclay/assets/meteor/no-route.png' title="No route" alt="No route message" />
+<img src='{{ site.baseurl }}/tbarclay/assets/meteor/no-route.png' title="No route" alt="No route message" />
 
 I'll solve this by adding another catch-all route in the router that directs to the `mainPage` template. Then I'll handle scrolling to the correct section myself.
 
@@ -530,6 +535,6 @@ I'm also using the `hasBackgroundImage` helper to add a class `overlay` so I can
 
 Now, after a quick trip to [pexels.com](https://www.pexels.com/), I can make Spluxr look a bit more engaging.
 
-<img src='{{ site.github.url }}/tbarclay/assets/meteor/section-with-bg.png' title="A section with a background image" alt="A section with a background image" />
+<img src='{{ site.baseurl }}/tbarclay/assets/meteor/section-with-bg.png' title="A section with a background image" alt="A section with a background image" />
 
 And now all that remains is to set up a million dollar Kickstarter campaign...

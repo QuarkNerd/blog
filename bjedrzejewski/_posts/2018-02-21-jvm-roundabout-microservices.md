@@ -5,7 +5,6 @@ summary: "JVM Roundabout is a meetup in London where all things related to JVM a
 layout: default_post
 categories:
   - Events
-  - Java
 ---
 
 ###JVM Roundabout

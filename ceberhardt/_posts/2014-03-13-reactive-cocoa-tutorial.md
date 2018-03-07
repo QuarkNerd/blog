@@ -54,13 +54,13 @@ ReactiveCocoa is a tricky topic, so I used these tutorials to very gradually int
   }];
 {% endhighlight %}
 
-The above first signs in to twitter, then switches to a new signal which receives events when the user types in text into a search field. This is filtered so that it is more than 3 characters in length, throttled so that updates are sent twice per second, this then kicks off a twitter search, the results are marshalled back onto the UI thread, finally [Linq-to-ObjectiveC]({{ site.github.url }}/2013/02/15/linq-to-objective-c.html) is used to transform the returned JSON objects into a simple `RWTweet` class which is rendered by the UI.
+The above first signs in to twitter, then switches to a new signal which receives events when the user types in text into a search field. This is filtered so that it is more than 3 characters in length, throttled so that updates are sent twice per second, this then kicks off a twitter search, the results are marshalled back onto the UI thread, finally [Linq-to-ObjectiveC]({{ site.baseurl }}/2013/02/15/linq-to-objective-c.html) is used to transform the returned JSON objects into a simple `RWTweet` class which is rendered by the UI.
 
 There is *no way* you could code this logic so clearly and concisely without ReactiveCocoa.
 
 Here it is in diagram form:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/CompletePipeline.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/CompletePipeline.png" />
 
 If you are an iOS developer, I would thoroughly recommend having a look at ReactiveCocoa. It's [not everyone's liking](http://inessential.com/2014/03/10/reactivecocoa), but it is certainly worth taking a look to see what all the fuss is about.
 

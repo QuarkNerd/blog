@@ -2,11 +2,13 @@
 author: ceberhardt
 title: Creating a Market Profile Chart with D3
 layout: default_post
-summary: Market profile charts are relatively complicated and specialised charts used by financial traders. This blog post looks at how to render a market profile chart using D3.
+summary: >-
+  Market profile charts are relatively complicated and specialised charts used
+  by financial traders. This blog post looks at how to render a market profile
+  chart using D3.
 image: ceberhardt/assets/market-profile/market-profile.png
 categories:
-  - JavaScript
-  - D3
+  - Tech
 ---
 
 Financial traders who make their living (or at least some extra spending money) from the financial markets have developed a whole host of [indicators](https://en.wikipedia.org/wiki/Technical_analysis#Charting_terms_and_indicators) that overlay the price of an instrument, providing signals for when to buy or sell.
@@ -15,7 +17,7 @@ As well as indicators, traders also make use of some quite specialised, non time
 
 Here's an example chart:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/market-profile/market-profile-complete.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/market-profile/market-profile-complete.png" />
 
 You can find out how to read (and trade from) a market profile on [various websites](http://www.marketcalls.in/market-profile/how-to-read-a-market-profile-chart.html). In this post I'm more concerned with how to render this unusual looking chart!
 
@@ -81,7 +83,7 @@ This produces an array of buckets as follows:
 
 The construction of the profile itself is probably easiest to understand visually. The first step is to overlay the time series with a set of boxes where trading occurred within each time period:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/market-profile/split-profile.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/market-profile/split-profile.png" />
 
 This is called a 'split profile' chart. To form a market profile, you weight each box based on the volume for that time period, then 'slide' them to the left in order to stack them up.
 
@@ -171,7 +173,7 @@ d3.select('#chart')
 
 This produces a complete market profile for this time period:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/market-profile/market-profile.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/market-profile/market-profile.png" />
 
 The complete code for this example is [on the bl.ocks website](https://bl.ocks.org/ColinEberhardt/d25e78dcdaf05e67cd40c7d3a4d803f6).
 
@@ -192,7 +194,7 @@ When rendering the profiles for multiple time periods the x-scale is no longer a
 
 The d3 band scale creates discrete sub-divisions, with padding, where the `bandwidth` function returns the computed bandwidth based on the scale's domain and range:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/market-profile/band.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/market-profile/band.png" />
 
 (Image from the [d3 band scale documentation](https://github.com/d3/d3-scale#band-scales))
 
@@ -263,7 +265,7 @@ Market profile charts also have various other annotations, such as the Point Of 
 
 Here's the final chart:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/market-profile/market-profile-complete.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/market-profile/market-profile-complete.png" />
 
 The complete code for this example is [on the bl.ocks website](https://bl.ocks.org/ColinEberhardt/0391a200d09c05883f8181f8093268f2).
 

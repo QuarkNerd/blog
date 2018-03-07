@@ -9,6 +9,8 @@ summary-short: Making the jump to fully modularized applications in javascript i
 image: tferguson/assets/featured/jspm.png
 tags:
   - featured
+categories:
+  - Tech
 ---
 
 *This post uses jspm 0.16. This information may be incomplete and even incorrect when jspm 0.17 is released. You can still try out jspm 0.17 beta now and follow developments [via the beta guide](http://jspm.io/0.17-beta-guide/index.html).*
@@ -51,11 +53,11 @@ You’ll notice that jspm asks if you would like to create a package.json. This 
 
 We now have the following project structure:
 
-![Result of jspm init]({{ site.github.url }}/tferguson/assets/jspm-init.PNG "Result of jspm init")
+![Result of jspm init]({{ site.baseurl }}/tferguson/assets/jspm-init.PNG "Result of jspm init")
 
 The `jspm_packages` directory is similar to the familiar `bower_components`; it contains our client side dependencies. If we delve inside it however, it looks wholly unfamiliar:
 
-![jspm_packages]({{ site.github.url }}/tferguson/assets/jspm-packages.PNG "jspm_packages")
+![jspm_packages]({{ site.baseurl }}/tferguson/assets/jspm-packages.PNG "jspm_packages")
 
 *Why is there a github directory, an npm directory and all this other stuff I didn’t ask for?!* ( If this upsets you don’t even bother looking in the `npm` directory - it’s pretty cosy in there too). As it turns out, jspm is much more than a simple package installing tool - it will help us with transpiling, module loading, bundling and minification. The stuff you see is what jspm ships with by default in order to perform these tasks.
 
@@ -162,7 +164,7 @@ In the case of modules we have defined ourselves we provide the path to the modu
 Now let's turn our attention to that new `angular` directory. jspm will check the [jspm registry](http://kasperlewau.github.io/registry/#/), see that angular aliases `github:angular/bower-angular` and hence create the `github/angular` directory.
 Taking a look inside the `angular` directory we see the following structure:
 
-![Angular jspm package]({{ site.github.url }}/tferguson/assets/angular-jspm-package.PNG "Angular jspm package")
+![Angular jspm package]({{ site.baseurl }}/tferguson/assets/angular-jspm-package.PNG "Angular jspm package")
 
 Opening `bower-angular@1.5.0.js` reveals the following code:
 
@@ -249,11 +251,11 @@ angular.module('app', [])
 
 If we load this in the browser by running `npm start app` and navigating to `localhost:8080` we see the angular binding for our `hello` scope variable, but not the 'Hello World' string we expected.
 
-![First App Run]({{ site.github.url }}/tferguson/assets/first-app-run.PNG "First App Run")
+![First App Run]({{ site.baseurl }}/tferguson/assets/first-app-run.PNG "First App Run")
 
 We also don’t get any errors. This actually isn't a problem with our angular code. A quick look at the sources tab gives a clue to the issue.
 
-![First App Run Sources Tab]({{ site.github.url }}/tferguson/assets/first-app-run-sources-tab.PNG "First App Run Sources Tab")
+![First App Run Sources Tab]({{ site.baseurl }}/tferguson/assets/first-app-run-sources-tab.PNG "First App Run Sources Tab")
 
 *Where is our app.js?* Well because we are no longer using script tags to load our files the browser doesn’t know about `app.js`. This file creates our main angular module (not to be confused with an ES6 module) so we need the browser to execute it in order to bootstrap our angular application and kick everything off. We can do this by importing `app.js` using System:
 
@@ -274,7 +276,7 @@ We also don’t get any errors. This actually isn't a problem with our angular c
 
 This time when we load the app in the browser we are presented with 'Hello World'.
 
-![Angular Hello World]({{ site.github.url }}/tferguson/assets/angular-hello-world.PNG "Angular Hello World")
+![Angular Hello World]({{ site.baseurl }}/tferguson/assets/angular-hello-world.PNG "Angular Hello World")
 
 Congratulations, you have built a (rather simple) angular application that uses ES6 module loading for all client side dependencies!
 
@@ -324,7 +326,7 @@ export default ($scope) => {
 
 Running `npm start app` and taking a look at the network tab should reveal 9 requests being made. We should be able to spot our `app.js` and `main.controller.js` amongst those requests.
 
-![Request for each module]({{ site.github.url }}/tferguson/assets/request-for-each-module.PNG "Request for each module")
+![Request for each module]({{ site.baseurl }}/tferguson/assets/request-for-each-module.PNG "Request for each module")
 
 The `jspm bundle` command will both transpile and bundle our modules into one file. Not only that, but it will include all of our installed jspm dependencies in the bundling step. Running
 
@@ -362,7 +364,7 @@ Now the first time a module is requested SystemJS will see that it falls within 
 From then onwards SystemJS will continue to go back to the already requested `app.bundle.js` instead of making further HTTP requests.
 Running the app in the browser and taking a look at the network tab now reveals only 4 requests.
 
-![Request for bundle]({{ site.github.url }}/tferguson/assets/request-for-bundle.PNG "Request for each bundle")
+![Request for bundle]({{ site.baseurl }}/tferguson/assets/request-for-bundle.PNG "Request for each bundle")
 
 This is now a pretty lean request pipeline, but it still can be streamlined a little more by [creating a self executing bundle](http://jspm.io/docs/production-workflows.html#creating-a-selfexecuting-bundle) thereby removing the references to `system.js` and its `config.js`.
 

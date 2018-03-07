@@ -5,14 +5,12 @@ layout: default_post
 summary: "This post demonstrates how to create an efficient stock ticker app using HTML5 WebSockets and a Haskell server."
 disqus-id: /2015/11/15/stock-ticker.html
 categories:
-  - Web
-  - Haskell
   - Data
 ---
 
 This post demonstrates how to create an efficient stock ticker app using HTML5 WebSockets and a Haskell server. The stock ticker itself simply shows a list of symbols and prices that dynamically update:
 
-<img alt="Server Architecture" src="{{ site.github.url }}/isullivan/assets/stock-ticker-screenshot.png" />
+<img alt="Server Architecture" src="{{ site.baseurl }}/isullivan/assets/stock-ticker-screenshot.png" />
 
 ## Haskell
 
@@ -128,7 +126,7 @@ Threads can communicate with one another using the `Chan` (Channel) type. This i
 
 Here is the architecture that is used:
 
-<img alt="Server Architecture" src="{{ site.github.url }}/isullivan/assets/stock-ticker-architecture-diagram.png" />
+<img alt="Server Architecture" src="{{ site.baseurl }}/isullivan/assets/stock-ticker-architecture-diagram.png" />
 
 Each card represents a thread. Each connection is handled by it's own thread. The threads handling the connections simply 'listen' for a new price and when they get one, they send it to their client.
 

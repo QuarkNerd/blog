@@ -3,8 +3,7 @@ author: cprice
 layout: default_post
 title: A Case for Hot-Reloading
 categories:
-  - Web
-  - HTML5
+  - Tech
 ---
 
 Hot-reloading UI is a **hot** [topic](http://gaearon.github.io/react-hot-loader/) [at](http://blog.mgechev.com/2015/10/26/angular2-hot-loader-hot-loading-tooling/) [the](https://github.com/cyclejs/cycle-core/issues/46) [moment](https://github.com/gaearon/redux-devtools). I want to take some time to explain why, in the class of applications I typically work on, I believe it to be such an important feature for future UI frameworks to have.
@@ -91,7 +90,7 @@ What if there was a way to iterate more quickly on the UI design and interaction
 
 As I described in *Style-driven development*, I consider hot-reloading to be the ability to make a change to a file in your editor and in a fraction of a second, see the resulting UI. Crucially this should happen without losing any of the UI state through e.g. refreshing the page.
 
-<p style="text-align:center"><img src="{{ site.github.url }}/cprice/assets/hot-reloading.gif"></p>
+<p style="text-align:center"><img src="{{ site.baseurl }}/cprice/assets/hot-reloading.gif"></p>
 
 With a near instant development cycle, there's no longer an excuse to gloss over little tweaks, you can iterate on a solution in seconds rather than minutes. No more clicking through the UI to get it into the state you need to reproduce the issue. No more compromising on the code quality hacking a fix in an inappropriate location to avoid wasting time waiting for it to load. No more maintenance of mock data, fixtures, harnesses, specifically to support the development cycle.
 

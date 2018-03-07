@@ -28,7 +28,7 @@ The categories I chose are:
 
 And these are the books that I selected:
 
-<img src="{{ site.github.url }}/bjedrzejewski/assets/java-books-2.jpg" alt="Effective Java"/>
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/java-books-2.jpg" alt="Effective Java"/>
 
 [**(Core Java) Effective Java - Second Edition**](http://www.amazon.co.uk/Effective-Java-Second-Joshua-Bloch/dp/0321356683/) by Joshua Bloch
 
@@ -41,7 +41,7 @@ and much more. The only criticism I can have for this book is that it is not yet
 of the ideas presented here- are arguably better solved with the new language features. For that there is another book further
 down this list...
 
-<img src="{{ site.github.url }}/bjedrzejewski/assets/java-books-3.jpg" alt="Head First Design Patterns"/>
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/java-books-3.jpg" alt="Head First Design Patterns"/>
 
 [**(Object Oriented Programming) Head First Design Patterns**](http://www.amazon.co.uk/Head-First-Design-Patterns-Freeman/dp/0596007124/) by Eric Freeman & Elizabeth Freeman with Kathy Sierra & Bert Bates
 
@@ -53,7 +53,7 @@ contains a lot of valuable knowledge about all the common design patterns and mo
 keep on your desk at work (especially if you are working in a _very serious_ place), but reading it, is pretty much guaranteed
 to help you identify, describe and implement most of the commonly used design patterns. It is also genuinely entertaining.
 
-<img src="{{ site.github.url }}/bjedrzejewski/assets/java-books-4.jpg" alt="Practical Unit Testing"/>
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/java-books-4.jpg" alt="Practical Unit Testing"/>
 
 [**(Testing) Practical Unit Testing with JUnit and Mockito**](http://www.amazon.co.uk/Practical-Unit-Testing-JUnit-Mockito/dp/8393489393/) by Tomek Kaczorowski
 
@@ -65,7 +65,7 @@ It tackles most of the common questions and concerns (for example: _"What values
 I think this is a great book for those who love as well for those who hate testing- it really can change your attitude. Every time
 I use it for reference, to refresh my memory- I want to go and write some tests.
 
-<img src="{{ site.github.url }}/bjedrzejewski/assets/java-books-5.jpg" alt="Building Microservices"/>
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/java-books-5.jpg" alt="Building Microservices"/>
 
 [**(Architecture) Building Microservices**](http://www.amazon.co.uk/Building-Microservices-Sam-Newman/dp/1491950358/) by Sam Newman
 
@@ -78,7 +78,7 @@ here. It explains the challenges of implementing this solution in real world and
 you will face- _How to make microservices talk to each other?_, _How to map continuous integration to Microservices?_  or _How much is too much?_.
 The book is short but is absolutely packed with useful information.
 
-<img src="{{ site.github.url }}/bjedrzejewski/assets/java-books-6.jpg" alt="Java 8 in Action"/>
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/java-books-6.jpg" alt="Java 8 in Action"/>
 
 [**(Java 8) Java 8 in Action**](http://www.amazon.co.uk/Java-Action-Lambdas-functional-style-programming/dp/1617291994/) by Raoul-Gabriel Urma, Mario Fusco and Alan Mycroft
 
@@ -89,7 +89,7 @@ about streams, default implementations in the interfaces, `Optional` as an alter
 show you all of that in an easy and engaging way. I see this book as a companion to the Effective Java
 mentioned earlier. Together they show how to use Java to its full potential.
 
-<img src="{{ site.github.url }}/bjedrzejewski/assets/java-books-7.jpg" alt="Cracking the coding interview"/>
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/java-books-7.jpg" alt="Cracking the coding interview"/>
 
 [**(Problem Solving) Cracking the Coding Interview**](http://www.amazon.co.uk/Cracking-Coding-Interview-6th-Programming/dp/0984782850/) by Gayle Laakmann McDowell
 
@@ -109,7 +109,7 @@ It will help you you:
 I think these can be useful for most Java developers. It certainly helped me learn important, but sometimes overlooked
 aspects of being good Java developer.
 
-<img src="{{ site.github.url }}/bjedrzejewski/assets/java-books-1.jpg" alt="Recommended Java Books"/>
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/java-books-1.jpg" alt="Recommended Java Books"/>
 
 Have fun reading and learning. If there are books that you found game changing, please let us know in comments
 or on [Twitter](http://twitter.com/Scott_Logic).

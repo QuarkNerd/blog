@@ -6,12 +6,11 @@ summary: "This blog describes the ALF annual summit in London, why it is differe
 and what value conferences provide. "
 categories:
   - Test
-  - Events
 ---
 
 Most of you may have attended conferences, and indeed many may have attended the ALF (Assurance Leadership Forum) possibly in its former guise as the TMF (Test Management Forum) - this is my take on the reason why I find ALF a more effective and engaging one to some of the others I have attended and what I took away from it. The ALF is “mainly a Forum for senior Assurance and Test professionals that is forward looking, focusing on trends/futures, the ‘big issues’ in Assurance, Testing and QA management, an excellent place for networking and meeting like-minded people, and let’s not forget learning”.
 
-![MyImage]({{ site.github.url }}/mmathew/assets/ALF.jpg "ALF")
+![MyImage]({{ site.baseurl }}/mmathew/assets/ALF.jpg "ALF")
 
 The sessions I attended were:
 

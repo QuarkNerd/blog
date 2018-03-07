@@ -1,13 +1,12 @@
 ---
 author: nowen
 title: White-labelling using PostCSS path resolution
-summary: "Theming an application is a concern for many organisations and products. In this post I'll present a simple way to manage branding using current tooling."
+summary: >-
+  Theming an application is a concern for many organisations and products. In
+  this post I'll present a simple way to manage branding using current tooling.
 layout: default_post
 categories:
-  - CSS
-  - HTML5
-  - JavaScript
-  - Web
+  - Tech
 ---
 
 Any company owning several different brands, or selling a customisable product, will have to decide a technical approach to white-labelling.
@@ -29,7 +28,7 @@ I won't go into the details of the application itself here, but the keen reader 
 
 Here is the rendered page shown here in all its naked glory:
 
-<img src="{{ site.github.url }}/nowen/assets/white-label/white-label-unstyled.jpg" alt="The bare page" />
+<img src="{{ site.baseurl }}/nowen/assets/white-label/white-label-unstyled.jpg" alt="The bare page" />
 
 <sup>1</sup> There's no reason this solution couldn't be extended to any framework of choice, for example Angular 2.
 
@@ -184,10 +183,10 @@ So we're looking to the configured theme, and then scanning the imports ready to
 And with that we're ready to go!
 
 Light theme:
-<img src="{{ site.github.url }}/nowen/assets/white-label/white-label-light-theme.jpg" alt="Light theme" />
+<img src="{{ site.baseurl }}/nowen/assets/white-label/white-label-light-theme.jpg" alt="Light theme" />
 
 Dark theme (forgive the colouring):
-<img src="{{ site.github.url }}/nowen/assets/white-label/white-label-dark-theme.jpg" alt="Dark theme" />
+<img src="{{ site.baseurl }}/nowen/assets/white-label/white-label-dark-theme.jpg" alt="Dark theme" />
 
 <sup>2</sup> If we weren't using postcss, and were say using SASS, the same effect shown above could be achieved by using a [webpack alias](https://webpack.js.org/configuration/resolve/#resolve-alias). It's not possible here because postcss gets its hands on these imports from right under webpack's nose.
 

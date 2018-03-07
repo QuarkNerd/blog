@@ -3,7 +3,7 @@ author: godds
 title: Do You Need A Conversational UI?
 image: godds/assets/featured/do-you-need-conv-ui.png
 categories:
-  - UX
+  - UX Design
 tags:
   - featured
 layout: default_post
@@ -14,13 +14,13 @@ The [excitement](http://venturebeat.com/2016/04/12/the-chatbot-gold-rush-is-offi
 
 Only after establishing this insight is it possible to meaningfully evaluate whether and how a conversational UI might support users’ tasks and contexts. To do this, the relative strengths and weaknesses of the conversational paradigm should be considered in order to establish whether it has a genuine place in your overarching strategy or whether it would be a forced gimmick.
 
-<img class="aligncenter" src="{{ site.github.url }}/godds/assets/do-you-need-conv-ui.png" alt="Do you need a conversational UI?" />
+<img class="aligncenter" src="{{ site.baseurl }}/godds/assets/do-you-need-conv-ui.png" alt="Do you need a conversational UI?" />
 
 ## What it does and doesn't do well
 
 With approximately [3 billion people actively using messaging apps](http://uk.businessinsider.com/the-messaging-app-report-2015-11), it’s fair to assume that the basic conversational UI is familiar to anyone with a smartphone.  Messaging is inherently personal and direct, so any service with a conversational UI is immediately presenting a similarly personal and direct face, especially when living alongside your existing personal contacts in Facebook Messenger, WhatsApp, iMessage or similar. This is both a fantastic opportunity and risk. Get it right and you have a very engaged customer. Get it even slightly wrong, for example by pushing undesired content, and you’ll be shunned as easily and quickly as an annoying friend would be.
 
-<img class="aligncenter" src="{{ site.github.url }}/godds/assets/service-as-contact.png" alt="Service as a contact" />
+<img class="aligncenter" src="{{ site.baseurl }}/godds/assets/service-as-contact.png" alt="Service as a contact" />
 
 Existing within messaging apps naturally creates opportunities to make your services contextually aware by picking up on explicit or implicit topics in conversation, thereby increasing your services’ relevance and ease of use. Uber is already demonstrating this to great effect, with addresses in conversations being used as potential triggers for ordering transport.
 
@@ -28,7 +28,7 @@ Existing within messaging apps naturally creates opportunities to make your serv
 
 As more of the messaging apps add @mentions, the ability for your services to be brought into discussions will only increase. Even without that level of sophistication, it is still easier for users to switch to a different message thread within the app than to switch apps entirely. Asking your bank-bot for your balance rather than opening your banking app (and going through whatever login process is necessary) is the digital equivalent of peeking at the cash in your wallet compared to walking across the street to a cashpoint. Although this may seem like only a small win in terms of effort, the power of convenience should never be underestimated. Google’s [Android Instant Apps](http://appleinsider.com/articles/16/05/21/google-io-2016-androids-instant-apps-seek-to-solve-a-key-mobile-problem) announcement earlier this year demonstrates clearly how important convenience is perceived to be.
 
-<img class="aligncenter" src="{{ site.github.url }}/godds/assets/blank-conversational-ui.png" alt="Blank conversational UI" />
+<img class="aligncenter" src="{{ site.baseurl }}/godds/assets/blank-conversational-ui.png" alt="Blank conversational UI" />
 
 One major difficulty with conversational UIs is that by design they effectively present a blank canvas: we know that we can type/talk to interact with someone or something, but we’ve no idea what we can or cannot do. However, this can be seen as one of the key strengths of conversational UIs: where a typical GUI system for vast or complex functionality will likely be similarly vast or complex because of its adherence to the what-you-see-is-what-you-get (WYSIWYG) notion, conversational UIs leans towards the NUI (natural user interface) paradigm and its idea of what-you-do-is-what-you-get (WYDIWYG).
 
@@ -38,7 +38,7 @@ This affordance issue is typically mitigated through carefully designed language
 
 Typing out text is also relatively inefficient. For example, don’t make me type “yes” or “no” to a closed-ended question where some standard GUI buttons or similar would be a lot simpler. Fortunately, the messaging apps are catching on to this issue and are beginning to allow the creation of so-called structured content so that GUI elements can be incorporated into a messaging conversation.
 
-<img class="aligncenter" src="{{ site.github.url }}/godds/assets/structured-content.jpg" alt="Structured content in Google's Allo" />
+<img class="aligncenter" src="{{ site.baseurl }}/godds/assets/structured-content.jpg" alt="Structured content in Google's Allo" />
 
 ## Looking at the bigger picture
 
@@ -48,7 +48,7 @@ WeChat – the hugely dominant messaging app in China – clearly [demonstrates 
 
 It is clear that existing digital services do not necessarily translate well into a conversational UI without significant re-thinking. For example, the existing e-commerce or other search-based service mindset is unsuitable simply because large lists of results cannot be meaningfully displayed in the conversational bubble format. Even with carousel-type structured content, options presented to users should be limited to a handful at most.
 
-<img class="aligncenter" src="{{ site.github.url }}/godds/assets/messenger-cards.png" alt="List of results on Messenger" />
+<img class="aligncenter" src="{{ site.baseurl }}/godds/assets/messenger-cards.png" alt="List of results on Messenger" />
 
 To re-orient ourselves, we must consider how we would design the service if the interface was a (super-powered) person. Typically this results in some kind of personal assistant type role, where they might be a lackey to run errands for you, an active part of day-to-day life, an occasional guru to call upon or someone lurking in the shadows keeping sight of your long-term interests. These services take care of menial tasks for you, have an opinion (you trust and agree with!) about matters and make helpful suggestions.
 
@@ -56,15 +56,15 @@ To re-orient ourselves, we must consider how we would design the service if the 
 
 [KLM](https://messenger.klm.com/) are a high-profile example of an established service that has successfully added a conversational UI as part of its broader strategy. As part of its booking flow, users can opt to receive their boarding pass, flight information and various reminders through Facebook Messenger. Furthermore, they can ask questions and make requests such as changing seats through the same interface.
 
-<p style="text-align: center;"><img src="{{ site.github.url }}/godds/assets/klm-messenger1.png" alt="KLM Messenger" style="max-width: 50%" /><img src="{{ site.github.url }}/godds/assets/klm-messenger2.png" alt="KLM Messenger" style="max-width: 50%" /></p>
+<p style="text-align: center;"><img src="{{ site.baseurl }}/godds/assets/klm-messenger1.png" alt="KLM Messenger" style="max-width: 50%" /><img src="{{ site.baseurl }}/godds/assets/klm-messenger2.png" alt="KLM Messenger" style="max-width: 50%" /></p>
 
 Here at Scott Logic, we have been exploring [how banking might add to and enhance its services using conversational commerce](http://blog.scottlogic.com/2016/05/18/make-banking-talk.html). It has highlighted how drastic the change in relationship between service and customer could be using this paradigm, to the extent where it can seem like an entirely new and different service of which the conversational element is only the tip of the iceberg. For example, our savings nudge concept requires some reasonably sophisticated analysis and tracking behind the scenes, but presents itself naturally as a personalised financial advisor:
 
-<img class="aligncenter" src="{{ site.github.url }}/godds/assets/savings-nudge.png" alt="Savings nudge concept" />
+<img class="aligncenter" src="{{ site.baseurl }}/godds/assets/savings-nudge.png" alt="Savings nudge concept" />
 
 [X.ai](https://x.ai/) and [Trim](http://www.asktrim.com/) are good examples of whole new services that use a relatively simple conversational interface to front sophisticated back-end behaviour. The former allows you to offload the tedium of scheduling meetings by doing little more than CC’ing an email address and then letting a bot exchange emails with the other person. The latter seeks out your paid subscriptions for you, asks whether you want to maintain it or not and then, if desired, cancels it on your behalf; making a tedious task many of us ignore, to our financial detriment, trivial.
 
-<img class="aligncenter" src="{{ site.github.url }}/godds/assets/trim.png" alt="Trim" style="max-width: 325px;" />
+<img class="aligncenter" src="{{ site.baseurl }}/godds/assets/trim.png" alt="Trim" style="max-width: 325px;" />
 
 ## Think. Don't case technology.
 

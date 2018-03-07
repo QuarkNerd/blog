@@ -2,17 +2,19 @@
 author: ceberhardt
 title: Functional Swift and Memoization
 layout: default_post
-summary: This post is a continuation of my previous which looked at implementing Conway’s Game of Life using functional techniques. Here I look at how memoization can be used to cache the return value of a function in order to improve performance.
+summary: >-
+  This post is a continuation of my previous which looked at implementing
+  Conway’s Game of Life using functional techniques. Here I look at how
+  memoization can be used to cache the return value of a function in order to
+  improve performance.
 image: ceberhardt/assets/featured/memoization.png
-tags:
-oldlink: "http://www.scottlogic.com/blog/2014/09/22/swift-memoization.html"
+tags: null
+oldlink: 'http://www.scottlogic.com/blog/2014/09/22/swift-memoization.html'
 disqus-id: /2014/09/22/swift-memoization.html
 categories:
-  - Swift
-  - iOS
-  - Mobile
+  - Tech
 ---
-This post is a [continuation of my previous]({{ site.github.url }}/2014/09/10/game-of-life-in-functional-swift.html) which looked at implementing Conway's Game of Life using functional techniques. Here I look at how memoization can be used to cache the return value of a function in order to improve performance.
+This post is a [continuation of my previous]({{ site.baseurl }}/2014/09/10/game-of-life-in-functional-swift.html) which looked at implementing Conway's Game of Life using functional techniques. Here I look at how memoization can be used to cache the return value of a function in order to improve performance.
 
 ## Introduction
 
@@ -74,7 +76,7 @@ Ideally I'd like the game to run at around 20 frames per second, which gives me 
 
 The Xcode unit testing tools have a built-in mechanism for performance measurement. By adding a `measureBlock` to a unit, the test runner will repeatedly execute the supplied closure in order to determine its average execution time:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/memoization/performanceNotOptimised.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/memoization/performanceNotOptimised.png" />
 
 As you can see from the above, the current, non-optimised version of my Life game takes around 2 seconds to perform 20 iterations, so fails to meet my target of 20 frames per second.
 
@@ -176,7 +178,7 @@ The `Hashable` protocol is used to create a hash-value for an instance of an obj
 
 Now that function that finds the neighbours for a cell is memoized, it's time to test performance once again:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/memoization/memoisedSlow.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/memoization/memoisedSlow.png" />
 
 This gives 0.145 secs, a big improvement on 1.93 secs, and enough to hit the target of 20 frames per second.
 
@@ -243,7 +245,7 @@ dyingCells.each { (cell: Cell) in cell.state = .Dead }
 
 Using the `neighbours` property on the cell, rather than the memoized function, further improves performance to 0.057 seconds:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/memoization/preComputed.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/memoization/preComputed.png" />
 
 So, does this mean that memoization is a pointless and complicated concept? No. It simply means that the Game of Life is simpler and more performant without it!
 

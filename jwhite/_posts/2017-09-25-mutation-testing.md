@@ -3,6 +3,8 @@ author: jwhite
 title: Mutation Testing - Who will test the tests themselves?
 summary: Having good tests is vital for maintaing code but it is difficult to assess the quality of your tests. Mutation testing provides one way of evaluating your tests. In this post I will be using PIT with Java to demonstrate the capabilities of mutation testing.
 layout: default_post
+categories:
+  - Testing
 ---
 In this post I will be looking at mutation testing. This is aimed at people who are not familiar with mutation testing. I will give an introduction to what mutation testing is; show some examples of what it can do; consider its limitations and look at how mutation testing can be added to a Java project using PIT. The examples I use throughout this post can be found in this [repository](https://github.com/j-n-white/mutationTestingDemo).
 
@@ -72,7 +74,7 @@ public void canCreateOrangeCake() {
 
 This is all excellent, you have test scenarios for each of the different types of cake and you've run your code coverage tool and you have 100% line coverage. So you are left with the warm fuzzy feeling that comes with the knowledge that your functionality is fully tested and if it is ever broken in the future a test will fail to alert the developer. But is this confidence misplaced? The more astute amongst you will have realised that I would not have included this example if there was not a deliberate mistake in it so let's take a look at what a mutation test run makes of this code:
 
-[![createCake mutation test result]({{ site.github.url }}/jwhite/assets/mutation_fig1.png "createCake mutation test result")]({{ site.github.url }}/jwhite/assets/mutation_fig1.png)
+[![createCake mutation test result]({{ site.baseurl }}/jwhite/assets/mutation_fig1.png "createCake mutation test result")]({{ site.baseurl }}/jwhite/assets/mutation_fig1.png)
 
 As you can see the mutation test has highlighted the line that sets the amount of flour for the chocolate cake and sure enough when you look back at the test, the assertion on the flour is missing. The highlighted line of code could be changed and or even removed and all the tests would still pass and no one would know until some unfortunate user came to a sticky end trying to make a chocolate cake with no flour.
 
@@ -86,7 +88,7 @@ To answer this I will look in more detail at the tool I am using. In these examp
 
 As regards the mutations themselves I shall look at an example:
 
-[![Example mutations]({{ site.github.url }}/jwhite/assets/mutation_fig2.png "Example mutations")]({{ site.github.url }}/jwhite/assets/mutation_fig2.png)
+[![Example mutations]({{ site.baseurl }}/jwhite/assets/mutation_fig2.png "Example mutations")]({{ site.baseurl }}/jwhite/assets/mutation_fig2.png)
 
 This test report is all green meaning all the mutations were killed. The blue numbers next to the lines of code show how many mutations were generated for that line of code. Below the code in the Mutations section it details all of the mutations that were introduced for each line and if they were killed or not. In this example there are 5 different mutations so let's look at those.
 
@@ -244,7 +246,7 @@ Yes from time to time you have code which you cannot or does not make logical se
 
 The most obvious example of this is logging code, generally you will not be too concerned about the exact details of the logging output. Fortunately PIT has considered this as well and by default it will recognise logging code from the standard logging libraries and not create mutations in those lines. See the following example:
 
-[![Example with log statements]({{ site.github.url }}/jwhite/assets/mutation_fig3.png "Example with log statements")]({{ site.github.url }}/jwhite/assets/mutation_fig3.png)
+[![Example with log statements]({{ site.baseurl }}/jwhite/assets/mutation_fig3.png "Example with log statements")]({{ site.baseurl }}/jwhite/assets/mutation_fig3.png)
 
 As you can see in this example there are logging methods present on lines 14, 44 and 45 but there are no mutations generated on those lines. Line 45 is however still highlighted. Unfortunately since my tests were not run with trace level logging that line was never executed so it is highlighted as uncovered code.
 
@@ -253,7 +255,7 @@ Additionally PIT can be configured to exclude sections of code as necessary. Thi
 ## So what else can mutation testing do?
 On top of the core goal of verifying the quality of your tests there are a couple of other benefits. Firstly it can identify redundant code. Consider the following example:
 
-[![Example with redundant code]({{ site.github.url }}/jwhite/assets/mutation_fig4.png "Example with redundant code")]({{ site.github.url }}/jwhite/assets/mutation_fig4.png)
+[![Example with redundant code]({{ site.baseurl }}/jwhite/assets/mutation_fig4.png "Example with redundant code")]({{ site.baseurl }}/jwhite/assets/mutation_fig4.png)
 
 Lines 18 and 19 are highlighted as allowing mutations to survive. This is not due to a deficiency in the tests but that those lines of code are not necessary. Since `computeIfAbsent` returns the existing value if present then if the initial `get` on line 18 is removed the code will enter the if block and fetch the same result on line 20. Similarly when the if condition is mutated to always be true the value will fetched from the map twice but it will still be the same value so the net result will be the same.
 
@@ -264,13 +266,13 @@ As with any metric for assessing the test quality there is a danger that the foc
 
 There are some occasions when mutation testing will flag up issues where there are none.
 
-[![Equivalent mutation example]({{ site.github.url }}/jwhite/assets/mutation_fig5.png "Equivalent mutation example")]({{ site.github.url }}/jwhite/assets/mutation_fig5.png)
+[![Equivalent mutation example]({{ site.baseurl }}/jwhite/assets/mutation_fig5.png "Equivalent mutation example")]({{ site.baseurl }}/jwhite/assets/mutation_fig5.png)
 
 The above example shows an equivalent mutation as when the line is mutated the code still produces the same result. To see what is happening in line 8 we need to look at what happens when the next value is the same as the current lowest. In the unmutated code `lowest.compareTo(i) > 0` resolves to false so lowest remains at the same value. When the code is mutated the condition becomes `lowest.compareTo(i) >= 0` so now when the values are the same the condition evaluates to true  and lowest is reassigned. However because both values are the same the result is unchanged so the mutation is flagged as surviving. There is no way to avoid these false positives. This is a fairly simple example but there could be more complicated scenarios for example if you have written code to improve performance that does not change the end result.
 
 Another potential scenario for surviving mutations is where you have an intentionally included unreachable code. Remember the cake factory method we started with?  In that example if the cake type was not chocolate or orange then it gave the ingredients for a Victoria sponge. Since those are the only 3 supported cake types this works fine but if you wanted to add a safeguard against new types of cake being added you might refactor the code to be as follows:
 
-[![Unreachable code example]({{ site.github.url }}/jwhite/assets/mutation_fig6.png "Unreachable code example")]({{ site.github.url }}/jwhite/assets/mutation_fig6.png)
+[![Unreachable code example]({{ site.baseurl }}/jwhite/assets/mutation_fig6.png "Unreachable code example")]({{ site.baseurl }}/jwhite/assets/mutation_fig6.png)
 
 Now we have a switch statement with a default block. If a new cake type is added without being configured here then the code will fail fast. However for the moment none of the possible scenarios will execute the code in the default block so all mutation there survive.
 

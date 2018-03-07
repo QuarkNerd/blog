@@ -3,9 +3,7 @@ author: cprice
 layout: default_post
 title: d3-path - what is it good for?
 categories:
-  - Web
-  - HTML5
-  - D3
+  - Tech
 ---
 
 This post introduces a new feature of D3 version 4: the [`d3-path`](https://github.com/d3/d3-path) package.

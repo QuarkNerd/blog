@@ -1,8 +1,11 @@
 ---
 id: 755
 author: ceberhardt
-title: "Silverlight MultiBinding updated, adding support for ElementName and TwoWay binding"
-oldlink: "http://www.scottlogic.co.uk/blog/colin/2010/08/silverlight-multibinding-updated-adding-support-for-elementname-and-twoway-binding/"
+title: >-
+  Silverlight MultiBinding updated, adding support for ElementName and TwoWay
+  binding
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2010/08/silverlight-multibinding-updated-adding-support-for-elementname-and-twoway-binding/
 tags:
   - WPF
   - silverlight
@@ -11,11 +14,11 @@ tags:
   - virtual branch
   - blog
 categories:
-  - Web
-  - C#
+  - Tech
 layout: default_post
 source: wordpress
-disqus-id: /blog/colin/2010/08/silverlight-multibinding-updated-adding-support-for-elementname-and-twoway-binding/
+disqus-id: >-
+  /blog/colin/2010/08/silverlight-multibinding-updated-adding-support-for-elementname-and-twoway-binding/
 ---
 <p><em>This blog post describes an update to the Silverlight 4 MultiBinding technique I blogged about a couple of months ago to add support for ElementName binding and TwoWay binding.</em></p>
 <p>A few months ago I posted an update to my MultiBinding solution for Silverlight 4. This technique allows you to perform the same kind of multibindings which are possible in WPF, where a property value is bound to multiple sources via a special value converter that implements the IMultiValueConverter interface, which describes how these values are combined. This update proved popular once again, and I received a few requests to add support for ElementName and TwoWay binding. I like challenge! This blog post describes how these two features were implemented, but if you just want to grab the code, you will find the link at the end of this article.</p>
@@ -62,10 +65,10 @@ public class TitleConverter : IMultiValueConverter
 }
 {% endhighlight %}
 <p>In the example below you can see that as you change the forename or surname, the title text and tooltip are updated by the multibinding.</p>
-<div> <object width="200" height="150" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.github.url }}/archive/2010/08/SLMultiBindingOne.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div> <object width="200" height="150" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/08/SLMultiBindingOne.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <p>So how does this work?</p>
 <p>When a multibinding is created and added to an element via the BindingUtil.MultiBindings attached property, the MultiBinding instance is added to a virtual-branch, this is a branch of the visual tree that obtains the DataContext of the element to which it is bound, but is not added to the visual tree itself. The MultiBinding then creates a BindingSlave instance for each of the given Bindings. These 'slave' elements inherit the MultiBinding DataContext and are used to evaluate each of the individual Bindings. The MultiBinding instance aggregate the results of each binding with the IMultiValueConverter used to compute the ConvertedValue property which is bound to the target property on the element to which this MultiBinding as attached.</p>
-<p><img src="{{ site.github.url }}/archive/2009/06/virtualbranch.png" alt="" title="virtualbranch" width="604" height="394" class="aligncenter size-full wp-image-355" /></p>
+<p><img src="{{ site.baseurl }}/archive/2009/06/virtualbranch.png" alt="" title="virtualbranch" width="604" height="394" class="aligncenter size-full wp-image-355" /></p>
 <p><strong>ElementName binding</strong></p>
 <p>So why does the above solution not work if one of the multibindings uses ElementName to locate the source rather than using the inherited DataContext? The problem here is that the MultiBinding and its BindingSlave instances are located in a virtual branch and are therefore not in the same <a href="http://msdn.microsoft.com/en-us/library/cc189026%28VS.95%29.aspx">namescope</a> as the target element. As a result, they cannot perform look up of named elements.</p>
 <p>In order to solve this problem I created a BindingSlave subclass specifically for ElementName binding. This slave locates the source element named via the ElementName property and sets it as the Source of the binding it uses to compute its Value property.</p>
@@ -120,7 +123,7 @@ public class ElementNameBindingSlave : BindingSlave
 }
 {% endhighlight %}
 <p>The example below demonstrates element name binding by binding the Value of two Slider elements to a TextBlock which displays the sum of the two values.</p>
-<div> <object width="200" height="150" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.github.url }}/archive/2010/08/SLMultiBindingTwo.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div> <object width="200" height="150" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/08/SLMultiBindingTwo.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 {% highlight xml %}
 <TextBlock Grid.Column="1">
   <local:BindingUtil.MultiBindings>
@@ -215,7 +218,7 @@ private void OnConvertedValuePropertyChanged()
 </TextBox>
 {% endhighlight %}
 <p>You can have  try of two way multibinding below where the values of the forename and surname text boxes are combined in the box below. However, you ca also make updates to the combined result which will then be converted back into its constituent parts:</p>
-<div> <object width="300" height="150" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.github.url }}/archive/2010/08/SLMultiBindingThree.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div> <object width="300" height="150" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/08/SLMultiBindingThree.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <p>And here is the value converter:</p>
 {% highlight csharp %}
 public class TitleConverter : IMultiValueConverter
@@ -247,6 +250,6 @@ public class TitleConverter : IMultiValueConverter
 }
 {% endhighlight %}
 <p>So, there you have it, two-way and element name multibinding :-)</p>
-<p>You can download the full source, including a WPF build (thanks to <a href="https://twitter.com/stefanolson">Stefan Olson</a>) here: <a href='{{ site.github.url }}/archive/2010/08/SLMultiBindingUpdated.zip'>SLMultiBindingUpdated.zip</a> </p>
+<p>You can download the full source, including a WPF build (thanks to <a href="https://twitter.com/stefanolson">Stefan Olson</a>) here: <a href='{{ site.baseurl }}/archive/2010/08/SLMultiBindingUpdated.zip'>SLMultiBindingUpdated.zip</a> </p>
 <p>Now ... go forth and multibind.</p>
 <p>Regards, Colin E.</p>

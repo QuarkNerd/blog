@@ -26,7 +26,7 @@ public class MyClass
     }
 }
 {% endhighlight %}
-<p>If the intention of your code block is to create and initialise a static variable then this approach is clear and obvious.  However, if you want to run some general initialisation code you still require a dummy variable and a return type on the static function.  This is because the variable initialisation is the hook required to execute the function.  This technique was used throughout the Flex 3 Framework code for style initialisation on components (an approach no longer in Flex 4 because of the <a href="{{ site.github.url }}/2011/04/19/updating-flex-sparkline-to-flex-4" target=_"blank">improvements to style initialisation</a>).</p>
+<p>If the intention of your code block is to create and initialise a static variable then this approach is clear and obvious.  However, if you want to run some general initialisation code you still require a dummy variable and a return type on the static function.  This is because the variable initialisation is the hook required to execute the function.  This technique was used throughout the Flex 3 Framework code for style initialisation on components (an approach no longer in Flex 4 because of the <a href="{{ site.baseurl }}/2011/04/19/updating-flex-sparkline-to-flex-4" target=_"blank">improvements to style initialisation</a>).</p>
 <p>The second technique is that used by the <a href="http://help.adobe.com/en_US/flex/using/WS2db454920e96a9e51e63e3d11c0bf69084-7ec5.html" target="_blank">Automation framework</a> that is included with the SDK.  This approach allows code to be executed when an application or module is loaded.  The code would look as follows:</p>
 {% highlight actionscript %}
 [Mixin]

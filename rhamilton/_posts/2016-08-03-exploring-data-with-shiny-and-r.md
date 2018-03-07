@@ -16,7 +16,7 @@ categories:
 layout: default_post
 ---
 
-<img src="{{ site.github.url }}/rhamilton/assets/bubbles.jpg" alt="title image" title="title image"/>
+<img src="{{ site.baseurl }}/rhamilton/assets/bubbles.jpg" alt="title image" title="title image"/>
 
 Back in May I taught myself a [programming language called R](https://en.wikipedia.org/wiki/R_(programming_language)) so that I could solve the problem of analysing large amounts of data collected as part of a survey of software testers.
 

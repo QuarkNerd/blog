@@ -50,7 +50,7 @@ We know that the MEAN\_stack sample is an AngularJS app, and a glance at the unm
 
 In the Jade\_Express\_MySQL sample the information is passed as a cookie, set by the server on any request. The `connect.sid` is a signed ID for the session, but does not contain any data such as the username - that is all stored on the server, looked up using the session ID as a key. Again note that it's not encrypted, and it doesn't have anything identifying IP addresses or anything like that, though the cookie has attributes, which we will discuss later. Again it's just a cookie - if you've got the cookie you've got the session. The signature simply tells the server that it created this cookie and it hasn't been tampered with. FYI the format is `s%3A<ID>.<signature>`. Note that both Chrome and Firefox have extensions for editing cookies, which you should install. The cookie should be something like what's displayed here:
 
-<img src="{{ site.github.url }}/rsillem/assets/security-mitm/fiddler-2.png" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/rsillem/assets/security-mitm/fiddler-2.png" style="display: block; margin: auto;"/>
 
 If you're already somewhat security-aware you may be thinking "This is rubbish - using the same cookie for session ID and (effectively) authentication status." Yes, but for now, it's kept simple.
 
@@ -64,7 +64,7 @@ The exploits are now trivially simple:
 
 In the MEAN stack sample, using Fiddler capture a valid response to a post to `/api/session`. Save it as a file and paste in the session ID, adjusting the content length to the right number as necessary. Now use the AutoResponder tab in Fiddler to have it send back this response rather than going to the server for an `/api/login` post. Put your attacker hat on, fire up a different browser and login, with no user name or password. You are now logged in as the victim. Post offensive messages at will, and turn the AutoResponder off when you're finished.
 
-<img src="{{ site.github.url }}/rsillem/assets/security-mitm/fiddler-1.png" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/rsillem/assets/security-mitm/fiddler-1.png" style="display: block; margin: auto;"/>
 
 In the Jade-Express-MySQL sample, using the cookie editor extension in a different browser, replace the existing cookie with the one you extracted. You are now logged in as the victim. In fact you actually using the same session on the server in this sample - unlike the MEAN stack sample, where session state is stored in the browser. This means that if the attacker logs out, the victim is logged out too.
 
@@ -122,7 +122,7 @@ When this happens, the authentication token will be collected from the response 
 
 Log in, and then visit `10.10.10.30`. Hopefully, this is the sort of thing you'd see:
 
-<img src="{{ site.github.url }}/rsillem/assets/security-mitm/fiddlerscript.png" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/rsillem/assets/security-mitm/fiddlerscript.png" style="display: block; margin: auto;"/>
 
 See how the samples behave with HTTPS
 -----
@@ -203,7 +203,7 @@ There are a couple of caveats here:
 
 Implement HSTS on the sample apps and have a play around with it. This is easily said, and less easily done, but it will force you through a whole bunch of the practicalities. In principle all you need to do is to get the server to return the Strict-Transport-Security header with some appropriate options, and the browser will thereafter know that the site uses HSTS and not sent HTTP requests. In practice I found I needed to change the domain name from 10.10.10.xx to some other domain name (I used jade_express_mysql.com - I've no idea why I had to do this but it worked). Another tip is if things don't seem to be working as you expect, take a new tab in chrome and try again. For this, the Chrome dev tools network tab is the weapon of choice - Fiddler gets in the way rather, so close it down.
 
-<img src="{{ site.github.url }}/rsillem/assets/security-mitm/net-internals.png" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/rsillem/assets/security-mitm/net-internals.png" style="display: block; margin: auto;"/>
 
 You will also find [chrome://net-internals/#hsts](chrome://net-internals/#hsts) very handy for examining and flattening chrome's knowledge of settings for the domain name. See above for an example of the headers Chrome has stored for Strict-Transport-Security and Public-Key-Pinning.
 

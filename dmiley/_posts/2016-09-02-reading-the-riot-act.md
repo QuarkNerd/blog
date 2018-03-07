@@ -1,15 +1,16 @@
 ---
 author: dmiley
-title: "Reading the Riot Act: Exploring a Lightweight React Alternative"
-title-short: "Riot: A React Alternative"
+title: 'Reading the Riot Act: Exploring a Lightweight React Alternative'
+title-short: 'Riot: A React Alternative'
 layout: default_post
 categories:
-  - JavaScript
-  - Web
-summary: "Migrating a Knockout project to a webpack redux application using Riot, and why I didn't use React."
+  - Tech
+summary: >-
+  Migrating a Knockout project to a webpack redux application using Riot, and
+  why I didn't use React.
 ---
 
-<img style="display:block; margin: auto" src='{{ site.github.url }}/dmiley/assets/riot-act.jpg' title="The Riot Act" />
+<img style="display:block; margin: auto" src='{{ site.baseurl }}/dmiley/assets/riot-act.jpg' title="The Riot Act" />
 
 In contrast to the above tome, Riot is a exceptionally lightweight javascript framework billed as a React alternative. I recently used it on a project of my own devising in order to explore its relative merits compared to its more illustrious cousin. The project as is is hosted [here](https://drewmiley.github.io/PoolLeague/). As you can see, it is a fairly unadorned data-display with several elements of interactivity.
 
@@ -151,7 +152,7 @@ Along with this, Riot has little support for unit testing of tags. In this age o
 
 ### The Secrets of the Masters: Why React?
 
-<img style="display:block; margin: auto" src='{{ site.github.url }}/dmiley/assets/catching-flies-with-chopsticks.png' title="A famous scene from the film The Karate Kid" />
+<img style="display:block; margin: auto" src='{{ site.baseurl }}/dmiley/assets/catching-flies-with-chopsticks.png' title="A famous scene from the film The Karate Kid" />
 
 In initially developing the app using Riot, I achieved a lot of success in writing my initial tags by imagining them as React components first, begging the question of what need I had for Riot. As I added features to the app, Riot's uses became apparent, but the analysis I arrived at was that React could do all that Riot could do, but the reverse cannot be said. In addition, as the more popular framework, React has far greater library support, significantly including the previously mentioned Immutable and Airbnb's [Enzyme](http://github.com/airbnb/enzyme), which both solve what Riot currently lacks.
 
@@ -159,7 +160,7 @@ Given that, I would suggest that if scalability is a priority, or if working in 
 
 ### Vive La Revolution: Why Riot?
 
-<img style="display:block; margin: auto" src='{{ site.github.url }}/dmiley/assets/vive-la-revolution.jpg' title="Liberté, égalité, fraternité" />
+<img style="display:block; margin: auto" src='{{ site.baseurl }}/dmiley/assets/vive-la-revolution.jpg' title="Liberté, égalité, fraternité" />
 
 Having explored the Riot framework, it certainly has its relative merits over React. I wouldn't consider it to be a direct alternative to React however. In common with innumerable literary figures, I would regard Riot's biggest strength as its biggest weakness. The ease of syntax and shallow learning curve allow quick development of working applications in a relatively small space of time, however this comes at a cost. Attempting to turn such small-scale briefs into larger projects is very likely to lead to obfuscation of the code base and lengthy script tag, if rigid discipline is not enforced.
 

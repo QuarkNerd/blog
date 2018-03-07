@@ -2,11 +2,12 @@
 author: isullivan
 title: Generating Type-Safe Email Templates Using Single File Generators
 layout: default_post
-summary: "This post shows how 'single file generators' can be used to generate type-safe email templates"
+summary: >-
+  This post shows how 'single file generators' can be used to generate type-safe
+  email templates
 disqus-id: /2015/04/03/generating-type-safe-emails.html
 categories:
-  - Server
-  - C#
+  - Tech
 ---
 
 Sending emails or other personalised messages from an application is a very common task. This post shows how Single-File Generators (SFGs) and Visual Studio can be used to keep email templates both readable and type-safe.

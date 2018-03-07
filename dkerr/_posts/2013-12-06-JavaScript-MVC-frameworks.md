@@ -2,7 +2,7 @@
 author: dkerr
 title: An introduction to MVC frameworks
 layout: default_post
-categories: []
+categories:  [ 'Tech' ]
 summary: The recent rise of web applications that have all the functionality of their desktop counterparts has highlighted the fact that JavaScript MVC Frameworks are now an essential part of any modern web developers toolkit.
 oldlink: "http://www.scottlogic.com/blog/2013/12/06/JavaScript-MVC-frameworks.html"
 disqus-id: /2013/12/06/JavaScript-MVC-frameworks.html
@@ -58,7 +58,7 @@ Some frameworks tend to be quite flexible in the way you can work with it, where
 
 Focusing on providing a comparison between these framework's philosophies ensures you can pick a framework that is compatible with your application's requirements or suits your personal taste.
 
-## <img src="{{ site.github.url }}/dkerr/assets/backbone.png"/>
+## <img src="{{ site.baseurl }}/dkerr/assets/backbone.png"/>
 
 Backbone.js offers a flexible, minimalist solution to separating concerns in your application. As a consequence of its minimal solution, Backbone.js used without its own plugins is more of a utility library than a fully-fledged MVC framework.
 
@@ -73,7 +73,7 @@ Backbone.js has a [library of plugins and add-ons](http://backplug.io/) that can
 
 
 
-## <img src="{{ site.github.url }}/dkerr/assets/angular.png"/>
+## <img src="{{ site.baseurl }}/dkerr/assets/angular.png"/>
 
 Angular.js is designed and built by Google and is quickly gaining popularity. The stand out feature of Angular is its use of custom HTML tags and components to specify the intentions of your application.
 
@@ -86,7 +86,7 @@ It provides a [HTML compiler](http://docs.angularjs.org/guide/compiler) that all
 
 
 
-## <img src="{{ site.github.url }}/dkerr/assets/ember.png"/>
+## <img src="{{ site.baseurl }}/dkerr/assets/ember.png"/>
 
 EmberJS is an opinionated, modular framework that can be simple and intuitive to work with if you follow its guidelines on how an application is built the Ember way.
 
@@ -101,7 +101,7 @@ If you've had experience working with Ruby on Rails you'll find it feels quite f
 
 
 
-## <img src="{{ site.github.url }}/dkerr/assets/knockout.png"/>
+## <img src="{{ site.baseurl }}/dkerr/assets/knockout.png"/>
 
 KnockoutJS aims to simplify dynamic UIs with a MVVM (Model - View - ViewModel) pattern.
 

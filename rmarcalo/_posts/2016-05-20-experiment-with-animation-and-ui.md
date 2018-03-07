@@ -4,8 +4,7 @@ title: An experiment with Animation and UI
 layout: default_post
 tags: null
 categories:
-  - UX
-  - Events
+  - UX Design
 ---
 We have recently been working on concept designs for a banking app aimed at the new generation of bank users. The main screen of one of such concepts hinges on a seamless transition between different views to communicate the relationship in the underlying data.
 
@@ -15,7 +14,7 @@ In this blog post, I wanted to share the main steps we went through for creating
 
 ## Sketching
 
-<img class="aligncenter" src="{{ site.github.url }}/rmarcalo/assets/experiment-with-animation-and-ui/sketches.gif" alt="Sketches of animation" />
+<img class="aligncenter" src="{{ site.baseurl }}/rmarcalo/assets/experiment-with-animation-and-ui/sketches.gif" alt="Sketches of animation" />
 
 The main screen of the concept contains both an overview focusing on the user’s budget – with their money and spending plotted over time – and a detailed list of all the underlying transactions. Since the displayed time span was shared between these views, a seamless transition between them  could help establish a clear understanding that they represent the same underlying information.
 
@@ -25,7 +24,7 @@ A few sketches (viewed above) were enough to capture our initial idea for the tr
 
 Since we were primarily focused on experimenting with the animated aspect of this design, we wanted to make a rough video prototype as quickly as possible, so we didn’t dwell in the sketching phase very long. To that effect, we decided to skip straight over the intermediary fidelity steps we would typically use to explore other aspects of the design and translated the sketches directly into reasonably high fidelity.
 
-<img class="aligncenter" src="{{ site.github.url }}/rmarcalo/assets/experiment-with-animation-and-ui/screens.png" alt="Overview and transactions screens" />
+<img class="aligncenter" src="{{ site.baseurl }}/rmarcalo/assets/experiment-with-animation-and-ui/screens.png" alt="Overview and transactions screens" />
 
 The additional fidelity meant we were able to start thinking in more detail, and with more ambition, about the animation. We wanted the chart movement to feel like a metal chain that would move in a mechanical, precise fashion. Instead of the chart spikes flattening, each dot would now be pulled down by an invisible force, which would force the chart to align to a vertical position. The hope was that this would give it a sharp, realistic feeling that would complement the overall minimalistic look.
 
@@ -41,7 +40,7 @@ Having created the higher fidelity mock-ups in Sketch, we had to go through a fe
 
 We first exported the two screens separately as SVG. Illustrator is able to open these files, but generally creates a mess of layers that would be awkward to track and control in After Effects. Fortunately, using the “Create Layers” tool described in [this video](https://uxinmotion.net/sketch-to-after-effects-and-psd/) makes the necessary tidy-up relatively straightforward.
 
-<img class="aligncenter" src="{{ site.github.url }}/rmarcalo/assets/experiment-with-animation-and-ui/ai-layers.png" alt="Layers in Illustrator" />
+<img class="aligncenter" src="{{ site.baseurl }}/rmarcalo/assets/experiment-with-animation-and-ui/ai-layers.png" alt="Layers in Illustrator" />
 
 Having repeatedly gone back and forth between the Illustrator file and After Effects to improve our starting point, we recommend careful consideration of the following when planning your layers:
 * Depending on the complexity of the interaction, you might end up with dozens of layers to manage in the animation timeline. Giving them names you will recognise later on will greatly speed up the workflow.
@@ -49,7 +48,7 @@ Having repeatedly gone back and forth between the Illustrator file and After Eff
 
 The now-tidy Illustrator file was then imported into a new After Effects composition, maintaining layer sizes (as also shown in [the aforementioned video](https://uxinmotion.net/sketch-to-after-effects-and-psd/)).
 
-<img class="aligncenter" src="{{ site.github.url }}/rmarcalo/assets/experiment-with-animation-and-ui/ae-layers.png" alt="Layers in After Effects" />
+<img class="aligncenter" src="{{ site.baseurl }}/rmarcalo/assets/experiment-with-animation-and-ui/ae-layers.png" alt="Layers in After Effects" />
 
 We also broke some of the elements into further nested After Effects compositions that could be worked on in isolation. This makes the timeline less daunting to work with, since there are less layers to deal with at any given time, which means that a small tweak to part of the animation does not have significant repercussions elsewhere.
 
@@ -57,15 +56,15 @@ We also broke some of the elements into further nested After Effects composition
 
 At this point, it’s probably best to start by showing how the animation turned out, so that we can discuss some points individually.
 
-<video autoplay loop poster="{{ site.github.url }}/rmarcalo/assets/experiment-with-animation-and-ui/animation.png" style="max-width: 100%; max-height: 470px; background-color: #EAEAEA; padding: 2px; display: block; margin: 0 auto;">
-  <source src="{{ site.github.url }}/rmarcalo/assets/experiment-with-animation-and-ui/animation.mp4" type="video/mp4">
-  <source src="{{ site.github.url }}/rmarcalo/assets/experiment-with-animation-and-ui/animation.webm" type="video/webm">
-  <source src="{{ site.github.url }}/rmarcalo/assets/experiment-with-animation-and-ui/animation.ogv" type="video/ogg">
+<video autoplay loop poster="{{ site.baseurl }}/rmarcalo/assets/experiment-with-animation-and-ui/animation.png" style="max-width: 100%; max-height: 470px; background-color: #EAEAEA; padding: 2px; display: block; margin: 0 auto;">
+  <source src="{{ site.baseurl }}/rmarcalo/assets/experiment-with-animation-and-ui/animation.mp4" type="video/mp4">
+  <source src="{{ site.baseurl }}/rmarcalo/assets/experiment-with-animation-and-ui/animation.webm" type="video/webm">
+  <source src="{{ site.baseurl }}/rmarcalo/assets/experiment-with-animation-and-ui/animation.ogv" type="video/ogg">
 </video>
 
 To achieve the desired chain-like movement, each dot was animated separately along individual arched paths. By rigging the chart line as a skeleton using a plugin called [DUIK](https://rainboxprod.coop/en/tools/duik/) (and [this very useful DUIK tutorial](https://www.youtube.com/watch?v=qpgQasDmhI4)), moving a dot caused the lines in between to move automatically, thus maintaining the connection between nodes and achieving the desired effect with significantly less effort. Arching the motion paths made movement feel more natural – a little hint we picked up from [the 12 principles of animation](https://en.wikipedia.org/wiki/12_basic_principles_of_animation).
 
-<img class="aligncenter" src="{{ site.github.url }}/rmarcalo/assets/experiment-with-animation-and-ui/ae-ovals.png" alt="Arched Movement Paths" />
+<img class="aligncenter" src="{{ site.baseurl }}/rmarcalo/assets/experiment-with-animation-and-ui/ae-ovals.png" alt="Arched Movement Paths" />
 
 Timing was equally important to achieving the desired feel. Through trial and error, we realised that our initial approach of having the dots start moving after equally spaced short intervals lacked the feeling of an invisible force pulling the chain. Instead we had to create reverse inertia by having the first dots move faster than the later ones, so that both the movement of individual dots as well as the whole was eased. This effect means the last dot aligns slowest, allowing focus to remain on that key point to help the viewer process the transition.
 

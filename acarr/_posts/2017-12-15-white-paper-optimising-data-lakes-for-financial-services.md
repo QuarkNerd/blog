@@ -4,6 +4,8 @@ author: acarr
 layout: default_post
 title: 'White Paper: Optimising Data Lakes for Financial Services'
 summary: "Data lakes? Most Financial Service organisations either have one or are considering one. This white paper explains key considerations and a warning to help guide their creation or optimisation to fulfil its requirement"
+categories:
+  - Data
 ---
 
 <a class="btn" href="{{ site.baseurl }}/acarr/assets/data-lakes-white-paper.pdf">Download the white paper now</a>

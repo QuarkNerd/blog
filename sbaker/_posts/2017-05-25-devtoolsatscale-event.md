@@ -4,14 +4,13 @@ title: devtools@scale event
 layout: default_post
 summary: "This blog describes a one day event in London where leading tech companies were discussing tools they use to make their development and operations scale and be more efficient. "
 categories:
-  - Testing
-  - Events
+  - Test
 ---
 
 Last week I attended [devtools@scale](https://devtoolsatscale2017.splashthat.com/) at Tobacco Dock, London.  There were about 150 attendees from London’s tech, finance, business community and, from what I gather, most were invited by Facebook after attending a [meetup with Kent Beck](https://buildingproductswithkentbeck.splashthat.com/?gz=3a966da4f2703154b8b594dbe7e61ef6)
 at their offices before Easter.  However it was not exclusively Facebook focused, and it was largely an independent view with leading tech companies discussing the tools they use to make their development and operations scale and be more efficient.
 
-![MyImage]({{ site.github.url }}/sbaker/assets/devtoolscale_opening.jpg "Auditorium")
+![MyImage]({{ site.baseurl }}/sbaker/assets/devtoolscale_opening.jpg "Auditorium")
 
 A variety of subjects were on the programme for discussion, broadly categorized as issues relating to following topics:
 
@@ -38,7 +37,7 @@ However these problems are dwarfed by subsequent talk by **Edward Thomson** of M
 Before release deadlines, a high rate of pushes caused huge contention issues so they use pull request solution.   However, they still have huge problem with the large number of branches as typically a developer will have around 25 branches, so with 4000 developers this means over 100,000 branches – git performs well with hundreds of branches, slows down considerable when you have thousands of branches but is almost unusable with 100 k branches!!  So they’ve introduced concept of limited branches where you only have master and specific release and your remainder are virtual branches.
 
 The size of the repo is also huge issue, Windows has 3.5 million files and there’s a huge history associated with it.   So they were seeing `git clone` taking over 12 hours, a `checkout` taking 3 hours, and just to do `git status` (where nothing had changed) 8 min and a `commit` taking over 30 mins!!!!    So again they’ve built their own virtual filesystem on top of git, which means you need to be online the first time open a file, but you can use all the standard git tools on the command-line and in IDEs etc.  This has reduced the `git clone` to 90 s, `checkout` to 30 s, `status` to 8 s and 10 s for a `commit` – so a definitive improvement and a much more workable solution!
-![MyImage]({{ site.github.url }}/sbaker/assets/devtoolscale_microsoft.jpg "Microsoft files")
+![MyImage]({{ site.baseurl }}/sbaker/assets/devtoolscale_microsoft.jpg "Microsoft files")
 
 ### Static Analysis
 Also speaking were **Dulma Churchill** and **Jules Villard** talking about static analysis tools at  Facebook. They’ve developed their own open source tool [infer](http://fbinfer.com/).   It is used by Spotify, Uber, Sky etc. and of course Facebook.  They described the Facebook code review process where there is human code review as well as the analysis from this tool. Rather than trying to implement all the tool’s recommendations (which is an unenviable task for even a modest sized project), it only suggests improvements which differ from the previous commit.

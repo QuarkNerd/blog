@@ -1,8 +1,8 @@
 ---
 id: 1475
 author: ceberhardt
-title: "Metro In Motion #5 - SandwichFlow"
-oldlink: "http://www.scottlogic.co.uk/blog/colin/2011/05/metro-in-motion-5-sandwichflow/"
+title: 'Metro In Motion #5 - SandwichFlow'
+oldlink: 'http://www.scottlogic.co.uk/blog/colin/2011/05/metro-in-motion-5-sandwichflow/'
 tags:
   - codeproject
   - WP7
@@ -11,13 +11,12 @@ tags:
   - blog
   - codeproject
 categories:
-  - Mobile
-  - C#
+  - Tech
 layout: default_post
 source: wordpress
 disqus-id: /blog/colin/2011/05/metro-in-motion-5-sandwichflow/
 ---
-<p>For the past few months I have been writing a Metro-In-Motion blog series which describes how to recreate some of the fluid effects found in native Windows Phone 7 applications within your own applications. So far I have covered <a href="{{ site.github.url }}/2011/03/22/metro-in-motion-fluid-list-animation">fluid list animations</a>, <a href="{{ site.github.url }}/2011/03/27/metro-in-motion-part-2-peel-animations">'peel' animations</a>, <a href="{{ site.github.url }}/2011/04/04/metro-in-motion-3-flying-titles">flying titles</a> and a <a href="{{ site.github.url }}/2011/05/03/metro-in-motion-part-4-tilt-effect">'tilt' effect</a> - and now ... I am all out of ideas!</p>
+<p>For the past few months I have been writing a Metro-In-Motion blog series which describes how to recreate some of the fluid effects found in native Windows Phone 7 applications within your own applications. So far I have covered <a href="{{ site.baseurl }}/2011/03/22/metro-in-motion-fluid-list-animation">fluid list animations</a>, <a href="{{ site.baseurl }}/2011/03/27/metro-in-motion-part-2-peel-animations">'peel' animations</a>, <a href="{{ site.baseurl }}/2011/04/04/metro-in-motion-3-flying-titles">flying titles</a> and a <a href="{{ site.baseurl }}/2011/05/03/metro-in-motion-part-4-tilt-effect">'tilt' effect</a> - and now ... I am all out of ideas!</p>
 <p>The previous blog posts used a pretty simple little application to demonstrate their functionality, so I thought it might be fun to put these effects together within a more meaningful application. Rather than simply re-hashing an old idea, like a Twitter app, I decided to create something original, something inspiring, something which explores a subject area close to my heart - and stomache. This is how I came up with the (entirely original) SandwichFlow ... an application for the sandwich aficionado!!!</p>
 <p>SandwichFlow - As good as sandwiches get on a mobile ... Brought to you by Team Distraction and ColinDoesIt(AsWell): </p>
 <p><iframe width="640" height="510"  src="http://www.youtube.com/embed/dBmXAhZyJ7I" frameborder="0" allowfullscreen></iframe></p>
@@ -50,7 +49,7 @@ Sandwiches = doc.Descendants("sandwich")
                 .ToList();
 {% endhighlight %}
 <h2>Jump then slide</h2>
-<p>The front-page of the application uses the <a href="{{ site.github.url }}/2011/01/20/a-windows-phone-7-jump-list-control">JumpList control</a> I wrote a few months back, with DataTemplates supplied for rending recipes or keywords that have the MetroInMotion.AnimationLevel property set on various elements so that they slide gracefully as the pivot control is animated from one item to the next:</p>
+<p>The front-page of the application uses the <a href="{{ site.baseurl }}/2011/01/20/a-windows-phone-7-jump-list-control">JumpList control</a> I wrote a few months back, with DataTemplates supplied for rending recipes or keywords that have the MetroInMotion.AnimationLevel property set on various elements so that they slide gracefully as the pivot control is animated from one item to the next:</p>
 {% highlight xml %}
 <DataTemplate x:Key="SandwichTemplate">
   <StackPanel Orientation="Vertical"
@@ -156,5 +155,5 @@ private double KeywordCorrelation(List<string> keywordsOne, List<string> keyword
 </Image>
 {% endhighlight %}
 <p>They also have the <code>MetroInMotion.AnimationLevel</code> attached property set so that they slide with the pivot control. </p>
-<p>You can grab the code here: <a href='{{ site.github.url }}/archive/2011/05/SandwichFlow.zip'>SandwichFlow.zip</a></p>
-<p>Regards, Colin E.<a href="{{ site.github.url }}/archive/2011/05/SplashScreenImage.jpg"><img src="{{ site.github.url }}/archive/2011/05/SplashScreenImage.jpg" alt="" title="SplashScreenImage" width="480" height="800" class="aligncenter size-full wp-image-1499" /></a></p>
+<p>You can grab the code here: <a href='{{ site.baseurl }}/archive/2011/05/SandwichFlow.zip'>SandwichFlow.zip</a></p>
+<p>Regards, Colin E.<a href="{{ site.baseurl }}/archive/2011/05/SplashScreenImage.jpg"><img src="{{ site.baseurl }}/archive/2011/05/SplashScreenImage.jpg" alt="" title="SplashScreenImage" width="480" height="800" class="aligncenter size-full wp-image-1499" /></a></p>

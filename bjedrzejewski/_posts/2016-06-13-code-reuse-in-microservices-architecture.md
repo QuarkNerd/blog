@@ -4,9 +4,6 @@ title: Code reuse in microservices architecture - with Spring Boot
 summary: "In most microservice architectures, there are many opportunities and temptations for sharing code. In this post I will give advice based on my experience on when it should be avoided and when code reuse is acceptable. The points will be illustrated with the help of an example Spring Boot project."
 layout: default_post
 categories:
-  - Java
-  - Microservices
-  - Web
   - Data
 ---
 
@@ -83,7 +80,7 @@ After explaining the solution, the best way to clearly demonstrate the point for
 This is also a good excuse to further promote my current favourite microservice library - [Spring Boot](http://projects.spring.io/spring-boot/). The whole example
 can be downloaded from a [Github repository created for this blog post](https://github.com/bjedrzejewski/microservices-reuse-example).
 
-<img src="{{ site.github.url }}/bjedrzejewski/assets/spring-boot.png" />
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/spring-boot.png" />
 
 Spring Boot lets you start developing microservices rapidly, and I really mean it. If you think that the [Dropwizard introduction](http://blog.scottlogic.com/2016/01/05/java-microservices-with-dropwizard-tutorial.html)
 was fast, then be prepared for even more convenience with Spring Boot. In this example we will develop very simple User
@@ -242,7 +239,7 @@ it is worth to have a look at the `.pom` file:
 
 Calling the service with an `id` value `10` we can see the example JSON output:
 
-<img src="{{ site.github.url }}/bjedrzejewski/assets/microservice-user.png" />
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/microservice-user.png" />
 
 ## Client Library
 
@@ -370,10 +367,10 @@ The only thing left in this example is to start all three services on the ports 
 look at the outputs:
 
 Dashboard output:
-<img src="{{ site.github.url }}/bjedrzejewski/assets/microservice-dashboard.png" />
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/microservice-dashboard.png" />
 
 Notifications output:
-<img src="{{ site.github.url }}/bjedrzejewski/assets/microservice-notification.png" />
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/microservice-notification.png" />
 
 #Conclusion
 

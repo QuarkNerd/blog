@@ -27,14 +27,14 @@ The final product will see WebdriverIO set up using Mocha and Chai as the test f
 
  Diving straight in, the first thing we need to do is create a directory for the entire testing library to live in, and install WebdriverIO itself. We’ll be working with v3.4.0, which can be specified with `npm install webdriverio@3.4.0` (we’re installing to the current directory, if we wanted to install globally we’d append with –g, `npm install webdriverio@3.4.0 –g`):
 
-![wdioInstall]( {{ site.github.url }}/dtheasby/assets/wdio/installWebdriverIO.png "WebdriverIO Install")
+![wdioInstall]( {{ site.baseurl }}/dtheasby/assets/wdio/installWebdriverIO.png "WebdriverIO Install")
 
 The once empty directory should now contain one new folder, `node_modules`, which will contain all the npm dependencies.
 
 The WebdriverIO provided test runner, `wdio`, executes all commands synchronously and handles session management very well, so we’ll be using this to execute the test suite (more info [here](http://webdriver.io/v3.4/guide/testrunner/gettingstarted.html)). For `wdio` to run, it needs a configuration file, which is essentially an object that specifies the location of test scripts/specs, the framework, reporter, and some of our hooks. Luckily, WebdriverIO comes with a handy command line helper to set up the config file, this can be accessed by running `wdio config`:
 
 
-![wdioConfig]( {{ site.github.url }}/dtheasby/assets/wdio/wdioConfig.png "Wdio Config Helper")
+![wdioConfig]( {{ site.baseurl }}/dtheasby/assets/wdio/wdioConfig.png "Wdio Config Helper")
 
 ~~~
 //./wdio.conf.js
@@ -97,7 +97,7 @@ describe("First Spec", function() {
 
 With that set up, we can run `wdio` providing it with the config file:
 
-![failingServer]({{ site.github.url }}/dtheasby/assets/wdio/runTestFailingServer.png "Failing Selenium Server")
+![failingServer]({{ site.baseurl }}/dtheasby/assets/wdio/runTestFailingServer.png "Failing Selenium Server")
  
 
 That’s good, no WebdriverIO specific errors have fired, and it has found our config file and tests/specs. The next step is to deal with the rather obvious “ERROR: Couldn’t connect to selenium server”, and fix up a connection to the local selenium server.
@@ -106,11 +106,11 @@ That’s good, no WebdriverIO specific errors have fired, and it has found our c
 
 Here we’ll be using the [Selenium-Standalone](https://www.npmjs.com/package/selenium-standalone) npm package. This package allows us to install the selenium server binary, browser drivers, and the ability to launch a selenium server all from the command line (and programmatically, which will come in handy later), clever right? This can be installed alongside WebdriverIO, using `npm install selenium-standalone`:
 
-![seleniumStandalone]( {{ site.github.url }}/dtheasby/assets/wdio/seleniumInstall.png "Installing Selenium-standalone")
+![seleniumStandalone]( {{ site.baseurl }}/dtheasby/assets/wdio/seleniumInstall.png "Installing Selenium-standalone")
  
 And following that, run `selenium-standalone`'s `install` command with `".\node_modules\.bin\selenium-standalone" install`:
 
-![seleniumDriverInstall]( {{ site.github.url }}/dtheasby/assets/wdio/seleniumDriverInstall.png "Installing Selenium Drivers")
+![seleniumDriverInstall]( {{ site.baseurl }}/dtheasby/assets/wdio/seleniumDriverInstall.png "Installing Selenium Drivers")
  
 This command pulls in the latest selenium server version, as well as the default versions of each browser-driver. You can specify exactly which drivers and versions you want to install using variations of the following command (See the npm page for more info):
 
@@ -118,15 +118,15 @@ This command pulls in the latest selenium server version, as well as the default
 
 But we’ll stick with the defaults now, following which, we should be able to launch a server using `".\node_modules\.bin\selenium-standalone" start`:
 
-![seleniumStart]({{ site.github.url }}/dtheasby/assets/wdio/seleniumstandalonestart.png "Selenium Start")
+![seleniumStart]({{ site.baseurl }}/dtheasby/assets/wdio/seleniumstandalonestart.png "Selenium Start")
  
 The Selenium server remains registered to the command window, so after launching a new one and returning to the test directory, we can try to a test run!
  
-![failingMocha]({{ site.github.url }}/dtheasby/assets/wdio/failingmocha.png "Failing Mocha")
+![failingMocha]({{ site.baseurl }}/dtheasby/assets/wdio/failingmocha.png "Failing Mocha")
 
 …almost. There’s one last thing we need to do. As we’re using mocha as a test framework, we need to install this as a dependency too. After simply running `npm install mocha`:
  
-![mochaPassing]({{ site.github.url }}/dtheasby/assets/wdio/mochaPassing.jpg "Passing Mocha")
+![mochaPassing]({{ site.baseurl }}/dtheasby/assets/wdio/mochaPassing.jpg "Passing Mocha")
 
 Sweet, one running and passing UI test. Okay, so I guess that was the pretty long version of ‘Getting Started’, but we’ve covered all the basics and developed a solid foundation. Although, having to point directly to the wdio command and manually launch the selenium server when we want to run a test is a bit of a pain; so, let’s make it a bit easier to run our specs by automating the automation!
 
@@ -134,7 +134,7 @@ Sweet, one running and passing UI test. Okay, so I guess that was the pretty lon
 
 We’re going to take a slight detour and first set up a package.json file so npm can recognise our directory as a package(allowing us to use the `npm run` command later!). Npm can create one for us by using `npm init`, which will make assumptions based on the existing directory, and create a package.json from it. Running this in the root of the test directory should give us a package.json that matches the following:
 
-![package.json]( {{ site.github.url }}/dtheasby/assets/wdio/npminit.png "npm init")
+![package.json]( {{ site.baseurl }}/dtheasby/assets/wdio/npminit.png "npm init")
 
 With that done, gulp can be installed locally with the following command:
 
@@ -265,9 +265,9 @@ Setting up the `npm run` task is super simple, and can be done via the project.j
 
 From here, all we need to do is execute `npm run runTasks` to access the assigned gulp workflow. This works because the `npm run` command adds `node_modules/.bin`, our local dependency directory, to the shell’s PATH, allowing us to run Gulp like it’s installed globally!
 
-![npmRun]({{ site.github.url }}/dtheasby/assets/wdio/npmrun.png "npm run")
+![npmRun]({{ site.baseurl }}/dtheasby/assets/wdio/npmrun.png "npm run")
  
 That’s it for setting up our workflow environment! Without gulp, each time the test were to run we’d need to (perhaps update) launch our selenium server, run our test scripts, and then kill the server. With it, we’ve automated this workflow, allowing us to run it all with one simple npm command. 
 
-Continue on to [part 2]({{site.github.url}}/2016/04/25/UsingWebdriverIO-Part2.html) for a guide to setting up tests and developing them in more maintainable way using the page-object model.
+Continue on to [part 2]({{site.baseurl}}/2016/04/25/UsingWebdriverIO-Part2.html) for a guide to setting up tests and developing them in more maintainable way using the page-object model.
 

@@ -2,7 +2,8 @@
 id: 251
 author: ceberhardt
 title: Binding a Silverlight DataGrid to dynamic data via IDictionary
-oldlink: "http://www.scottlogic.co.uk/blog/colin/2009/04/binding-a-silverlight-datagrid-to-dynamic-data-via-idictionary/"
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2009/04/binding-a-silverlight-datagrid-to-dynamic-data-via-idictionary/
 tags:
   - DataGrid
   - silverlight
@@ -10,15 +11,15 @@ tags:
   - blog
   - codeproject
 categories:
-  - Web
-  - C#
+  - Tech
 layout: default_post
 source: wordpress
-disqus-id: /blog/colin/2009/04/binding-a-silverlight-datagrid-to-dynamic-data-via-idictionary/
+disqus-id: >-
+  /blog/colin/2009/04/binding-a-silverlight-datagrid-to-dynamic-data-via-idictionary/
 ---
 <p>This post demonstrates a technique for binding a Silverlight DataGrid to dynamic data, the structure of which is not know at compile-time ... </p>
-<p><b>UPDATE #1</b>: I have extended this technique to add include change notification so that the DataGrid can be made editable. Read all about it in <a href="{{ site.github.url }}/2009/04/22/binding-a-silverlight-datagrid-to-dynamic-data-part-2-editable-data-and-inotifypropertychanged">part two</a>.</p>
-<p><strong>UPDATE #2</strong>: This blog post was written with a SL2 DataGrid, for SL3, please see my <a href="{{ site.github.url }}/2010/03/26/binding-a-silverlight-3-datagrid-to-dynamic-data-via-idictionary-updated">updated blog post</a>.</p>
+<p><b>UPDATE #1</b>: I have extended this technique to add include change notification so that the DataGrid can be made editable. Read all about it in <a href="{{ site.baseurl }}/2009/04/22/binding-a-silverlight-datagrid-to-dynamic-data-part-2-editable-data-and-inotifypropertychanged">part two</a>.</p>
+<p><strong>UPDATE #2</strong>: This blog post was written with a SL2 DataGrid, for SL3, please see my <a href="{{ site.baseurl }}/2010/03/26/binding-a-silverlight-3-datagrid-to-dynamic-data-via-idictionary-updated">updated blog post</a>.</p>
 <p>With Silverlight binding data to a DataGrid is a very straightforward process. With an XML datasource, you can simply parse your data via Linq to SQL into an anonymous type then bind the resulting collection to the grid. Just a few simple lines of code. But, what if the data you want to bind to your grid is dynamic? That is, at compile time you do not know how many columns are required, or what their contents is. This is a common problem that Silverlight users have faced <a href="http://silverlight.net/forums/p/54804/187532.aspx">again</a>, and <a href="http://silverlight.net/themes/silverlight/forums/thread.aspx?ThreadID=11570">again</a>, and <a href="http://stackoverflow.com/questions/685513/displaying-a-dynamic-data-structure-in-silverlight-datagrid">again</a> and <a href="http://stackoverflow.com/questions/681495/array-binding-xaml-by-position-silverlight-on-datagrid">again</a>!</p>
 <p>The most obvious solution to this problem is to create a dictionary for each row of your DataGrid, and bind your columns to your values via the dictionary's string indexer:</p>
 <p><code>Binding="{Binding Path=[Name]}"</code></p>
@@ -84,7 +85,7 @@ public class RowIndexConverter : IValueConverter
 }
 {% endhighlight %}
 <p>In the above XAML, the binding expression does not have a Path specified, therefore, the binding source is our Row instance rather than a property of the Row. The RowIndexConverter value converter simply uses the supplied ConverterParameter for each column to access the Row indexer and extract the correct value. This works quite nicely, and we are able to see our data within the grid:</p>
-<p><a href="{{ site.github.url }}/archive/2009/04/grid.png"><img src="{{ site.github.url }}/archive/2009/04/grid.png" alt="grid" title="grid" width="296" height="296" class="alignnone size-full wp-image-253" /></a></p>
+<p><a href="{{ site.baseurl }}/archive/2009/04/grid.png"><img src="{{ site.baseurl }}/archive/2009/04/grid.png" alt="grid" title="grid" width="296" height="296" class="alignnone size-full wp-image-253" /></a></p>
 <p>However, there is one problem here, if you click on the column headers the grid does not sort the data. The columns of a DataGrid have CanUserSort and SortMemberPath properties, however setting these will not help because the DataGrid will expect the bound object to have a property with the given name which of course it does not! To solve this problem (without resorting to dynamically generated types) we need to delve a little deeper into the way in which the DataGrid binds to the data.</p>
 <p>A lot of insight can be gained from the documentation of <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.icollectionview(VS.95).aspx">ICollectionView</a>:</p>
 <p><i style="margin-left:15px">The DataGrid control uses this interface to access the indicated functionality in the data source assigned to its ItemsSource property. If the ItemsSource implements IList, but does not implement ICollectionView, the DataGrid wraps the ItemsSource in an internal ICollectionView implementation. </i></p>
@@ -163,6 +164,6 @@ public class SortableCollectionView : ObservableCollection<Row>, ICollectionView
 </data:DataGrid>
 {% endhighlight %}
 <p>And here it is in action:</p>
-<div id="slPluginHost"> <object id="SilverlightPlugin" width="300" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.github.url }}/archive/2009/04/silverlighttable.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
-<p>You can download the complete solution here: <a href='{{ site.github.url }}/archive/2009/04/silverlightdynamicbinding.zip'>silverlightdynamicbinding.zip</a>.</p>
+<div id="slPluginHost"> <object id="SilverlightPlugin" width="300" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2009/04/silverlighttable.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>You can download the complete solution here: <a href='{{ site.baseurl }}/archive/2009/04/silverlightdynamicbinding.zip'>silverlightdynamicbinding.zip</a>.</p>
 <p>Regards,Colin E.</p>

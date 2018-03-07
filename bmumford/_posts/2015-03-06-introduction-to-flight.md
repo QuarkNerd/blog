@@ -36,7 +36,7 @@ This blog assumes the reader has a basic knowledge of javascript, jQuery and Jas
 
 In this blog we'll build a simple application that has a list of items to select from in the left hand panel. In the right hand panel will be a more detailed view of the selected item. Noddy stuff, but useful to illustrate the basic concepts.
 
-<img src="{{ site.github.url }}/bmumford/assets/introduction-to-flight/FlightExperiments.png"/>
+<img src="{{ site.baseurl }}/bmumford/assets/introduction-to-flight/FlightExperiments.png"/>
 
 ## Component parts
 

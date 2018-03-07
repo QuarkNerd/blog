@@ -18,14 +18,14 @@ layout: default_post
 source: site
 disqus-id: /2010/09/closure-library-on-the-server/
 ---
-<p>Over the past few months I've been using the <a href="{{ site.github.url }}/2010/09/06/introducing-closure-tools" target="_blank">Closure Library</a> to create my own JavaScript library that carries out some graphical processing. This is done entirely in JavaScript, using Closure's <strong>graphics</strong> package.</p>
+<p>Over the past few months I've been using the <a href="{{ site.baseurl }}/2010/09/06/introducing-closure-tools" target="_blank">Closure Library</a> to create my own JavaScript library that carries out some graphical processing. This is done entirely in JavaScript, using Closure's <strong>graphics</strong> package.</p>
 <p>An important factor in the development of this library was compatibility. I wanted assurance that, no matter what browser the user hit the page from, the graphic would be displayed. The Library's graphics package is already very good at this; determining the browser from the User-Agent header and then deciding whether to produce an SVG, VML or Canvas drawing context.  However, some devices either don't support any of these drawing methods, or cannot process the JavaScript involved.</p>
 <p>The solution to this problem was to move the processing of the JavaScript and rendering of any graphics to the server. Should the client attempt to access the site from an unsupported browser, the page could then fetch an image representation of the graphic.</p>
 <p>This blog article will explain the changes I had to make to the Library to make this possible, as well as a brief look into the Servlet handling the processing of the JavaScript.</p>
 <h2>At the Server</h2>
 <p>The purpose of the Servlet was to process the JavaScript on the page, and produce an image of the interactive element. To do this, it had to provide access to a CanvasRenderingContext2D object which in turn provided drawing functionality.</p>
 <h3>CanvasRenderingContext2D</h3>
-<p>CanvasRenderingContext2D had to provide the drawing methods that the HTML5 canvas implementation provides, and then convert them into the equivalent Graphics2D drawing methods. The aim was to create the following transition:<a href="{{ site.github.url }}/archive/2010/09/Untitled1.png"><img class="aligncenter size-full wp-image-69372" src="{{ site.github.url }}/archive/2010/09/Untitled1.png" alt="" width="609" height="335" /></a></p>
+<p>CanvasRenderingContext2D had to provide the drawing methods that the HTML5 canvas implementation provides, and then convert them into the equivalent Graphics2D drawing methods. The aim was to create the following transition:<a href="{{ site.baseurl }}/archive/2010/09/Untitled1.png"><img class="aligncenter size-full wp-image-69372" src="{{ site.baseurl }}/archive/2010/09/Untitled1.png" alt="" width="609" height="335" /></a></p>
 <p>The emphasis here is that the function calls in the JavaScript code haven't changed; the only difference is the ctx reference.</p>
 <p>The context also had to provide a function to get the image of the Graphics2D object. The Servlet could then return this once it had finished processing and rendering.</p>
 <h3>Server-side JavaScript</h3>
@@ -62,7 +62,7 @@ disqus-id: /2010/09/closure-library-on-the-server/
 <p>ctx was then a reference to the Java object which provided the drawing methods. This meant that any function calls on ctx would equate to method calls on an instance of CanvasRenderingContext2D.</p>
 <h2>Canvas2D and Graphics2D</h2>
 <p>The next step was to extend AbstractGraphics in a way that would allow me to draw to a Server. I was aiming to implement SeverGraphics in the following way:</p>
-<p><a href="{{ site.github.url }}/archive/2010/09/abstractGraphicsClass1.png"><img class="aligncenter size-full wp-image-69368" src="{{ site.github.url }}/archive/2010/09/abstractGraphicsClass1.png" alt="" width="730" height="370" /></a></p>
+<p><a href="{{ site.baseurl }}/archive/2010/09/abstractGraphicsClass1.png"><img class="aligncenter size-full wp-image-69368" src="{{ site.baseurl }}/archive/2010/09/abstractGraphicsClass1.png" alt="" width="730" height="370" /></a></p>
 <h3>CanvasGraphics and ServerGraphics</h3>
 <p>I recognised that the graphics mode of Canvas2D and Java's Graphics2D were both immediate, making CanvasGraphics an ideal place to start. I could then create the same interface in CanvasRenderingContext2D, to bridge the gap between the JavaScript and Graphics2D.</p>
 <p>This is done in the getContext function of CanvasGraphics, which is the only place I need to change.  Once I modify getContext to return a reference to my Java object (which, remember, provides the same functions as a Canvas context), all function calls will go directly to the Java code. I changed getContext to read the following (similar to the example above):</p>

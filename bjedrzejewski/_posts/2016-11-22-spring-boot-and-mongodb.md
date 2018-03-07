@@ -4,9 +4,6 @@ title: Spring Boot and MongoDB - a perfect match!
 summary: "The popularity of Spring Boot in the Java world is undeniable. In this post I will show you yet another reason for this. Using Spring Boot makes working with MongoDB an absolute pleasure."
 layout: default_post
 categories:
-  - Java
-  - Microservices
-  - Web
   - Data
 ---
 
@@ -20,7 +17,7 @@ with [Spring Boot](https://projects.spring.io/spring-boot/) is a truly amazing c
 
 ## Configuration with Spring Boot
 
-<img src="{{ site.github.url }}/bjedrzejewski/assets/spring-boot.png" />
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/spring-boot.png" />
 
 The philosophy behind Spring Boot is the ability to auto-configure most things. It is a very opinionated, but flexible
 framework. This auto-configuration shines when working with MongoDB- if you are going to use the default configuration
@@ -82,7 +79,7 @@ When the auto-configuration process sees that dependency- it will start an embed
 
 ## Working with MongoDB
 
-<img src="{{ site.github.url }}/bjedrzejewski/assets/mongodb.png" />
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/mongodb.png" />
 
 After seeing how easy it is to setup MongoDB, it is time to actually use it. In the
 [example github project](https://github.com/bjedrzejewski/recognitions-boot) I have created a `Colleague` class.

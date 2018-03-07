@@ -1,7 +1,7 @@
 ---
 author: cgrant
 categories:
- - cgrant
+ - Tech
 tags:
  - featured
 image: "cgrant/assets/featured/phone.jpg"
@@ -13,7 +13,7 @@ I have recently been using a set of tools called [fastlane](http://fastlane.tool
 
 <p style='text-align:center'>
 <a href='http://fastlane.tools/'>
-<img src='{{ site.github.url }}/cgrant/assets/fastlane.png' style='width:266px;'>
+<img src='{{ site.baseurl }}/cgrant/assets/fastlane.png' style='width:266px;'>
 </a>
 </p>
 

@@ -1,0 +1,16 @@
+{%- assign currentAuthorName = include.currentAuthorName -%}
+<div class="author-list cell">
+    <h4>Authors</h4>
+    <ul>
+        {%- assign sortedauthors = site.data.authors.active-authors | sort -%}
+        {%- for author in sortedauthors -%}
+            {%- assign authorName = site.data.authors.authors[author].name -%}
+            <li>
+                <a class="{% if authorName == currentAuthorName %}active-author {% endif %}"
+                   href="{{ site.baseurl }}/{{ author }}">
+                {{ authorName }}
+                </a>
+            </li>
+        {%- endfor -%}
+    </ul>
+</div>

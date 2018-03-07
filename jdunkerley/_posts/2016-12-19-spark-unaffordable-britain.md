@@ -4,7 +4,7 @@ title: Unaffordable Country In Apache Spark
 summary: "Recreating the data used for the Guardian's Unaffordable Country visualisation in Apache Spark."
 layout: default_post
 categories:
-  - Apache Spark
+  - Tech
 ---
 
 Back in September last year, the Guardian published a [fantastic visualisation](https://www.theguardian.com/society/ng-interactive/2015/sep/02/unaffordable-country-where-can-you-afford-to-buy-a-house)
@@ -41,7 +41,7 @@ action returning a single item, but `reduceByKey` is a transformation returning 
 
 ## The Map Reduce model
 
-<img src="{{ site.github.url }}/jdunkerley/assets/spark_map_reduce.jpg" alt="Map Reduce Model" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/jdunkerley/assets/spark_map_reduce.jpg" alt="Map Reduce Model" style="display: block; margin: auto;"/>
 
 The first part of the process is 'ingesting' the data from a data store. This data is then partitioned and passed into different computation nodes to process. If you take the simple case of reading a flat
 file from the filesystem, this means just reading in multiple blocks.
@@ -63,8 +63,8 @@ For this guide, we won't be using Hadoop and will just be running a local instan
 extract the file to a location you are happy to run it from, I used `C:\Spark`. We now need to set up some environment variables. First, add a new environment variable called `SPARK_HOME` and set it to
 the location you extracted Spark to. Next, add `%SPARK_HOME%\bin` to the `Path` variable.
 
-<img src="{{ site.github.url }}/jdunkerley/assets/spark_home.jpg" alt="SPARK_HOME variable" style="display: block; margin: auto; padding-bottom: 3px;"/>
-<img src="{{ site.github.url }}/jdunkerley/assets/spark_path.jpg" alt="Path variable" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/jdunkerley/assets/spark_home.jpg" alt="SPARK_HOME variable" style="display: block; margin: auto; padding-bottom: 3px;"/>
+<img src="{{ site.baseurl }}/jdunkerley/assets/spark_path.jpg" alt="Path variable" style="display: block; margin: auto;"/>
 
 If you have both Python 2 and 3 installed on the same machine, you will need to tell Spark to use Python 3. This can be done by another environment variable `PYSPARK_DRIVER` and setting it to the command
 to run Python 3 (e.g. `SET PYSPARK_DRIVER=python3`).
@@ -80,12 +80,12 @@ To run on Windows, we need to resolve an issue to do with a permission error for
 Now to test we are all set up. Open a new console window and enter the command `pyspark`. This should launch a new Python based Spark console session. We can type `sc` in and check that the variable has
 been set to a Spark Context:
 
-<img src="{{ site.github.url }}/jdunkerley/assets/spark_pyspark.jpg" alt="Running PySpark session" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/jdunkerley/assets/spark_pyspark.jpg" alt="Running PySpark session" style="display: block; margin: auto;"/>
 
 Finally, we now want to tell Spark to use the Jupyter notebook so we can experiment. To do this we need to set two more environment variables. The first `PYSPARK_DRIVER_PYTHON` should be set to `jupyter`
 to tell Spark to run the notebook command. The second `PYSPARK_DRIVER_PYTHON_OPTS` needs to be set `notebook`. Now if we run `pyspark`, we will get an interactive notebook session in a browser:
 
-<img src="{{ site.github.url }}/jdunkerley/assets/spark_jupyter.jpg" alt="Running PySpark notebook" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/jdunkerley/assets/spark_jupyter.jpg" alt="Running PySpark notebook" style="display: block; margin: auto;"/>
 
 While the instructions above are based on a Windows process, the same instructions will configure a Mac to run it as well. You shouldn’t remove python 2.x! You will need to add the environment variables
 to `~./bashrc` file:
@@ -129,7 +129,7 @@ data = sc.textFile(r'C:\Downloads\pp-monthly-update-new-version.csv') \
 data.take(5)
 ~~~
 
-<img src="{{ site.github.url }}/jdunkerley/assets/spark_result_dict.jpg" alt="Parsed CSV to dictionary" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/jdunkerley/assets/spark_result_dict.jpg" alt="Parsed CSV to dictionary" style="display: block; margin: auto;"/>
 
 I only want to deal with the 'outward code' part of the Postcode (i.e. the part before the space) and for simplicity at this stage I am going to remove records which don't have a postcode. As the intention is
 to run this over the entire dataset from 1995, I will also need the year. As I only need the year, I can just read the first four characters of the date and avoid parsing into a Python date object. Finally, I
@@ -184,7 +184,7 @@ this function is called for every value within a computation node to compute the
 argument which takes two aggregate value and merges them. This will be called repeatedly until a final single aggregate for the key is computed. This final function will not be called for a key, if all of its
 values are within a single node.
 
-<img src="{{ site.github.url }}/jdunkerley/assets/spark_aggregateByKey.jpg" alt="Aggregate by key process" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/jdunkerley/assets/spark_aggregateByKey.jpg" alt="Aggregate by key process" style="display: block; margin: auto;"/>
 
 As a simple example, the code below computes the mean of the price using `aggregateByKey`. As it moved down the RDD records within each key, it aggregates them into an array containing the count and the total.
 The mean is then computed from the final aggregate array for each key using a `map` function.
@@ -267,7 +267,7 @@ sc.parallelize(['Year,Postcode,' + ",".join(outputHeader)])\
 
 Running this process produces the output below:
 
-<img src="{{ site.github.url }}/jdunkerley/assets/spark_output.jpg" alt="Output statistcs file" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/jdunkerley/assets/spark_output.jpg" alt="Output statistcs file" style="display: block; margin: auto;"/>
 
 ## Creating a Spark Job
 
@@ -300,12 +300,12 @@ spark-submit spark_pricesPaid.py
 
 This will produce a lot of log messages:
 
-<img src="{{ site.github.url }}/jdunkerley/assets/spark_submit_output.jpg" alt="Output log window from Spark Submit" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/jdunkerley/assets/spark_submit_output.jpg" alt="Output log window from Spark Submit" style="display: block; margin: auto;"/>
 
 When you run a process within Spark, it automatically creates a web based UI you can use to monitor what is going. This is true in either the REPL environment or when running as a Spark job. The arrow shows the
 log message indicating the URL. It will be the first free port after 4040. It has some great features and is worth exploring. The screen shot below show the DAG for the process created in this post.
 
-<img src="{{ site.github.url }}/jdunkerley/assets/spark_dag.jpg" alt="DAG for the Prices Paid job" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/jdunkerley/assets/spark_dag.jpg" alt="DAG for the Prices Paid job" style="display: block; margin: auto;"/>
 
 ## What Next
 

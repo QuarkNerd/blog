@@ -3,9 +3,9 @@ author: tmakarem
 title: "Sharing styling specs with developers"
 layout: default_post
 categories:
-  - UX
+  - UX Design
 tags:
-  - UX
+  - UX Design
   - featured
 image: tmakarem/assets/featured/spec.png
 summary: "This post looks at the pros and cons of some of the automated handoff tools available for designers to share style specs with developers."
@@ -15,7 +15,7 @@ When we design websites and applications, we decide on elements such as colours,
 
 The process of creating these guides is time consuming and not always effective because things get missed or misinterpreted. A variety of tools have emerged in the last few years to help ease the handoff process. Some of these tools are standalone, and some are integrated within design applications either through plugins or as part of the application.
 
-![Design handoff tools]({{ site.github.url }}/tmakarem/assets/023_Design-handoff-tools.png "Design handoff tools")
+![Design handoff tools]({{ site.baseurl }}/tmakarem/assets/023_Design-handoff-tools.png "Design handoff tools")
 <br/>
 *Design Handoff tools (Left to right: Sketch, InVision, PNG Express, Measure Plugin for Sketch, Marketch, Avocode, Zeplin, Markly, InVision’s Craft, React Storybook)*
 
@@ -41,7 +41,7 @@ Plugins like *[Marketch](http://sketchapp.rocks/plugins/marketch/)*, *Measure* o
 
 *Marketch* is a free *Sketch* plugin that allows you to export specs as a ZipFile. The file generated includes an HTML page on which you can measure specs and export assets. The downside is that you can’t see any of these specs while working on the design in *Sketch*. You can only see the specs once you export. Another limitation is that the HTML page generated is not ideal for sharing the specs because you have to take care of hosting it somewhere suitably accessible for others yourself. The specs are not synced with the designs in *Sketch* so they don’t get updated when you edit the design. If you change the designs after you export the specs, you need to manually generate a new file and override any previous exports.
 
-![Design handoff tools]({{ site.github.url }}/tmakarem/assets/024_Marketch.png "Marketch")
+![Design handoff tools]({{ site.baseurl }}/tmakarem/assets/024_Marketch.png "Marketch")
 <br/>
 *Marketch, snapshot of HTML page generated when specs are exported*
 
@@ -55,15 +55,15 @@ Using *Measure*, you can generate a list of all the colours you want to add to t
 
 It is also not immediately obvious that making something exportable will add it as a slice in the HTML page generated once you export the specs. This feature is not easily discoverable.
 
-![Sketch measure plugin]({{ site.github.url }}/tmakarem/assets/025_Measure1.png "Measure")
+![Sketch measure plugin]({{ site.baseurl }}/tmakarem/assets/025_Measure1.png "Measure")
 <br/>
 *Sketch measure plugin*
 
-![Measure plugin for Sketch]({{ site.github.url }}/tmakarem/assets/026_Measure2.png "Measure")
+![Measure plugin for Sketch]({{ site.baseurl }}/tmakarem/assets/026_Measure2.png "Measure")
 <br/>
 *Measure plugin for Sketch*
 
-![Measure HTML page generated when specs are exported]({{ site.github.url }}/tmakarem/assets/027_Measure3.png "Measure")
+![Measure HTML page generated when specs are exported]({{ site.baseurl }}/tmakarem/assets/027_Measure3.png "Measure")
 <br/>
 *Measure HTML page generated when specs are exported*
 
@@ -75,15 +75,15 @@ You can share a visual style guide, by creating and sharing a *Creative Cloud Li
 
 While it allows you to share text styles and colours, *Illustrator* doesn’t allow you to export distances between or sizes of objects. You can use the measuring tool to manually measure the dimensions but Illustrator does not generate and show those measurements automatically.
 
-![Adobe Illustrator CSS Extraction, Extracting text styles]({{ site.github.url }}/tmakarem/assets/028_Illustrator-css-extraction.png "Adobe Illustrator CSS Extraction, Extracting text styles")
+![Adobe Illustrator CSS Extraction, Extracting text styles]({{ site.baseurl }}/tmakarem/assets/028_Illustrator-css-extraction.png "Adobe Illustrator CSS Extraction, Extracting text styles")
 <br/>
 *Adobe Illustrator CSS Extraction, Extracting text styles*
 
-![Adding swatches to library]({{ site.github.url }}/tmakarem/assets/030_Illustrator-adding-swatches.png "Adding swatches to library")
+![Adding swatches to library]({{ site.baseurl }}/tmakarem/assets/030_Illustrator-adding-swatches.png "Adding swatches to library")
 <br/>
 *Adding swatches to library*
 
-![Adobe CC library]({{ site.github.url }}/tmakarem/assets/031_Illustrator-library.png "Adobe CC library")
+![Adobe CC library]({{ site.baseurl }}/tmakarem/assets/031_Illustrator-library.png "Adobe CC library")
 <br/>
 *Adobe CC library*
 
@@ -97,7 +97,7 @@ The style guide is similar to the *Adobe CC* library. When designers edit the de
 
 You can use *Craft* along with *InVision’s Inspect* tool to benefit from viewing the specs on the design and the collaboration that tools like *Zeplin* and *Measure* facilitate.
 
-![Craft library sync styles]({{ site.github.url }}/tmakarem/assets/032_craft.png "Craft library sync styles")
+![Craft library sync styles]({{ site.baseurl }}/tmakarem/assets/032_craft.png "Craft library sync styles")
 <br/>
 *Craft library sync styles*
 
@@ -107,7 +107,7 @@ You can use *Craft* along with *InVision’s Inspect* tool to benefit from viewi
 
 When you’ve imported the artboard into *Zeplin*, you can then look at the style guide tab which shows you all the styles used in the design. You can add all of them to the stylesheet or select the ones you want.
 
-![Zeplin, Text styles added to stylesheet]({{ site.github.url }}/tmakarem/assets/035_zeplin3.png "Zeplin, Text styles added to stylesheet")
+![Zeplin, Text styles added to stylesheet]({{ site.baseurl }}/tmakarem/assets/035_zeplin3.png "Zeplin, Text styles added to stylesheet")
 <br/>
 *Zeplin, Text styles added to stylesheet*
 
@@ -117,11 +117,11 @@ You can select specific elements from the design and view the css or download ic
 
 While *Zeplin* is good for collaboration, it poses the inconvenience of having to use yet another tool.
 
-![Zeplin, Select the stylesheet language]({{ site.github.url }}/tmakarem/assets/036_zeplin4.png "Zeplin, Select the stylesheet language")
+![Zeplin, Select the stylesheet language]({{ site.baseurl }}/tmakarem/assets/036_zeplin4.png "Zeplin, Select the stylesheet language")
 <br/>
 *Zeplin, Select the stylesheet language*
 
-![Zeplin, Select elements from the design to inspect or download as svg]({{ site.github.url }}/tmakarem/assets/038_zeplin6.png "Zeplin, Select elements from the design to inspect or download as svg")
+![Zeplin, Select elements from the design to inspect or download as svg]({{ site.baseurl }}/tmakarem/assets/038_zeplin6.png "Zeplin, Select elements from the design to inspect or download as svg")
 <br/>
 *Zeplin, Select elements from the design to inspect or download as svg*
 

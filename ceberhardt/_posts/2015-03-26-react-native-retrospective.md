@@ -2,15 +2,20 @@
 author: ceberhardt
 title: Retrospective on Developing an application with React Native
 layout: default_post
-summary: "I've been building a React Native app for the past few months, which was published as a tutorial yesterday. A number of people have asked about my thoughts and opinions about React Native - which I am sharing in this blog post."
-summary-short: Some thoughts on developing a React Native app, and how it compares to other cross-platform technologies.
+summary: >-
+  I've been building a React Native app for the past few months, which was
+  published as a tutorial yesterday. A number of people have asked about my
+  thoughts and opinions about React Native - which I am sharing in this blog
+  post.
+summary-short: >-
+  Some thoughts on developing a React Native app, and how it compares to other
+  cross-platform technologies.
 title-short: React Native Thoughts
 image: ceberhardt/assets/featured/react-native-retrospective.jpg
 tags:
   - featured
 categories:
-  - iOS
-  - Mobile
+  - Tech
 ---
 
 Yesterday Facebook opened up React Native to the public, and judging by the number of tweets and news stories, has attracted considerable interest.
@@ -31,7 +36,7 @@ One of the great advantages of web development is the development cycles, you ca
 
 With React Native there is no need to rebuild the iOS application each time you make a change, simply Cmd+R to refresh just as if it were a browser. Even better, you can use Cmd+D to launch the Chrome Developer Tools:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/ChromeTools.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/ChromeTools.png" />
 
 (Be sure to link `libicucore.dylib`, which is required for web socket communication to the dev tools)
 

@@ -6,7 +6,7 @@ summary: "Conversational Commerce drastically re-imagines the way services are d
 tags:
   - featured
 categories:
-  - UX
+  - UX Design
 layout: video_post
 video_url: https://player.vimeo.com/video/166816125
 short-author-aside: true

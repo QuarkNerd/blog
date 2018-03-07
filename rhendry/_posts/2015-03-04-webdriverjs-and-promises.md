@@ -8,7 +8,7 @@ tags:
 image: rhendry/assets/featured/promise.jpg
 image-attribution: "image courtesy of <a href='https://www.flickr.com/photos/32490173@N05/'>galleryquantum</a>"
 summary-short: Avoiding broken promises with WebDriverJS - a quick guide to avoiding some of the framework pitfalls.
-categories: []
+categories:  [ 'Tech' ]
 ---
 Recently I have been working with WebdriverJS to fulfil a need for browser testing on a project. Although I've used
 Selenium for Java in the past, this was my first time using the JavaScript version. While broadly similar to what I

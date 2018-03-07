@@ -2,17 +2,16 @@
 author: ceberhardt
 title: Applying redux reducers to arrays
 layout: default_post
-summary:
+summary: null
 categories:
-  - Web
-  - HTML5
+  - Tech
 ---
 
 The redux pattern provides a simple (and strict) pattern for managing state; a single store holds the state while a reducer applies actions, evolving the application state. As your app becomes more complex, you can [split up your reducer into separate functions](http://redux.js.org/docs/api/combineReducers.html), however, what if you have multiple instances of the same state in your app? for example a collection of notes, or calendar entries? the standard pattern for splitting reducers doesn't cover this scenario.
 
 In this blog post I'll take a look at how you can take a reducer and apply it to a collection of state objects. As an example, I'll take the classic 'counter' demo and turn it into an app with multiple counters:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/redux/counter-app.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/redux/counter-app.png" />
 
 ## A single counter
 
@@ -149,7 +148,7 @@ The above maps the counter state to each component via the `Counter.counter` pro
 
 The `CounterCollection` renders as follows:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/redux/counter-collection.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/redux/counter-collection.png" />
 
 That was easy enough, however the counters no longer function because the button clicks do not result in actions being dispatched. This is where it starts to get interesting ...
 
@@ -240,7 +239,7 @@ The use of slice and spread on the state array creates a copy, with the counter 
 
 With the above code in place, the counters are fully functioning once again:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/redux/working-counters.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/redux/working-counters.png" />
 
 ## Getting functional
 
@@ -331,7 +330,7 @@ export default reducer
 
 With a suitable component added to the UI and wired up to this action, new counters can now be added:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/redux/counter-app.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/redux/counter-app.png" />
 
 If you find yourself in a similar position, where you are struggling to apply reducers to multiple state objects, hopefully this post will have been useful to you.
 

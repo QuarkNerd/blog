@@ -1,9 +1,0 @@
-<div class="side-menu">
-    <h3>Authors</h3>
-    <ul>
-        {% assign sortedauthors = site.data.authors.active-authors | sort %}
-        {% for author in sortedauthors %}
-            <li><a href="{{ site.github.url }}/{{ author }}">{{ site.data.authors.authors[author].name}}</a></li>
-        {% endfor %}
-    </ul>
-</div>

@@ -1,13 +1,15 @@
 ---
 author: tsimmons
 title: D3 SVG chart performance
-summary: "In this post, we'll take a look at some of the performance issues you might encounter when making interactive charts using SVG, and how you might go about fixing them."
+summary: >-
+  In this post, we'll take a look at some of the performance issues you might
+  encounter when making interactive charts using SVG, and how you might go about
+  fixing them.
 layout: default_post
-oldlink: "http://www.scottlogic.com/blog/2014/09/19/d3-svg-chart-performance.html"
+oldlink: 'http://www.scottlogic.com/blog/2014/09/19/d3-svg-chart-performance.html'
 disqus-id: /2014/09/19/d3-svg-chart-performance.html
 categories:
-  - D3
-  - Charting
+  - Tech
 ---
 
 ## 2017 update
@@ -16,7 +18,7 @@ Check out [the d3fc project](https://d3fc.io/) to see what some of the ideas in 
 
 ---
 
-In this post, we'll take a look at some of the performance issues you might encounter when making interactive charts using SVG, and how you might go about fixing them. We'll use the chart component developed in <a href="{{site.github.url}}{% post_url 2014-08-19-an-ohlc-chart-component-for-d3 %}">this post</a> to make a basic OHLC stock chart with zooming/panning. While the chart will be implemented using the [D3](http://d3js.org/) library, the performance considerations are the same for any interactive chart using SVG. We're aiming to be able to smoothly pan and zoom an OHLC chart which shows multiple years of OHLC bars.
+In this post, we'll take a look at some of the performance issues you might encounter when making interactive charts using SVG, and how you might go about fixing them. We'll use the chart component developed in <a href="{{site.baseurl}}{% post_url 2014-08-19-an-ohlc-chart-component-for-d3 %}">this post</a> to make a basic OHLC stock chart with zooming/panning. While the chart will be implemented using the [D3](http://d3js.org/) library, the performance considerations are the same for any interactive chart using SVG. We're aiming to be able to smoothly pan and zoom an OHLC chart which shows multiple years of OHLC bars.
 
 ## Zooming and Panning
 There are 2 general approaches we can take to get our chart series to zoom (and pan). They are *Semantic* zooming and *Geometric* zooming. With Geometric zooming, we'll apply a single transformation to the element which contains the OHLC bars. Zooming in will (without steps to prevent it) make the OHLC bars thicker. Semantic zooming on the other hand means that we will transform the position of each OHLC bar individually. Zooming in will keep the OHLC bars the same thickness, and the bars will spread out to reflect their recalculated positions.
@@ -31,7 +33,7 @@ var zoom = d3.behavior.zoom()
 
 Here, we're passing in the time scale of our chart (`xScale`) as the scale that the zoom behaviour should operate on. The zoom behaviour will automatically adjust the domain of the scale when zooming. We'll handle the zooming itself in the `zoomed` function.
 
-In the <a href="{{site.github.url}}{% post_url tsimmons/2014-08-19-an-ohlc-chart-component-for-d3 %}">earlier OHLC post</a>, we set up a static chart with an OHLC series in a group element which we called the 'plotArea'. Now we'll put another element in this group - a `rect` element with the same width and height as the 'plotArea'. We'll call the zoom behaviour on this element.
+In the <a href="{{site.baseurl}}{% post_url tsimmons/2014-08-19-an-ohlc-chart-component-for-d3 %}">earlier OHLC post</a>, we set up a static chart with an OHLC series in a group element which we called the 'plotArea'. Now we'll put another element in this group - a `rect` element with the same width and height as the 'plotArea'. We'll call the zoom behaviour on this element.
 
 {% highlight javascript %}
 plotArea.append('rect')
@@ -67,7 +69,7 @@ function zoomed() {
 In this example, we are also modifying the y-scale's domain to extend from the lowest to highest prices for the days included in the time scale's domain.
 
 How does this chart perform when panning/zooming as the number of OHLC bars grows? Well, it's a bit disappointing. The chart below shows the number of frames per second achieved when panning the chart in Google Chrome on a modern desktop computer against the number of OHLC bars on the chart. You can see that the number of frames per second drawn drops off quickly as the number of OHLC bars grows. This is because with SVG and semantic zooming, we have to update the attributes of every DOM node that makes up the OHLC series.
-<img src="{{ site.github.url }}/tsimmons/assets/ohlc-performance.png"/>
+<img src="{{ site.baseurl }}/tsimmons/assets/ohlc-performance.png"/>
 To speed up the chart zooming, we'll need to reduce the number of elements we have to update.
 
 ### SVG Path Language
@@ -84,7 +86,7 @@ To draw an OHLC bar on paper, we could
 2. Move to the open price and draw a horizontal line to the left for the open tick
 3. Move to the close price and draw a horizontal line to the right for the close tick.
 
-<img src="{{ site.github.url }}/tsimmons/assets/ohlcbar.png"/>
+<img src="{{ site.baseurl }}/tsimmons/assets/ohlcbar.png"/>
 
 Using this procedure, we can define a function that takes a price object and returns the SVG path language string to draw an OHLC bar for that price object. It looks like this:
 
@@ -141,13 +143,13 @@ bars.attr('d', function (d) {
 {% endhighlight %}
 
 Now that we're using just 1 element where before we had 4, we get a noticeable speedup.
-<img src="{{ site.github.url }}/tsimmons/assets/ohlc-performance1.png"/>
+<img src="{{ site.baseurl }}/tsimmons/assets/ohlc-performance1.png"/>
 
 #### 2 Paths in total
 
 We can take the SVG path optimisation further. Instead of 1 path for every bar, we'll have 2 paths in total - one for all the 'up days' and 1 for all the 'down days'. To make the 'd' attribute for these paths, we'll call `makeBar` for each bar as before, but now we'll concatenate the strings returned.
 As expected, we get another speedup. 
-<img src="{{ site.github.url }}/tsimmons/assets/ohlc-performance2.png"/>
+<img src="{{ site.baseurl }}/tsimmons/assets/ohlc-performance2.png"/>
 
 This has come at a price. Now that we no longer have a DOM element for each OHLC bar, we've lost the ability to do interactivity on a per-bar basis. For example, if we wanted to display the OHLC data of a bar on mouse click, now we can't do that in a simple way. We'd have to look for workarounds like maintaining invisible clickable elements for each bar that update their positions only after zooming has finished, or even manually matching mouse coordinates to bars. If we have to resort to these lower level optimisations for reasonable performance we lose the main benefits of SVG, and it might be worth considering using the `<canvas>` element instead. 
 
@@ -181,7 +183,7 @@ function zoomed() {
 This works as expected, zooming the whole series and making the OHLC bars thicker. This isn't what we want. For browsers that support it, we can set the OHLC path's `vector-effect` property to 'non-scaling-stroke'. This will cause the stroke-width to not change under the transformation. For browsers that [don't yet support it](https://connect.microsoft.com/IE/feedback/details/788819/svg-non-scaling-stroke), we would have to manually adjust the stroke-width of the OHLC paths to counter the transformation.
 
 Compared to semantic zooming, geometric zooming is faster.
-<img src="{{ site.github.url }}/tsimmons/assets/ohlc-performance3.png"/>
+<img src="{{ site.baseurl }}/tsimmons/assets/ohlc-performance3.png"/>
 
 ### Transform for changing Y Scale
 One nice feature for zooming stock charts is an automatically updating y-scale. Zooming and panning should change the y-scale domain to extend from the lowest to highest prices for the days included in the time-scale domain. This was easy with semantic zoom - the series updates to reflect the new scale domains automatically. With geometric zoom, we will have to think a bit more!
@@ -190,7 +192,7 @@ We want a transformation in y of the series group element to reflect the changin
 
 We'll get this transformation with scale `s` and translate `t` by comparing the y-scale domain of this window to the y-scale domain of the original plotted series. The transformation's scale is the ratio of the lengths of extents of the domains: `s = y0/y1`.
 
-<img src="{{ site.github.url }}/tsimmons/assets/ohlc-zoom-transformation.png"/>
+<img src="{{ site.baseurl }}/tsimmons/assets/ohlc-zoom-transformation.png"/>
 
 SVG transformations are relative to the origin (top left corner) of an element. This means that we'll need a translate transformation 't' if the upper end of the y-scale domain has changed. `t` is the the number of pixels we would have to translate the series without any scaling, multiplied by the transformation's scale: `t = -t' * s`.
 

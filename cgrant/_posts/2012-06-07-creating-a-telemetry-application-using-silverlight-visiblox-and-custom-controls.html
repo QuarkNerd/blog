@@ -1,23 +1,24 @@
 ---
 id: 152464
 author: cgrant
-title: "Creating a Telemetry Application using Silverlight, Visiblox and Custom Controls"
-oldlink: "http://www.scottlogic.co.uk/2012/06/creating-a-telemetry-application-using-silverlight-visiblox-and-custom-controls/"
+title: >-
+  Creating a Telemetry Application using Silverlight, Visiblox and Custom
+  Controls
+oldlink: >-
+  http://www.scottlogic.co.uk/2012/06/creating-a-telemetry-application-using-silverlight-visiblox-and-custom-controls/
 tags:
   - blog
 categories:
-  - Web
-  - Charting
-  - WPF
-  - C#
+  - Tech
 layout: default_post
 source: site
-disqus-id: /2012/06/creating-a-telemetry-application-using-silverlight-visiblox-and-custom-controls/
+disqus-id: >-
+  /2012/06/creating-a-telemetry-application-using-silverlight-visiblox-and-custom-controls/
 ---
 <h2>Introduction</h2>
 <p>About a month ago, I was using the <a href="http://www.motec.com.au/i2/i2overview/">MoTeC i2 Data Analysis</a> software to look through some telemetry data that I had exported from a popular racing simulator game. Although MoTeC is feature rich and a great tool for motor racing professionals and enthusiasts, I had the idea to create a simplified, styled version using Silverlight. I had been looking for an interesting idea to test out my newfound Silverlight skills for a while, and this seemed like the perfect opportunity. </p>
 <p>Before reading the rest of the article, you may like to view the sample application, located at the <a href="#application">bottom of this post</a>.</p>
-<p><a href="{{ site.github.url }}/archive/2012/06/silvertrack.png"><img src="{{ site.github.url }}/archive/2012/06/silvertrack.png" alt="" title="silvertrack" width="500" height="458" class="aligncenter size-full wp-image-152490" /></a></p>
+<p><a href="{{ site.baseurl }}/archive/2012/06/silvertrack.png"><img src="{{ site.baseurl }}/archive/2012/06/silvertrack.png" alt="" title="silvertrack" width="500" height="458" class="aligncenter size-full wp-image-152490" /></a></p>
 <h2>Using the Code</h2>
 <h3>Architecture</h3>
 <p>The application as it is presented here is not the first version that I created. I had worked on an initial version before this which did not use the MVVM pattern. As a result of this, making changes were difficult, duplicate strings representing the same series name were littered throughout the application, the code behind was duplicated for each of the three chart components, and performance was far less than optimal. In my defense, the application I first envisioned was a single, simple chart with one series and no further information. But when I started to expand the application, all of these issues arose and started to get progressively worse.</p>
@@ -42,7 +43,7 @@ _allSeries.Add(new TelemetrySeries("Series_Name", IndexInCSVFile));
 <p>The <code>TelemetryChannelViewModel</code> contains the properties and values required to display a chart. It provides the data context for a <code>TelemetryChannelView</code> and contains two data series to display on the chart from that view. It also contains behaviours and operations to modify, remove and add data series to the chart.</p>
 <h3>Charts</h3>
 <h4>Custom Zoom Behaviour</h4>
-<p>To add the charts to the application, I used <a href="http://www.visiblox.com/download">Visiblox Silverlight Charts</a>. I chose to use Visiblox as I was looking for a high performance charting component. I knew I would be plotting a lot of data on the charts and the performance comparisons on Colin Eberhardt's blog <a href="{{ site.github.url }}/2010/12/10/visiblox-visifire-dynamicdatadisplay-charting-performance-comparison">here</a>, as well as opinions on <a href="http://stackoverflow.com/">Stack Overflow</a> led me to select Visiblox. I found the <a href="http://www.visiblox.com/examples">examples</a> to be a great help when setting up the charts for the application.</p>
+<p>To add the charts to the application, I used <a href="http://www.visiblox.com/download">Visiblox Silverlight Charts</a>. I chose to use Visiblox as I was looking for a high performance charting component. I knew I would be plotting a lot of data on the charts and the performance comparisons on Colin Eberhardt's blog <a href="{{ site.baseurl }}/2010/12/10/visiblox-visifire-dynamicdatadisplay-charting-performance-comparison">here</a>, as well as opinions on <a href="http://stackoverflow.com/">Stack Overflow</a> led me to select Visiblox. I found the <a href="http://www.visiblox.com/examples">examples</a> to be a great help when setting up the charts for the application.</p>
 <p>Sticking to the MVVM architecture for the charts, the data for the charts comes from the Model, is converted by the ViewModel and displayed by the View, using the following method. Each chart is populated by its <code>TelemetryChannelViewModel</code>, which obtains data for the two series from the <code>GetChannelData</code> method in <code>TelemetryViewModel</code>. This method retrieves the relevant <code>TelemetrySeries</code> from the Data Provider in the Model, and calls <code>TelemetryDataToVisibloxDataSeries</code>, which adds each point in the <code>TelemetrySeries</code> to a <code>Visiblox DataSeries<DateTime, double></code> type. The <code>Visiblox LineSeries</code>' <code>DataSeries </code>in <code>TelemetryChannelView </code>then has a binding to the <code>TelemetryChannelViewModel</code>'s <code>LivePrimaryChartDataSeries</code>/<code>LiveSecondaryChartDataSeries </code>property.</p>
 {% highlight xml %}<visi:LineSeries DataSeries="{Binding Path=LivePrimaryChartDataSeries}" ...{% endhighlight %}
 <p>To keep the data series on each of the charts in context, I decided it would be a good idea to restrict the zoom behaviours to the X-Axis. There is no way to restrict the standard Visiblox <code>ZoomBehaviour</code> to the X-Axis, so I had to define a new one. <code>XAxisZoomBehaviour</code> implements the Visiblox <code><a href="https://www.visiblox.com/docs/Visiblox/4.0/WPF/Index.html">BehaviourBase</a></code> abstract Class. The <code>MouseLeftButtonDown</code> method sets a zoom rectangle to the height of the chart, and when the <code>MouseMove</code> method is called, the width of this rectangle is modified to the value of the mouse position minus the start position. The method also checks if the rectangle covers a large enough area on the chart to allow a zoom. By checking this, it stops the zoom area from becoming too small.If the mouse is released and the zoom area is large enough, the <code>ZoomTo</code> method is called.</p>
@@ -65,18 +66,18 @@ Storyboard.SetTargetProperty(b2, new PropertyPath("(Offset)"));
 <p>When the charts were added to the application, I still felt like it was missing something. I had the idea to add widget-style custom controls below the chart to add more interest and interactivity. Each of the controls is defined in its own class in the <code>TelemetryPrototype.controls</code> namespace within the <em>controls</em> folder. They all have at least one dependency property and subscribe to <code>onPropertyChanged</code> events, which allows the controls to automatically update whenever one of their dependency properties is modified. The layout and elements of all the controls are defined in the <em>Generic.xaml</em> file.</p>
 <h3>ThrottleBrakeControl.cs</h3>
 <p>Dependency Properties:Throttle, Brake</p>
-<p><a href="{{ site.github.url }}/archive/2012/06/throttlebrake.png"><img src="{{ site.github.url }}/archive/2012/06/throttlebrake.png" alt="" title="throttlebrake" width="143" height="160" class="aligncenter size-full wp-image-152492" /></a></p>
+<p><a href="{{ site.baseurl }}/archive/2012/06/throttlebrake.png"><img src="{{ site.baseurl }}/archive/2012/06/throttlebrake.png" alt="" title="throttlebrake" width="143" height="160" class="aligncenter size-full wp-image-152492" /></a></p>
 <p>The throttle Control is a three column grid, with a throttle indicator on the left, a brake indicator on the right and labels in the centre. The indicators are created by displaying a rectangle inside of a border. The rectangles are styled appropriately (green for throttle and red for brake) and their height is bound to their respective dependency property.</p>
 <h3>CarLocationControl.cs</h3>
 <p><em>Dependency Properties:Position</em></p>
 <p>The car location control shows where the car currently is on the track.The track itself was created in Microsoft Expression Blend 4 using a path. The <code>Microsoft.Expression.Controls</code> and <code>Microsoft.Expression.Drawing</code> <em>.dll</em> files are therefore included in the references of this project. A <code>PathListBox</code> then binds its <code>LayoutPath SourceElement</code> to this path. The car itself is simply an ellipse inside of this <code>PathListBox</code>. By binding the <code>Start</code> property of the <code>LayoutPath</code> to the <code>Position</code> dependency property, the ellipse will move around the path. <code>Position</code> must therefore be a percentage value. To calculate the percentage completion of a lap, it is necessary to have the start and end distance, which are calculated in the <em>TelemetryDataProvider.cs</em> when the data is first read into the application.</p>
 <h3>GForceControl.cs</h3>
 <p><em>Dependency Properties:Lateral, Long</em></p>
-<p><a href="{{ site.github.url }}/archive/2012/06/gchart.png"><img src="{{ site.github.url }}/archive/2012/06/gchart.png" alt="" title="gchart" width="184" height="157" class="aligncenter size-full wp-image-152489" /></a></p>
+<p><a href="{{ site.baseurl }}/archive/2012/06/gchart.png"><img src="{{ site.baseurl }}/archive/2012/06/gchart.png" alt="" title="gchart" width="184" height="157" class="aligncenter size-full wp-image-152489" /></a></p>
 <p>There is slightly more code for the G-Force control and no bindings for the values on the chart, as these are set manually whenever a property changes in the <code>OnLateralPropertyChanged</code> and <code>OnLongPropertyChanged</code> methods. Within the <code>OnApplyTemplate()</code> method of the control, a <code>DataPoint </code>is created and added to a line series. This line series is then added to the chart.</p>
 <p>The G-Force chart has also been retemplated to remove the border and to hide any axis values. The template is contained in <em>App.xaml</em>, with a target type of Chart. It has a key value of Gchart, which is referenced in the control's layout in the <em>Generic.xaml</em> by <code>"Template="{StaticResource Gchart}"</code>.</p>
 <h3>SpeedometerControl.cs</h3>
-<p><a href="{{ site.github.url }}/archive/2012/06/speedo.png"><img src="{{ site.github.url }}/archive/2012/06/speedo.png" alt="" title="speedo" width="143" height="158" class="aligncenter size-full wp-image-152491" /></a></p>
+<p><a href="{{ site.baseurl }}/archive/2012/06/speedo.png"><img src="{{ site.baseurl }}/archive/2012/06/speedo.png" alt="" title="speedo" width="143" height="158" class="aligncenter size-full wp-image-152491" /></a></p>
 <p>The speedometer control is a modified version of the gauge control developed by Colin Eberhardt as part of a blog post entitled "<a href="http://www.codeproject.com/Articles/103035/Developing-a-very-Lookless-Silverlight-Radial-Gaug.aspx">Developing a (very) Lookless Silverlight Radial Gauge Control</a>". The only modifications from the original source code from the article are the styles, layout and namespace declarations. The style is defined at the bottom of the <em>generic.xaml</em> file in the <em>Themes</em> folder of the <code>SilverTrack </code>project.</p>
 <h3>Util/Other Classes</h3>
 <h4>Data Context Changed Handler</h4>
@@ -87,7 +88,7 @@ Storyboard.SetTargetProperty(b2, new PropertyPath("(Offset)"));
 <p>The layout for the controls and the templates are defined in the <em>Generic.xaml</em> file.</p>
 <h2>Points of Interest</h2>
 <p>This was the first time I had used the MVVM architecture, and I will certainly use it again in the future. I had developed a prototype version of this application without MVVM. I had planned on building on this to create the final version, but found that it was much harder to modify and add additional functionality to. Mixing UI code with Logic code is bad practice, and it is something I will now be keen to avoid in the future.</p>
-<p>It was also the first time I had used a charting component in Silverlight, other than the toolkit version. I decided on <a href="http://www.visiblox.com/">Visiblox</a> after reading this <a href="{{ site.github.url }}/2010/12/10/visiblox-visifire-dynamicdatadisplay-charting-performance-comparison">article</a> from Colin Eberhardt and others like it, as well as reading charting recommendations from members of <a href="http://stackoverflow.com/">Stack Overflow</a>.</p>
+<p>It was also the first time I had used a charting component in Silverlight, other than the toolkit version. I decided on <a href="http://www.visiblox.com/">Visiblox</a> after reading this <a href="{{ site.baseurl }}/2010/12/10/visiblox-visifire-dynamicdatadisplay-charting-performance-comparison">article</a> from Colin Eberhardt and others like it, as well as reading charting recommendations from members of <a href="http://stackoverflow.com/">Stack Overflow</a>.</p>
 <h4>Exporting Data From MoTeC</h4>
 <p>Using the import data button in the top left of the application, it is possible to load your own MoTeC data into SilverTrack. If you do not wish to use the sample files provided, and have your own way to import telemetry data to MoTeC, exporting to the <em>.csv</em> format used by the application is relatively straightforward:</p>
 <ul>
@@ -98,9 +99,9 @@ Storyboard.SetTargetProperty(b2, new PropertyPath("(Offset)"));
 </ul>
 <p><strong>NOTE</strong>: The car location control will only operate correctly if you load data from the <a href="http://en.wikipedia.org/wiki/Calder_Park_Raceway">Calder Road Course</a>.</p>
 <p><a name="application"></a></p>
-<div id="silverlightControlHost" style="width: 940px; position: relative; position: absolute;"><object data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="940px" height="700px"><param name="source" value="{{ site.github.url }}/archive/2012/06/SilverTrack.xap"/><param name="onError" value="onSilverlightError" /><param name="background" value="white" /><param name="minRuntimeVersion" value="4.0.50826.0" /><param name="autoUpgrade" value="true" /><a href="http://go.microsoft.com/fwlink/?LinkID=149156&v=4.0.50826.0" style="text-decoration:none"><img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight" style="border-style:none"/></a></object><iframe id="_sl_historyFrame" style="visibility:hidden;height:0px;width:0px;border:0px"></iframe></div>
+<div id="silverlightControlHost" style="width: 940px; position: relative; position: absolute;"><object data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="940px" height="700px"><param name="source" value="{{ site.baseurl }}/archive/2012/06/SilverTrack.xap"/><param name="onError" value="onSilverlightError" /><param name="background" value="white" /><param name="minRuntimeVersion" value="4.0.50826.0" /><param name="autoUpgrade" value="true" /><a href="http://go.microsoft.com/fwlink/?LinkID=149156&v=4.0.50826.0" style="text-decoration:none"><img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight" style="border-style:none"/></a></object><iframe id="_sl_historyFrame" style="visibility:hidden;height:0px;width:0px;border:0px"></iframe></div>
 <div style="height:730px;"> Silverlight </div>
 <h3>Download</h3>
 <ul>
-<li><a href="{{ site.github.url }}/archive/2012/06/SilverTrack.zip">Download source code for SilverTrack - 474.34 K</a></li>
+<li><a href="{{ site.baseurl }}/archive/2012/06/SilverTrack.zip">Download source code for SilverTrack - 474.34 K</a></li>
 </ul>

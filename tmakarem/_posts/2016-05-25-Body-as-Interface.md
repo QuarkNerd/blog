@@ -3,9 +3,9 @@ author: tmakarem
 title: "Body as Interface"
 layout: default_post
 categories:
-  - UX
+  - UX Design
 tags:
-  - UX
+  - UX Design
 image: tmakarem/assets/featured/017_Body-Paint.jpg
 
 summary: "Body as interface is plausible either when the body is in a controlled environment or when the device becomes part of the body. Exploring this notion allows us to stop designing interfaces and start designing experiences."
@@ -31,13 +31,13 @@ Within the art field, the notion of the body as an interface is not a new idea, 
 
 In 1999, Camille Utterback created *Text rain*, an interactive installation in which participants use their body to interact with words of a poem. Participants stand in front of a screen where letters are dropping like rain. A camera detects where they are standing and allows them to virtually catch those words on the screen. Participants only need to stand to interact with the letter, but the letters also respond to their body motions.
 
-![Text Rain]({{ site.github.url }}/tmakarem/assets/016_Text-Rain.png "Text Rain")
+![Text Rain]({{ site.baseurl }}/tmakarem/assets/016_Text-Rain.png "Text Rain")
 
 ["Text Rain", Camille Utterback.](http://camilleutterback.com/projects/text-rain/)
 
 A similar project is *Body paint* by Mehmet Akten. The interactive art installation allows people to paint on a virtual canvas with their body. The paint reflects the movement of their body and the direction in which they move.
 
-![Body Paint]({{ site.github.url }}/tmakarem/assets/017_Body-Paint.jpg "Body Paint")
+![Body Paint]({{ site.baseurl }}/tmakarem/assets/017_Body-Paint.jpg "Body Paint")
 
 ["Body Paint", Mehmet Akten.](http://www.memo.tv/bodypaint/)
 
@@ -45,7 +45,7 @@ In both examples, the body is used to interact with visuals on a screen. The art
 
 The *Heart Bot* is an experimental biometric installation in which a drawing machine allows people to draw on a canvas using their heart rate. Users place their hand on a sensor that reads their heart rate. A mechanical tool draws the pattern created on a paper mounted on the wall in front of them. Through this process, the collected heart rate data from users is translated into art.
 
-![Heart Bot]({{ site.github.url }}/tmakarem/assets/018_Heart-Bot.jpg "Heart Bot")
+![Heart Bot]({{ site.baseurl }}/tmakarem/assets/018_Heart-Bot.jpg "Heart Bot")
 
 ["Heart Bot", Commissioned by Sid Lee for Intel x SMS audio collaboration.](http://sidlee.com/en/work/HEARTBOT/HEARTBOT)
 
@@ -56,11 +56,11 @@ With the *Heart Bot*, biometrics are used to initiate the interaction. The artis
 
 In wearable technology, devices become integrated into our clothes, or take the shape of accessories we wear.  Products like bluetooth headsets, smartwatches, Google Glass, and Virtual Reality goggles augment our bodies. Some of these devices are almost invisible. Smart contact lenses are an example of that. Tech companies have started showing an interest in it. Google is designing a [contact lens](http://www.independent.co.uk/life-style/gadgets-and-tech/google-licenses-smart-contact-lens-technology-to-help-diabetics-and-glasses-wearers-9607368.html) that allows diabetic patients to monitor the level of glucose in their body. Samsung is contemplating designing [augmented reality contact lenses](http://www.independent.co.uk/life-style/gadgets-and-tech/news/samsung-smart-contact-lenses-patent-a6971766.html). Most wearable devices try not to obstruct any of our usual interactions or movements. They become part of our body.
 
-![Smart contact lens]({{ site.github.url }}/tmakarem/assets/019_Smart-contact-lense.jpg "Smart contact lens")
+![Smart contact lens]({{ site.baseurl }}/tmakarem/assets/019_Smart-contact-lense.jpg "Smart contact lens")
 
 In some cases these technologies go a step further and alter the way we use and experience our body. They reveal to us information about ourselves that we otherwise would not have had access to. We see a rise in the adoption of fitness trackers that track location, number of steps taken, sleep patterns, heart rate etc. These monitors allow us to analyse our behaviours and set goals to alter them.
 
-![Smart watch]({{ site.github.url }}/tmakarem/assets/020_Smart-watch.jpg "Smart watch")
+![Smart watch]({{ site.baseurl }}/tmakarem/assets/020_Smart-watch.jpg "Smart watch")
 
 Products like Microsoft’s HoloLens and the Oculus headset alter our vision. They extend the screen to the space around us and change our vision, even if only temporarily while we are wearing the device.
 
@@ -71,7 +71,7 @@ Wearable devices can alter the way we experience the space around us. When the b
 
 The *Eyewriter* is a low cost eye tracker system. It was designed for American graffiti artist Tempt One who was diagnosed with degenerative nerve disorder ALS in 2003, which left him fully paralysed except for his eye movement. Eyewriter tracks the movement of the eye to allow ALS patients to draw using their eye movement.
 
-![Eyewriter]({{ site.github.url }}/tmakarem/assets/021_Eyewriter.JPG "Eyewriter")
+![Eyewriter]({{ site.baseurl }}/tmakarem/assets/021_Eyewriter.JPG "Eyewriter")
 
 ["Eyewriter", Tempt1, Evan Roth, Chris Sugrue, Zach Lieberman,Theo Watson and James Powderly.](http://www.eyewriter.org/)
 

@@ -14,7 +14,7 @@ categories:
   - Test
 layout: default_post
 ---
-<img src="{{ site.github.url }}/rhamilton/assets/survey.png" alt="title image" title="title image"/>
+<img src="{{ site.baseurl }}/rhamilton/assets/survey.png" alt="title image" title="title image"/>
 
 ##Why is it really difficult to hire testers?
 
@@ -53,7 +53,7 @@ In the survey I presented testers with 12 positive statements about testing in t
 
 The frequency histogram below shows the Workplace Happiness Index of 181 testers.
 
-<img src="{{ site.github.url }}/rhamilton/assets/histogram_happiness_at_work.png" alt="happiness histogram" title="happiness histogram"/>
+<img src="{{ site.baseurl }}/rhamilton/assets/histogram_happiness_at_work.png" alt="happiness histogram" title="happiness histogram"/>
 
 * The minimum Workplace Happiness Index score is -8 and the maximum is +12. This certainly proves that not all testing jobs are equal.
 * Some have many positives and few negatives, some have many negatives with few positives. The mean (average) score for a tester's Workplace Happiness Index is 4.6 so the average testing job has more positive traits than negative.
@@ -61,11 +61,11 @@ The frequency histogram below shows the Workplace Happiness Index of 181 testers
 
 One of the questions asked by the survey asked was "Are you happy in your current testing job?".
 
-<img src="{{ site.github.url }}/rhamilton/assets/happy_pie.png" alt="happy pie" title="happy pie"/>
+<img src="{{ site.baseurl }}/rhamilton/assets/happy_pie.png" alt="happy pie" title="happy pie"/>
 
 I wanted to compare whether testers said they were happy (or not) against their Workplace Happiness Index. I wanted to know if there were happy testers in jobs where lots of negative things happened. Or if there were lots of miserable testers in jobs where lots of positive things happened.
 
-<img src="{{ site.github.url }}/rhamilton/assets/work_and_tester_happiness.png" alt="work and tester happiness" title="work and tester happiness"/>
+<img src="{{ site.baseurl }}/rhamilton/assets/work_and_tester_happiness.png" alt="work and tester happiness" title="work and tester happiness"/>
 
 I used a box plot to visualize the relationship between a tester happiness and their workplace happiness index. A box plot is a way to show patterns of responses for a group. The groups in my box plot are Happy and Not Happy Testers.
 The thick black lines inside the coloured boxes show the median or mid point of the data. The coloured boxes represent the middle 50% of scores. The circles show outliers which are observations that lie an abnormal distance from all the other values in the group.  For the Happy tester group there is one outlier, this is a single tester that said they were happy despite their work place ranking -7 on the Workplace Happiness Index. There were also two testers which said they were not happy despite their workplaces scoring +10 and +11 on the workplace Happiness Index.
@@ -81,7 +81,7 @@ I needed to know if the workplace happiness index had an influence on whether or
 
 I divided testers into groups based on their likelihood to look for a new testing job and measured these groups against the workplace happiness index. The box plot below shows this data.
 
-<img src="{{ site.github.url }}/rhamilton/assets/new_test_job.png" alt="likelihood to leave testing" title="likelihood to leave testing"/>
+<img src="{{ site.baseurl }}/rhamilton/assets/new_test_job.png" alt="likelihood to leave testing" title="likelihood to leave testing"/>
 
 There definitely was a pattern between negativity in the workplace and testers looking for new testing jobs:
 
@@ -101,13 +101,13 @@ So lets summarize the data that has been crunched so far:
 
 I wanted to know about the new testers that were coming into the profession to fill the jobs that experienced testers were not moving into. The survey asked "How much testing Experience do you have" and the responses to this question have been plotted below.
 
-<img src="{{ site.github.url }}/rhamilton/assets/test_experience.png" alt="tester experience" title="tester experience"/>
+<img src="{{ site.baseurl }}/rhamilton/assets/test_experience.png" alt="tester experience" title="tester experience"/>
 
 The graph above shows that there is certainly a lack of new testers within the profession.
 
 I chose to split the data on experience level at 2 years experience. I did this because many testing job adverts in the UK specifically ask for 2 years previous experience. The pie chart below compares numbers of testers with more than 2 years experience with testers that have not yet reached 2 years experience.
 
-<img src="{{ site.github.url }}/rhamilton/assets/two_years_exp.png" alt="more and less than 2 years pie" title="more and less than 2 years pie"/>
+<img src="{{ site.baseurl }}/rhamilton/assets/two_years_exp.png" alt="more and less than 2 years pie" title="more and less than 2 years pie"/>
 
 I found these numbers a little disturbing. Perhaps the "you must have two years experience" barrier imposed in most job adverts is very difficult to overcome and currently serves as a gate blocking new people from a testing career path. It feels like as an industry we are not providing enough opportunities for people to move into testing. What will happen when all the testers that have been testing 10+ years start to retire? I can only see it becoming increasingly more difficult to hire testers in the future if the number of people entering the profession does not increase.
 

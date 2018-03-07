@@ -20,7 +20,7 @@ categories:
 layout: default_post
 ---
 
-<img src="{{ site.github.url }}/rhamilton/assets/twitter.jpg" alt="title image" title="title image"/>
+<img src="{{ site.baseurl }}/rhamilton/assets/twitter.jpg" alt="title image" title="title image"/>
 
 Recently I attended a software testing conference held in Manchester. While I was at the conference I had a conversation with Andrew Morton (<a href="https://twitter.com/TestingChef">@TestingChef</a>) about Twitter. Andrew told me he had a theory that at conferences people tweeted more in the morning than in the afternoon. As an active Tweeter and passionate R user I thought it would be interesting to try collect some real data, take a look and see what was happening.
 
@@ -74,7 +74,7 @@ Immediately after mining the tweets it was very easy to see the top 5 most favou
 
 A few months ago I started learning how to draw advanced graphics in R using a package called ggplot2. I was able to use this package to create a frequency polygon of the conference day tweets and identify some of the different platforms the tweets had originated from. [Please use this link to view the full size image](https://raw.githubusercontent.com/Rosalita/test_twit/master/tweetcount.png) and get a better look
 
-<img src="{{ site.github.url }}/rhamilton/assets/tweetcount.png" alt="title image" title="title image"/>
+<img src="{{ site.baseurl }}/rhamilton/assets/tweetcount.png" alt="title image" title="title image"/>
 
 I used a black line to represent the total tweet frequency and different coloured lines to show the quantity of tweets originating from different platforms. I added annotations to the plot to indicate who was speaking at the time.
 
@@ -105,7 +105,7 @@ I also removed all the positive and negative words present in titles of each spe
 
 Once I had managed to identify positive and negative words in the conference day tweets, I was able to use this data to draw some word clouds. Some of the text is quite small on the image below so [here is a link to the full size image](https://raw.githubusercontent.com/Rosalita/test_twit/master/testbashclouds.png).
 
-<img src="{{ site.github.url }}/rhamilton/assets/testbashclouds.png" alt="title image" title="title image"/>
+<img src="{{ site.baseurl }}/rhamilton/assets/testbashclouds.png" alt="title image" title="title image"/>
 
 I drew two clouds, one positive and one negative. The larger, darker words in the centre appear more frequently than the smaller, lighter words towards the edge of the cloud. Be aware however that people on Twitter do swear and as such any data mined from Twitter may contain profanity. I chose to censor the profanity in my plots with the addition of some strategically placed asterisks.
 
@@ -121,7 +121,7 @@ And also the most negative:
 
 I wanted to plot all the conference day tweets by their sentiment score to see which parts (if any) were especially positive or negative. I was able to do this using a scatter plot. Again, the image below is quite small so [please use this link if you wish to view the plot at full size](https://raw.githubusercontent.com/Rosalita/test_twit/master/speakers.png).
 
-<img src="{{ site.github.url }}/rhamilton/assets/speakers.png" alt="title image" title="title image"/>
+<img src="{{ site.baseurl }}/rhamilton/assets/speakers.png" alt="title image" title="title image"/>
 
 This plot uses 'jitter' which adds a small amount of noise to uniformly distributed variables. So rather than having all the tweets with the same sentiment score in a perfect horizontal line, it shakes them up a bit and moves them a tiny distance in a random direction. I also reduced the alpha transparency level for each point on the scatter plot to make it easier to see areas where the tweets were more densely packed. I added a yellow line to the plot which is a smoothed conditional mean using a loess model. This line shows roughly how the positivity levels of tweets change throughout the day.
 

@@ -67,7 +67,7 @@ Cue every [Dan Abramov](https://twitter.com/dan_abramov) tutorial (several times
 multiple rewrites and a power cut until it finally clicked and we had the Interview Question Explorer v0.01
 (There might be a reason we weren’t hired as UX Interns).
 
-<img src='{{ site.github.url }}/jfriel/assets/firstpass.png' alt='original demo with mock data'/>
+<img src='{{ site.baseurl }}/jfriel/assets/firstpass.png' alt='original demo with mock data'/>
 
 
 Now you can’t just use ReactJS by itself, that would be too easy...  
@@ -76,7 +76,7 @@ a combination of [Enzyme](https://github.com/airbnb/enzyme) and Tape for testing
 
 ## Combining The Services
 
-<img src='{{ site.github.url }}/jfriel/assets/schema.png' alt='Diagram of how services connect to one another'/>   
+<img src='{{ site.baseurl }}/jfriel/assets/schema.png' alt='Diagram of how services connect to one another'/>   
 
 
 
@@ -86,7 +86,7 @@ a combination of [Enzyme](https://github.com/airbnb/enzyme) and Tape for testing
 
 ## Improving The Look   
 
-<img src='{{ site.github.url }}/jfriel/assets/css-is-awesome.jpg' alt='the Mug In Question' align='left' hspace="20" style="margin-right: 10px"/>
+<img src='{{ site.baseurl }}/jfriel/assets/css-is-awesome.jpg' alt='the Mug In Question' align='left' hspace="20" style="margin-right: 10px"/>
 
 
 
@@ -96,7 +96,7 @@ as we discovered why developers aren’t the ones in charge of design when tryin
 Fortunately Scott Logic's UX team are based in the Edinburgh office and were quite happy to give us some pointers. Their input
 prompted a large redesign of the user interface, giving us a design much more akin to a finished product.
 
-<img src='{{ site.github.url }}/jfriel/assets/final_app.png' alt='The Final application' align='right' style="margin-bottom: 10px"/>   
+<img src='{{ site.baseurl }}/jfriel/assets/final_app.png' alt='The Final application' align='right' style="margin-bottom: 10px"/>   
 
 
 

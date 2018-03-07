@@ -3,8 +3,7 @@ author: asheehan
 layout: default_post
 title: D3v4 is on the way!
 categories:
-  - D3
-  - D3FC
+  - Tech
 ---
 
 The next version of [D3](https://d3js.org/), the data visualisation library, is on the way.
@@ -27,7 +26,7 @@ beast, we thought we'd look into how D3 was split up to establish the best patte
 for D3FC. Thus this
 [funky D3 visualisation](http://bl.ocks.org/alisd23/5762cc5912253c4febeb) was born!
 
-[![D3 Force Graph]({{ site.github.url }}/asheehan/assets/d3v4-screenshot.png "D3 Force Graph")](http://bl.ocks.org/alisd23/5762cc5912253c4febeb)
+[![D3 Force Graph]({{ site.baseurl }}/asheehan/assets/d3v4-screenshot.png "D3 Force Graph")](http://bl.ocks.org/alisd23/5762cc5912253c4febeb)
 
 The visualisation works by fetching the **metadata** for all the D3 modules, which are
 now published as separate npm modules, reads the dependencies for each module,

@@ -11,7 +11,7 @@ disqus-id: /2014/01/29/ios7-by-tutorials-in-print.html
 
 A few days ago I was happy to receive a weighty package through the post containing the following:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/iOS7ByTutorials.jpg" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/iOS7ByTutorials.jpg" />
 
 <br/>
 <br/>

@@ -1,28 +1,30 @@
 ---
 author: aaiken
 title: A Bollinger Bands Component for D3 Charts
-summary: "In my last article (on line annotation components for D3 charts), I created a D3 component which calculated and displayed a moving average. As promised, I'm now turning my attention to Bollinger Bands."
+summary: >-
+  In my last article (on line annotation components for D3 charts), I created a
+  D3 component which calculated and displayed a moving average. As promised, I'm
+  now turning my attention to Bollinger Bands.
 image: aaiken/assets/featured/bollinger.png
 tags:
   - d3
 categories:
-  - D3
-  - Charting
+  - Tech
 layout: default_post
-oldlink: "http://www.scottlogic.com/blog/2014/08/28/bollinger.html"
+oldlink: 'http://www.scottlogic.com/blog/2014/08/28/bollinger.html'
 disqus-id: /2014/08/28/bollinger.html
 ---
 
-In my last article (on [line annotation components]({{ site.github.url }}/2014/08/26/two-line-components-for-d3-charts.html) for D3 charts), I created a component which calculated and displayed a moving average. As promised, I'm now turning my attention to [Bollinger Bands](http://en.wikipedia.org/wiki/Bollinger_Bands).
+In my last article (on [line annotation components]({{ site.baseurl }}/2014/08/26/two-line-components-for-d3-charts.html) for D3 charts), I created a component which calculated and displayed a moving average. As promised, I'm now turning my attention to [Bollinger Bands](http://en.wikipedia.org/wiki/Bollinger_Bands).
 
 > **Quick update** - the code in this article was used as the starting point for components in [the d3fc project](https://d3fc.io/).
 > It's a bit more advanced than this article, but you might find it interesting to see what this code evolved into!
 
 The component I'm going to create is going to look like this:
 
-<img src="{{ site.github.url }}/aaiken/assets/bollinger.png"/>
+<img src="{{ site.baseurl }}/aaiken/assets/bollinger.png"/>
 
-As before, I'm going to cheat by taking the chart Tom's developed in his article on [OHLC and candlestick components]({{ site.github.url }}/2014/08/19/an-ohlc-chart-component-for-d3.html), and I'm creating the component following [Mike Bostock's convention](http://bost.ocks.org/mike/chart/).
+As before, I'm going to cheat by taking the chart Tom's developed in his article on [OHLC and candlestick components]({{ site.baseurl }}/2014/08/19/an-ohlc-chart-component-for-d3.html), and I'm creating the component following [Mike Bostock's convention](http://bost.ocks.org/mike/chart/).
 
 ## What are Bollinger Bands?
 
@@ -291,7 +293,7 @@ As an aside, note that I've set `stroke-width: 0` on the area so that it doesn't
 
 Putting it all together, this is the result:
 
-<img src="{{ site.github.url }}/aaiken/assets/bollinger.png"/>
+<img src="{{ site.baseurl }}/aaiken/assets/bollinger.png"/>
 
 ## Enhancements
 
@@ -299,7 +301,7 @@ I'm pretty happy with this component - it works really well and it's reasonably 
 
 ## Conclusion
 
-In this article I've taken the moving average component I developed in [my previous article]({{ site.github.url }}/2014/08/26/two-line-components-for-d3-charts.html) and used it as the basis for a Bollinger Bands component. The new component is very easy to configure and style.
+In this article I've taken the moving average component I developed in [my previous article]({{ site.baseurl }}/2014/08/26/two-line-components-for-d3-charts.html) and used it as the basis for a Bollinger Bands component. The new component is very easy to configure and style.
 
 
 

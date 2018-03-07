@@ -6,7 +6,7 @@ layout: default_post
 summary: "ZeroMQ is an opinionated, light weight, blazing fast messaging library.  Here I take a look at how to get up and running with it and the building blocks it provides you with."
 summary-short: Short introduction to ZeroMQ
 categories:
-  - Server
+  - Tech
 ---
 
 
@@ -83,7 +83,7 @@ Before embarking on any ZeroMQ expedition you'll need to create a context.  Cont
 ### Synchronous Request/Response ###
 Firstly we'll look at the synchronous request/response pattern to create the obligatory "Hello World" application.
 
-![Synchronous Request/Response messaging]({{ site.github.url }}/hpowell/assets/REQ-REP.png)
+![Synchronous Request/Response messaging]({{ site.baseurl }}/hpowell/assets/REQ-REP.png)
 
 [Request-Reply](https://github.com/imatix/zguide/raw/master/images/fig2.png) by [iMatix Corporation](http://www.imatix.com/) is licensed under [cc-by-sa 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
 
@@ -154,7 +154,7 @@ So in our first example we used thread to thread communication (inproc) through 
 ### Publish - Subscribe ###
 What if you wanted to publish a stream of data and allow any number of clients to consume that stream.  Well, ZeroMQ has a pattern for that using publish and subscribe sockets.  In this example we'll break the client and server out into separate processes.  This will allow us to show off the ability of ZeroMQ to communicate across languages so we'll write the server in Java and the client in C#.
 
-![Publish/Subscribe messaging]({{ site.github.url }}/hpowell/assets/PUB-SUB.png)
+![Publish/Subscribe messaging]({{ site.baseurl }}/hpowell/assets/PUB-SUB.png)
 
 [Publish-Subscribe](https://github.com/imatix/zguide/raw/master/images/fig4.png) by [iMatix Corporation](http://www.imatix.com/) is licensed under [cc-by-sa 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
 
@@ -222,7 +222,7 @@ We get one hundred messages from the publisher totalling up the total amount of 
 ### Push - Pull ###
 Push and pull sockets are used for fan-out, fan-in one way communication.  Push will evenly distribute messages to all available clients and pull will fairly queue messages from all connected clients.  To demonstrate this we'll create a ventilator to distribute work to some workers and then collect the results in a sink.  Since we've got three pieces to our architecture this time lets add a third language, JavaScript running on Node.js.
 
-![Push/Pull messaging]({{ site.github.url }}/hpowell/assets/PUSH-PULL.png)
+![Push/Pull messaging]({{ site.baseurl }}/hpowell/assets/PUSH-PULL.png)
 
 [Extended Request-Reply](https://github.com/imatix/zguide/raw/master/images/fig5.png) by [iMatix Corporation](http://www.imatix.com/) is licensed under [cc-by-sa 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
 
@@ -327,7 +327,7 @@ The sync binds to its endpoint, waits for the signal from the ventilator then ti
 Let's go back to the Request - Response pattern and put some real power into it.  Rather than having one client request work from one worker can we get any number of clients to request work from any number of workers.  We could pre load each client with a list of workers and have each client talk directly to a worker.  This works, but what if we add or remove workers, we then need to update every client.  A better solution would be to have a broker which both clients and workers connect to and is responsible for passing messages back and forth.
 Since this broker will need to deal with many simultaneous requests and responses we'll need some new sockets.  Routers are like asynchronous response sockets and dealers like asynchronous request sockets.
 
-![Asynchronous Request/Response messaging]({{ site.github.url }}/hpowell/assets/BROKER.png)
+![Asynchronous Request/Response messaging]({{ site.baseurl }}/hpowell/assets/BROKER.png)
 
 [Extended Request-Reply](https://github.com/imatix/zguide/raw/master/images/fig16.png) by [iMatix Corporation](http://www.imatix.com/) is licensed under [cc-by-sa 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
 
@@ -414,7 +414,7 @@ Exclusive pairs are used to co-ordinate multi-threaded applications.  Hintjens m
 
 Mostly this is still true, but with the advent of immutable data structures and thread safe queues (sort of, they're available for .Net 4.5 in the Google Guava library for Java and there are the mori and immutable.js libraries for JavaScript, having incubated in the functional programming domain) I think there's less need for these.  Exclusive pairs tightly couple the threads of your application (much like the immutable collections) and can't scale out to processes so the only real advantage I can see would be not having to learn about immutable data structures.  But, if you're using one of the many languages for which such collections don't exist exclusive pairs are infinitely better than sharing mutable state and using locks, semaphores and/or mutexes.  On with the demonstration.
 
-![Exclusive pair messaging]({{ site.github.url }}/hpowell/assets/PAIR-PAIR.png)
+![Exclusive pair messaging]({{ site.baseurl }}/hpowell/assets/PAIR-PAIR.png)
 
 [The Relay Race](https://github.com/imatix/zguide/raw/master/images/fig21.png) by [iMatix Corporation](http://www.imatix.com/) is licensed under [cc-by-sa 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
 

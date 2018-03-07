@@ -2,12 +2,15 @@
 author: ceberhardt
 title: SVG layout with Flexbox for simpler D3 charts
 layout: default_post
-summary: This blog looks at how CSS flexbox layout can be applied to SVG in order to simplify the task of constructing charts with D3. This approach has been made possible by the JavaScript flexbox implementation that Facebook recently open sourced to support ReactJS Native.
-oldlink: "http://www.scottlogic.com/blog/2015/02/02/svg-layout-flexbox.html"
+summary: >-
+  This blog looks at how CSS flexbox layout can be applied to SVG in order to
+  simplify the task of constructing charts with D3. This approach has been made
+  possible by the JavaScript flexbox implementation that Facebook recently open
+  sourced to support ReactJS Native.
+oldlink: 'http://www.scottlogic.com/blog/2015/02/02/svg-layout-flexbox.html'
 disqus-id: /2015/02/02/svg-layout-flexbox.html
 categories:
-  - D3
-  - Charting
+  - Tech
 ---
 
 This blog looks at how CSS flexbox layout can be applied to SVG in order to simplify the task of constructing charts with D3. This approach has been made possible by the JavaScript flexbox implementation that Facebook recently open sourced to support ReactJS Native.
@@ -90,7 +93,7 @@ var svg = d3.select("body").append("svg")
 
 Once you start adding axes, titles or a legend things really start to get out of hand ...
 
-<img src="{{ site.github.url }}/ceberhardt/assets/d3/chart_layout.jpg" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/d3/chart_layout.jpg" />
 
 To be fair, this isn't really a fault of D3, the problem of layout simply isn't within the remit of this library.
 
@@ -290,10 +293,10 @@ It was a great coincidence that the ReactJS Native development resulted in the o
 
 Anyhow, more on D3FC later ...
 
-<link href="{{ site.github.url }}/ceberhardt/assets/d3/d3-financial-components.css" type="text/css" rel="stylesheet" />
-<script src="{{ site.github.url }}/ceberhardt/assets/d3/d3.js"> </script>
-<script src="{{ site.github.url }}/ceberhardt/assets/d3/Layout.js"> </script>
-<script src="{{ site.github.url }}/ceberhardt/assets/d3/d3-financial-components.js"> </script>
+<link href="{{ site.baseurl }}/ceberhardt/assets/d3/d3-financial-components.css" type="text/css" rel="stylesheet" />
+<script src="{{ site.baseurl }}/ceberhardt/assets/d3/d3.js"> </script>
+<script src="{{ site.baseurl }}/ceberhardt/assets/d3/Layout.js"> </script>
+<script src="{{ site.baseurl }}/ceberhardt/assets/d3/d3-financial-components.js"> </script>
 <script>
 var layout = fc.utilities.layout();
 d3.select('#layout-test').call(layout);

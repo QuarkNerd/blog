@@ -6,7 +6,7 @@ tags:
   - Web Services
   - blog
 categories:
-  - Scala
+  - Tech
 layout: default_post
 source: site
 summary: "In this article we'll look at ways to overcome one of the main restrictions of def macros - the ability to only generate functions."
@@ -18,7 +18,7 @@ disqus-id: /2013/06/06/scala-macros-part-2.html
 ## Where next?
 
 In 
-<a href="{{site.github.url}}{% post_url jphillpotts/2013-06-05-scala-macros-part-1 %}">part 1</a>
+<a href="{{site.baseurl}}{% post_url jphillpotts/2013-06-05-scala-macros-part-1 %}">part 1</a>
 we used a macro to generate some regular expressions and a case statement that used them:
 
 <script src="https://gist.github.com/mrpotes/678c1918e1c637da1f7a.js?file=generated-code.scala">
@@ -121,7 +121,7 @@ with:
 </script>
 
 So now we've got our pattern matching working well, in 
-<a href="{{site.github.url}}{% post_url jphillpotts/2013-06-07-scala-macros-part-3 %}">the next article</a> 
+<a href="{{site.baseurl}}{% post_url jphillpotts/2013-06-07-scala-macros-part-3 %}">the next article</a> 
 we can start calling an API to produce our endpoints.
  
 

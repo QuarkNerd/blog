@@ -2,14 +2,14 @@
 id: 1122
 author: ceberhardt
 title: A Windows Phone 7 Jump List Control
-oldlink: "http://www.scottlogic.co.uk/blog/colin/2011/01/a-windows-phone-7-jump-list-control/"
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2011/01/a-windows-phone-7-jump-list-control/
 tags:
   - Windows Phone 7
   - blog
   - windowsphone
 categories:
-  - Mobile
-  - C#
+  - Tech
 layout: default_post
 source: wordpress
 disqus-id: /blog/colin/2011/01/a-windows-phone-7-jump-list-control/
@@ -65,7 +65,7 @@ list.ItemsSource = PersonDataSource.CreateList(50);
 
 </l:JumpList>
 {% endhighlight %}
-<p><img src="{{ site.github.url }}/archive/2011/01/JumpListBasic.png" alt="" title="JumpListBasic" width="500" height="443" class="aligncenter size-full wp-image-1126" /></p>
+<p><img src="{{ site.baseurl }}/archive/2011/01/JumpListBasic.png" alt="" title="JumpListBasic" width="500" height="443" class="aligncenter size-full wp-image-1126" /></p>
 <p>The main difference between the JumpList and a ListBox is that a JumpList requires that you supply a CategoryProvider. In the example above an AlphabetCategoryProvider was supplied which groups the supplied objects (in this case Person instances) based on the first letter of the property indicated by the PropertyName of the AlphabetCategoryProvider. In this example, the items are being grouped by the Surname property.</p>
 <p>The animated scrolling as the list jumps from one category to the next can be controlled via the ScrollDuration property. The animated 'reveal' effect as the category buttons are drawn can be controlled via the CategoryTileAnimationDelay property which details the time between the animation being started for neighbouring category buttons. </p>
 <p>Note, for very long lists with hundreds of items it makes sense to disable the scrolling effect as the list 'jumps' to the selected category. </p>
@@ -138,7 +138,7 @@ list.ItemsSource = PersonDataSource.CreateList(50);
   </Style>
 </l:JumpList.JumpListItemStyle>
 {% endhighlight %}
-<p><img src="{{ site.github.url }}/archive/2011/01/JumpListItemStyle.png" alt="" title="JumpListItemStyle" width="244" height="443" class="aligncenter size-full wp-image-1131" /></p>
+<p><img src="{{ site.baseurl }}/archive/2011/01/JumpListItemStyle.png" alt="" title="JumpListItemStyle" width="244" height="443" class="aligncenter size-full wp-image-1131" /></p>
 <h2>The Category Provider</h2>
 <p>As seen in the earlier example, the JumpList uses a category provider, specified via the JumpList.CategoryProvider property to place items into categories within the jump list. The CategoryProvider implements the following interface:</p>
 {% highlight csharp %}
@@ -204,7 +204,7 @@ public class JugglingEvent
   </DataTemplate>
 </l:JumpList.CategoryButtonItemTemplate>
 {% endhighlight %}
-<p><img src="{{ site.github.url }}/archive/2011/01/CategoryProviderExample.png" alt="" title="CategoryProviderExample" width="244" height="443" class="aligncenter size-full wp-image-1137" /></p>
+<p><img src="{{ site.baseurl }}/archive/2011/01/CategoryProviderExample.png" alt="" title="CategoryProviderExample" width="244" height="443" class="aligncenter size-full wp-image-1137" /></p>
 <h2>Custom Category Button Animations</h2>
 <p>When the category view is displayed, each category button is revealed via a storyboard. These storyboards are started sequentially with a delay, specified by the CategoryTileAnimationDelay property, between the start of neighbouring buttons.</p>
 <p>The storyboards that define the animation are within the template of the category buttons. The JumpList control looks for two storyboards, name "ShowAnim" and "HideAnim", and triggers these to show / hide the button respectively.</p>
@@ -273,7 +273,7 @@ public class JugglingEvent
 </l:JumpList.CategoryButtonTemplate>
 {% endhighlight %}
 <p>If you have many categories, and want to disable the 'reveal' animation, simply supply a template without any storyboards, see the demo sourcecode for an example.</p>
-<p>You can download the full sourcecode: <a href='{{ site.github.url }}/archive/2011/01/WP7JumpList2.zip'>WP7JumpList.zip</a></p>
+<p>You can download the full sourcecode: <a href='{{ site.baseurl }}/archive/2011/01/WP7JumpList2.zip'>WP7JumpList.zip</a></p>
 <p>To run this code you will also need the <a href="http://silverlight.codeplex.com/releases/view/55034">Windows Phone 7 Toolkit</a>.</p>
 <p>If you have any feedback, ideas or bugs to report - please let me know!</p>
 <p>Regards, Colin E.</p>

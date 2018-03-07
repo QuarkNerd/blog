@@ -84,11 +84,11 @@ One month ago when the team started to talk about releasing Angular 3 in early 2
 
 Their milestone page on GitHub confirmed this:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/angular3.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/angular3.png" />
 
 Since then things have progressed further, with the team detailing their future plans to release [major versions twice a year](http://angularjs.blogspot.co.uk/2016/12/ok-let-me-explain-its-going-to-be.html).
 
-<img src="{{ site.github.url }}/ceberhardt/assets/angular-roadmap.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/angular-roadmap.png" />
 
 They are also encouraging people to drop `ng2` project prefixes and simply call the framework `Angular` from now on.
 

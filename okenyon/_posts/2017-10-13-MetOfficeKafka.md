@@ -3,10 +3,11 @@ author: okenyon
 title: "Using Kafka and Grafana to monitor meteorological conditions"
 layout: default_post
 categories:
-  - Java
   - Data
-  - Charting
 summary: "Apache Kafka provides distributed log store used by increasing numbers of companies and often forming the heart of systems processing huge amounts of data. This post shows how to use it for storing meteorological data and displaying this in a graphical dashboard with Graphite and Grafana"
+tags:
+  - featured
+image: okenyon/assets/featured/clouds.jpg
 ---
 This post gives an overview of Apache Kafka and using an example use-case, shows how to get up and running with it quickly and easily.
 
@@ -30,7 +31,7 @@ The Met Office is the UK's national weather service, and amongst many other func
 
 I'm a climber and so am interested in mountain conditions around the UK. For example has the average temperature been low enough over the last few weeks for a particular ice climb to have formed? I would like to see the data and ideally also be alerted when suitable conditions have occurred for long enough. This seems like a perfect job for Kafka:
 
-[![Overview]({{ site.github.url }}/okenyon/assets/kafka/Diagram.PNG "Overview")]({{ site.github.url }}/okenyon/assets/kafka/Diagram.PNG)
+[![Overview]({{ site.baseurl }}/okenyon/assets/kafka/Diagram.PNG "Overview")]({{ site.baseurl }}/okenyon/assets/kafka/Diagram.PNG)
 
 ##Creating the environment
 
@@ -361,7 +362,7 @@ Launching the consumer results in output like:
 
 A look at the web dashboard shows that the data has been successfully stored in Graphite:
 
-[![Graphite]({{ site.github.url }}/okenyon/assets/kafka/Graphite.PNG "Graphite dashboard")]({{ site.github.url }}/okenyon/assets/kafka/Graphite.PNG)
+[![Graphite]({{ site.baseurl }}/okenyon/assets/kafka/Graphite.PNG "Graphite dashboard")]({{ site.baseurl }}/okenyon/assets/kafka/Graphite.PNG)
 
 
 
@@ -373,13 +374,13 @@ The Graphite dashboard is not the prettiest. I worked with Grafana in a previous
 
 Before creating graphs, a data source needs to be added to Grafana. It supports a few different options, and Graphite is among those with the best support. The data source URL should be "http://graphite:80" and proxy access should be chosen, as going direct won't work if the docker containers are running in a virtual machine. The default username and password for the Graphite container are both just "guest". Once this is working, creating a dashboard to display the data is a matter of minutes. For example the configuration of the temperature graph looks like below:
 
-[![Metrics Config]({{ site.github.url }}/okenyon/assets/kafka/GrafanaMetricsConfig.PNG "Metric config in Grafana")]({{ site.github.url }}/okenyon/assets/kafka/GrafanaMetricsConfig.PNG)
+[![Metrics Config]({{ site.baseurl }}/okenyon/assets/kafka/GrafanaMetricsConfig.PNG "Metric config in Grafana")]({{ site.baseurl }}/okenyon/assets/kafka/GrafanaMetricsConfig.PNG)
 
 And the basic dashboard for a location of interest looks like:
 
-[![Metrics Config]({{ site.github.url }}/okenyon/assets/kafka/Dashboard1.PNG "Metric config in Grafana")]({{ site.github.url }}/okenyon/assets/kafka/Dashboard1.PNG)
+[![Metrics Config]({{ site.baseurl }}/okenyon/assets/kafka/Dashboard1.PNG "Metric config in Grafana")]({{ site.baseurl }}/okenyon/assets/kafka/Dashboard1.PNG)
 
-[![Metrics Config]({{ site.github.url }}/okenyon/assets/kafka/Dashboard2.PNG "Metric config in Grafana")]({{ site.github.url }}/okenyon/assets/kafka/Dashboard2.PNG)
+[![Metrics Config]({{ site.baseurl }}/okenyon/assets/kafka/Dashboard2.PNG "Metric config in Grafana")]({{ site.baseurl }}/okenyon/assets/kafka/Dashboard2.PNG)
 
 Grafana has time selection facilities very similar to Kibana, and so it's easy to zoom in and out and look at data from various ranges. Once this application has been running for a while it will be possible to look back over the last few weeks, perfect for forecasting ice climbing conditions!
 

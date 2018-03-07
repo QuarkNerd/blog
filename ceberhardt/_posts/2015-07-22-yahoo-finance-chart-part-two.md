@@ -3,12 +3,17 @@ author: ceberhardt
 title: Creating a Yahoo Finance chart with D3 and d3fc - Part Two
 title-short: Charting with D3 and d3fc
 layout: default_post
-summary: "Most charting libraries are monoliths. The more features they support, the more unwieldy their APIs tend to become. With the d3fc project we have been exploring an alternative approach, constructing charts from a set of small components, using the D3 library."
-summary-short: This post explores the d3fc component approach to building charts by re-implementing a complex Yahoo Finance chart.
+summary: >-
+  Most charting libraries are monoliths. The more features they support, the
+  more unwieldy their APIs tend to become. With the d3fc project we have been
+  exploring an alternative approach, constructing charts from a set of small
+  components, using the D3 library.
+summary-short: >-
+  This post explores the d3fc component approach to building charts by
+  re-implementing a complex Yahoo Finance chart.
 image: ceberhardt/assets/featured/yahoo.png
 categories:
-  - D3
-  - Charting
+  - Tech
 ---
 
 
@@ -22,7 +27,7 @@ Most charting libraries are monoliths. The more features they support, the more 
 
 In this two-part blog series I want to demonstrate the power of both d3fc and D3 by re-creating the [rather complex Yahoo Finance chart](http://finance.yahoo.com/echarts?s=yhoo+Interactive#{"showEma":true,"emaColors":"#cc0000","emaPeriods":"50","emaWidths":"1","emaGhosting":"0","range":"5d","allowChartStacking":true}).
 
-<img src="{{ site.github.url }}/ceberhardt/assets/yahoo-finance.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/yahoo-finance.png" />
 
 Creating a pixel-perfect recreation of this chart with any monolithic charting library would be a significant challenge (if not impossible). With d3fc it is surprisingly simple!
 
@@ -79,7 +84,7 @@ With this in place, the annotations are now rendered:
 
 If you refer back to the Yahoo Finance chart that this d3fc implementation is trying to mimic you will see that the annotation on the above chart look nothing like the original! The Yahoo annotations don't render a line, this is easily hidden in the above chart by CSS, however more challenging is the 'callouts' that indicate the annotation value. Within the Yahoo chart these are rendered as a pointer within the Y axis:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/yahoo-finance-annotation.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/yahoo-finance-annotation.png" />
 
 Once again, 'decorate' comes to the rescue!
 

@@ -6,14 +6,14 @@ summary: "This post introduces 'Bramble MVC', a prototype static site generator 
 oldlink: "http://www.scottlogic.com/blog/2014/11/28/bramble-mvc.html"
 disqus-id: /2014/11/28/bramble-mvc.html
 categories:
-  - Server
+  - Tech
 ---
 
 This post introduces 'Bramble MVC', a prototype static site generator. It aims to be a little different from existing static site generators by having an API resembling a dynamic web server. Its API removes the need for excessive configuration and affords developers many of the same benefits that come from using a dynamic web server.
 
 The post walks through the process of building a simple blog site using Bramble MVC.
 
-<img alt="Bramble MVC Screenshot" src="{{ site.github.url }}/isullivan/assets/bramble-mvc-screenshot.png" />
+<img alt="Bramble MVC Screenshot" src="{{ site.baseurl }}/isullivan/assets/bramble-mvc-screenshot.png" />
 
 Benefits of Bramble MVC
 -----------------------
@@ -207,7 +207,7 @@ The controller now has an optional `pageNumber` variable and the route has been 
 
 This link will only be rendered to the page if hasNextPage is true and therefore Bramble MVC will only process the route if there is another page that needs rendered. This is again the same kind of pattern you would use to implement paging on a server. The home page now looks like:
 
-<img alt="Bramble MVC Paging" src="{{ site.github.url }}/isullivan/assets/bramble-mvc-paging.png" />
+<img alt="Bramble MVC Paging" src="{{ site.baseurl }}/isullivan/assets/bramble-mvc-paging.png" />
 
 Now we have a working, paged blog site built with very little code!
 

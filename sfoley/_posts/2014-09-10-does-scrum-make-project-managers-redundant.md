@@ -2,10 +2,11 @@
 author: sfoley
 title: Does Scrum make the Project Manager role redundant?
 layout: default_post
-oldlink: "http://www.scottlogic.com/blog/2014/09/10/does-scrum-make-project-managers-redundant.html"
+oldlink: >-
+  http://www.scottlogic.com/blog/2014/09/10/does-scrum-make-project-managers-redundant.html
 disqus-id: /2014/09/10/does-scrum-make-project-managers-redundant.html
 categories:
-  - Agile
+  - Tech
 ---
 
 This post will address a question that is often raised within organisations transitioning to Agile: is there a place for the Project Manager role when using Scrum on a project? This is a challenging question for IT departments that have historically relied on project managers to control their change portfolio, often trained in using an in-house methodology. Is all this to be rendered redundant by a move to Agile methods?
@@ -31,7 +32,7 @@ The answer is (as ever) ‘it depends’! What’s important is to consider the 
 
 We can think about projects on a spectrum of scale and complexity across a number of factors (see the diagram below). At the simplest end we might consider a small, co-located Scrum team delivering a software product with manageable risks and a very simple project environment (i.e. few stakeholders). Here the answer is usually no. As we’ve outlined above, project management responsibilities can be managed within the roles Scrum provides. In this case it’s best to follow a core Agile principle: where responsibility can be devolved into the team then it should be. There is no value in having a Project Manager on the team just for the sake of it. In this situation we’ll often assign a Scrum Master from the team and work out (between this role and the Product Owner) who should take on those traditional project management activities. 
 
-<img src="{{ site.github.url }}/sfoley/assets/imageOne.png" />
+<img src="{{ site.baseurl }}/sfoley/assets/imageOne.png" />
 
 However, the projects we take on are very often of a higher order of complexity across a number of factors, each of which place different demands on the team. As each of these factors increase in relevance, the argument for the addition of a Project Manager becomes much stronger. 
 
@@ -60,7 +61,7 @@ On medium to large scale enterprise projects, the process of getting things deli
 
 This usually means some sort of phasing. Our Assured Agile framework handles this by imposing a degree of sequential phasing to the project lifecycle to ensure that the project focuses on more than the iterative process of software delivery. At each of these stages the Project Manager role has a significant part to play:
 
-<img src="{{ site.github.url }}/sfoley/assets/imageTwo.png" />
+<img src="{{ site.baseurl }}/sfoley/assets/imageTwo.png" />
  
 - Enterprise projects require a series of **initiation** activities before Scrum-based delivery gets going. A project without a shared vision and high level scope (including, critically, what’s not in scope) risks failure. Big picture risks need to be identified and mitigation activities started; decisions around architecture and technology choice need to be made and resources identified. Agile methods sometimes call this activity “iteration zero” but on enterprise projects it’s more a phase than an iteration. Assured Agile calls this phase ‘Initiate’ and it is significant enough to require a high degree of planning and organisation. 
 - During software **delivery**, the Project Manager can bring planning skills to the management of the Product Backlog and to Release / Sprint Planning. Projects also need to monitor and manage the dependencies they have with other teams and with external projects. We find that it is usually better to have a Project Manager do this to allow the team to focus on the business of software delivery.

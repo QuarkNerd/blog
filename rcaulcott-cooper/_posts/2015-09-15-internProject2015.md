@@ -3,9 +3,7 @@ author: rcaulcott-cooper
 title: Charting Bitcoin Prices with D3FC - 2015 Intern Project
 layout: default_post
 categories:
-  - d3
-  - charting
-  - news
+  - Tech
 ---
 
 <style>
@@ -204,7 +202,7 @@ multi.series([gridlines, currentSeries, closeLine, currentIndicator]);
 
 Which would look something like this:
 
-<img src="{{ site.github.url }}/rcaulcott-cooper/assets/bollinger-chart.png" alt="Bollinger bands chart example"/>
+<img src="{{ site.baseurl }}/rcaulcott-cooper/assets/bollinger-chart.png" alt="Bollinger bands chart example"/>
 <small>Assuming the `currentSeries = candlestick` and `currentIndicator = bollingerBands`.
 
 ## Adding a Menu
@@ -295,7 +293,7 @@ var point = sc.menu.option('Point', 'point', fc.series.point());
 var area = sc.menu.option('Area', 'area', fc.series.area());
 {% endhighlight %}
 
-<img src="{{ site.github.url }}/rcaulcott-cooper/assets/menu-random-data.PNG" alt="Data Random"/>
+<img src="{{ site.baseurl }}/rcaulcott-cooper/assets/menu-random-data.PNG" alt="Data Random"/>
 
 Finally, the most important button to be added to the menu is a dropdown for changing the data stream between randomly generated data, and real time data coming in through the Coinbase `websocket`. This functionality also included the ability to change which time period the chart was rendering on (either 1hr, 5mins or 1min):
 
@@ -329,7 +327,7 @@ sc.util.filterDataInDateRange = function(data, dateExtent) {
 };
 {% endhighlight %}
 
-<img src="{{ site.github.url }}/rcaulcott-cooper/assets/menu-drop-down.png" alt="Data time changed"/>
+<img src="{{ site.baseurl }}/rcaulcott-cooper/assets/menu-drop-down.png" alt="Data time changed"/>
 
 ## Refactoring
 
@@ -387,7 +385,7 @@ function render() {
 
 Which would give us our original three standard charts just like they were before refactoring:
 
-<img src="{{ site.github.url }}/rcaulcott-cooper/assets/charts.png" alt="Primary chart, RSI chart, navbar and shared axis"/>
+<img src="{{ site.baseurl }}/rcaulcott-cooper/assets/charts.png" alt="Primary chart, RSI chart, navbar and shared axis"/>
 <small>In this case the `secondaryChart()` is an RSI (Relative Strength Index) chart, and the primary chart's `indicator` is the moving average.</small>
 
 ## Testing

@@ -342,7 +342,7 @@ esrally --track=companies --challenge=scored-challenge --track-repository=privat
 
 The output should look something like this:
 
-![Completed Rally]({{ site.github.url }}/dsmith/assets/completed-rally.jpg "Screenshot of a completed rally run.")
+![Completed Rally]({{ site.baseurl }}/dsmith/assets/completed-rally.jpg "Screenshot of a completed rally run.")
 
 On my developer machine I saw 99.99th percentile latency results for unscored queries of between twenty-five to thirty milliseconds and for scored queries of between forty to fifty milliseconds.  There was a reasonable amount of variance in the results which was probably due to running locally instead of on a dedicated benchmarking machine.  There are also lots of other factors to consider when running benchmarks and I'd highly recommend the [talk from Daniel Mitterdorfer](https://www.youtube.com/watch?v=HriBY2zoChw) about the challenges of ensuring reproducible benchmarking results and the motivation for Rally.
 

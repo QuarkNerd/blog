@@ -1,23 +1,23 @@
 ---
 id: 1554
 author: ceberhardt
-title: "Metro In Motion #8 - AutoCompleteBox Reveal Animation"
-oldlink: "http://www.scottlogic.co.uk/blog/colin/2011/06/metro-in-motion-8-autocompletebox-reveal-animation/"
+title: 'Metro In Motion #8 - AutoCompleteBox Reveal Animation'
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2011/06/metro-in-motion-8-autocompletebox-reveal-animation/
 tags:
   - codeproject
   - metro
   - windows ph
   - codeproject
 categories:
-  - Mobile
-  - C#
+  - Tech
 layout: default_post
 source: wordpress
 disqus-id: /blog/colin/2011/06/metro-in-motion-8-autocompletebox-reveal-animation/
 ---
 <p>When I started the Metro In Motion series, I thought I would probably post three or four articles and be done. However, every time I use my Windows Phone 7 I seem to spot a new 'native' fluid UI effect which I would like to use in my own code. Also, these posts have proven very popular, there appears to be a real developer 'need' for this sort of information.</p>
 <p>In this instalment of Metro In Motion I will show how to implement the fluid auto-complete effect that can be seen in the Windows Phone 7 email client. You can see a 'storyboard' for this effect below; the items within the auto-complete popup slide gracefully into view when the popup initially renders:</p>
-<p><a href="{{ site.github.url }}/archive/2011/06/AutoCompleteSlide.png"><img src="{{ site.github.url }}/archive/2011/06/AutoCompleteSlide.png" alt="" title="AutoCompleteSlide" width="650" height="172" class="aligncenter size-full wp-image-1555" /></a></p>
+<p><a href="{{ site.baseurl }}/archive/2011/06/AutoCompleteSlide.png"><img src="{{ site.baseurl }}/archive/2011/06/AutoCompleteSlide.png" alt="" title="AutoCompleteSlide" width="650" height="172" class="aligncenter size-full wp-image-1555" /></a></p>
 <p>This effect uses the <code>AutoCompleteBox</code> which is part of the <a href="http://silverlight.codeplex.com/releases/view/60291">Silverlight for Windows Phone Toolkit</a>. I have implemented this effect as a Blend Behaviour, allowing it to be easily added to an AutoCompleteBox either via drag and drop within Expression Blend, or by simply adding the XAML below:</p>
 {% highlight xml %}
 <tk:AutoCompleteBox VerticalAlignment="Top"
@@ -67,7 +67,7 @@ private bool TryFindListBox()
   return true;
 }
 {% endhighlight %}
-<p>The above code uses some simple <a href="{{ site.github.url }}/2010/03/04/linq-to-visual-tree">Linq-to-VisualTree</a> to locate these elements. Notice that the approach taken first tries to locate these elements, if this fails, the <code>Loaded</code> event is handled, which is fired when elements (and their template components) are added to the visual tree.</p>
+<p>The above code uses some simple <a href="{{ site.baseurl }}/2010/03/04/linq-to-visual-tree">Linq-to-VisualTree</a> to locate these elements. Notice that the approach taken first tries to locate these elements, if this fails, the <code>Loaded</code> event is handled, which is fired when elements (and their template components) are added to the visual tree.</p>
 <p>The animation is fired each time the <code>Popup</code> is opened. Creating the animation itself is quite simple, the items within the <code>ListBox</code> are iterated over, with a <code>TranslateTransform</code> created for each, with delayed <code>Storyboard</code> animations used to fire the animations sequentially. However, the container's (i.e. <code>ListBoxItem</code> instances) may not have been created when the <code>Opened</code> event fires. In order to handle this, the code below checks for the container of the item at the first index. If this container has not yet been generated, the code which creates the animations is deferred until after the next <code>LayoutUpdated</code> event. This should ensure that the containers are now present. The code is shown below:</p>
 {% highlight csharp %}
 /// <summary>
@@ -129,7 +129,7 @@ private void Popup_Opened(object sender, System.EventArgs e)
 }
 {% endhighlight %}
 <p>The full sourcecode for this behaviour can be found in the <a href="http://wp7contrib.codeplex.com/">WP7Contrib project</a>, within the <code>WP7Contrib.View.Controls</code> assembly.</p>
-<p>You can download a simple working example here: <a href='{{ site.github.url }}/archive/2011/06/MetroInMotionEight.zip'>MetroInMotionEight.zip</a></p>
+<p>You can download a simple working example here: <a href='{{ site.baseurl }}/archive/2011/06/MetroInMotionEight.zip'>MetroInMotionEight.zip</a></p>
 <p>I have of course updated the Sandwich Flow, Metro In Motion demo application to include this effect. Again, this is available via the <a href="http://wp7contrib.codeplex.com/">WP7Contrib project</a>:</p>
 <p><iframe width="640" height="510" src="http://www.youtube.com/embed/TtVWLxDDhiE" frameborder="0" allowfullscreen></iframe></p>
 <p>Regards,Colin E.</p>

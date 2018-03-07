@@ -3,14 +3,14 @@ author: wloveland
 title: Interaction 16
 layout: default_post
 categories:
-  - UX
+  - UX Design
 summary: "On the 1st of March myself and Graham Odds travelled to Helsinki, Finland to attend the 8th annual Interaction week."
 image: wloveland/assets/featured/interaction.jpg
 tags:
   - featured
 ---
 
-![Interaction 16]({{ site.github.url }}/wloveland/assets/IXDA2016.jpg "Interaction 16")
+![Interaction 16]({{ site.baseurl }}/wloveland/assets/IXDA2016.jpg "Interaction 16")
 
 On the 1st of March myself and [Graham Odds](http://blog.scottlogic.com/godds/) travelled to Helsinki, Finland to attend the 8th annual Interaction week. The three day conference boasted 5 keynotes and over 100 speakers. Located in the prestigious Finlandia Hall, designed by world renowned Finnish architect Alvar Aalto. The conference theme was ‘What’s next and beyond?’, in the context of interaction design as a craft, as a profession and a design practice as a whole.
 

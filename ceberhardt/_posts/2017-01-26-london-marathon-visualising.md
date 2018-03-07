@@ -24,7 +24,7 @@ One of the first things I did is to render the pace distribution of all the athl
 
 Here's the chart, with all 7,190 lines rendered at a low opacity so that they blend together. The horizontal lines show the speed you would have to run to achieve certain finish times.
 
-<img src="{{ site.github.url }}/ceberhardt/assets/marathon/pace.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/marathon/pace.png" />
 
 ([view the code for this chart](https://bl.ocks.org/ColinEberhardt/c334e740e23bbf04b3602fab77109c7e))
 
@@ -40,7 +40,7 @@ It's really interesting the patterns you can see by rendering *all* the data, ra
 
 The following chart shows the same data, but with the pace data averaged into bands based on finish time:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/marathon/pace-bands.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/marathon/pace-bands.png" />
 
 ([view the code for this chart](https://bl.ocks.org/ColinEberhardt/c334e740e23bbf04b3602fab77109c7e))
 
@@ -53,7 +53,7 @@ In the first chart I noted the clustering of pace just above certain target fini
 
 The following chart shows the distribution of finish times for all the athletes:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/marathon/finish-times.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/marathon/finish-times.png" />
 
 ([view the code for this chart](https://bl.ocks.org/ColinEberhardt/31b0f724a795ad3fd33041cb62bb1038))
 
@@ -75,7 +75,7 @@ A well-known race tactic is that of running negative splits, where you run the f
 
 The following small-multiples chart shows the split distribution for runners that finished within hour intervals:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/marathon/negative-splits.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/marathon/negative-splits.png" />
 
 ([view the code for this chart](https://bl.ocks.org/ColinEberhardt/1da0f37fb51146d6a3600dc5c53d7b76))
 

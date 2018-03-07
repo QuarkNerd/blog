@@ -1,20 +1,22 @@
 ---
 author: lpage
-title: "Aurelia, less2css and bundling"
+title: 'Aurelia, less2css and bundling'
 categories:
-  - HTML5
-  - Web
-  - CSS
+  - Tech
 tags: null
 layout: default_post
-summary: "In the second post of my series on the Aurelia framework I walkthrough bundling the less2css project. The result of which significantly reduced the load time, but did uncover a few aspects of the Aurelia bundling process that do not yet feel fully formed."
+summary: >-
+  In the second post of my series on the Aurelia framework I walkthrough
+  bundling the less2css project. The result of which significantly reduced the
+  load time, but did uncover a few aspects of the Aurelia bundling process that
+  do not yet feel fully formed.
 ---
 
 Please read [my first post](http://blog.scottlogic.com/2015/06/19/aurelia-part-one.html) for an introduction.
 
 At the end of that post, I said that it takes a long time for the site to load, something I attributed mainly down to the fact that the JavaScript was not bundled, so Chrome was making many network requests to get the content. Here is the devtools network tab of the site running locally (hence why it is much faster than what I saw running on github pages)..
 
-<img src="{{ site.github.url }}/lpage/assets/aurelia-two/unbundled.png" alt="Chrome devtools timeline of the non-bundled source" />
+<img src="{{ site.baseurl }}/lpage/assets/aurelia-two/unbundled.png" alt="Chrome devtools timeline of the non-bundled source" />
 
 In this post, I will cover bundling. I'll try not to cover [what Rob Eisenberg has already blogged about](http://blog.durandal.io/2015/06/23/bundling-an-aurelia-application/) - please read that post for a good introduction.
 
@@ -145,13 +147,13 @@ gulp.task('bundle', function() {
 
 Which seems to work well, giving me a bundled version in one directory and non-bundled in another. Now if I look at the bundled site I see eight requests (one of which is less loaded by the app). Note, this is on an external server, which is why the load time is longer than non-bundled - but this was previously taking 12 seconds, so it is much improved.
 
-<img src="{{ site.github.url }}/lpage/assets/aurelia-two/bundled.png" alt="Chrome devtools timeline of the bundled source" />
+<img src="{{ site.baseurl }}/lpage/assets/aurelia-two/bundled.png" alt="Chrome devtools timeline of the bundled source" />
 
 [Someone has already raised an issue](https://github.com/aurelia/cli/issues/114) to investigate how the remaining files could be bundled together.
 
 It still seems slow, and doing a flame chart in chrome seems to suggest it is being caused by the systemjs and es6-module-loader (the purple and mauve colours).
 
-<img src="{{ site.github.url }}/lpage/assets/aurelia-two/chrome-flame.png" alt="Chrome devtools flame diagram of loading" />
+<img src="{{ site.baseurl }}/lpage/assets/aurelia-two/chrome-flame.png" alt="Chrome devtools flame diagram of loading" />
 
 I hope this corresponds to Rob Eisenberg's comment on my previous post.
 
@@ -161,13 +163,13 @@ I hope this corresponds to Rob Eisenberg's comment on my previous post.
 
 I then tried the site in Firefox and found it didn't load.
 
-<img src="{{ site.github.url }}/lpage/assets/aurelia-two/mozilla-error.png" alt="Firefox showing an error loading" />
+<img src="{{ site.baseurl }}/lpage/assets/aurelia-two/mozilla-error.png" alt="Firefox showing an error loading" />
 
 Which seems to be [because optional dependencies are not included in the bundle by default](https://github.com/aurelia/cli/issues/115). The solution for now, is that optional dependencies have to be specified manually. In this case adding `"github:webcomponents/webcomponentsjs@0.6.3/HTMLImports.min"` to my Aureliafile helped and Firefox loaded, but then I got another problem with IE because `"aurelia-html-template-element"` is also optional and only required in IE.
 
 Lastly, I tried IE9, which seemed incredibly slow. I couldn't profile it because every time I profiled the site stopped working. Luckily for me, this site is for developers, so I hope the number of IE9 users will be minimal.
 
-<img src="{{ site.github.url }}/lpage/assets/aurelia-two/ie9.png" alt="IE taking 9 seconds to load" />
+<img src="{{ site.baseurl }}/lpage/assets/aurelia-two/ie9.png" alt="IE taking 9 seconds to load" />
 
 ### File sizes
 

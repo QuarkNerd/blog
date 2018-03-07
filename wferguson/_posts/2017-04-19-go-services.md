@@ -3,8 +3,7 @@ author: wferguson
 layout: default_post
 title: "Creating Simple Web Services in Go"
 categories:
-  - Go
-  - Data
+  - Tech
 summary: "Following on from making a simple particle simulation in Go, I decided to try and implement a simple set of web services too."
 ---
 

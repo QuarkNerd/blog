@@ -6,7 +6,7 @@ oldlink: "http://www.scottlogic.co.uk/2012/12/jekyll-a-developers-wordpress/"
 tags:
   - blog
 categories:
-  - Server
+  - Tech
 layout: default_post
 source: site
 disqus-id: /2012/12/jekyll-a-developers-wordpress/

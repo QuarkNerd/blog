@@ -13,7 +13,7 @@ disqus-id: /2014/10/27/xplatform-mobile-cordova-ionic.html
 
 Using [Cordova](http://cordova.apache.org/) and [Ionic Framework](http://ionicframework.com/) to turn  an AngularJS web application into a cross-platform mobile application.
 
-This year our summer interns worked on an internal project to build a mobile application. They used Cordova to deploy the cross-platform HTML5 app onto multiple phone platforms, including iPhone and Android. The results looked really good, and inspired me to try making a cross-platform app out of my Angular SPA (Single Page Application) from my [earlier blog post]({{ site.github.url }}/2014/07/30/spa-angular-knockout.html).
+This year our summer interns worked on an internal project to build a mobile application. They used Cordova to deploy the cross-platform HTML5 app onto multiple phone platforms, including iPhone and Android. The results looked really good, and inspired me to try making a cross-platform app out of my Angular SPA (Single Page Application) from my [earlier blog post]({{ site.baseurl }}/2014/07/30/spa-angular-knockout.html).
 
 ### Setting up Cordova
 
@@ -45,7 +45,7 @@ Testing with an emulator requires that you first setup a target device using the
 
 At this point I had a functioning Android application, but it just showed the Cordova "ready" page.
 
-<img src="{{ site.github.url }}/alee/assets/x-platform-ionic/vanilla-cordova.png"/>
+<img src="{{ site.baseurl }}/alee/assets/x-platform-ionic/vanilla-cordova.png"/>
 
 
 ### Porting the web application
@@ -69,7 +69,7 @@ I decided to make a simple batch file that could build the Angular SPA, copy it 
 
 Running that on the emulator looked like this:
 
-<img src="{{ site.github.url }}/alee/assets/x-platform-ionic/bootstrap-version.png"/>
+<img src="{{ site.baseurl }}/alee/assets/x-platform-ionic/bootstrap-version.png"/>
 
 It really was that simple! The application works as expected - clicking the rows in the table takes it to the view of the selected investment, and entering a search term will filter the list and update the charts.
 
@@ -154,7 +154,7 @@ The only other part of the application that needed special attention was the `in
 
 The Ionic-powered mobile application looks like this:  
 
-<img src="{{ site.github.url }}/alee/assets/x-platform-ionic/ionic-version.png"/>
+<img src="{{ site.baseurl }}/alee/assets/x-platform-ionic/ionic-version.png"/>
 
 
 The 'home' page no longer has all three components displayed at the same time, but uses Ionic's tabbed view to show them one at a time. Clicking the search icon raises a pop-over window with a search box. Clicking one of the investments initiates a slide-left animation to show the investment details with a back button. The Ionic version looks and feels much more like a native mobile application. 

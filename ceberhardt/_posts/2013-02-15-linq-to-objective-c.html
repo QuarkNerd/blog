@@ -17,7 +17,7 @@ disqus-id: /blog/colin/2013/02/linq-to-objective-c/
 ---
 <p>In the past few months I have been immersing myself into the world of iOS development. Whilst the Objective-C language takes a little getting used to, with its odd syntax and memory management rules, it is certainly a fun platform to develop for. I do miss a few C# language features, such as events, but for the most part I am a happy iOS developer.</p>
 <p>... that is apart from Linq!</p>
-<p><img src="{{ site.github.url }}/archive/2010/03/tree.jpg" alt="tree" width="650" height="201" class="aligncenter size-full wp-image-608" /></p>
+<p><img src="{{ site.baseurl }}/archive/2010/03/tree.jpg" alt="tree" width="650" height="201" class="aligncenter size-full wp-image-608" /></p>
 <p>A few weeks back I was writing some examples for a future release of the <a href="http://www.shinobicontrols.com/">ShinobiControls Grid</a>. The example in question required a datasource of people grouped by the first letter of their surname. Despite the use of predicates and key valued sorting, the code looked like this:</p>
 {% highlight objective-c %}
 - (NSArray*) createGroupedTestData
@@ -110,7 +110,7 @@ var query =  from p in PersonCollection
 
 var query = PersonCollection.Where(p => p.age < 10);
 {% endhighlight %}
-<p>Whilst the application of Linq for querying database is obvious, Linq can be used to query practically anything. The .NET framework supplies Linq to SQL, XML and Objects - while the community has added Linq to CSV, JSON, DataSets, Facebook, and my own contribution <a href="{{ site.github.url }}/2010/03/04/linq-to-visual-tree">Linq-to-VisualTree</a>.</p>
+<p>Whilst the application of Linq for querying database is obvious, Linq can be used to query practically anything. The .NET framework supplies Linq to SQL, XML and Objects - while the community has added Linq to CSV, JSON, DataSets, Facebook, and my own contribution <a href="{{ site.baseurl }}/2010/03/04/linq-to-visual-tree">Linq-to-VisualTree</a>.</p>
 <p>I've found myself using Linq in virtually every .NET application I have ever written - and I miss it!</p>
 <p>Fortunately the ~25 different Linq extensions methods are actually quite easy to implement, as the C# guru Jon Skeet demonstrated in an <a href="http://codeblog.jonskeet.uk/2011/02/23/reimplementing-linq-to-objects-part-45-conclusion-and-list-of-posts/">epic series of blog posts</a>. So, why not bring this API to Objective-C?</p>
 <h2>Linq to Objective-C</h2>

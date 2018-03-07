@@ -5,6 +5,9 @@ summary: "Java Optional has been around for a while now. It is a pity that this 
 layout: default_post
 categories:
   - Java
+tags:
+  - featured
+image: bjedrzejewski/assets/featured/directions.jpg
 ---
 
 ###The Problem with Java Optional

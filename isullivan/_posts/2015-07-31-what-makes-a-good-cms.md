@@ -2,12 +2,13 @@
 author: isullivan
 title: What Makes a Good CMS?
 layout: default_post
-summary: "Code quality is important in large systems and web sites are no exception. This post shows how Umbraco enables developers to write clean and maintainable code."
+summary: >-
+  Code quality is important in large systems and web sites are no exception.
+  This post shows how Umbraco enables developers to write clean and maintainable
+  code.
 disqus-id: /2015/07/31/what-makes-a-good-cms.html
 categories:
-  - Web
-  - .NET
-  - C#
+  - Tech
 ---
 
 Content management systems (CMSs) provide a separation between content and code. This allows, among other things, non-programmers to create and maintain website content. This post demonstrates how the open source .NET CMS [Umbraco](http://umbraco.com/) can be used to create a complex website while maintaining a clean code base.
@@ -24,17 +25,17 @@ Code quality will vary depending on your choice of CMS. It's not always easy to 
 
 The blog has two types of pages: a 'BlogHome' and a 'BlogPost'. The home page has a title and some intro text. Each blog post has a title, a published date and the body of the post. The site currently has a home page and two all-encompassing posts:
 
-<img alt="Blog Structure" src="{{ site.github.url }}/isullivan/assets/blog-structure.png" />
+<img alt="Blog Structure" src="{{ site.baseurl }}/isullivan/assets/blog-structure.png" />
 
 Each item can be edited in the CMS with the following forms:
 
 ### Blog Home
 
-<img alt="Blog Home Item" src="{{ site.github.url }}/isullivan/assets/blog-content.png" />
+<img alt="Blog Home Item" src="{{ site.baseurl }}/isullivan/assets/blog-content.png" />
 
 ### Blog Post
 
-<img alt="Blog Post Item" src="{{ site.github.url }}/isullivan/assets/blog-post-content.png" />
+<img alt="Blog Post Item" src="{{ site.baseurl }}/isullivan/assets/blog-post-content.png" />
 
 This kind of structure is similar in many CMSs.
 

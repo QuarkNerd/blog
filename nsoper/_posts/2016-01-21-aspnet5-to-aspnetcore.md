@@ -2,18 +2,19 @@
 author: nsoper
 title: ASP.NET 5 to ASP.NET Core 1.0
 layout: default_post
-summary: "Literally a couple of hours after we released the previous post on writing a RESTful API with ASP.NET 5, I learned that Microsoft have renamed the new platform. This is a very short summary of that decision."
+summary: >-
+  Literally a couple of hours after we released the previous post on writing a
+  RESTful API with ASP.NET 5, I learned that Microsoft have renamed the new
+  platform. This is a very short summary of that decision.
 categories:
-  - .NET
-  - Web
-  - C#
+  - Tech
 ---
 
-Earlier today I released a post called [Building a RESTful API with ASP.NET 5]({{site.github.url}}/2016/01/20/restful-api-with-aspnet50.html).
+Earlier today I released a post called [Building a RESTful API with ASP.NET 5]({{site.baseurl}}/2016/01/20/restful-api-with-aspnet50.html).
 
 A couple of hours later I was watching the [latest community stand up](https://www.youtube.com/watch?v=FSf83_TU5Yg&feature=em-lbcastemail-np) from the ASP.NET team and they dropped the bombshell that they are renaming the new platform to **ASP.NET Core 1.0**.
 
-I always found this version numbering odd, and I alluded to the fact [in my previous post]({{site.github.url}}/2016/01/20/restful-api-with-aspnet50.html#version5-of-1). Scott Hanselman has [recently described the reasons](http://www.hanselman.com/blog/ASPNET5IsDeadIntroducingASPNETCore10AndNETCore10.aspx) for the name change, but I thought I'd attempt a brief summary.
+I always found this version numbering odd, and I alluded to the fact [in my previous post]({{site.baseurl}}/2016/01/20/restful-api-with-aspnet50.html#version5-of-1). Scott Hanselman has [recently described the reasons](http://www.hanselman.com/blog/ASPNET5IsDeadIntroducingASPNETCore10AndNETCore10.aspx) for the name change, but I thought I'd attempt a brief summary.
 
 The **1.0** part of the new name is a much better reflection of the fact that they have completely re-written the platform - it's much more than just a major release.
 

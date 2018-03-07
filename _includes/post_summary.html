@@ -1,39 +1,21 @@
-{% assign showPostSummary = include.showPostSummary %}
-{% assign suppressSocialLinks = include.suppressSocialLinks %}
-{% assign showAuthorInfo = include.showAuthorInfo %}
-{% assign postDetailLimit = include.postDetailLimit %}
-{% assign post = include.post %}
-{% assign author = site.data.authors.authors[post.author] %}
-
-<div class="summary row">
-  {% if showAuthorInfo %}
-  <div class="hidden-xs-down col-sm-2 imageContainer">
-    {% if author.gravatar %}
-    <img src="//www.gravatar.com/avatar/{{ author.gravatar }}" alt="{{ author.name }}" class="img-circle hidden-small" />
-    {% else %}
-    <img src="{{ site.github.url }}/assets/avatar.png" alt="{{ author.name }}" class="img-circle hidden-small" />
-    {% endif %}
-  </div>
-  {% endif %}
-  <div class="col-xs-12 {% if showAuthorInfo %}col-sm-10{% else %}col-sm-12{% endif %}">
-    <header>
-      <h3>
-        <a href="{{ site.github.url }}{{ post.url }}">{{ post.title }}</a>
-      </h3>
-      {% include post_metadata.html post=post showAuthorInfo=showAuthorInfo %}
-    </header>
-    {% if showPostSummary %}
-    <p>
-        {% if post.summary %}
-        {{ post.summary }}
-        {% else %}
-        {{ post.content | strip_html | truncatewords:50 }}
-        {% endif %}
-    </p>
-    {% endif %}
-
-    {% unless suppressSocialLinks %}
-    {% include social.html postOrPage=post %}
-    {% endunless %}
-  </div>
+{%- assign post = include.post -%}
+{%- assign author = site.data.authors.authors[post.author] -%}
+<div class="post-summary grid-margin-y grid-padding-y {% include post_colour.html post=post %}">
+    <div class="post-summary cell grid-margin-y">
+        {% include category_display.html post = post %}
+        <div class="title">
+            <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+        </div>
+        <div class="cell">
+            {%- if post.summary -%}
+            {{ post.summary }}
+            {%- else -%}
+            {{ post.content | strip_html | truncatewords:50 }}
+            {%- endif -%}
+        </div>
+        <div class="avatar-metadata cell">
+            {% include gravatar.html %}
+            {% include post_metadata.html post=post %}
+        </div>
+    </div>
 </div>

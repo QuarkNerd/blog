@@ -3,10 +3,6 @@ layout: default
 title: Testing
 ---
 
-{% include hero.html %}
-
 {% assign posts = site.categories["Test"] %}
 
-{% include featured.html postsToFilter=posts %}
-
-{% include blog_index.html posts=posts paginate=false categoryName="Testing" %}
+{% include post_index.html posts=posts categoryName="Testing" %}

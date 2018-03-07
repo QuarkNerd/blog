@@ -61,7 +61,7 @@ There are several 'standard' user-visible features related to account and sessio
 
 If you are building a system to launch nuclear missiles, you might want quite a secure authentication process, so as to avoid embarrassing incidents.
 
-<img src="{{ site.github.url }}/rsillem/assets/security-session/nuclear_football.jpg" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/rsillem/assets/security-session/nuclear_football.jpg" style="display: block; margin: auto;"/>
 
 On the other hand you might find [Gold Codes](https://en.wikipedia.org/wiki/Gold_Codes) a burdensome solution for launching a tweet about what your cat had for breakfast. Security is only one concern in application design, alongside others such as usability and performance, and there is always a trade-off to be made. Where you place that trade-off is essentially a business decision and depends on what your application is for and why you are building it. So as a developer it's not entirely your call.
 
@@ -134,7 +134,7 @@ This verifies that the user is genuinely entitled to use that email address or p
 
 This is a design pattern where authentication depends on more than one form of credential - typically password + a generated token, or password + a pre-defined answer to a secret question. This pattern improves the security of the authentication process by requiring additional credentials that are not compromised along with the password. It is closely related to Out-of-band authentication. In general you should be able to find canned 2FA solutions, rather than writing all of this from scratch.
 
-<img src="{{ site.github.url }}/rsillem/assets/security-session/2FA.png" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/rsillem/assets/security-session/2FA.png" style="display: block; margin: auto;"/>
 
 The second factor can take many forms, often extending the "something you know" password credential with a "something you have" element - a phone maybe, or an RSA key, or the PIN validator devices supplied by many banks, or an email account. There is a clear usability trade-off here - if the user loses the 'thing', or just doesn't have it to hand, you have unintentionally denial-of-serviced them, and they **will** see it that way, as your fault, not theirs. If an attacker manages to get hold of the 'thing' it's worse, and they will still see it as your fault.
 
@@ -146,7 +146,7 @@ Another issue with secret questions is that your site needs to store the secret 
 
 The basic purpose of a CAPTCHA (Completely Automated Public Turing test to tell Computers and Humans Apart) is to provide a step that cannot be automated (though see [https://en.wikipedia.org/wiki/CAPTCHA#Circumvention](https://en.wikipedia.org/wiki/CAPTCHA#Circumvention)). One downside of this is that CAPTCHAs annoy many people.
 
-<img src="{{ site.github.url }}/rsillem/assets/security-session/recaptcha-example.gif" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/rsillem/assets/security-session/recaptcha-example.gif" style="display: block; margin: auto;"/>
 
 #### Time-limited single-use nonce
 
@@ -184,7 +184,7 @@ In any case, as we will see below, your site does not need to 'know' a user's pa
 
 The problem with this is that while the hash algorithm is non-reversible, it's possible to guess passwords, and hash them. If the attacker has obtained the hashed passwords somehow, it's not that hard for him to crack the hashes, and there are many sites that do this for you in various ways, as a search for 'hash crackers' will confirm. In the simplest case, the attacker would pre-compute hashes for a long list of potential plain-text passwords, and compare the stolen hashes with the computed ones. In reality, this would be an expensive and inefficient way to proceed, so more sophisticated techniques such as rainbow tables are also used. This technique is described [here](https://en.wikipedia.org/wiki/Rainbow_table), but sadly it's a lot less fun than this:
 
-<img src="{{ site.github.url }}/rsillem/assets/security-session/rainbow_table.jpg" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/rsillem/assets/security-session/rainbow_table.jpg" style="display: block; margin: auto;"/>
 
 The (partial) defence against this is to hash with a salt value - a piece of random data added to each password prior to hashing. Salting makes it somewhat harder to crack individual passwords, either by computing hashes on the fly or by using pre-computed rainbow tables, but a lot harder to crack passwords in bulk, as they effectively make the passwords stronger and unique.
 
@@ -213,7 +213,7 @@ Wrong.
 
 The simple defence against the first attack depends on the site having access to the user's email address (whether or not it's actually the user ID). On receipt of the registration request the site sends a confirmation email to the user, typically containing a URL with a time-limited single-use nonce attached as a query parameter. On receipt of this the site completes the request. The attacker doesn't get the email (assuming he hasn't also compromised the victim's email account), and even if he manages to get hold of a copy of the URL later, the nonce has expired and/or been used. Here's an example:
 
-<img src="{{ site.github.url }}/rsillem/assets/security-session/email_confirmation.png" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/rsillem/assets/security-session/email_confirmation.png" style="display: block; margin: auto;"/>
 
 The same process also defends against the second attack. I didn't mention this in the previous paragraph, but it is important that the application's UI displays a non-revealing message to the attacker/user - something like "Your registration request is being processed and a confirmation message has been sent to...". The point here is that the *message in the website* gives nothing away about whether the account already exists or not, but the *email* tells the genuine user the whole story, as well as alerting him that someone is trying to do bad things to him.
 

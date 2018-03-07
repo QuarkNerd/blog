@@ -15,6 +15,8 @@ image: ceberhardt/assets/bristol-pound/bristol-pound-app.jpg
 categories:
   - Mobile
 tags: ''
+colour: pink
+header-shape: shape4
 ---
 A few weeks ago the new Bristol Pound mobile app was launched, allowing users of this local currency to find vendors, view transactions and make payments on both iOS and Android.
 

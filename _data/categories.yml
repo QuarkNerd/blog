@@ -1,47 +1,48 @@
 -  title: Latest Articles
    url: /index.html
 
--  title: Web
-   url: /category/web.html
+-  title: Resources
+   url: /category/resources.html
 
--  title: Data Engineering
-   url: /category/data-engineering.html
+-  title: Tech
+   url: /category/tech.html
+   subcategories:
+    - ios
+    - swift
+    - charting
+    - css
+    - d3
+    - .net
+    - c#
+    - web
+    - javascript
+    - mobile
+    - html5
+    - java
+    - wpf
 
--  title: JavaScript
-   url: /category/javascript.html
-
--  title: HTML5
-   url: /category/html5.html
-
--  title: Mobile
-   url: /category/mobile.html
-
--  title: UX
+-  title: UX Design
    url: /category/ux.html
 
--  title: Agile
-   url: /category/agile.html
+-  title: Delivery
+   url: /category/delivery.html
+   subcategories:
+    - agile
 
 -  title: Testing
    url: /category/test.html
+   subcategories:
+    - test
 
--  title: D3
-   url: /category/d3.html
+-  title: Data Engineering
+   url: /category/data-engineering.html
+   subcategories:
+    - data
 
--  title: WPF
-   url: /category/wpf.html
+-  title: Careers
+   url: /category/careers.html
 
--  title: Charting
-   url: /category/charting.html
-
--  title: .NET
-   url: /category/dotnet.html
-
--  title: CSS
-   url: /category/css.html
-
--  title: Java
-   url: /category/java.html
-
--  title: Events
-   url: /category/events.html
+-  title: News
+   url: /category/news.html
+   subcategories:
+    - events

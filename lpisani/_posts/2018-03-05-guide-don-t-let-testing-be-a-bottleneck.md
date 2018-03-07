@@ -4,9 +4,7 @@ author: lpisani
 layout: default_post
 title: 'Guide: Don''t Let Testing be a Bottleneck'
 categories:
-  - agile
-  - testing
-  - test
+  - Resources
 tags: 'test, testing, agile'
 summary: >-
   Testing can become a bottleneck within an agile delivery pipeline, resulting

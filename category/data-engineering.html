@@ -3,10 +3,6 @@ layout: default
 title: Data Engineering
 ---
 
-{% include hero.html %}
-
 {% assign posts = site.categories["Data"] %}
 
-{% include featured.html postsToFilter=posts %}
-
-{% include blog_index.html posts=posts paginate=false categoryName="Data Engineering" %}
+{% include post_index.html posts=posts categoryName="Data Engineering" %}

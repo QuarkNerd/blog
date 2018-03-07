@@ -1,12 +1,8 @@
 ---
 layout: default
-title: UX
+title: UX Design
 ---
 
-{% include hero.html %}
+{% assign posts = site.categories["UX Design"] %}
 
-{% assign posts = site.categories["UX"] %}
-
-{% include featured.html postsToFilter=posts %}
-
-{% include blog_index.html posts=posts paginate=false categoryName="UX" %}
+{% include post_index.html posts=posts categoryName="UX Design" %}

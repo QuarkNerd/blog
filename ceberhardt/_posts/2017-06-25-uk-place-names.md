@@ -3,11 +3,15 @@ author: ceberhardt
 title: Mapping UK place name endings (With command line cartography tools)
 layout: default_post
 categories:
-  - JavaScript
-  - D3
+  - Tech
 tags:
   - featured
-summary: Place names in UK and Ireland are very much influenced by their surroundings, with endings such as -hill, -ford, and -wood quite clearly referencing local geography. This blog post uses the new NDJSON command line tools for processing, transforming and joining datasets to create an optimised visualisation.
+summary: >-
+  Place names in UK and Ireland are very much influenced by their surroundings,
+  with endings such as -hill, -ford, and -wood quite clearly referencing local
+  geography. This blog post uses the new NDJSON command line tools for
+  processing, transforming and joining datasets to create an optimised
+  visualisation.
 image: ceberhardt/assets/featured/uk-place-names.png
 ---
 
@@ -15,7 +19,7 @@ Place names in UK and Ireland are very much influenced by their surroundings, wi
 
 If you're not so interested in the tech, here's an overview of the results:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/featured/uk-place-names.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/featured/uk-place-names.png" />
 
 The most popular place name ending is -green, which is highly concentrated around Essex, whereas the ending -end is quite prevalent within London.
 

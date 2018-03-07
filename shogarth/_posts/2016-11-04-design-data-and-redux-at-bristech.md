@@ -11,7 +11,7 @@ layout: default_post
 
 Yesterday I attended (and spoke!) at the 2016 Bristech conference, an event aimed at polyglots, innovators and the "tech curious". It was a full house at the Watershed with over 400 tickets sold. I had a great time at the conference, attending quite a few talks myself. What made the conference interesting to me was the diverse range of subjects covered - design, security, even physics! Presented here are some brief notes and comments from the day's proceedings.
 
-<img src="{{ site.github.url }}/shogarth/assets/bristech_opening.jpg"/>
+<img src="{{ site.baseurl }}/shogarth/assets/bristech_opening.jpg"/>
 
 ## Create the right product! What happens before wireframing?
 
@@ -37,7 +37,7 @@ I thought this was a great talk, which was an eye-opener onto the seemingly-unta
 
 (Sam Hogarth - hey, that's me!)
 
-<img src="{{ site.github.url }}/shogarth/assets/bristech_redux.JPG"/>
+<img src="{{ site.baseurl }}/shogarth/assets/bristech_redux.JPG"/>
 
 I have been a keen follower of the evolution in front-end application architecture that we have witnessed over the past few years, from two-way binding MVC frameworks, towards the unidirectional style popularised by Facebook with Flux. I was therefore very keen to learn Redux, which reinterprets the unidirectional application update pattern.
 
@@ -69,7 +69,7 @@ Mike covered one of the core problems of the distributed age - what happens when
 
 # Thank You
 
-<img src="{{ site.github.url }}/shogarth/assets/bristech_twitterwall.JPG"/>
+<img src="{{ site.baseurl }}/shogarth/assets/bristech_twitterwall.JPG"/>
 
 Bristech was a huge success. It had excellent organisation, an interesting line-up of workshops and seminars and a wonderful set of attendees. I'd like to extend my thanks to the organisation team for hosting the event. If you're in the region, Bristech hold a yearly conference plus monthly meetups. I highly recommend paying them a visit!
 

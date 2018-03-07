@@ -5,10 +5,9 @@ summary: "Lichess makes over 100GB of chess games from 2017 available on their w
 layout: default_post
 image: bjedrzejewski/assets/featured/chess.jpg
 categories:
-  - Java
   - Data
 tags:
-- featured
+  - featured
 ---
 
 In Scott Logic we have an active group of big data enthusiasts. We also have a good number of passionate chess players.
@@ -69,7 +68,7 @@ You can see vast amount of information here, but no easy way of querying it or f
 
 ## First look at Apache Spark
 
-<img src="{{ site.github.url }}/bjedrzejewski/assets/apache-spark-logo.png" />
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/apache-spark-logo.png" />
 
 [Apache Spark](https://spark.apache.org/) is technology targeted at quick processing of large amounts of data. When faced
 with more than 100GB this is exactly what is needed. You can find details of the installation on their website.
@@ -229,7 +228,7 @@ In principle 1400 vs 1200 should score just as well as 2200 vs 2000, but I was a
 To find out answer to that question I have plotted results from different uneven encounters against overall rating average of
 both players:
 
-<img src="{{ site.github.url }}/bjedrzejewski/assets/spark-chess-rating.PNG" />
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/spark-chess-rating.PNG" />
 
 Based on 36,000,000+ games used for this analysis- it works very well!
 
@@ -240,18 +239,18 @@ systems as the 2400+ rated crowd? Obviously not. The analysis here will be about
 opening as a whole (Sicilian Defense is not counted as one, but as many different separate Sicilian Defense variants).
 Looking at analysis with regards to specific groups of opening would be another interesting way to look at this data.
 
-<img src="{{ site.github.url }}/bjedrzejewski/assets/spark-chess-most-popular-overall.PNG" />
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/spark-chess-most-popular-overall.PNG" />
 
 Looking at this data it is quickly obvious that Scandinavian Defense is not as popular on higher level of plays
 as it is among amateur players. Most of these openings lose popularity as ratings increase. Let's have a look at what
 the really strong players are choosing:
 
-<img src="{{ site.github.url }}/bjedrzejewski/assets/spark-chess-most-popular-2400.PNG" />
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/spark-chess-most-popular-2400.PNG" />
 
 Here Modern Defense and Hungarian Opening are dominating the table. It seems that on the higher end of the blitz levels
 people prefer less theoretical openings. If we filter for only slower games:
 
-<img src="{{ site.github.url }}/bjedrzejewski/assets/spark-chess-most-popular-2400-slow.PNG" />
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/spark-chess-most-popular-2400-slow.PNG" />
 
 We can see more familiar and theoretical openings at the top of the 2400+ players preferences.
 
@@ -272,9 +271,9 @@ expected on average from black. I created two separate charts- one for blitz and
 differences with how these opening fare at different speeds. I also did not have enough (100's not 1000's) of 2400+ classical
 games in the data set to make the analysis good enough:
 
-<img src="{{ site.github.url }}/bjedrzejewski/assets/spark-chess-opening-blitz.PNG" />
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/spark-chess-opening-blitz.PNG" />
 
-<img src="{{ site.github.url }}/bjedrzejewski/assets/spark-chess-opening-classical.PNG" />
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/spark-chess-opening-classical.PNG" />
 
 The lower on the chart, the stronger the better the opening does for black... And it seems that Alekhine Defense is an
 excellent choice, especially in classical games! As somewhat expected, Sicilian Defense does very well being the most
@@ -283,7 +282,7 @@ popular of these choices among all chess players.
 And since I work in Scott Logic and King's Gambit is an ever popular opening among many players here I have to provide
 some statistics on that as well!
 
-<img src="{{ site.github.url }}/bjedrzejewski/assets/spark-chess-kings-gambit.PNG" />
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/spark-chess-kings-gambit.PNG" />
 
 It is a solid opening up to 2000 level, with not enough data above 2400 to make a decent analysis. It is definitely
 a joy to play!

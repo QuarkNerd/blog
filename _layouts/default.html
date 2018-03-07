@@ -7,21 +7,9 @@
     <link rel="alternate" type="application/atom+xml" href="{{ site.canonical.url }}/atom.xml" title="Scott Logic Blog">
     <link rel="canonical" href="{{ site.canonical.url }}{{ page.url | replace:'index.html',''}}">
     {% if site.github.owner_name != 'ScottLogic' %}<meta name="robots" content="noindex, nofollow">{% endif %}
-    <script type="text/javascript" src="//use.typekit.net/fbo8hfs.js"></script>
+    <script type="text/javascript" src="//use.typekit.net/zhk0dtj.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <script type="text/javascript">siteGithubOwnerName = '{{ site.github.owner_name }}'</script>
-
-    {% assign author      = site.data.authors.authors[page.author] %}
-    {% assign pageImgUrl  = site.canonical.url | append: '/' | append: page.image %}
-    {% assign gravatarUrl = 'http://www.gravatar.com/avatar/' | append: author.gravatar | append: '?s=200' %}
-    {% assign slLogUrl    = site.canonical.url | append: '/assets/sl-dark.png' %}
-    {% assign twitterHandleSize = author.twitter-url | size %}
-    {% assign twitterHandle     = author.twitter-url | slice: 20, twitterHandleSize | strip %}
-
-    {% capture ogImage %}{% if page.image %}{{ pageImgUrl }}{% else %}{% if author.gravatar %}{{ gravatarUrl }}{% else %}{{ slLogUrl }}{% endif %}{% endif %}{% endcapture %}
-    {% capture ogDescription %}{% if page.summary %}{{ author.name }}: {{ page.summary }}{% else %}{{ author.name }}: {{ page.content | strip_html | truncatewords: 15 }}{% endif %}{% endcapture %}
-    {% capture twitterCard %}{% if page.image %}summary_large_image{% else %}summary{% endif %}{% endcapture %}
-    {% capture twitterCreator %}{% if author.twitter-url %}{{ twitterHandle }}{% else %}{{ site.twitter_handle }}{% endif %}{% endcapture %}
 
     {% comment %} OpenGraph MetaData - Twitter / Facebook {% endcomment%}
     <meta property="og:title" content="{{ page.title }}" />
@@ -36,7 +24,7 @@
     <meta name="twitter:site" content="@{{ site.twitter_handle }}"/>
     <meta name="twitter:creator" content="@{{ twitterCreator }}"/>
 
-    <link rel="stylesheet" href="{{ site.github.url | remove_first: 'http:' }}/style.css" type="text/css">
+    <link rel="stylesheet" href="{{ site.baseurl | remove_first: 'http:' }}/style.css" type="text/css">
     <link rel="icon" type="image/png" href="http://9hjqf9qs4q37zvw724c9urzc.wpengine.netdna-cdn.com/wp-content/themes/scott-logic/_img/favicon.png" />
 
     {% comment %} Only load analytics when on the main repo; it will fail to load on the forks {% endcomment %}
@@ -55,18 +43,44 @@
 
     </script>
     {% endif %}
+    <script>
+   (function(d) {
+     var config = {
+       kitId: 'iig6jdr',
+       scriptTimeout: 3000,
+       async: true
+     },
+     h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+   })(document);
+   </script>
 </head>
 <body>
-<div class="page-content-background right hidden-md-down"></div>
-<div class="page-content-background left hidden-md-down"></div>
 
-{% include header.html %}
-{{ content }}
-{% unless page.paginated %}
-{% include footer.html %}
-{% endunless %}
+<nav id="mobileMenu" aria-hidden="true">
+    <div class="mm-panels">
+        <div class="menu-mobile-menu-container mm-panel mm-hasnavbar mm-opened" id="mm-0">
+            <div class="mm-navbar">
+                <a class="mm-title">Menu</a>
+            </div>
+            <ul id="mobile-menu" class="menu mm-listview">
+                <li ><a href="{{site.scottlogic.url}}">Home</a></li>
+                <li ><a href="{{site.scottlogic.url}}/what-we-do/">What we do</a></li>
+                <li ><a href="{{site.scottlogic.url}}/our-work/">Our work</a></li>
+                <li ><a href="{{site.scottlogic.url}}/who-we-are/">Who we are</a></li>
+                <li ><a href="{{site.scottlogic.url}}/careers/">Careers</a></li>
+                <li ><a href="{{site.scottlogic.url}}/events/">Events</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-<script src="{{ site.github.url | remove_first: 'http:' }}/script.js" type="text/javascript"></script>
+<div id="off-canvas-wrapper" style="">
+    {% include site-header.html %}
+    {{ content }}
+</div>
+
+
+<script src="{{ site.baseurl | remove_first: 'http:' }}/script.js" type="text/javascript"></script>
 <script type="text/javascript">jQuery.noConflict();</script>
 
 {% if page.paginated %}
@@ -85,6 +99,57 @@ jQuery('.content').jscroll({
 });
 </script>
 {% endif %}
+
+<script>
+    jQuery(document).ready(function() {
+        var $menu = jQuery('#mobileMenu').mmenu({});
+
+        var $icon = jQuery('header .mobile-nav-trigger');
+        var $closeinside = jQuery('.mm-listview .navbar-toggle');
+        var API = $menu.data( 'mmenu' );
+
+        $icon.on( 'click', function() {
+            API.open();
+        });
+        $closeinside.on('click', function () {
+            API.close();
+        });
+        API.bind( 'open:finish', function() {
+            $icon.removeClass( 'collapsed' );
+        });
+        API.bind( 'close:finish', function() {
+            $icon.addClass( 'collapsed' );
+            jQuery('#nav-icon').removeClass('open');
+        });
+
+        jQuery('#nav-icon').click(function(){
+            jQuery(this).toggleClass('open');
+        });
+    });
+
+
+    jQuery(document).ready(function() {
+        if(window.location.href.indexOf("expanded") > -1) {
+            jQuery('.past-events').addClass('expanded');
+        }
+    });
+
+    jQuery(function() {
+        jQuery('.careers-team .team-profile img').matchHeight();
+
+    });
+
+    function scrollToAnchor(aid){
+        var aTag = jQuery("a[name='"+ aid +"']");
+        jQuery('html,body').animate({scrollTop: aTag.offset().top - 100},'slow');
+    }
+
+    jQuery("#scroll").click(function() {
+        scrollToAnchor('id1');
+    });
+
+
+</script>
 
 </body>
 </html>

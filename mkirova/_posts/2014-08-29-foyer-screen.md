@@ -13,7 +13,7 @@ title-short: Foyer Screen
 oldlink: "http://www.scottlogic.com/blog/2014/08/29/foyer-screen.html"
 disqus-id: /2014/08/29/foyer-screen.html
 categories:
-  - UX
+  - Tech
 ---
 
 As an Intern in the Edinburgh office I have been involved in creating a slideshow that conveys interesting information about the company; something useful and entertaining to catch the attention of visitors in the waiting area. The project is essentially a web application built with JavaScript, HTML5 and CSS3.
@@ -28,7 +28,7 @@ Having little experience in creating web applications I discovered [Node.js](htt
 
 Each slide in an Impress presentation is specified by a corresponding HTML tag with a class of "step". The slideshow visits them in order and advances forward when a key is pressed. For the purposes of Foyer Screen I wrote a script to auto-advance and loop through the show. I added a "time" attribute to each slide tag that is then processed by the script in order to determine when a transition should happen. As an additional feature the main presentation loop is interrupted every minute to show the "Welcome" screen which contains an animated version of the Scott Logic logo:
 
-<img src="{{ site.github.url }}/mkirova/assets/2014-08-29-foyer-screen/welcome.png" alt="Welcome Screen" class="aligncenter" />
+<img src="{{ site.baseurl }}/mkirova/assets/2014-08-29-foyer-screen/welcome.png" alt="Welcome Screen" class="aligncenter" />
 
 ### Content
 
@@ -42,21 +42,21 @@ How many employees are there overall? How many in Edinburgh? How many years has 
 
 Blog posts from the Scott Logic and [ShinobiControls](http://www.shinobicontrols.com/blog) blogs are included in the presentation after parsing their RSS feeds. A short summary of each post is displayed along with information about the author and when it was posted. All of this is animated with an entry and exit animation using the library stylesheet [Animate.css](http://daneden.github.io/animate.css/).
 
-<img src="{{ site.github.url }}/mkirova/assets/2014-08-29-foyer-screen/blog.png" alt="Blog Posts" class="aligncenter" />
+<img src="{{ site.baseurl }}/mkirova/assets/2014-08-29-foyer-screen/blog.png" alt="Blog Posts" class="aligncenter" />
 
 #### Tweets
 
 Tweets for [Scott Logic](https://twitter.com/Scott_Logic) and [ShinobiControls](https://twitter.com/shinobicontrols) are presented too. The tweets fade in and out with a maximum of two shown at any one time in a two-by-two grid, with the exception of tweets containing images which appear on their own and are centred in the screen (just in case they contain a bigger image).
 
-<img src="{{ site.github.url }}/mkirova/assets/2014-08-29-foyer-screen/tweets.png" alt="Tweets" class="aligncenter" />
+<img src="{{ site.baseurl }}/mkirova/assets/2014-08-29-foyer-screen/tweets.png" alt="Tweets" class="aligncenter" />
 
 #### Images and Video, Website banners
 
 Images and video are stored in [Dropbox](https://www.dropbox.com/), as just a URL is needed to embed them directly into the HTML for the application. This is implemented by maintaining a text file (stored in Dropbox as well) that contains all necessary URLs for the Photos Slide and is read by a script to display them. All that needs to be done to add another image or remove an existing one is edit this file.
 
-<img src="{{ site.github.url }}/mkirova/assets/2014-08-29-foyer-screen/quiz.png" alt="Pub Quiz Awards" class="aligncenter" />
+<img src="{{ site.baseurl }}/mkirova/assets/2014-08-29-foyer-screen/quiz.png" alt="Pub Quiz Awards" class="aligncenter" />
 
-<img src="{{ site.github.url }}/mkirova/assets/2014-08-29-foyer-screen/banner.png" alt="Website Banner" class="aligncenter" />
+<img src="{{ site.baseurl }}/mkirova/assets/2014-08-29-foyer-screen/banner.png" alt="Website Banner" class="aligncenter" />
 
 #### And of course the Scott Logic Edinburgh Xbox FIFA Tournament results
 
@@ -64,7 +64,7 @@ Scott Logic's Edinburgh FIFA World Cup Tournament had nine participants and took
 
 Each group stage slide contains a dynamic ranking table for players with six columns: Played, Won, Drawn, Lost, Goal Difference, Points. The table updates itself as match results are highlighted. Its rows are animated with CSS3 transitions to switch and place the player with more points at the top, highlighting winners at the end.
 
-<img src="{{ site.github.url }}/mkirova/assets/2014-08-29-foyer-screen/fifa.png" alt="Fifa Group B" class="aligncenter" />
+<img src="{{ site.baseurl }}/mkirova/assets/2014-08-29-foyer-screen/fifa.png" alt="Fifa Group B" class="aligncenter" />
 
 ### Unit Testing
 

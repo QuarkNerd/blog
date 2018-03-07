@@ -8,11 +8,10 @@ tags:
   - Continuous Delivery
   - Agile
 categories:
-  - DevOps
-  - Agile
+  - Delivery
 ---
 
-![Traffic]({{ site.github.url }}/mtinning/assets/traffic-header.jpg "Traffic")
+![Traffic]({{ site.baseurl }}/mtinning/assets/traffic-header.jpg "Traffic")
 
 __Continuous Delivery - isn't that the same as Agile?__
 
@@ -42,19 +41,19 @@ __So we don't just have a single environment for our production code? Sounds com
 
 Imagine the process of designing a car. A car wouldn't go from the design stage straight through to the shop floor where it can be taken out on the road - there are stages in between:
 
-![Car in Wind Tunnel]({{ site.github.url }}/mtinning/assets/car-wind-tunnel.png "Car in a Wind Tunnel")
+![Car in Wind Tunnel]({{ site.baseurl }}/mtinning/assets/car-wind-tunnel.png "Car in a Wind Tunnel")
 
 <ol><li><em>Our car is first tested in a lab or a wind tunnel. This allows the engineers and designers to make basic predictions about how our car will behave - aerodynamics and fuel consumption for example - but doesn't give much information about how the car will perform in the real world.</em></li></ol>
 
 This is a bit like running unit tests and integration tests - some things might be flagged up and redesigned at this stage (a failing test requiring a code change), but the lab isn't very much like the real world and we wouldn't consider the car "production ready" without a few more tests...
 
-![Car on Test Track]({{ site.github.url }}/mtinning/assets/car-test-track.png "Car on a Test Track")
+![Car on Test Track]({{ site.baseurl }}/mtinning/assets/car-test-track.png "Car on a Test Track")
 
 <ol start="2"><li><em>Once we're satisfied that our car won't immediately fall to pieces, we might take it out onto a test track. This will give is loads more information - such as the top speed of the car and how it handles corners (obviously we're designing a sports car and care very much about this). Hopefully we've managed to cover any issues in our lab tests, but there's always a chance to feed back to the designer. When we're ready, we can take our nifty new ride out on the road...</em></li></ol>
 
 In Continuous Delivery, we would push out a version of our code to an environment that resembles production to do some exploratory and smoke testing - the Development (where developers can play around with their latest code) and Quality Assurance environments.
 
-![Car on Road]({{ site.github.url }}/mtinning/assets/car-road.png "Car on the Road")
+![Car on Road]({{ site.baseurl }}/mtinning/assets/car-road.png "Car on the Road")
 
 <ol start="3"><li><em>Our car is ready for the real world - but we're not ready to put it in showrooms just yet. Our test drivers put our car through its paces by testing it in as close to real-life situations as possible, no matter how extreme - commuting, traffic, speed bumps, whatever the British roads can throw at it. This is a great time to test out our non-functional requirements - things that out car should <strong>be</strong> that don't directly relate to what it <strong>does</strong>. Is it quiet? Comfortable? Does it pack up after 3 months of drizzle? All of this is vital information that will inform us of whether our car is ready to put in the hands of the public.</em></li></ol>
 
@@ -62,7 +61,7 @@ The staging phase is the point at which we have the opportunity to put our code 
 
 Just as with our car we have non-functional requirements - requirements that our code must meet, but that aren't directly related to features or functions. These might include latency, performance under load or how network errors are handled. By measuring and monitoring all of these in staging we will gain valuable insights about how our application will behave in production. We can even codify our non-functional requirements, and run tests that raise alarms or automatically reject changes.
 
-![Car in Showroom]({{ site.github.url }}/mtinning/assets/car-showroom.png "Car in a Showroom")
+![Car in Showroom]({{ site.baseurl }}/mtinning/assets/car-showroom.png "Car in a Showroom")
 
 <ol start="4"><li><em>Finally our car is ready for the shop floor - it is unveiled with great fanfare and thanks to our diligent release process, there are no nasty surprises and the car drives beautifully. The team celebrates with a bottle of champagne.</em></li></ol>
 

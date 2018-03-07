@@ -3,6 +3,11 @@ author: agard
 title: Foyer Screen - 2017 Edinburgh Intern Project
 layout: default_post
 summary: As the Edinburgh 2017 Summer Interns, Arran Rashid and I have spent twelve weeks working on a new foyer screen for the Scott Logic offices, this post describes the project and our time at Scott Logic.
+categories:
+  - Careers
+tags:
+  - featured
+image: agard/assets/featured/display.png
 ---
 
 As the Edinburgh 2017 Summer Interns, Arran Rashid and I have spent 12 weeks working on a new foyer screen for the Scott Logic offices.
@@ -21,13 +26,13 @@ The final column contains transport information for each office. This is split i
 
 Below is a screenshot of the finished product:
 
-<img class="aligncenter" src="{{ site.github.url }}/agard/assets/display.png"/>
+<img class="aligncenter" src="{{ site.baseurl }}/agard/assets/display.png"/>
 
 ## Deployment
 
 One of the first things we set up was the deployment process for the project. We used Docker to add a layer of abstraction between the application and the operating system. As Docker packages the application and its dependencies into an image, the Docker container can be run on most Linux machines. This made our deployment much simpler than it otherwise would have been as we had CircleCI run our Dockerfile, which built the Docker image. CircleCI then ran a script to deploy the image to Amazon EC2 Container Registry (ECR). AWS ECR  has a service running which picked up this incoming image, and (depending on which Git branch the image came from) deployed it to its relevant server - production, develop, or feature.
 
-<img class="aligncenter" src="{{ site.github.url }}/agard/assets/dockerci.png"/>
+<img class="aligncenter" src="{{ site.baseurl }}/agard/assets/dockerci.png"/>
 
 ## Backend
 
@@ -45,7 +50,7 @@ The nature of the backend meant that we were working with many different API's, 
 **Challenges**  
 Over the course of the project, there were a number of challenges in getting everything to work together in a stable manner. For example, the Transport section was significantly more complex than the others as it required gathering data from multiple API's, whereas the other sections only required one. One of the unexpected challenges for Transport was generating the 'Via' message for the train, as seen below. Some trains will have their name always showing a station they are going via, for example, "Glasgow Queen Street via Falkirk". This sounded simple to implement and would make it much clearer which trains to catch but turned out to be slightly more challenging. As the [NRE API](http://lite.realtime.nationalrail.co.uk/openldbws/) does not respond with the name that would be displayed in the station, we had to find a way to generate this on our end.
 
-<img class="aligncenter" src="{{ site.github.url }}/agard/assets/via.png"/>  
+<img class="aligncenter" src="{{ site.baseurl }}/agard/assets/via.png"/>  
 
 The solution we settled on was to allow the offices to select multiple destinations as part of a route, which our system will then compare against all the trains leaving a given station. If the train matches multiple routes, we then select the route with the broadest definition. For example, a train going to Glasgow that stops at Falkirk will match both the "Glasgow via Falkirk" route and the "Glasgow" route. In this example, "Glasgow via Falkirk" would be the name displayed, as it shows the most descriptive name. Below is an example Route config object.
 
@@ -71,7 +76,7 @@ Like the backend, the frontend was written in TypeScript. It is a React/Redux ap
 **Challenges**  
 There were a few main challenges that arose during the development of the frontend. Notably the transport columns final design deviated quite heavily from the original spec. Originally transport was a single column that would contain - for Edinburgh - bus, tram, airlink, and train information. The problem we found with this was that the first three items would flood the screen as buses and trams would arrive every couple of minutes. This means that we could only display about 10 minutes of data on the screen. This is quite a big problem when the train station is 15 minutes away. The solution we found to this was to separate trains into their own column. This means that instead of only showing about one train we show the departure times of the trains that we are interested in for about the next hour. This also gave us room to introduce status indicators for trains. Telling the user if a train is on time, delayed, or cancelled. The screen now rotates between these two views on a 30s timer.
 
-<img class="aligncenter" src="{{ site.github.url }}/agard/assets/tube.png"/>
+<img class="aligncenter" src="{{ site.baseurl }}/agard/assets/tube.png"/>
 
 Another challenge that arose as we worked on transport, was that the original design was created specifically for Edinburgh. However, by the time we were working on transport the scope had expanded so that, if they wanted to, any other office could use the screen as well. For London, this proved to be a bit of a challenge as they had different types of public transport that we felt we had to display in a unique way, notably the tube. Eventually, we settled on having a tube status section at the bottom of the transport column that would give a visual indication if something was not operating as expected on one of the lines.
 

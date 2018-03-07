@@ -16,7 +16,7 @@ Inspired by [Colin's article on building an expenses app with the Mondo API](htt
 
 My Pebble Time watch already shows a notification when a transaction occurs (this is just the default behaviour of the Pebble reflecting the notifications shown on my phone by the Mondo app). Unfortunately as soon as I dismiss the notification (or ignore it for a few minutes) it disappears never to be seen again.
 
-<img src="{{ site.github.url }}/cprice/assets/mondo-pebble/notification.jpg" alt="A notification on my watch" width="878"/>
+<img src="{{ site.baseurl }}/cprice/assets/mondo-pebble/notification.jpg" alt="A notification on my watch" width="878"/>
 
 As the Pebble has a timeline based UI, I figured it could be useful to add the transactions to the timeline. That way if I wanted to recall a transaction for whatever reason, I could just navigate back through the timeline to see the details rather than have to dig my phone out.
 
@@ -191,11 +191,11 @@ Obviously everything will work first time for you but if you find yourself needi
 
 ## Conclusion
 
-<img src="{{ site.github.url }}/cprice/assets/mondo-pebble/pin-close.jpg" alt="The closed pin on my watch" width="878"/>
+<img src="{{ site.baseurl }}/cprice/assets/mondo-pebble/pin-close.jpg" alt="The closed pin on my watch" width="878"/>
 
 Overall I must say I'm pretty happy with the result -
 
-<img src="{{ site.github.url }}/cprice/assets/mondo-pebble/pin-open.jpg" alt="The opened pin on my watch" width="878"/>
+<img src="{{ site.baseurl }}/cprice/assets/mondo-pebble/pin-open.jpg" alt="The opened pin on my watch" width="878"/>
 
 Although, on the tech side I would probably have done things differently if I was starting again. For example, I'm not sure I would have used AWS Lambda functions had I known how much work I was letting myself in for. Even going to the lengths of wrapping up the code in a container and writing the associated service definition would have been significantly quicker!
 

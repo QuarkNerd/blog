@@ -3,9 +3,6 @@ author: dwybourn
 title: Introduction to Hadoop and MapReduce
 layout: default_post
 categories:
-  - BigData
-  - HPC
-  - Java
   - Data
 ---
 ### What is 'Big' Data?
@@ -24,7 +21,7 @@ A HDFS system has two types of nodes running in a master-slave system. These are
 The Namenode manages the entire filesystem, it stores metadata about each file in memory, and it knows how the files have been split into blocks, and which blocks each datanode holds. Without the namenode, the filesystem is lost as there is no way of knowing how to reconstruct the data.
 The datanodes are where the work actually happens, they store the data and carry out the processing on it. They also periodically report back to the namenode with liveness checks and outputs from processed data. Losing a datanode does not cause the system to fail as each block is replicated on multiple datanodes, if connection is lost to a particular datanode, the namenode will assign the work to another datanode.
 
-<img src="{{ site.github.url }}/dwybourn/assets/HadoopIntro/hdfs.png"/>
+<img src="{{ site.baseurl }}/dwybourn/assets/HadoopIntro/hdfs.png"/>
 
 ### But wait, surely the namenode is a single point of failure!
 You’ve probably noticed that if the namenode goes down, the whole system stops working, and we can’t recover the data from the datanodes. The Hadoop developers thought of this and created a third type of node called a secondary namenode, which despite its name, is not a backup namenode.
@@ -37,7 +34,7 @@ Each MapReduce application has two main functions; map and reduce. Each stage ha
 You can think of the map phase as filtering or parsing the data. The output of this is sorted by the key, and then passed to the reduce method. Each machine will run the same application, but on different blocks of data. Below is a diagram outlining the process.
 The lines show the flow of data, with the red lines representing data being transferred to another machine.  
 
-<img src="{{ site.github.url }}/dwybourn/assets/HadoopIntro/mapReduce.png"/>
+<img src="{{ site.baseurl }}/dwybourn/assets/HadoopIntro/mapReduce.png"/>
 
 Once the map and sort stage is complete, the namenode determines how to distribute the work load for reduce. At this point the map output may be transferred to a different machine for processing, how the data is distributed is dependent on the size of the data and the number of machines in the cluster.
 

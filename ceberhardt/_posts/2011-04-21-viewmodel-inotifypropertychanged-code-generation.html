@@ -30,10 +30,10 @@ public partial class PersonViewModel : INotifyPropertyChanged
 <p>There are a couple of problems with codesnippets, firstly they are not refactor friendly, secondly they do not reduce boiler-plate code, they simply provide a method for adding this code more quickly!</p>
 <p>Yesterday I published an article on codeproject which <a href="http://www.codeproject.com/KB/codegen/CodeSnippetAutomation.aspx">describes a technique for 'automating' code snippets</a>, where you indicate the use of a codesnippet declaratively via an attribute, with the resultant code being generated in a partial class. Here I am going to show how it can be used to streamline the creation of ViewModels and results in the removal of boiler-plate code.</p>
 <p>The first step to using this technique is to add the CodeGen folder to your project. This folder includes a number of T4 templates (Visual Studio's built in code-generation framework):</p>
-<p><img src="{{ site.github.url }}/archive/2011/04/AddCodeGen.png" alt="" title="AddCodeGen" width="344" height="379" class="aligncenter size-full wp-image-1417" /></p>
+<p><img src="{{ site.baseurl }}/archive/2011/04/AddCodeGen.png" alt="" title="AddCodeGen" width="344" height="379" class="aligncenter size-full wp-image-1417" /></p>
 <p>With these templates added to your project, if you add a codesnippet to the project (i.e. a <code>.snippet</code> file), a corresponding attribute will be generated when the T4 templates are run. You can see in the above screenshot that a couple of snippets have been added and attributes generated. </p>
 <p>The T4 templates are run when the project is built, or can be run on-demand by clicking the button indicated below:</p>
-<p><img src="{{ site.github.url }}/archive/2011/04/TransformAllTemplates.png" alt="" title="TransformAllTemplates" width="302" height="154" class="aligncenter size-full wp-image-1414" /></p>
+<p><img src="{{ site.baseurl }}/archive/2011/04/TransformAllTemplates.png" alt="" title="TransformAllTemplates" width="302" height="154" class="aligncenter size-full wp-image-1414" /></p>
 <p>So let's have a go at generating our view model code ...</p>
 <p>We'll create a simple Person view model, which has properties of Surname, Forename and a dependent property of FullName which concatenates the two together. We'll start by adding the INPC implementation to our class via an automated snippet:</p>
 {% highlight csharp %}
@@ -43,7 +43,7 @@ public partial class PersonViewModel : INotifyPropertyChanged
 }
 {% endhighlight %}
 <p>By adding the attribute above and compiling the code, you will find that a generated counterpart to our view model is created:</p>
-<p><img src="{{ site.github.url }}/archive/2011/04/GeneratedViewModel.png" alt="" title="GeneratedViewModel" width="346" height="227" class="aligncenter size-full wp-image-1416" /></p>
+<p><img src="{{ site.baseurl }}/archive/2011/04/GeneratedViewModel.png" alt="" title="GeneratedViewModel" width="346" height="227" class="aligncenter size-full wp-image-1416" /></p>
 <p>This file contains the code defined in our INPC codesnippet:</p>
 {% highlight csharp %}
 using System.ComponentModel;
@@ -198,12 +198,12 @@ public partial class PersonViewModel : INotifyPropertyChanged
   </Grid>
 </Border>
 {% endhighlight %}
-<p>(Note the <a href="{{ site.github.url }}/2010/12/21/a-simplified-grid-markup-for-silverlight-and-wpf">simplified grid markup</a>!)</p>
+<p>(Note the <a href="{{ site.baseurl }}/2010/12/21/a-simplified-grid-markup-for-silverlight-and-wpf">simplified grid markup</a>!)</p>
 <p>Here's the code for this very simple example in action:</p>
-<div style="text-align: center;"><object width="250" height="100" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.github.url }}/archive/2011/04/ViewModelCodeGeneration.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div style="text-align: center;"><object width="250" height="100" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2011/04/ViewModelCodeGeneration.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 <p>This blog post has described a method for generating the boiler-plate code that the MVVM patterns requires. The use of T4 templates and partial classes mirrors the way that the Visual Studio designer generates code. Personally I think the end result is much easier to understand that the dynamic proxy or aspects / weaving approach described by others. The example given in this blog post is pretty trivial, but when you use it for bigger projects with complex view-models containing numerous properties, you really start to feel the benefit.</p>
 <p>Furthermore, the technique described here can be used to automate any codesnippet! you can use it to generate dependency properties for example.</p>
 <p>Enjoy!</p>
-<p>You can download the sourcecode here: <a href="{{ site.github.url }}/archive/2011/04/ViewModelGeneration.zip">ViewModelGeneration.zip</a></p>
+<p>You can download the sourcecode here: <a href="{{ site.baseurl }}/archive/2011/04/ViewModelGeneration.zip">ViewModelGeneration.zip</a></p>
 <p>For more information regarding how T4 / Env.DTE / XSLT are used to automate your codesnippets I would <a href="http://www.codeproject.com/KB/codegen/CodeSnippetAutomation.aspx">encourage you to read my codeproject article</a>.</p>
 <p>Regards, Colin E.</p>

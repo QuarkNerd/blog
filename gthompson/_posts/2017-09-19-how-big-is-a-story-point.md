@@ -5,6 +5,9 @@ layout: default_post
 categories:
   - Agile
 summary: If you're new to Agile you've probably heard the term Story Point a few times and, especially if you come from a more traditional project management or product background, you may be trying to figure out what a Story Point is and how big one is. This article tries to explain what this is in a more digestible format.
+tags:
+  - featured
+image: gthompson/assets/featured/mountain.jpg
 ---
 
 Imagine walking 100km cross country over varied terrain. If I gave you a map and asked you exactly how long it's going to take you could you tell me?

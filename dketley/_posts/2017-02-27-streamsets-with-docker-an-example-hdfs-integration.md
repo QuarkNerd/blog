@@ -19,7 +19,7 @@ We found the process of setting up an SDC system with an HDFS output somewhat fi
 
 You can find the Git repository for this example [here](https://github.com/dketley/streamsets-hdfs-demo). Read on for the details of how we created this system!
 
-![An attractive UI]({{ site.github.url }}/dketley/assets/sdc.png)
+![An attractive UI]({{ site.baseurl }}/dketley/assets/sdc.png)
 
 ## Installing StreamSets
 
@@ -29,13 +29,13 @@ We wanted a lightweight, easily reproducible install that we can hand over to ot
 docker run -p 18630:18630 -d streamsets/datacollector
 ~~~
 
-![One command later]({{ site.github.url }}/dketley/assets/sdc-login.png)
+![One command later]({{ site.baseurl }}/dketley/assets/sdc-login.png)
 
 Note that you need a Linux machine to run Docker. We used an Ubuntu 16.04 VM, the creation of which we automated using [Vagrant](https://www.vagrantup.com/).
 
 We wanted a non-trivial demo, so we wanted to integrate StreamSets with a 3rd party output. To set up the pipeline, we followed the [StreamSets taxi tutorial](https://streamsets.com/documentation/datacollector/latest/help/#Tutorial/ExtendedTutorial.html#concept_w4n_gjt_ls). We chose to store the output from our pipeline in the [Hadoop Distributed File System](http://hortonworks.com/apache/hdfs/) (HDFS), which could be convenient for later processing. To use this output, we needed to install a Hadoop library.
 
-![SDC has a convenient package manager]({{ site.github.url }}/dketley/assets/sdc-packages.png)
+![SDC has a convenient package manager]({{ site.baseurl }}/dketley/assets/sdc-packages.png)
 
 The supported procedure for installing packages into the Docker container is a little fiddly. Essentially we needed to attach a volume so that the installed packages are retained through container restarts. The installation can then be done either from the GUI or from the command line.
 
@@ -134,7 +134,7 @@ docker-compose up -d
 ~~~
 
 StreamSets can now store files in HDFS using the `hdfs` link.
-![HDFS is contactable via the link]({{ site.github.url }}/dketley/assets/sdc-hadoop-config.png)
+![HDFS is contactable via the link]({{ site.baseurl }}/dketley/assets/sdc-hadoop-config.png)
 
 The output files of our pipeline can be downloaded from HDFS.
-![Output files are accessible in the HDFS GUI]({{ site.github.url }}/dketley/assets/hdfs.png)
+![Output files are accessible in the HDFS GUI]({{ site.baseurl }}/dketley/assets/hdfs.png)

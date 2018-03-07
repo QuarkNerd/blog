@@ -2,18 +2,20 @@
 author: mjose
 title: An RSI component for D3 charts
 title-short: An RSI component for D3 charts
-summary: "An RSI (Relative Strength Index) D3 component which can be added to a D3 chart. In the blog I've also tried to explain a little bit about RSI and it's uses in calculating risk when trading markets."
+summary: >-
+  An RSI (Relative Strength Index) D3 component which can be added to a D3
+  chart. In the blog I've also tried to explain a little bit about RSI and it's
+  uses in calculating risk when trading markets.
 tags:
   - d3
   - RSI
   - charts
   - risk
 categories:
-  - D3
-  - Charting
+  - Tech
 layout: default_post
 source: site
-oldlink: "http://www.scottlogic.com/blog/2014/11/14/d3_chartcomponents_rsi.html"
+oldlink: 'http://www.scottlogic.com/blog/2014/11/14/d3_chartcomponents_rsi.html'
 disqus-id: /2014/11/14/d3_chartcomponents_rsi.html
 ---
 Among the plethora of financial charting applications on the market, if you take a read through their functionality list, you'll find one of the most common indicators implemented is the Relative Strength Index (RSI). 
@@ -28,7 +30,7 @@ I suppose a good place to start is to give some background on RSI, but if you ar
 
 This has obvious meaning when it is used to compare two instruments (stocks, commodities, currency pairs etc.), but what about when we are only talking about one instrument? Well the norm is to compare the size of instrument gains with the size of instrument losses.
 
-<img src="{{ site.github.url }}/mjose/assets/2014-11-14-d3_chartcomponents_rsi/header.jpg" />
+<img src="{{ site.baseurl }}/mjose/assets/2014-11-14-d3_chartcomponents_rsi/header.jpg" />
 
 ### Working it all out
 
@@ -46,23 +48,23 @@ RSI is defined as:
 
 ## What does it look like?
 
-<link rel="stylesheet" href="{{ site.github.url }}/mjose/assets/2014-11-14-d3_chartcomponents_rsi/rsi.css" />
+<link rel="stylesheet" href="{{ site.baseurl }}/mjose/assets/2014-11-14-d3_chartcomponents_rsi/rsi.css" />
 
 <div id="rsi_indicator_chart"></div>
 
-<script src="{{ site.github.url }}/mjose/assets/2014-11-14-d3_chartcomponents_rsi/js/jquery.js">
+<script src="{{ site.baseurl }}/mjose/assets/2014-11-14-d3_chartcomponents_rsi/js/jquery.js">
 </script>
-<script src="{{ site.github.url }}/mjose/assets/2014-11-14-d3_chartcomponents_rsi/js/jstat.js">
+<script src="{{ site.baseurl }}/mjose/assets/2014-11-14-d3_chartcomponents_rsi/js/jstat.js">
 </script>
-<script src="{{ site.github.url }}/mjose/assets/2014-11-14-d3_chartcomponents_rsi/js/moment.js">
+<script src="{{ site.baseurl }}/mjose/assets/2014-11-14-d3_chartcomponents_rsi/js/moment.js">
 </script>
-<script src="{{ site.github.url }}/mjose/assets/2014-11-14-d3_chartcomponents_rsi/js/moment-range.js">
+<script src="{{ site.baseurl }}/mjose/assets/2014-11-14-d3_chartcomponents_rsi/js/moment-range.js">
 </script>
-<script src="{{ site.github.url }}/mjose/assets/2014-11-14-d3_chartcomponents_rsi/js/d3.js">
+<script src="{{ site.baseurl }}/mjose/assets/2014-11-14-d3_chartcomponents_rsi/js/d3.js">
 </script>
-<script src="{{ site.github.url }}/mjose/assets/2014-11-14-d3_chartcomponents_rsi/js/d3-financial-components.min.js">
+<script src="{{ site.baseurl }}/mjose/assets/2014-11-14-d3_chartcomponents_rsi/js/d3-financial-components.min.js">
 </script>
-<script src="{{ site.github.url }}/mjose/assets/2014-11-14-d3_chartcomponents_rsi/js/rsi.js">
+<script src="{{ site.baseurl }}/mjose/assets/2014-11-14-d3_chartcomponents_rsi/js/rsi.js">
 </script>
 
 The image above shows how an RSI is normally represented. The indicator consists of the RSI data series and three horizontal markers showing the mid-point (50 or 0.5), the upper marker or over-buy level (normally 70 or 0.7) and the lower marker or over-sell level (normally 30 or 0.3). 

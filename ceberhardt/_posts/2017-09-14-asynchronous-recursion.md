@@ -8,11 +8,13 @@ categories:
   - JavaScript
 tags:
   - featured
+colour: pink
+header-shape: shape2
 ---
 
 Creating asynchronous functions that are recursive can be a bit of a challenge. This blog post takes a look at various different approaches, including callbacks and promises, and ultimately demonstrates how async functions result in a much simpler and cleaner solution.
 
-<img class="aligncenter" src="{{ site.github.url }}/ceberhardt/assets/recursion/spiral.jpg"/>
+<img class="aligncenter" src="{{ site.baseurl }}/ceberhardt/assets/recursion/spiral.jpg"/>
 
 ## A simple example
 
@@ -107,7 +109,7 @@ This version of the code is structurally much simpler, without the need for any 
 
 With the Chrome debugging tools, by breaking on the termination condition you can see four invocations of this function. You can also navigate up and down the stack to see the `fragment` and `offset` values that are within scope on each invocation:
 
-<img class="aligncenter" src="{{ site.github.url }}/ceberhardt/assets/recursion/recursive-stack.png"/>
+<img class="aligncenter" src="{{ site.baseurl }}/ceberhardt/assets/recursion/recursive-stack.png"/>
 
 When the termination condition is reached each function returns, unwinding the stack, to create the returned value at the original point of invocation.
 
@@ -202,7 +204,7 @@ When invoked, it returns the expected output (after a few seconds):
 
 Now with the synchronous version of the recursive code, you could see the recursive invocations within the call stack (by placing a breakpoint at the termination condition). With the asynchronous version you can actually do the same:
 
-<img class="aligncenter" src="{{ site.github.url }}/ceberhardt/assets/recursion/async-recursize-stack.png"/>
+<img class="aligncenter" src="{{ site.baseurl }}/ceberhardt/assets/recursion/async-recursize-stack.png"/>
 
 Although you cannot view the scope of previous invocations (which would require a form of time-travel!).
 

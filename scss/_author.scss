@@ -1,38 +1,41 @@
-.align-center {
-  text-align: center;
-}
+@import "blog-main";
 
 .author {
-  margin-bottom: $extraLargeLayoutUnit;
-  p, a {
-    font-size: $smallFontSize;
-  }
+    padding-top: 150px;
 
-  img {
-    margin-bottom: $layoutUnit;
-    border-radius: 50%;
-  }
-
-  .authorName {
-    display: block;
-    font-weight: bold;
-    white-space: nowrap;
-  }
-
-  .authorSummary {
-    margin-bottom: $smallLayoutUnit;
-    // Links in author summary should be displayed inline.
-    a {
-      display: initial;
+    img {
+        border-radius: 50%;
+        filter: grayscale(100%);
     }
+
+    .avatar {
+        text-align: center;
+    }
+
+    .links {
+        text-align: right;
+
+      a {
+        border-bottom: 3px solid $turquoise;
+      }
+
+      a:hover {
+        color: $white;
+        background-color: $turquoise;
+      }
+    }
+
+  .blog {
+    margin-bottom: 0;
+    color: $turquoise;
+    font-weight: $font-bold;
   }
 
-  .authorSocialMediaLink {
-    padding-top: $smallLayoutUnit;
-    padding-bottom: $smallLayoutUnit;
+  .avatar > div {
+    text-align: left;
   }
 
-  a {
-    display: block;
+  .author-name > h1, h2 {
+    text-align: left;
   }
 }

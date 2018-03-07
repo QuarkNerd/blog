@@ -17,7 +17,7 @@ My blog has been a little quiet for the past few months, but this certainly does
 
 Yesterday at 19:00 (GMT) the book went live, minutes after the iOS 7 NDA lifted, making this the first iOS 7 book to be published!
 
-<a href="http://www.raywenderlich.com/store/ios-7-by-tutorials?source=ceberhardt"><img src="{{ site.github.url }}/ceberhardt/assets/ios7-by-tutorials.png" alt="iOS 7 by Tutorials"/></a>
+<a href="http://www.raywenderlich.com/store/ios-7-by-tutorials?source=ceberhardt"><img src="{{ site.baseurl }}/ceberhardt/assets/ios7-by-tutorials.png" alt="iOS 7 by Tutorials"/></a>
 
 ## The writing journey
 
@@ -29,7 +29,7 @@ As an author I certainly found the book writing process to be quite a challenge!
 
 The chapters I wrote were; ***UIKit Dynamics and Motion Effects***, where I guided the user through the creation of a gesture-drive UI, ***Text Kit***, which introduced dynamics type, and advanced features such as multi-column text layout, and ***Custom View Controller Transitions***, which show the reader how to create interactive gesture-drive custom transitions. Each chapter is accompanied with one or two example projects which accompany the book download.
 
-<img src="{{ site.github.url }}/ceberhardt/assets/ios7-by-tutorials-screenshots.png" alt="iOS 7 by Tutorials"/>
+<img src="{{ site.baseurl }}/ceberhardt/assets/ios7-by-tutorials-screenshots.png" alt="iOS 7 by Tutorials"/>
 
 
 The end product was certainly worth all the late nights, and I am looking forward to doing this again next year!

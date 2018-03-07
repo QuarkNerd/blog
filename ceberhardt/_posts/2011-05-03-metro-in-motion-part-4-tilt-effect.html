@@ -1,8 +1,9 @@
 ---
 id: 1428
 author: ceberhardt
-title: "Metro In Motion Part #4 - Tilt Effect"
-oldlink: "http://www.scottlogic.co.uk/blog/colin/2011/05/metro-in-motion-part-4-tilt-effect/"
+title: 'Metro In Motion Part #4 - Tilt Effect'
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2011/05/metro-in-motion-part-4-tilt-effect/
 tags:
   - codeproject
   - WP7
@@ -10,14 +11,13 @@ tags:
   - blog
   - codeproject
 categories:
-  - Mobile
-  - C#
+  - Tech
 layout: default_post
 source: wordpress
 disqus-id: /blog/colin/2011/05/metro-in-motion-part-4-tilt-effect/
 ---
 <p><i>This blog post describes the implementation of a metro 'tilt' effect for Windows Phone 7 which causes element to respond to user interactions by tilting in 3D</i></p>
-<p>So far in the "Metro In Motion" series I have covered <a href="{{ site.github.url }}/2011/03/22/metro-in-motion-fluid-list-animation">fluid list animations</a>, <a href="{{ site.github.url }}/2011/03/27/metro-in-motion-part-2-peel-animations">'peel' animations</a> and <a href="{{ site.github.url }}/2011/04/04/metro-in-motion-3-flying-titles">flying title</a>. In this blog post I am looking at the 'tilt' effect seen in native Windows Phone 7 applications where list items, tiles, check-boxes and other user interface element tilt slightly when the user presses them. This is a subtle 3D effect that makes the phone interface more tactile and playful.</p>
+<p>So far in the "Metro In Motion" series I have covered <a href="{{ site.baseurl }}/2011/03/22/metro-in-motion-fluid-list-animation">fluid list animations</a>, <a href="{{ site.baseurl }}/2011/03/27/metro-in-motion-part-2-peel-animations">'peel' animations</a> and <a href="{{ site.baseurl }}/2011/04/04/metro-in-motion-3-flying-titles">flying title</a>. In this blog post I am looking at the 'tilt' effect seen in native Windows Phone 7 applications where list items, tiles, check-boxes and other user interface element tilt slightly when the user presses them. This is a subtle 3D effect that makes the phone interface more tactile and playful.</p>
 <p>I was in two minds about whether to implement my own tilt effect since there is an implementation of this effect available via the <a href="http://silverlight.codeplex.com/">Silverlight (for Windows Phone 7) Toolkit</a>. However, I am not that keen on the toolkit implementation of this feature. Firstly, the effect is applied by specifying the types of element that should tilt, unfortunately this fails in various scenarios; secondly, the tilt is a bit over-the-top. Personally, I think this effect works best when it is at its most subtle.</p>
 <p>The video below shows the tilt effect in action, together with the other Metro In Motion effects:</p>
 <p><iframe width="425" height="349" src="http://www.youtube.com/embed/GIHJfb9ksOU" frameborder="0" allowfullscreen></iframe></p>
@@ -114,9 +114,9 @@ private static DoubleAnimation CreateAnimation(double? from, double? to, double 
 }
 {% endhighlight %}
 <p>The magnitude of the <code>ScaleTransform</code> and <code>PlaneProjection</code> depends on the click location, with clicks to the centre of the element resulting in a scaling, but no rotation, and clicks at the edge causing rotation but no scaling. The net result can be observed below where the effect of clicking at various locations of an element is shown:</p>
-<p><img src="{{ site.github.url }}/archive/2011/05/tilt.png" alt="" title="tilt" width="305" height="554" class="aligncenter size-full wp-image-1431" /></p>
+<p><img src="{{ site.baseurl }}/archive/2011/05/tilt.png" alt="" title="tilt" width="305" height="554" class="aligncenter size-full wp-image-1431" /></p>
 <p>You can also see the effect of clicking a square element below:</p>
-<p><img src="{{ site.github.url }}/archive/2011/05/tilt2.png" alt="" title="tilt2" width="305" height="554" class="aligncenter size-full wp-image-1432" /></p>
+<p><img src="{{ site.baseurl }}/archive/2011/05/tilt2.png" alt="" title="tilt2" width="305" height="554" class="aligncenter size-full wp-image-1432" /></p>
 <p>Finally, native phone applications have another subtle effect where elements that are tilted at the bottom of the screen appear to be viewed from above, whilst ones at the top are viewed from below. This can be achieved by applying a local offset to the <code>PlaneProjection</code> and an equal and opposite vertical <code>TranslateTransform</code>. The following code is added ...</p>
 {% highlight csharp %}
 targetElement.MouseLeftButtonDown += (s, e) =>
@@ -145,8 +145,8 @@ targetElement.ManipulationCompleted += (s, e) =>
   };
 {% endhighlight %}
 <p>Which results in the following effect:</p>
-<p><img src="{{ site.github.url }}/archive/2011/05/tilt3.png" alt="" title="tilt3" width="305" height="554" class="aligncenter size-full wp-image-1433" /></p>
+<p><img src="{{ site.baseurl }}/archive/2011/05/tilt3.png" alt="" title="tilt3" width="305" height="554" class="aligncenter size-full wp-image-1433" /></p>
 <p>With that, the effect is complete!</p>
 <p>Please note, the images in this blog post use a <code>Tilt</code> 'factor' of 6 in order to make the effect easier to see in these static images. I would urge you to use a much lower factor, perhaps 2, to make this effect much more subtle. I think it works best if the user almost doesn't notice the effect, rather they 'feel' it.</p>
-<p>You can download the full sourcecode for this blog post here: <a href="{{ site.github.url }}/archive/2011/05/MetroInMotion4.zip">MetroInMotion4.zip</a></p>
+<p>You can download the full sourcecode for this blog post here: <a href="{{ site.baseurl }}/archive/2011/05/MetroInMotion4.zip">MetroInMotion4.zip</a></p>
 <p>Regards,Colin E.</p>

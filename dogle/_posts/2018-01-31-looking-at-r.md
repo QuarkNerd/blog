@@ -7,8 +7,7 @@ summary: >-
  In this quick look at the R language and tools I'll look briefly at the syntax of the language and have a go at creating a few charts with a data set.
 tags: 'R, Data Engineering'
 categories:
- - data-engineering
- - charting
+ - Data Engineering
 image: ''
 ---
 ## What R you talking about ##

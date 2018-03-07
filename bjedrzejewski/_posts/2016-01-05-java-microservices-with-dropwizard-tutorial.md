@@ -2,11 +2,11 @@
 author: bjedrzejewski
 title: Java Microservices - How to get started in minutes using Dropwizard
 layout: default_post
-summary: "This blog shows how to get started with microservices using Dropwizard. It guides the reader through building a simple task-list service."
+summary: >-
+  This blog shows how to get started with microservices using Dropwizard. It
+  guides the reader through building a simple task-list service.
 categories:
-  - Web
-  - Java
-  - Data
+  - Tech
 ---
 This blog shows how to get started with microservices using [Dropwizard](http://www.dropwizard.io/0.9.1/docs/). It guides the reader through building a simple task-list service.
 
@@ -302,15 +302,15 @@ And your first micro-service is running.
 
 You can check it on: <http://localhost:8080/task-list>
 
-<img src="{{ site.github.url }}/bjedrzejewski/assets/tasklistservice.jpg" />
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/tasklistservice.jpg" />
 
 You can also filter only the process that contain 'Java' keyword: <http://localhost:8080/task-list?contains=java>
 
-<img src="{{ site.github.url }}/bjedrzejewski/assets/tasklistservice-contains.jpg" />
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/tasklistservice-contains.jpg" />
 
 Or even see some server diagnostics on: <http://localhost:8081/>
 
-<img src="{{ site.github.url }}/bjedrzejewski/assets/tasklistservice-diag.jpg" />
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/tasklistservice-diag.jpg" />
 
 ## Afterword
 

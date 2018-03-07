@@ -3,24 +3,24 @@ author: alee
 title: Hero transitions in AngularJS
 tags: null
 categories:
-  - Mobile
-  - Android
-  - Web
-summary: "How to create hero transitions with AngularJS, similar to those implemented by Google's Material Design and Polymer's core-animated-pages."
+  - Tech
+summary: >-
+  How to create hero transitions with AngularJS, similar to those implemented by
+  Google's Material Design and Polymer's core-animated-pages.
 layout: default_post
-oldlink: "http://www.scottlogic.com/blog/2014/12/19/angular-hero-transitions.html"
+oldlink: 'http://www.scottlogic.com/blog/2014/12/19/angular-hero-transitions.html'
 disqus-id: /2014/12/19/angular-hero-transitions.html
 ---
 
 
 *How to create hero transitions with [AngularJS](https://angularjs.org/), similar to those implemented by Google's Material Design and Polymer's [core-animated-pages](https://github.com/Polymer/core-animated-pages).*
 
-In <a href="{{ site.github.url }}/2014/12/12/html5-android-optimisation.html">my last post</a> I learned a lot about optimising animated transitions for mobile devices. New screens would slide in from the right, while elements that were common between the two screens would animate from their old position to the new position. In that case, it was the header of a card in a list view, which animated to the header of the page on the next screen. The code for animating the elements was very specific to that project though, so I thought I'd try to build a re-usable component for generic hero transitions, with minimal dependencies (other than Angular).
+In <a href="{{ site.baseurl }}/2014/12/12/html5-android-optimisation.html">my last post</a> I learned a lot about optimising animated transitions for mobile devices. New screens would slide in from the right, while elements that were common between the two screens would animate from their old position to the new position. In that case, it was the header of a card in a list view, which animated to the header of the page on the next screen. The code for animating the elements was very specific to that project though, so I thought I'd try to build a re-usable component for generic hero transitions, with minimal dependencies (other than Angular).
 
-I've also build a simple sample application, which you can try here: <a href="{{ site.github.url }}/alee/assets/angular-hero/app" target="_blank">Angular-Hero-Sample</a>.
+I've also build a simple sample application, which you can try here: <a href="{{ site.baseurl }}/alee/assets/angular-hero/app" target="_blank">Angular-Hero-Sample</a>.
 
-<a href="{{ site.github.url }}/alee/assets/angular-hero/angular-hero-sample.gif" target="_blank" style="display: block; text-align: center">
-  <img src="{{ site.github.url }}/alee/assets/angular-hero/angular-hero-sample.gif" style="max-width: 300px;"/>
+<a href="{{ site.baseurl }}/alee/assets/angular-hero/angular-hero-sample.gif" target="_blank" style="display: block; text-align: center">
+  <img src="{{ site.baseurl }}/alee/assets/angular-hero/angular-hero-sample.gif" style="max-width: 300px;"/>
 </a>
 
 The code for this sample application is available on [GitHub](https://github.com/DevAndyLee/Angular-Hero-Sample).

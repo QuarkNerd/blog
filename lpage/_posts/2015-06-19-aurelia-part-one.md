@@ -2,11 +2,12 @@
 author: lpage
 title: Creating less2css using Aurelia
 categories:
-  - HTML5
-  - Web
-  - CSS
+  - Tech
 layout: default_post
-summary: This post gives a walkthrough of a project that makes use of the new Aurelia framework. It also take a look at how it compares to Angular 2.0, which is still in development.
+summary: >-
+  This post gives a walkthrough of a project that makes use of the new Aurelia
+  framework. It also take a look at how it compares to Angular 2.0, which is
+  still in development.
 image: lpage/assets/featured/aurelia-large.png
 ---
 
@@ -47,9 +48,9 @@ This creates a copy of [the Aurelia skeleton navigation project](https://github.
 
 I can see there is a `gulp serve` command and when I run that I get a web server and an Aurelia site that works.
 
-<img src="{{ site.github.url }}/lpage/assets/aurelia-one/aurelia-skeleton-start.png" alt="Aurelia skeleton load screen" />
+<img src="{{ site.baseurl }}/lpage/assets/aurelia-one/aurelia-skeleton-start.png" alt="Aurelia skeleton load screen" />
 
-<img src="{{ site.github.url }}/lpage/assets/aurelia-one/aurelia-skeleton-pageone.png" alt="Aurelia skeleton first page" />
+<img src="{{ site.baseurl }}/lpage/assets/aurelia-one/aurelia-skeleton-pageone.png" alt="Aurelia skeleton first page" />
 
 ### A single text editor
 
@@ -127,7 +128,7 @@ and I could use it in my main view...
 
 Which gives me a text editor on the page.
 
-<img src="{{ site.github.url }}/lpage/assets/aurelia-one/text-editor.png" alt="A simple text editor included" />
+<img src="{{ site.baseurl }}/lpage/assets/aurelia-one/text-editor.png" alt="A simple text editor included" />
 
 You can see that it seems to be missing some styling, so next I add gulp-less to the skeleton and get it set up as part of the build. However I need a way of including the code mirror css file, downloaded by jspm. From the skeleton project I see bootstrap is using `!` (familiar to require js users), so I looked up the path to the css by finding where jspm downloaded the file to and added...
 
@@ -160,7 +161,7 @@ export class cmeditor {
 
 And below is shown my now working text editor...
 
-<img src="{{ site.github.url }}/lpage/assets/aurelia-one/one-editor.png" alt="A text editor with less syntax highlighting" />
+<img src="{{ site.baseurl }}/lpage/assets/aurelia-one/one-editor.png" alt="A text editor with less syntax highlighting" />
 
 ### Multiple text editors
 
@@ -246,7 +247,7 @@ Then I need to make my editor update its contents when the value changes. I got 
   }
 {% endhighlight %}
 
-<img src="{{ site.github.url }}/lpage/assets/aurelia-one/less-to-css.png" alt="two text editors, one showing Less and one showing CSS" />
+<img src="{{ site.baseurl }}/lpage/assets/aurelia-one/less-to-css.png" alt="two text editors, one showing Less and one showing CSS" />
 
 And now I have 2 editors, when I edit Less code in one, the CSS code in the right changes!
 
@@ -312,10 +313,10 @@ And that works!
 
 I also took the styling from the existing site, so now it is looking more familiar.
 
-<img src="{{ site.github.url }}/lpage/assets/aurelia-one/less2css-url.png" alt="Site showing less on the left, css on the right and a url encoded with the current less value" />
+<img src="{{ site.baseurl }}/lpage/assets/aurelia-one/less2css-url.png" alt="Site showing less on the left, css on the right and a url encoded with the current less value" />
 
 You can see the work in progress [here](http://www.lesscss.org/less-preview) and the [source code is all on github](https://github.com/less/less-preview).
 
-On an external server without bundling, the site takes 12 seconds to load - please see [my next post for how I tackled bundling and how it effected performance]({{ site.github.url }}/2015/06/29/aurelia-part-two.html).
+On an external server without bundling, the site takes 12 seconds to load - please see [my next post for how I tackled bundling and how it effected performance]({{ site.baseurl }}/2015/06/29/aurelia-part-two.html).
 
 In later posts I will look at binding the options panel and evaluating what I think of Aurelia.

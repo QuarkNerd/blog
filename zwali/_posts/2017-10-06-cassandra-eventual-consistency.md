@@ -61,11 +61,11 @@ If a read request is initiated when Write Quorum has been met:
 <ul>
 	<li>
 		If it tries to read from Primary and Replica 1, it will get the latest entry.
-		<p><img src='{{ site.github.url }}/zwali/assets/cassandra-discussion/Capture000.PNG' title="read after write quorum satified" alt="read after write quorum satified" /></p>
+		<p><img src='{{ site.baseurl }}/zwali/assets/cassandra-discussion/Capture000.PNG' title="read after write quorum satified" alt="read after write quorum satified" /></p>
 	</li>
 	<li>
 		If it tries to read from Replica 1 and Replica 2, it will see a discrepancy, but will take the entry with the latest timestamp i.e. the one from Replica 1, update Replica 2 with that and return the latest data.
-		<p><img src='{{ site.github.url }}/zwali/assets/cassandra-discussion/Capture001.PNG' title="read after write quorum satified" alt="read after write quorum satified" /></p>
+		<p><img src='{{ site.baseurl }}/zwali/assets/cassandra-discussion/Capture001.PNG' title="read after write quorum satified" alt="read after write quorum satified" /></p>
 	</li>
 </ul>
 
@@ -77,11 +77,11 @@ If a read request is initiated when only Primary has the latest data:
 <ul>
 	<li>
 		If it tries to read from Replica 1 and Replica 2, it will get the already existing entry and not the latest one.
-		<p><img src='{{ site.github.url }}/zwali/assets/cassandra-discussion/Capture002.PNG' title="read after write quorum satified" alt="read while write in progress" /></p>
+		<p><img src='{{ site.baseurl }}/zwali/assets/cassandra-discussion/Capture002.PNG' title="read after write quorum satified" alt="read while write in progress" /></p>
 	</li>
 	<li>
 		If it tries to read from Primary and one of the replicas, it will see a discrepancy, but take the entry with the latest timestamp i.e. the one from Primary, update replica with that and return the latest data.
-		<p><img src='{{ site.github.url }}/zwali/assets/cassandra-discussion/Capture003.PNG' title="read after write quorum satified" alt="read while write in progress" /></p>
+		<p><img src='{{ site.baseurl }}/zwali/assets/cassandra-discussion/Capture003.PNG' title="read after write quorum satified" alt="read while write in progress" /></p>
 	</li>
 </ul>
 
@@ -96,7 +96,7 @@ This is eventually consistent i.e. eventually all the copies are consistent and 
 -	The calling program sees the exception but doesn’t retry.
 -	Primary crashes before Replica 1 comes back i.e. no node has copy of the latest write now.
 
-<img src='{{ site.github.url }}/zwali/assets/cassandra-discussion/Capture004.PNG' title="write timeout" alt="write timeout" />
+<img src='{{ site.baseurl }}/zwali/assets/cassandra-discussion/Capture004.PNG' title="write timeout" alt="write timeout" />
 
 As we can see, multiple things will have to go wrong for this to happen. Therefore, eventual consistency is not as bad as it sounds. It is not at all easy to lose data. And even if you lose data, the calling program is aware of the fact so it can mitigate the situation in other ways e.g. showing an on-screen message or sending an error at a designated place specifying the failure. More commonly, the calling program would retry when it sees the exception.
 

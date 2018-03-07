@@ -102,6 +102,21 @@ prose:
                         -
                             name: Events
                             value: events
+                        -
+                            name: Careers
+                            value: careers
+                        -
+                            name: Delivery
+                            value: delivery
+                        -
+                            name: Tech
+                            value: tech
+                        -
+                            name: News
+                            value: news
+                        -
+                            name: Resources
+                            value: resources
     users:
         -
             login: andyaiken

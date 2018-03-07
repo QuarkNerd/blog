@@ -15,7 +15,7 @@ source: wordpress
 disqus-id: /blog/colin/2009/05/silverlight-cliptobounds-can-i-clip-it-yes-you-can/
 ---
 <p>With Silverlight, Panels do not clip their contents by default. See the following example:</p>
-<p><a href="{{ site.github.url }}/archive/2009/05/noclip.png"><img class="aligncenter size-full wp-image-293" title="noclip" src="{{ site.github.url }}/archive/2009/05/noclip.png" alt="noclip" width="292" height="187" /></a></p>
+<p><a href="{{ site.baseurl }}/archive/2009/05/noclip.png"><img class="aligncenter size-full wp-image-293" title="noclip" src="{{ site.baseurl }}/archive/2009/05/noclip.png" alt="noclip" width="292" height="187" /></a></p>
 <p>Where we have a Grid containing another Grid which itself contains an ellipse, and a Canvas which contains an ellipse:</p>
 {% highlight xml %}
 <Grid x:Name="LayoutRoot" Background="White">
@@ -71,7 +71,7 @@ disqus-id: /blog/colin/2009/05/silverlight-cliptobounds-can-i-clip-it-yes-you-ca
 </UserControl>
 {% endhighlight %}
 <p>The result can be seen below:</p>
-<p><a href="{{ site.github.url }}/archive/2009/05/crop.png"><img src="{{ site.github.url }}/archive/2009/05/crop.png" alt="crop" title="crop" width="277" height="179" class="aligncenter size-full wp-image-296" /></a></p>
+<p><a href="{{ site.baseurl }}/archive/2009/05/crop.png"><img src="{{ site.baseurl }}/archive/2009/05/crop.png" alt="crop" title="crop" width="277" height="179" class="aligncenter size-full wp-image-296" /></a></p>
 <p>And here is the code for the attached behaviour itself:</p>
 {% highlight csharp %}
 public class Clip
@@ -142,8 +142,8 @@ public class Clip
 {% endhighlight %}
 <p>When the <code>ToBounds</code> property is associated with an element, <code>ClipToBounds</code> is invoked to create a rectangular clip geometry. We also add event handlers for <code>Loaded</code>, which is a very useful event which is fired when an element has been laid out and rendered, in other words it's size will have been computed, and <code>SizeChanged</code>. In the event handlers for both we simply update the clipping geometry.</p>
 <p>This can be seen in action here, where clicking on the Grids or Canvas increases their size, with the clipping geometry growing accordingly:</p>
-<div id="slPluginHost"> <object id="SilverlightPlugin" width="300" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.github.url }}/archive/2009/05/silverlightcliptobounds.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
-<p>You can download a demo project here: <a href='{{ site.github.url }}/archive/2009/05/sliverlightcliptobounds.zip'>sliverlightcliptobounds.zip</a></p>
+<div id="slPluginHost"> <object id="SilverlightPlugin" width="300" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2009/05/silverlightcliptobounds.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>You can download a demo project here: <a href='{{ site.baseurl }}/archive/2009/05/sliverlightcliptobounds.zip'>sliverlightcliptobounds.zip</a></p>
 <p>Can I Clip It?, Yes You Can!</p>
 <p>Regards, Colin E.</p>
 

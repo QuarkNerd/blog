@@ -2,31 +2,30 @@
 id: 57
 author: godds
 title: Missing values in Flex charts
-oldlink: "http://www.scottlogic.co.uk/blog/graham/2009/04/missing-values-in-flex-charts/"
+oldlink: 'http://www.scottlogic.co.uk/blog/graham/2009/04/missing-values-in-flex-charts/'
 tags:
   - Flex
   - Charts
   - flex
 categories:
-  - Web
-  - Charting
+  - Tech
 layout: default_post
 source: wordpress
 disqus-id: /blog/graham/2009/04/missing-values-in-flex-charts/
 ---
 <p>An oddness in default behaviour that can throw those new to Flex Charting is that segments in charts that should correspond to a data point are missing.  By this I mean charts like those in the following example:<br /><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="filterdataon" width="600" height="300" align="center" name="filterdataon">
-<param name="movie" value="{{ site.github.url }}/archive/2009/04/filterdataon.swf" />
+<param name="movie" value="{{ site.baseurl }}/archive/2009/04/filterdataon.swf" />
 <!--[if !IE]>-->
-<object type="application/x-shockwave-flash" data="{{ site.github.url }}/archive/2009/04/filterdataon.swf" width="600" height="300" align="center" name="filterdataon">
+<object type="application/x-shockwave-flash" data="{{ site.baseurl }}/archive/2009/04/filterdataon.swf" width="600" height="300" align="center" name="filterdataon">
 <!--<![endif]-->
 <!--[if !IE]>-->
 </object>
 <!--<![endif]-->
 </object>
 <br /> When what is actually desired is the following:<br /><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="filterdataoff" width="600" height="300" align="center" name="filterdataoff">
-<param name="movie" value="{{ site.github.url }}/archive/2009/04/filterdataoff.swf" />
+<param name="movie" value="{{ site.baseurl }}/archive/2009/04/filterdataoff.swf" />
 <!--[if !IE]>-->
-<object type="application/x-shockwave-flash" data="{{ site.github.url }}/archive/2009/04/filterdataoff.swf" width="600" height="300" align="center" name="filterdataoff">
+<object type="application/x-shockwave-flash" data="{{ site.baseurl }}/archive/2009/04/filterdataoff.swf" width="600" height="300" align="center" name="filterdataoff">
 <!--<![endif]-->
 <!--[if !IE]>-->
 </object>
@@ -43,4 +42,4 @@ disqus-id: /blog/graham/2009/04/missing-values-in-flex-charts/
 <p>An approach that can be used to get the best of both worlds is to extend the applicable series class and override the <a href="https://flex.apache.org/asdoc/mx/charts/chartClasses/Series.html#updateFilter()" target="_blank">updateFilter</a> method to ensure that data points that have no bearing on the view of the chart are filtered out, but any others aren't.  This could, for example, amount to filtering out any data points that do not lie in the range of the x-axis and that are not adjacent in the x-axis to a data point that does lie in the range of the x-axis.</p>
 <p>An unfortunate note about the <a href="https://flex.apache.org/asdoc/mx/charts/chartClasses/Series.html#filterData" target="_blank">filterData</a> property is that there is a bug when setting it to <em>false</em> on a <a href="https://flex.apache.org/asdoc/mx/charts/series/LineSeries.html" target="_blank">LineSeries</a> no data tips will show on the series (as can be seen in the example above).  The bug has been <a href="https://issues.apache.org/jira/browse/FLEX-32295" target="_blank">filed with Adobe</a> and has recently been marked fixed, however, the fix has not yet been released.  The <a href="https://issues.apache.org/jira/browse/FLEX-32295" target="_blank">bug report</a> details the relatively simple but somewhat nasty workaround that can be used in the meantime.</p>
 <p>At <a href="http://www.scottlogic.com" target="_blank">Scott Logic</a> the functionality relating to the <a href="https://flex.apache.org/asdoc/mx/charts/chartClasses/Series.html#filterData" target="_blank">filterData</a> property as well as the property itself have been carefully manipulated to produce the various zooming and panning capabilities in our Hindsight application and the research charts available through our Market Overview pages.</p>
-<p>The <a href='{{ site.github.url }}/archive/2009/04/filterdata_source.zip'>source code</a> is now available.</p>
+<p>The <a href='{{ site.baseurl }}/archive/2009/04/filterdata_source.zip'>source code</a> is now available.</p>

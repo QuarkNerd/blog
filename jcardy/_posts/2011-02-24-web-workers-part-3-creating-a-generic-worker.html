@@ -1,16 +1,16 @@
 ---
 id: 108201
 author: jcardy
-title: "Web Workers Part 3: Creating a Generic Worker"
-oldlink: "http://www.scottlogic.co.uk/2011/02/web-workers-part-3-creating-a-generic-worker/"
+title: 'Web Workers Part 3: Creating a Generic Worker'
+oldlink: >-
+  http://www.scottlogic.co.uk/2011/02/web-workers-part-3-creating-a-generic-worker/
 tags:
   - Algorithms
   - Javascript
   - Web Workers
   - blog
 categories:
-  - Web
-  - HTML5
+  - Tech
 layout: default_post
 source: site
 disqus-id: /2011/02/web-workers-part-3-creating-a-generic-worker/
@@ -211,7 +211,7 @@ var findPrimes = function (args) {
 </table>
 <p>In the above tests we can see that execution always takes the same time in a Web Worker as in the UI thread.  In Chrome and Firefox, we see that executing Web Workers concurrently gives a nice performance improvement by taking advantage of multiple CPUs on the user's machine.  These are very positive results, especially considering the overhead in constructing and messaging the Web Workers.</p>
 <h2>Chrome</h2>
-<p>This technique of wrapping Web Workers works really well in Google Chrome, even though, as we saw in <a href="{{ site.github.url }}/2011/02/18/web-workers-part-1-performance">Part 1</a>, Chrome has the largest overhead in constructing a Web Worker object.  As you would expect, Chrome makes use of multiple cores by running the Web Workers in separate threads and we can achieve a good speed-up in performance on multi-core machines vs single-core machines.</p>
+<p>This technique of wrapping Web Workers works really well in Google Chrome, even though, as we saw in <a href="{{ site.baseurl }}/2011/02/18/web-workers-part-1-performance">Part 1</a>, Chrome has the largest overhead in constructing a Web Worker object.  As you would expect, Chrome makes use of multiple cores by running the Web Workers in separate threads and we can achieve a good speed-up in performance on multi-core machines vs single-core machines.</p>
 <h2>Firefox</h2>
 <p>Firefox also has great performance.  There is a good speed-up on multi-core machines, and additionally, Firefox has a low overhead in constructing Web Worker objects.</p>
 <h2>Opera</h2>

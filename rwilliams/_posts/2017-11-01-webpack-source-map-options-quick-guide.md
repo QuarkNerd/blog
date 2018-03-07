@@ -2,10 +2,11 @@
 author: rwilliams
 title: Quick guide to webpack source map options
 layout: default_post
-summary: "A quick guide to the available source map options in webpack, and the considerations for choosing one in different scenarios."
+summary: >-
+  A quick guide to the available source map options in webpack, and the
+  considerations for choosing one in different scenarios.
 categories:
-  - Web
-  - JavaScript
+  - Tech
 ---
 
 The webpack `devtool` configuration option controls source map generation. It has many options, and there are a few things to consider when choosing which one to use in different scenarios. This quick guide introduces the feature/performance differences between each one, and what to consider when choosing.

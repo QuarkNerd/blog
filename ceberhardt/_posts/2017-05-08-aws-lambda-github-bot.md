@@ -76,7 +76,7 @@ This basically maps everything in the request so that it is available via the La
 
 One you've created a Lambda, the AWS console allows you to editing via an online interface, a bit like CodePen, but relatively limited in it's functionality.
 
-<img src="{{ site.github.url }}/ceberhardt/assets/lambda/lambda-edit.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/lambda/lambda-edit.png" />
 
 This interface is fine for familiarising yourself with the basics of Lambdas, allowing you to provide a JSON input and view the callback response and any logging, but the overall workflow soon becomes cumbersome. Also, the editor only allows you to edit single-file Lambdas, they can actually contain multiple files and dependencies as defined via a `package.json` file. For these more complex cases, the interface only gives you the option to upload a ZIP file.
 
@@ -229,17 +229,17 @@ The above code can be tested locally, simply by providing a suitable `event.json
 
 This test payload only contains the properties that the Lambda currently uses. You can see a complete payload example on the [webhook docs page](https://developer.github.com/v3/activity/events/types/#pullrequestevent). The above event adds a bug to issue number #9 on my test repo:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/lambda/added-bug.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/lambda/added-bug.png" />
 
 By deploying this code, every newly opened PR received this label.
 
 A really useful feature of GitHub's webhook interface is that it stores the inputs and outputs of recent invocations. Here is an example of the webhook invocation and its payload:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/lambda/webhook-input.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/lambda/webhook-input.png" />
 
 And here is the corresponding output:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/lambda/webhook-output.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/lambda/webhook-output.png" />
 
 The webhook response is a good place to report errors. Also, in the top-right you'll find a 'Redeliver' which does exactly what it says, redelivers the payload to the webhook URL. This is a really useful feature!
 
@@ -360,7 +360,7 @@ Many other GitHub related services share the above problems. One common solution
 
 In order to do this, you need the user to create an access token with the required privileges. Here's an example showing a token created via the web interface:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/lambda/access-token.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/lambda/access-token.png" />
 
 As you can see, you have a lot of control over the 'scopes' that limit the API access available to a request bearing this token.
 

@@ -3,6 +3,11 @@ author: rrhodes
 title: Team Building, Development, and Go-karting &#58; My Induction Week at Scott Logic
 layout: default_post
 summary: This blog post, written by a graduate developer joining the Edinburgh team, reflects on his induction week experience at Newcastle. A total of sixteen graduates across UX, development, and testing joined this August, and the induction was an ideal opportunity for everyone to meet.
+categories:
+  - Careers
+tags:
+  - featured
+image: rrhodes/assets/featured/bridge_building.jpg
 ---
 In the past three months I’ve experienced a great deal of change. I finished my final exams in May, moved home in June, and graduated in July with a degree in Computer Science and Mathematics. This summer formed a pretty exciting chapter in my life, and by no means was it finished!
 
@@ -17,13 +22,13 @@ The first two days were dedicated to meeting the Newcastle team. We received a r
 
 As well as seeing the Newcastle team, we were keen to meet the other graduates too. In total there were 16 of us joining the graduate programme this August - two from Bristol and six from Newcastle, in addition to the Edinburgh group of eight. We offered a range of experiences and skills which would prove useful not only for work, but for the team building exercises too.
 
-<img src='{{ site.github.url }}/rrhodes/assets/bridge_building.JPG' alt='Building Bridges'/>
+<img src='{{ site.baseurl }}/rrhodes/assets/bridge_building.JPG' alt='Building Bridges'/>
 
 The first of these exercises was to build bridges given a collection of straws and a roll of tape. The task was simple: Whoever built the strongest bridge won! Divided into teams of four, I worked with Heather from the Edinburgh office, and also met Matthew and Elliot from the Bristol and Newcastle offices, respectively. We built ourselves a fine bridge, which was able to hold one of the many textbooks provided to test its strength. Some bridges were stronger, others were prettier. It was great to see the different approaches each team took to building their bridges!
 
 For the second exercise it was crucial to know the company’s core values: Excellence, passion, collaboration, respect, and professionalism. Divided again into groups of four, each team received £5 to spend. Our mission was to buy products which reflected these five values. Working this time with Jamie, Matthew, and Siobhan, we toured Newcastle’s discount stores for cheap goods which satisfied our criteria.
 
-<img src='{{ site.github.url }}/rrhodes/assets/core_values.JPG' alt='Core Values'/>
+<img src='{{ site.baseurl }}/rrhodes/assets/core_values.JPG' alt='Core Values'/>
 
 Our basket in the end held an LED flower, a bucket, a mini tie, and a collection of star stickers. “How on earth do they tie into Scott Logic’s core values?” I hear you ask! Let me try and explain ...
 
@@ -49,7 +54,7 @@ That wraps up the working week. We met a huge number of the Newcastle team throu
 
 The go-karting is likely to be the most memorable moment of the week for me. Before entering the track, I held no experience with karts or driving of any kind. You can imagine the fear in me seeing the track and the karts waiting behind the starting line. With a little encouragement from the other graduates, I convinced myself it would be good to join the race. In the end I found myself really enjoying it, and by some miracle I never drove off the track! Certainly if another opportunity arises to take up go-karts, I’ll be adding my name to the list.
 
-<img src='{{ site.github.url }}/rrhodes/assets/grad_group.jpg' alt='Graduate Group'/>
+<img src='{{ site.baseurl }}/rrhodes/assets/grad_group.jpg' alt='Graduate Group'/>
 
 ### Settling In
 Three weeks later, the Edinburgh graduates have settled into not one, but two offices! We're in the process of re-locating from George Street to Grassmarket in Old Town. Whilst we settle into the new office, we’ve dedicated our time to a range of new technologies. As well as writing this blog post, I’m learning how to use React and Redux to produce views for a trading application. Both of these technologies would often be thrown into conversation when I talked to other developers about their projects, but until now I held little understanding about how they worked. It’s satisfying to better understand this, and gain an insight into why they are so appealing to use.

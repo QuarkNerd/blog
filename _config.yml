@@ -21,12 +21,10 @@ excerpt_separator: ""
 emptyArray: []
 
 exclude:
-    - checkdups
     - CNAME
-    - create-blog-post.sh
     - Gemfile
     - Gemfile.lock
-    - Gruntfile.js
+    - lintPosts.js
     - scss
     - node_modules
     - package.json
@@ -48,8 +46,9 @@ exclude:
 
 #github:
 #    url: http://blog.scottlogic.com
+#    url: http://localhost:4000
 #    owner_name: ScottLogic
-#
+
 
 # Uncomment the lines below to enable requried Jekyll plugins when building locally.
 #gems:

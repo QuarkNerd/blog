@@ -1,11 +1,9 @@
 ---
 author: wferguson
 layout: default_post
-title: "Web Audio API Part 2: Moving to Electron"
+title: 'Web Audio API Part 2: Moving to Electron'
 categories:
-  - Web
-  - D3
-  - HTML5
+  - Tech
 ---
 
 Back in January, I [blogged](http://blog.scottlogic.com/2016/01/06/audio-api-with-d3.html) about using the Web Audio API with D3, creating an app using Knockout and RequireJS. I've since expanded on that application, migrating it to Electron and adding new functionality along the way -- like MP3 tag extraction and recursive folder searching.
@@ -53,7 +51,7 @@ let files = require('./files')(viewModel, audio, visualiser);
 
 One of the bonuses of using Electron exclusively is not needing to use polyfills or transpilation to ensure browser compatibility with IE or older browsers. This is purely a desktop application now, so the code can be tailored to it. I've started using `let`s, `const`s, `() => {}` and `class`es in my new features to celebrate this!
 
-<img src="{{ site.github.url }}/wferguson/assets/audio-2/electron-initial.png" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/wferguson/assets/audio-2/electron-initial.png" style="display: block; margin: auto;"/>
 
 Of course, to make it look a little bit more fancy, I decided to remove the native title bar, which was a simple case of creating an element with the style of `-webkit-app-region: drag;`, and adding the `frame: false` flag when constructing the `BrowserWindow`. Along with this, window controls were added, because it's generally a good idea to let someone close the window. It's a small thing, but worth mentioning, as it's breaking out of the browser sandbox when doing minimisation and maximisation. So, in order to implement it:
 
@@ -112,7 +110,7 @@ There's a quick shallow scan for MP3 files and folders. Then each folder and all
 
 # Tag extraction
 
-<img src="{{ site.github.url }}/wferguson/assets/audio-2/electron.png" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/wferguson/assets/audio-2/electron.png" style="display: block; margin: auto;"/>
 
 MP3s have ID3 tags embedded in them, which specifies information about the song: the artist, title, album, album image, etc. I used the [id3js](https://www.npmjs.com/package/id3js) package for this, for convenience. ID3 extraction isn't something that's Electron specific, as the library also can parse `File` objects, but it's nice to have the extra context in the title of the window. The code to do this is pretty straightforward.
 
@@ -234,17 +232,17 @@ context.fillStyle = null;
 
 It's not too dissimilar to the waveform's code -- the data's still being iterated upon, and a visualisation is produced. The bars are rendered relative to the top-left of the canvas, there's no fancy CSS transforms going on any more. You might have spotted that I've created a gradient for each frequency bar to make it look a little fancier, and having a gradient for each bar makes it a lot easier to pick out peaks in the frequency data:
 
-<img src="{{ site.github.url }}/wferguson/assets/audio-2/frequency-canvas.png" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/wferguson/assets/audio-2/frequency-canvas.png" style="display: block; margin: auto;"/>
 
 # Changes in Performance
 
 In order to get a rough idea of how different it was, I played the same song at the same window size in both SVG and canvas versions. Here's what the Dev Tools says about SVG:
 
-<img src="{{ site.github.url }}/wferguson/assets/audio-2/pre-canvas.png" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/wferguson/assets/audio-2/pre-canvas.png" style="display: block; margin: auto;"/>
 
 That's a lot of red triangles, indicating framerate drops and some jank. I was getting about 50 frames per second on my machine, with subsampled waveform data. And now with canvas...
 
-<img src="{{ site.github.url }}/wferguson/assets/audio-2/post-canvas.png" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/wferguson/assets/audio-2/post-canvas.png" style="display: block; margin: auto;"/>
 
 That's much better! Only a few red triangles. The vast majority of the time, I was getting 60 frames per second with no subsampled waveform data. As an added bonus, there are now no garbage collection incidents, meaning the songs can play uninterrupted with smooth visualisations.
 

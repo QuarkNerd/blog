@@ -1,0 +1,16 @@
+---
+layout: default
+title: Tech
+---
+
+{% assign posts = site.categories["Delivery"] %}
+
+{% for agileposts in site.categories["Agile"] %}
+  {% assign posts = posts | push: agileposts %}
+{% endfor %}
+
+{% if posts %}
+  {% assign posts = posts | sort: 'date' | reverse | uniq %}
+{% endif %}
+
+{% include post_index.html posts=posts categoryName="Delivery" %}

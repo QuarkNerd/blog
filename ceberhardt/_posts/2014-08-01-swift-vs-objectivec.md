@@ -2,13 +2,14 @@
 author: ceberhardt
 title: Swift Adoption Statistics
 categories:
-  - Swift
-  - iOS
-  - Mobile
+  - Tech
 tags: null
-summary: It was just two months ago that Apple took us by surprise in releasing the Swift programming language. This blog post reflects on the first few months of Swift adoption.
+summary: >-
+  It was just two months ago that Apple took us by surprise in releasing the
+  Swift programming language. This blog post reflects on the first few months of
+  Swift adoption.
 layout: default_post
-oldlink: "http://www.scottlogic.com/blog/2014/08/01/swift-vs-objectivec.html"
+oldlink: 'http://www.scottlogic.com/blog/2014/08/01/swift-vs-objectivec.html'
 disqus-id: /2014/08/01/swift-vs-objectivec.html
 ---
 
@@ -31,7 +32,7 @@ These days there are two sites that form the 'backbone' of software development,
 
 Let's start with GitHub. The following chart shows the number of newly created repositories in each language on a daily basis for the past two months:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/SwiftAdoption/GithubRepos.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/SwiftAdoption/GithubRepos.png" />
 
 As you can see, the day after Swift was release, a large number of Swift repos were created as developers raced to create the [first FlappyBirds clone](https://github.com/fullstackio/FlappySwift) or the de-facto utility belt library (a race which [Dollar.Swift](https://github.com/ankurp/Dollar.swift) seems to have won).
 
@@ -45,7 +46,7 @@ One other interesting difference is that Objective-C activity follows a clear we
 
 The number of Swift and Objective-C questions asked on StackOverflow follows a similar pattern:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/SwiftAdoption/SwiftQuestions.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/SwiftAdoption/SwiftQuestions.png" />
 
 Again, a sudden burst of Swift activity, which gradually subsiding to the point where there are roughly 3x as many Objective-C questions than Swift questions asked.
 

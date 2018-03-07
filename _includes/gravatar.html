@@ -1,0 +1,5 @@
+{%- if author.gravatar -%}
+<img src="//www.gravatar.com/avatar/{{ author.gravatar }}" alt="{{ author.name }}"/>
+{%- else -%}
+<img src="{{ site.baseurl }}/assets/avatar.png" alt="{{ author.name }}"/>
+{%- endif -%}

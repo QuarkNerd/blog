@@ -40,7 +40,7 @@ XSS is often classified in terms of the first point above. Here's a currently ac
 3. The server embeds the malicious data in the response, typically HTML but there are other possibilities - it depends on the design of the site. The malicious data appears in the response in a place where the browser (and/or scripts running in the browser) will treat it as active content. This is the 'reflected' bit.
 4. The browser renders (or otherwise processes) the response, running the malicious data as commands. The bad thing (whatever the attack was - e.g. sending user data or session IDs to the attacker) happens.
 
-<img src="{{ site.github.url }}/rsillem/assets/security-xss/reflected-xss.png" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/rsillem/assets/security-xss/reflected-xss.png" style="display: block; margin: auto;"/>
 
 **Stored (aka Persisted) XSS**
 
@@ -49,7 +49,7 @@ XSS is often classified in terms of the first point above. Here's a currently ac
 3. The server embeds the malicious data in the response, typically HTML but there are other possibilities - it depends on the design of the site. The malicious data appears in the response in a place where the browser (and/or scripts running in the browser) will treat it as active content.
 4. The browser renders (or otherwise processes) the response, running the malicious data as commands. The bad thing (whatever the attack was - e.g. sending user data or session IDs to the attacker) happens.
 
-<img src="{{ site.github.url }}/rsillem/assets/security-xss/stored-xss.png" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/rsillem/assets/security-xss/stored-xss.png" style="display: block; margin: auto;"/>
 
 **DOM-based XSS**
 
@@ -57,7 +57,7 @@ XSS is often classified in terms of the first point above. Here's a currently ac
 2. Scripts running in the browser use the malicious data in client-side DOM manipulation, as part of their normal operation.
 3. The browser renders (or otherwise processes) the DOM, running the malicious data as commands. The bad thing (whatever the attack was - e.g. sending user data or session IDs to the attacker) happens.
 
-<img src="{{ site.github.url }}/rsillem/assets/security-xss/DOM-based-xss.png" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/rsillem/assets/security-xss/DOM-based-xss.png" style="display: block; margin: auto;"/>
 
 
 This taxonomy ([Types of Cross-Site Scripting](https://www.owasp.org/index.php/Types_of_Cross-Site_Scripting)) is all about the flow of malicious data, but the picture is made more complex by the variety of ways in which you can abuse the browser - injecting script is obvious, but how about altering CSS to change how controls are presented to the user? This all gets quite deep - for an illustration of just how deep, see 
@@ -134,7 +134,7 @@ Now visit the attacker website and you'll see your session cookie has been harve
 
 Fire up another browser and change your cookie to the session ID you've just harvested in your plugin of choice (EditThisCookie for Chrome, or Advanced Cookie Manager for Firefox). You've just performed a session hijack without a great deal of effort. 
 
-<img src="{{ site.github.url }}/rsillem/assets/security-xss/sessions.PNG" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/rsillem/assets/security-xss/sessions.PNG" style="display: block; margin: auto;"/>
 
 
 Session hijack via DOM-based XSS
@@ -160,7 +160,7 @@ To hijack the session, put your attacker hat on, start the app in another browse
 
 then refresh. That's another session hijack successfully executed.
 
-<img src="{{ site.github.url }}/rsillem/assets/security-xss/sessions2.PNG" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/rsillem/assets/security-xss/sessions2.PNG" style="display: block; margin: auto;"/>
 
 
 Insert a keylogger via Stored XSS
@@ -173,7 +173,7 @@ But, what would happen if we placed a `<script>` tag in? Since it's loaded in wi
 
 It looks like a fairly bland and spammy post, but behind the scenes, the script tag is loaded and the attacker's script is run. Type a few characters, and fire up Dev Tools and the console should show what you've been typing. Now, open up the attacker's site and you'll see that as you type, your keystrokes are being sent to the attacker's site and are updating in real-time. **Everyone** who visits the page is vulnerable. If you've played with BeEF (see above) you may also have come across its Man-In-The-Browser command, which illustrates the fact that this keylogger attack could potentially be extended beyond the confines of the Posts page and into the Login page. Again, we're not going to do that here - we're interested in defending against the XSS vulnerability that opens the door to these attacks.
 
-<img src="{{ site.github.url }}/rsillem/assets/security-xss/keylogger.PNG" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/rsillem/assets/security-xss/keylogger.PNG" style="display: block; margin: auto;"/>
 
 
 Review your data/command flows
@@ -215,7 +215,7 @@ Open up the user guide from the help menu and work through the Getting Started p
 
 Now try an active scan of both sample apps (at 10.10.10.10 and 10.10.10.20). This will take a few minutes, but should reveal  (in the Alerts tab) a bunch of issues, including an XSS vulnerability and the SQL injection vulnerability we already know about from the previous module. It's worth taking a closer look at what it actually found though - a Reflected XSS vulnerability in the Jade\_Express\_MySQL app only, not the stored XSS vulnerability we also know about, nor the DOM-based on on the MEAN_Stack sample. This is because of the way this tool (and similar ones like BurpSuite) work - it can operate as HTTP proxies, but in this case it is hitting known endpoints with GET and POST (as appropriate) requests with fuzz testing payloads. It doesn't know the *sequence* of requests it needs to set up the conditions to trigger the Stored XSS attack.
 
-<img src="{{ site.github.url }}/rsillem/assets/security-xss/zap.PNG" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/rsillem/assets/security-xss/zap.PNG" style="display: block; margin: auto;"/>
 
 It also has no leverage whatsoever on the DOM-based XSS vulnerability in the MEAN_Stack sample, because that attack is entirely client-side, and doesn't involve HTTP requests. I've yet to find any good free tools for finding this kind of vulnerability (ZAP provides some very limited features which don't find the one we have). There is, however a commercial tool, [Dominator Pro](https://dominator.mindedsecurity.com/).
 

@@ -3,9 +3,9 @@ author: tmakarem
 title: "Four tips for achieving successful UX workshops"
 layout: default_post
 categories:
-  - UX
+  - UX Design
 tags:
-  - UX
+  - UX Design
 image: tmakarem/assets/featured/022_Double-Diamond.jpg
 
 summary: "Facilitating UX workshops can be challenging when ideating with non-designers who have not participated in a UX workshop and are sceptical about its value. In this post, I suggest four tips for achieving successful UX workshops and gaining the trust of the more sceptical participants."
@@ -48,7 +48,7 @@ You’re probably familiar with the saying “It’s quality not quantity that c
 
 Every idea at this point is good because we need to diverge before we can converge. This divergent and convergent stages of the design process is what the [British Design Council](http://www.designcouncil.org.uk/) describes as the [Double diamond process](http://www.designcouncil.org.uk/sites/default/files/asset/document/ElevenLessons_Design_Council%20(2).pdf). You come up with as many ideas as you can without limiting yourself before you narrow those ideas down. This allows you to explore different angles and interpretations without getting hung up on a single one.
 
-![The Double Diamond Design Process Model]({{ site.github.url }}/tmakarem/assets/022_Double-Diamond.jpg "The Double Diamond Design Process Model")
+![The Double Diamond Design Process Model]({{ site.baseurl }}/tmakarem/assets/022_Double-Diamond.jpg "The Double Diamond Design Process Model")
 *The Double Diamond Design Process Model*
 
 For divergent thinking to work, you need participants to share all their ideas without self-editing or feeling judged. You need to establish an environment that allows them to feel safe to share ideas whether these ideas are good or bad. How do we build such an environment?

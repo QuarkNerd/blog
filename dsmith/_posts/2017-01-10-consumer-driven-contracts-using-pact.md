@@ -2,12 +2,14 @@
 author: dsmith
 title: Consumer Driven Contracts using Pact
 layout: default_post
-summary: "In this post I will talk about Consumer Driven Contracts in Microservices architectures.  I will also give an example of how to use Pact in a modern JavaScript application."
+summary: >-
+  In this post I will talk about Consumer Driven Contracts in Microservices
+  architectures.  I will also give an example of how to use Pact in a modern
+  JavaScript application.
 tags:
   - featured
 categories:
-  - Web
-  - HTML5
+  - Tech
 image: dsmith/assets/featured/contracts.jpg
 ---
 
@@ -19,7 +21,7 @@ One of the difficulties with achieving independent deployment is that as a syste
 
 A common approach to this problem is to have integration and end-to-end checks which ensure that the system still works as a whole.  Unfortunately these are often slow, unreliable and hard to debug.  Ideally we'd like to check our microservice in isolation which would greatly reduce the complexity .
 
-![Integration and end-to-end checking]({{ site.github.url }}/dsmith/assets/consumer-driven-contracts/integration-end-to-end.png "Integration and end-to-end checking.")
+![Integration and end-to-end checking]({{ site.baseurl }}/dsmith/assets/consumer-driven-contracts/integration-end-to-end.png "Integration and end-to-end checking.")
 
 One way to reduce dependence on integration checking is to use Consumer Driven Contracts or CDCs.  The term consumer in this context refers to any service which uses the API of another.  Conversely services which provide an API are called providers.  A CDC is a form of [specification by example](https://www.thoughtworks.com/insights/blog/specification-example) that is provided by consumers to providers.  The specification usually consists of a set of requests which can be sent to the provider and details of the expected responses.
 
@@ -37,13 +39,13 @@ Probably the most commonly used framework at the minute is called Pact.  This fr
 
 From a consumer perspective Pact acts as a mock HTTP server.  The team that owns the consumer write a set of tests which exercise their code against the mock server and set up expected results from the provider.
 
-![Consumer perspective of Pact]({{ site.github.url }}/dsmith/assets/consumer-driven-contracts/consumer-perspective.png "Consumer perspective of Pact.")
+![Consumer perspective of Pact]({{ site.baseurl }}/dsmith/assets/consumer-driven-contracts/consumer-perspective.png "Consumer perspective of Pact.")
 
 Pact records these request/response pairs and uses them to generate a contract.  The contract consists of the requests sent by the consumer and the required responses from the provider.
 
 To verify this contract is fulfilled Pact replays the consumer's requests against the provider API and ensures that the responses match those expected.
 
-![Provider perspective of Pact]({{ site.github.url }}/dsmith/assets/consumer-driven-contracts/provider-perspective.png "Provider perspective of Pact.")
+![Provider perspective of Pact]({{ site.baseurl }}/dsmith/assets/consumer-driven-contracts/provider-perspective.png "Provider perspective of Pact.")
 
 ## Using Pact JS
 

@@ -6,6 +6,8 @@ summary: In this blog post I'll explore the various different ways you can creat
 image: ceberhardt/assets/featured/mandelbrot.jpg
 categories:
   - JavaScript
+colour: orange
+header-shape: shape3
 ---
 
 In this blog post I'll explore the various different ways you can create WebAssembly (WASM) modules, these include:
@@ -147,7 +149,7 @@ I've created a simple demo page that allows you to view the [Emscripten-generate
 
 Here's a screenshot:
 
-<img class="aligncenter" src="{{ site.github.url }}/ceberhardt/assets/wasm/mandelbrot.png"/>
+<img class="aligncenter" src="{{ site.baseurl }}/ceberhardt/assets/wasm/mandelbrot.png"/>
 
 With Emscripten you can of course compile to asm.js, in this case simply by omitting the `-s WASM=1` option. You can see the [asm.js build in action on the same page](https://colineberhardt.github.io/wasm-mandelbrot/#asm.js).
 
@@ -240,7 +242,7 @@ I also found a much more balanced article that shows a 30% speed increase when [
 
 So how did my various implementations compare? The following graph shows the execution time (lower is better), for the various implementations, benchmarked against a C version (optimised with `-Ofast`), shown as the solid black line.
 
-<img class="aligncenter" src="{{ site.github.url }}/ceberhardt/assets/wasm/performance.png"/>
+<img class="aligncenter" src="{{ site.baseurl }}/ceberhardt/assets/wasm/performance.png"/>
 
 A few things to note:
 

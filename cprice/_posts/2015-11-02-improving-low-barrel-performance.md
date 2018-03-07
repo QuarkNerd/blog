@@ -3,9 +3,7 @@ author: cprice
 layout: default_post
 title: Improving D3 Performance by Embracing the Flux
 categories:
-  - D3
-  - Charting
-  - Flux
+  - Tech
 ---
 
 While [d3fc](http://d3fc.io) (a toolkit of charting components built in the d3 style) embraces the philosophy of simplicity over performance, there's no point in creating a chart with lousy performance. In this post I'll run through some of the tips and tricks for squeezing the best performance out of d3fc without compromising on its flexibility.
@@ -25,7 +23,7 @@ If we're to avoid this, that means we're aiming to render the chart completely f
 
 Before diving in, let's quickly review what the performance is like currently and how a chart is typically rendered in d3fc. Chrome's Timeline view is a good place to see what the performance is currently like -
 
-<img src="{{ site.github.url }}/cprice/assets/low-barrel/timeline-0.png" alt="Chrome's Timeline" width="878"/>
+<img src="{{ site.baseurl }}/cprice/assets/low-barrel/timeline-0.png" alt="Chrome's Timeline" width="878"/>
 
 Not good! A few things to note -
 
@@ -227,6 +225,6 @@ This could be considered a cheat based on the initial requirements of rendering 
 
 There are still some performance issues I'd like to investigate on older browsers and certain mobile platforms, but it renders much more consistently at 60fps on most platforms/browsers.
 
-<img src="{{ site.github.url }}/cprice/assets/low-barrel/timeline-1.png" alt="Chrome's Timeline" width="878"/>
+<img src="{{ site.baseurl }}/cprice/assets/low-barrel/timeline-1.png" alt="Chrome's Timeline" width="878"/>
 
 I've got some more ideas around further improving performance by embracing more ideas from the Flux ecosystem, specifically around Immutable.js, but as we've hit the target I'm going to save those for another day. If you're interested in the specific changes I made to improve the low barrel example, they're available on this [pull request](https://github.com/ScottLogic/d3fc/pull/636/commits).

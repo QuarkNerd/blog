@@ -1,12 +1,12 @@
 ---
 author: nowen
 title: First look at Polymer 3.0
-summary: "I'll be taking a first look at Polymer 3.0, including how to integrate other technologies, as well as comparing it with other front-end frameworks."
+summary: >-
+  I'll be taking a first look at Polymer 3.0, including how to integrate other
+  technologies, as well as comparing it with other front-end frameworks.
 layout: default_post
 categories:
-  - HTML5
-  - javascript
-  - Web
+  - Tech
 ---
 
 [Polymer 3.0](https://www.polymer-project.org/blog/2017-08-22-npm-modules) was announced over the summer, introducing a whole raft of changes to modernise a Polymer developer's workflow and provide a consistent toolset more in line with other major JavaScript frameworks.
@@ -170,7 +170,7 @@ To me this looks incredibly similar to a corresponding Angular page. The naming 
 
 Loading this up in Chrome we see
 
-<img src="{{ site.github.url }}/nowen/assets/polymer3/semantic-components-page-polymer3.jpg" alt="Polymer 3.0 page" />
+<img src="{{ site.baseurl }}/nowen/assets/polymer3/semantic-components-page-polymer3.jpg" alt="Polymer 3.0 page" />
 
 It goes to show how Polymer's shifting to ES6 and away from HTML imports can dramatically change the code presentation to be much closer with other frameworks. The Polymer team themselves admit that HTML imports have not "gotten traction", and ES6 is now supported in most of the major browsers.
 

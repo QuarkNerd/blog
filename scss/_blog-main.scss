@@ -1,0 +1,144 @@
+@import "blog-external";
+
+$light-grey: #f9f9fb;
+$font-grey: #b6b6b6;
+$turquoise: #1eb2bb;
+$orange-yellow: #f7c25b;
+
+$max-width: 1400px;
+
+$baseFontSize: 16px;
+$monospaceFontSize: $baseFontSize * 0.9;
+$smallLayoutUnit: 5px;
+$layoutUnit: 10px;
+
+
+html, body {
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 0;
+}
+
+html {
+    background-color: $white;
+}
+
+body {
+    background-color: $white;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+    font-weight: $font-bold;
+}
+
+a:hover {
+  color: $turquoise;
+}
+
+h1 {
+	font-size: $baseFontSize * 2.5;
+  font-weight: $font-bold;
+  text-align: center;
+}
+
+h2 {
+  font-size: $baseFontSize * 1.5;
+}
+
+h3 {
+	font-size: $baseFontSize * 1.25;
+}
+
+h4 {
+  font-size: $baseFontSize;
+  font-weight: $font-bold;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+}
+
+header nav {
+  ul {
+    padding: 0;
+    list-style: none;
+    text-align: right;
+    justify-content: flex-end;
+
+    li {
+      display: inline-block;
+    }
+  }
+}
+
+.header-nav_bottom {
+
+  li {
+    padding-left: 1.25rem;
+  }
+
+  .menu a {
+    padding: 0 0 2.1875rem 0;
+
+    display: block;
+    border-bottom: 5px solid transparent;
+  }
+
+  li:nth-child(1),  li:nth-child(4) {
+    a:hover, a.active {
+      color: $black;
+      border-bottom: 5px solid $pink;
+    }
+  }
+
+  li:nth-child(2) {
+    a:hover, a.active {
+      color: $black;
+      border-bottom: 5px solid $turquoise;
+    }
+  }
+
+  li:nth-child(3) {
+    a:hover, a.active {
+      color: $black;
+      border-bottom: 5px solid $orange;
+    }
+  }
+}
+
+.category > a {
+  font-weight: $font-light;
+}
+
+.header-nav_top {
+  ul {
+    margin: 0.625rem 0  0.625rem 0;
+  }
+
+  li {
+    font-size: 0.6875rem;
+    padding-left: 0.625rem;
+  }
+
+  a {
+    font-size: 0.6875rem;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding: 0 0 0.0625rem 0;
+  }
+
+  a:hover {
+    color: $black;
+    border-bottom: 1px solid $black;
+    padding-bottom: 0.0625rem;
+  }
+}

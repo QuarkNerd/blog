@@ -4,8 +4,6 @@ title: Service discovery with Docker Swarm
 layout: default_post
 image: dwybourn/assets/featured/swarm.png
 categories:
-  - Docker
-  - DevOps
   - Data
 ---
 For the last few months we've been working on a very DevOps focused project. As such we've used AWS, infrastructure as code, Docker and microservices. The different microservices were initially running all on one box, each with a different port. This solution wasn't scalable or very practical. We couldn't have all our services on one machine and it was getting tiresome and error prone having to remember/lookup which port each service was on. We needed our services to run on separate machines, and we needed a way to communicate with them without having to hard-code IP addresses or port numbers. What we needed was service discovery. As we had already been using Docker for each service, Docker Swarm was a natural candidate.
@@ -27,7 +25,7 @@ Each Swarm needs a key-value store, this acts like a DNS server and stores the l
 
 The Docker hosts are the machines with Docker running that will run our services. Each host has a Swarm agent running on it that advertises its IP address and other attributes to consul.
 
-<img src="{{ site.github.url }}/dwybourn/assets/DockerSwarm/swarm.png"/>
+<img src="{{ site.baseurl }}/dwybourn/assets/DockerSwarm/swarm.png"/>
 
 ### Scheduling
 Swarm can use different [strategies](https://docs.docker.com/swarm/scheduler/strategy/) to determine where to put a node, these are:
@@ -107,7 +105,7 @@ Now with the overlay network up and running, the only thing left to do is run th
 
 Now with all the services running, let's have a look at the services by running `docker ps` . You should see something like this:
 
-<img src="{{ site.github.url }}/dwybourn/assets/DockerSwarm/docker_ps_output.png"/>
+<img src="{{ site.baseurl }}/dwybourn/assets/DockerSwarm/docker_ps_output.png"/>
 
 The services have been spread out evenly with one service per node. As mentioned earlier, the default scheduling strategy is spread, if we added `--strategy=binpack` when creating the swarm master, we'd see all of the services running on a single host.
 

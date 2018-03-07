@@ -3,7 +3,7 @@ author: cgrant
 title: 2D Game Development with SpriteKit
 image: cgrant/assets/featured/FirstSquadron.png
 tags: null
-categories: []
+categories:  [ 'Tech' ]
 summary: Explaining the very basics of getting a simple 2D fighter plane game up and running with SpriteKit
 layout: default_post
 oldlink: "http://www.scottlogic.com/blog/2013/09/25/2D-Game-Development-With-SpriteKit.html"

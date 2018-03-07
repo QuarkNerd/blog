@@ -2,23 +2,21 @@
 id: 1050
 author: ceberhardt
 title: A Simplified Grid Markup for Silverlight and WPF
-oldlink: "http://www.scottlogic.co.uk/blog/colin/2010/12/a-simplified-grid-markup-for-silverlight-and-wpf/"
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2010/12/a-simplified-grid-markup-for-silverlight-and-wpf/
 tags:
   - attached behaviour
   - grid
   - codeproject
 categories:
-  - WPF
-  - .NET
-  - Web
-  - C#
+  - Tech
 layout: default_post
 source: wordpress
 disqus-id: /blog/colin/2010/12/a-simplified-grid-markup-for-silverlight-and-wpf/
 ---
 <p><em>The WPF / Silverlight syntax is long and cumbersome. This blog post describe a simple attached property that allows you to specify row and column widths / heights as a simple comma separated list, e.g. RowDefinitions="Auto,,3*,,,,2*"</em></p>
 <p>The Grid is probably one of the most useful and versatile layouts that Silverlight and WPF offers. However, if you hand craft your XAML, as I do, you will probably start to find the Grid markup for defining rows and columns to be verbose and cumbersome. If we look at the following example, which uses a mixture of Auto, Star and Pixel widths / heights:</p>
-<p><img class="aligncenter size-full wp-image-1051" title="gridExample" src="{{ site.github.url }}/archive/2010/12/gridExample.png" alt="" width="290" height="241" /></p>
+<p><img class="aligncenter size-full wp-image-1051" title="gridExample" src="{{ site.baseurl }}/archive/2010/12/gridExample.png" alt="" width="290" height="241" /></p>
 <p>Despite this being a simple example, the required row and column definitions are highly verbose:</p>
 {% highlight xml %}
 <Grid>
@@ -250,6 +248,6 @@ namespace SimplifiedGrid
 
 {% endhighlight %}
 <p>The code which parses the row and column strings is also executed by the Visual Studio designer, so you can see your new rows / columns immediately. It also works just fine in WPF and Silverlight.</p>
-<p>You can download example projects in both technologies: <a href='{{ site.github.url }}/archive/2010/12/SimplifiedGrid.zip'>SimplfiedGrid.zip</a></p>
+<p>You can download example projects in both technologies: <a href='{{ site.baseurl }}/archive/2010/12/SimplifiedGrid.zip'>SimplfiedGrid.zip</a></p>
 <p>(Thanks to Rob Newsome for coming up with this idea in the first place!)</p>
 <p>Regards, Colin E.</p>

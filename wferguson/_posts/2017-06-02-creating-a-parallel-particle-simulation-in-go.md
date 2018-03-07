@@ -3,8 +3,7 @@ author: wferguson
 layout: default_post
 title: "Creating a Parallel Particle Simulation in Go"
 categories:
-  - Go
-  - Data
+  - Tech
 summary: "Following on from my previous blog post where I created a simple particle simulation using Go, I looked at adding some complexity."
 ---
 
@@ -55,13 +54,13 @@ The gravity approach in the previous post was great for parallelisation as the p
 
 As previously mentioned, the formula is essentially `force = 1 / (distance between particles squared)`. If that were to be plotted on a chart, it would look like:
 
-<img src="{{ site.github.url }}/wferguson/assets/parallel-particles/onedivxsquared.png" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/wferguson/assets/parallel-particles/onedivxsquared.png" style="display: block; margin: auto;"/>
 
 As can be seen, the line tends towards 0 with higher distance. Therefore, particles very far away would have a very minor (almost negligible) effect on the velocities. These particles can be discarded from a particular particle's calculations.
 
 The way I approached this was dividing the cube where particles are bound into smaller "subcubes". Each subcube represents all particles within a given volume of the larger cube. When calculating the forces acting upon each particle, all particles within that cube and a certain number of neighbouring cubes were assessed. The below image may help:
 
-<img src="{{ site.github.url }}/wferguson/assets/parallel-particles/particleboxes.png" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/wferguson/assets/parallel-particles/particleboxes.png" style="display: block; margin: auto;"/>
 
 Dividing the particles this way means that not all of the particles are passed to each thread, meaning an iteration is cheaper and faster.
 

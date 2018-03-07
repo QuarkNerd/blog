@@ -2,12 +2,14 @@
 author: sking
 title: An animated chart with HTML5 Canvas
 layout: default_post
+categories:
+  - Careers
 ---
 {:center: style="text-align: center"}
 
 For the past few weeks, Laurie Collingwood and myself have been working on a prototype banking app with an animated graph. In this post we’ll discuss some of what we’ve learned during the project and talk generally about animation with HTML5 canvas.  
 
-![Banking App]({{ site.github.url }}/sking/assets/2016-05-23-an-animated-chart-with-html5-canvas/banking.gif)
+![Banking App]({{ site.baseurl }}/sking/assets/2016-05-23-an-animated-chart-with-html5-canvas/banking.gif)
 {:center}
 
 Designed by Scott Logic’s UX team, the app gives the user more information about their spending, utilising animation to demonstrate the relationship between their transactions and their budget.

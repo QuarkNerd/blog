@@ -9,7 +9,7 @@ categories:
 
 The ng-style directive is used to apply inline styles to an element. Using it to apply a width and a height to an element containing a [ui-grid](http://ui-grid.info/) will cause the grid to be incorrectly sized. The container element is the one with the red border below.
 
-<img src='{{ site.github.url }}/rwilliams/assets/2015-07-10-ng-style/problem.png' title="Incorrectly sized grid" />
+<img src='{{ site.baseurl }}/rwilliams/assets/2015-07-10-ng-style/problem.png' title="Incorrectly sized grid" />
 
 This problem can occur when any advanced component that does some internal programmatic styling is used as a descendant of an ng-styled element. It's caused by the container element not having its styles applied when the grid is initialised, due to the order in which Angular runs the different initialisation phases of directives.
 
@@ -53,7 +53,7 @@ The only other difference compared to [ng-style](https://github.com/angular/angu
 
 After replacing `ng-style` with `sl-ng-style-prelink` in our view, the grid now renders correctly within the container:
 
-<img src='{{ site.github.url }}/rwilliams/assets/2015-07-10-ng-style/solution.png' title="Correctly sized grid" />
+<img src='{{ site.baseurl }}/rwilliams/assets/2015-07-10-ng-style/solution.png' title="Correctly sized grid" />
 
 Take a look at [this Plunker](http://plnkr.co/edit/67VByRQK65GoLdAlkZb2?p=preview) for the surrounding code and live demo.
 

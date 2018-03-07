@@ -5,7 +5,7 @@ image: godds/assets/featured/recommended-reading.png
 tags:
   - featured
 categories:
-  - UX
+  - UX Design
 layout: default_post
 ---
 
@@ -15,7 +15,7 @@ I am often asked for recommended reading on design by people from all sorts of d
 
 In no particular order:
 
-<img src="{{ site.github.url }}/godds/assets/recommended-reading.png" />
+<img src="{{ site.baseurl }}/godds/assets/recommended-reading.png" />
 
 [**Thinking, Fast and Slow**](http://www.amazon.co.uk/Thinking-Fast-Slow-Daniel-Kahneman/dp/0141033576/) by Daniel Kahneman  
 Daniel Kahneman is a Nobel-prize winning cognitive psychologist who has done extensive work on the psychology of judgement and decision-making. Thinking, Fast and Slow presents numerous insights into how humans think by summarising much of the research he has conducted. As designers creating systems for humans, there is no more valuable understanding than that of our own thinking processes.
@@ -48,5 +48,5 @@ The Arrival is a wordless migrant story of such beauty that it can't fail to lea
 I spent so many hours pouring over Trouble For Trumpets' illustrations as a child that I had to buy a new copy (not a straightforward task, given its fairly limited print) as a teenager due to the original falling to pieces. What makes this book stand out is its incredible attention to detail. An entire universe is communicated down to the tiniest minutiae in a mere 32 pages without ever distracting from the story. Every illustration contains dozens of mini-stories and many are annotated to call out the names of characters, plants, weapons and other details. As a designer, it reminds me that no matter how mundane a project might initially seem, putting your soul into it and paying attention to every little detail will elevate it to something special.
 
 <a src="http://petercrossart.com/books/trumpets/trouble-for-trumpets/">
-  <img src="{{ site.github.url }}/godds/assets/recommended-reading-trumpets.jpg" />
+  <img src="{{ site.baseurl }}/godds/assets/recommended-reading-trumpets.jpg" />
 </a>

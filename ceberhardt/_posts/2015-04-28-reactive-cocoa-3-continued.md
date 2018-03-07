@@ -2,11 +2,14 @@
 author: ceberhardt
 title: ReactiveCocoa 3.0 - Signal Producers and API clarity
 layout: default_post
-summary: "My previous blog post took a first look at ReactiveCocoa 3.0 (RC3), where I described the new Signal interface, and the pipe forward operator. In this blog post I continue my exploration of the RC3 APIs and turn my attention to signal producers. I also discuss a few points around the overall clarity of the new ReactiveCocoa APIs."
+summary: >-
+  My previous blog post took a first look at ReactiveCocoa 3.0 (RC3), where I
+  described the new Signal interface, and the pipe forward operator. In this
+  blog post I continue my exploration of the RC3 APIs and turn my attention to
+  signal producers. I also discuss a few points around the overall clarity of
+  the new ReactiveCocoa APIs.
 categories:
-  - iOS
-  - Swift
-  - Mobile
+  - Tech
 ---
 
 
@@ -193,7 +196,7 @@ Emitting a next event
 
 Using Xcode you can confirm that the original signal producer of type `SignalProducer<String, NoError>` has become a producer of type `SignalProducer<Int, NoError>`:
 
-<img src="{{ site.github.url }}/ceberhardt/assets/rac3/producer.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/rac3/producer.png" />
 
 Which is pretty cool! Although it gets better ...
 

@@ -32,13 +32,13 @@ I wanted to build a sample application using both tools. It had to be simple eno
 I chose a simple investment portfolio, showing a list of investments with transactions, and some related charts. You can filter the investments by name, and can also click through on each investment to view additional details.
 The finished project is on GitHub: <a href="https://github.com/DevAndyLee/Angular-vs-Knockout/">Angular-vs-Knockout</a>, with a live demo of both versions of the app here:
 
-The <a href="{{ site.github.url }}/alee/assets/spa-an-ko/Knockout/index.html" target="_blank">Knockout version</a>, and the
-<a href="{{ site.github.url }}/alee/assets/spa-an-ko/Angular/index.html" target="_blank">Angular version</a>.
+The <a href="{{ site.baseurl }}/alee/assets/spa-an-ko/Knockout/index.html" target="_blank">Knockout version</a>, and the
+<a href="{{ site.baseurl }}/alee/assets/spa-an-ko/Angular/index.html" target="_blank">Angular version</a>.
 
 Try entering text into the filter box, and clicking on individual investments. Here's an example screenshot (the Knockout and Angular versions look identical, other than the title):
 
-<a href="{{ site.github.url }}/alee/assets/spa-an-ko/Knockout/index.html" target="_blank">
-	<img src="{{ site.github.url }}/alee/assets/spa-an-ko/SampleApp.png"/>
+<a href="{{ site.baseurl }}/alee/assets/spa-an-ko/Knockout/index.html" target="_blank">
+	<img src="{{ site.baseurl }}/alee/assets/spa-an-ko/SampleApp.png"/>
 </a>
 
 ## Getting Started
@@ -111,7 +111,7 @@ The view uses the 'component' binding to render the correct component based on t
 
 I want to build the home page up from loosely coupled components, but they must still talk to each other. For example, when I type in the search text box, the other components should automatically update themselves.
 
-<img src="{{ site.github.url }}/alee/assets/spa-an-ko/PropogateFilter.png"/>
+<img src="{{ site.baseurl }}/alee/assets/spa-an-ko/PropogateFilter.png"/>
 
 
 In both projects I've created a "searchModel" object to represent the filter specification (in this case just a simple text query on the investment name). The searchModel is a service that can be injected into the home page, and passed to each of the components as a parameter.
@@ -432,12 +432,12 @@ Here's a quick taste of a Gulp task that replaces the css and JavaScript links i
 
 My Knockout application now only needs four minified files (the glyph-icons are just there for the icon in the filter box):
 
-<img src="{{ site.github.url }}/alee/assets/spa-an-ko/ServedFilesKO.png"/>
+<img src="{{ site.baseurl }}/alee/assets/spa-an-ko/ServedFilesKO.png"/>
 
 
 The Angular project didn't have any of this, so I decided to create my own using Gulp. It's easy enough to package together all the JavaScript files and minify them, but that still leaves all the partials (several of which need to be downloaded for the home page thanks to the components). Luckily there are solutions to this problem. I used gulp-angular-templatecache to preload the templates and insert them into Angular's TemplateCache, so that it doesn't have to download them. The resulting JavaScript file can then be bundled with the others. In a similar approach to the Knockout project, I have only bundled the partials needed for the home page, so the others are loaded on demand. This isn't quite as good as the Knockout version, since we still have to load all the JavaScript for the application in one bundle, but it should still help a bit in a large application.
 
-<img src="{{ site.github.url }}/alee/assets/spa-an-ko/ServedFilesAN.png"/>
+<img src="{{ site.baseurl }}/alee/assets/spa-an-ko/ServedFilesAN.png"/>
 
 
 ## Animation

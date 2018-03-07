@@ -11,7 +11,7 @@ Pebble [recently released](https://developer.pebble.com/blog/2016/08/30/announci
 
 Conveniently, Pebble have a [cloud-based development platform](https://cloudpebble.net/) that makes use of virtual machines and also your own watch to develop apps. There's some particularly nice features in there, such as being able to take a screenshot of your watch, which came in handy for showing what the watch face looks like!
 
-<img src="{{ site.github.url }}/wferguson/assets/pebble-watchface/watchface.png" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/wferguson/assets/pebble-watchface/watchface.png" style="display: block; margin: auto;"/>
 
 Getting started using CloudPebble was straightforward. It was a case of creating a Rocky.js project and creating the `index.js` file, and I was good to go. Starting off rather simply, Rocky.js, which is the library used for rendering and communication, needed to be loaded:
 

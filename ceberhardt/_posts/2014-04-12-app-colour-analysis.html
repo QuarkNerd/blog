@@ -41,9 +41,9 @@ disqus-id: /2014/04/12/app-colour-analysis.html
 
 </style>
 
-<script src="{{ site.github.url }}/ceberhardt/assets/app-store-analysis/d3.min.js"></script>
-<script src="{{ site.github.url }}/ceberhardt/assets/app-store-analysis/es5-shim.min.js"></script>
-<script src="{{ site.github.url }}/ceberhardt/assets/app-store-analysis/modernizr.custom.57943.js"></script>
+<script src="{{ site.baseurl }}/ceberhardt/assets/app-store-analysis/d3.min.js"></script>
+<script src="{{ site.baseurl }}/ceberhardt/assets/app-store-analysis/es5-shim.min.js"></script>
+<script src="{{ site.baseurl }}/ceberhardt/assets/app-store-analysis/modernizr.custom.57943.js"></script>
 <script>
 
 function createBarChart(id, data) {
@@ -199,11 +199,11 @@ if (!Modernizr.svg) {
 
 <p>As a quick taster, the image below shows the hue histogram plotted from all the screenshots I analysed:</p>
 
-<img src="{{ site.github.url }}/ceberhardt/assets/app-store-analysis/color_chart.png" />
+<img src="{{ site.baseurl }}/ceberhardt/assets/app-store-analysis/color_chart.png" />
 
 <h2>Introduction</h2>
 
-<p>A couple of weeks ago I <a href="{{ site.github.url }}/2014/03/20/app-store-analysis.html">published a blog post</a>
+<p>A couple of weeks ago I <a href="{{ site.baseurl }}/2014/03/20/app-store-analysis.html">published a blog post</a>
     which showed the results of my analysis of 75,000 apps from the Apple App Store. I used the Search API in order to download the app meta-data
     in JSON format. This time I went a step further, downloading every screenshot from this selection of 75,000 apps, giving me an impressive 25GBytes of data to analyse.</p>
 

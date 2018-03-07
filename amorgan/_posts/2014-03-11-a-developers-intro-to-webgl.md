@@ -18,7 +18,7 @@ There are tons of great resources out there to introduce the key concepts behind
 
 Basically, all graphics in WebGL are made up of vertices and fragments. Vertices are what you might expect; points with x, y and z coordinates defining their position. Fragments are in essence the individual pixels within triangles of vertices.
 
-<img src="{{ site.github.url }}/amorgan/assets/shaders.jpg" alt="vertices and fragments"/>        
+<img src="{{ site.baseurl }}/amorgan/assets/shaders.jpg" alt="vertices and fragments"/>        
 <br>
 <br>
 So, to render a 3D image with WebGL, we essentially build up the image out of triangles. We tell WebGL where we want each vertex, how we want the vertices to be connected into triangles, and how we want both the vertices and the fragments between them to be shaded.

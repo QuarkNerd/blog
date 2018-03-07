@@ -2,23 +2,22 @@
 id: 914
 author: ceberhardt
 title: Visiblox Charts vs. Silverlight Toolkit Charts - a test of Performance
-oldlink: "http://www.scottlogic.co.uk/blog/colin/2010/11/visiblox-charts-vs-silverlight-toolkit-charts-a-test-of-performance-2/"
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2010/11/visiblox-charts-vs-silverlight-toolkit-charts-a-test-of-performance-2/
 tags:
   - charts
   - visiblox
   - performance
   - blog
 categories:
-  - Web
-  - Charting
-  - WPF
-  - C#
+  - Tech
 layout: default_post
 source: wordpress
-disqus-id: /blog/colin/2010/11/visiblox-charts-vs-silverlight-toolkit-charts-a-test-of-performance-2/
+disqus-id: >-
+  /blog/colin/2010/11/visiblox-charts-vs-silverlight-toolkit-charts-a-test-of-performance-2/
 ---
 <p><em>This blog post compares the performance of the Visiblox and Silverlight Toolkit charts using a simple image processing tool to test and illustrate their differences in performance. The results show that the Visiblox charts are approximately 50 - 100 times faster that the Silverlight Toolkit charts.</em></p>
-<div style="background-color:#ddd; margin:10px; padding:20px;"><b>UPDATE:</b> I have published a more up-to-date and <a href="{{ site.github.url }}/2012/04/24/wpf-charting-performance-comparisons-the-battle-continues">extensive test of WPF charting components in a more recent blog post</a>. This new test looks at how raster-graphics can be used to significantly enhance performance.</div>
+<div style="background-color:#ddd; margin:10px; padding:20px;"><b>UPDATE:</b> I have published a more up-to-date and <a href="{{ site.baseurl }}/2012/04/24/wpf-charting-performance-comparisons-the-battle-continues">extensive test of WPF charting components in a more recent blog post</a>. This new test looks at how raster-graphics can be used to significantly enhance performance.</div>
 <p>I was recently asked by my friends at <a href="http://www.visiblox.com/">Visiblox</a> to test out the latest release of their charts for WPF and Silverlight. One of the key features of the Visiblox charts is their performance; they have been designed to both render and update rapidly in response to changes in the underlying data. I decided to put their latest release to the test in a head-to-head against the Silverlight Toolkit charts.</p>
 <p>Microsoft announced the release of the Silverlight Toolkit charts in late 2008 and have since released a number of updates, some of which have <a href="http://blogs.msdn.com/b/delay/archive/2009/03/19/silverlight-charting-is-faster-and-better-than-ever-silverlight-toolkit-march-09-release-now-available.aspx">focussed on performance</a>. I would anticipate that the relatively mature Silverlight Toolkit charts are probably most developer's first choice when they need to display data graphically within their application.</p>
 <p>Before we get into the details of my investigation, here are the two applications working side-by-side, one using the Visiblox chart and the other using the Toolkit charts. Click and drag a line across the image to plot the RGB pixel intensities along the line in the chart above. This is a reasonably tough challenge for the chart, with three series rendered of up to 400 points each. From the examples below you can see that the Visiblox charts are clearly faster.</p>
@@ -29,15 +28,15 @@ disqus-id: /blog/colin/2010/11/visiblox-charts-vs-silverlight-toolkit-charts-a-t
 </tr>
 <tr>
 <td>
-<div style="text-align: center; "><object width="300" height="430" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.github.url }}/archive/2010/11/HistogramVisiblox.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div style="text-align: center; "><object width="300" height="430" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/11/HistogramVisiblox.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 </td>
 <td>
-<div style="text-align: center; "><object width="300" height="430" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.github.url }}/archive/2010/10/HistogramToolkit.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<div style="text-align: center; "><object width="300" height="430" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/10/HistogramToolkit.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
 </td>
 </tr>
 </table>
 <p><small>[Hare image used under CC licence from <a href="http://www.flickr.com/photos/heliocentric/2643028940/">flickr</a>, tortoise used royalty free from <a href="http://www.sxc.hu/photo/695928">stock.xchng</a>]</small></p>
-<p>I have had quite a bit of experience with the Silverlight Toolkit in the past and have written a few blog posts which detail how to <a href="{{ site.github.url }}/2009/03/23/adding-a-location-crosshair-to-silverlight-charts-again">add interactivity to the charts</a>. The early releases were pretty slow, due to the large number of 'Control' instances that the chart constructs, (there are un-official guidelines that you should limit the number of control instances to a few hundred for WPF & Silverlight). However, subsequent releases were quite a bit faster. David Anson also published a number of very useful hints and tips on <a href="http://blogs.msdn.com/b/delay/archive/2010/01/13/i-feel-the-need-the-need-for-speed-seven-simple-performance-boosting-tweaks-for-common-silverlight-wpf-charting-scenarios.aspx">maximising chart performance</a> on his blog. I have followed all of David's guidelines to provide a fair comparison.</p>
+<p>I have had quite a bit of experience with the Silverlight Toolkit in the past and have written a few blog posts which detail how to <a href="{{ site.baseurl }}/2009/03/23/adding-a-location-crosshair-to-silverlight-charts-again">add interactivity to the charts</a>. The early releases were pretty slow, due to the large number of 'Control' instances that the chart constructs, (there are un-official guidelines that you should limit the number of control instances to a few hundred for WPF & Silverlight). However, subsequent releases were quite a bit faster. David Anson also published a number of very useful hints and tips on <a href="http://blogs.msdn.com/b/delay/archive/2010/01/13/i-feel-the-need-the-need-for-speed-seven-simple-performance-boosting-tweaks-for-common-silverlight-wpf-charting-scenarios.aspx">maximising chart performance</a> on his blog. I have followed all of David's guidelines to provide a fair comparison.</p>
 <p>The following sections will provide a little more detail regarding the implementation of this application and how it differs between the Visiblox and Toolkit versions.</p>
 <h2>Visiblox Charts</h2>
 <p>The markup for the above application is quite simple:</p>
@@ -85,7 +84,7 @@ disqus-id: /blog/colin/2010/11/visiblox-charts-vs-silverlight-toolkit-charts-a-t
 
 </StackPanel>
 {% endhighlight %}
-<p>The above markup constructs a Chart, Image and a Line within a <code>StackPanel</code>. The code-behind loads the image into a <code>WriteableBitmap</code> in order to access its pixel values, and the mouse event handlers attached to the grid are used to detect when the user drags the line. The technique I published previously on <a href="{{ site.github.url }}/2010/06/14/throttling-silverlight-mouse-events-to-keep-the-ui-responsive">throttling mouse events</a> is used to handle the mouse move event in order to construct the chart data:</p>
+<p>The above markup constructs a Chart, Image and a Line within a <code>StackPanel</code>. The code-behind loads the image into a <code>WriteableBitmap</code> in order to access its pixel values, and the mouse event handlers attached to the grid are used to detect when the user drags the line. The technique I published previously on <a href="{{ site.baseurl }}/2010/06/14/throttling-silverlight-mouse-events-to-keep-the-ui-responsive">throttling mouse events</a> is used to handle the mouse move event in order to construct the chart data:</p>
 {% highlight csharp %}
 private void ThrottledEvent_ThrottledMouseMove(object sender, MouseEventArgs e)
 {
@@ -279,6 +278,6 @@ public class DataPoint
 <li><strong>Databinding as an option</strong> - with Visiblox it is possible to present the data directly to the chart using the DataSeries class, whilst with the Toolkit charts you have to use databinding which brings with it a performance overhead. Again, with Visiblox you can use databinding to business objects if you wish. With the above Visiblox example application the performance is approximately halved by using databinding, this is still 25-50 times faster than the toolkit charts! (The sourcecode download includes the databinding Visiblox vesion).</li>
 <li><strong>Optimised handling of changes</strong> - the Visiblox charts are optimised in such a way as to minimise the impact of changes in the data or other properties of the chart. You can update datapoints, entire series, or change the various properties of an axis and be guaranteed that the chart will only re-computed its layout once.</li>
 </ol>
-<p>You can download the full sourcecode for the example applications given in this blog post here: <a href='{{ site.github.url }}/archive/2010/10/ChartPerformance.zip'>ChartPerformance.zip</a></p>
+<p>You can download the full sourcecode for the example applications given in this blog post here: <a href='{{ site.baseurl }}/archive/2010/10/ChartPerformance.zip'>ChartPerformance.zip</a></p>
 <p>For the Visiblox examples you will need to visit <a href="http://www.visiblox.com/">www.visiblox.com</a> to download their chart component, and for the Toolkit examples you will need to download and install the <a href="http://silverlight.codeplex.com/">Silverlight Toolkit</a>.</p>
 <p>Regards, Colin E.</p>

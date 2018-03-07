@@ -15,7 +15,7 @@ categories:
 layout: default_post
 ---
 
-<img src="{{ site.github.url }}/rhamilton/assets/lonelytester.jpg" alt="lonely testers are sad" title="lonely testers are sad"/>
+<img src="{{ site.baseurl }}/rhamilton/assets/lonelytester.jpg" alt="lonely testers are sad" title="lonely testers are sad"/>
 
 ## Modern software testing has become agile
 Anyone that cares about making good software has moved away from the old waterfall ways of *"throw it at QA when it's finished"*. One recent trend is to embed a single skilled tester within a small development team to test early, test often and add as much value as they possibly can.

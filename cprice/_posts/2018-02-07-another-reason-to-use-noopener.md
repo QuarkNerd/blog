@@ -3,9 +3,7 @@ author: cprice
 layout: default_post
 title: Another reason to use noopener - A deep dive into renderer process allocation
 categories:
-  - HTML5
-  - JavaScript
-  - Web
+  - Tech
 summary: "In highly-visual, rapidly-updating, multi-window, buzzword-laden apps performance is a big concern. With WebWorkers, SharedWorkers and ServiceWorkers we have a number of options for moving complex scripting tasks off the critical path. However, rendering can be more of a dark art. In this post I'll dig into how one browser (Chromium) uses renderer processes and how you can use this knowledge to your advantage."
 
 ---
@@ -15,7 +13,7 @@ In highly-visual, rapidly-updating, multi-window, buzzword-laden apps performanc
 
 Starting with a clean (incognito) instance of Chrome and disabling extensions (`open -a "Google Chrome" --args --incognito --disable-extensions "http://localhost/"`), it's time to crack open the task manager (`Window -> Task Manager`) and see what's running -
 
-<img src="{{ site.github.url }}/cprice/assets/task-manager.png" alt="Chrome Task Manager" style="display: block; margin: auto;"/>
+<img src="{{ site.baseurl }}/cprice/assets/task-manager.png" alt="Chrome Task Manager" style="display: block; margin: auto;"/>
 
 A bit of [digging](https://www.chromium.org/developers/design-documents/multi-process-architecture) [in the](https://www.chromium.org/developers/design-documents/displaying-a-web-page-in-chrome) [documentation](https://www.chromium.org/developers/design-documents/gpu-accelerated-compositing-in-chrome) reveals that -
 

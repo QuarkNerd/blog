@@ -1,14 +1,14 @@
 ---
 author: ceberhardt
-title: "Tearing Down Swift's Optional Pyramid of Doom"
+title: Tearing Down Swift's Optional Pyramid of Doom
 layout: default_post
-summary: This blog post looks at a few techniques that can be used to remove the deeply nested if-let statements that are a common sight in Swift code.
-oldlink: "http://www.scottlogic.com/blog/2014/12/08/swift-optional-pyramids-of-doom.html"
+summary: >-
+  This blog post looks at a few techniques that can be used to remove the deeply
+  nested if-let statements that are a common sight in Swift code.
+oldlink: 'http://www.scottlogic.com/blog/2014/12/08/swift-optional-pyramids-of-doom.html'
 disqus-id: /2014/12/08/swift-optional-pyramids-of-doom.html
 categories:
-  - Swift
-  - iOS
-  - Mobile
+  - Tech
 ---
 This blog post looks at a few techniques that can be used to remove the deeply nested if-let statements that are a common sight in Swift code.
 
@@ -16,7 +16,7 @@ This blog post looks at a few techniques that can be used to remove the deeply n
 
 I know Swift's optionals are good for me, their strictness make my applications safer. But like that strange banana flavour medicine I recall the doctor giving me as a child, optionals leave a bad taste in my mouth!
 
-In my previous blog post, I looked at how lazy properties can be used to avoid some of the [initialisation woes cause by optionals]({{ site.github.url }}/2014/11/20/swift-initialisation.html). In this post, I'm turning my attention to optional pyramids!
+In my previous blog post, I looked at how lazy properties can be used to avoid some of the [initialisation woes cause by optionals]({{ site.baseurl }}/2014/11/20/swift-initialisation.html). In this post, I'm turning my attention to optional pyramids!
 
 What *is* an Optional Pyramid of Doom I hear you say?
 

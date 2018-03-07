@@ -2,18 +2,17 @@
 author: nsoper
 title: Hosting .NET Core on Linux with Docker - A Noob's guide
 layout: default_post
-summary: "This blog describes my experience of upgrading a basic RESTful API from
-.NET Core RC1 to .NET Core 1.0, and using Docker to host it on Linux.  Docker is
-completely new to me so I'll give my thoughts as a noob."
+summary: >-
+  This blog describes my experience of upgrading a basic RESTful API from .NET
+  Core RC1 to .NET Core 1.0, and using Docker to host it on Linux.  Docker is
+  completely new to me so I'll give my thoughts as a noob.
 categories:
-  - .NET
-  - Web
-  - C#
+  - Tech
 ---
 
-This post builds on my previous [introduction to .NET Core]({{site.github.url}}/2016/01/20/restful-api-with-aspnet50.html). First I upgrade that RESTful API from .NET Core RC1 to .NET Core 1.0, then I add support for Docker and describe how to host it on Linux in a production environment.
+This post builds on my previous [introduction to .NET Core]({{site.baseurl}}/2016/01/20/restful-api-with-aspnet50.html). First I upgrade that RESTful API from .NET Core RC1 to .NET Core 1.0, then I add support for Docker and describe how to host it on Linux in a production environment.
 
-<img src="{{ site.github.url }}/nsoper/assets/noob.png"/>
+<img src="{{ site.baseurl }}/nsoper/assets/noob.png"/>
 
 I'm completely new to Docker and I'm far from a Linux expert, so these are very much the thoughts of a noob.
 
@@ -163,7 +162,7 @@ Making the same `curl` request repeatedly, I see one of two errors - either `cur
 
 I went back to the [docker run documentation](https://docs.docker.com/engine/reference/run/#/expose-incoming-ports) and double checked I was using the `-p` option correctly as well as `EXPOSE` in the Dockerfile. I couldn't see the problem and became a bit sad...
 
-After pulling myself together, I decided to consult one of my local DevOps heroes - Dave Wybourn (also mentioned in [this post]({{site.github.url}}/2016/08/30/docker-1-12-swarm-mode-round-robin.html) on Docker Swarm). His team had run into this exact problem and the issue was the way that I had (not) configured [Kestrel](https://docs.asp.net/en/latest/fundamentals/servers.html#kestrel) - the new lightweight, cross platform web server used for .NET Core.
+After pulling myself together, I decided to consult one of my local DevOps heroes - Dave Wybourn (also mentioned in [this post]({{site.baseurl}}/2016/08/30/docker-1-12-swarm-mode-round-robin.html) on Docker Swarm). His team had run into this exact problem and the issue was the way that I had (not) configured [Kestrel](https://docs.asp.net/en/latest/fundamentals/servers.html#kestrel) - the new lightweight, cross platform web server used for .NET Core.
 
 By default, Kestrel will listen on `http://localhost:5000`.  The problem here is that `localhost` is a loopback interface.
 
@@ -271,7 +270,7 @@ You can discover the IP address of a running container by inspecting it.  I'll s
 1. `docker run -d -p 5000:5000 --name books niksoper/netcore-books`
 1. `docker inspect books`
 
-<img src="{{ site.github.url }}/nsoper/assets/docker-inspect-ip.PNG"/>
+<img src="{{ site.baseurl }}/nsoper/assets/docker-inspect-ip.PNG"/>
 
 We can see this container has `"IPAddress": "172.17.0.3"`.
 
@@ -297,13 +296,13 @@ nginx
 
 A request to `http://localhost:8080` will now be proxied to my application. Note the `Server` header in the following `curl` response:
 
-<img src="{{ site.github.url }}/nsoper/assets/nginx-proxy-response.PNG"/>
+<img src="{{ site.baseurl }}/nsoper/assets/nginx-proxy-response.PNG"/>
 
 ## Docker Compose
 
 At this point I was fairly pleased with my progress but I thought there must be a better way of configuring Nginx without needing to know the exact IP address of the application container. Another of the local Scott Logic DevOps heroes - Jason Ebbin - stepped up at this point and suggested [Docker Compose](https://docs.docker.com/compose/).
 
-As a high level description - Docker Compose makes it very easy to start up a collection of interconnected containers using a declarative syntax. I won't go into the details of how Docker Compose works because you can read about it in [this previous post]({{site.github.url}}/2016/01/25/playing-with-docker-compose-and-erlang.html).
+As a high level description - Docker Compose makes it very easy to start up a collection of interconnected containers using a declarative syntax. I won't go into the details of how Docker Compose works because you can read about it in [this previous post]({{site.baseurl}}/2016/01/25/playing-with-docker-compose-and-erlang.html).
 
 I'll start with the **docker-compose.yml** file that I'm using:
 
@@ -367,17 +366,17 @@ Docker Compose makes this happen by creating a new virtual network called `mvcli
 
 Prove the network exists with `docker network ls`:
 
-<img src="{{ site.github.url }}/nsoper/assets/docker-network-ls.PNG"/>
+<img src="{{ site.baseurl }}/nsoper/assets/docker-network-ls.PNG"/>
 
 You can see the details of the new network using `docker network inspect mvclibrary_default`:
 
-<img src="{{ site.github.url }}/nsoper/assets/network-inspect.PNG"/>
+<img src="{{ site.baseurl }}/nsoper/assets/network-inspect.PNG"/>
 
 Note that Docker has assigned `"Subnet": "172.18.0.0/16"` to the network. The `/16` part is CIDR notation and a full explanation is way beyond the scope of this post but CIDR just refers to a range of IP addresses. Running `docker network inspect bridge` shows `"Subnet": "172.17.0.0/16"` so the two networks do not overlap.
 
 Now `docker inspect books-api` to confirm the application container is using this network:
 
-<img src="{{ site.github.url }}/nsoper/assets/docker-inspect-books-api.PNG"/>
+<img src="{{ site.baseurl }}/nsoper/assets/docker-inspect-books-api.PNG"/>
 
 Notice the two `"Aliases"` for the container are the container identifier (`3c42db680459`) and the service name given in **docker-compose.yml** (`books-service`).  We're using the `books-service` alias to reference the application container in the custom Nginx configuration file. This could have been done manually with `docker network create` but I like Docker Compose because it wraps up container creation and interdependencies cleanly and succinctly.
 

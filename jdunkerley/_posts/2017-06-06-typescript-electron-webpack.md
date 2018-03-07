@@ -1,12 +1,13 @@
 ---
 author: jdunkerley
 title: Setting up a TypeScript Electron app in WebPack
-summary: "A walkthrough of setting up a WebPack 2 based build process for creating an Electron application in TypeScript, including configuring a build in Visual Studio Team Services."
+summary: >-
+  A walkthrough of setting up a WebPack 2 based build process for creating an
+  Electron application in TypeScript, including configuring a build in Visual
+  Studio Team Services.
 layout: default_post
 categories:
-  - Electron
-  - TypeScript
-  - WebPack
+  - Tech
 image: jdunkerley/assets/featured/electron.png
 tags:
   - featured
@@ -34,7 +35,7 @@ Additional development environment goals:
 
 The diagram below shows the end goal for the build process we are going to create.
 
-<img src="{{ site.github.url }}/jdunkerley/assets/electron/buildprocess.jpg" alt="Final Build Process" />
+<img src="{{ site.baseurl }}/jdunkerley/assets/electron/buildprocess.jpg" alt="Final Build Process" />
 
 This guide is probably a bit too long (feels like my longest post in a while!), so if you prefer you can just download the initial project from [github](https://github.com/jdunkerley/ToDosElectron).
 
@@ -175,7 +176,7 @@ To add the build command to yarn or npm, add the following code to the `packages
 
 In order to run this build from within Visual Studio Code, the next step is to configure the task and also set up the workspace environment appropriately.
 
-<img src="{{ site.github.url }}/jdunkerley/assets/electron/vsCodeNotification.jpg" alt="Visual Studio Build Notifications" />
+<img src="{{ site.baseurl }}/jdunkerley/assets/electron/vsCodeNotification.jpg" alt="Visual Studio Build Notifications" />
 
 Press `Ctrl-Shift-B` and then click `Configure Build Task`. Choose `npm` as a starting point, and then replace the default `tasks` array with:
 
@@ -212,7 +213,7 @@ There are three ways to run the build (and all will do the same):
 
 As there is no code yet, running the build will just result in an error:
 
-<img src="{{ site.github.url }}/jdunkerley/assets/electron/webPackError.png" alt="WebPack Build Output" />
+<img src="{{ site.baseurl }}/jdunkerley/assets/electron/webPackError.png" alt="WebPack Build Output" />
 
 To test the build set up, create a `src` directory and add a `main.ts` file, with the following content (note the empty line at the end):
 
@@ -388,7 +389,7 @@ The last adjustment is to add a new task the `packages.json` file. The `prestart
 
 If you run `yarn run start` hopefully an electron window will appear with the node version displayed in it:
 
-<img src="{{ site.github.url }}/jdunkerley/assets/electron/electronApp.jpg" alt="Electron App" />
+<img src="{{ site.baseurl }}/jdunkerley/assets/electron/electronApp.jpg" alt="Electron App" />
 
 ## Adding React ##
 
@@ -518,7 +519,7 @@ describe('GUI', () => {
 
 Running `yarn run test` will build these two tests files and then run Jest on the resulting output:
 
-<img src="{{ site.github.url }}/jdunkerley/assets/electron/testResults.jpg" alt="Test Results" />
+<img src="{{ site.baseurl }}/jdunkerley/assets/electron/testResults.jpg" alt="Test Results" />
 
 It will also create a `TEST-jest_junit.xml` file. This is for reading with Visual Studio Team Services so we get nice test results.
 
@@ -526,7 +527,7 @@ It will also create a `TEST-jest_junit.xml` file. This is for reading with Visua
 
 Create a new project in Visual Studio Team Services and select build code from an external repository.
 
-<img src="{{ site.github.url }}/jdunkerley/assets/electron/vstsBuildFromAnotherRepository.jpg" alt="Build from another repository" />
+<img src="{{ site.baseurl }}/jdunkerley/assets/electron/vstsBuildFromAnotherRepository.jpg" alt="Build from another repository" />
 
 Select `New Definition` and choose either of NodeJS scripts as a starting point. These are based on top of npm so it is easy to configure to build this project. I am sure you could make it use yarn but for simplicity have stuck with npm.
 
@@ -534,18 +535,18 @@ First, reconfigure the Get Sources step to get the code from GitHub (you may nee
 
 Next, remove the Run gulp task. Add a new npm task after the npm install, with npm command of run and argument of test. This will build and run the Jest tests. It needs to continue even if it the tests fail so choose `Continue on error` within the Control Options section.
 
-<img src="{{ site.github.url }}/jdunkerley/assets/electron/vstsNPMRunTests.jpg" alt="NPM Run Tests Settings" />
+<img src="{{ site.baseurl }}/jdunkerley/assets/electron/vstsNPMRunTests.jpg" alt="NPM Run Tests Settings" />
 
 In order to make VSTS report the test results, add a new task to `Publish Test Results`. The default configuration of this task will pick up the JUnit format XML we have configured to be published in the npm test step.
 
 The last step is to run the actual WebPack build. So add another npm command. This time configured to run build.
 
-<img src="{{ site.github.url }}/jdunkerley/assets/electron/vstsFinalBuild.jpg" alt="VSTS Build Process" />
+<img src="{{ site.baseurl }}/jdunkerley/assets/electron/vstsFinalBuild.jpg" alt="VSTS Build Process" />
 
 Finally, switch on the triggers for Continuous Integration and Pull Requests. That is it - a CI process from GitHub into VSTS!
 
-<img src="{{ site.github.url }}/jdunkerley/assets/electron/vstsBuildRunning.jpg" alt="VSTS Build Running" />
-<img src="{{ site.github.url }}/jdunkerley/assets/electron/vstsBuildResults.jpg" alt="VSTS Build Results" />
+<img src="{{ site.baseurl }}/jdunkerley/assets/electron/vstsBuildRunning.jpg" alt="VSTS Build Running" />
+<img src="{{ site.baseurl }}/jdunkerley/assets/electron/vstsBuildResults.jpg" alt="VSTS Build Results" />
 
 ## Future Improvements ##
 

@@ -2,10 +2,11 @@
 author: asheehan
 layout: default_post
 title: The Power of the Higher Order
-summary: "A practical look into higher order components and what they bring to the table, along with a general discussion of code reuse in React"
+summary: >-
+  A practical look into higher order components and what they bring to the
+  table, along with a general discussion of code reuse in React
 categories:
-  - React
-  - JavaScript
+  - Tech
 ---
 
 One of the things I love about React is how easy it is to split up and reuse code.
@@ -65,7 +66,7 @@ This is the implementation I showed above and is the version I'll be using in th
 
 So now you've read loads of consecutive words, let's actually create some higher order components (Woo).
 
-<img style="margin: 0 auto 40px; display: block;" src="{{ site.github.url }}/asheehan/assets/lets-code.png" alt="Let's code" />
+<img style="margin: 0 auto 40px; display: block;" src="{{ site.baseurl }}/asheehan/assets/lets-code.png" alt="Let's code" />
 
 ### Mounting Monitor HOC
 
@@ -229,7 +230,7 @@ const fetchData = (dataDepsFn) => (Component) =>
     }
   }
 ~~~
-![Fetch Data HOC]({{ site.github.url }}/asheehan/assets/fetch-data-hoc.gif "Fetch Data HOC")
+![Fetch Data HOC]({{ site.baseurl }}/asheehan/assets/fetch-data-hoc.gif "Fetch Data HOC")
 
 See this `fetchData` HOC example [live on Codepen](http://codepen.io/alisd23/pen/gwArYr).
 
@@ -382,4 +383,4 @@ I think it's important to understand other patterns for code reuse, especially t
 
 So get out there and embrace the higher order.
 
-<img style="margin: 40px auto 0; display: block;" src="{{ site.github.url }}/asheehan/assets/hocs-everywhere.jpg" alt="HOC's Everywhere" />
+<img style="margin: 40px auto 0; display: block;" src="{{ site.baseurl }}/asheehan/assets/hocs-everywhere.jpg" alt="HOC's Everywhere" />

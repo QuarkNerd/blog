@@ -30,11 +30,11 @@ All of this is made possible by the magic of containers. The tooling installed o
 
 A "traditional" build server might look something like this, with the build system installed onto the same file system as the tooling needed to actually do the builds:
 
-<img src="{{ site.github.url }}/csmith/assets/concourse/trad_ci.jpg" />
+<img src="{{ site.baseurl }}/csmith/assets/concourse/trad_ci.jpg" />
 
 In contrast, a build server running Concourse runs the tooling in containers, which have their own separate file systems.
 
-<img src="{{ site.github.url }}/csmith/assets/concourse/concourse.jpg" />
+<img src="{{ site.baseurl }}/csmith/assets/concourse/concourse.jpg" />
 
 There's no overlap and creation of the build server for us involves putting a single binary on a VM, configuring it, running it and then sending build pipelines.
 
@@ -78,7 +78,7 @@ One of the nice things about Concourse is just how readable this is. It says "Ge
 
 In the Concourse UI, the pipeline looks like this:
 
-<img src="{{ site.github.url }}/csmith/assets/concourse/microservice_pipeline.jpg" />
+<img src="{{ site.baseurl }}/csmith/assets/concourse/microservice_pipeline.jpg" />
 
 If you want to check out a (much) larger pipeline, then you'll be pleased to hear that Concourse eats its own dog food. Concourse builds with Concourse and its pipeline is [here](https://ci.concourse.ci/).
 
@@ -291,7 +291,7 @@ Pipelines are sent to a Concourse instance with the Fly command line tool. Fly c
 
 If you want to download Fly from an instance with pipelines already configured, you can use the small icons in the bottom right corner of the home page.
 
-<img src="{{ site.github.url }}/csmith/assets/concourse/fly_download.jpg" />
+<img src="{{ site.baseurl }}/csmith/assets/concourse/fly_download.jpg" />
 
 Fly needs to be targeted at a Concourse instance. For an exploratory rig running on a local VM with Vagrant, this might look something like:
 
@@ -307,7 +307,7 @@ fly --target local set-pipeline --config pipeline.yml --pipeline my-pipeline
 
 In this example, the pipeline.yml file is sent to the build server and will show up in the UI with the name my-pipeline.
 
-<img src="{{ site.github.url }}/csmith/assets/concourse/my_pipeline.jpg" />
+<img src="{{ site.baseurl }}/csmith/assets/concourse/my_pipeline.jpg" />
 
 ## Sending secrets
 

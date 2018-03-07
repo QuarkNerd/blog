@@ -1,100 +1,26 @@
 ---
 layout: default
+paginated: false
 ---
 
 {% assign author = site.data.authors.authors[page.author] %}
-<article class="container blog-container">
-  <div class="row">
-    <div class="col-xs-12 col-md-3">
-        <div>
-          {% include author.html author=author suppressName=true authorPage=true %}
+{% assign featuredPosts = site.tags.featured | where: "author", page.author %}
+{% assign allPosts = site.posts | where: "author", page.author %}
+
+<div class="default-author grid-container">
+    <div class="grid-padding-y">
+        <div class="cell">
+            {% include author.html author=author %}
         </div>
-        <div class="dividing-line"></div>
+        <div class="cell">
+            {% include featured_posts.html postsToFilter=featuredPosts %}
+        </div>
+        <div class="cell grid-x grid-margin-x">
+            <div class="cell large-8 large-offset-1">
+                {% include post_summary_list.html posts=allPosts paginated=paginated %}
+            </div>
+        </div>
+    {% comment %}
+  {% endcomment %}
     </div>
-    
-    <div class="col-xs-12 col-md-7">
-      <h3 class="column-label">Articles</h3>
-      {% assign featuredPosts = site.tags.featured | where:"author", page.author %}
-      {% include featured.html featuredPosts=featuredPosts visiblePosts=3 %}
-          {% assign posts = site.posts %}
-          {% include post_list.html showPostSummary=true showAuthorInfo=false posts=posts postDetailLimit=20 contributorFilter=page.author %}
-    </div>
-
-    <div id="event-list" class="col-xs-12 col-md-2"></div>
-
-  </div>
-</article>
-
-<script src="{{ site.github.url | remove_first: 'http:' }}/script.js" type="text/javascript"></script>
-<script type="text/javascript">jQuery.noConflict();</script>
-<script type="text/javascript">
-var eventsUrl = "{{ site.events }}";
-jQuery.get(eventsUrl).then(function(responseData) {
-  var events = responseData;
-
-  var today = new Date();
-  //set to 00:00:00 so that an event today shows as upcoming
-  today.setHours(0);
-  today.setMinutes(0);
-  today.setSeconds(0);
-
-  function isPast(event) {
-    return Date.parse(event.date) < today.getTime();
-  }
-
-  function isAuthor(event) {
-    return event.speaker == "{{ author.name }}";
-  };
-
-  var upcomingEvents = [];
-  var pastEvents = events.filter(function (event) {
-    if (isAuthor(event)) {
-      if (isPast(event)) { return true; }
-      else { upcomingEvents.push(event); return false; }
-    }
-    else { return false; }
-  });
-
-  var eventsDiv = "<div class=\"event-list row\">" +
-        "<div class=\"col-xs-12\">" +
-            "<div class=\"events-label\">" +
-                "<h3 class=\"column-label\">Talks</h3>" +
-            "</div>";
-
-  if (upcomingEvents.length > 0 && pastEvents.length > 0) {
-    eventsDiv += "<h5 class=\"time-divider\">Upcoming</h5>"
-  }
-
-  function eventDiv(event, isPast) {
-    var afterDate = "";
-    if (isPast) {
-      afterDate = event.video ? " &middot; <a href=\"" + event.video + "\">Watch talk</a>": "";
-    }
-    else {
-      afterDate = ", " + event.location;
-    }
-    return "<div class=\"event\">"
-        + "<a href=\"{{ site.events_blog }}/#" + event.id + "\">" + event.title + "</a>"
-        + "<h5>" + event.date + afterDate + "</h5>"
-        + "</div>";
-  }
-
-  upcomingEvents.forEach(function (event) {
-    eventsDiv += eventDiv(event, false);
-  });
-
-  if (upcomingEvents.length > 0 && pastEvents.length > 0) {
-    eventsDiv += "<h5 class=\"time-divider\">Past</h5>"
-  }
-
-  pastEvents.forEach(function (event) {
-    eventsDiv += eventDiv(event, true);
-  });
-
-  eventsDiv = eventsDiv + "</div>" +
-                  "</div>";
-  if (upcomingEvents.length + pastEvents.length > 0) {
-    jQuery('#event-list').append(eventsDiv);
-  }
-});
-</script>
+</div>

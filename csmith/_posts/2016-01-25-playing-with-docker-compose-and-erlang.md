@@ -10,7 +10,7 @@ I recently had some free time and decided to play with two technologies that I'v
 
 To keep it simple, I decided to have one container expose an HTTP server and then have that container delegate work to one of two "worker" containers, based on the URL being requested. If the path segment of the URL starts with a character in the first half of the alphabet, the HTTP server returns a response from worker 1, and if the path starts with a character in the second half of the alphabet, the HTTP server returns a response from worker 2. (If the first character of the path is something else, an error is returned.) Here's the basic idea:
 
-<img src="{{ site.github.url }}/csmith/assets/distributed-erlang/3_containers.jpg" />
+<img src="{{ site.baseurl }}/csmith/assets/distributed-erlang/3_containers.jpg" />
 
 You can play with the end result by cloning the repo from [GitHub](https://github.com/ceejsmith/distributed-erlang) and then running docker-compose up.
 
@@ -99,15 +99,15 @@ This starts a process listening on port 2345 and returns control to the shell. N
 
 I also wrote a little TCP client module, which I won't list here. It's in the repo. When I use it to send anything to the static server, I get "Hi" back, as shown in the terminal session below.
 
-<img src="{{ site.github.url }}/csmith/assets/distributed-erlang/tcp_comm_initial.jpg" />
+<img src="{{ site.baseurl }}/csmith/assets/distributed-erlang/tcp_comm_initial.jpg" />
 
 That proves that things work within a single container, but what about between containers? Let's set up a named container with a TCP echo server running on port 2345:
 
-<img src="{{ site.github.url }}/csmith/assets/distributed-erlang/tcp_echo_named_container.jpg" />
+<img src="{{ site.baseurl }}/csmith/assets/distributed-erlang/tcp_echo_named_container.jpg" />
 
 In a separate terminal, we can start another container and run the TCP client code. Docker has added an entry to the /etc/hosts file within this new container pointing to "server". Note that we can't hit the echo server from the Ubuntu host - only the linked container can see server.
 
-<img src="{{ site.github.url }}/csmith/assets/distributed-erlang/tcp_client_separate_container.jpg" />
+<img src="{{ site.baseurl }}/csmith/assets/distributed-erlang/tcp_client_separate_container.jpg" />
 
 When you send via TCP from the client container, you'll see the server container log the event.
 
@@ -174,13 +174,13 @@ That's a bit longer. The interesting bit of the code is the spawn call within th
 
 The host names for the worker containers ("first" and "second") are hard coded, which isn't something we'd do in a production system. It's illustrative for learning purposes though. We can spin up named containers as we did for "server" and have them return "First" and "Second" when they receive something over TCP. Then we can spin up a third container with links to the two worker containers, expose its port 2345 on the Ubuntu host and hit it with a web browser:
 
-<img src="{{ site.github.url }}/csmith/assets/distributed-erlang/http_server_manual.jpg" />
+<img src="{{ site.baseurl }}/csmith/assets/distributed-erlang/http_server_manual.jpg" />
 
-<img src="{{ site.github.url }}/csmith/assets/distributed-erlang/browser.jpg" />
+<img src="{{ site.baseurl }}/csmith/assets/distributed-erlang/browser.jpg" />
 
 You'll also see the HTTP server log the interaction:
 
-<img src="{{ site.github.url }}/csmith/assets/distributed-erlang/http_server_logging.jpg" />
+<img src="{{ site.baseurl }}/csmith/assets/distributed-erlang/http_server_logging.jpg" />
 
 (It happens twice because the browser initially requests "favicon" as well.)
 
@@ -231,7 +231,7 @@ We specify the build context for the images as the same directory as the one con
 
 If you run "docker-compose up" you'll see images being built and containers starting. If you then hit ```http://localhost:2345/a```, you'll see all three containers log the interaction.
 
-<img src="{{ site.github.url }}/csmith/assets/distributed-erlang/docker_compose_live.jpg" />
+<img src="{{ site.baseurl }}/csmith/assets/distributed-erlang/docker_compose_live.jpg" />
 
 I've only shown the image build and container start for "gateway". "worker-first" and "worker-second" were built similarly.
 

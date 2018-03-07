@@ -8,7 +8,7 @@ tags:
   - WebSocket
   - Spark
 categories:
-  - Scala
+  - Data
 layout: default_post
 source: site
 summary: "Big Data is a hot topic these days, and one aspect of that problem space is\nprocessing streams of high velocity data in near-real time. Here we're going \nto look at using Big Data-style techniques in Scala on a stream of data from \na WebSocket.\n"
@@ -174,7 +174,7 @@ frame, Spark will reduce the new data and "un-reduce" the old. Here's a
 picture to try and illustrate this:
 
 <p class="text-center">
-  <img title="reduceByKeyAndWindow" src="{{ site.github.url }}/jphillpotts/assets/reduceByKeyAndWindow.png">
+  <img title="reduceByKeyAndWindow" src="{{ site.baseurl }}/jphillpotts/assets/reduceByKeyAndWindow.png">
 </p>
 
 Here we're looking at a sliding window in its old state (red) and new state 

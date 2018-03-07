@@ -4,7 +4,7 @@ author: nwolverson
 tags:
   - blog
 categories:
-  - TypeScript
+  - Tech
 layout: default_post
 summary: "Two years ago I wrote about TypeScript compiler APIs. There has recently been further progress in this area and I explore the newly exposed API in TypeScript 2.3."
 ---
@@ -48,7 +48,7 @@ As well as `printFile` a `printNode` is available to print particular parts of a
 ## Node factories
 A major limitation previously was that there was no way to construct a TypeScript AST directly, it could only be parsed in from source file. Now factory functions have been exposed for creating (and updating) AST nodes. IntelliSense starting `create` shows the list of options (there are many more on scrolling down):
 
-![ts.create IntelliSense]({{site.github.url}}/nwolverson/assets/tsc-2/create-complete.png)
+![ts.create IntelliSense]({{site.baseurl}}/nwolverson/assets/tsc-2/create-complete.png)
 
 Here's an example of creating and printing a TypeScript AST for a simple expression, and printing it out:
 

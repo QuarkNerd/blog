@@ -20,7 +20,7 @@ agile team (not necessarily Scrum) can be doing to make the whole team more prod
 When choosing what you should do as a developer I find it helpful to think about the Three Ways as described in [The Phoenix Project](http://www.itrevolution.com/book/the-phoenix-project/)
 and [The Devops Handbook](http://www.itrevolution.com/book/the-devops-handbook/) (both of which I really recommend). I will introduce that concept here briefly. Have a look at the following diagram:
 
-<img src="{{ site.github.url }}/bjedrzejewski/assets/3ways.png" />
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/3ways.png" />
 
 You can see the three main elements called _The Three Ways:_ Flow, Feedback and Continual Experimentation and Learning.
 These _ways_ are described more in-depth [in this article](http://itrevolution.com/the-three-ways-principles-underpinning-devops/) written by one of the authors of Devops Handbook.
@@ -71,7 +71,7 @@ If they are clear, great- make a note of that. If not- perhaps a chat with Busin
 quick action can save hours in the future when the unclear story makes it to the team and someone goes ahead and implements it
 anyway. It is often stated that about 10% of everyone's time in an agile team is usually spent on [backlog grooming](https://www.agilealliance.org/glossary/backlog-grooming/).
 
-<img src="{{ site.github.url }}/bjedrzejewski/assets/3ways_flow.png" />
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/3ways_flow.png" />
 
 ## Feedback
 
@@ -89,7 +89,7 @@ from helping in that department or being pioneers in their teams or organisation
 relationship between the cost of a bug-fix and the phase of the feature delivery. Think here about the cost in terms of productivity rather than
 strictly money:
 
-<img src="{{ site.github.url }}/bjedrzejewski/assets/3ways_bugfix.png" />
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/3ways_bugfix.png" />
 
 ### Get your Product Owner / Business Analyst engaged
 It is one thing to have a bug, and another to build a feature that was wrongly specified from the start. If you are
@@ -107,7 +107,7 @@ from Atlassian](https://www.atlassian.com/agile/code-reviews) for more details. 
 that the review is positive- people can be feel quite vulnerable with the review process so that right culture and attitude must
 be in place. The goal is to get people to collaborate better, not fight or tremble with fear!
 
-<img src="{{ site.github.url }}/bjedrzejewski/assets/3ways_feedback.jpg" />
+<img src="{{ site.baseurl }}/bjedrzejewski/assets/3ways_feedback.jpg" />
 
 ## Continual Experimentation and Learning
 
