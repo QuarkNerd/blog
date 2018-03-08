@@ -2,7 +2,8 @@
 author: rrhodes
 title: Team Building, Development, and Go-karting &#58; My Induction Week at Scott Logic
 layout: default_post
-summary: This blog post, written by a graduate developer joining the Edinburgh team, reflects on his induction week experience at Newcastle. A total of sixteen graduates across UX, development, and testing joined this August, and the induction was an ideal opportunity for everyone to meet.
+summary: >-
+  This blog post, written by a graduate developer joining the Edinburgh team, reflects on his induction week experience at Newcastle. A total of sixteen graduates across UX, development, and testing joined this August, and the induction was an ideal opportunity for everyone to meet.
 categories:
   - Careers
 tags:

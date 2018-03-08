@@ -2,7 +2,9 @@
 author: rrhodes
 title: Bugathon at Heriot-Watt University
 layout: default_post
-summary: Following the success of Scott Logic's first Bugathon in Newcastle last March, members of the Edinburgh and Newcastle teams grouped together to organise another Bugathon at Heriot-Watt University's Edinburgh campus. Held on Wednesday, October 18th, this post gives an insight into the work carried out by Scott Logic to prepare and run the event.
+summary: >-
+  Following the success of Scott Logic's first Bugathon in Newcastle last March, members of the Edinburgh and Newcastle teams grouped together to organise another Bugathon at Heriot-Watt University's Edinburgh campus. Held on Wednesday, October 18th, this post gives an insight into the work carried out by Scott Logic to prepare and run the event.
+tags: 'Scott Logic, Bugathon'
 categories:
   - Careers
 ---

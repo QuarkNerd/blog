@@ -2,7 +2,9 @@
 author: rrhodes
 title: Machine Learning with Scikit Learn
 layout: default_post
-summary: Machine learning (ML) has become an increasingly popular field of Computer Science. In the past few years I've found myself working with ML to categorise large sets of data, and Scikit Learn for Python has proved itself to be exceptionally good for the task. This post walks through a simple example of Scikit Learn to categorise handwritten digits.
+summary: >-
+  Machine learning (ML) has become an increasingly popular field of Computer Science. In the past few years I've found myself working with ML to categorise large sets of data, and Scikit Learn for Python has proved itself to be exceptionally good for the task. This post walks through a simple example of Scikit Learn to categorise handwritten digits.
+tags: 'Scikit Learn, Python, Machine Learning, ML'
 categories:
   - Tech
 ---

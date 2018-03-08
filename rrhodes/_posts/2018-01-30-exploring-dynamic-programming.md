@@ -2,7 +2,9 @@
 author: rrhodes
 title: Exploring Dynamic Programming
 layout: default_post
-summary: First introduced to me as “upside-down recursion”, dynamic programming is a technique used to write efficient algorithms to solve a wide range of problems, often replacing recursive approaches. Having met many examples in the past few years, this post explores three applications I’ve seen for the benefit of those new to the technique.
+summary: >-
+  First introduced to me as “upside-down recursion”, dynamic programming is a technique used to write efficient algorithms to solve a wide range of problems, often replacing recursive approaches. Having met many examples in the past few years, this post explores three applications I’ve seen for the benefit of those new to the technique.
+tags: 'Dynamic Programming, DP, Java, Matrices'
 categories:
   - Tech
 ---
