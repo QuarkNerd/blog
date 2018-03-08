@@ -1,16 +1,18 @@
 ---
 layout: default
-title: Tech
+title: Delivery
 ---
-
-{% assign posts = site.categories["Delivery"] %}
-
-{% for agileposts in site.categories["Agile"] %}
-  {% assign posts = posts | push: agileposts %}
-{% endfor %}
-
-{% if posts %}
-  {% assign posts = posts | sort: 'date' | reverse | uniq %}
-{% endif %}
-
+{%- assign posts = site.categories["Delivery"] -%}
+{%- for deliveryposts in site.categories["delivery"] -%}
+  {%- assign posts = posts | push: deliveryposts -%}
+{%- endfor -%}
+{%- for agileposts in site.categories["Agile"] -%}
+  {%- assign posts = posts | push: agileposts -%}
+{%- endfor -%}
+{%- for agileposts in site.categories["agile"] -%}
+  {%- assign posts = posts | push: agileposts -%}
+{%- endfor -%}
+{%- if posts -%}
+  {%- assign posts = posts | sort: 'date' | reverse | uniq -%}
+{%- endif -%}
 {% include post_index.html posts=posts categoryName="Delivery" %}

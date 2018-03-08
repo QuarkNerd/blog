@@ -2,7 +2,17 @@
 layout: default
 title: UX Design
 ---
-
-{% assign posts = site.categories["UX Design"] %}
-
+{%- assign posts = site.categories["UX Design"] -%}
+{%- for uxposts in site.categories["ux design"] -%}
+    {%- assign posts = posts | push: uxposts -%}
+{%- endfor -%}
+{%- for uxposts in site.categories["UX"] -%}
+    {%- assign posts = posts | push: uxposts -%}
+{%- endfor -%}
+{%- for uxposts in site.categories["ux"] -%}
+    {%- assign posts = posts | push: uxposts -%}
+{%- endfor -%}
+{%- if posts -%}
+  {%- assign posts = posts | sort: 'date' | reverse | uniq -%}
+{%- endif -%}
 {% include post_index.html posts=posts categoryName="UX Design" %}

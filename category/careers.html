@@ -2,7 +2,11 @@
 layout: default
 title: Careers
 ---
-
-{% assign posts = site.categories["Careers"] %}
-
+{%- assign posts = site.categories["Careers"] -%}
+{%- for careersposts in site.categories["careers"] -%}
+  {%- assign posts = posts | push: careersposts -%}
+{%- endfor -%}
+{%- if posts -%}
+  {%- assign posts = posts | sort: 'date' | reverse | uniq -%}
+{%- endif -%}
 {% include post_index.html posts=posts categoryName="Careers" %}

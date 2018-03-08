@@ -2,15 +2,17 @@
 layout: default
 title: News
 ---
-
-{% assign posts = site.categories["News"] %}
-
-{% for eventposts in site.categories["Events"] %}
-    {% assign posts = posts | push: eventposts %}
-{% endfor %}
-
-{% if posts %}
-  {% assign posts = posts | sort: 'date' | reverse | uniq %}
-{% endif %}
-
+{%- assign posts = site.categories["News"] -%}
+{%- for newsposts in site.categories["news"] -%}
+    {%- assign posts = posts | push: newsposts -%}
+{%- endfor -%}
+{%- for eventposts in site.categories["Events"] -%}
+    {%- assign posts = posts | push: eventposts -%}
+{%- endfor -%}
+{%- for eventposts in site.categories["events"] -%}
+    {%- assign posts = posts | push: eventposts -%}
+{%- endfor -%}
+{%- if posts -%}
+  {%- assign posts = posts | sort: 'date' | reverse | uniq -%}
+{%- endif -%}
 {% include post_index.html posts=posts categoryName="News" %}

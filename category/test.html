@@ -2,7 +2,17 @@
 layout: default
 title: Testing
 ---
-
-{% assign posts = site.categories["Test"] %}
-
+{%- assign posts = site.categories["Test"] -%}
+{%- for testposts in site.categories["test"] -%}
+    {%- assign posts = posts | push: testposts -%}
+{%- endfor -%}
+{%- for testposts in site.categories["Testing"] -%}
+    {%- assign posts = posts | push: testposts -%}
+{%- endfor -%}
+{%- for testposts in site.categories["testing"] -%}
+    {%- assign posts = posts | push: testposts -%}
+{%- endfor -%}
+{%- if posts -%}
+  {%- assign posts = posts | sort: 'date' | reverse | uniq -%}
+{%- endif -%}
 {% include post_index.html posts=posts categoryName="Testing" %}

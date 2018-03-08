@@ -1,0 +1,42 @@
+@import "graft-studio/site-footer.scss";
+
+@mixin footer-colour-scheme($bg-colour, $fg-colour) {
+  background-color: $bg-colour;
+
+  .footer-links {
+    a {
+      color: $fg-colour;
+      font-weight: 400;
+      &:hover {
+        color: $black;
+      }
+    }
+  }
+
+  .footer_bottom-layer {
+    a {
+      color: $black;
+      font-weight: 400;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  svg {
+    fill: $fg-colour;
+  }
+}
+
+footer {
+  @include footer-colour-scheme($light-teal, $teal);
+  &.pink {
+    @include footer-colour-scheme($light-pink, $pink);
+  }
+  &.orange {
+    @include footer-colour-scheme($light-orange, $orange);
+  }
+  &.yellow {
+    @include footer-colour-scheme($light-yellow, $yellow);
+  }
+}

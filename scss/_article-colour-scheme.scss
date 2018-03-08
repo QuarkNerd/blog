@@ -33,6 +33,15 @@
     a:hover {
       background-color: $primary-colour;
     }
+
+    code {
+      a, a:hover, a:visited {
+        text-decoration: none;
+        color: black;
+        border: none;
+        background-color: transparent;
+      }
+    }
   }
 
   .active-author {
@@ -59,9 +68,5 @@
     .category > a:hover {
       color: $fg-colour;
     }
-  }
-
-  footer {
-    background-color: $bg-colour;
   }
 }

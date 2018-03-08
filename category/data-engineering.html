@@ -2,7 +2,11 @@
 layout: default
 title: Data Engineering
 ---
-
-{% assign posts = site.categories["Data"] %}
-
+{%- assign posts = site.categories["Data"] -%}
+{%- for dataposts in site.categories["data"] -%}
+  {%- assign posts = posts | push: dataposts -%}
+{%- endfor -%}
+{%- if posts -%}
+  {%- assign posts = posts | sort: 'date' | reverse | uniq -%}
+{%- endif -%}
 {% include post_index.html posts=posts categoryName="Data Engineering" %}

@@ -2,63 +2,86 @@
 layout: default
 title: Tech
 ---
-
-{% assign posts = site.categories["Tech"] %}
-
-{% for iosposts in site.categories["iOS"] %}
-  {% assign posts = posts | push: iosposts %}
-{% endfor %}
-
-{% for swiftposts in site.categories["Swift"] %}
-  {% assign posts = posts | push: swiftposts %}
-{% endfor %}
-
-{% for chartingposts in site.categories["Charting"] %}
-  {% assign posts = posts | push: chartingposts %}
-{% endfor %}
-
-{% for cssposts in site.categories["CSS"] %}
-  {% assign posts = posts | push: cssposts %}
-{% endfor %}
-
-{% for d3posts in site.categories["D3"] %}
-  {% assign posts = posts | push: d3posts %}
-{% endfor %}
-
-{% for dotnetposts in site.categories[".NET"] %}
-  {% assign posts = posts | push: dotnetposts %}
-{% endfor %}
-
-{% for csharpposts in site.categories["C#"] %}
-  {% assign posts = posts | push: csharpposts %}
-{% endfor %}
-
-{% for webposts in site.categories["Web"] %}
-{% assign posts = posts | push: webposts %}
-{% endfor %}
-
-{% for jsposts in site.categories["JavaScript"] %}
-{% assign posts = posts | push: jsposts %}
-{% endfor %}
-
-{% for mobileposts in site.categories["Mobile"] %}
-{% assign posts = posts | push: mobileposts %}
-{% endfor %}
-
-{% for htmlposts in site.categories["HTML5"] %}
-{% assign posts = posts | push: htmlposts %}
-{% endfor %}
-
-{% for javaposts in site.categories["Java"] %}
-{% assign posts = posts | push: javaposts %}
-{% endfor %}
-
-{% for wpfposts in site.categories["WPF"] %}
-{% assign posts = posts | push: wpfposts %}
-{% endfor %}
-
-{% if posts %}
-  {% assign posts = posts | sort: 'date' | reverse | uniq %}
-{% endif %}
-
+{%- assign posts = site.categories["Tech"] -%}
+{%- for techposts in site.categories["tech"] -%}
+  {%- assign posts = posts | push: techposts -%}
+{%- endfor -%}
+{%- for iosposts in site.categories["iOS"] -%}
+  {%- assign posts = posts | push: iosposts -%}
+{%- endfor -%}
+{%- for iosposts in site.categories["ios"] -%}
+  {%- assign posts = posts | push: iosposts -%}
+{%- endfor -%}
+{%- for swiftposts in site.categories["Swift"] -%}
+  {%- assign posts = posts | push: swiftposts -%}
+{%- endfor -%}
+{%- for swiftposts in site.categories["swift"] -%}
+  {%- assign posts = posts | push: swiftposts -%}
+{%- endfor -%}
+{%- for chartingposts in site.categories["Charting"] -%}
+  {%- assign posts = posts | push: chartingposts -%}
+{%- endfor -%}
+{%- for chartingposts in site.categories["charting"] -%}
+  {%- assign posts = posts | push: chartingposts -%}
+{%- endfor -%}
+{%- for cssposts in site.categories["CSS"] -%}
+  {%- assign posts = posts | push: cssposts -%}
+{%- endfor -%}
+{%- for cssposts in site.categories["css"] -%}
+  {%- assign posts = posts | push: cssposts -%}
+{%- endfor -%}
+{%- for d3posts in site.categories["D3"] -%}
+  {%- assign posts = posts | push: d3posts -%}
+{%- endfor -%}
+{%- for d3posts in site.categories["d3"] -%}
+  {%- assign posts = posts | push: d3posts -%}
+{%- endfor -%}
+{%- for dotnetposts in site.categories[".NET"] -%}
+  {%- assign posts = posts | push: dotnetposts -%}
+{%- endfor -%}
+{%- for dotnetposts in site.categories[".net"] -%}
+  {%- assign posts = posts | push: dotnetposts -%}
+{%- endfor -%}
+{%- for csharpposts in site.categories["C#"] -%}
+  {%- assign posts = posts | push: csharpposts -%}
+{%- endfor -%}
+{%- for webposts in site.categories["Web"] -%}
+  {%- assign posts = posts | push: webposts -%}
+{%- endfor -%}
+{%- for webposts in site.categories["web"] -%}
+  {%- assign posts = posts | push: webposts -%}
+{%- endfor -%}
+{%- for jsposts in site.categories["JavaScript"] -%}
+  {%- assign posts = posts | push: jsposts -%}
+{%- endfor -%}
+{%- for jsposts in site.categories["javascript"] -%}
+  {%- assign posts = posts | push: jsposts -%}
+{%- endfor -%}
+{%- for mobileposts in site.categories["Mobile"] -%}
+  {%- assign posts = posts | push: mobileposts -%}
+{%- endfor -%}
+{%- for mobileposts in site.categories["mobile"] -%}
+  {%- assign posts = posts | push: mobileposts -%}
+{%- endfor -%}
+{%- for htmlposts in site.categories["HTML5"] -%}
+  {%- assign posts = posts | push: htmlposts -%}
+{%- endfor -%}
+{%- for htmlposts in site.categories["html5"] -%}
+  {%- assign posts = posts | push: htmlposts -%}
+{%- endfor -%}
+{%- for javaposts in site.categories["Java"] -%}
+  {%- assign posts = posts | push: javaposts -%}
+{%- endfor -%}
+{%- for javaposts in site.categories["java"] -%}
+  {%- assign posts = posts | push: javaposts -%}
+{%- endfor -%}
+{%- for wpfposts in site.categories["WPF"] -%}
+  {%- assign posts = posts | push: wpfposts -%}
+{%- endfor -%}
+{%- for wpfposts in site.categories["wpf"] -%}
+  {%- assign posts = posts | push: wpfposts -%}
+{%- endfor -%}
+{%- if posts -%}
+  {%- assign posts = posts | sort: 'date' | reverse | uniq -%}
+{%- endif -%}
 {% include post_index.html posts=posts categoryName="Tech" %}

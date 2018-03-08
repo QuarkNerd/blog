@@ -3,7 +3,7 @@ author: sking
 title: An animated chart with HTML5 Canvas
 layout: default_post
 categories:
-  - Careers
+  - Tech
 ---
 {:center: style="text-align: center"}
 
