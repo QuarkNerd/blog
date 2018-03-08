@@ -19,6 +19,7 @@ active-authors:
     - dogle
     - dsmith
     - dtheasby
+    - emason
     - ffarhadi
     - godds
     - gthompson
@@ -971,3 +972,8 @@ authors:
         gravatar: 82bcea382ccc612686216d2c931fbc01
         author-summary: 'Software Engineer at Scott Logic. Experienced in dotnet but interested in all areas of software development, especially ''devops'' and functional programming.'
         twitter-url: 'https://twitter.com/burbdude'
+    emason:
+        name: 'Elliot Mason'
+        email: emason@scottlogic.com
+        gravatar: f165db9225e9d62549583f38fcb4e5cb
+        author-summary: '<p>Test Engineer at Newcastle, studied Computer Science at Newcastle University</p>'
