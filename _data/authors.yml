@@ -47,6 +47,7 @@ active-authors:
     - nowen
     - nwolverson
     - okenyon
+    - pshek
     - rbeckett
     - rhendry
     - rmarcalo
@@ -560,6 +561,13 @@ authors:
         name: 'Matthew Dunsdon'
         email: mdunsdon@scottlogic.co.uk
         gravatar: 98973325557527a01535a91933e7310a
+    pshek:
+        name: 'Paulin Shek'
+        email: pshek@scottlogic.com
+        gravatar: ba6364309ffc12cb9a8165cafa39ba6d
+        author-summary: <p>Paulin is a  Java developer at Scott Logic.
+          When she’s not programming, she can be found doing cryptic
+          crosswords and climbing small rocks.</p>
     rbaxter:
         email: rbaxter@scottlogic.com
         gravatar: b75269f75824889e8569f35d73ddd32b
