@@ -20,6 +20,7 @@ inode
 _id
 OAuthInvalidResourceException
 OAuthAuthorizationMissingResourceException
+client_id
  - cprice/_posts/2015-08-06-an-adventure-in-svg-filter-land.md
 fc.data.random.financial
 poor-mans

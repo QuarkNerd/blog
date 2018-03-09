@@ -54,6 +54,7 @@ nav
 _packages
 dom
 lessSrc
+jspm_packages
  - lpage/_posts/2015-06-29-aurelia-part-two.md
 Eisenberg
 dist

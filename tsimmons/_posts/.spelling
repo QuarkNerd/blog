@@ -15,5 +15,7 @@ closePath
 moveto
 makeBar
 zoomend
+osmdev
  - tsimmons/_posts/2014-09-26-an-interactive-stock-comparison-chart-with-d3.md
+osmdev
 yScale

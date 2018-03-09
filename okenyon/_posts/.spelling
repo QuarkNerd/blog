@@ -19,4 +19,5 @@ Config.fetchHistoricalData
 logResult
 logSend
 grafana
+GROUP_ID_CONFIG
 kafka

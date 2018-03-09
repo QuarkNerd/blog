@@ -5,7 +5,7 @@ layout: default_post
 categories:
   - UX Design
 tags:
-  - UX Design
+  - featured
 summary: "In this post, I go over the similarities and differences between Sketch and Illustrator when working with type."
 ---
 

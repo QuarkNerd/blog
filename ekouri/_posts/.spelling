@@ -37,4 +37,8 @@ Microsoft.AspNet.Mvc
 Mvc
 services.AddMvc
 AddMvc
+bower_components
+node_modules
+www.hanselman.com
+IntroducingASPNETVNext.aspx
 ef

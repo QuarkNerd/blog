@@ -10,6 +10,8 @@ _results
 _raw.csv
 _analysis
 _1.R
+survey_results_raw.csv
+survey_analysis_1.R
  - rhamilton/_posts/2016-08-03-exploring-data-with-shiny-and-r.md
 shinyapps.io
 _testers
@@ -22,6 +24,9 @@ server.R
 renderUI
 _demo
 shiny.rstudio.com
+outages_index
+power_outages
+over_25000_outages
  - rhamilton/_posts/2016-10-25-testbash2016.md
 Lowry
 friendlytester
@@ -64,6 +69,8 @@ uptimes
 downtimes
 Knup
 onboarding
+HelenaJ_M
+www.fourhourtester.net
  - rhamilton/_posts/2016-11-09-r-twitter-mining-and-sentiment-analysis.md
 TestingChef
 Rstats
@@ -109,6 +116,9 @@ Del
 deefex
 Krist
 ne
+e_tester
+Tweet_Cassandra
+www.cs.uic.edu
  - rhamilton/_posts/2017-02-28-building-a-web-app-with-go.md
 GoViolin
 mp3s

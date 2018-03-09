@@ -9,6 +9,7 @@ erl
 erlc
 Dockerfile's
 _gateway
+Dockerfile_gateway
  - csmith/_posts/2016-06-20-declarative-ci-cd-with-concourse.md
 BristechSRM
 comms

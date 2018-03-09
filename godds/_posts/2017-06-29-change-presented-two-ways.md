@@ -5,6 +5,7 @@ image: godds/assets/featured/change-presented-two-ways.png
 categories:
   - UX Design
 tags:
+  - featured
 layout: default_post
 summary: Inspired by a recent dot chart visualisation focusing on the change of a value in different circumstances, this blog post presents the same data visualised using a slopegraph and compares and contrasts the two forms.
 ---

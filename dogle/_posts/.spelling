@@ -24,4 +24,12 @@ vNodes
  -dogle/_posts/2018-02-23-javascript-closure.md
 Lexing
 myFunction
+line_item_id
+order_id
+line_items_by_order
+line_items
+_1_
+_2_
+_4_
+_n_
 myClass

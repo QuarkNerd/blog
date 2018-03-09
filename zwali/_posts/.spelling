@@ -17,4 +17,7 @@ gc
 _grace
 _seconds
 _QUORUM
+gc_grace_seconds
+LOCAL_QUORUM
+EACH_QUORUM
 superfast

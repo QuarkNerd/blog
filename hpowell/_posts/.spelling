@@ -8,6 +8,11 @@ Read-Eval-Print-Loop
 core.typed
 toString
 DSLs
+www.scala
+lang.org
+docu
+ScalaReference.pdf
+www.infoq.com
  - hpowell/_posts/2015-01-07-Scala-Vs-Clojure-Pt2.md
 Clojures
 Perlis

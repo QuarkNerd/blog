@@ -13,6 +13,8 @@ _ERRORS
 _SCHEMA
 v1
 app.module
+_do_
+NO_ERRORS_SCHEMA
  - nowen/_posts/2017-06-06-does-npm5-deprecate-yarn.md
 neato
 5x

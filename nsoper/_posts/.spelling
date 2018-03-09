@@ -32,3 +32,10 @@ _name
 proxy.conf
 my.nginx.conf
 
+core#docker
+proxy_pass
+container_name
+ - nsoper/_posts/2016-01-20-restful-api-with-aspnet50.md
+App_Data
+App_Start
+ASPNET_ENV
