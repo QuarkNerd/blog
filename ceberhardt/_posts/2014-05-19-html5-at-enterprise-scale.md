@@ -2,7 +2,7 @@
 author: ceberhardt
 title: "White Paper - HTML5 At Enterprise Scale"
 tags:
-summary: "Moving from desktop or plugin technologies (Flex, Silverlight, Java Applets) to HTML5 
+summary: "Moving from desktop or plugin technologies (Flex, Silverlight, Java Applets) to HTML5
 is a challenge for developers of large-scale enterprise applications. This White Paper discusses the challenges and offers potential solutions."
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2014/05/19/html5-at-enterprise-scale.html
@@ -21,6 +21,6 @@ The problem is, HTML5 didn't emerge as the winner because it is a superior techn
 
 Enterprise application development is certainly no easier with HTML5 than it is with Flex and Silverlight. In fact the truth is that most developers find it a lot harder. Probably the greatest challenge that developers face when transitioning to HTML5 is that it is not a shrink-wrapped solution. In order to write enterprise-scale applications you face a bewildering array of technical choices and an equal number of pitfalls.
 
-This white paper identifies the numerous challenges and offers practical advice. If you are interested, it can be freely downloaded [in PDF format](({{site.baseurl}}/ceberhardt/assets/white-papers/html5-migration.pdf)).
+This white paper identifies the numerous challenges and offers practical advice. If you are interested, it can be freely downloaded [in PDF format]({{site.baseurl}}/ceberhardt/assets/white-papers/html5-migration.pdf).
 
 Regards, Colin E.
