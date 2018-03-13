@@ -28,6 +28,10 @@ evernote
 numpy
 scipy
 linearsvc
-v3.4.6
+v3.6.4
 resampled
 walkthrough
+ - rrhodes/_posts/2018-03-13-tensorflow-machine-learning.md
+dnns
+tensorflow
+v3.6.4

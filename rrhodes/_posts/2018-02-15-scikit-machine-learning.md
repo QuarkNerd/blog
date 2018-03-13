@@ -10,7 +10,7 @@ categories:
 ---
 Machine learning (ML) was one of the first fields of Computer Science to grab my attention when I was studying. The concept is remarkably straightforward, but its applications are incredibly powerful. Google, AirBnB, and Uber are amongst many big names to apply ML to their products. When I first attempted to apply ML to my own work, there was one library which stood out from them all as a great starting point: <a href="http://scikit-learn.org/stable/">Scikit Learn</a>.
 
-Developed for Python, Scikit Learn allows developers to easily integrate ML into their own projects. <a href="http://scikit-learn.org/stable/testimonials/testimonials.html">Spotify and Evernote are amongst an array of big names using Scikit Learn today</a>. I'm keen to walk through a simple application of Scikit Learn with the latest version of Python 3 (v3.4.6 at the time of writing). If Python's new to you, have no fear! I'll explain the purpose of the code as we go along.
+Developed for Python, Scikit Learn allows developers to easily integrate ML into their own projects. <a href="http://scikit-learn.org/stable/testimonials/testimonials.html">Spotify and Evernote are amongst an array of big names using Scikit Learn today</a>. I'm keen to walk through a simple application of Scikit Learn with the latest version of Python 3 (v3.6.4 at the time of writing). If Python's new to you, have no fear! I'll explain the purpose of the code as we go along.
 
 ## Installation
 Critical to this walkthrough is the installation of Scikit Learn. Prior to doing this, make sure to <a href="https://www.python.org/downloads/">download Python 3</a>. With your terminal open, make sure that you have both NumPy and SciPy installed with `pip`:
@@ -47,8 +47,8 @@ Both the training and test datasets are provided online as CSV files by UCI. Imp
 import pandas as pd
 
 def retrieveData():
-  trainingData = pd.read_csv("training-data.csv").as_matrix()
-  testData = pd.read_csv("test-data.csv").as_matrix()
+  trainingData = pd.read_csv("training-data.csv", header=None).as_matrix()
+  testData = pd.read_csv("test-data.csv", header=None).as_matrix()
 
   return trainingData, testData
 ~~~
