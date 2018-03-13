@@ -19,6 +19,7 @@
   margin-bottom: 1rem;
 
   .featured-post {
+    height: 100%;
 
     .summary {
       padding: 2rem;
@@ -26,6 +27,8 @@
 
     .shape {
       position: relative;
+      height: 100%;
+
       svg.bg {
         position: absolute;
         height: 100%;
