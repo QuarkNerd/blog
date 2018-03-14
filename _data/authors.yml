@@ -43,6 +43,7 @@ active-authors:
     - mdunsdon
     - mjose
     - mmathew
+    - msinton
     - msuperina
     - nowen
     - nwolverson
@@ -433,6 +434,11 @@ authors:
         email: mrhodes@scottlogic.com
         gravatar: fd23036b365ac4d5492207da6dbe0248
         name: Mark Rhodes
+    msinton:
+        email: msinton@scottlogic.com
+        gravatar: d7752c7020155309cc6034292d0f6fc1
+        name: Matt Sinton-Hewitt
+        author-summary: '<p>I''m a Senior Developer at Scott Logic. I like Functional Programming, Big Data and Machine Learning.</p>'
     sbulut:
         name: 'Seda Bulut'
         email: SBulut@scottlogic.com

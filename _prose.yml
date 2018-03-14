@@ -188,6 +188,9 @@ prose:
             login: m-ili-m
             user: mmathew
         -
+            login: msinton
+            user: msinton
+        -
             login: msuperina
             user: msuperina
         -
@@ -265,6 +268,9 @@ prose:
         -
             login: brendanmacdonald
             user: bmacdonald
+        -
+            login: msinton
+            user: msinton   
         -
             login: paulinshekSL
             user: pshek
