@@ -6,9 +6,24 @@ const fs = require("fs");
 const flatMap = (arr, mapFunc) =>
   arr.reduce((prev, x) => prev.concat(mapFunc(x)), []);
 
+const authorsPath = "_data/authors.yml";
+
 const categoriesYaml = yaml.safeLoad(
   fs.readFileSync("_data/categories.yml", "utf8")
 );
+
+let authorsYaml = "";
+
+try {
+  authorsYaml = yaml.safeLoad(
+    fs.readFileSync(authorsPath, "utf8")
+  );
+} catch (e) {
+  console.error(authorsPath, e['message']);
+  process.exit(1);
+}
+
+const activeAuthors = authorsYaml['active-authors'];
 
 const categories = flatMap(
   // remove 'Latest Articles' which is a pseudoe-category
@@ -18,6 +33,24 @@ const categories = flatMap(
 ).map(c => c.toLowerCase());
 
 let fail = false;
+
+// lint authors.yml
+if (new Set(activeAuthors).size !== activeAuthors.length) {
+  activeAuthors.sort();
+
+  let err_message = "Following author(s) duplicated in the active author list:\n";
+  let dups = new Set();
+
+  for (i = 1; i < activeAuthors.length; i++) {
+    if (activeAuthors[i] === activeAuthors[i-1] && !dups.has(activeAuthors[i])) {
+      err_message += activeAuthors[i] + "\n"
+      dups.add(activeAuthors[i]);
+    }
+  }
+
+  console.error(err_message);
+  fail = true;
+}
 
 // lint each blog post
 globby(["*/_posts/**/*.{md,html}"]).then(paths => {
