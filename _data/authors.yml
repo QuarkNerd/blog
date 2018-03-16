@@ -60,8 +60,8 @@ active-authors:
     - sbulut
     - shogarth
     - shunton
-    - tclarke-scottlogic
     - sroebuck
+    - tclarke-scottlogic
     - tmakarem
     - tsimmons
     - wferguson
@@ -73,850 +73,237 @@ authors:
     aaiken:
         email: aaiken@scottlogic.com
         gravatar: 0d37e841be3db547a408cf22fa2d1f03
-        name: Andy Aiken
+        name: 'Andy Aiken'
     aaylett:
         email: aaylett@scottlogic.com
-        google-plus-url: https://plus.google.com/117103827242094116619
+        google-plus-url: 'https://plus.google.com/117103827242094116619'
         gravatar: 279455275f7e4f69b0759fec26130c01
-        name: Andrew Aylett
-        twitter-url: https://twitter.com/aaylett
+        name: 'Andrew Aylett'
+        twitter-url: 'https://twitter.com/aaylett'
+        twitter-handle: aaylett
     acarr:
-        author-summary: <p>I am a Principal Consultant leading the Big Data services
-            within Scott Logic. I have a strong interest and expertise in low latency
-            Front Office trading systems, software managing very large networks and
-            the technologies involved in processing large volumes of data.</p>
+        author-summary: '<p>I am a Principal Consultant leading the Big Data services within Scott Logic. I have a strong interest and expertise in low latency Front Office trading systems, software managing very large networks and the technologies involved in processing large volumes of data.</p>'
         email: andrew.carr@scottlogic.com
-        feed-description: Andrew's thoughts on technology
+        feed-description: 'Andrew''s thoughts on technology'
         gravatar: bbde3f354aab8d561df7374fd3d0a61c
-        name: Andrew Carr
+        name: 'Andrew Carr'
     acheshire:
         email: acheshire@scottlogic.com
         gravatar: 0dad4b3bf82f4c1370397af505f0cb86
-        name: Alexander Cheshire
+        name: 'Alexander Cheshire'
     agard:
-        author-summary: <p>I am an intern going into my fourth year at Edinburgh Napier
-            univeristy, and I have been working on a <a href="https://github.com/ScottLogic/foyer-screen">foyer
-            screen</a> for the offices.</p>
+        author-summary: '<p>I am an intern going into my fourth year at Edinburgh Napier univeristy, and I have been working on a <a href="https://github.com/ScottLogic/foyer-screen">foyer screen</a> for the offices.</p>'
         email: agard@scottlogic.com
         gravatar: d091706ae1c5ffd2803ffe01a4f24c1d
-        name: Alec Gard
-    alee:
-        email: alee@scottlogic.com
-        gravatar: f585309d8acd3635c90a9298ea3d46e1
-        name: Andy Lee
-    amjones:
-        author-summary: <p>Last miner in the North East.</p>
-        email: amjones@scottlogic.com
-        gravatar: 0cb5f9b7baa70d7a5bb09f9a772e0f64
-        name: Andrew Jones
-    amorgan:
-        email: amorgan@scottlogic.co.uk
-        name: Adam Morgan
-    asheehan:
-        author-summary: <p>I'm Ali, and I'm new here</p>
-        email: asheehan-dare@scottlogic.com
-        feed-description: Ali's thoughts on life and technology
-        gravatar: 1e370c1ed31f9721f88e5584f20b3784
-        name: Ali Sheehan-Dare
-        twitter-url: https://twitter.com/im_alisd
-    awallis:
-        email: awallis@scottlogic.com
-        gravatar: 040a59115aea9a572eace5e19f1e6253
-        name: Allen Wallis
-    bdimitrov-SL:
-        author-summary: <p>I am a Software Developer at Scott Logic working with .NET
-            and HTML5 web technologies.</p>
-        email: bdimitrov@scottlogic.com
-        gravatar: 94ea0f85d46b48edd725e5c6b7b60d62
-        name: Bogdan Dimitrov
-    bjedrzejewski:
-        author-summary: <p>I am a Lead Software Developer at Scott Logic. I use Java
-            and JavaScript to solve all kind of problems- from hobby projects to enterprise
-            financial systems. Currently I am fascinated by Microservice Architecture,
-            Machine Learning and board games.</p>
-        email: bjedrzejewski@scottlogic.com
-        gravatar: 5cb43ae453151d6c0e22b3ebf959e5f5
-        name: Bartosz Jedrzejewski
-    bmumford:
-        email: bmumford@scottlogic.com
-        gravatar: 9ea9b7ccfd8bd0e0400912d69fc60be0
-        name: Ben Mumford
-    ceberhardt:
-        author-summary: '<p>I am Technology Director at Scott Logic and am a prolific
-            technical author, blogger and speaker on a range of technologies.</p>
-
-            <p>My blog includes posts on a wide range of topics, including HTML5 /
-            JavaScript and data visualisation with D3 and <a href="https://d3fc.io/">d3fc</a>.
-            You''ll also find a whole host of posts about previous technology interests
-            including iOS, Swift, WPF and Silverlight.</p>
-
-            <p>I''m a member of <a href="https://symphony.foundation/">Symphony Foundation</a>,
-            which is encouraging open source collaboration in the financial sector.
-            I''m also <a href="https://github.com/ColinEberhardt">very active on GitHub</a>,
-            contributing to a number of different projects.</p>
-
-            '
-        email: ceberhardt@scottlogic.com
-        feed-description: Colin Eberhardt's Technology Adventures
-        gravatar: 458f2e0d08d4114f8b323798cfea141d
-        name: Colin Eberhardt
-        twitter-url: https://twitter.com/ColinEberhardt
-    cgrant:
-        email: cgrant@scottlogic.com
-        gravatar: 7ed1a4b5f686f58db97862a26d38d30f
-        name: Chris Grant
-    cmeehan:
-        author-summary: '<p>I''m a software developer at Scott Logic focusing primarily
-            on JavaScript development, particularly with React. Recently, I''ve also
-            taken an interest in mobile development.</p>
-
-
-            <p>I joined the company after studying Mechanical Engineering at Bath
-            and Computer Science (MSc) at Bristol. The fantastic learning opportunities
-            at Scott Logic are one of the main reasons I joined, and as a result I''m
-            currently learning functional programming (F#) in between projects.</p>'
-        email: cmeehan@scottlogic.com
-        gravatar: 829049ee7cd812f0d571ede452322acb
-        name: Chris Meehan
-    cprice:
-        author-summary: <p>My name is Chris Price, I'm based in Newcastle upon Tyne
-            and work as a Software Engineer at Scott Logic. I spend my days developing
-            desktop/tablet/mobile web apps for financial services companies (unfortunately
-            mostly hidden behind paywalls). I do like to blog about things when I
-            can and do some interesting stuff on <a href="https://github.com/chrisprice">GitHub</a>.</p>
-        email: cprice@scottlogic.com
-        gravatar: b6fe36176ec7c9475374a5cd3b7bef1a
-        name: Chris Price
-        twitter-url: https://twitter.com/100pxls
-    csmith:
-        email: csmith@scottlogic.co.uk
-        gravatar: 2c3c188fa868c9e20e809e5af1d1aa29
-        name: Chris Smith
-        twitter-url: https://twitter.com/cjsmithie
-    dcook:
-        email: dcook@scottlogic.com
-        feed-description: Dan Cook's thoughts on all things Big Data.
-        google-plus-url: https://plus.google.com/102307699647083644941
-        gravatar: 477b06f3eb1e0a496918328c43a91ca3
-        name: Daniel Cook
-        twitter-handle: dancookdev
-        twitter-url: https://twitter.com/dancookdev
-    dgorst:
-        email: dgorst@scottlogic.com
-        gravatar: bd790d492bb45a531a39adbbb1b3274c
-        name: Dan Gorst
-    dkerr:
-        author-summary: <p>I'm a full-stack web developer, with an interest in anything
-            and everything that's new in web technology!</p>
-        email: dkerr@scottlogic.com
-        gravatar: ae2614d4e0902adb7844ecec868ef5ee
-        name: Dean Kerr
-    dketley:
-        email: dketley@scottlogic.com
-        gravatar: 6c79499e6992a81bdea5587ed6bfa6f6
-        name: Dominic Ketley
-    dmcnamee:
-        author-summary: Tester. Photographer.
-        email: dmcnamee@scottlogic.com
-        feed-description: Daniel is a senior test engineer and exponent of rapid software
-            testing.
-        google-plus-url: https://www.google.com/+DanielMcNamee
-        gravatar: a764bd37e5ba2ba9305fc4d0c8b67aa7
-        name: Daniel McNamee
-        twitter-url: https://twitter.com/demcnamee
-    dmiley:
-        email: dmiley@scottlogic.co.uk
-        gravatar: 6fc5270bd445b6a20cf7354b0003e035
-        name: Drew Miley
-    dogle:
-        author-summary: <p>I'm Dave, a developer working at Scott logic in Edinburgh</p>
-        email: dogle@scottlogic.com
-        gravatar: 5184c8688ce24268e57f8040a6366857
-        name: Dave Ogle
-    dpizzi:
-        email: dpizzi@scottlogic.com
-        gravatar: 07afccb2207577da6d1590e6e053de1b
-        name: David Pizzi
-    dsmith:
-        author-summary: <p>I'm a Senior Developer at Scott Logic, based in Newcastle.</p>
-        email: dsmith@scottlogic.com
-        gravatar: 62304ebf3f06d2beac44569fdaa4cc7a
-        name: Darren Smith
-        twitter-url: https://twitter.com/darrenpsmithweb
-    dtheasby:
-        author-summary: <p>Test Engineer at Scott Logic</p>
-        email: dtheasby@scottlogic.com
-        gravatar: 95eaac11221e97abef0cfe083b03e4d4
-        name: Drew Theasby
-    dthomas:
-        email: dthomas@scottlogic.co.uk
-        gravatar: cee30211dde61525a902ad9f05d8e56e
-        name: David Thomas
-    dwybourn:
-        email: dwybourn@scottlogic.com
-        gravatar: ebdfd47c91385d9c1d45995d06f5cc0b
-        name: David Wybourn
-    ekouri:
-        email: ekouri@scottlogic.com
-        gravatar: 388f3dfcf0992c358f5dc149604ac14d
-        name: Effrosyni Kouri
-    gginghina:
-        email: gginghina@scottlogic.com
-        gravatar: a2acd70692a21caacdc9dc459b7cf079
-        name: Georgiana Ginghina
-    godds:
-        author-summary: <p>I'm a designer working on complex systems across desktop,
-            web and mobile.  As Head of User Experience at Scott Logic, I work primarily
-            with financial services and energy trading institutions, creating everything
-            from direct-to-consumer investment applications to research, trading and
-            analysis tools. I delight in pushing at what is possible to discover beautiful,
-            effective solutions to problems.</p>
-        email: godds@scottlogic.com
-        feed-description: Graham Odds' thoughts about design, technology and data
-            visualisation.
-        google-plus-url: https://plus.google.com/u/0/106838695703708413394
-        gravatar: 3f5e6c753071c6a41f7f1dbb89daeb3b
-        name: Graham Odds
-        twitter-url: https://twitter.com/g_odds
-    gthompson:
-        author-summary: <p>I'm a Technical Project Manager at Scott Logic with a background
-            in development and engineering. I moved to project management in 2009
-            and have experience in traditional and agile methodologies from large
-            to small projects in both the public and private sectors.</p>
-        email: gthompson@scottlogic.com
-        feed-description: Gary's thoughts on Agile, Scrum, and all things Tech Project
-            Management.
-        gravatar: 59a83a758ac4cd7385be9ed0df32c18e
-        name: Gary Thompson
-    hpowell:
-        email: hpowell@scottlogic.com
-        gravatar: f5c828c7066872e06a59ba26bdf12b8c
-        name: Hugh Powell
-    hpretswell:
-        author-summary: <p>I work as a Test Engineer with a rather odd background
-            in animation. When I'm not bug hunting I like to read, play piano and
-            partake in local theatre productions.</p>
-        email: hpretswell@scottlogic.com
-        feed-description: Bits and bobs on software testing
-        gravatar: 085198904ae587a1d2c5995fa9477129
-        name: Hannah Pretswell
-        twitter-url: https://twitter.com/HannahPretswell
-    ilopatkin:
-        email: ilopatkin@scottlogic.co.uk
-        gravatar: 8a4e1343172f9207ae1f73520e09d9c8
-        name: Ilya Lopatkin
-    isullivan:
-        email: isullivan@scottlogic.com
-        gravatar: ae06993bc4fe04f9afdacb560db8f0ee
-        name: Ian Sullivan
-    janakerman:
-        author-summary: <p>I am a Senior Developer at Scott Logic, based in London.</p>
-        email: jakerman@scottlogic.com
-        gravatar: 682fd441bf8e2ff3dc12eae048fd2ed0
-        name: Jan Akerman
-    jayphi11ips:
-        author-summary: <p>I am the first dedicated BA at Scott Logic, based in London.</p>
-        email: jphillips@scottlogic.com
-        gravatar: 2aa2833a68ae271b368d96642db9c9ea
-        name: Jason Phillips
-    jbandenburg:
-        email: jbandenburg@scottlogic.co.uk
-        gravatar: 785c4b4fe07574c8350791f355195f36
-        name: Joe Bandenburg
-        twitter-url: https://twitter.com/joebandenburg
-    jcardy:
-        name: Jonathan Cardy
-    jdunkerley:
-        author-summary: <p>I am a Technical Architect at Scott Logic, based in London.
-            I have many years of using C# within financial services. My current interests
-            are in data analytics and visualisation, particularly using Tableau and
-            Alteryx. I also  enjoying learning about new big data technologies and
-            machine learning.</p>
-        email: jdunkerley@scottlogic.com
-        gravatar: b1c5913a855a0da5350c50017a75ecf2
-        name: James Dunkerley
-        twitter-handle: jdunkerley
-        twitter-url: http://twitter.com/jdunkerley
-    jfriel:
-        author-summary: <p>I am a summer intern at Scott Logic</p>
-        email: jfriel@scottlogic.co.uk
-        gravatar: 59bdeaafd2405f31c2de2faa41745bca
-        name: James Friel
-    jharris:
-        author-summary: <p>I'm a developer at the Bristol office of Scott Logic.  I
-            develop mostly in C# and JavaScript, and Python outside of work.</p>
-        email: jharris@scottlogic.com
-        gravatar: 460c8825ca2bfb12b3a30d7f4f675b60
-        name: Jon Harris
-    jhill:
-        author-summary: <p>I am developer working at the Scott Logic Newcastle office.
-            I'm involved in several projects and have a great interest in the cryptocurrency
-            market. Believe that I may be one of the last Delphi developers on earth.</p>
-        email: jhill@scottlogic.co.uk
-        google-plus-url: https://plus.google.com/u/0/113102044823162726684
-        gravatar: 06b5ff180bb63feaf2a86bbc309bc058
-        name: James Hill
-    jmelon:
-        author-summary: <p>I am a London based Delivery Principal at Scott Logic.
-            Coming from a developer background I am passionate about Agile, love working
-            with our amazing teams and all those enthusiastic people at our customers.</p>
-        email: jmelon@scottlogic.com
-        gravatar: 7b9bfa1dda9523dcbd5e6089c3519286
-        name: Jean-Sacha Melon
-    jphillpotts:
-        email: jphillpotts@scottlogic.com
-        gravatar: 6fdbb823b145fb77ecd8b8bfc442fb95
-        name: James Phillpotts
-    jrice:
-        author-summary: <p>I am a User Experience Designer at Scott Logic. With a
-            background in Product Design I combine the three areas of People, Design
-            and Technology to create meaningful responses to challenging problems.</p>
-        email: jrice@scottlogic.com
-        gravatar: c2fb020ac7234edb376a0837fcb80e9a
-        name: James Rice
-        twitter-url: https://twitter.com/jamesricedesign
-    jwhite:
-        email: jwhite@scottlogic.com
-        gravatar: fc543a54ca224e361b6db5b238771703
-        name: James White
-    jwilson:
-        author-summary: "\t"
-        email: jwilson@scottlogic.com
-        name: Jule Wilson
-    jwright:
-        author-summary: ''
-        email: jwright@scottlogic.com
-        name: John Wright
-    khurley:
-        author-summary: Business Development Manager
-        email: khurley@scottlogic.com
-        name: Kirsten Hurley
-        gravatar: 56d7a2f52a1dd62d9131d08fcb3b21c4
-    labs:
-        name: Scott Logic Labs
-    lcollingwood:
-        email: lcollingwood@scottlogic.com
-        gravatar: fee97b22e614094360dbd65d73c0e2df
-        name: Laurie Collingwood
-    lpage:
-        email: lpage@scottlogic.com
-        gravatar: f40e61d9f159e1fd0cc70f1e717f6a7b
-        name: Luke Page
-    mcrease:
-        author-summary: ''
-        email: mcrease@scottlogic.com
-        name: Murray Crease
-    mdunsdon:
-        email: mdunsdon@scottlogic.co.uk
-        gravatar: 98973325557527a01535a91933e7310a
-        name: Matthew Dunsdon
-    mjose:
-        author-summary: <p>I'm a lead developer at Scott Logic, working with HTML5
-            web technologies and C# / .NET development.</p><p>When I'm not coding
-            you'll normally find me tinkering with cars or at the race track, but
-            coding is a less expensive pass time.</p><p>I also contribute to a <a
-            href="https://github.com/markjose">few open source projects</a>.</p>
-        email: mjose@scottlogic.com
-        gravatar: 6113027b6f67ad9f5f50a90f1481c0ed
-        name: Mark Jose
-    mkirova:
-        email: mkirova@scottlogic.co.uk
-        name: Mila Kirova
-    mmathew:
-        author-summary: <p>I'm a Lead Test Consultant at Scott Logic, London. I like
-            solving problems with innovation and pragmatism</p>
-        email: mmathew@scottlogic.com
-        gravatar: 14d5011ea7d1add863f3436a74ed9474
-        name: Mili Mathew
-        twitter-url: https://twitter.com/Testflaneuse
-    mperrin:
-        name: Mike Perrin
-    mrhodes:
-        email: mrhodes@scottlogic.com
-        gravatar: fd23036b365ac4d5492207da6dbe0248
-        name: Mark Rhodes
-    msinton:
-        email: msinton@scottlogic.com
-        gravatar: d7752c7020155309cc6034292d0f6fc1
-        name: Matt Sinton-Hewitt
-        author-summary: '<p>I''m a Senior Developer at Scott Logic. I like Functional Programming, Big Data and Machine Learning.</p>'
-    sbulut:
-        name: 'Seda Bulut'
-        email: SBulut@scottlogic.com
-        gravatar: e87a9930b17b716ce8215440461bef61
-        author-summary: '<p>Full-time learner and Test Engineer at Scott Logic</p>'
-    shunton:
-        name: 'Steven Hunton'
-        email: shunton@scottlogic.com
-        gravatar: 9bc56e857c141a4b43ac3533f5bf4249
-        feed-description: 'Steve''s adventures in all things Agile'
-        author-summary: '<p>I''m a Technical Project Manager at Scott Logic. I have a distant memory of being a developer with the past decade or so dedicated to project delivery, scaling and expanding Agile for large organisations and sharing what I learn along the way.</p>'
-    shogarth:
-        name: 'Sam Hogarth'
-        email: shogarth@scottlogic.com
-        gravatar: d4534a4d64ddf89c318221d9f0e766da
-        author-summary: '<p>I am a Lead Developer at Scott Logic, frequently found playing with web technologies and musing about patterns and process. I blog to assist developers when making technical decisions.</p>'
-        feed-description: 'Sam''s musings on web tech'
-    sbaker:
-        name: 'Sioned Baker'
-        email: sbaker@scottlogic.com
-        gravatar: 158d59d1c9832d826e5c6e8624a79ef7
-        author-summary: '<p>I am a senior developer at Scott Logic, working primarily with Java. I''m currently fascinated by data science and machine learning</p>'
-        feed-description: 'Sioned is a developer working primarily Java, with a side-interest in data science.'
-    msuperina:
-        email: msuperina@scottlogic.com
-        gravatar: 4c10e298294956f7d395af53cdde07e2
-        name: Marzio Superina
-        twitter-url: https://twitter.com/marziosuperina
-    mtinning:
-        email: mtinning@scottlogic.com
-        gravatar: c0800747d0696e49dc753be3c345f049
-        name: Michael Tinning
-        twitter-url: https://twitter.com/mttinning
-    nhemley:
-        email: nhemley@scottlogic.com
-        name: Nicholas Hemley
-    nowen:
-        author-summary: <p>I'm a Senior Developer at Scott Logic, with many years
-            of C# experience. Recently I've immersed myself in JavaScript, including
-            Angular and React.
-        email: nowen@scottlogic.com
-        gravatar: e07dcd9d88f35cabf65f669f0de7750a
-        name: Nick Owen
-    nsoper:
-        email: nsoper@scottlogic.com
-        gravatar: 5aaeb8af94f81312997215b90cd6d1af
-        name: Nick Soper
-        twitter-url: https://twitter.com/devsoper
-    nwolverson:
-        email: nwolverson@scottlogic.com
-        gravatar: c2fa082fa1ffbab1293262c599d459fb
-        name: Nicholas Wolverson
-    okenyon:
-        email: okenyon@scottlogic.com
-        gravatar: fb87fc3b96203c2cf0d1d2a060ae740a
-        name: Oliver Kenyon
-    jphillpotts:
-        name: 'James Phillpotts'
-        email: jphillpotts@scottlogic.com
-        gravatar: 6fdbb823b145fb77ecd8b8bfc442fb95
-    tbaker:
-        name: 'Tom Baker'
-        email: tbaker@scottlogic.com
-    dkerr:
-        name: 'Dean Kerr'
-        email: dkerr@scottlogic.com
-        gravatar: ae2614d4e0902adb7844ecec868ef5ee
-        author-summary: '<p>I''m a full-stack web developer, with an interest in anything and everything that''s new in web technology!</p>'
-    sduncan:
-        name: 'Simon Duncan'
-        email: sduncan@scottlogic.co.uk
-        gravatar: 0f765c3e99ff8441cf0d0f60aed9634b
-        author-summary: 'UX designer. Arduino & physical computing enthusiast. Likes hip hop and 30 minute drone pieces.'
-        twitter-url: 'https://twitter.com/simonduncan'
-        feed-description: '<p>Simon Duncan is a UX designer, particularly interested in interaction design and information architecture. These are some of his thoughts.</p>'
-    rwilliams:
-        name: 'Robat Williams'
-        email: rwilliams@scottlogic.co.uk
-        gravatar: b2e17d98db06119a53fffd5666848871
-        twitter-url: 'https://twitter.com/_rwms'
-        google-plus-url: 'https://plus.google.com/u/0/111956836520400525467'
-        author-summary: '<p>I work building web applications for our clients at Scott Logic. I mainly work with HTML5/JavaScript front end technologies, and Java.</p>'
-    amorgan:
-        name: 'Adam Morgan'
-        email: amorgan@scottlogic.co.uk
-    jhill:
-        name: 'James Hill'
-        email: jhill@scottlogic.co.uk
-        google-plus-url: 'https://plus.google.com/u/0/113102044823162726684'
-        author-summary: '<p>I am developer working at the Scott Logic Newcastle office. I''m involved in several projects and have a great interest in the cryptocurrency market. Believe that I may be one of the last Delphi developers on earth.</p>'
-        gravatar: 06b5ff180bb63feaf2a86bbc309bc058
-    ilopatkin:
-        name: 'Ilya Lopatkin'
-        email: ilopatkin@scottlogic.co.uk
-        gravatar: 8a4e1343172f9207ae1f73520e09d9c8
-    dmcnamee:
-        name: 'Daniel McNamee'
-        email: dmcnamee@scottlogic.com
-        gravatar: a764bd37e5ba2ba9305fc4d0c8b67aa7
-        author-summary: 'Tester. Photographer.'
-        twitter-url: 'https://twitter.com/demcnamee'
-        google-plus-url: 'https://www.google.com/+DanielMcNamee'
-        feed-description: 'Daniel is a senior test engineer and exponent of rapid software testing.'
-    dgorst:
-        name: 'Dan Gorst'
-        email: dgorst@scottlogic.com
-        gravatar: bd790d492bb45a531a39adbbb1b3274c
-    dogle:
-        name: 'Dave Ogle'
-        email: dogle@scottlogic.com
-        gravatar: 5184c8688ce24268e57f8040a6366857
-        author-summary: '<p>I''m Dave, a developer working at Scott Logic in Edinburgh</p>'
-    lcollingwood:
-        name: 'Laurie Collingwood'
-        email: lcollingwood@scottlogic.com
-        gravatar: fee97b22e614094360dbd65d73c0e2df
+        name: 'Alec Gard'
     alee:
         name: 'Andy Lee'
         email: alee@scottlogic.com
         gravatar: f585309d8acd3635c90a9298ea3d46e1
-    dthomas:
-        name: 'David Thomas'
-        email: dthomas@scottlogic.co.uk
-        gravatar: cee30211dde61525a902ad9f05d8e56e
-    mdunsdon:
-        name: 'Matthew Dunsdon'
-        email: mdunsdon@scottlogic.co.uk
-        gravatar: 98973325557527a01535a91933e7310a
-    pshek:
-        name: 'Paulin Shek'
-        email: pshek@scottlogic.com
-        gravatar: ba6364309ffc12cb9a8165cafa39ba6d
-        author-summary: <p>Paulin is a  Java developer at Scott Logic.
-          When she’s not programming, she can be found doing cryptic
-          crosswords and climbing small rocks.</p>
-    rbaxter:
-        email: rbaxter@scottlogic.com
-        gravatar: b75269f75824889e8569f35d73ddd32b
-        name: Rolf Baxter
-    rbeckett:
-        author-summary: Graduate Developer at Scott Logic
-        email: rbeckett@scottlogic.com
-        name: Richard Beckett
-    rcaulcott-cooper:
-        author-summary: <p>I am an intern going into my third year of Computer Science
-            at Newcastle University, and have mainly been doing Java, javascript and
-            C. Recently I have been working with d3.js, less.css and Scott Logic's
-            own <a href="https://github.com/d3fc">d3fc</a>.</p>
-        email: rcaulcott-cooper@scottlogic.co.uk
-        gravatar: 5abeadc63cbe7be7b6538ffd4b523b3b
-        name: Ruth Caulcott-Cooper
-    rdoyle:
-        email: rdoyle@scottlogic.com
-        gravatar: 1c9852e1b5e7d2847b21dba28e7a3efe
-        name: Richard Doyle
-    rfarmer:
-        email: roisin.farmer@scottlogic.co.uk
-        name: Roisin Farmer
-    rhamilton:
-        author-summary: <p>I have been happily testing software and reporting bugs
-            since 2005. I am the Author of <a href="http://testingfuntime.blogspot.co.uk/">
-            Mega Ultra Super Happy Software Testing Fun Time</a>. As well as writing
-            I enjoy playing violin, playing PC games, going to the gym and pushing
-            <a href="https://golang.org/">Golang</a> and <a href="https://www.r-project.org/about.html">R</a>
-            to <a href="https://github.com/Rosalita">Github</a>. I currently work
-            at Scott Logic as a Senior Test Engineer.</p>
-        email: rhamilton@scottlogic.com
-        feed-description: A collection of Rosie Hamilton's thoughts on software testing.
-        gravatar: 3353c71097ec03a671be49239d8c9574
-        name: Rosie Hamilton
-        twitter-url: https://twitter.com/Rosicadia
-    rhendry:
-        email: rhendry@scottlogic.com
-        gravatar: 7939d9daf7eddd821f2af9b6b916a03c
-        name: Ross Hendry
-    rmarcalo:
-        email: rmarcalo@scottlogic.co.uk
-        gravatar: 62bc66cd7846a1af08be1e0eff8207e2
-        name: Rui Marcalo
-    rnewsome:
-        author-summary: Scott Logic's Head of Development, Newcastle upon Tyne
-        email: rnewsome@scottlogic.com
-        name: Rob Newsome
-    rrahim:
-        author-summary: <p>I am a UX Designer at Scott Logic. My background is in
-            Product Design and I studied at Brunel University for 4 years. I have
-            designed apps for mobile, desktop, tablet, web and service robot. I enjoy
-            the research side of user experience, as I am always interested in learning
-            about new technologies and design principles.</p>
-        email: rrahim@scottlogic.co.uk
-        gravatar: 3eea110c82f1934eb984d56fa4d45517
-        name: Rhianna Rahim
-    rrhodes:
-        author-summary: <p>I'm a Graduate Developer at Scott Logic, Edinburgh. I joined
-            in August 2017 after four years of study at the University of Edinburgh.</p>
-        email: rrhodes@scottlogic.com
-        gravatar: 97c297e1087e4f95f2b1389fec46d0c9
-        name: Ross Rhodes
-    rschuller:
-        author-summary: Graduate Developer, Bristol
-        email: rschuller@scottlogic.com
-        name: Ricardo Schuller
-    rsillem:
-        author-summary: <p>I am a Lead Developer at Scott Logic.</p>
-        email: rsillem@scottlogic.com
-        gravatar: 858e2c9ef66e0f7850a7ea8505f76084
-        name: Robin Sillem
-    rwilliams:
-        author-summary: <p>I work building web applications for our clients at Scott
-            Logic. I mainly work with HTML5/JavaScript front end technologies, and
-            Java.</p>
-        email: rwilliams@scottlogic.co.uk
-        google-plus-url: https://plus.google.com/u/0/111956836520400525467
-        gravatar: b2e17d98db06119a53fffd5666848871
-        name: Robat Williams
-        twitter-url: https://twitter.com/_rwms
-    sbaker:
-        author-summary: <p>I am a senior developer at Scott Logic, working primarily
-            with Java. I'm currently fascinated by data science and machine learning</p>
-        email: sbaker@scottlogic.com
-        feed-description: Sioned is a developer working primarily Java, with a side-interest
-            in data science.
-        gravatar: 158d59d1c9832d826e5c6e8624a79ef7
-        name: Sioned Baker
-    sbulut:
-        author-summary: <p>Full-time learner and Test Engineer at Scott Logic</p>
-        email: SBulut@scottlogic.com
-        gravatar: e87a9930b17b716ce8215440461bef61
-        name: Seda Bulut
-    sdavies:
-        email: sdavies@scottlogic.com
-        google-plus-url: https://plus.google.com/+SamDavies_ActuallyMyRealName
-        gravatar: ddd6d3bac7772fa67fc5e312a18bdaec
-        name: Sam Davies
-        twitter-url: https://twitter.com/iwantmyrealname
-    sduncan:
-        author-summary: UX designer. Arduino & physical computing enthusiast. Likes
-            hip hop and 30 minute drone pieces.
-        email: sduncan@scottlogic.co.uk
-        feed-description: <p>Simon Duncan is a UX designer, particularly interested
-            in interaction design and information architecture. These are some of
-            his thoughts.</p>
-        gravatar: 0f765c3e99ff8441cf0d0f60aed9634b
-        name: Simon Duncan
-        twitter-url: https://twitter.com/simonduncan
-    sfoley:
-        email: sfoley@scottlogic.com
-        gravatar: 6a107b16bc05aaa263cf1237eedda426
-        name: Simon Foley
-    shall:
-        email: stevenhall@scottlogic.com
-        gravatar: 30187520d3181c674d7b7ecbcbbf48b1
-        name: Steven Hall
-    shogarth:
-        author-summary: <p>Frequently found developing Android applications, playing
-            with web technologies and musing about patterns and process.</p>
-        email: shogarth@scottlogic.com
-        feed-description: Sam Hogarth is a developer working primarily with web technologies,
-            with a side-interest in Android development.
-        gravatar: d4534a4d64ddf89c318221d9f0e766da
-        name: Sam Hogarth
-    shunton:
-        author-summary: <p>I'm a Technical Project Manager at Scott Logic. I have
-            a distant memory of being a developer with the past decade or so dedicated
-            to project delivery, scaling and expanding Agile for large organisations
-            and sharing what I learn along the way.</p>
-        email: shunton@scottlogic.com
-        feed-description: Steve's adventures in all things Agile
-        gravatar: 9bc56e857c141a4b43ac3533f5bf4249
-        name: Steven Hunton
-    sking:
-        email: sking@scottlogic.com
-        gravatar: c02644e4b21947da7787247349954f96
-        name: Saber King
-    soneill:
-        email: soneill@scottlogic.com
-        gravatar: 86d65c90b7cb711055066f12a5f8d0e2
-        name: Sean O'Neill
-    mjose:
-        name: 'Mark Jose'
-        email: mjose@scottlogic.com
-        gravatar: 6113027b6f67ad9f5f50a90f1481c0ed
-        author-summary: '<p>I''m a lead developer at Scott Logic, working with HTML5 web technologies and C# / .NET development.</p><p>When I''m not coding you''ll normally find me tinkering with cars or at the race track, but coding is a less expensive pass time.</p><p>I also contribute to a <a href="https://github.com/markjose">few open source projects</a>.</p>'
-    tclarke-scottlogic:
-        name: 'Thomas Clarke'
-        email: tclarke@scottlogic.com
-        gravatar: db2362179a6feed97f2051df2db68b8b
-        author-summary: '<p>I started at ScottLogic in 2018 as a member of the Development team.</p><p>Prior to Scott Logic, I''ve worked around the UK, as a full system product developer, using C++, C#, javascript, ruby, shell scripts and what seems like dozens of company-specific frameworks.</p><p>As a product developer, I''m interested in making sure I''m solving meaningful problems for our clients, and providing an experience that <a href="http://seriouspony.com/blog/2013/7/24/your-app-makes-me-fat">doesn''t make them fat</a>.</p>'
-        twitter-url: 'https://twitter.com/deworde'
-    tkelly:
-        name: 'Thomas Kelly'
-        email: tkelly@scottlogic.com
-        gravatar: 26b51d42f5a82f0e7e21aa8fa92142b3
-        author-summary: '<p>I am primarily a C#/Javascript developer, but I dabble in iOS from time to time</p><p>Outside of work I love games, both video games and board games. I even <a href="https://www.gitbook.com/book/tpkelly/gaming-the-system/">wrote a book</a> and <a href="https://www.youtube.com/watch?v=ghQA_OvucMc">gave a talk</a> about applying ideas from games to improve customer interactions.</p>'
-    rfarmer:
-        name: 'Roisin Farmer'
-        email: roisin.farmer@scottlogic.co.uk
-    bmumford:
-        name: 'Ben Mumford'
-        email: bmumford@scottlogic.com
-        gravatar: 9ea9b7ccfd8bd0e0400912d69fc60be0
-    sdavies:
-        name: 'Sam Davies'
-        email: sdavies@scottlogic.com
-        gravatar: ddd6d3bac7772fa67fc5e312a18bdaec
-        twitter-url: 'https://twitter.com/iwantmyrealname'
-        google-plus-url: 'https://plus.google.com/+SamDavies_ActuallyMyRealName'
-    wloveland:
-        name: 'Will Loveland'
-        email: wloveland@scottlogic.com
-        gravatar: edd2ab1d485e1d3eb6626d6a3782590d
-        author-summary: '<p>I''m a User Experience Designer at Scott Logic. My interests lie in the future of the in-car experiences, working with complex systems and cat GIFs.</p>'
-    rmarcalo:
-        name: 'Rui Marcalo'
-        email: rmarcalo@scottlogic.co.uk
-        gravatar: 62bc66cd7846a1af08be1e0eff8207e2
-    ekouri:
-        name: 'Effrosyni Kouri'
-        email: ekouri@scottlogic.com
-        gravatar: 388f3dfcf0992c358f5dc149604ac14d
+    amjones:
+        author-summary: '<p>Last miner in the North East.</p>'
+        email: amjones@scottlogic.com
+        gravatar: 0cb5f9b7baa70d7a5bb09f9a772e0f64
+        name: 'Andrew Jones'
+    amorgan:
+        name: 'Adam Morgan'
+        email: amorgan@scottlogic.co.uk
+    asheehan:
+        author-summary: '<p>I''m Ali, and I''m new here</p>'
+        email: asheehan-dare@scottlogic.com
+        feed-description: 'Ali''s thoughts on life and technology'
+        gravatar: 1e370c1ed31f9721f88e5584f20b3784
+        name: 'Ali Sheehan-Dare'
+        twitter-url: 'https://twitter.com/im_alisd'
+        twitter-handle: im_alisd
     awallis:
         name: 'Allen Wallis'
         gravatar: 040a59115aea9a572eace5e19f1e6253
         email: awallis@scottlogic.com
-    sroebuck:
-        author-summary: Technical Architect
-        email: sroebuck@scottlogic.com
-        name: Stuart Roebuck
-    swilson:
-        author-summary: Senior Marketing Executive
-        email: swilson@scottlogic.com
-        name: Scarlett Wilson
-    tbaker:
-        email: tbaker@scottlogic.com
-        name: Tom Baker
-    tbarclay:
-        email: tbarclay@scottlogic.com
-        gravatar: 0b06781c8c3ac7261b8bb4e5810a4004
-        name: Tim Barclay
-    tferguson:
-        name: Tyler Ferguson
-        author-summary: <p>I am a Developer at Scott Logic. I have a strong interest
-            in front end development and the javascript ecosystem as a whole. I like
-            most things to do with mathematics and chess.</p>
-        email: tferguson@scottlogic.co.uk
-        gravatar: 46b3ff75f0c69eca7f80876307e1f386
-    tbarclay:
-        name: 'Tim Barclay'
-        gravatar: 0b06781c8c3ac7261b8bb4e5810a4004
-        email: tbarclay@scottlogic.com
-    rcaulcott-cooper:
-        name: 'Ruth Caulcott-Cooper'
-        email: rcaulcott-cooper@scottlogic.co.uk
-        gravatar: 5abeadc63cbe7be7b6538ffd4b523b3b
-        author-summary: '<p>I am an intern going into my third year of Computer Science at Newcastle University, and have mainly been doing Java, javascript and C. Recently I have been working with d3.js, less.css and Scott Logic''s own <a href="https://github.com/d3fc">d3fc</a>.</p>'
-    rhamilton:
-        name: 'Rosie Hamilton'
-        email: rhamilton@scottlogic.com
-        gravatar: 3353c71097ec03a671be49239d8c9574
-        twitter-url: 'https://twitter.com/Rosicadia'
-        feed-description: 'A collection of Rosie Hamilton''s thoughts on software testing.'
-        author-summary: '<p>I have been happily testing software and reporting bugs since 2005. I am the Author of <a href="http://testingfuntime.blogspot.co.uk/"> Mega Ultra Super Happy Software Testing Fun Time</a>. As well as writing I enjoy playing violin, playing PC games, going to the gym and pushing <a href="https://golang.org/">Golang</a> and <a href="https://www.r-project.org/about.html">R</a> to <a href="https://github.com/Rosalita">Github</a>. I currently work at Scott Logic as a Senior Test Engineer.</p>'
-    hpretswell:
-        name: 'Hannah Pretswell'
-        email: hpretswell@scottlogic.com
-        gravatar: 085198904ae587a1d2c5995fa9477129
-        twitter-url: 'https://twitter.com/HannahPretswell'
-        feed-description: 'Bits and bobs on software testing'
-        author-summary: '<p>I work as a Test Engineer with a rather odd background in animation. When I''m not bug hunting I like to read, play piano and partake in local theatre productions.</p>'
-    wferguson:
-        name: 'William Ferguson'
-        email: wferguson@scottlogic.com
-        gravatar: 701a9a8da54af53986e7d63b9c11a163
-        author-summary: '<p>I''m a developer at Scott Logic, after joining in 2014 as an intern.</p>'
     bdimitrov-SL:
         name: 'Bogdan Dimitrov'
         email: bdimitrov@scottlogic.com
         gravatar: 94ea0f85d46b48edd725e5c6b7b60d62
         author-summary: '<p>I am a Software Developer at Scott Logic working with .NET and HTML5 web technologies.</p>'
-    mtinning:
-        name: 'Michael Tinning'
-        email: mtinning@scottlogic.com
-        twitter-url: 'https://twitter.com/mttinning'
-        gravatar: c0800747d0696e49dc753be3c345f049
     bjedrzejewski:
         name: 'Bartosz Jedrzejewski'
         email: bjedrzejewski@scottlogic.com
         gravatar: 5cb43ae453151d6c0e22b3ebf959e5f5
         author-summary: '<p>I am a Lead Software Developer at Scott Logic. I use Java and JavaScript to solve all kind of problems- from hobby projects to enterprise financial systems. Currently I am fascinated by Microservice Architecture, I write about it on my blog <a href="https://e4developer.com">e4developer</a>.</p>'
         twitter-url: 'https://twitter.com/bartoszjd'
-    dwybourn:
-        name: 'David Wybourn'
-        email: dwybourn@scottlogic.com
-        gravatar: ebdfd47c91385d9c1d45995d06f5cc0b
-    nsoper:
-        name: 'Nick Soper'
-        email: nsoper@scottlogic.com
-        gravatar: 5aaeb8af94f81312997215b90cd6d1af
-        twitter-url: 'https://twitter.com/devsoper'
+        twitter-handle: bartoszjd
+    bmacdonald:
+        name: 'Brendan MacDonald'
+        email: bmacdonald@scottlogic.com
+        gravatar: 59283a0eeb576c7405f9b99b3ac2f513
+        author-summary: 'Senior Test Engineer working at Scott Logic based in the Edinburgh office.'
+    bmumford:
+        name: 'Ben Mumford'
+        email: bmumford@scottlogic.com
+        gravatar: 9ea9b7ccfd8bd0e0400912d69fc60be0
+    cburbidge:
+        name: 'Chester Burbidge'
+        email: cburbidge@scottlogic.com
+        gravatar: 82bcea382ccc612686216d2c931fbc01
+        author-summary: 'Software Engineer at Scott Logic. Experienced in dotnet but interested in all areas of software development, especially ''devops'' and functional programming.'
+        twitter-url: 'https://twitter.com/burbdude'
+        twitter-handle: burbdude
+    ceberhardt:
+        author-summary: "<p>I am Technology Director at Scott Logic and am a prolific technical author, blogger and speaker on a range of technologies.</p>\n<p>My blog includes posts on a wide range of topics, including HTML5 / JavaScript and data visualisation with D3 and <a href=\"https://d3fc.io/\">d3fc</a>. You'll also find a whole host of posts about previous technology interests including iOS, Swift, WPF and Silverlight.</p>\n<p>I'm a member of <a href=\"https://symphony.foundation/\">Symphony Foundation</a>, which is encouraging open source collaboration in the financial sector. I'm also <a href=\"https://github.com/ColinEberhardt\">very active on GitHub</a>, contributing to a number of different projects.</p>\n"
+        email: ceberhardt@scottlogic.com
+        feed-description: 'Colin Eberhardt''s Technology Adventures'
+        gravatar: 458f2e0d08d4114f8b323798cfea141d
+        name: 'Colin Eberhardt'
+        twitter-url: 'https://twitter.com/ColinEberhardt'
+        twitter-handle: ColinEberhardt
+    cgrant:
+        email: cgrant@scottlogic.com
+        gravatar: 7ed1a4b5f686f58db97862a26d38d30f
+        name: 'Chris Grant'
+    cmeehan:
+        author-summary: '<p>I''m a software developer at Scott Logic focusing primarily on JavaScript development, particularly with React. Recently, I''ve also taken an interest in mobile development.</p> <p>I joined the company after studying Mechanical Engineering at Bath and Computer Science (MSc) at Bristol. The fantastic learning opportunities at Scott Logic are one of the main reasons I joined, and as a result I''m currently learning functional programming (F#) in between projects.</p>'
+        email: cmeehan@scottlogic.com
+        gravatar: 829049ee7cd812f0d571ede452322acb
+        name: 'Chris Meehan'
+    cprice:
+        author-summary: '<p>My name is Chris Price, I''m based in Newcastle upon Tyne and work as a Software Engineer at Scott Logic. I spend my days developing desktop/tablet/mobile web apps for financial services companies (unfortunately mostly hidden behind paywalls). I do like to blog about things when I can and do some interesting stuff on <a href="https://github.com/chrisprice">GitHub</a>.</p>'
+        email: cprice@scottlogic.com
+        gravatar: b6fe36176ec7c9475374a5cd3b7bef1a
+        name: 'Chris Price'
+        twitter-url: 'https://twitter.com/100pxls'
+        twitter-handle: 100pxls
+    croberts:
+        name: 'Charlotte Roberts'
+        email: croberts@scottlogic.com
+        gravatar: 64c5cdea265090dbf5e299ffe541935b
+        author-summary: 'Test Engineer at Scott Logic. Based in the London office.'
     csmith:
         name: 'Chris Smith'
         email: csmith@scottlogic.co.uk
         gravatar: 2c3c188fa868c9e20e809e5af1d1aa29
         twitter-url: 'https://twitter.com/cjsmithie'
-    rsillem:
-        name: 'Robin Sillem'
-        email: rsillem@scottlogic.com
-        gravatar: 858e2c9ef66e0f7850a7ea8505f76084
-        author-summary: '<p>I am a Lead Developer at Scott Logic.</p>'
+        twitter-handle: cjsmithie
+    dcook:
+        email: dcook@scottlogic.com
+        feed-description: 'Dan Cook''s thoughts on all things Big Data.'
+        google-plus-url: 'https://plus.google.com/102307699647083644941'
+        gravatar: 477b06f3eb1e0a496918328c43a91ca3
+        name: 'Daniel Cook'
+        twitter-handle: dancookdev
+        twitter-url: 'https://twitter.com/dancookdev'
+    dgorst:
+        name: 'Dan Gorst'
+        email: dgorst@scottlogic.com
+        gravatar: bd790d492bb45a531a39adbbb1b3274c
+    dkerr:
+        author-summary: '<p>I''m a full-stack web developer, with an interest in anything and everything that''s new in web technology!</p>'
+        email: dkerr@scottlogic.com
+        gravatar: ae2614d4e0902adb7844ecec868ef5ee
+        name: 'Dean Kerr'
+    dketley:
+        email: dketley@scottlogic.com
+        gravatar: 6c79499e6992a81bdea5587ed6bfa6f6
+        name: 'Dominic Ketley'
+    dmcnamee:
+        author-summary: 'Tester. Photographer.'
+        email: dmcnamee@scottlogic.com
+        feed-description: 'Daniel is a senior test engineer and exponent of rapid software testing.'
+        google-plus-url: 'https://www.google.com/+DanielMcNamee'
+        gravatar: a764bd37e5ba2ba9305fc4d0c8b67aa7
+        name: 'Daniel McNamee'
+        twitter-url: 'https://twitter.com/demcnamee'
+        twitter-handle: demcnamee
+    dmiley:
+        email: dmiley@scottlogic.co.uk
+        gravatar: 6fc5270bd445b6a20cf7354b0003e035
+        name: 'Drew Miley'
+    dogle:
+        name: 'Dave Ogle'
+        email: dogle@scottlogic.com
+        gravatar: 5184c8688ce24268e57f8040a6366857
+        author-summary: '<p>I''m Dave, a developer working at Scott Logic in Edinburgh</p>'
+    dpizzi:
+        email: dpizzi@scottlogic.com
+        gravatar: 07afccb2207577da6d1590e6e053de1b
+        name: 'David Pizzi'
+    dsmith:
+        author-summary: '<p>I''m a Senior Developer at Scott Logic, based in Newcastle.</p>'
+        email: dsmith@scottlogic.com
+        gravatar: 62304ebf3f06d2beac44569fdaa4cc7a
+        name: 'Darren Smith'
+        twitter-url: 'https://twitter.com/darrenpsmithweb'
+        twitter-handle: darrenpsmithweb
     dtheasby:
         name: 'Drew Theasby'
         email: dtheasby@scottlogic.com
         gravatar: 95eaac11221e97abef0cfe083b03e4d4
         author-summary: '<p>Test Engineer at Scott Logic</p>'
-    tkelly:
-        author-summary: <p>I am primarily a C#/Javascript developer, but I dabble
-            in iOS from time to time</p><p>Outside of work I love games, both video
-            games and board games. I even <a href="https://www.gitbook.com/book/tpkelly/gaming-the-system/">wrote
-            a book</a> and <a href="https://www.youtube.com/watch?v=ghQA_OvucMc">gave
-            a talk</a> about applying ideas from games to improve customer interactions.</p>
-        email: tkelly@scottlogic.com
-        gravatar: 26b51d42f5a82f0e7e21aa8fa92142b3
-        name: Thomas Kelly
-    tmakarem:
-        author-summary: <p> I am a User Experience Designer based in London. Using
-            an Agile approach, I design desktop, tablet and mobile web apps. At Scott
-            logic, I work with clients mainly in financial services enhancing their
-            trading platforms, analytics dashboards and Intranet tools. I am an enthusiast
-            of Data visualization and interactive projects using code for art.</p>
-        email: tmakarem@scottlogic.co.uk
-        gravatar: 73d206981f4f75819ae6afe473bdbaad
-        name: Tamara Chehayeb Makarem
-        twitter-handle: TamaraCMakarem
-        twitter-url: http://twitter.com/TamaraCMakarem
-    tsimmons:
-        email: tsimmons@scottlogic.co.uk
-        gravatar: d3b0a51363909dfbd44683577134c72c
-        name: Tom Simmons
-    wferguson:
-        author-summary: <p>I'm a developer at Scott Logic, after joining in 2014 as
-            an intern.</p>
-        email: wferguson@scottlogic.com
-        gravatar: 701a9a8da54af53986e7d63b9c11a163
-        name: William Ferguson
-    wloveland:
-        author-summary: <p>I'm a User Experience Designer at Scott Logic. My interests
-            lie in the future of the in-car experiences, working with complex systems
-            and cat GIFs.</p>
-        email: wloveland@scottlogic.com
-        gravatar: edd2ab1d485e1d3eb6626d6a3782590d
-        name: Will Loveland
-    wreilly:
-        email: wreilly@scottlogic.com
-        gravatar: 8f0414d464cf565f74042a08c75e3309
-        name: William Reilly
-    wtrimble:
-        author-summary: Lead Test Engineer
-        email: wtrimble@scottlogic.com
-        name: Wullie Trimble
-    zwali:
-        name: Zinat Wali
-        author-summary: <p>I am a Senior Developer at Scott Logic. I like exploring
-            technology and have a keen interest in Big Data and Machine Learning.</p>
-        email: zwali@scottlogic.co.uk
-        gravatar: 8a075afb0f40d47039cdac411f58f5d3
-    mmathew:
-        name: 'Mili Mathew'
-        email: mmathew@scottlogic.com
-        author-summary: '<p>I''m a Lead Test Consultant at Scott Logic, London. I like solving problems with innovation and pragmatism</p>'
-        gravatar: 14d5011ea7d1add863f3436a74ed9474
-        twitter-url: 'https://twitter.com/Testflaneuse'
-    rrhodes:
-        name: 'Ross Rhodes'
-        email: rrhodes@scottlogic.com
-        author-summary: '<p>I''m a software developer at Scott Logic, Edinburgh. I joined in August 2017 after four years studying Computer Science and Mathematics at the University of Edinburgh.</p>'
-        gravatar: 97c297e1087e4f95f2b1389fec46d0c9
-        twitter-url: 'https://twitter.com/trrhodes'
+    dthomas:
+        name: 'David Thomas'
+        email: dthomas@scottlogic.co.uk
+        gravatar: cee30211dde61525a902ad9f05d8e56e
+    dwybourn:
+        name: 'David Wybourn'
+        email: dwybourn@scottlogic.com
+        gravatar: ebdfd47c91385d9c1d45995d06f5cc0b
+    ekouri:
+        name: 'Effrosyni Kouri'
+        email: ekouri@scottlogic.com
+        gravatar: 388f3dfcf0992c358f5dc149604ac14d
+    emason:
+        name: 'Elliot Mason'
+        email: emason@scottlogic.com
+        gravatar: f165db9225e9d62549583f38fcb4e5cb
+        author-summary: '<p>Test Engineer at Newcastle, studied Computer Science at Newcastle University</p>'
+    ffarhadi:
+        name: 'Farzaneh Farhadi'
+        email: ffarhadi@scottlogic.com
+        gravatar: 47aa293125520032c7f327b5c62c33cb
+        author-summary: "<p>I have been working for more than five years as a test engineer.\nIn my spare time I enjoy playing piano and painting.</p>"
+    gginghina:
+        name: 'Georgiana Ginghina'
+        email: gginghina@scottlogic.com
+        gravatar: a2acd70692a21caacdc9dc459b7cf079
+    godds:
+        author-summary: '<p>I''m a designer working on complex systems across desktop, web and mobile.  As Head of User Experience at Scott Logic, I work primarily with financial services and energy trading institutions, creating everything from direct-to-consumer investment applications to research, trading and analysis tools. I delight in pushing at what is possible to discover beautiful, effective solutions to problems.</p>'
+        email: godds@scottlogic.com
+        feed-description: 'Graham Odds'' thoughts about design, technology and data visualisation.'
+        google-plus-url: 'https://plus.google.com/u/0/106838695703708413394'
+        gravatar: 3f5e6c753071c6a41f7f1dbb89daeb3b
+        name: 'Graham Odds'
+        twitter-url: 'https://twitter.com/g_odds'
+        twitter-handle: g_odds
+    gthompson:
+        author-summary: '<p>I''m a Technical Project Manager at Scott Logic with a background in development and engineering. I moved to project management in 2009 and have experience in traditional and agile methodologies from large to small projects in both the public and private sectors.</p>'
+        email: gthompson@scottlogic.com
+        feed-description: 'Gary''s thoughts on Agile, Scrum, and all things Tech Project Management.'
+        gravatar: 59a83a758ac4cd7385be9ed0df32c18e
+        name: 'Gary Thompson'
+    hpowell:
+        email: hpowell@scottlogic.com
+        gravatar: f5c828c7066872e06a59ba26bdf12b8c
+        name: 'Hugh Powell'
+    hpretswell:
+        author-summary: '<p>I work as a Test Engineer with a rather odd background in animation. When I''m not bug hunting I like to read, play piano and partake in local theatre productions.</p>'
+        email: hpretswell@scottlogic.com
+        feed-description: 'Bits and bobs on software testing'
+        gravatar: 085198904ae587a1d2c5995fa9477129
+        name: 'Hannah Pretswell'
+        twitter-url: 'https://twitter.com/HannahPretswell'
+        twitter-handle: HannahPretswell
+    hubinf@scottlogic.com:
+        name: 'Frank Hubin'
+        email: frank.hubin@gmail.com
+        gravatar: f1653046285a5fd35cdc7e89700b9fd5
+        author-summary: 'I am a Technical Project Manager at Scott Logic. Using a lean approach, Agile values and team empowerment, I build bridges between business and technical teams to improve collaboration and make delivery a reality.'
+    ilopatkin:
+        name: 'Ilya Lopatkin'
+        email: ilopatkin@scottlogic.co.uk
+        gravatar: 8a4e1343172f9207ae1f73520e09d9c8
+    isullivan:
+        email: isullivan@scottlogic.com
+        gravatar: ae06993bc4fe04f9afdacb560db8f0ee
+        name: 'Ian Sullivan'
     janakerman:
         name: 'Jan Akerman'
         email: jakerman@scottlogic.com
@@ -927,68 +314,359 @@ authors:
         email: jphillips@scottlogic.com
         author-summary: '<p>I am the first dedicated BA at Scott Logic, based in London.</p>'
         gravatar: 2aa2833a68ae271b368d96642db9c9ea
-    jmelon:
-        name: 'Jean-Sacha Melon'
-        email: jmelon@scottlogic.com
-        author-summary: '<p>I am a London based Delivery Principal at Scott Logic. Coming from a developer background I am passionate about Agile, love working with our amazing teams and all those enthusiastic people at our customers.</p>'
-        gravatar: 7b9bfa1dda9523dcbd5e6089c3519286
-    cmeehan:
-        name: 'Chris Meehan'
-        email: cmeehan@scottlogic.com
-        gravatar: 829049ee7cd812f0d571ede452322acb
-        author-summary: "<p>I'm a software developer at Scott Logic focusing primarily on JavaScript development, particularly with React. Recently, I've also taken an interest in mobile development.</p>\n\n<p>I joined the company after studying Mechanical Engineering at Bath and Computer Science (MSc) at Bristol. The fantastic learning opportunities at Scott Logic are one of the main reasons I joined, and as a result I'm currently learning functional programming (F#) in between projects.</p>"
-    gginghina:
-        name: 'Georgiana Ginghina'
-        email: gginghina@scottlogic.com
-        gravatar: a2acd70692a21caacdc9dc459b7cf079
+    jbandenburg:
+        email: jbandenburg@scottlogic.co.uk
+        gravatar: 785c4b4fe07574c8350791f355195f36
+        name: 'Joe Bandenburg'
+        twitter-url: 'https://twitter.com/joebandenburg'
+        twitter-handle: joebandenburg
     jbrunton:
         name: 'James Brunton'
         email: jbrunton@scottlogic.co.uk
         author-summary: '<p>James was an Intern at Scott Logic, based in Newcastle.</p>'
         gravatar: 4e9543151138e991d29b62387ce86234
-    ffarhadi:
-        name: 'Farzaneh Farhadi'
-        email: ffarhadi@scottlogic.com
-        gravatar: 47aa293125520032c7f327b5c62c33cb
-        author-summary: "<p>I have been working for more than five years as a test engineer.\nIn my spare time I enjoy playing piano and painting.</p>"
-    mamos:
-        name: 'Matthew Amos'
-        email: mamos@scottlogic.com
-        gravatar: 1e51a60a7a672a4d5956529d2ff0446a
-        author-summary: 'I''m a Lead Developer at Scott Logic, based in London, with over 10 years experience in Java'
+    jcardy:
+        name: 'Jonathan Cardy'
+    jdunkerley:
+        author-summary: '<p>I am a Technical Architect at Scott Logic, based in London. I have many years of using C# within financial services. My current interests are in data analytics and visualisation, particularly using Tableau and Alteryx. I also  enjoying learning about new big data technologies and machine learning.</p>'
+        email: jdunkerley@scottlogic.com
+        gravatar: b1c5913a855a0da5350c50017a75ecf2
+        name: 'James Dunkerley'
+        twitter-handle: jdunkerley
+        twitter-url: 'http://twitter.com/jdunkerley'
+    jfriel:
+        author-summary: '<p>I am a summer intern at Scott Logic</p>'
+        email: jfriel@scottlogic.co.uk
+        gravatar: 59bdeaafd2405f31c2de2faa41745bca
+        name: 'James Friel'
+    jharris:
+        author-summary: '<p>I''m a developer at the Bristol office of Scott Logic.  I develop mostly in C# and JavaScript, and Python outside of work.</p>'
+        email: jharris@scottlogic.com
+        gravatar: 460c8825ca2bfb12b3a30d7f4f675b60
+        name: 'Jon Harris'
+    jhill:
+        name: 'James Hill'
+        email: jhill@scottlogic.co.uk
+        google-plus-url: 'https://plus.google.com/u/0/113102044823162726684'
+        author-summary: '<p>I am developer working at the Scott Logic Newcastle office. I''m involved in several projects and have a great interest in the cryptocurrency market. Believe that I may be one of the last Delphi developers on earth.</p>'
+        gravatar: 06b5ff180bb63feaf2a86bbc309bc058
+    jmelon:
+        name: 'Jean-Sacha Melon'
+        email: jmelon@scottlogic.com
+        author-summary: '<p>I am a London based Delivery Principal at Scott Logic. Coming from a developer background I am passionate about Agile, love working with our amazing teams and all those enthusiastic people at our customers.</p>'
+        gravatar: 7b9bfa1dda9523dcbd5e6089c3519286
+    jphillpotts:
+        name: 'James Phillpotts'
+        email: jphillpotts@scottlogic.com
+        gravatar: 6fdbb823b145fb77ecd8b8bfc442fb95
+    jrice:
+        author-summary: '<p>I am a User Experience Designer at Scott Logic. With a background in Product Design I combine the three areas of People, Design and Technology to create meaningful responses to challenging problems.</p>'
+        email: jrice@scottlogic.com
+        gravatar: c2fb020ac7234edb376a0837fcb80e9a
+        name: 'James Rice'
+        twitter-url: 'https://twitter.com/jamesricedesign'
+        twitter-handle: jamesricedesign
+    jwhite:
+        email: jwhite@scottlogic.com
+        gravatar: fc543a54ca224e361b6db5b238771703
+        name: 'James White'
+    jwilson:
+        author-summary: "\t"
+        email: jwilson@scottlogic.com
+        name: 'Jule Wilson'
+    jwright:
+        author-summary: ""
+        email: jwright@scottlogic.com
+        name: 'John Wright'
+    khurley:
+        author-summary: 'Business Development Manager'
+        email: khurley@scottlogic.com
+        name: 'Kirsten Hurley'
+        gravatar: 56d7a2f52a1dd62d9131d08fcb3b21c4
+    labs:
+        name: 'Scott Logic Labs'
+    lcollingwood:
+        name: 'Laurie Collingwood'
+        email: lcollingwood@scottlogic.com
+        gravatar: fee97b22e614094360dbd65d73c0e2df
+    lpage:
+        email: lpage@scottlogic.com
+        gravatar: f40e61d9f159e1fd0cc70f1e717f6a7b
+        name: 'Luke Page'
     lpisani:
         name: 'Laurence Pisani'
         email: lpisani@scottlogic.com
         gravatar: ea8c9f854073c5f00b7d67886fe5ad87
         author-summary: '<p> I am Head of Testing at Scott Logic, responsible for the overall direction of the practice and how we deliver testing to our clients. I have a background in combining psychology with software engineering, with a keen interest in Human Factors testing and how we interact with technology.</p>'
-    hubinf@scottlogic.com:
-        name: 'Frank Hubin'
-        email: frank.hubin@gmail.com
-        gravatar: f1653046285a5fd35cdc7e89700b9fd5
-        author-summary: 'I am a Technical Project Manager at Scott Logic. Using a lean approach, Agile values and team empowerment, I build bridges between business and technical teams to improve collaboration and make delivery a reality.'
-    croberts:
-        name: 'Charlotte Roberts'
-        email: croberts@scottlogic.com
-        gravatar: 64c5cdea265090dbf5e299ffe541935b
-        author-summary: 'Test Engineer at Scott Logic. Based in the London office.'
     lramchandani:
         name: 'Laveena Ramchandani'
         email: lramchandani@scottlogic.com
         gravatar: 59b0ecbbecd68965a58d5c5105e30fca
         author-summary: 'Test Engineer, working at Scott Logic. I am based in the London Office. '
-    bmacdonald:
-        name: 'Brendan MacDonald'
-        email: bmacdonald@scottlogic.com
-        gravatar: 59283a0eeb576c7405f9b99b3ac2f513
-        author-summary: 'Senior Test Engineer working at Scott Logic based in the Edinburgh office.'
-    cburbidge:
-        name: 'Chester Burbidge'
-        email: cburbidge@scottlogic.com
-        gravatar: 82bcea382ccc612686216d2c931fbc01
-        author-summary: 'Software Engineer at Scott Logic. Experienced in dotnet but interested in all areas of software development, especially ''devops'' and functional programming.'
-        twitter-url: 'https://twitter.com/burbdude'
-    emason:
-        name: 'Elliot Mason'
-        email: emason@scottlogic.com
-        gravatar: f165db9225e9d62549583f38fcb4e5cb
-        author-summary: '<p>Test Engineer at Newcastle, studied Computer Science at Newcastle University</p>'
+    mamos:
+        name: 'Matthew Amos'
+        email: mamos@scottlogic.com
+        gravatar: 1e51a60a7a672a4d5956529d2ff0446a
+        author-summary: 'I''m a Lead Developer at Scott Logic, based in London, with over 10 years experience in Java'
+    mcrease:
+        author-summary: ""
+        email: mcrease@scottlogic.com
+        name: 'Murray Crease'
+    mdunsdon:
+        name: 'Matthew Dunsdon'
+        email: mdunsdon@scottlogic.co.uk
+        gravatar: 98973325557527a01535a91933e7310a
+    mjose:
+        name: 'Mark Jose'
+        email: mjose@scottlogic.com
+        gravatar: 6113027b6f67ad9f5f50a90f1481c0ed
+        author-summary: '<p>I''m a lead developer at Scott Logic, working with HTML5 web technologies and C# / .NET development.</p><p>When I''m not coding you''ll normally find me tinkering with cars or at the race track, but coding is a less expensive pass time.</p><p>I also contribute to a <a href="https://github.com/markjose">few open source projects</a>.</p>'
+    mkirova:
+        email: mkirova@scottlogic.co.uk
+        name: 'Mila Kirova'
+    mmathew:
+        name: 'Mili Mathew'
+        email: mmathew@scottlogic.com
+        author-summary: '<p>I''m a Lead Test Consultant at Scott Logic, London. I like solving problems with innovation and pragmatism</p>'
+        gravatar: 14d5011ea7d1add863f3436a74ed9474
+        twitter-url: 'https://twitter.com/Testflaneuse'
+        twitter-handle: Testflaneuse
+    mperrin:
+        name: 'Mike Perrin'
+    mrhodes:
+        email: mrhodes@scottlogic.com
+        gravatar: fd23036b365ac4d5492207da6dbe0248
+        name: 'Mark Rhodes'
+    msinton:
+        email: msinton@scottlogic.com
+        gravatar: d7752c7020155309cc6034292d0f6fc1
+        name: 'Matt Sinton-Hewitt'
+        author-summary: '<p>I''m a Senior Developer at Scott Logic. I like Functional Programming, Big Data and Machine Learning.</p>'
+    msuperina:
+        email: msuperina@scottlogic.com
+        gravatar: 4c10e298294956f7d395af53cdde07e2
+        name: 'Marzio Superina'
+        twitter-url: 'https://twitter.com/marziosuperina'
+        twitter-handle: marziosuperina
+    mtinning:
+        name: 'Michael Tinning'
+        email: mtinning@scottlogic.com
+        twitter-url: 'https://twitter.com/mttinning'
+        twitter-handle: mttinning
+        gravatar: c0800747d0696e49dc753be3c345f049
+    nhemley:
+        email: nhemley@scottlogic.com
+        name: 'Nicholas Hemley'
+    nowen:
+        author-summary: '<p>I''m a Senior Developer at Scott Logic, with many years of C# experience. Recently I''ve immersed myself in JavaScript, including Angular and React.'
+        email: nowen@scottlogic.com
+        gravatar: e07dcd9d88f35cabf65f669f0de7750a
+        name: 'Nick Owen'
+    nsoper:
+        name: 'Nick Soper'
+        email: nsoper@scottlogic.com
+        gravatar: 5aaeb8af94f81312997215b90cd6d1af
+        twitter-url: 'https://twitter.com/devsoper'
+        twitter-handle: devsoper
+    nwolverson:
+        email: nwolverson@scottlogic.com
+        gravatar: c2fa082fa1ffbab1293262c599d459fb
+        name: 'Nicholas Wolverson'
+    okenyon:
+        email: okenyon@scottlogic.com
+        gravatar: fb87fc3b96203c2cf0d1d2a060ae740a
+        name: 'Oliver Kenyon'
+    pshek:
+        name: 'Paulin Shek'
+        email: pshek@scottlogic.com
+        gravatar: ba6364309ffc12cb9a8165cafa39ba6d
+        author-summary: '<p>Paulin is a  Java developer at Scott Logic. When she''s not programming, she can be found doing cryptic crosswords and climbing small rocks.</p>'
+    rbaxter:
+        email: rbaxter@scottlogic.com
+        gravatar: b75269f75824889e8569f35d73ddd32b
+        name: 'Rolf Baxter'
+    rbeckett:
+        author-summary: 'Graduate Developer at Scott Logic'
+        email: rbeckett@scottlogic.com
+        name: 'Richard Beckett'
+    rcaulcott-cooper:
+        author-summary: '<p>I am an intern going into my third year of Computer Science at Newcastle University, and have mainly been doing Java, javascript and C. Recently I have been working with d3.js, less.css and Scott Logic''s own <a href="https://github.com/d3fc">d3fc</a>.</p>'
+        email: rcaulcott-cooper@scottlogic.co.uk
+        gravatar: 5abeadc63cbe7be7b6538ffd4b523b3b
+        name: 'Ruth Caulcott-Cooper'
+    rdoyle:
+        email: rdoyle@scottlogic.com
+        gravatar: 1c9852e1b5e7d2847b21dba28e7a3efe
+        name: 'Richard Doyle'
+    rfarmer:
+        name: 'Roisin Farmer'
+        email: roisin.farmer@scottlogic.co.uk
+    rhamilton:
+        name: 'Rosie Hamilton'
+        email: rhamilton@scottlogic.com
+        gravatar: 3353c71097ec03a671be49239d8c9574
+        twitter-url: 'https://twitter.com/Rosicadia'
+        twitter-handle: Rosicadia
+        feed-description: 'A collection of Rosie Hamilton''s thoughts on software testing.'
+        author-summary: '<p>I have been happily testing software and reporting bugs since 2005. I am the Author of <a href="http://testingfuntime.blogspot.co.uk/"> Mega Ultra Super Happy Software Testing Fun Time</a>. As well as writing I enjoy playing violin, playing PC games, going to the gym and pushing <a href="https://golang.org/">Golang</a> and <a href="https://www.r-project.org/about.html">R</a> to <a href="https://github.com/Rosalita">Github</a>. I currently work at Scott Logic as a Senior Test Engineer.</p>'
+    rhendry:
+        email: rhendry@scottlogic.com
+        gravatar: 7939d9daf7eddd821f2af9b6b916a03c
+        name: 'Ross Hendry'
+    rnewsome:
+        author-summary: 'Scott Logic''s Head of Development, Newcastle upon Tyne'
+        email: rnewsome@scottlogic.com
+        name: 'Rob Newsome'
+    rmarcalo:
+        name: 'Rui Marcalo'
+        email: rmarcalo@scottlogic.co.uk
+        gravatar: 62bc66cd7846a1af08be1e0eff8207e2
+    rrahim:
+        author-summary: '<p>I am a UX Designer at Scott Logic. My background is in Product Design and I studied at Brunel University for 4 years. I have designed apps for mobile, desktop, tablet, web and service robot. I enjoy the research side of user experience, as I am always interested in learning about new technologies and design principles.</p>'
+        email: rrahim@scottlogic.co.uk
+        gravatar: 3eea110c82f1934eb984d56fa4d45517
+        name: 'Rhianna Rahim'
+    rrhodes:
+        name: 'Ross Rhodes'
+        email: rrhodes@scottlogic.com
+        twitter-handle: trrhodes
+        gravatar: 97c297e1087e4f95f2b1389fec46d0c9
+        author-summary: '<p>I''m a software developer at Scott Logic, Edinburgh. I joined in August 2017 after four years studying Computer Science and Mathematics at the University of Edinburgh.</p>'
+        twitter-url: 'https://twitter.com/trrhodes'
+    rschuller:
+        author-summary: 'Graduate Developer, Bristol'
+        email: rschuller@scottlogic.com
+        name: 'Ricardo Schuller'
+    rsillem:
+        name: 'Robin Sillem'
+        email: rsillem@scottlogic.com
+        gravatar: 858e2c9ef66e0f7850a7ea8505f76084
+        author-summary: '<p>I am a Lead Developer at Scott Logic.</p>'
+    rwilliams:
+        name: 'Robat Williams'
+        email: rwilliams@scottlogic.co.uk
+        gravatar: b2e17d98db06119a53fffd5666848871
+        twitter-url: 'https://twitter.com/_rwms'
+        twitter-handle: _rwms
+        google-plus-url: 'https://plus.google.com/u/0/111956836520400525467'
+        author-summary: '<p>I work building web applications for our clients at Scott Logic. I mainly work with HTML5/JavaScript front end technologies, and Java.</p>'
+    sbaker:
+        author-summary: '<p>I am a senior developer at Scott Logic, working primarily with Java. I''m currently fascinated by data science and machine learning</p>'
+        email: sbaker@scottlogic.com
+        feed-description: 'Sioned is a developer working primarily Java, with a side-interest in data science.'
+        gravatar: 158d59d1c9832d826e5c6e8624a79ef7
+        name: 'Sioned Baker'
+    sbulut:
+        author-summary: '<p>Full-time learner and Test Engineer at Scott Logic</p>'
+        email: SBulut@scottlogic.com
+        gravatar: e87a9930b17b716ce8215440461bef61
+        name: 'Seda Bulut'
+    sdavies:
+        name: 'Sam Davies'
+        email: sdavies@scottlogic.com
+        gravatar: ddd6d3bac7772fa67fc5e312a18bdaec
+        twitter-url: 'https://twitter.com/iwantmyrealname'
+        twitter-handle: iwantmyrealname
+        google-plus-url: 'https://plus.google.com/+SamDavies_ActuallyMyRealName'
+    sduncan:
+        name: 'Simon Duncan'
+        email: sduncan@scottlogic.co.uk
+        gravatar: 0f765c3e99ff8441cf0d0f60aed9634b
+        author-summary: 'UX designer. Arduino & physical computing enthusiast. Likes hip hop and 30 minute drone pieces.'
+        twitter-url: 'https://twitter.com/simonduncan'
+        twitter-handle: simonduncan
+        feed-description: '<p>Simon Duncan is a UX designer, particularly interested in interaction design and information architecture. These are some of his thoughts.</p>'
+    sfoley:
+        email: sfoley@scottlogic.com
+        gravatar: 6a107b16bc05aaa263cf1237eedda426
+        name: 'Simon Foley'
+    shall:
+        email: stevenhall@scottlogic.com
+        gravatar: 30187520d3181c674d7b7ecbcbbf48b1
+        name: 'Steven Hall'
+    shogarth:
+        author-summary: '<p>Frequently found developing Android applications, playing with web technologies and musing about patterns and process.</p>'
+        email: shogarth@scottlogic.com
+        feed-description: 'Sam Hogarth is a developer working primarily with web technologies, with a side-interest in Android development.'
+        gravatar: d4534a4d64ddf89c318221d9f0e766da
+        name: 'Sam Hogarth'
+    shunton:
+        author-summary: '<p>I''m a Technical Project Manager at Scott Logic. I have a distant memory of being a developer with the past decade or so dedicated to project delivery, scaling and expanding Agile for large organisations and sharing what I learn along the way.</p>'
+        email: shunton@scottlogic.com
+        feed-description: 'Steve''s adventures in all things Agile'
+        gravatar: 9bc56e857c141a4b43ac3533f5bf4249
+        name: 'Steven Hunton'
+    sking:
+        email: sking@scottlogic.com
+        gravatar: c02644e4b21947da7787247349954f96
+        name: 'Saber King'
+    soneill:
+        email: soneill@scottlogic.com
+        gravatar: 86d65c90b7cb711055066f12a5f8d0e2
+        name: 'Sean O''Neill'
+    sroebuck:
+        author-summary: 'Technical Architect'
+        email: sroebuck@scottlogic.com
+        name: 'Stuart Roebuck'
+    swilson:
+        author-summary: 'Senior Marketing Executive'
+        email: swilson@scottlogic.com
+        name: 'Scarlett Wilson'
+    tbaker:
+        email: tbaker@scottlogic.com
+        name: 'Tom Baker'
+    tbarclay:
+        name: 'Tim Barclay'
+        gravatar: 0b06781c8c3ac7261b8bb4e5810a4004
+        email: tbarclay@scottlogic.com
+    tclarke-scottlogic:
+        name: 'Thomas Clarke'
+        email: tclarke@scottlogic.com
+        gravatar: db2362179a6feed97f2051df2db68b8b
+        author-summary: '<p>I started at ScottLogic in 2018 as a member of the Development team.</p><p>Prior to Scott Logic, I''ve worked around the UK, as a full system product developer, using C++, C#, javascript, ruby, shell scripts and what seems like dozens of company-specific frameworks.</p><p>As a product developer, I''m interested in making sure I''m solving meaningful problems for our clients, and providing an experience that <a href="http://seriouspony.com/blog/2013/7/24/your-app-makes-me-fat">doesn''t make them fat</a>.</p>'
+        twitter-url: 'https://twitter.com/deworde'
+        twitter-handle: deworde
+    tferguson:
+        name: 'Tyler Ferguson'
+        author-summary: '<p>I am a Developer at Scott Logic. I have a strong interest in front end development and the javascript ecosystem as a whole. I like most things to do with mathematics and chess.</p>'
+        email: tferguson@scottlogic.co.uk
+        gravatar: 46b3ff75f0c69eca7f80876307e1f386
+    tkelly:
+        author-summary: '<p>I am primarily a C#/Javascript developer, but I dabble in iOS from time to time</p><p>Outside of work I love games, both video games and board games. I even <a href="https://www.gitbook.com/book/tpkelly/gaming-the-system/">wrote a book</a> and <a href="https://www.youtube.com/watch?v=ghQA_OvucMc">gave a talk</a> about applying ideas from games to improve customer interactions.</p>'
+        email: tkelly@scottlogic.com
+        gravatar: 26b51d42f5a82f0e7e21aa8fa92142b3
+        name: 'Thomas Kelly'
+    tmakarem:
+        author-summary: '<p> I am a User Experience Designer based in London. Using an Agile approach, I design desktop, tablet and mobile web apps. At Scott logic, I work with clients mainly in financial services enhancing their trading platforms, analytics dashboards and Intranet tools. I am an enthusiast of Data visualization and interactive projects using code for art.</p>'
+        email: tmakarem@scottlogic.co.uk
+        gravatar: 73d206981f4f75819ae6afe473bdbaad
+        name: 'Tamara Chehayeb Makarem'
+        twitter-handle: TamaraCMakarem
+        twitter-url: 'http://twitter.com/TamaraCMakarem'
+    tsimmons:
+        email: tsimmons@scottlogic.co.uk
+        gravatar: d3b0a51363909dfbd44683577134c72c
+        name: 'Tom Simmons'
+    wferguson:
+        author-summary: '<p>I''m a developer at Scott Logic, after joining in 2014 as an intern.</p>'
+        email: wferguson@scottlogic.com
+        gravatar: 701a9a8da54af53986e7d63b9c11a163
+        name: 'William Ferguson'
+    wloveland:
+        author-summary: '<p>I''m a User Experience Designer at Scott Logic. My interests lie in the future of the in-car experiences, working with complex systems and cat GIFs.</p>'
+        email: wloveland@scottlogic.com
+        gravatar: edd2ab1d485e1d3eb6626d6a3782590d
+        name: 'Will Loveland'
+    wreilly:
+        email: wreilly@scottlogic.com
+        gravatar: 8f0414d464cf565f74042a08c75e3309
+        name: 'William Reilly'
+    wtrimble:
+        author-summary: 'Lead Test Engineer'
+        email: wtrimble@scottlogic.com
+        name: 'Wullie Trimble'
+    zwali:
+        name: 'Zinat Wali'
+        author-summary: '<p>I am a Senior Developer at Scott Logic. I like exploring technology and have a keen interest in Big Data and Machine Learning.</p>'
+        email: zwali@scottlogic.co.uk
+        gravatar: 8a075afb0f40d47039cdac411f58f5d3
