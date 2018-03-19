@@ -3,6 +3,14 @@ layout: default
 ---
 {%- assign author = site.data.authors.authors[page.author] -%}
 {%- assign authorUsername = page.author -%}
+{%- if page.summary -%}
+  {%- assign ogDescription = page.summary | truncate:150 -%}
+{%- else -%}
+  {%- assign ogDescription = page.content | strip_html | truncate:150 -%}
+{%- endif -%}
+{%- assign ogImage = page.image -%}
+{%- assign twitterCard = page.image -%}
+{%- assign twitterCreator = author.twitter-handle %}
 <div class="video-post default-post {% if page.colour %}{{ page.colour }}{% else %}teal{% endif %} grid-container">
     <div class="hero grid-x">
         <div class="content cell large-7 grid-y grid-padding-y">

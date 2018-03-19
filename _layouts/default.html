@@ -3,34 +3,36 @@
 <head>
     <meta charset="utf-8">
     <title>{% if page.title %}{{ page.title }}{% else %}Scott Logic{% endif %}</title>
+    <meta name="description" content="{{ page.summary }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="alternate" type="application/atom+xml" href="{{ site.canonical.url }}/atom.xml" title="Scott Logic Blog">
+    <link rel="alternate" type="application/rss+xml" href="{{ site.canonical.url }}/rss.xml" title="Scott Logic Blog">
     <link rel="canonical" href="{{ site.canonical.url }}{{ page.url | replace:'index.html',''}}">
     {% if site.github.owner_name != 'ScottLogic' %}<meta name="robots" content="noindex, nofollow">{% endif %}
     <script type="text/javascript" src="//use.typekit.net/zhk0dtj.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <script type="text/javascript">siteGithubOwnerName = '{{ site.github.owner_name }}'</script>
 
-    {% comment %} OpenGraph MetaData - Twitter / Facebook {% endcomment%}
+    {%- comment -%} OpenGraph MetaData - Twitter / Facebook {%- endcomment -%}
     <meta property="og:title" content="{{ page.title }}" />
-    <meta property="og:description"content="{{ ogDescription }}"/>
-    <meta property="og:image" content="{{ ogImage }}"/>
+    <meta property="og:description"content="{{ page.summary }}"/>
+    <meta property="og:image" content="{{ page.image }}"/>
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="{{ site.name }}"/>
     <meta property="og:url" content="{{ site.canonical.url }}{{ page.url }}" />
-
-    {% comment %} Twitter {% endcomment%}
-    <meta name="twitter:card" content="{{ twitterCard }}"/>
+    {%- comment -%} Twitter {%- endcomment -%}
+    <meta name="twitter:card" content="{%- if page.image -%}summary_large_image{%- else -%}summary{%- endif -%}"/>
     <meta name="twitter:site" content="@{{ site.twitter_handle }}"/>
-    <meta name="twitter:creator" content="@{{ twitterCreator }}"/>
+    {%- if page.author -%}
+    <meta name="twitter:creator" content="@{{ site.data.authors.authors[page.author].twitter-handle }}">
+    {%- endif -%}
 
     <link rel="stylesheet" href="{{ site.baseurl | remove_first: 'http:' }}/style.css" type="text/css">
-    <link rel="icon" type="image/png" href="http://9hjqf9qs4q37zvw724c9urzc.wpengine.netdna-cdn.com/wp-content/themes/scott-logic/_img/favicon.png" />
+    <link rel="icon" type="image/png" href="https://www.scottlogic.com/wp-content/themes/scottlogic/images/favicon.png" />
 
-    {% comment %} Only load analytics when on the main repo; it will fail to load on the forks {% endcomment %}
-    {% if site.github.owner_name == 'ScottLogic' %}
+    {%- comment -%} Only load analytics when on the main repo; it will fail to load on the forks {%- endcomment -%}
+    {%- if site.github.owner_name == 'ScottLogic' -%}
     <script type="text/javascript">
-
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-262131-1']);
         _gaq.push(['_trackPageview']);
@@ -40,9 +42,8 @@
             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
-
     </script>
-    {% endif %}
+    {%- endif -%}
     <script>
    (function(d) {
      var config = {
@@ -83,7 +84,7 @@
 <script src="{{ site.baseurl | remove_first: 'http:' }}/script.js" type="text/javascript"></script>
 <script type="text/javascript">jQuery.noConflict();</script>
 
-{% if page.paginated %}
+{%- if page.paginated -%}
 <script type="text/javascript">
 jQuery('.content').jscroll({
   contentSelector: ".content",
@@ -98,7 +99,7 @@ jQuery('.content').jscroll({
   }
 });
 </script>
-{% endif %}
+{%- endif -%}
 
 <script>
     jQuery(document).ready(function() {
@@ -127,7 +128,6 @@ jQuery('.content').jscroll({
         });
     });
 
-
     jQuery(document).ready(function() {
         if(window.location.href.indexOf("expanded") > -1) {
             jQuery('.past-events').addClass('expanded');
@@ -147,8 +147,6 @@ jQuery('.content').jscroll({
     jQuery("#scroll").click(function() {
         scrollToAnchor('id1');
     });
-
-
 </script>
 
 </body>

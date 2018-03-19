@@ -29,4 +29,9 @@ pre {
   background-color: #f5f5f5;
   border: 1px solid #ccc;
   border-radius: $smallLayoutUnit;
+
+  @include breakpoint(large) {
+    margin-left: calc((16.66667% + 0.9375rem) * -1);
+    margin-right: calc((16.66667% + 0.9375rem) * -1);
+  }
 }

@@ -2,11 +2,9 @@
 layout: default
 paginated: false
 ---
-
-{% assign author = site.data.authors.authors[page.author] %}
-{% assign featuredPosts = site.tags.featured | where: "author", page.author %}
-{% assign allPosts = site.posts | where: "author", page.author %}
-
+{%- assign author = site.data.authors.authors[page.author] -%}
+{%- assign featuredPosts = site.tags.featured | where: "author", page.author -%}
+{%- assign allPosts = site.posts | where: "author", page.author -%}
 <div class="default-author grid-container">
     <div class="grid-padding-y">
         <div class="cell">
@@ -20,7 +18,5 @@ paginated: false
                 {% include post_summary_list.html posts=allPosts paginated=paginated %}
             </div>
         </div>
-    {% comment %}
-  {% endcomment %}
     </div>
 </div>
