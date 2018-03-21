@@ -8,6 +8,12 @@ image: /assets/data-engineer.jpg
 {%- for dataposts in site.categories["data"] -%}
   {%- assign posts = posts | push: dataposts -%}
 {%- endfor -%}
+{%- for engineeringposts in site.categories["Data Engineering"] -%}
+  {%- assign posts = posts | push: engineeringposts -%}
+{%- endfor -%}
+{%- for engineeringposts in site.categories["data engineering"] -%}
+  {%- assign posts = posts | push: engineeringposts -%}
+{%- endfor -%}
 {%- if posts -%}
   {%- assign posts = posts | sort: 'date' | reverse | uniq -%}
 {%- endif -%}
