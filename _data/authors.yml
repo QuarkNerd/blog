@@ -40,6 +40,7 @@ active-authors:
     - lramchandani
     - mamos
     - mcrease
+    - mdebeneducci
     - mdunsdon
     - mjose
     - mmathew
@@ -412,6 +413,11 @@ authors:
         author-summary: ""
         email: mcrease@scottlogic.com
         name: 'Murray Crease'
+    mdebeneducci:
+        name: 'Mathew de Beneducci'
+        email: mbeneducci@scottlogic.com
+        gravatar: 759c3b9c63c152c51d48423ba4e3fa35
+        author-summary: 'Senior Developer in the Bristol Office, interested in Java backend development and Big Data tools'
     mdunsdon:
         name: 'Matthew Dunsdon'
         email: mdunsdon@scottlogic.co.uk

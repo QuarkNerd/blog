@@ -270,10 +270,13 @@ prose:
             user: bmacdonald
         -
             login: msinton
-            user: msinton   
+            user: msinton
         -
             login: paulinshekSL
             user: pshek
         -
             login: eplmason
             user: emason
+        -
+            login: MatdeB-SL
+            user: mdebeneducci
