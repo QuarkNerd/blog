@@ -4,6 +4,8 @@
 # one word per line, to define a file override use ' - filename'
 # where filename is relative to this configuration file
 WebComponents
+ - nowen/_posts/2018-03-23-when-technology-meets-the-arts.md
+miraikan
  - nowen/_posts/2017-05-23-white-labelling-using-postcss-path-resolution.md
 a-stylin
 colors.css
