@@ -101,6 +101,7 @@ authors:
         name: 'Andy Lee'
         email: alee@scottlogic.com
         gravatar: f585309d8acd3635c90a9298ea3d46e1
+        author-summary: 'I''m a Technical architect at Scott Logic, in Bristol. I have a full-stack .Net background, but lately I''m most interested in all sorts of web technology.'
     amjones:
         author-summary: '<p>Last miner in the North East.</p>'
         email: amjones@scottlogic.com
