@@ -69,6 +69,8 @@ layout: default
         {{ content }}
       </div>
       {% include disqus.html %}
+      {% include read_more.html author=author authorUsername=authorUsername page=page %}
+
     </div>
     <div class="side-lists cell large-3 large-offset-1 show-for-large grid-padding-y">
       <div class="author-information cell">

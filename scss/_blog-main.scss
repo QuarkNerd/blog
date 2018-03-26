@@ -12,11 +12,13 @@ $monospaceFontSize: $baseFontSize * 0.9;
 $smallLayoutUnit: 5px;
 $layoutUnit: 10px;
 
+$footer-height: 100px;
 
 html, body {
     max-width: $max-width;
     margin: 0 auto;
     padding: 0;
+    height: 100%;
 }
 
 html {
@@ -25,6 +27,16 @@ html {
 
 body {
     background-color: $white;
+}
+
+#off-canvas-wrapper {
+  height: 100%;
+}
+
+.post-index, .default-post, .default-author {
+  min-height: 100%;
+  padding-bottom: $footer-height;
+  margin-bottom: -$footer-height;
 }
 
 a {
