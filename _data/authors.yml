@@ -10,6 +10,7 @@ active-authors:
     - bmacdonald
     - cburbidge
     - ceberhardt
+    - cmcormack
     - cmeehan
     - cprice
     - croberts
@@ -677,3 +678,10 @@ authors:
         author-summary: '<p>I am a Senior Developer at Scott Logic. I like exploring technology and have a keen interest in Big Data and Machine Learning.</p>'
         email: zwali@scottlogic.co.uk
         gravatar: 8a075afb0f40d47039cdac411f58f5d3
+    cmcormack:
+        name: 'Cian McCormack'
+        email: cmcormack@scottlogic.com
+        gravatar: 73ad5ff32104abfa1f7a5704e08ef924
+        author-summary: 'Tester, Scrum Master, Rookie Speaker, Ex-Chef, Spice Enthusiast, Collector of Rubber Ducks, Banana Loather.'
+        twitter-handle: aCyanNinja
+        twitter-url: 'http://www.twitter.com/aCyanNinja'
