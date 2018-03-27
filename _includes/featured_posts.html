@@ -15,7 +15,10 @@
   <div class="featured-post {% include post_colour.html post=post %} cell large-6 grid-x">
     <div class="summary cell large-8 medium-10 small-11 grid-y align-center">
       <div class="cell">{% include category_display.html post = post %}</div>
-      <h3 class="cell"><a href='{{ site.baseurl }}{{ post.url }}'>{{ post.title }}</a></h3>
+      <h3 class="cell">
+        <a href='{{ site.baseurl }}{{ post.url }}'>{{ post.title }}</a>
+        {% include post_summary_social.html post=post %}
+      </h3>
       <div class="cell">{{ post.summary }}</div>
       <div class="avatar-metadata cell">
           {%- assign author = site.data.authors.authors[post.author] -%}

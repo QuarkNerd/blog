@@ -19,10 +19,12 @@ function loadCommentCount() {
       success: function(result) {
         for(var i in result.response) {
           var num = result.response[i].posts;
+          console.log("num=" + num);
           if (num > 0) {
             for(var j in result.response[i].identifiers) {
-              jQuery('div[data-disqus-identifier="' + result.response[i].identifiers[j] + '"]')
-                .css("opacity", 1)
+              console.log("j=" + j + " identifier=" + result.response[i].identifiers[j]);
+              jQuery('*[data-disqus-identifier="' + result.response[i].identifiers[j] + '"]')
+                .css("display", "initial")
                 .find('.count')
                 .html(num);
             }

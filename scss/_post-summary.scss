@@ -13,6 +13,12 @@
       background-color: $colour;
     }
   }
+  .post-summary-social {
+    color: $colour;
+    svg {
+      fill: $colour;
+    }
+  }
   .avatar-metadata {
     a:hover {
       color: $colour;
@@ -29,6 +35,9 @@
   .title {
     font-size: $baseFontSize * 1.5;
     line-height: 1.4;
+    > a {
+      margin-right: 1.5rem;
+    }
   }
 
   .avatar-metadata {
@@ -41,6 +50,14 @@
       max-height: 3rem;
       margin-right: 0.25rem;
       filter: grayscale(100%);
+    }
+  }
+
+  .post-summary-social {
+    font-size: 1rem;
+    display: inline-block;
+    > .dq-comment-count {
+      margin-left: 0.5rem;
     }
   }
 
