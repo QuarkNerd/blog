@@ -4,9 +4,11 @@ author: ceberhardt
 layout: default_post
 title: Writing a CHIP-8 emulator with Rust and WebAssembly
 summary: Over the past couple of months I’ve been exploring the potential of WebAssembly. I wanted to try my hand at creating a more complex WebAssembly application, which is why I’ve been spending my evenings working on a CHIP-8 emulator ... and learning Rust!
-image: ceberhardt/assets/chip8/emulator.png
 categories:
   - HTML5
+image: ceberhardt/assets/featured/chip8.png
+tags:
+  - featured
 ---
 
 Over the past couple of months I’ve been exploring the potential of WebAssembly; initially looking at [compilation options and performance](http://blog.scottlogic.com/2017/10/17/wasm-mandelbrot.html), and more recently the [migration of D3 Force Layout to WebAssembly using AssemblyScript](http://blog.scottlogic.com/2017/10/30/migrating-d3-force-layout-to-webassembly.html).
