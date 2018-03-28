@@ -4,7 +4,8 @@ author: cmcormack
 layout: default_post
 title: Test Bash Newbie Heads To Brighton
 tags: 'TestBash, Testing, Events'
-summary: 'Test Bash Brighton, from the mouth of a conference newbie.'
+summary: >-
+  Test Bash Brighton is one of the biggest testing conferences in the UK. I was given the privilege of attending and was so taken in by it all I felt compelled to write up my thoughts, feelings and experiences in detail!
 image: CianLMcCormack/assets/TestBash_Brighton_2018_Adverts_DOJO_EVENT_BANNER.png
 categories:
   - testing
@@ -53,7 +54,7 @@ Up first is **Emily Webber**, with **"Communities of Practice, the Missing Piece
 Engagement was instantaneous! It resonated strongly, as our Newcastle office has been trying to pull together a "test chat" on Wednesdays for a month or two already, with success variable by week. Emily came forth with a wealth of fantastic reasons to keep trying: The importance of communities within not just companies but society as a whole, the emotional connection required, the fulfilment of basic humanitarian needs… Maslow's hierarchy of needs states food and shelter and other physiological needs are our most basic, but Emily further suggests our actual need is for someone else to provide us with this.
  
 Drew had some moving words to say after this talk:
-> The talk itself explained the importance of community for every profession, but I think it's definitely more prominent for testers. It's quite easy for a tester to feel lonely in the development team crowd, so having a community of people that share a common profession within a company is important, not only for support but to also provide fresh ideas and provoke conversation and innovation within the way that you work. I like that Emma also highlighted the things to watch out for when creating a community of practice, with particular focus on trust and openness so that people are comfortable sharing their thoughts, avoiding a hive-mind from occurring.
+> The talk itself explained the importance of community for every profession, but I think it's definitely more prominent for testers. It's quite easy for a tester to feel lonely in the development team crowd, so having a community of people that share a common profession within a company is important, not only for support but to also provide fresh ideas and provoke conversation and innovation within the way that you work. I like that Emily also highlighted the things to watch out for when creating a community of practice, with particular focus on trust and openness so that people are comfortable sharing their thoughts, avoiding a hive-mind from occurring.
  
 Next up, **Danny Dainton**! A community hero, for more reasons than one. He came to us with **"Learning to Learn - My Struggles and Successes!**".
  
@@ -64,7 +65,7 @@ Sharing knowledge can be a self-fulfilling cycle, and while it can be daunting a
  
 ###The first break: UnExpo#
  
-One hour in, and my brain was already reaching saturation point. Good thing the organisers knew this would happen! We take leave of the auditorium in search of the "UnExpo"; a room designed for the attendees to run 
+One hour in, and my brain was already reaching saturation point. Good thing the organisers knew this would happen! We take leave of the auditorium in search of the "UnExpo"; a room designed for the attendees to run their own mini exhibition. 
 ![20180316_135906.jpg]({{site.baseurl}}/cmcormack/assets/20180316_135906.jpg)
 
 The idea was that anyone could create a poster and place it in the room, and all who have views on it can gather to talk at their leisure. A fantastic means of opening conversations and inviting innovation through collaboration! We saw a range of ideas here, from "testing puzzles" to "ask a hacker", "how to stay happy" to "10 reasons you should hire me!".
