@@ -24,6 +24,7 @@ active-authors:
     - ffarhadi
     - godds
     - gthompson
+    - hmumford
     - hubinf@scottlogic.com
     - janakerman
     - jayphi11ips
@@ -282,6 +283,12 @@ authors:
         feed-description: 'Gary''s thoughts on Agile, Scrum, and all things Tech Project Management.'
         gravatar: 59a83a758ac4cd7385be9ed0df32c18e
         name: 'Gary Thompson'
+    hmumford:
+        name: Harry Mumford-Turner
+        email: hmumford@scottlogic.com
+        twitter-url: https://twitter.com/mumf_
+        gravatar: 98d8e52ef549b0b12d0bb84e17581ff1
+        author-summary: '<p>I am a Graduate Developer at Scott Logic, Bristol.</p><p>I like to write about practical examples of web development and create <a href="https://github.com/harrymt/">side projects on GitHub</a>.</p>'
     hpowell:
         email: hpowell@scottlogic.com
         gravatar: f5c828c7066872e06a59ba26bdf12b8c
