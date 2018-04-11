@@ -20,6 +20,7 @@ active-authors:
     - dogle
     - dsmith
     - dtheasby
+    - efiennes
     - emason
     - ffarhadi
     - godds
@@ -284,9 +285,9 @@ authors:
         gravatar: 59a83a758ac4cd7385be9ed0df32c18e
         name: 'Gary Thompson'
     hmumford:
-        name: Harry Mumford-Turner
+        name: 'Harry Mumford-Turner'
         email: hmumford@scottlogic.com
-        twitter-url: https://twitter.com/mumf_
+        twitter-url: 'https://twitter.com/mumf_'
         gravatar: 98d8e52ef549b0b12d0bb84e17581ff1
         author-summary: '<p>I am a Graduate Developer at Scott Logic, Bristol.</p><p>I like to write about practical examples of web development and create <a href="https://github.com/harrymt/">side projects on GitHub</a>.</p>'
     hpowell:
@@ -692,3 +693,10 @@ authors:
         author-summary: 'Tester, Scrum Master, Rookie Speaker, Ex-Chef, Spice Enthusiast, Collector of Rubber Ducks, Banana Loather.'
         twitter-handle: aCyanNinja
         twitter-url: 'http://www.twitter.com/aCyanNinja'
+    efiennes:
+        name: 'Elizabeth Fiennes '
+        email: efiennes@scottlogic.com
+        gravatar: e219cedcd9671ce0354d577a0928d2c0
+        author-summary: "I've been in testing and QA since 1998 (yes, we had computers way back then) with some time of for two people shaped development projects of my own. \nDoing talks and writing blogs are way out of my comfort zone which is why I have challenged myself to do more of both this year.\nAs well as not enjoying writing I am learning to play the piano badly and like inflicting gym torture on myself in the name of health and wellbeing."
+        twitter-handle: ElizaFx
+        twitter-url: 'http://www.twitter.com/ElizaFx'
