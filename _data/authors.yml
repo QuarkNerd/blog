@@ -151,8 +151,8 @@ authors:
         email: cburbidge@scottlogic.com
         gravatar: 82bcea382ccc612686216d2c931fbc01
         author-summary: 'Software Engineer at Scott Logic. Experienced in dotnet but interested in all areas of software development, especially ''devops'' and functional programming.'
-        twitter-url: 'https://twitter.com/burbdude'
-        twitter-handle: burbdude
+        twitter-url: 'https://twitter.com/chestercodes'
+        twitter-handle: chestercodes
     ceberhardt:
         author-summary: "<p>I am Technology Director at Scott Logic and am a prolific technical author, blogger and speaker on a range of technologies.</p>\n<p>My blog includes posts on a wide range of topics, including HTML5 / JavaScript and data visualisation with D3 and <a href=\"https://d3fc.io/\">d3fc</a>. You'll also find a whole host of posts about previous technology interests including iOS, Swift, WPF and Silverlight.</p>\n<p>I'm a member of <a href=\"https://symphony.foundation/\">Symphony Foundation</a>, which is encouraging open source collaboration in the financial sector. I'm also <a href=\"https://github.com/ColinEberhardt\">very active on GitHub</a>, contributing to a number of different projects.</p>\n"
         email: ceberhardt@scottlogic.com

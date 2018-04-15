@@ -373,7 +373,7 @@ These behaviours aren't malicious typosquatting, but produce false positives wit
 
 
 
-The `crossenv` attack went unnoticed for 2 weeks and isn't considered to have been very effective due to the low numbers of package downloads. My analysis didn't uncover any active typosquatting attacks in the npm repository and in this type of investigation, no news is good news. The absence of active attacks leads me to believe that npm must already implement checks similar to those described above and/or attackers don't consider it to be an effective method. All of the code used in this analysis can be [found on github](https://github.com/CBurbidge/RepoHunt).
+The `crossenv` attack went unnoticed for 2 weeks and isn't considered to have been very effective due to the low numbers of package downloads. My analysis didn't uncover any active typosquatting attacks in the npm repository and in this type of investigation, no news is good news. The absence of active attacks leads me to believe that npm must already implement checks similar to those described above and/or attackers don't consider it to be an effective method. All of the code used in this analysis can be [found on github](https://github.com/chestercodes/RepoHunt).
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script>
