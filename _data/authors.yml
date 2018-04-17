@@ -26,6 +26,7 @@ active-authors:
     - ffarhadi
     - godds
     - gthompson
+    - hcarter
     - hmumford
     - hubinf@scottlogic.com
     - janakerman
@@ -701,6 +702,11 @@ authors:
         author-summary: "I've been in testing and QA since 1998 (yes, we had computers way back then) with some time of for two people shaped development projects of my own. \nDoing talks and writing blogs are way out of my comfort zone which is why I have challenged myself to do more of both this year.\nAs well as not enjoying writing I am learning to play the piano badly and like inflicting gym torture on myself in the name of health and wellbeing."
         twitter-handle: ElizaFx
         twitter-url: 'http://www.twitter.com/ElizaFx'
+    hcarter:
+        name: 'Heather Carter'
+        email: hcarter@scottlogic.com
+        gravatar: "f0b7dd50805077ad5138e05c035656c0"
+        author-summary: '<p> Test Engineer at Scott Logic, I like to share my passion for testing. <p>'
     dnicholas:
         name: 'Danny Nicholas'
         email: dnicholas@scottlogic.com
@@ -708,3 +714,4 @@ authors:
         author-summary: '<p>I am a Senior Developer at Scott Logic. I normally use Java to answer all sorts of tricky questions but have been known to occasionally dabble with JavaScript.</p>'
         twitter-handle: danosworld72
         twitter-url: 'http://www.twitter.com/danosworld72'
+        
