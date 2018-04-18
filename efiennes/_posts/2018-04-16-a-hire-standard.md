@@ -18,30 +18,30 @@ Before you apply, we presume you want to know what we offer and the standards we
 
 #### This is what this looks like for a Scott Logic tester:
 
-**Your voice will be heard.** 
-Everyone in testing has an equal say in the future of our capability. The ideas of our grads are as important as those of our principle and their feedback for internal initiatives will be sought and listened to. Any tester that wants to can contribute to our [public blog](http://blog.scottlogic.com/category/test.html)
+**Your voice will be heard.**
+Everyone in testing has an equal say in the future of our capability. The ideas of our grads are as important as those of our principle and their feedback for internal initiatives will be sought and listened to. You don't even have to wait to be asked - any Scott Logic tester that wants to can contribute to our [public blog](http://blog.scottlogic.com/category/test.html). Don't take my word for it - you can take a read of what they have to say themselves.
 
 **You will have room to shape your role.** 
 You can get involved with several other streams of work that will develop you personally and professionally - working on our diversity policy, mentoring others, helping shape grad training, interviewing prospective joiners, setting up company get-togethers and representing Scott Logic at testing events. 
 
 **You will be immersed in a learning culture.** 
-Different offices have have tekkie brekkies (with a free hot breakfast!) brown bag learning lunches, learn by example mentoring and pair programming sessions. 
+Different offices have have tekkie brekkies (with a free hot breakfast!) learnie lunchies, midday mentoring and pairy programming. Yes, I made some of those names up. The different locations give them different names depending on what's new in testing or how someone has (re)(re)defined an accepted testing term. Anyone who goes a day with Scott Logic without learning something new and useful, must have got lost on the way to work.
 
-**You are not alone on or off client site.** 
-We support all our testers someone to check-in with for their client work and a coach to help them professionally develop. We wholeheartedly encourage external collaboration. 
+**You are never alone on or off client site.** 
+We support all our testers with someone to check-in with for their client work and a coach to help them professionally develop. One office is planning to run local and remotely accessible code camps. For less formal "Aaargh, WHY IS IT DOING THAT?!?" moments or when Git is just being ....a Git - anyone can reach out via internal channels divided into technical specialisms. Of course, you can also tap your colleagues on the shoulder because spending 30 minutes pinging bath and forth with someone only to realise they are sitting down the bottom of the same room as you has never happened...to anyone. At all. Ever. Never. Nope.
 
 **We pay for you to get out there and see how other people are testing.** 
-This year alone, we have testers attending The [National software testing conference](http://www.softwaretestingconference.com/), [Women of Silicon Roundabout](http://www.women-in-technology.com) and multiple Testbash events. We are proud to be one of the [Testbash Brighton](https://dojo.ministryoftesting.com/events) sponsors.
+We love external collaboration. This year alone, we have testers attending The [National software testing conference](http://www.softwaretestingconference.com/), [Women of Silicon Roundabout](http://www.women-in-technology.com) and multiple Testbash events. We are proud to be one of the [Testbash Brighton](https://dojo.ministryoftesting.com/events) sponsors.
 
 **You will be surrounded by very smart peers to guide you.** 
-Our standards for hiring are high, not just in testing but across the board. Our developers, BAs, UX designers, project managers and architects are all smart engaged people who are there to help and support anyone in the business who needs it. If you are stuck, just let your colleagues know and be prepared for a deluge of help from all perspectives. They are really smart, I mean SCARY smart.
+Our standards for hiring are high, not just in testing but across the board. Our developers, BAs, UX designers, project managers and architects are all smart, engaged, collaborative people who are there to help and support anyone in the business who needs it. If you are stuck, just let your colleagues know and be prepared for a deluge of help from all perspectives. They are really smart, I mean SCARY smart.
 
 ### The recruitment path
-We want to set our testers up for success in every possible way. The beginning of that journey is hiring people who have the right mindset and attitude to enjoy the work we do and get on well with the rest of the company. We don’t hire to put posteriors on perches. 
+We want to set our testers up for success in every possible way. The beginning of that journey is hiring people who have the right mindset and attitude to enjoy the work we do and get on well with the rest of the company. We don’t hire to put posteriors on perches.  
 
 We don't hire specifically for one role. We hire bright, passionate people and our talented client management team find them great roles with interesting clients. 
 
-In the testing practice, we look at two things to access how a person will thrive within Scott Logic. Those two things are the candidate and ourselves. 
+In the testing practice, we look at two things to  appraise how a person will thrive within Scott Logic. Those two things are the candidate and ourselves. 
 
 Sounds blazingly simple, doesn’t it? To make it this simple, we have spent many hours analysing and understanding the personality types that thrive in Scott Logic, how to recruit them and how to retain them. 
 
@@ -55,13 +55,13 @@ We want technologically inclined people with a deep, wide unabashed curiosity (m
 What motivates them? What makes them happy? What do they take pride in? How do they react to the unfamiliar What do they want to upskill themselves in? Are they the loudest or the quietest person in the room (or somewhere inbetween)? 
 
 ### Looking at the person as a tester
-We want people who are test infected, passionate advocates of the work they do and how they do it. We 		want people who are happy to embrace new ways of working and technologies.
+We want people who are test infected, passionate advocates of the work they do and how they do it. We want people who are happy to embrace new ways of working and technologies.
 
 #### In looking at the person as a tester, we consider:-
-How do they show their passion for testing? How do they learn and teach others? What sort of role would 	make them happy? Do they evangelise a particular way of testing? Where do they want to get to in their testing career? 
+How do they show their passion for testing? How do they learn and teach others? What sort of role would make them happy? Do they evangelise a particular way of testing? Where do they want to get to in their testing career? 
 
 ### Looking at the person as a team member
-Modern testers have to be social creatures as they can be the nexus of a delivery team who playing a number of roles. They can be 1 of the 3 amigos, the trusted adviser for an automation solution, interviewing and observing end users, building out teams, educating and informing managers (who may be looking for process heavy deliverables from Agile teams who want to work at pace) In some cases, the tester has to be all of the above.
+Modern testers have to be social creatures as they can be the nexus of a delivery team, playing a number of roles. They can be 1 of the 3 amigos, the trusted adviser for an automation solution, interviewing / observing end users, building out teams, educating and informing managers about modern testing methods. In some cases, the tester does all of the above.
 
 #### In looking at the person as a team member, we consider:-
 What sort of team do they like best? How do they solve problems in the software development lifecycle? Do they have a thirst for innovation? How do they deal with challenging personalities? 
@@ -73,7 +73,7 @@ Can we give this person the environment and role they want? Do we share the same
 
 ### Here is what we don’t do
 **We do not play keyword bingo.** 
-Keyword bingo is searching a a candidate’s CV for specific words relating to application types, tools, methodologies, test management systems or development languages. Using CTRL+F to find a specific keyword does not inform anyone what a candidate is capable of. 
+Keyword bingo is searching through a candidate’s CV for specific words relating to domains, application types, tools, methodologies, test management systems or development languages. Using CTRL+F to find a specific keyword does not tell anyone what a great tester is capable of. 
 
 **We do not have CV reviews carried out by people who don't understand testing.** 
 We have a technical recruitment team who know exactly what we are looking for in candidates and we are in close contact with them to make sure they understand what sort of testers we are looking for. 
@@ -81,16 +81,18 @@ Once recruitment pass a CV on, it goes to the testers in the office you are appl
 
 ### Here is what YOU can do
 **Be clear on what YOU want.** 
-Make a list of what you really want (what you really want) from your next company. Be as clear and detailed as you can. I cannot emphasise how useful this will be to you in finding a company that works for you. 
+Make a list of what you want (what you really, really want) from your next company. Be as clear and detailed as you can. I cannot emphasise how useful this will be to you in finding a company that works for you. 
 
 **No CV keyword bingo.** 
 Don't send us CVs that are repeated lists of operating systems, apps, tools and courses. It's useful if you have worked on every flavour of operating system since Debian 2.2 but it's a better use of the space to tell us about your attitude, the changes you have driven, how you learn and how awesome and likeable you are. 
 
 **Be concise on your CV.** 
 If you have worked on testing a Java app, tell us that. If you have written tests in Java, tell us that too. No "vagueisms". They won't get you 'in the door' because we don't work in that way. 
-Personally I am not a fan of reading "I have exposure to ....." I have exposure to millions of pounds as I pass the bank of England daily but that is just a passing acquaintance rather than spending experience.
-If you code, tell us you code, if you don't and you want to learn, tell us that.
-Most testers mention the ISEB/ISTQB. Some have pictures and multiple one line references to the same all over their CV. We would like you to use the space to tell us about your first testing role, tell us about the last big scary thing you did in testing or tell us about your ambitions for your testing career. 
+
+Personally I am not a fan of reading "I have exposure to ....." I have "exposure" to a lot of money as I pass the bank of England daily. This is just a passing acquaintance rather than any useful spending experience though!
+If you code, tell us you code. If you don't and you want to learn, tell us that.
+
+Most testers mention the ISEB/ISTQB. Some have pictures and multiple references to the same all over their CV. We would like you to use the space to tell us about your first testing role, tell us about the last big scary thing you did in testing or tell us about your ambitions for your testing career. 
 
 **Show testing influence.** 
 Link to your blog posts, talks, contributions to testing sites, Tweets, Youtube videos and LinkedIn posts. Tell us who influences you. Even if you only start writing and following today. We want to know what motivates and interests you. We also like people who share nicely with others. 
@@ -102,4 +104,7 @@ You’ve had them. Now tell us about them.
 Have you been offered an interview? Well done! 
 Now come prepared to interview _US_. You have obviously done your homework and impressed the development team as we want to talk to you. Make the most of this and come armed with questions from doing your research. 
 
-If you make a list of requirements for your next role, bring that too, we would love to see it and tell you how we match up. Remember, every potential employer you talk to has an obligation to make the interview experience a good one and to impress you too!
+If you make a list of requirements for your next role, bring that too, we would love to see it and tell you how we match up. Again be concise. If you want to work in a "great team" (and who doesn't?) What does that mean to you? A small/medium/big team? A team that challenges you? A team that supports you? A team where everyone works independently? A team where everyone goes for regular lunches together?
+
+Every potential employer you talk to has an obligation to make the interview experience a good one for you.
+Every potential employer you talk to has an obligation to impress you too!
