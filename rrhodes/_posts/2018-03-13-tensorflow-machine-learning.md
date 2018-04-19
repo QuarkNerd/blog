@@ -4,9 +4,11 @@ title: Machine Learning with TensorFlow
 layout: default_post
 summary: >-
   Following from my recent article on Machine Learning with Scikit Learn, I decided to experiment with the library that is most loved by developers today: TensorFlow. Similar to Scikit Learn, this post walks through a simple example of TensorFlow to categorise handwritten digits.
-tags: 'TensorFlow, Python, Machine Learning, ML'
 categories:
   - Tech
+image: rrhodes/assets/featured/brain.jpg
+tags:
+  - featured
 ---
 Only a month ago I walked through a simple application of [Machine Learning (ML) with Scikit Learn](http://blog.scottlogic.com/2018/02/15/scikit-machine-learning.html). This library offers an abundance of ML tools for data classification, which I hope I showed to be a relatively painless task. However, I'd experimented with Scikit Learn before, and thought, where's the fun in that? It's time to dive into a new library which has also attracted a big name for itself: [TensorFlow](https://www.tensorflow.org/).
 

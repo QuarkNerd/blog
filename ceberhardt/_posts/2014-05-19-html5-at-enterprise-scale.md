@@ -21,6 +21,6 @@ The problem is, HTML5 didn't emerge as the winner because it is a superior techn
 
 Enterprise application development is certainly no easier with HTML5 than it is with Flex and Silverlight. In fact the truth is that most developers find it a lot harder. Probably the greatest challenge that developers face when transitioning to HTML5 is that it is not a shrink-wrapped solution. In order to write enterprise-scale applications you face a bewildering array of technical choices and an equal number of pitfalls.
 
-This white paper identifies the numerous challenges and offers practical advice. If you are interested, it can be freely downloaded [in PDF format]({{site.baseurl}}/ceberhardt/assets/white-papers/html5-migration.pdf).
+This white paper identifies the numerous challenges and offers practical advice. If you are interested, it can be freely downloaded [in PDF format]({{site.baseurl}}/ceberhardt/assets/white-papers/html5-at-enterprise-scale.pdf).
 
 Regards, Colin E.

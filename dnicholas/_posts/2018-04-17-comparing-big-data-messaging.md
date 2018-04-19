@@ -4,9 +4,11 @@ author: acarr
 layout: default_post
 title: 'Comparing Apache Kafka, Amazon Kinesis, Microsoft Event Hubs and Google Pub/Sub'
 summary: "Distributed log technologies have matured in the last few years.  In this article, I review the attributes of distributed log technologies, compare four of the most popular and suggest how to choose the one that's right for you."
-tags: 'Messaging, Apache Kafka, Amazon Kinesis, Microsoft Event Hubs, Google Pub/Sub, Distributed Commit Log'
 categories:
   - Data Engineering
+image: dnicholas/assets/featured/distributed.jpg
+tags:
+  - featured
 ---
 
 ## The rise of distributed log technologies
@@ -45,7 +47,7 @@ In this article we will compare the four most popular distributed log technologi
 
 [Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-what-is-event-hubs) describes itself as an event ingestor capable of receiving and processing millions of events per second.  Producers send events to an event hub via [AMQP](https://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol) or HTTPS.  Event Hubs also have the concept of partitions to enable specific consumers to receive a subset of the stream.  Consumers connect via AMQP.  Consumer groups are used to allow consuming applications to have a separate view of the event stream.  Event Hubs is a fully managed service but users must pre-purchase capacity in terms of throughput units.
 
-### Google Pub/Sub 
+### Google Pub/Sub
 
 [Pub/Sub](https://cloud.google.com/pubsub/docs/overview) offers scalable cloud based messaging.  Publisher applications send messages to a topic with consumers subscribing to a topic.  Messages are persisted in a message store until they are acknowledged.  Publishers and pull-subscribers are applications that can make Google API HTTPS requests.  Scaling is automatic by distributing load across data centres.  Users are charged by data volume.
 
