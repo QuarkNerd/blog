@@ -181,7 +181,7 @@ authors:
         twitter-handle: 100pxls
     croberts:
         name: 'Charlotte Roberts'
-        email: croberts@scottlogic.com
+        email: croberts@scottlogic.co.uk
         gravatar: 64c5cdea265090dbf5e299ffe541935b
         author-summary: 'Test Engineer at Scott Logic. Based in the London office.'
     csmith:
@@ -705,7 +705,7 @@ authors:
     hcarter:
         name: 'Heather Carter'
         email: hcarter@scottlogic.com
-        gravatar: "f0b7dd50805077ad5138e05c035656c0"
+        gravatar: f0b7dd50805077ad5138e05c035656c0
         author-summary: '<p> Test Engineer at Scott Logic, I like to share my passion for testing. <p>'
     dnicholas:
         name: 'Danny Nicholas'
@@ -714,4 +714,3 @@ authors:
         author-summary: '<p>I am a Senior Developer at Scott Logic. I normally use Java to answer all sorts of tricky questions but have been known to occasionally dabble with JavaScript.</p>'
         twitter-handle: danosworld72
         twitter-url: 'http://www.twitter.com/danosworld72'
-        
