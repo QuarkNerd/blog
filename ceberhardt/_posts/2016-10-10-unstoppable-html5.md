@@ -18,3 +18,5 @@ The continued debate hasn’t halted the rise of HTML5 and JavaScript; they are 
 This paper looks at the many opportunities HTML5 offers for desktop development, including innovative UI technologies, accelerated application development, evergreen deployment and the prospect of a single technology for app development, regardless of the platform (be it formfactor or operating system). It also looks at how the collaborative nature of HTML5 is pushing the technology forward in a way that makes it hard, if not impossible, for others to compete.
 
 If you haven’t previously considered HTML5 as a desktop technology, it’s time to rethink your strategy...
+
+If you are interested in reading more, this white paper can be [freely downloaded in PDF format]({{site.baseurl}}/ceberhardt/assets/white-papers/unstoppable-html5.pdf).
