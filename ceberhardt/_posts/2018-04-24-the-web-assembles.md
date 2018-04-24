@@ -25,4 +25,4 @@ This white paper looks at how JavaScript works within the context of modern web 
 
 WebAssembly is a new runtime for the web; a fast and efficient compilation target for a wide range of languages, that was specifically designed to address these issues. This paper looks at at the performance limits of JavaScript and how WebAssembly was designed to tackle them. We then consider the impact of WebAssembly on JavaScript and the wider web platform, making a number of predictions about the future of the web - and the potential demise of JavaScript!
 
-If you are interested in reading more, this white paper can be [freely downloaded in PDF format]({{site.baseurl}}/ceberhardt/assets/white-papers/the-web-assembles.pdf).
+If you are interested in reading more, download our white paper: ["The Web Assembles" - in PDF format]({{site.baseurl}}/ceberhardt/assets/white-papers/the-web-assembles.pdf).
