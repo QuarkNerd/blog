@@ -16,7 +16,7 @@
     {%- comment -%} OpenGraph MetaData - Twitter / Facebook {%- endcomment -%}
     <meta property="og:title" content="{{ page.title }}" />
     <meta property="og:description"content="{{ page.summary }}"/>
-    <meta property="og:image" content="{{ page.image }}"/>
+    <meta property="og:image" content="{{ site.canonical.url }}{{ page.image }}"/>
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="{{ site.name }}"/>
     <meta property="og:url" content="{{ site.canonical.url }}{{ page.url }}" />
