@@ -73,21 +73,13 @@ layout: default
 
     </div>
     <div class="side-lists cell large-3 large-offset-1 show-for-large grid-padding-y">
-      <div class="author-information cell">
-        {% include gravatar.html %}
-        <a rel="author" href="{{ site.baseurl }}/{{ authorUsername }}">{{ author.name }}</a>
-      </div>
-      <div class="cell">
-        {{ author.author-summary }}
-        {%- if  author.twitter-url -%}
-            {%- assign twitter-url-split = author.twitter-url | split: '/' -%}
-            <div class="author-social-media-link">
-                <a rel="author" href="{{ author.twitter-url}}">@{{ twitter-url-split[3] }}</a>
-            </div>
-        {%- endif -%}
-      </div>
+      {% include author_summary.html %}
+      {%- for contributorId in page.contributors -%}
+        {%- assign author = site.data.authors.authors[contributorId] -%}
+        {%- assign authorUsername = contributorId -%}
+        {% include author_summary.html %}
+      {%- endfor -%}
       {% include category_list.html selectedIndex=0 %}
-      {% include author_list.html currentAuthorName = author.name %}
       <div class="back cell">
         <a href="{{ site.baseurl }}/index.html">Back to all posts</a>
       </div>
