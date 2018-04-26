@@ -11,6 +11,9 @@ categories:
 image: ceberhardt/assets/featured/webassembly.png
 tags:
   - featured
+cta:
+  link: http://blog.scottlogic.com/ceberhardt/assets/white-papers/the-web-assembles.pdf
+  text: Download the White Paper
 ---
 
 JavaScript has been the only truly native and universally supported language on the web for more than twenty years. That's quite an achievement for a language that was created in just 10 days!

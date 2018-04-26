@@ -8,6 +8,9 @@ categories:
 layout: default_post
 source: wordpress
 disqus-id: /blog/colin/2010/10/white-paper-silverlight-wpf-and-windows-phone-7-cross-platform-development/
+cta:
+  link: http://blog.scottlogic.com/ceberhardt/assets/white-papers/wpf-silverlight.pdf
+  text: Download the White Paper
 ---
 
 Last week I gave a presentation at a joint Scott Logic / Microsoft event about how WPF and Silverlight are unifying the development platform for desktop, web and mobile. To accompany the talk I wrote a white paper, [which is free to download]({{site.baseurl}}/ceberhardt/assets/white-papers/wpf-silverlight.pdf), that delves into this subject in a little more detail.

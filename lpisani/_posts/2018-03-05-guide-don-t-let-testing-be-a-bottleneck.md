@@ -13,8 +13,11 @@ summary: >-
   the agile culture, eliminating those bottlenecks and increasing the confidence
   in your software quality.
 image: ''
+cta:
+  link: https://cdn2.hubspot.net/hubfs/452398/Dont-let-test-be-a-bottleneck_Scott_Logic.pdf
+  text: Download the guide now
+
 ---
-[Download the guide now](https://cdn2.hubspot.net/hubfs/452398/Dont-let-test-be-a-bottleneck_Scott_Logic.pdf)
 
 Some projects still suffer from buggy, delayed releases despite trying hard to deliver in an agile way. Testing can become one of the causes of such pain, particularly when it is allowed to become a waterfall-style bottleneck within the delivery pipeline.
 

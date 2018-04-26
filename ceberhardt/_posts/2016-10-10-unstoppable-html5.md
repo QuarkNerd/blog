@@ -5,6 +5,9 @@ categories:
   - Resources
 summary: "A white paper which takes a looks at the continued growth of HTML5 and how it is now a viable solution for desktop application development."
 layout: default_post
+cta:
+  link: http://blog.scottlogic.com/ceberhardt/assets/white-papers/unstoppable-html5.pdf
+  text: Download the White Paper
 ---
 
 It was only five years ago that we were debating which technology - HTML5, Silverlight or Flex, should be the preferred option for developing

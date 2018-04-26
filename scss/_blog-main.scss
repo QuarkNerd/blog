@@ -135,6 +135,10 @@ header nav {
   font-weight: $font-light;
 }
 
+.cta > a {
+  font-weight: $font-bold;
+}
+
 .header-nav_top {
   ul {
     margin: 0.625rem 0  0.625rem 0;
