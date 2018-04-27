@@ -6,7 +6,8 @@ title: Overlooked Aspects of Being a Tester
 summary: >-
   I will consider behaviours and characteristics that are sometimes
   under appreciated when defining what a good, or even great tester looks like. 
-tags: 'Tester, Testing'
+tags: 'Tester, Testing, featured'
+image: /croberts/featured/brain.jpg
 categories:
   - Testing
 ---

@@ -5,16 +5,16 @@ layout: default_post
 title: 'Guide: Don''t Let Testing be a Bottleneck'
 categories:
   - Resources
-tags: 'test, testing, agile'
+tags: 'test, testing, agile, featured'
 summary: >-
   Testing can become a bottleneck within an agile delivery pipeline, resulting
   in delays and poorer quality software being released. This guide provides
   simple but effective ideas and techniques to successfully embed testing into
   the agile culture, eliminating those bottlenecks and increasing the confidence
   in your software quality.
-image: ''
+image: 'lpisani/assets/featured/agile.png'
 cta:
-  link: https://cdn2.hubspot.net/hubfs/452398/Dont-let-test-be-a-bottleneck_Scott_Logic.pdf
+  link: https://www.scottlogic.com/wp-content/uploads/2018/04/Dont-let-test-be-a-bottleneck_Scott_Logic.pdf
   text: Download the guide now
 
 ---

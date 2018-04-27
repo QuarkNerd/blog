@@ -8,7 +8,10 @@ summary: >-
   unable to stop. But are we really doomed to increasingly crumble under the
   weight of our workload, or can we change our ways to fit the agile world?
 image: /cmcormack/assets/tenor.gif
-tags: 'Agile, Multitasking'
+tags: 
+  - Agile
+  - Multitasking
+  - featured
 categories:
   - Agile
 ---

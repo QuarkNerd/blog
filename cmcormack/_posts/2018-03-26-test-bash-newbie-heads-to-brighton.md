@@ -3,10 +3,10 @@ published: true
 author: cmcormack
 layout: default_post
 title: Test Bash Newbie Heads To Brighton
-tags: 'TestBash, Testing, Events'
+tags: 'TestBash, Testing, Events, featured'
 summary: >-
   Test Bash Brighton is one of the biggest testing conferences in the UK. I was given the privilege of attending and was so taken in by it all I felt compelled to write up my thoughts, feelings and experiences in detail!
-image: CianLMcCormack/assets/TestBash_Brighton_2018_Adverts_DOJO_EVENT_BANNER.png
+image: /cmcormack/assets/giphy.gif
 categories:
   - testing
 ---
