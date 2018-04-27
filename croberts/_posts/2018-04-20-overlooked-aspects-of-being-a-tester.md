@@ -7,7 +7,7 @@ summary: >-
   I will consider behaviours and characteristics that are sometimes
   under appreciated when defining what a good, or even great tester looks like. 
 tags: 'Tester, Testing, featured'
-image: /croberts/featured/brain.jpg
+image: croberts/assets/brain.jpg
 categories:
   - Testing
 ---
