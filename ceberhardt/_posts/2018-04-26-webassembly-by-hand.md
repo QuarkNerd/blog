@@ -161,7 +161,7 @@ And here is how that function is implemented and exported:
   i32.mul
   get_local $x
   i32.add
-  i32.const 50
+  i32.const 4
   i32.mul
 )
 
@@ -175,7 +175,7 @@ WebAssembly instructions operate on a stack, considering each step in the above 
 1. `get_local $y` - push the value of the `$y` parameter onto the stack.
 2. `i32.const 50` - push a constant value of 50 
 3. `i32.mul` - pop two values from the stack, multiply them together, then push the result onto the stack
-4. `get_local $y` - push the value of the `$x` parameter onto the stack.
+4. `get_local $x` - push the value of the `$x` parameter onto the stack.
 5. etc ... !
 
 When the execution of the function finishes, there is just a single value left on the stack, which becomes the return value of the function.
@@ -213,7 +213,7 @@ This format looks like a much more conventional function invocation. Applying th
       )
       (get_local $x)
     )
-    (i32.const 50)
+    (i32.const 4)
   )
 )
 ~~~
@@ -451,7 +451,7 @@ The following code shows how this table is used in practice:
 
 ~~~
 (call_indirect (result i32)
-  (i32.or
+  (i32.add
     (i32.mul
       (i32.const 8)
       (call $isCellAlive
