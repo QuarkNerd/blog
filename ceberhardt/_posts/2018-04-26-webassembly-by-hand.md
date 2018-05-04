@@ -425,11 +425,13 @@ WebAssembly allows you to create a table with function references, which can by 
   $dead
   $dead
   $dead
+  $dead
   ;; for cells that are currently alive
   $dead
   $dead
   $alive
   $alive
+  $dead
   $dead
   $dead
   $dead
