@@ -8,8 +8,6 @@ scottlogicdisqusurl: https://disqus.com/home/discussion/scottlogic/
 permalink: /:year/:month/:day/:title.html
 safe: true
 twitter_handle: Scott_Logic
-events: http://events.scottlogic.com/eventlist.json
-events_blog: http://events.scottlogic.com
 
 kramdown:
     input: kramdown
