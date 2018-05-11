@@ -36,6 +36,9 @@ exclude:
     - scripts/jquery.jscroll-2.2.4.js
     - scripts/tweet.js
     - scripts/search.js
+    - scripts/feed.js
+    # The following is added because of an error on 'jekyll serve':
+    - vendor
 
 
 # For local use only

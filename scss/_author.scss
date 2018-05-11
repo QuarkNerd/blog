@@ -1,5 +1,34 @@
 @import "blog-main";
 
+.default-author {
+  .h4 {
+    font-size: 15px;
+  }
+
+  .talk {
+    padding-bottom: 0.75rem;
+  }
+
+  .talk_title {
+      line-height: 1.5;
+      font-weight: bold;
+      font-size: 13px;
+      font-family: "objektiv-mk1";
+  }
+
+  .talk_date {
+      color: grey;
+      font-size: 13px;
+      font-family: "objektiv-mk1";
+  }
+
+  #feed {
+      padding-top: 0.9375rem;
+      margin-left: 10%;
+      max-width: 15%;
+  }
+}
+
 .author {
     padding-top: 150px;
 
