@@ -1,6 +1,8 @@
 var feed = document.getElementById("feed");
-var eventsUrl = "https://www.scottlogic.com/events/feed/";
-httpGetAsync(eventsUrl, displayFeedAsTalkList);
+if (feed) {
+    var eventsUrl = "https://www.scottlogic.com/events/feed/";
+    httpGetAsync(eventsUrl, displayFeedAsTalkList);
+}
 
 function displayFeedAsTalkList(xml) {
     var resultingHtml = "<h4>Talks</h4>\n<div>";
