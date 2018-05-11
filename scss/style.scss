@@ -1,4 +1,6 @@
 
+@import "node_modules/applause-button/src/style.scss";
+
 @import "util/unit";
 @import "util/breakpoint";
 @import "foundation";
@@ -18,8 +20,8 @@
 @import "post-summary";
 @import "default-post";
 @import "footer";
-@import "social";
 @import "syntax-highlight";
 @import "code";
 @import "video-post";
 @import "read-more";
+@import "applause-button";
