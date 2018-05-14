@@ -54,6 +54,7 @@ active-authors:
     - nowen
     - nwolverson
     - okenyon
+    - phands
     - pshek
     - rbeckett
     - rmarcalo
@@ -713,3 +714,10 @@ authors:
         author-summary: '<p>I am a Senior Developer at Scott Logic. I normally use Java to answer all sorts of tricky questions but have been known to occasionally dabble with JavaScript.</p>'
         twitter-handle: danosworld72
         twitter-url: 'http://www.twitter.com/danosworld72'
+    phands:
+        name: 'Paul Hands'
+        email: phands@scottlogic.com
+        gravatar: f38b956b0408d077a5e3d5365076e5ee
+        author-summary: '<p>An advocate for agile, single page web apps and React/Redux</p>'
+        twitter-handle: PhDHands
+        twitter-url: 'http://www.twitter.com/PhDHands'
