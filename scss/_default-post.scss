@@ -66,12 +66,6 @@
     text-align: left;
   }
 
-  @include breakpoint(large) {
-    .primary-meta-data {
-      height: 10em;
-    }
-  }
-
   .side-lists {
 
     a:hover {
