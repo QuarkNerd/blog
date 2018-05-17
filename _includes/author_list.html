@@ -2,15 +2,28 @@
 <div class="author-list cell">
     <h4>Authors</h4>
     <ul>
-        {%- assign sortedauthors = site.data.authors.active-authors | sort -%}
+        <!-- Create an array of maps to make the full name of authors the top level property -->
+        <!-- This is a workaround because it is not possible to sort on a sub-property in Jekyll -->
+        {% assign unsortedauthors = "" | split: ',' %}
+        {%- for a in site.data.authors.authors -%}
+            <!-- Create a map with one hash from the author's full name to their username -->
+            {% assign processedauthor = "" | split: ',' %}
+            {% assign processedauthor = processedauthor | push: a[1].name %}
+            {% assign processedauthor = processedauthor | push: a[0] %}
+            {% assign unsortedauthors = unsortedauthors | push: processedauthor %}
+        {%- endfor -%}
+        <!-- Sort and filter the new array so it is in alphabetical order of full name -->
+        {% assign sortedauthors = (unsortedauthors | sort) %}
         {%- for author in sortedauthors -%}
-            {%- assign authorName = site.data.authors.authors[author].name -%}
-            <li>
-                <a class="{% if authorName == currentAuthorName %}active-author {% endif %}"
-                   href="{{ site.baseurl }}/{{ author }}">
-                {{ authorName }}
-                </a>
-            </li>
+            <!-- Exclude all authors that are not active (defined in _data/authors.yml file) -->
+            {% if site.data.authors.active-authors contains author[1] %}
+                <li>
+                    <a class="{% if author[0] == currentAuthorName %}active-author {% endif %}"
+                        href="{{ site.baseurl }}/{{ author[1] }}">
+                    {{ author[0] }}
+                    </a>
+                </li>
+            {% endif %}
         {%- endfor -%}
     </ul>
 </div>

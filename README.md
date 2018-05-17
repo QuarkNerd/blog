@@ -25,7 +25,7 @@ The blog consists of static HTML pages with content generated using Jekyll markd
 
 To minify JS, run:
 ```
-npm run scripts to minify JS
+npm run scripts
 ```
 
 To minify SCSS, run:
