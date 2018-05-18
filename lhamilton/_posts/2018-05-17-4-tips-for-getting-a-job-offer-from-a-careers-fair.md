@@ -42,7 +42,7 @@ Take copies of your CV, plan what you want to say, and have a short set of quest
 Finally, make sure that you complete the conversation by asking for a business card or a LinkedIn connection from the person you have been talking to. This means that you can contact the person you have spoken to after the event to thank them for their time, and also leaves the door open for follow-up interactions. 
 
 
-**Connect Your Experience With the Roles You Are Interested In**
+**4. Connect Your Experience With the Roles You Are Interested In**
 
 As we all know, often our experience or expertise won't align perfectly with what a company is looking for. I had actually recently qualified as a Chartered Accountant before becoming a Business Analyst, but I was able to focus on the skills I had which would be directly transferable to being successful in the role Scott Logic were hiring for. 
 
