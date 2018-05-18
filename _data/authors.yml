@@ -41,6 +41,7 @@ active-authors:
     - jwright
     - khurley
     - lcollingwood
+    - lhamilton
     - lpisani
     - lramchandani
     - mamos
@@ -721,3 +722,8 @@ authors:
         author-summary: '<p>An advocate for agile, single page web apps and React/Redux</p>'
         twitter-handle: PhDHands
         twitter-url: 'http://www.twitter.com/PhDHands'
+    lhamilton:
+        name: 'Louise Hamilton'
+        email: lhamilton@scottlogic.com
+        gravatar: ec47b5100c43b311df5919e2cd67da02
+        author-summary: 'Business Analyst from the Scott Logic London Office '
