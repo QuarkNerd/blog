@@ -28,6 +28,7 @@ active-authors:
     - gthompson
     - hcarter
     - hmumford
+    - hpretswell
     - hubinf@scottlogic.com
     - janakerman
     - jayphi11ips
@@ -90,7 +91,7 @@ authors:
         twitter-handle: aaylett
     acarr:
         author-summary: '<p>I am a Principal Consultant leading the Big Data services within Scott Logic. I have a strong interest and expertise in low latency Front Office trading systems, software managing very large networks and the technologies involved in processing large volumes of data.</p>'
-        email: andrew.carr@scottlogic.com
+        email: andrew@scottlogic.com
         feed-description: 'Andrew''s thoughts on technology'
         gravatar: bbde3f354aab8d561df7374fd3d0a61c
         name: 'Andrew Carr'
