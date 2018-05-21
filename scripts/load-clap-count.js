@@ -14,7 +14,7 @@ function loadClapCount() {
     }).done(function(claps) {
         jQuery(".clap").each(function() {
             var elem = jQuery(this),
-                url = elem.attr("data-url");
+                url = elem.attr("data-url").replace(/^https?:\/\//, "");
             var clapCount = claps.find(function(c) { return c.url === url; });
             if (clapCount && clapCount.claps > 0) {
                 elem.css("display", "initial")
