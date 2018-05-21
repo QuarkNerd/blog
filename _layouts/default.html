@@ -67,6 +67,7 @@
 <script type="text/javascript">jQuery.noConflict();</script>
 <script>
 initialiseMenu();
+loadClapCount();
 </script>
 
 {%- if page.paginated -%}
@@ -96,10 +97,6 @@ initialiseMenu();
         });
     </script>
     {% endif %}
-{%- else -%}
-<script type="text/javascript">
-loadClapCount();
-</script>
 {%- endif -%}
 </body>
 </html>
