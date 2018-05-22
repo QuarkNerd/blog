@@ -1,5 +1,3 @@
-@import "blog-external";
-
 @mixin featured-colours($bg-colour, $fg-colour) {
   .summary {
     background-color: $bg-colour;
@@ -11,6 +9,24 @@
     svg.bg {
       fill: $bg-colour;
     }
+  }
+}
+
+.avatar-metadata {
+  z-index: 1;
+  margin-top: 0.75rem;
+  div, img {
+      display: inline-block;
+      vertical-align: middle;
+  }
+  img {
+      border-radius: 50%;
+      max-height: 3rem;
+      margin-right: 0.25rem;
+      filter: grayscale(100%);
+  }
+  @include breakpoint(large) {
+    margin-right: -75%;
   }
 }
 
@@ -48,24 +64,6 @@
         z-index: 1;
       }
     }
-
-  	.avatar-metadata {
-      z-index: 1;
-      margin-top: 0.75rem;
-  		div, img {
-  	  		display: inline-block;
-  		  	vertical-align: middle;
-  		}
-  		img {
-  	  		border-radius: 50%;
-  	  		max-height: 3rem;
-  		  	margin-right: 0.25rem;
-          filter: grayscale(100%);
-  		}
-      @include breakpoint(large) {
-        margin-right: -75%;
-      }
-  	}
 
     .post-summary-social {
       font-size: 1rem;

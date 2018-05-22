@@ -58,7 +58,6 @@ header {
       padding: 0;
       list-style: none;
       li {
-        display: inline-block;
         float: right;
       }
     }
@@ -75,13 +74,6 @@ header {
             text-decoration: underline
           }
         }
-        /*
-        &:last-child {
-          a {
-            background: url('../images/search-icon.svg') no-repeat 100% 0;
-            padding-right: rem-calc(20px, 16px);
-          }
-        }*/
       }
     }
   }
@@ -117,20 +109,6 @@ header {
 
   cursor: pointer;
 }
-
-/*
-.mobile-search {
-	background: url('../images/search-icon.svg') no-repeat 0 0;
-	width: rem-calc(15px, 16px);
-	height: rem-calc(15px, 16px);
-	display: block;
-	position: absolute;
-	top: rem-calc(32px, 16px);
-	right: rem-calc(20px, 16px);
-	@include breakpoint(large) {
-		display: none;
-	}
-}*/
 
 header.no-hero {
   width: 100%;
@@ -190,12 +168,6 @@ header.no-hero {
         a {
           color: $black;
         }
-        /*
-        &:last-child {
-          a {
-            background: url('../images/search-icon-black.svg') no-repeat 100% 0;
-          }
-        }*/
         a:hover {
           color: $black;
           border-color: $black;
@@ -258,12 +230,6 @@ header.fixed-header {
           a {
             color: $black;
           }
-          /*
-          &:last-child {
-            a {
-              background: url('../images/search-icon-black.svg') no-repeat 100% 0;
-            }
-          }*/
           a:hover {
             color: $black;
             border-color: $black;

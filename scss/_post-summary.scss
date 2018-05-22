@@ -1,5 +1,3 @@
-@import "blog-main";
-
 @mixin article-colour($colour) {
   .category {
     a:hover {
@@ -37,19 +35,6 @@
     line-height: 1.4;
     > a {
       margin-right: 1.5rem;
-    }
-  }
-
-  .avatar-metadata {
-    div, img {
-      display: inline-block;
-      vertical-align: middle;
-    }
-    img {
-      border-radius: 50%;
-      max-height: 3rem;
-      margin-right: 0.25rem;
-      filter: grayscale(100%);
     }
   }
 
