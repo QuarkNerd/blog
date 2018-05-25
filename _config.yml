@@ -1,9 +1,9 @@
 name: Scott Logic
 description: This feed is brought to you by Scott Logic's team of technical authors and bloggers, covering topics including HTML5, iOS, C#, process, UX and practically anything else relating to software development.
 canonical:
-    url: http://blog.scottlogic.com
+    url: https://blog.scottlogic.com
 scottlogic:
-    url: http://www.scottlogic.com
+    url: https://www.scottlogic.com
 scottlogicdisqusurl: https://disqus.com/home/discussion/scottlogic/
 permalink: /:year/:month/:day/:title.html
 safe: true
@@ -45,16 +45,16 @@ exclude:
 # If building the site locally, you won't have access to the site.github namespace
 # Uncomment the lines below to have access to these variables when building locally
 
-#github:
-#    url: http://blog.scottlogic.com
+# github:
+#    url: https://blog.scottlogic.com
 #    url: http://localhost:4000
 #    owner_name: ScottLogic
 
 
 # Uncomment the lines below to enable requried Jekyll plugins when building locally.
-#gems:
+# gems:
 #    - jekyll-gist
 #    - jekyll-paginate
-#whitelist:
+# whitelist:
 #    - jekyll-gist
 #    - jekyll-paginate
