@@ -28,3 +28,7 @@ gitattributes
 lockfiles
 polyfilla
 shrinkwraps
+- rwilliams/_posts/2018-05-30-avoiding-seeking-solving-source-control-conflicts.md
+Checkstyle
+orderable
+KDiff
