@@ -51,6 +51,8 @@ This feature (which I haven't used myself) however only solves the conflict case
 
 Using [custom merge driver](https://git-scm.com/docs/gitattributes#_performing_a_three_way_merge) looks like it would offer a way of automating the whole process (forcing a pause, and running the steps). This little-used [npm-merge-driver](https://github.com/npm/npm-merge-driver) module was made to solve this problem, although there's no explanation of the approach it uses.
 
+*Update June 2018* - a few days after this post was published, NPM 5.7.0 was [released including](https://github.com/npm/npm/blob/v5.7.0/CHANGELOG.md#package-lock-git-merge-conflict-resolution) package lock Git merge conflict resolution, which can optionally be used in conjunction with the aforementioned `npm-merge-driver`. There's a [new section](https://docs.npmjs.com/files/package-locks#resolving-lockfile-conflicts) in the `package-locks` documentation.
+
 ## Aside: why is it called a shrinkwrap?
 When recently asked this question, it reminded me of [this recent tweet by Dan Abramov](https://twitter.com/dan_abramov/status/922227584573890561):
 
