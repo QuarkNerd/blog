@@ -1,11 +1,11 @@
 ---
 author: ceberhardt
 layout: default_post
-title: Sleeping Lambda Functions and Step Functions
+title: Sleeping Lambdas and AWS Step Functions
 summary: With AWS Lambda you pay for execution duration, which means that sleeping or waiting during execution has a direct impact on your bill! This blog post take a look at how to make AWS Lambda functions sleep, without incurring costs, via AWS Step Functions.
 categories:
   - Tech
-image: ceberhardt/assets/applause/claps-indicator.jpg
+image: ceberhardt/assets/astexplorer.png
 ---
 
 With AWS Lambda you pay for execution duration, which means that sleeping or waiting during execution has a direct impact on your bill! This blog post take a look at how to make Lambda functions sleep, without incurring costs, via AWS Step Functions.
