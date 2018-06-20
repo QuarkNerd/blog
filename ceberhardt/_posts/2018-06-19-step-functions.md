@@ -2,13 +2,13 @@
 author: ceberhardt
 layout: default_post
 title: Sleeping Lambdas and AWS Step Functions
-summary: With AWS Lambda you pay for execution duration, which means that sleeping or waiting during execution has a direct impact on your bill! This blog post take a look at how to make AWS Lambda functions sleep, without incurring costs, via AWS Step Functions.
+summary: With AWS Lambda you pay for execution duration, which means that sleeping or waiting during execution has a direct impact on your bill! This blog post takes a look at how to make AWS Lambda functions sleep, without incurring costs, via AWS Step Functions.
 categories:
   - Tech
 image: ceberhardt/assets/astexplorer.png
 ---
 
-With AWS Lambda you pay for execution duration, which means that sleeping or waiting during execution has a direct impact on your bill! This blog post take a look at how to make Lambda functions sleep, without incurring costs, via AWS Step Functions.
+With AWS Lambda you pay for execution duration, which means that sleeping or waiting during execution has a direct impact on your bill! This blog post takes a look at how to make Lambda functions sleep, without incurring costs, via AWS Step Functions.
 
 Skipping to the end, unfortunately Step Function development, while fun, was not an easy task, and the finished result actually runs up an AWS bill that is ten times bigger than my naive 'sleeping lambda'. I still think this is a promising technology, to find out more, read on ...
 
@@ -47,7 +47,7 @@ It's actually quite simple, the LaMetric API allows you to send an update to you
 
 <img src="{{site.baseurl}}/ceberhardt/assets/applause/lametric-frames.jpg"/>
 
-There is nothing stopping you from using `setTimeout` to write code that 'sleeps' within a lambda function (apart from the lambda timeout, which you can increase), however, this something of an antipattern. With lambda functions charged by execution duration, the longer your function sleeps, the more it will cost you!
+There is nothing stopping you from using `setTimeout` to write code that 'sleeps' within a lambda function (apart from the lambda timeout, which you can increase), however, this is something of an antipattern. With lambda functions charged by execution duration, the longer your function sleeps, the more it will cost you!
 
 After paying for a month of idle time, I decided to look for a better solution.
 
@@ -232,11 +232,11 @@ You can watch your step function execution in real-time via the AWS console, ins
 
 For this project Step Functions were a great fit, the use of this simple state machine approach has significantly reduced the overall duration of my Lambda function execution. However, while the end result looks good, it wasn't an easy journey.
 
-One of the biggest pain points of Step Functions is testing. The online console feels quite magically, but the overall development cycle times are far from ideal. It takes around 30 seconds to package, upload and deploy a new stack, followed by a number of clicks on the UI to find and debug your latest execution.
+One of the biggest pain points of Step Functions is testing. The online console feels quite magical, but the overall development cycle times are far from ideal. It takes around 30 seconds to package, upload and deploy a new stack, followed by a number of clicks on the UI to find and debug your latest execution.
 
 For Step Function tasks (lambdas) local testing is a must, which is easily achieved using Serverless, or the similar [SAM tool from AWS](https://docs.aws.amazon.com/lambda/latest/dg/serverless_app.html). However, many of the issues I faced were in configuration of the state machine itself, which cannot be executed locally. There is an [open issue requesting support](https://github.com/awslabs/aws-sam-cli/issues/174).
 
-I also found the features of the console a little lacking in places. While you can easily see inputs and outputs for states, you often need to view the logged output form your lambda functions. The interface provides a link to Cloud Watch, but rather than directing you to the output relating to the current execution, it just takes you to the Log Group.
+I also found the features of the console a little lacking in places. While you can easily see inputs and outputs for states, you often need to view the logged output from your lambda functions. The interface provides a link to Cloud Watch, but rather than directing you to the output relating to the current execution, it just takes you to the Log Group.
 
 The whole process feels unnecessarily slow!
 
@@ -258,6 +258,6 @@ I really *should* have done this maths at the beginning!
 
 Step Functions do feel like an experimental technology, I'd be very wary of using them on anything more critical than a hobby project. Despite this, they have a lot of potential. The general concept of state machines which coordinate business logic, is a good one. However the tooling really does have a lot of catching up to do. In order to be productive in development we need rapid iterations, which in this case most likely requires local execution. 
 
-But we more than rapid development cycles, we also need rapid cost modelling. I'd love to see a tool which allows you to iterate on your design, whilst giving you an indication of how much each component of the system costs.
+But we need more than rapid development cycles, we also need rapid cost modelling. I'd love to see a tool which allows you to iterate on your design, whilst giving you an indication of how much each component of the system costs.
 
 I'm not sure I'll be using Step Functions again anytime soon ...

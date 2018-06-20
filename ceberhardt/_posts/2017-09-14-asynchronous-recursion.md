@@ -337,7 +337,7 @@ The `getSentenceFragment` async function pauses execution when it meets an await
 
 Because async function return promises, the above code can be used with the promise version of our `getSentence` function.
 
-Let's look at the async equivalent of `getSentence`. Once against, well return to the original synchronous version:
+Let's look at the async equivalent of `getSentence`. Once again, we'll return to the original synchronous version:
 
 ~~~javascript
 const getSentence = (offset = 0) => {
