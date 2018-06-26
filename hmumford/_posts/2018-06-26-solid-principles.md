@@ -4,7 +4,7 @@ title: 'Examples and definitions of the SOLID principles in Software Design'
 layout: default_post
 categories:
   - Tech
-summary: 'Code examples and definitions of the SOLID principle to show how easy it is to voilate them and how you can refactor code to adhere to them.'
+summary: 'Code examples and definitions of the SOLID principles to show how easy it is to voilate them and how you can refactor code to adhere to them.'
 ---
 
 During my [Graduate Programme](https://www.scottlogic.com/careers/graduates-programme/) at Scott Logic, I joined a study group to learn about software engineering design patterns and core principles.
