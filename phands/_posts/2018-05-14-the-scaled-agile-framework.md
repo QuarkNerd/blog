@@ -9,10 +9,10 @@ summary: >-
   Scaled Agile Frameworks can be used to upscale agile practices for multiple
   development teams. Here I consider when it can go right, when it can wrong and
   some pitfalls to watch out for.
-image: phands/assets/Teams blog SAFe.png
-tags: 'Agile, Scrum, Development, DevOps'
+tags: 'Agile, Scrum, Development, DevOps, featured'
 categories:
   - agile
+image: phands/assets/featured/scaled.jpg
 ---
 
 In this blog post I hope to talk a little about scaling agile practices upwards (specifically Scaled Agile Framework) and the potential solutions to deal with the big pitfalls involved.
