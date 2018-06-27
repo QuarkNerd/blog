@@ -1,0 +1,11 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - tmakarem/_posts/2018-06-26-The-3-Types-of-Minimum-Viable-Products.md
+10-week
+Groupon’s
+Groupon
+MiFID
+NDFs
