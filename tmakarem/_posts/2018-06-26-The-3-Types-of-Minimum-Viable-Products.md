@@ -1,6 +1,6 @@
 ---
 author: tmakarem
-title: The 3 Types of Minimum Viable Products
+title: The 3 types of minimum viable products
 layout: default_post
 categories:
   - Delivery
