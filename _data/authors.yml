@@ -68,6 +68,7 @@ active-authors:
     - sbulut
     - shogarth
     - shunton
+    - sobrien
     - sroebuck
     - tclarke-scottlogic
     - tmakarem
@@ -620,6 +621,10 @@ authors:
         email: sking@scottlogic.com
         gravatar: c02644e4b21947da7787247349954f96
         name: 'Saber King'
+    sobrien:
+        email: sobrien@scottlogic.com
+        name: 'Siobhan O''Brien'
+        author-summary: 'UX Designer'
     soneill:
         email: soneill@scottlogic.com
         gravatar: 86d65c90b7cb711055066f12a5f8d0e2
