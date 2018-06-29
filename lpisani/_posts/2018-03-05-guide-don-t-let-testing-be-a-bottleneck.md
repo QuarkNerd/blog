@@ -12,7 +12,7 @@ summary: >-
   simple but effective ideas and techniques to successfully embed testing into
   the agile culture, eliminating those bottlenecks and increasing the confidence
   in your software quality.
-image: 'lpisani/assets/featured/agile.png'
+image: 'lpisani/assets/agile.png'
 cta:
   link: https://www.scottlogic.com/wp-content/uploads/2018/04/Dont-let-test-be-a-bottleneck_Scott_Logic.pdf
   text: Download the guide now
