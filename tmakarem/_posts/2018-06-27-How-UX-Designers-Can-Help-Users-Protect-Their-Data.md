@@ -1,6 +1,6 @@
 ---
 author: tmakarem
-title: "How UX Designers Can Help Users Protect Their Data"
+title: "How UX designers can help users protect their data"
 layout: default_post
 image: /tmakarem/assets/2018-06-27-How-UX-Designers-Can-Help-Users-Protect-Their-Data/00-gmail-error-message.png
 categories:
@@ -116,4 +116,4 @@ An interesting project I came across and that helps users learn more about how t
 
 Users should not have to download plugins like this. Data transparency should be inherent in the sites we use. *Instagram*, for example, suggests people to connect with and displays what the suggestions are based on. e.g. “based on likes”, or “because you are friends on *Facebook*”. Getting a view of what’s happening behind the scenes can help establish trust.
 
-UX Designers can help users protect their data by designing experiences that encourage them to follow best security practices, and informing them about how their data is being used.
+UX Designers can help users protect their data by designing experiences that encourage them to follow good security practices, and informing them about how their data is being used.

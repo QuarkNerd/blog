@@ -1,6 +1,6 @@
 ---
 author: tmakarem
-title: "Data Visualisation and Scale: Leveraging the Macro and the Micro"
+title: "Data visualisation and scale: leveraging the macro and the micro"
 title-short: "Leveraging the Macro and the Micro"
 layout: default_post
 categories:
