@@ -66,6 +66,11 @@ layout: default
       <div class="author-information cell medium-10 small-9 hide-for-large">
         {% include gravatar.html %}
         <a rel="author" href="{{ site.baseurl }}/{{ authorUsername }}">{{ author.name }}</a>
+         {%- for contributorId in page.contributors -%}
+             {%- assign author = site.data.authors.authors[contributorId] -%}
+             {%- assign authorUsername = contributorId -%}
+            , <a rel="author" href="{{ site.baseurl }}/{{ authorUsername }}">{{ author.name }}</a>
+         {%- endfor -%}
       </div>
       {% include social.html %}
     </div>
@@ -78,6 +83,8 @@ layout: default
 
     </div>
     <div class="side-lists cell large-3 large-offset-1 show-for-large grid-padding-y">
+      {%- assign author = site.data.authors.authors[page.author] -%}
+      {%- assign authorUsername = page.author -%}
       {% include author_summary.html %}
       {%- for contributorId in page.contributors -%}
         {%- assign author = site.data.authors.authors[contributorId] -%}
