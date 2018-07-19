@@ -9,6 +9,7 @@ active-authors:
     - bdimitrov-SL
     - bjedrzejewski
     - bmacdonald
+    - cbrown
     - cburbidge
     - ceberhardt
     - cmcormack
@@ -743,3 +744,8 @@ authors:
         email: lhamilton@scottlogic.com
         gravatar: ec47b5100c43b311df5919e2cd67da02
         author-summary: 'Business Analyst from the Scott Logic London Office '
+    cbrown:
+        name: 'Chris Brown'
+        email: cbrown@scottlogic.com
+        gravatar: c88acf16e4b8f5b8fd74f99c11c8d14d
+        author-summary: '<p>Test Engineer for Scott Logic. Based in the Newcastle office'
