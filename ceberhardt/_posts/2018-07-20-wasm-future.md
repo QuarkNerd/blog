@@ -6,6 +6,9 @@ summary: WebAssembly is a performance optimised virtual machine that was shipped
 categories:
   - Tech
 suppress-disqus: true
+tags:
+  - featured
+image: ceberhardt/assets/featured/wasm.png
 ---
 
 WebAssembly is a performance optimised virtual machine that was shipped in all four major browsers earlier this year. It is a nascent technology and the current version is very much an MVP (minimum viable product). This blog post takes a look at the WebAssembly roadmap and the features it might be gain in the near future.
