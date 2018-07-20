@@ -253,6 +253,6 @@ Hopefully this has given you a useful glimpse into where WebAssembly is heading 
 
 I found some real surprises in there too, WebAssembly will not gain native threads or garbage collection, instead, it will make use of the host environment. Furthermore, host bindings will not add Web APIs directly to WebAssembly, rather, it will make it easier to create the binding 'glue'. 
 
-All of this points to WebAssembly having a very interesting symbiotic relationship with its host. And this means that WebAssembly modules will always require JavaScript code in order to do anything useful for the foreseeable future!
+All of this points to WebAssembly having a very interesting symbiotic relationship with its host. And this means that WebAssembly modules will always require JavaScript (or some other hosting code) in order to do anything useful for the foreseeable future!
 
 Comments? thoughts? ideas? please share them on [Reddit](https://www.reddit.com/r/programming/comments/90eul8/the_future_of_webassembly_a_look_at_upcoming/) or [Hacker News](https://news.ycombinator.com/item?id=17573820) threads.
