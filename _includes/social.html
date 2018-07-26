@@ -1,8 +1,4 @@
 {% capture url %}{{ site.canonical.url }}{{ page.url }}{% endcapture %}
-{%- assign disqusID = page.url -%}
-{%- if page.disqus-id -%}
-    {%- assign disqusID = page.disqus-id -%}
-{%- endif -%}
 <div class="social">
   <applause-button color="{% include post_colour_hex.html post=page %}" multiclap="true"/>
 </div>

@@ -5,7 +5,6 @@ title: The future of WebAssembly - A look at upcoming features and proposals
 summary: WebAssembly is a performance optimised virtual machine that was shipped in all four major browsers earlier this year. It is a nascent technology and the current version is very much an MVP. This blog post takes a look at the WebAssembly roadmap and the features it might gain in the near future.
 categories:
   - Tech
-suppress-disqus: true
 tags:
   - featured
 image: ceberhardt/assets/featured/wasm.png

@@ -78,9 +78,6 @@ layout: default
       <div class="cell">
         {{ content }}
       </div>
-      {%- unless page.suppress-disqus -%}
-        {% include disqus.html %}
-      {%- endunless -%}
       {% include read_more.html author=author authorUsername=authorUsername page=page %}
 
     </div>

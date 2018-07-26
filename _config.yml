@@ -4,7 +4,6 @@ canonical:
     url: https://blog.scottlogic.com
 scottlogic:
     url: https://www.scottlogic.com
-scottlogicdisqusurl: https://disqus.com/home/discussion/scottlogic/
 permalink: /:year/:month/:day/:title.html
 safe: true
 twitter_handle: Scott_Logic
@@ -30,8 +29,6 @@ exclude:
     - .spelling
     # N.B. Not all scripts are excluded, as some are directly referenced, because:
     # - jquery-1.9.1.js - some posts make use of this
-    # - disqus-comment-thread.js - only required on the post pages
-    - scripts/disqus-comment-count.js
     - scripts/jquery-1.9.1.js
     - scripts/jquery.jscroll-2.2.4.js
     - scripts/tweet.js
