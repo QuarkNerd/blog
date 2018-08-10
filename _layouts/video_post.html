@@ -10,8 +10,6 @@ layout: default
         {% include category_display.html post = page %}
         <span>&middot;</span>
         <span>{{ page.date | date: "%d %B %Y" }}</span>
-        <span>&middot;</span>
-        <span>{% include reading_time.html post=post %}</span>
       </div>
       <div class="cell large-offset-2 medium-offset-1 small-offset-1">
         <h1 class="title">{{ page.title }}</h1>

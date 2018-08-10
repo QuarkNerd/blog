@@ -28,4 +28,8 @@
             {%- endif -%}
         {%- endfor -%}
     {%- endfor -%}
+    {%- if post.layout == 'video_post' -%}
+    <span> &middot;</span>
+    <a href="{{ site.baseurl }}/category/videos.html">Video</a>
+    {%- endif -%}
 </span>
