@@ -38,3 +38,12 @@ knut
 F#'s
 Lamenters
 unrepresentable
+ - cburbidge/_posts/2018-08-14-run-vstest-with-cake.md
+NUnit
+xUnit
+MsTest
+VsTest
+nuget
+Microsoft.TestPlatform
+VSTestSettings
+nondeterministic
