@@ -621,11 +621,11 @@ authors:
         gravatar: d4534a4d64ddf89c318221d9f0e766da
         name: 'Sam Hogarth'
     shunton:
-        author-summary: '<p>I''m a Technical Project Manager at Scott Logic. I have a distant memory of being a developer with the past decade or so dedicated to project delivery, scaling and expanding Agile for large organisations and sharing what I learn along the way.</p>'
         email: shunton@scottlogic.com
         feed-description: 'Steve''s adventures in all things Agile'
-        gravatar: 9bc56e857c141a4b43ac3533f5bf4249
         name: 'Steven Hunton'
+        gravatar: 9bc56e857c141a4b43ac3533f5bf4249
+        author-summary: '<p>I''m a Delivery Manager at Scott Logic. I have a distant memory of being a developer with the past decade or so dedicated to project delivery, scaling and expanding Agile for large organisations and sharing what I learn along the way.</p>'
     sking:
         email: sking@scottlogic.com
         gravatar: c02644e4b21947da7787247349954f96
