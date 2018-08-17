@@ -33,7 +33,7 @@ and another basic streaming interface for iterating over a sequence of values -
 ~~~js
 import { financial } from 'd3fc-random-data';
 
-const generator = financial()
+const stream = financial()
     .startDate(new Date(2016, 0, 1))
     .startPrice(100)
     .stream();
