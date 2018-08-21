@@ -4,11 +4,11 @@ title: Careers
 summary: Scott Logic's thoughts and ideas relating to Careers
 image: /assets/careers.jpg
 ---
-{%- assign posts = site.categories["Careers"] -%}
-{%- for careersposts in site.categories["careers"] -%}
-  {%- assign posts = posts | push: careersposts -%}
-{%- endfor -%}
-{%- if posts -%}
-  {%- assign posts = posts | sort: 'date' | reverse | uniq -%}
-{%- endif -%}
+{% assign posts = site.categories["Careers"] %}
+{% for careersposts in site.categories["careers"] %}
+  {% assign posts = posts | push: careersposts %}
+{% endfor %}
+{% if posts %}
+  {% assign posts = posts | sort: 'date' | reverse | uniq %}
+{% endif %}
 {% include post_index.html posts=posts categoryName="Careers" %}

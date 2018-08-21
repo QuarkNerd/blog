@@ -1,4 +1,4 @@
-{%- assign currentAuthorName = include.currentAuthorName -%}
+{% assign currentAuthorName = include.currentAuthorName %}
 <div class="author-list cell">
     <h4>Authors</h4>
     <ul>
@@ -7,7 +7,7 @@
             This is a workaround because it is not possible to sort on a sub-property in Jekyll.
         {% endcomment %}
         {% assign unsortedauthors = "" | split: ',' %}
-        {%- for a in site.data.authors.authors -%}
+        {% for a in site.data.authors.authors %}
             {% comment %}
                 Create a map with one hash from the author's full name to their username
             {% endcomment %}
@@ -15,12 +15,12 @@
             {% assign processedauthor = processedauthor | push: a[1].name %}
             {% assign processedauthor = processedauthor | push: a[0] %}
             {% assign unsortedauthors = unsortedauthors | push: processedauthor %}
-        {%- endfor -%}
+        {% endfor %}
         {% comment %}
             Sort and filter the new array so it is in alphabetical order of full name
         {% endcomment %}
         {% assign sortedauthors = (unsortedauthors | sort) %}
-        {%- for author in sortedauthors -%}
+        {% for author in sortedauthors %}
             {% comment %}
                 Exclude all authors that are not active (defined in _data/authors.yml file).
             {% endcomment %}
@@ -32,6 +32,6 @@
                     </a>
                 </li>
             {% endif %}
-        {%- endfor -%}
+        {% endfor %}
     </ul>
 </div>

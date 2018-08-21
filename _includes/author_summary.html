@@ -4,10 +4,10 @@
 </div>
 <div class="cell">
   {{ author.author-summary }}
-  {%- if  author.twitter-url -%}
-      {%- assign twitter-url-split = author.twitter-url | split: '/' -%}
+  {% if  author.twitter-url %}
+      {% assign twitter-url-split = author.twitter-url | split: '/' %}
       <div class="author-social-media-link">
           <a rel="author" href="{{ author.twitter-url}}">@{{ twitter-url-split[3] }}</a>
       </div>
-  {%- endif -%}
+  {% endif %}
 </div>

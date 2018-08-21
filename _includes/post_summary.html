@@ -1,5 +1,5 @@
-{%- assign post = include.post -%}
-{%- assign author = site.data.authors.authors[post.author] -%}
+{% assign post = include.post %}
+{% assign author = site.data.authors.authors[post.author] %}
 <div class="post-summary grid-margin-y grid-padding-y {% include post_colour.html post=post %}">
     <div class="post-summary cell grid-margin-y">
         {% include category_display.html post = post %}
@@ -8,11 +8,11 @@
             {% include post_summary_social.html post=post %}
         </div>
         <div class="cell">
-            {%- if post.summary -%}
+            {% if post.summary %}
             {{ post.summary }}
-            {%- else -%}
+            {% else %}
             {{ post.content | strip_html | truncatewords:50 }}
-            {%- endif -%}
+            {% endif %}
         </div>
         <div class="avatar-metadata cell">
             {% include gravatar.html %}
