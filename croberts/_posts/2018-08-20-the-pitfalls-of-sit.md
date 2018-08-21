@@ -8,7 +8,7 @@ summary: >-
   explore some of the common pitfalls of SIT and aid in preventing or overcoming
   these.
 categories:
-  - testing
+ - testing
 tags: 'Testing, System Integration Testing'
 ---
 Doing SIT at an enterprise level can be time-consuming, expensive, badly planned and provide negligible value to the end user for the weeks of effort put in. System integration testing can be one of the most complex parts of the software development life cycle (SDLC). But here I am to tell you how with a bit of preparation and a lot of thought you can drastically improve and get your SIT right. 
@@ -38,13 +38,15 @@ Tests will pass locally or in some environments but not others. A line we are al
 SIT often needs the most complex data set of all testing. If the data is incorrect then this can be one of the most problematic parts of your environment to fix. 
 
 The data needed can: 
-- Be from multiple sources 
-- Have interdependencies that may be known or unknown
-- Be time or date dependent 
-- Be needed in high volumes
-- Have regulatory conditions around it 
-- Have encryption requirements
-- Be either static or constantly changing
+
+  - Be from multiple sources 
+  - Have interdependencies that may be known or unknown
+  - Be time or date dependent 
+  - Be needed in high volumes
+  - Have regulatory conditions around it 
+  - Have encryption requirements
+  - Be either static or constantly changing
+
 And these could just be the tip of the iceberg depending on your design. 
 
 ###Late Involvement 
@@ -75,23 +77,25 @@ It can be extremely beneficial, in both long term cost and time, to automate  SI
 
 ###Deciding what to Automate 
 A vital decision for SIT is deciding what to automate. Although automation can be highly beneficial and effective, there are also instances when automation is not the way forward. There is not necessarily always a benefit to automating. For example:
-- When human interaction is needed (such as for look/feel of an application)
-- When data is constantly changing 
-- When code is constantly changing 
-- If something is unstable 
-- When it is not cost effective
-- When it is not time effective 
+
+  - When human interaction is needed (such as for look/feel of an application)
+  - When data is constantly changing 
+  - When code is constantly changing 
+  - If something is unstable 
+  - When it is not cost effective
+  - When it is not time effective 
+
 However when these are not the case and the tests are going to be repeated often then there clearly is a benefit. It can be particularly beneficial for regression testing. Often a combination of both manual and automation provides for effective test execution. 
 
 ###Testing the Infrastructure
 
-When planning for SIT do not forget about the part played by your infrastructure. Systems can run across a multitude of hardware - routers, switches, load-balancers, firewalls and more. Most of the time it is presumed that infrastructure “just works” except when it doesn’t.
+When planning for SIT do not forget about the part played by your infrastructure. Systems can run across a multitude of hardware  - routers, switches, load-balancers, firewalls and more. Most of the time it is presumed that infrastructure “just works” except when it doesn’t.
 
 Have you ever seen a certificate update on a load-balancer prevent traffic from getting to an environment?
 Have you ever seen a WAN emulator crash spectacularly when one new application was run across it?
 Have you ever seen a “vendor tested” upgrade to your authentication systems lock out all your test users?
 
-We have and it was all for the same reason - these changes to infrastructure were rolled out in SIT non-production environments with the presumption they would “just work” instead of being tested properly in advance. Guess what? They didn’t “just work” they just brought all our SIT to a crashing halt.
+We have and it was all for the same reason  - these changes to infrastructure were rolled out in SIT non-production environments with the presumption they would “just work” instead of being tested properly in advance. Guess what? They didn’t “just work” they just brought all our SIT to a crashing halt.
 
 ##Reporting 
 
