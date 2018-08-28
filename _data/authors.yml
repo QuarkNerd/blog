@@ -16,6 +16,7 @@ active-authors:
     - cmeehan
     - cprice
     - croberts
+    - cyule
     - dgorst
     - dkerr
     - dmcnamee
@@ -748,3 +749,10 @@ authors:
         email: cbrown@scottlogic.com
         gravatar: c88acf16e4b8f5b8fd74f99c11c8d14d
         author-summary: '<p>Test Engineer for Scott Logic. Based in the Newcastle office'
+    cyule:
+        name: 'Courtney Yule'
+        email: cyule@scottlogic.com
+        gravatar: fb57be2101eaad0189f8ee1237ba2044
+        author-summary: '<p><a UX Designer                              </a></p>                                                           '
+        twitter-handle: CourtneyYule
+        twitter-url: 'http://www.twitter.com/CourtneyYule'
