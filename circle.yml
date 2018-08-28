@@ -1,5 +1,0 @@
-machine:
-    ruby:
-        version: 2.2.3
-    node:
-        version: 8.6.0
