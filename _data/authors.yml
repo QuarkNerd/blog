@@ -33,6 +33,7 @@ active-authors:
     - hmumford
     - hpretswell
     - hubinf@scottlogic.com
+    - imaxwell@scottlogic.com
     - janakerman
     - jayphi11ips
     - jdunkerley
@@ -756,3 +757,8 @@ authors:
         author-summary: '<p><a UX Designer                              </a></p>                                                           '
         twitter-handle: CourtneyYule
         twitter-url: 'http://www.twitter.com/CourtneyYule'
+    imaxwell@scottlogic.com:
+        name: 'Iain A Maxwell'
+        email: imaxwell@scottlogic.com
+        gravatar: "b2b5e0a976575d9e29ae104479d132ab"
+        author-summary: 'Senior Developer at Scott Logic.  Working out of the Edinburgh office.'
