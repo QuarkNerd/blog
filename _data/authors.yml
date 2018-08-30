@@ -329,6 +329,11 @@ authors:
         email: frank.hubin@gmail.com
         gravatar: f1653046285a5fd35cdc7e89700b9fd5
         author-summary: 'I am a Technical Project Manager at Scott Logic. Using a lean approach, Agile values and team empowerment, I build bridges between business and technical teams to improve collaboration and make delivery a reality.'
+    ilapworth:
+        name: 'Isaac Lapworth'
+        email: isaacdavidlapworth@gmail.com
+        gravatar: 3188c7a841e608b952a68dc63fb26390
+        author-summary: "2018 Newcastle intern"
     ilopatkin:
         name: 'Ilya Lopatkin'
         email: ilopatkin@scottlogic.co.uk
