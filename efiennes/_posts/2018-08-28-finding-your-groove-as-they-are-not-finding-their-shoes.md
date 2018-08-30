@@ -39,7 +39,7 @@ These plans will sometimes fail. That’s ok. Take the time to go to outpatients
 ## Be realistic about what you can do and take real life into account
 If you have three children under five, two dogs that need a three mile walk every evening and manage to get some regular spin / rugby / yoga / physiotherapy in at the weekend – please tell me how you do it! 
 
-Someone as bury as you may have to consider limiting yourself to getting better at what you already know or take on small learning projects at any one time. <b>Small</b>, such as learning how to use SOAPUI pre-canned scripts to test a service rather than <b>large</b>, a whole brand new OO language. 
+Someone as busy as you may have to consider limiting yourself to getting better at what you already know or take on small learning projects at any one time. <b>Small</b>, such as learning how to use SOAPUI pre-canned scripts to test a service rather than <b>large</b>, a whole brand new OO language. 
  
 ## Figure out what you are passionate about learning
 With all the best intentions in the world, if you are not into something, you won’t study it. How many homes of IT people up and down the globe have “that shelf” or “that kindle” of “Learn x in 24 hours”, “Dummies guide to x” languishing unread. Some of them aren’t even parents! 
