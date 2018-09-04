@@ -77,6 +77,7 @@ active-authors:
     - tclarke-scottlogic
     - tmakarem
     - tsimmons
+    - wcaine
     - wferguson
     - wloveland
     - wreilly
@@ -695,6 +696,11 @@ authors:
         email: tsimmons@scottlogic.co.uk
         gravatar: d3b0a51363909dfbd44683577134c72c
         name: 'Tom Simmons'
+    wcaine:
+        name: "Will Caine"
+        email: wcaine@scottlogic.com
+        gravatar: c726e6e887ed2c1b51ce8cf650c764ed
+        author-summary: Scott Logic Intern at the Newcastle office during the summer of 2018.
     wferguson:
         author-summary: '<p>I''m a developer at Scott Logic, after joining in 2014 as an intern.</p>'
         email: wferguson@scottlogic.com
