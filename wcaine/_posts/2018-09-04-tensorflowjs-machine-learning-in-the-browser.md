@@ -102,6 +102,6 @@ Collecting the training data needed to build a model can be a _very_ tedious pro
 
 ## In Summary
 
-We found that while TensorFlow.js is great for running in-browser predictions and even for re-training models on small datasets. However, should you wish to have a model trained on more than a few classes or with a dataset larger than a few hundred examples, you're probably best sticking to the regular TensorFlow libraries. Moreover, not all low-end hardware supports the WebGL features needed to perform such tasks and you may have to bring this into consideration.
+We found that TensorFlow.js is great for running in-browser predictions and even for re-training models on small datasets. However, should you wish to have a model trained on more than a few classes or with a dataset larger than a few hundred examples, you're probably best sticking to the regular TensorFlow libraries. Moreover, not all low-end hardware supports the WebGL features needed to perform such tasks and you may have to bring this into consideration.
 
 Lastly, once you start building your models, it's important to carefully think through how to curate your training data as well as considering the best ways to interact with your model; both in terms of its inputs and how you generate activations, and how you react to its predictions.
