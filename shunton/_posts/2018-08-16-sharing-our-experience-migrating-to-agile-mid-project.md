@@ -9,7 +9,8 @@ summary: >-
   Sharing our experience of delivering a complex, technical project, and why we
   decided to switch to Agile (Scrum) mid-project to take control of the project
   delivery.
-tags: 'agile, scrum'
+tags: 'agile, scrum, featured'
+image: shunton/assets/featured/migrate.jpg
 ---
 As a software consultancy, we’re more than a little familiar with Agile. It’s been the driver behind many of our successful projects of varying size and complexity. While it doesn’t deliver projects and resolve problems on its own, it has provided our teams with the necessary controls and tools to deliver some of our more challenging projects.
 

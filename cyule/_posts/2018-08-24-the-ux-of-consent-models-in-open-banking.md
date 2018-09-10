@@ -12,9 +12,10 @@ summary: >-
   aggregator Yolt.
 tags: >-
   OpenBanking, Open, Banking, User Experience, UX, Featured, UX Design, Consent
-  Models, Consent Flows, Monzo, Starling, CMA 9
+  Models, Consent Flows, Monzo, Starling, CMA 9, featured
 categories:
   - UX Design
+image: cyule/assets/featured/openbanking.png
 ---
 
 
