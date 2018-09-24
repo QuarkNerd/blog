@@ -4,7 +4,7 @@
   "description": "The Scott Logic Blogs",
   "author": "Scott Logic",
   "dependencies": {
-    "applause-button": "^1.0.3",
+    "applause-button": "^2.0.0",
     "foundation-sites": "^6.4.2"
   },
   "devDependencies": {

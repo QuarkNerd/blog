@@ -45,9 +45,9 @@ ansi-styles@^3.2.1:
   dependencies:
     color-convert "^1.9.0"
 
-applause-button@^1.0.3:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/applause-button/-/applause-button-1.2.0.tgz#bb7c23b9f9c3a030e2c471e1d395ff7a2c80adca"
+applause-button@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/applause-button/-/applause-button-2.0.0.tgz#f17b11442c016a1b6526217a2d821b8d14b5cb45"
   dependencies:
     document-register-element "^1.8.1"
 
@@ -340,10 +340,10 @@ dir-glob@^2.0.0:
     path-type "^3.0.0"
 
 document-register-element@^1.8.1:
-  version "1.8.1"
-  resolved "https://registry.yarnpkg.com/document-register-element/-/document-register-element-1.8.1.tgz#db841ece6cba28e6e538ac8e815413b59e86047e"
+  version "1.11.1"
+  resolved "https://registry.yarnpkg.com/document-register-element/-/document-register-element-1.11.1.tgz#cc40170cbbe4286946326603615b3bb0f4564f64"
   dependencies:
-    lightercollective "^0.0.0"
+    lightercollective "^0.1.0"
 
 ecc-jsbn@~0.1.1:
   version "0.1.1"
@@ -828,9 +828,9 @@ lcid@^1.0.0:
   dependencies:
     invert-kv "^1.0.0"
 
-lightercollective@^0.0.0:
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/lightercollective/-/lightercollective-0.0.0.tgz#5b85f6755b78c1f94db590e479f954cbfeeb0409"
+lightercollective@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/lightercollective/-/lightercollective-0.1.0.tgz#70df102c530dcb8d0ccabfe6175a8d00d5f61300"
 
 load-json-file@^1.0.0:
   version "1.1.0"
