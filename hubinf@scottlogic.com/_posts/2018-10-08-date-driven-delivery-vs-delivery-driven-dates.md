@@ -13,6 +13,7 @@ categories:
 # Date-Driven Delivery vs. Delivery-Driven Dates
 
 Businesses tend to set dates for project deliveries. They do so based on business considerations, such as financial-year targets, board-room expectations, or simply to have a deadline to look forward to.
+
 ## Typical Approach of a Project
 Projects tend to have a deadline attached to them. Projects of all kinds, though we will focus primarily on IT-related projects. Whether it is imposed by law or regulators, set by an executive sponsor before the project team is assembled, or by a project manager after doing the work breakdown and the estimation of the work packages, in most cases, a deadline is set as “The Release Date” (TRD) that the project team has to work towards.
 
@@ -27,6 +28,7 @@ TRD extrapolated from the work breakdown is inconvenient for perhaps less-obviou
 Those realities, by making TRD unrealistic, usually lead to what is perceived as a late delivery.
 
 Dates set by external regulators and legislation are rarely as black and white as they initially seem; one may argue that there are only shades of grey, and that regulators can be negotiated with: they might decide to reduce, postpone or remove a fine, based on a temporary compromise leading to a long-term solution, they might take an action plan as a sign of good will to renew (if provisionally) a licence etc. There are multiple ways for a business to negotiate with regulators without damaging the company's reputation and profitability. In any case, those dates are imposed by a body external to both the team and the business, and we will not look at that here. For the sake of simplicity, let us only look at the other two cases in this article: TRD set by executive sponsor and TRD set at project inception.
+
 ## Managing a Project Deadline
 Inevitably and understandably, a delay, real or perceived, frustrates the sponsor. They spent a lot of effort devising a plan to counter the competition and managing the expectations of their own stakeholders, and they feel the technical teams are now letting them down, potentially leaving them embarrassed in front of their customers, or in the board room.
 
@@ -43,6 +45,7 @@ However, showing authority and firmness in the face of delay does not make an un
 There are widespread ways of "managing" TRD in case of a delay. The most widely-used is cutting scope, shedding less-useful features, in a bid to deliver on TRD. Although that may give the project a better chance of going to market on TRD, one negative side effect of doing that cannot be overstated: client perception. When cutting down scope, a sponsor will almost inevitably feel short-changed, because they have to compromise on what they asked for and will have to explain it to their own stakeholders on top of it. Besides, there can be a lot of throwaway work and regret cost associated with outputs that will never see the light of day as a result of being cut out.
 
 Another frequent reaction is to throw more resources at the project, in the hope that more manpower will increase the speed of delivery. If there is one thing to take away from Fred Brooks's seminal book, _The Mythical Man-Month_ (Addison-Wesley), it is that adding human resources to a late software project makes it _later_ (also known as [Brooks's law](https://en.wikipedia.org/wiki/Brooks%27s_law)), with further erosion of trust as a consequence.
+
 ## Immovable Dates for Outcomes
 When an executive announces a date for a delivery, they are sometimes setting a deadline long before the start of a project. Two observations, here.
 
@@ -55,6 +58,7 @@ As an illustration that such an immovable date is often for an outcome, Eurostar
 Despite a slight delay, the strategic goal was achieved and the line is already generating value, even though not all individual requirements have been fully implemented yet.
 
 The second observation is that such a promise to deliver on a certain date may appear to be an executive behaviour that is impossible to change. After all, the promise is often made a considerable amount of time before the project team arrives, and often without the team or any sort of experts being consulted prior. Even though the desired, strategic outcome is blurry, it is still worth challenging the habit of setting a deadline upfront and explaining the consequences: various stakeholders will build different understandings of what the desired outcome really is, and develop the expectations to match, often with missed deadlines and frustration as results. Every chance to avoid that frustration is worth taking, as that is a situation in which no-one wins.
+
 ## Business Roadmaps and IT Project Plans
 Businesses everywhere have a planning horizon. They have roadmaps that show what they plan to work on for specific periods – the current month, the current quarter, the current half, the current financial year, the next five years etc.
 
@@ -67,6 +71,7 @@ From the above list of questions, one can see that there are a number of factors
 The IT world works in the same fashion. A plan for the next two weeks is detailed and controlled to a degree (by the sprint planning, for a Scrum team), while a plan for the next two years will be vague and much less reliable. Along the path, the techies will look to the business to define what the MVP looks like, so business and executive can start generating value and claim success in a timely manner.
 
 If an IT team or department seems reluctant to commit upfront to a date for the delivery of the whole project, or for the delivery of all individual requirements, it is simply because dates cannot be guaranteed that far in advance, and because the IT team does not want to mislead the business with promises based on nothing reliable. IT teams generally understand they serve the business and are therefore keen to support said business, rather than set it up for disappointment.
+
 ## Continuous Delivery
 Since setting TRD upfront for all individual product requirements brings frustration of many kinds instead of success, and since there is no strategic constraint to do so, why not turn the approach upside down? Why not focus on delivering small increments quickly and often, then let the business decide when a critical mass has been reached and when it makes sense to go live with an MVP? That certainly helps set realistic expectations more than gut-feel-based promises and that is the whole purpose of the industry becoming Agile.
 
@@ -93,6 +98,7 @@ Teams at large tend to not only dislike long hours, stress, risk and delays, the
 Companies are primarily set up to generate value and, as a related point, to control costs. A smooth deployment helps them achieve those two aims more efficiently. Cheaper deployments mean money can be spent on things that matter more. And happier teams mean money savings too, as the company spends less on recruitment.
 
 Continuous delivery is an enabler that helps keep operations cheaper.
+
 ## Conclusion
 The traditional approach to managing deadlines, trying to produce a detailed plan across the entire delivery timeline of months or even years, then driving it as if it were matter-of-fact is not a recipe for success. When a business, a sponsor, or a project manager sets and advertises a release date for their project, they are setting potentially unrealistic expectations which are hard to adjust, later, and potentially damaging for all parties.
 
