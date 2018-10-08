@@ -11,13 +11,13 @@
       line-height: 1.5;
       font-weight: bold;
       font-size: 13px;
-      font-family: "objektiv-mk1";
+      font-family: $font-family;
   }
 
   .talk_date {
       color: grey;
       font-size: 13px;
-      font-family: "objektiv-mk1";
+      font-family: $font-family;
   }
 
   #feed {

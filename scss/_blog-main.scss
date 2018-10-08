@@ -12,6 +12,8 @@ $layoutUnit: 10px;
 
 $footer-height: 100px;
 
+$font-family: "objektiv-mk1", Helvetica, Arial, sans-serif !important;
+
 html, body {
     max-width: $max-width;
     margin: 0 auto;
@@ -40,7 +42,7 @@ $font-regular: 400;
 $font-medium: 500;
 $font-bold: 700;
 body {
-    font-family: "objektiv-mk1", Helvetica, Arial, sans-serif !important;
+    font-family: $font-family;
 }
 
 a.link {
@@ -69,7 +71,7 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "objektiv-mk1" !important;
+  font-family: $font-family;
 }
 
 h1 {
