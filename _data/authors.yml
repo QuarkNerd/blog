@@ -182,10 +182,10 @@ authors:
         gravatar: 7ed1a4b5f686f58db97862a26d38d30f
         name: 'Chris Grant'
     cmeehan:
-        author-summary: '<p>I''m a software developer at Scott Logic focusing primarily on JavaScript development, particularly with React. Recently, I''ve also taken an interest in mobile development.</p> <p>I joined the company after studying Mechanical Engineering at Bath and Computer Science (MSc) at Bristol. The fantastic learning opportunities at Scott Logic are one of the main reasons I joined, and as a result I''m currently learning functional programming (F#) in between projects.</p>'
         email: cmeehan@scottlogic.com
-        gravatar: 829049ee7cd812f0d571ede452322acb
         name: 'Chris Meehan'
+        gravatar: 829049ee7cd812f0d571ede452322acb
+        author-summary: '<p>I''m a software developer at Scott Logic focusing primarily on JavaScript development, particularly with React. Recently, I''ve also taken an interest in mobile development.</p> <p>I joined the company after studying Mechanical Engineering at Bath and Computer Science (MSc) at Bristol. The fantastic learning opportunities at Scott Logic are one of the main reasons I joined, and as a result I''m currently learning functional programming (F#) in between projects.</p>'
     cprice:
         author-summary: '<p>My name is Chris Price, I''m based in Newcastle upon Tyne and work as a Software Engineer at Scott Logic. I spend my days developing desktop/tablet/mobile web apps for financial services companies (unfortunately mostly hidden behind paywalls). I do like to blog about things when I can and do some interesting stuff on <a href="https://github.com/chrisprice">GitHub</a>.</p>'
         email: cprice@scottlogic.com
@@ -288,7 +288,7 @@ authors:
     garora:
         name: 'Gurveer Arora'
         email: garora@scottlogic.com
-        author-summary:  '<p>I am a developer Intern at Scott Logic, Newcastle</p>'
+        author-summary: '<p>I am a developer Intern at Scott Logic, Newcastle</p>'
         gravatar: 372a64c6ce7c7fcd45646ed0813b8a75
     godds:
         author-summary: '<p>I''m a designer working on complex systems across desktop, web and mobile.  As Head of User Experience at Scott Logic, I work primarily with financial services and energy trading institutions, creating everything from direct-to-consumer investment applications to research, trading and analysis tools. I delight in pushing at what is possible to discover beautiful, effective solutions to problems.</p>'
@@ -332,7 +332,7 @@ authors:
         name: 'Isaac Lapworth'
         email: isaacdavidlapworth@gmail.com
         gravatar: 3188c7a841e608b952a68dc63fb26390
-        author-summary: "2018 Newcastle intern"
+        author-summary: '2018 Newcastle intern'
     ilopatkin:
         name: 'Ilya Lopatkin'
         email: ilopatkin@scottlogic.co.uk
@@ -695,10 +695,10 @@ authors:
         gravatar: d3b0a51363909dfbd44683577134c72c
         name: 'Tom Simmons'
     wcaine:
-        name: "Will Caine"
+        name: 'Will Caine'
         email: wcaine@scottlogic.com
         gravatar: c726e6e887ed2c1b51ce8cf650c764ed
-        author-summary: Scott Logic Intern at the Newcastle office during the summer of 2018.
+        author-summary: 'Scott Logic Intern at the Newcastle office during the summer of 2018.'
     wferguson:
         author-summary: '<p>I''m a developer at Scott Logic, after joining in 2014 as an intern.</p>'
         email: wferguson@scottlogic.com
@@ -775,5 +775,5 @@ authors:
     imaxwell@scottlogic.com:
         name: 'Iain A Maxwell'
         email: imaxwell@scottlogic.com
-        gravatar: "b2b5e0a976575d9e29ae104479d132ab"
+        gravatar: b2b5e0a976575d9e29ae104479d132ab
         author-summary: 'Senior Developer at Scott Logic.  Working out of the Edinburgh office.'
