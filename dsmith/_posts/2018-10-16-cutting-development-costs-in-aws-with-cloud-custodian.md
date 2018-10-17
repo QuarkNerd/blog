@@ -112,7 +112,7 @@ policies:
     filters:
       - type: onhour
         default_tz: bst # set this to your timezone
-        onhour: 8 # the hour when instances will be shut down
+        onhour: 8 # the hour when instances will be started up
     actions:
       - start
 ~~~
@@ -147,7 +147,7 @@ policies:
         default_tz: bst # set this to your timezone
         tag: no-downtime
         opt-out: true
-        onhour: 8 # the hour when instances will be shut down
+        onhour: 8 # the hour when instances will be started up
     actions:
       - start
 ~~~
