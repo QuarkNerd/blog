@@ -325,3 +325,6 @@ prose:
         -
             login: CamerAllan
             user: callan
+        -
+            login: dsmithsl
+            user: dsmith
