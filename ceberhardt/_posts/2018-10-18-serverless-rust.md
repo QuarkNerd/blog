@@ -186,3 +186,4 @@ I still think these benefits are marginal. I think the most valid reason for usi
 
 If you want to try out my code, you can find (what little there is of it) [on GitHub](https://github.com/ColinEberhardt/rust-webassembly-serverless).
 
+Thoughts? Ideas? Feedback? [Discuss this post over on reddit](https://www.reddit.com/r/rust/comments/9pac29/serverless_rust_with_aws_lambda_and_webassembly/).
