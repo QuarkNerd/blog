@@ -12,7 +12,7 @@ summary: >-
 tags: 'Testing, Learning, featured'
 categories:
   - testing
-image: /efiennes/assets/groove.jpg
+image: efiennes/assets/groove.jpg
 ---
 (…or how to take on continuous learning while trying to keep  a shred of sanity as a parent in testing)
 
