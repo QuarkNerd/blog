@@ -5,6 +5,8 @@ title: Building a Complex Financial Chart with D3 and d3fc
 summary: When it comes to creating complex bespoke charts, of all the JavaScript visualisation / charting frameworks, D3 is the clear winner. This blog post takes a step-by-step look at the process of of building an ‘advanced’ financial charting using D3, with additional components from d3fc.
 categories:
   - Tech
+tags:
+  - featured
 image: ceberhardt/assets/yahoo-finance.png
 redirect_from:
   - /2015/07/08/yahoo-finance-chart.html
@@ -92,7 +94,7 @@ The line series component renders an SVG line, with the `mainValue` / `crossValu
 
 Finally, the chart component creates a chart, which is comprised of two axes, and a plot area. The line series is associated with the chart by supplying it as the plot area. The chart also supports rendering of Canvas components, such as `seriesCanvasLine`. The chart is responsive, if the size of the element changes it will automatically re-render.
 
-These components all use the standard D3 component convention [as described by Mike Bostock](https://bost.ocks.org/mike/chart/), allowing them to be rendered using D3 data joins. As you can see, they are all independent, which means you can use each of them on your own, combined with other D3 code, should you wish. 
+These components all use the standard D3 component convention [as described by Mike Bostock](https://bost.ocks.org/mike/chart/), allowing them to be rendered using D3 data joins. As you can see, they are all independent, which means you can use each of them on your own, combined with other D3 code, should you wish.
 
 ## Area fill
 
@@ -349,7 +351,7 @@ const tradingHoursArray = tradingHours(data.map(d => d.date));
 const discontinuities = d3
   .pairs(tradingHoursArray)
   .map(d => [d[0][1], d[1][0]]);
-  
+
 xScale.discontinuityProvider(fc.discontinuityRange(...discontinuities));
 ~~~
 
@@ -489,5 +491,3 @@ This example is quite bespoke and complex chart, which we've been able to match,
 Not bad eh?
 
 If you're creating a chart, why not [give d3fc a go?](https://d3fc.io/).
-
-
