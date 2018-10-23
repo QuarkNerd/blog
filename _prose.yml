@@ -329,8 +329,12 @@ prose:
             login: dsmithsl
             user: dsmith
         -
+            login: willsalt-sl
+            user: wsalt
+        -
             login: MagnusSmith
             user: magnussmith
         -
             login: hashbyhayter
             user: hashbyha
+

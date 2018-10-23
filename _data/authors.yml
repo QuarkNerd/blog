@@ -80,6 +80,7 @@ active-authors:
     - wcaine
     - wferguson
     - wreilly
+    - wsalt
     - wtrimble
     - zwali
 authors:
@@ -783,6 +784,11 @@ authors:
         email: callan@scottlogic.com
         gravatar: aae6ac6ffaac495a1369521832147d16
         author-summary: 'I''m an intern working on the foyer screen over summer, after which I''ll be going into my fourth year of Computer Science at St Andrews.'
+    wsalt:
+        name: 'Will Salt'
+        email: wsalt@scottlogic.com
+        gravatar: 414f30ebf1c415bf77a0e0cf40321a6c
+        author-summary: 'I''m a Lead Developer at Scott Logic, based in our Bristol office.  My interests are varied and wide-ranging, but I tend to specialise in .NET and cloud-hosted technologies.  When I''m not at a keyboard, I get passionate about almost any sort of outdated and vintage machinery.'
     magnussmith:
         name: 'Magnus Smith'
         email: magnussmith@scottlogic.com
