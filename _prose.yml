@@ -328,3 +328,6 @@ prose:
         -
             login: dsmithsl
             user: dsmith
+        -
+            login: MagnusSmith
+            user: magnussmith

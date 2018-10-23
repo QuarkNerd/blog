@@ -48,6 +48,7 @@ active-authors:
     - lhamilton
     - lpisani
     - lramchandani
+    - magnussmith
     - mamos
     - mcrease
     - mdebeneducci
@@ -781,3 +782,10 @@ authors:
         email: callan@scottlogic.com
         gravatar: aae6ac6ffaac495a1369521832147d16
         author-summary: 'I''m an intern working on the foyer screen over summer, after which I''ll be going into my fourth year of Computer Science at St Andrews.'
+    magnussmith:
+        name: 'Magnus Smith'
+        email: magnussmith@scottlogic.com
+        gravatar: b680a51925d13510d50f857c7b651eef
+        author-summary: '<p>I''m a senior developer at Scott Logic, based in Newcastle.  I''ve been involved with Java development for the last fifteen years and I''m keenly interested in modern JVM technologies.'
+        twitter-handle: magnus2025
+        twitter-url: 'http://www.twitter.com/magnus2025'
