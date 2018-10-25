@@ -289,13 +289,14 @@ So, hopefully the above has given you enough to get started with TensorFlow and 
 
 ## Possible Next Steps?
 Machine learning is an enormous field, and it can be difficult to decide where to go after getting to grips with the basics. So here are some ideas, and I'll also post some links at the end to some of the resources I used in making this post.
+
+* TensorFlow.js
+* TF Lite for mobile
+* Google ML APIs
 * The proper optimisation of models:
   - How many layers should I use in the model?
   - How many neurons should I use for each layer?
   - What type of classifier or activations do I need?
-* TensorFlow.js
-* TF Lite for mobile
-* Google ML APIs
 
 ## Closing
 Overall I personally found vanilla TensorFlow to be a bit easier to understand and get started with. Largely because each step was a lot more explicit in my opinion, and as a developer, I like things that are explicit in what they do and what they need in order to do it. Also, at time of writing, the docs for TensorFlow are a lot more detailed than the Keras docs. However, I think Keras is really powerful, and would probably have made more sense, had I not gone straight from learning TensorFlow to Keras, which is written in an almost completely different way from vanilla TensorFlow.
