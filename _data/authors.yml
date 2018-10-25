@@ -131,6 +131,8 @@ authors:
     amorgan:
         name: 'Adam Morgan'
         email: amorgan@scottlogic.co.uk
+        gravatar: e88b94c75eef431ebfae8bebdb539e96
+        author-summary: '<p>I''m Adam. I am a full stack senior developer, interested in all things web.</p>'
     asheehan:
         author-summary: '<p>I''m Ali, and I''m new here</p>'
         email: asheehan-dare@scottlogic.com
