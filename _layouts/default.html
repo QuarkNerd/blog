@@ -16,13 +16,19 @@
     {% comment %} OpenGraph MetaData - Twitter / Facebook {% endcomment %}
     <meta property="og:title" content="{{ page.title }}" />
     <meta property="og:description"content="{{ page.summary }}"/>
-    <meta property="og:image" content="{{ site.canonical.url }}/{{ page.image }}"/>
+    {% if page.image %}
+        {% assign thumbnailImage = site.canonical.url | append: '/' | append: page.image %}
+    {% else %}
+        {% assign thumbnailImage = site.canonical.url | append: '/assets/blog.jpg' %}
+    {% endif %}
+    <meta property="og:image" content="{{ thumbnailImage }}" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="{{ site.name }}"/>
     <meta property="og:url" content="{{ site.canonical.url }}{{ page.url }}" />
     {% comment %} Twitter {% endcomment %}
     <meta name="twitter:card" content="{% if page.image %}summary_large_image{% else %}summary{% endif %}"/>
     <meta name="twitter:site" content="@{{ site.twitter_handle }}"/>
+    <meta name="twitter:image" content="{{ thumbnailImage }}"/>
     {% if page.author %}
     <meta name="twitter:creator" content="@{{ site.data.authors.authors[page.author].twitter-handle }}">
     {% endif %}

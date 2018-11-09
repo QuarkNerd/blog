@@ -52,7 +52,7 @@ exclude:
 
 
 # Uncomment the lines below to enable requried Jekyll plugins when building locally.
-# gems:
+# plugins:
 #    - jekyll-gist
 #    - jekyll-paginate
 # whitelist:
