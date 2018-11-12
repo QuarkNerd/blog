@@ -15,7 +15,7 @@ I started with an Azure Windows Server 2012 R2 VM pre-configured with an ADFS in
 To register a new client, from an Administrative PowerShell prompt, run the following -
 
 {% highlight powershell %}
-Add-ADFSClient -Name "OAUTH2 Test Client" -ClientId "some-uid-or-other" -RedirectUri="http://localhost:3000/getAToken"
+Add-ADFSClient -Name "OAUTH2 Test Client" -ClientId "some-uid-or-other" -RedirectUri "http://localhost:3000/getAToken"
 {% endhighlight %}
 
 This registers a client called ```OAUTH2 Test Client``` which will identify itself as ```some-uid-or-other``` and provide ```http://localhost:3000/getAToken``` as the redirect location when performing the authorization request ```(A)``` to the ```Authorization Server``` (in this case ADFS).
