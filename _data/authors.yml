@@ -51,6 +51,7 @@ active-authors:
     - lramchandani
     - magnussmith
     - mamos
+    - masmith
     - mcrease
     - mdebeneducci
     - mdunsdon
@@ -786,6 +787,11 @@ authors:
         email: callan@scottlogic.com
         gravatar: aae6ac6ffaac495a1369521832147d16
         author-summary: 'I''m an intern working on the foyer screen over summer, after which I''ll be going into my fourth year of Computer Science at St Andrews.'
+    masmith:
+        name: 'Matthew Smith'
+        email: masmith@scottlogic.co.uk
+        gravatar: 13df616bee100f67e4952970285da211
+        author-summary: "<p>\nI am a Developer in the Bristol Office.\n\nI joined Scott Logic in 2017 as a graduate in Computer Science from the University of Bristol.\n\nI spent two weeks making minor changes to this blog's code. You're welcome.\n</p>"
     wsalt:
         name: 'Will Salt'
         email: wsalt@scottlogic.com
