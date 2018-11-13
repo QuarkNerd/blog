@@ -172,7 +172,7 @@ class School extends Component {
     return (
       <div>
         <p>Students: {this.state.students}</p>
-        <button onClick={this.addStudent()}>Add Student</button>
+        <button onClick={this.addStudent}>Add Student</button>
       </div>
     );
   }
