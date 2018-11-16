@@ -2,6 +2,13 @@
 {% assign authorUsername = include.authorUsername %}
 {% assign page = include.page %}
 
+{% assign allPosts = site.posts | where: "author", page.author %}
+{% comment %} Also include posts where this author is a contributor {% endcomment %}
+{% for post in site.posts %}
+  {% if post.contributors contains page.author %}
+    {% assign allPosts = allPosts | push: post %}
+  {% endif %}
+{% endfor %}
 <div class="grid-x grid-margin-y grid-padding-y">
     <div class="cell grid-x grid-margin-y grid-padding-y">
         <div class="read-more cell large-6 grid-margin-y">
@@ -12,7 +19,9 @@
 
 
             <h2>Read more</h2>
-            <div class="cell"><a rel="author" href="{{ site.baseurl }}/{{ authorUsername }}">View more by {{ author.name }}</a></div>
+            {% if allPosts.size > 1 %}
+                <div class="cell"><a rel="author" href="{{ site.baseurl }}/{{ authorUsername }}">View more by {{ author.name }}</a></div>
+            {% endif %}
             <div class="cell">{% include category_display.html post = page read_more=true %}</div>
         </div>
     </div>
