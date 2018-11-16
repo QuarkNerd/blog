@@ -7,10 +7,10 @@ summary: >-
   A common misconception is that accessibility is for users that are deemed
   ‘disabled’ in modern society. This blog explores what 'accessibility' really
   is and how we can develop with it in mind.
-tags: accessibility user-experience development colours layout disability
+tags: accessibility user-experience development colours layout disability featured
 categories:
   - testing
-image: cbrown/assets/accessibility-banner.png
+image: cbrown/assets/accessible.jpg
 ---
 
 A common misconception is that accessibility is for users that are deemed ‘disabled’ in modern society. Knowing that this doesn’t make up the majority of our user base, we often neglect accessibility when creating a user facing product. I often hear:
