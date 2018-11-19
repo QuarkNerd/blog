@@ -67,7 +67,7 @@ It’s not easy. Some things are unavoidable, and (in the first example with And
 
 ### For everyone in the squad:
 
-1)	Agree on a set amount of “cooling time” for PRs. This allows members of the team to correctly assess the suitability of the changes that are being touted for the master branch, and it shifts culpability onto the reviewer to review the code in that timespan. This is clearly fluid, any arbitrary changes (should as pixel adjustments or changes to hard coded text, as examples) could be considered exempt. This will help to negate the possibility of only members of the squad / fleet who are technically not quite so advanced reviewing the code and letting it get in.
+1)	Agree on a set amount of “cooling time” for PRs. This allows members of the team to correctly assess the suitability of the changes that are being touted for the master branch, and it shifts culpability onto the reviewer to review the code in that timespan. This is clearly fluid, any arbitrary changes (such as pixel adjustments or changes to hard coded text, as examples) could be considered exempt. This will help to negate the possibility of only members of the squad / fleet who are technically not quite so advanced reviewing the code and letting it get in.
 
 2)	On submitting a PR for approval, *ask for approval*. While it seems pretty obvious, simply ensuring that more experienced members of the squad are asked for review will help to ensure the standard of the codebase.
 
