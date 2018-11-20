@@ -5,6 +5,7 @@ active-authors:
     - alee
     - amjones
     - asheehan
+    - bborowski@scottlogic.com
     - bdimitrov-SL
     - bjedrzejewski
     - bmacdonald
@@ -807,3 +808,10 @@ authors:
         email: hashbyha@scottlogic.co.uk
         gravatar: 66496aea6aa9e06147aa2e4072aa3e6e
         author-summary: '<p>I''m a Software Developer at Scott Logic''s Bristol office. Experienced in .Net with a growing interest in JavaScript and React</p>'
+    bborowski@scottlogic.com:
+        name: 'Bartosz Borowski'
+        email: bborowski@scottlogic.com
+        gravatar: 76811f63c3f57319c4ee1a73dc157815
+        author-summary: 'UX Designer @ScottLogic, technology enthusiast; interested in all things web.'
+        twitter-handle: bbo_ux
+        twitter-url: 'http://www.twitter.com/bbo_ux'
