@@ -5,6 +5,7 @@ title: Realtime crypto charting with JPM Perspective and d3fc
 summary: Perspective is a streaming pivot visualization engine which uses WebAssembly. This blog post explores its capabilities and creates a custom cryptocurrency visualisation using d3fc.
 categories:
   - Tech
+image: ceberhardt/assets/perspective/d3fc-image.png
 ---
 
 Last week I attended the Open Source Strategy Forum (OSSF), a two-day conference organised by FINOS, a group that are encouraging open source collaboration within financial services organisations. If you've ever worked in financial services, you'll understand just how challenging this is! Thankfully significant progress is being made, and in the future we'll likely see contribution as well as consumption form these multi-national organisations.
