@@ -8,7 +8,7 @@ categories:
 image: ceberhardt/assets/perspective/d3fc-image.png
 ---
 
-Last week I attended the Open Source Strategy Forum (OSSF), a two-day conference organised by FINOS, a group that are encouraging open source collaboration within financial services organisations. If you've ever worked in financial services, you'll understand just how challenging this is! Thankfully significant progress is being made, and in the future we'll likely see contribution as well as consumption form these multi-national organisations.
+Last week I attended the Open Source Strategy Forum (OSSF), a two-day conference organised by FINOS, a group that are encouraging open source collaboration within financial services organisations. If you've ever worked in financial services, you'll understand just how challenging this is! Thankfully significant progress is being made, and in the future we'll likely see contribution as well as consumption from these multi-national organisations.
 
 One of the projects that caught my eye at OSSF was the recently launched Perspective from JP Morgan. This recently-launched project is a streaming analytics engine, that uses WebAssembly (combining a couple of my favourite topics, WebAssembly and data visualisation). Perspective allows you to interactively create grids, pivots, charts and on top of streaming data sets.
 
