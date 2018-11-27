@@ -1,7 +1,6 @@
 prose:
     rooturl: CURRENT_USER/_posts
     media: CURRENT_USER/assets
-    siteurl: 'http://blog.scottlogic.com'
     metadata:
         "":
             -
