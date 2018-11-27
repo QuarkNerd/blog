@@ -8,7 +8,7 @@ tags:
   - d3
   - featured
 categories:
-  - D3
+  - Tech
 layout: default_post
 oldlink: "http://www.scottlogic.com/blog/2014/10/31/fibonacci.html"
 disqus-id: /2014/10/31/fibonacci.html

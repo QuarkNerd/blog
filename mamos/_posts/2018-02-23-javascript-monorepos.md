@@ -7,7 +7,7 @@ summary: >-
   I found splitting JavaScript applications into separate packages within a single source tree difficult, until I found a tool called Lerna.
 tags: 'JavaScript, Node, NPM, Lerna, monorepo'
 categories:
-  - JavaScript
+  - Tech
 ---
 
 When working in Java or Scala, I'm used to the code repositories I work with consisting of multiple sub projects with dependencies between them. This enables each project to focus on one thing only, simply, and with limited dependencies. Any common code used by multiple sub projects can be extracted into a common one.

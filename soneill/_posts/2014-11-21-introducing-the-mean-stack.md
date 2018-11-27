@@ -10,7 +10,7 @@ tags:
   - javascript
 image: soneill/assets/featured/mean-carousel.png
 categories:
-  - Web
+  - Tech
 layout: default_post
 source: site
 title-short: MEAN.IO

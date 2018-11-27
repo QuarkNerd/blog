@@ -9,7 +9,7 @@ summary: >-
 layout: default_post
 image: /wcaine/assets/tfjs.png
 categories:
-  - Web
+  - Tech
 ---
 
 [TensorFlow](https://www.tensorflow.org/), as you may have heard, is an open source library for machine learning, originally developed by Google. However, you may not be familiar with TensorFlow.js - an implementation of some of the basic frameworks in JavaScript designed to run in the browser, as well as Node.js, by taking advantage of WebGL to accelerate computations.

@@ -5,7 +5,7 @@ title-short: iOS 7 by Tutorials
 image: ceberhardt/assets/featured/ios7-by-tutorials.png
 tags: null
 categories:
-  - iOS
+  - Tech
 summary: "For the past four months I have been hard at work writing four chapters for a book, iOS 7 by tutorials. Just yesterday, as the iOS 7 NDA was lifted, the book went on sale."
 layout: default_post
 oldlink: "http://www.scottlogic.com/blog/2013/09/19/ios-book-published.html"

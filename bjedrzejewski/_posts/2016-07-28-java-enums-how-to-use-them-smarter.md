@@ -4,7 +4,7 @@ title: Java Enums - how to use them smarter
 summary: "A short introduction to Java enum capabilities followed by concrete examples of good use. How enums help with implementing lazy loaded singleton, following open/closed principle and using strategy pattern. "
 layout: default_post
 categories:
-  - Java
+  - Tech
 ---
 
 Java enums are very powerful and important part of the Java language. Even though they can do so much, it is very common

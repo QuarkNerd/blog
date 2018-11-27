@@ -6,7 +6,7 @@ title: Cassandra vs. MariaDB, Scaling
 summary: In this post we compare how Cassandra and MariaDB can be configured to operate in clusters and how this affects response time for queries. We found Cassandra to scale well and to be highly configurable. MariaDB can be used with Galera Cluster but it does not provide horizontal scaling. Also NDB can be used to scale MySQL but it was not as configurable as Cassandra.
 layout: default_post
 categories:
-  - Data
+  - Data Engineering
 ---
 ## Keeping Ahead of the Demand
 In a [previous post]({{ site.baseurl }}/2017/03/01/cassandra-vs-mariadb.html), Dave and Laurie, compared running the database of a theoretical hat shop on single node instances of [Cassandra](http://cassandra.apache.org/) and [MariaDB](https://mariadb.org/). In that scenario, the unoptimised performance of the two databases is fairly equivalent. But, what shall we do as the hat shop grows more popular? How do we scale out the new database, or is the shop's size doomed to be... *capped*?

@@ -3,7 +3,7 @@ author: ceberhardt
 title: Semantic Versioning is not enough
 layout: default_post
 categories:
-  - HTML5
+  - Tech
 image: ceberhardt/assets/featured/semantic.png
 tags:
   - featured

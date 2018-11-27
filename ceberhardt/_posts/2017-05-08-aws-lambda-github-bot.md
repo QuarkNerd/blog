@@ -3,7 +3,7 @@ author: ceberhardt
 title: Developing a GitHub Bot with AWS Lambda
 layout: default_post
 categories:
-  - JavaScript
+  - Tech
 summary: This blog post describes the process of creating a GitHub bot, hosted as an Amazon Web Services (AWS) Lambda function, that performs various checks on pull requests.
 image: ceberhardt/assets/featured/bot.png
 ---

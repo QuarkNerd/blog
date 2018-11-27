@@ -3,7 +3,7 @@ author: ilopatkin
 title: Native code + Emscripten + WebGL. Simmer gently.
 image: ilopatkin/assets/featured/debug.png
 categories:
-  - HTML5
+  - Tech
 layout: default_post
 tags:
   - blog

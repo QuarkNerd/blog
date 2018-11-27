@@ -63,16 +63,19 @@ const lintPosts = () => {
         const blogPost = fs.readFileSync(path, "utf8");
         const frontMatter = matter(blogPost);
 
-        if (
-          !frontMatter.data.categories ||
-          frontMatter.data.categories.length !== 1
-        ) {
-          console.error("The post " + path + " does not have one category");
+        let category;
+        // if the frontmatter defines a 'category' field:
+        if (frontMatter.data.category) {
+          category = frontMatter.data.category.toLowerCase();
+        // if the frontmatter defines a 'categories' field with a single value:
+        } else if ( frontMatter.data.categories && frontMatter.data.categories.length === 1 ) {
+          category = frontMatter.data.categories[0].toLowerCase();
+        } else {
+          console.error("The post " + path + " does not have a single category defined");
           fail = true;
           return;
         }
 
-        const category = frontMatter.data.categories[0].toLowerCase();
         if (!categories.includes(category)) {
           console.error(
             "The post " + path + " does not have a recognised category"

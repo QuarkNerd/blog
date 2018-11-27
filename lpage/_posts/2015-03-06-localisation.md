@@ -2,7 +2,7 @@
 author: lpage
 title: State of localisation on the web
 categories:
-  - Web
+  - Tech
 tags: null
 layout: default_post
 ---

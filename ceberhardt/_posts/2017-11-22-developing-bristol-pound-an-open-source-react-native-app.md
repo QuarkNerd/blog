@@ -13,7 +13,7 @@ summary: >-
   application using React Native.
 image: ceberhardt/assets/bristol-pound/bristol-pound-app.jpg
 categories:
-  - Mobile
+  - Tech
 tags: ''
 colour: pink
 header-shape: shape4

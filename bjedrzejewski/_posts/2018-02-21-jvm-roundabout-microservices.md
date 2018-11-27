@@ -4,7 +4,7 @@ title: JVM Roundabout - Microservices
 summary: "JVM Roundabout is a meetup in London where all things related to JVM are discussed. The February edition of the meetup focused on microservices. I had to be there!"
 layout: default_post
 categories:
-  - Events
+  - News
 ---
 
 ###JVM Roundabout

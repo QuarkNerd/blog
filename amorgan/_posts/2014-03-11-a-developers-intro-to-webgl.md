@@ -2,7 +2,7 @@
 author: amorgan
 title: "A Developer's intro to WebGL"
 categories:
-  - HTML5
+  - Tech
 layout: default_post
 oldlink: "http://www.scottlogic.com/blog/2014/03/11/a-developers-intro-to-webgl.html"
 disqus-id: /2014/03/11/a-developers-intro-to-webgl.html

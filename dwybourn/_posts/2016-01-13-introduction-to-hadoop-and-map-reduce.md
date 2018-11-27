@@ -3,7 +3,7 @@ author: dwybourn
 title: Introduction to Hadoop and MapReduce
 layout: default_post
 categories:
-  - Data
+  - Data Engineering
 ---
 ### What is 'Big' Data?
 Big data is one of those buzz phrases that gets thrown round a lot, companies love saying they work with ‘Big’ data, but what is ‘Big’ data?

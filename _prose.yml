@@ -52,71 +52,35 @@ prose:
                     value: ""
                     help: 'List of keywords that describe the blog post contents (Add the featured tag to have your article displayed in the blog''s featured carousel).'
             -
-                name: categories
+                name: category
                 field:
-                    element: multiselect
-                    label: Categories
+                    element: select
+                    label: Category
                     options:
                         -
-                            name: Web
-                            value: web
+                            name: Tech
+                            value: Tech
                         -
                             name: 'Data Engineering'
-                            value: data-engineering
+                            value: Data Engineering
                         -
-                            name: JavaScript
-                            value: javascript
-                        -
-                            name: HTML5
-                            value: html5
-                        -
-                            name: Mobile
-                            value: mobile
-                        -
-                            name: UX
-                            value: ux
-                        -
-                            name: Agile
-                            value: agile
+                            name: 'UX Design'
+                            value: UX Design
                         -
                             name: Testing
-                            value: testing
-                        -
-                            name: D3
-                            value: d3
-                        -
-                            name: WPF
-                            value: wpf
-                        -
-                            name: Charting
-                            value: charting
-                        -
-                            name: .Net
-                            value: dotnet
-                        -
-                            name: CSS
-                            value: css
-                        -
-                            name: Java
-                            value: java
-                        -
-                            name: Events
-                            value: events
+                            value: Testing
                         -
                             name: Careers
-                            value: careers
+                            value: Careers
                         -
                             name: Delivery
-                            value: delivery
-                        -
-                            name: Tech
-                            value: tech
+                            value: Delivery
                         -
                             name: News
-                            value: news
+                            value: News
                         -
                             name: Resources
-                            value: resources
+                            value: Resources
     users:
         -
             login: andyaiken

@@ -4,7 +4,7 @@ title: Arrow functions in Knockout.js
 image: cprice/assets/featured/arrows.jpg
 image-attribution: "image courtesy of <a href=\"http://www.flickr.com/photos/byronj/12637612753/sizes/z/\">Byron James</a>"
 categories:
-  - JavaScript
+  - Tech
 tags: null
 layout: default_post
 oldlink: "http://www.scottlogic.com/blog/2014/02/28/arrow-functions-in-knockoutjs.html"

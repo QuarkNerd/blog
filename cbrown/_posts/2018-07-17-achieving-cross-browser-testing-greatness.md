@@ -5,7 +5,7 @@ layout: default_post
 title: Achieving Cross Browser testing greatness
 tags: Cross-browser testing browser automation selenium driver webdriver
 categories:
-  - testing
+  - Testing
 summary: >-
   This blog takes a high level look at some of the challenges faced when
   conducting automated cross-browser testing and discusses potential solutions

@@ -4,7 +4,7 @@ title: Dealing with NPM shrinkwrap merges and conflicts
 layout: default_post
 summary: "Conflicts sometimes arise when merging two npm-shrinkwrap.json files from different source control branches. Git might be able to solve some of these - but should you let it, and what should you do if it can't?"
 categories:
-  - JavaScript
+  - Tech
 ---
 
 Conflicts sometimes arise when merging two `npm-shrinkwrap.json` files from different source control branches. Git might be able to solve some of these - but should you let it, and what should you do if it can't?

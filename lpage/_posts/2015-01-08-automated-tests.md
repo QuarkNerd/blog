@@ -2,7 +2,7 @@
 author: lpage
 title: Why should a project have automated tests?
 categories:
-  - Test
+  - Testing
 tags: null
 layout: default_post
 oldlink: "http://www.scottlogic.com/blog/2015/01/08/automated-tests.html"

@@ -4,7 +4,7 @@ title: Recommended Reading For Java Developers
 summary: "Being a software developer requires constantly improving ones knowledge. This is a short list of books that made the largest impact on me as Java developer. I hope that you too will find here something that will take you to the next level!"
 layout: default_post
 categories:
-  - Java
+  - Tech
 ---
 
 Being a software developer requires constantly improving ones knowledge. There are many ways to improve that knowledge, you can read articles or work on personal projects.

@@ -5,7 +5,7 @@ summary: "Lichess makes over 100GB of chess games from 2017 available on their w
 layout: default_post
 image: bjedrzejewski/assets/featured/chess.jpg
 categories:
-  - Data
+  - Data Engineering
 tags:
   - featured
 ---

@@ -5,7 +5,7 @@ layout: default_post
 title: How much does a story point cost?
 tags: agile scrum cost project management self-organised team
 categories:
-  - agile
+  - Delivery
 ---
 How many times have you heard that from a client?
 

@@ -3,7 +3,7 @@ author: lpage
 title: "Seven Surprising JavaScript 'Features'"
 title-short: Surprising JavaScript
 categories:
-  - JavaScript
+  - Tech
 tags:
   - featured
 layout: default_post

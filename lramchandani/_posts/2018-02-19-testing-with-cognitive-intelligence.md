@@ -4,7 +4,7 @@ author: lramchandani
 layout: default_post
 title: Testing with Cognitive Intelligence
 categories:
-  - Test
+  - Testing
 summary: >-
   I have written about something that I found very interesting, Cognitive
   intelligence. My blog will contain information about cognitive

@@ -4,7 +4,7 @@ title: Playing with Docker Compose and Erlang
 summary: "This post uses Docker Compose to spin up a three container HTTP server. One container services the HTTP requests and delegates work to two other containers in a load-balanced way. Erlang is used for development to add a bit of extra challenge!"
 layout: default_post
 categories:
-  - Data
+  - Data Engineering
 ---
 I recently had some free time and decided to play with two technologies that I've long been interested in - [Docker](https://www.docker.com/) and [Erlang](http://www.erlang.org/). I set myself the task of getting a three container system up and running in a completely automated way. I approached the task incrementally, from getting Erlang working locally, to working in a container, to working between containers. I've set out the journey in this blog post and hope you find it as interesting as I did!
 

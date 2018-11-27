@@ -4,7 +4,7 @@ title: Spring Boot and MongoDB - a perfect match!
 summary: "The popularity of Spring Boot in the Java world is undeniable. In this post I will show you yet another reason for this. Using Spring Boot makes working with MongoDB an absolute pleasure."
 layout: default_post
 categories:
-  - Data
+  - Data Engineering
 ---
 
 About three weeks ago I was giving a workshop titled 'Spring Boot and RESTful web services' at the

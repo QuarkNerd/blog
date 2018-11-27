@@ -4,7 +4,7 @@ title: Applying styles to parent elements before children in AngularJS
 layout: default_post
 summary: "Sizing advanced components such as grids using ng-style can leave you with rendering problems. Here, I create a variant of ng-style with some small tweaks to avoid this problem."
 categories:
-  - Web
+  - Tech
 ---
 
 The ng-style directive is used to apply inline styles to an element. Using it to apply a width and a height to an element containing a [ui-grid](http://ui-grid.info/) will cause the grid to be incorrectly sized. The container element is the one with the red border below.

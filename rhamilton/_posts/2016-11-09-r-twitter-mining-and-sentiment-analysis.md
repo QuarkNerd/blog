@@ -16,7 +16,7 @@ tags:
 
 
 categories:
-  - Test
+  - Testing
 layout: default_post
 ---
 

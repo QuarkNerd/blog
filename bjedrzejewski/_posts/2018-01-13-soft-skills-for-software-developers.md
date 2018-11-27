@@ -4,7 +4,7 @@ title: Soft Skills for Software Developer
 summary: "Being software developer requires technical insight and analytical approach. Yet, this is just part of the role. This article explores soft skills that are important part of every software developers life."
 layout: default_post
 categories:
-  - Agile
+  - Delivery
 tags:
   - featured
 image: bjedrzejewski/assets/featured/rabbit.jpg

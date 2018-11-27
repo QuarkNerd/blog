@@ -4,7 +4,7 @@ title: "HTTP/2: A quick look"
 tags:
   - blog
 categories:
-  - Web
+  - Tech
 layout: default_post
 source: site
 summary: "With the HTTP/2 specification just going to Working Group Last Call and due for publication in early 2015, I thought now would be a good time to have a quick look at what's changing."

@@ -8,7 +8,7 @@ tags:
   - popup windows
   - JavaScript
 categories:
-  - JavaScript
+  - Tech
 layout: default_post
 oldlink: "http://www.scottlogic.com/blog/2014/10/20/ie-run-js-wrong-context.html"
 disqus-id: /2014/10/20/ie-run-js-wrong-context.html

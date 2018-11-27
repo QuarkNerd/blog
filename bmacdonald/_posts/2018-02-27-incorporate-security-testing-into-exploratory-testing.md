@@ -5,7 +5,7 @@ layout: default_post
 title: Incorporate security testing into exploratory testing
 tags: security testing zap
 categories:
-  - Test
+  - Testing
 summary: How to incorporate security testing of a website into your exploratory testing workflow
 image: ''
 ---

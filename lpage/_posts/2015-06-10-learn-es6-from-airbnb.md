@@ -2,7 +2,7 @@
 author: lpage
 title: "Learn ES6 from Airbnb's coding standards"
 categories:
-  - JavaScript
+  - Tech
 tags: null
 layout: default_post
 summary: "Airbnb's JavaScript coding standards are now based around ES6 and contain many guidelines to help you take advantage of its features. In this blog post I'll present some resources I created to help you learn ES6 through their guidelines."

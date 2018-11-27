@@ -13,7 +13,7 @@ tags:
   - Desk planner
 title-short: Desk Directory
 categories:
-  - HTML5
+  - Tech
 ---
 
 As interns at the Newcastle office we were tasked with creating an interactive desk directory to allow new employees to better acquaint themselves with their building and colleagues, with the speculative goal of replacing the company-wide internal phone directory. The original brief specified we should present a graphical view of the office layout generated from an existing office plan stored in Google Sheets.

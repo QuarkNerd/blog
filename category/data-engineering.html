@@ -4,16 +4,7 @@ title: Data Engineering
 summary: Scott Logic's thoughts and ideas relating to Data Engineering
 image: /assets/data-engineer.jpg
 ---
-{% assign posts = site.categories["Data"] %}
-{% for dataposts in site.categories["data"] %}
-  {% assign posts = posts | push: dataposts %}
-{% endfor %}
-{% for engineeringposts in site.categories["Data Engineering"] %}
-  {% assign posts = posts | push: engineeringposts %}
-{% endfor %}
-{% for engineeringposts in site.categories["data engineering"] %}
-  {% assign posts = posts | push: engineeringposts %}
-{% endfor %}
+{% assign posts = site.categories["Data Engineering"] %}
 {% if posts %}
   {% assign posts = posts | sort: 'date' | reverse | uniq %}
 {% endif %}

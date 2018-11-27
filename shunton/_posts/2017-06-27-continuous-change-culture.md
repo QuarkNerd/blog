@@ -3,7 +3,7 @@ author: shunton
 title: A Continuous Change Culture
 layout: default_post
 categories:
-  - Agile
+  - Delivery
 summary: This blog post discusses the merits of adopting a culture of continuous change
 ---
 

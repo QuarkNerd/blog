@@ -4,7 +4,7 @@ title: devtools@scale event
 layout: default_post
 summary: "This blog describes a one day event in London where leading tech companies were discussing tools they use to make their development and operations scale and be more efficient. "
 categories:
-  - Test
+  - Testing
 ---
 
 Last week I attended [devtools@scale](https://devtoolsatscale2017.splashthat.com/) at Tobacco Dock, London.  There were about 150 attendees from London’s tech, finance, business community and, from what I gather, most were invited by Facebook after attending a [meetup with Kent Beck](https://buildingproductswithkentbeck.splashthat.com/?gz=3a966da4f2703154b8b594dbe7e61ef6)

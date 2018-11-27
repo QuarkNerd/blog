@@ -3,7 +3,7 @@ author: shunton
 title: Evolving the Agile Revolution
 layout: default_post
 categories:
-  - Agile
+  - Delivery
 tags:
   - featured
 summary: This blog post discusses concerns around agile delivery, particularly within the public sector

@@ -3,7 +3,7 @@ author: alee
 title: Cross-platform mobile with Cordova and Ionic Framework
 tags: null
 categories:
-  - Mobile
+  - Tech
 summary: Using Cordova and Ionic Framework to turn an AngularJS web application into a cross-platform mobile application.
 layout: default_post
 oldlink: "http://www.scottlogic.com/blog/2014/10/27/xplatform-mobile-cordova-ionic.html"

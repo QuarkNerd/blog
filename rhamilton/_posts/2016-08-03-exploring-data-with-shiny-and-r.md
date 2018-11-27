@@ -12,7 +12,7 @@ tags:
   - shiny
   - data
 categories:
-  - Test
+  - Testing
 layout: default_post
 ---
 

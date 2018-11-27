@@ -4,7 +4,7 @@ author: hashbyha
 layout: default_post
 title: Ruining React's Performance with Redux
 categories:
-  - javascript
+  - Tech
 tags: React Redux Performance
 summary: >-
   Developing with Redux makes managing your React state easier, but if not

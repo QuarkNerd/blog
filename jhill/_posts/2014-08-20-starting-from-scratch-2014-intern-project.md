@@ -12,7 +12,7 @@ title-short: Starting from Scratch
 oldlink: "http://www.scottlogic.com/blog/2014/08/20/starting-from-scratch-2014-intern-project.html"
 disqus-id: /2014/08/20/starting-from-scratch-2014-intern-project.html
 categories:
-  - HTML5
+  - Tech
 ---
 
 We're the Scott Logic interns for Newcastle in 2014, and our project was to make a mobile-compatible version of the Scratch HTML5 player that allows offline access, and app-like immersion. This blog post is an overview of what we managed to achieve ...

@@ -7,7 +7,7 @@ tags:
   - JavaScript
   - npx
 categories:
-  - JavaScript
+  - Tech
 summary: 'What is npx? How is it useful and why should you care? Find out how you can use npx to run global npm packages without having them installed.'
 image: hmumford/assets/npx/using-npx.jpg
 ---

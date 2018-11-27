@@ -4,7 +4,7 @@ title: "Log-driven big data: The ELK stack"
 title-short: "The ELK stack"
 layout: default_post
 categories:
-  - Data
+  - Data Engineering
 summary: "An insight into the ELK stack and how we used it on a big data project"
 ---
 

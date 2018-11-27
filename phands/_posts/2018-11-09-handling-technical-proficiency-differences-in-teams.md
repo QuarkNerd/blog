@@ -8,7 +8,7 @@ summary: >-
   There are differences in technical ability across any development team. In this post I look at how those differences can result in substandard code getting into your releases, and some steps to take to avoid that happening.
 tags: 'Agile, Development, DevOps'
 categories:
-  - delivery
+  - Delivery
 ---
 
 In this blog post, I am hoping to cover something that almost everybody working within a software development team has had to handle, but that often isn’t mentioned or discussed for reasons based mostly on team dynamic and morale: how good the people that are working in the team are, and that someone on the team has logically got to be the weakest at the coding language currently being used on the project that is being worked on.

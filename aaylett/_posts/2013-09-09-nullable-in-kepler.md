@@ -7,7 +7,7 @@ tags:
   - Eclipse
   - blog
 categories:
-  - Java
+  - Tech
 layout: default_post
 oldlink: "http://www.scottlogic.com/blog/2013/09/09/nullable-in-kepler.html"
 disqus-id: /2013/09/09/nullable-in-kepler.html

@@ -8,7 +8,7 @@ summary: >-
   success of said project. Focusing on delivering quickly and often usually
   makes more sense from a commercial and from a technical perspectives.
 categories:
-  - delivery
+  - Delivery
 ---
 # Date-Driven Delivery vs. Delivery-Driven Dates
 

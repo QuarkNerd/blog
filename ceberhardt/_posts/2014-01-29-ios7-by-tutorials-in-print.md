@@ -2,7 +2,7 @@
 author: ceberhardt
 title: iOS 7 By Tutorials In Print
 categories:
-  - iOS
+  - Tech
 summary: "The book, iOS 7 By Tutorials, which I contributed four chapters to, is now in print."
 layout: default_post
 oldlink: "http://www.scottlogic.com/blog/2014/01/29/ios7-by-tutorials-in-print.html"

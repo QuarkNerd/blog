@@ -10,7 +10,7 @@ summary: >-
   try and avoid
 tags: 'Agile, Scrum, Development, DevOps'
 categories:
-  - agile
+  - Delivery
 ---
 
 ## How to be a Technically Adept Scrum Master without being a Developer

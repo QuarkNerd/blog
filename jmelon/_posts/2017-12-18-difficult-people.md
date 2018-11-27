@@ -4,7 +4,7 @@ author: jmelon
 layout: default_post
 title: Difficult People
 categories:
-  - agile
+  - Delivery
 summary: >-
   In our professional work life we regularly come across difficult people we’d
   love to avoid, ignore or get away from - this is especially true if you are a

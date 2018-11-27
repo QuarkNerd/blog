@@ -11,7 +11,7 @@ summary: >-
   some pitfalls to watch out for.
 tags: 'Agile, Scrum, Development, DevOps, featured'
 categories:
-  - agile
+  - Delivery
 image: phands/assets/featured/scaled.jpg
 ---
 

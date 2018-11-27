@@ -4,7 +4,7 @@ title: Test meetups - could be your cup of tea!
 layout: default_post
 summary: "This blog describes the MeetUp trend in Testing, attending and hosting them"
 categories:
-  - Test
+  - Testing
 ---
 ![MyImage]({{ site.baseurl }}/mmathew/assets/tea.png "SWT")
 

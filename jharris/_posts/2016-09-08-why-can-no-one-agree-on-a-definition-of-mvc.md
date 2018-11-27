@@ -4,7 +4,7 @@ title: Why does no one agree on a definition of MVC?
 summary: "If you look up the MVC pattern on the web you can easily find definitions that differ and contradict each other.  In this post I'll look at some definitions of MVC and consider what the differences mean for applying the pattern in practice."
 layout: default_post
 categories:
-  - Web
+  - Tech
 ---
 
 The MVC pattern is one of the first you’re likely to encounter and be expected to understand as a web developer.  In fact I was asked to explain the pattern in an interview when looking for my first job as a developer.  Sadly I found that if I looked at five different websites I would get five different definitions of MVC, sometimes directly contradicting each other.

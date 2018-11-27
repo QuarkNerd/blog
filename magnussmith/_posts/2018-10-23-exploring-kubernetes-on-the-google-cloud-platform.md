@@ -4,7 +4,7 @@ author: magnussmith
 layout: default_post
 title: Exploring Kubernetes on Google Cloud Platform
 categories:
-  - tech
+  - Tech
 tags: Kubernetes GCP Docker featured
 summary: >-
   This post explores some of the ideas and technology features behind Docker and

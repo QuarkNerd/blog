@@ -6,7 +6,7 @@ layout: default_post
 oldlink: "http://www.scottlogic.com/blog/2015/02/02/generators.html"
 disqus-id: /2015/02/02/generators.html
 categories:
-  - JavaScript
+  - Tech
 ---
 
 JavaScript is mostly single-threaded, code cannot be executed while any other operation is currently executing. This has

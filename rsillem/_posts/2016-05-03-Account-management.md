@@ -4,7 +4,7 @@ title: Securing Web Applications, Part 4. Account and Session Management Feature
 summary: "In this post, we discuss design and implementation choices for account and session management features, and how these trade off against usability and other goals."
 layout: default_post
 categories:
-  - Web
+  - Tech
 ---
 
 This blog post explores attacks against some pre-made sample web apps running on your own machine. The focus of this post is on securing web apps, rather than the attacks themselves. It is part of an ongoing series of blog posts on web application security, which includes:

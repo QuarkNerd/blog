@@ -14,7 +14,7 @@ summary: >-
 image: efiennes/assets/code2.jpg
 tags: 'Testing, Automation'
 categories:
-  - testing
+  - Testing
 ---
 
 ### **The secret to automation**

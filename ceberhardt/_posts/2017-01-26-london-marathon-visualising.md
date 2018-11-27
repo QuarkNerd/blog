@@ -3,7 +3,7 @@ author: ceberhardt
 title: Visualising London Marathon Strava Data
 layout: default_post
 categories:
-  - D3
+  - Tech
 image: ceberhardt/assets/marathon/pace.png
 summary: I recently downloaded run data for the 7,190 athletes who recorded their London Marathon on Strava, a popular platform for runners and cyclists. This blog post visualises and analyses the data in various interesting ways.
 ---

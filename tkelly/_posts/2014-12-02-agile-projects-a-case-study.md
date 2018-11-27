@@ -6,7 +6,7 @@ tags:
   - agile
 image: tkelly/assets/featured/agile-case-study.png
 categories:
-  - Agile
+  - Delivery
 layout: default_post
 source: site
 title-short: "Agile: Case Study"

@@ -6,7 +6,7 @@ summary: One of the common ways of introducing Agile is to incrementally move th
 oldlink: "http://www.scottlogic.com/blog/2014/08/11/a-piecemeal-approach-to-introducing-agile.html"
 disqus-id: /2014/08/11/a-piecemeal-approach-to-introducing-agile.html
 categories:
-  - Agile
+  - Delivery
 ---
 In my <a href="{{site.baseurl}}{% post_url dthomas/2014-08-04-introducing-agile-development-to-client-projects %}">previous post</a> I looked at why I think we should be transitioning our clients to Agile. Having decided that we want to help our clients work in an Agile way, the next thing to look at is how we approach this.
 

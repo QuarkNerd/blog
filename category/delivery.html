@@ -5,15 +5,6 @@ summary: Scott Logic's thoughts and ideas relating to Delivery
 image: /assets/delivery.jpg
 ---
 {% assign posts = site.categories["Delivery"] %}
-{% for deliveryposts in site.categories["delivery"] %}
-  {% assign posts = posts | push: deliveryposts %}
-{% endfor %}
-{% for agileposts in site.categories["Agile"] %}
-  {% assign posts = posts | push: agileposts %}
-{% endfor %}
-{% for agileposts in site.categories["agile"] %}
-  {% assign posts = posts | push: agileposts %}
-{% endfor %}
 {% if posts %}
   {% assign posts = posts | sort: 'date' | reverse | uniq %}
 {% endif %}

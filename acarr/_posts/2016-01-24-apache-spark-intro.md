@@ -4,7 +4,7 @@ title: Why Apache Spark is getting so much momentum behind it
 summary: "Apache Spark has quickly become the largest open source project in big data, but why has it suddenly got so much momentum behind it?"
 layout: default_post
 categories:
-  - Data
+  - Data Engineering
 ---
 
 Apache Spark has quickly become the largest open source project in big data - with over [750 contributors from 200 companies](https://databricks.com/spark/about).

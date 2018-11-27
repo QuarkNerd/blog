@@ -7,7 +7,7 @@ summary: >-
   This blog is based on my experience as a tester and how it can be pressurising in certain situations. I have talked about the issues and how it can resolved and we can have a positive environment.
 tags: 'Testing'
 categories:
-  - testing
+  - Testing
 image: ''
 ---
 

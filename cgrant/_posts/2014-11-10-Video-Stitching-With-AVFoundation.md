@@ -3,7 +3,7 @@ author: cgrant
 title: Video Stitching with AVFoundation
 tags: null
 categories:
-  - iOS
+  - Tech
 summary: Explaining the very basics of AVFoundation while building a Mac Application that stitches 3 .mov files together.
 layout: default_post
 oldlink: "http://www.scottlogic.com/blog/2014/11/10/Video-Stitching-With-AVFoundation.html"

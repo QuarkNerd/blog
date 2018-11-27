@@ -6,7 +6,7 @@ summary: Angular 2.0 introduces a component-based approach to building applicati
 summary-short: This post looks at how the Angular 2 component-based approach to building applications works quite elegantly with the concept of immutable objects as enforced by Immutable.js
 image: ceberhardt/assets/featured/angular2-tile.png
 categories:
-  - Web
+  - Tech
 tags:
   - featured
 ---

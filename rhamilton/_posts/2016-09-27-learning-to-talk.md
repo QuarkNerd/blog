@@ -10,7 +10,7 @@ tags:
   - public speaking
   - featured
 categories:
-  - Test
+  - Testing
 layout: default_post
 ---
 

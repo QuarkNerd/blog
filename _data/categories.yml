@@ -6,46 +6,24 @@
 
 -  title: Tech
    url: /category/tech.html
-   subcategories:
-    - ios
-    - swift
-    - charting
-    - css
-    - d3
-    - .net
-    - c#
-    - web
-    - javascript
-    - mobile
-    - html5
-    - java
-    - wpf
 
 -  title: UX Design
    url: /category/ux.html
 
 -  title: Delivery
    url: /category/delivery.html
-   subcategories:
-    - agile
 
 -  title: Testing
    url: /category/test.html
-   subcategories:
-    - test
 
 -  title: Data Engineering
    url: /category/data-engineering.html
-   subcategories:
-    - data
 
 -  title: Careers
    url: /category/careers.html
 
 -  title: News
    url: /category/news.html
-   subcategories:
-    - events
 
 -  title: Videos
    url: /category/videos.html

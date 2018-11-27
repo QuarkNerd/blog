@@ -4,7 +4,7 @@ title: Securing Web Applications, Part 3. Cross Site Scripting Attacks
 summary: "In this post, we discuss cross site scripting attacks against web apps, and how to defend against them."
 layout: default_post
 categories:
-  - Web
+  - Tech
 ---
 Robin Sillem, William Ferguson
 

@@ -5,7 +5,7 @@ title: Mondo Bank webhook to Pebble Watch Timeline using AWS Lambda functions
 title-short: Mondo Bank to Pebble with AWS Lambda
 image: cprice/assets/featured/pebble.jpg
 categories:
-  - Web
+  - Tech
 tags:
   - featured
 ---

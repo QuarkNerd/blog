@@ -11,7 +11,7 @@ tags:
   - heuristics
   - featured
 categories:
-  - Test
+  - Testing
 layout: default_post
 image: rhamilton/assets/featured/fx-cheat-sheet.jpg
 ---

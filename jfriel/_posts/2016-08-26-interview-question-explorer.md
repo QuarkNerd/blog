@@ -5,7 +5,7 @@ title-short: Interview Question Explorer
 summary: "An overview of the Edinburgh Interns summer project: A react application to filter and search interview questions stored on Google Drive"
 layout: default_post
 categories:
-  - JavaScript
+  - Tech
 ---
 
 

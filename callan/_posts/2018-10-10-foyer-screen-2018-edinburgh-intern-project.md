@@ -9,7 +9,7 @@ summary: >-
   having it installed locally on all office desktops.
 tags: '2018 Intern Foyer '
 categories:
-  - careers
+  - Careers
 ---
 ## Intro
 

@@ -7,7 +7,7 @@ image-attribution: "image courtesy of <a href=\"https://www.flickr.com/photos/na
 tags:
   - d3
 categories:
-  - D3
+  - Tech
 layout: default_post
 oldlink: "http://www.scottlogic.com/blog/2014/09/29/crosshairs.html"
 disqus-id: /2014/09/29/crosshairs.html

@@ -11,7 +11,7 @@ tags:
   - agile testing
   - survival guide
 categories:
-  - Test
+  - Testing
 layout: default_post
 ---
 

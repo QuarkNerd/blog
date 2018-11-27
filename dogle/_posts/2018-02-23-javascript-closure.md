@@ -6,7 +6,7 @@ layout: default_post
 summary: >-
  In this blog post I'll be exploring Lexical Scope in JavaScript and answering the question "What is Closure?"
 categories:
- - JavaScript
+ - Tech
 tags:
   - featured
 image: dogle/assets/featured/fence.jpg

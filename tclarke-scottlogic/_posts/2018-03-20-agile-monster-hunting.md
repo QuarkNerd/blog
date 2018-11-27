@@ -4,7 +4,7 @@ author: tclarke-scottlogic
 title: Agile Monsters
 layout: default_post
 categories:
-  - agile
+  - Delivery
 summary: >-
   This Halloween, coming to a project near you...
   What horrors lurk on Agile projects when they go wrong? And how do we slay these beasts?

@@ -5,7 +5,7 @@ layout: default_post
 title: Evolving beyond the need for a sprint retrospective
 tags: 'Agile, Scrum'
 categories:
-  - Agile
+  - Delivery
 summary: Can the perfect team evolve beyond the need for sprint retrospectives?
 image: ''
 ---

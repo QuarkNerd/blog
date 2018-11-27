@@ -8,7 +8,7 @@ tags:
   - Go
   - Development
 categories:
-  - Web
+  - Tech
 layout: default_post
 ---
 

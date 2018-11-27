@@ -4,7 +4,7 @@ author: dsmith
 layout: default_post
 title: Cutting development costs in AWS with Cloud Custodian
 categories:
-  - tech
+  - Tech
 summary: >-
   Cloud Custodian is an open source project from Capital One. It allows you to
   enforce your cloud compliance rules in an automated way. One key use case of

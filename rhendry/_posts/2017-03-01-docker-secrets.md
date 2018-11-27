@@ -6,7 +6,7 @@ layout: default_post
 tags:
   - docker
 categories:
-  - Data
+  - Data Engineering
 ---
 Keeping secrets in Docker containers has been a problem for a while now, and there have been a number of solutions
 suggested by the internet at large. There's a good write-up of these over on the [issues

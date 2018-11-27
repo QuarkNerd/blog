@@ -3,7 +3,7 @@ author: awallis
 title: "Fixing an LDAP PermGen leak in JBoss"
 layout: default_post
 categories:
-  - Java
+  - Tech
 summary: "The standard LDAP JNDI implementation that ships with Java leaks a classloader reference when used from a 
 web application hosted in a web container. While Tomcat and Jetty both include factory-fitted workarounds, JBoss  does 
 not. This post describes a JBoss-specific fix."

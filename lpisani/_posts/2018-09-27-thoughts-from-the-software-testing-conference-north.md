@@ -4,7 +4,7 @@ author: lpisani
 layout: default_post
 title: Thoughts from the Software Testing Conference North
 categories:
-  - testing
+  - Testing
 tags: 'test testing conference '
 summary: >-
   It's been a busy year for the Scott Logic testing team since we last visited

@@ -8,7 +8,7 @@ summary: >-
   earnestly believe it, from those who don't understand the role, from content
   writers generating clickbait. Are testers really all etemmu now?
 categories:
-  - testing
+  - Testing
 tags: 'Testing, agile, waterfall'
 ---
 ### I etemmu, you etemmu, we all etemmu too

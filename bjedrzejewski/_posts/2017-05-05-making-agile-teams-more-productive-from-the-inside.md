@@ -4,7 +4,7 @@ title: Making agile teams more productive from the inside
 summary: "It is a great joy to be a member of a productive team that delivers exceptional value. In this blog post I will share things that developers can be doing to make that happen. Ideas presented are funded in Agile principles and Lean manufacturing."
 layout: default_post
 categories:
-  - Agile
+  - Delivery
 ---
 
 In the agile way of working, being a developer means more than just writing code. This often comes as a surprise to

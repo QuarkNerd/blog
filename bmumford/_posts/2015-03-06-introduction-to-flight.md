@@ -3,7 +3,7 @@ author: bmumford
 title: Introduction to Flight
 title-short: Introduction to Flight
 categories:
-  - HTML5
+  - Tech
 tags:
   - featured
 image: bmumford/assets/featured/flight.png

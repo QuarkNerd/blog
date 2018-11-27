@@ -8,7 +8,7 @@ tags:
   - blackbox testing
   - bugs
 categories:
-  - Test
+  - Testing
 layout: default_post
 ---
 As Software Testers, we have to frequently imagine the unimaginable. Through experience we learn, adapt and prepare for the next time we encounter similar circumstances. Recently, I found a particular annoyingly awkward bug and was able to draw from experience to not only identify but also explain very quickly without too much investigation why this bug was happening. I was able to do this as I had encountered an almost identical bug a couple of years previously. This made me start thinking about some of the trickiest bugs I had ever seen and their root causes. How common certain "bug patterns" were and how I would approach the symptoms of one of these "bug patterns" now compared to the first time I saw them.

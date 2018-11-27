@@ -7,7 +7,7 @@ tags:
   - data
   - mocking
 categories:
-  - Test
+  - Testing
 layout: default_post
 ---
 Some of the biggest challenges when testing software can be getting the software into some very specific states. You want to test that the new error message works, but this message is only shown when something on the back-end breaks and the back-end has never broken before because it always "just works". Maybe the software you have to test is powered by other people's data, data that you have no direct control over and you really need to manipulate this data in order to perform your tests.

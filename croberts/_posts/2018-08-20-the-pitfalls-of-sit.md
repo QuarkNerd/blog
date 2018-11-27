@@ -8,7 +8,7 @@ summary: >-
   explore some of the common pitfalls of SIT and aid in preventing or overcoming
   these.
 categories:
-  - testing
+  - Testing
 tags: 'Testing, System Integration Testing'
 image: ''
 ---

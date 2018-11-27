@@ -8,7 +8,7 @@ tags:
     - software
     - Fiddler
 categories:
-    - Test
+    - Testing
 ---
 
 Fiddler is a great tool for debugging web requests. I use it often when web testing to observe when data is transmitted/requested and to see what’s being communicated, making it possible to build a picture of the communication between the client and backend services. However, sometimes just observing isn’t enough and you need to dig down into the data being used. Times like this may arise when you need to test logic on the client side that is highly dependent on data received from the backend. Often testing logic like this can be a slow process of manually changing data somewhere on the backend to then trigger different scenarios on the front end. However, if this data is retrieved from a specific endpoint then you're in a good place to start using Fiddler to intercept those API calls and return the data you need.

@@ -7,7 +7,7 @@ tags:
   - blog
   - featured
 categories:
-  - Mobile
+  - Tech
 image: wreilly/assets/featured/master-detail.png
 layout: default_post
 source: site

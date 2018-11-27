@@ -11,7 +11,7 @@ tags:
   - lightning talks
   - testers
 categories:
-  - Test
+  - Testing
 layout: default_post
 
 ---

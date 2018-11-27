@@ -5,7 +5,7 @@ summary: "In this post, the causes, effects and mitigations of Man in the Middle
 layout: default_post
 image: /rsillem/assets/security-mitm/fiddler-1.png
 categories:
-  - Web
+  - Tech
 ---
 Robin Sillem, William Ferguson
 

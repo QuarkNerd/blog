@@ -11,7 +11,7 @@ summary: >-
   sauce.
 image: efiennes/assets/Hourglass2.jpg
 categories:
-  - testing
+  - Testing
 tags: 'Testing, Bristol, Tekkie_Brekkie'
 ---
 How I went from the idea of being horrified about the idea of public speaking to actually talking at a tekkie brekkie in front of a room of my peers....

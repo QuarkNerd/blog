@@ -3,7 +3,7 @@ author: okenyon
 title: "Using Kafka and Grafana to monitor meteorological conditions"
 layout: default_post
 categories:
-  - Data
+  - Data Engineering
 summary: "Apache Kafka provides distributed log store used by increasing numbers of companies and often forming the heart of systems processing huge amounts of data. This post shows how to use it for storing meteorological data and displaying this in a graphical dashboard with Graphite and Grafana"
 tags:
   - featured

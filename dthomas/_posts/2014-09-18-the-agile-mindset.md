@@ -6,7 +6,7 @@ summary: "Agile is a term that is heavily overloaded within software development
 oldlink: "http://www.scottlogic.com/blog/2014/09/18/the-agile-mindset.html"
 disqus-id: /2014/09/18/the-agile-mindset.html
 categories:
-  - Agile
+  - Delivery
 ---
 
 <img src="{{ site.baseurl }}/dthomas/assets/AgileMindset/ManThinking.jpg" style="width: 200px; float:right;" />

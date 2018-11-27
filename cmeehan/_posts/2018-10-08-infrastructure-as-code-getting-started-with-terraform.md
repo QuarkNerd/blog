@@ -4,7 +4,7 @@ author: cmeehan
 layout: default_post
 title: Infrastructure as Code - Getting Started with Terraform
 categories:
-  - tech
+  - Tech
 summary: >-
   The popularity of Infrastructure as Code has skyrocketed in the last few
   years. Such tools allow the rapid and reliable provisioning of resources

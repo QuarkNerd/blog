@@ -4,7 +4,7 @@ title: Code reuse in microservices architecture - with Spring Boot
 summary: "In most microservice architectures, there are many opportunities and temptations for sharing code. In this post I will give advice based on my experience on when it should be avoided and when code reuse is acceptable. The points will be illustrated with the help of an example Spring Boot project."
 layout: default_post
 categories:
-  - Data
+  - Data Engineering
 ---
 
 In most microservice architectures, there are many opportunities and temptations for sharing code. In this post

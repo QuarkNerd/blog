@@ -4,7 +4,7 @@ author: efiennes
 layout: default_post
 title: '[2018-06-04]-[A hire standard] '
 categories:
-  - testing
+  - Testing
 tags: 'Testing, recruitment'
 summary: The hire standard we hold our testers to
 ---

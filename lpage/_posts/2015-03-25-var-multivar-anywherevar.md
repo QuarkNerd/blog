@@ -2,7 +2,7 @@
 author: lpage
 title: "var, multi-var or anywhere var?"
 categories:
-  - JavaScript
+  - Tech
 tags: null
 layout: default_post
 summary: "When it comes to coding style in JavaScript, what makes most sense - one var declaration, multiple at the start or scoped?"

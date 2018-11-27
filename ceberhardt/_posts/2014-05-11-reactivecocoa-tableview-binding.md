@@ -2,7 +2,7 @@
 author: ceberhardt
 title: Binding to a UITableView from a ReactiveCocoa ViewModel
 categories:
-  - iOS
+  - Tech
 tags: null
 summary: This blog post presents a simple utility class for binding ReactiveCocoa ViewModels to UITableViews without the need for the usual datasource / delegate boiler-plate.
 layout: default_post

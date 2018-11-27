@@ -3,7 +3,7 @@ author: ceberhardt
 title: Visualising London Marathon Training Data From Strava
 layout: default_post
 categories:
-  - D3
+  - Tech
 tags:
   - featured
 image: ceberhardt/assets/featured/heatmap.png

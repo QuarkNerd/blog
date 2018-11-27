@@ -13,7 +13,7 @@ tags:
   - Multitasking
   - featured
 categories:
-  - Agile
+  - Delivery
 ---
 ##An overview
 

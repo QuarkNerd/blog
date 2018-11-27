@@ -11,7 +11,7 @@ summary: >-
 image: 'image: /efiennes/assets/12Good.PNG'
 tags: 'Testing, trusted adviser'
 categories:
-  - testing
+  - Testing
 ---
 This post is an expansion on the speaker notes for my recent talk at [South West Test](https://www.meetup.com/South-West-Test/ "Opens South West test meetup page"). If you are a tester or interact with testers anywhere in Bristol or the nearby environs, do yourself a favour and make the time to attend one of their packed out events. 
 

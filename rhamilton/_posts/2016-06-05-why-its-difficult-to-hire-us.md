@@ -11,7 +11,7 @@ tags:
   - hiring testers
   - featured
 categories:
-  - Test
+  - Testing
 layout: default_post
 ---
 <img src="{{ site.baseurl }}/rhamilton/assets/survey.png" alt="title image" title="title image"/>

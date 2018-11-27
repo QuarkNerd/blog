@@ -4,16 +4,7 @@ title: Testing
 summary: Scott Logic's thoughts and ideas relating to Test
 image: /assets/testing.jpg
 ---
-{% assign posts = site.categories["Test"] %}
-{% for testposts in site.categories["test"] %}
-    {% assign posts = posts | push: testposts %}
-{% endfor %}
-{% for testposts in site.categories["Testing"] %}
-    {% assign posts = posts | push: testposts %}
-{% endfor %}
-{% for testposts in site.categories["testing"] %}
-    {% assign posts = posts | push: testposts %}
-{% endfor %}
+{% assign posts = site.categories["Testing"] %}
 {% if posts %}
   {% assign posts = posts | sort: 'date' | reverse | uniq %}
 {% endif %}

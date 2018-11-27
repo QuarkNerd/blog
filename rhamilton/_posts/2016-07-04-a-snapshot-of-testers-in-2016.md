@@ -12,7 +12,7 @@ tags:
   - testing trends
   - featured
 categories:
-  - Test
+  - Testing
 layout: default_post
 ---
 <img src="{{ site.baseurl }}/rhamilton/assets/camera.jpg" alt="title image" title="title image"/>

@@ -10,7 +10,7 @@ tags:
   - Scottcoin
   - featured
 categories:
-  - Data
+  - Data Engineering
 title-short: Bitcoin payments and the Lightning Network
 image: jhill/assets/featured/lightning.jpg
 ---

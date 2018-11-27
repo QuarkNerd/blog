@@ -6,7 +6,7 @@ summary: "This post describes a binding helper that allows you to bind arrays di
 oldlink: "http://www.scottlogic.com/blog/2014/11/04/mutable-array-binding-reactivecocoa.html"
 disqus-id: /2014/11/04/mutable-array-binding-reactivecocoa.html
 categories:
-  - iOS
+  - Tech
 ---
 
 A few months ago I wrote a wrote about a utility class that allows you to [bind ReactiveCocoa view models to table views]({{ site.baseurl }}/2014/05/11/reactivecocoa-tableview-binding.html). With this binding helper, each item in the view model array is automatically bound to a cell. The binding helper also automatically updates the table view if the array property on the view model is updated.

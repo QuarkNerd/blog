@@ -3,7 +3,7 @@ author: wferguson
 layout: default_post
 title: "Creating a Pebble Watchface with JavaScript"
 categories:
-  - JavaScript
+  - Tech
 summary: "In this article, I take a look at writing a watchface for Pebble using their newly released JavaScript SDK."
 ---
 

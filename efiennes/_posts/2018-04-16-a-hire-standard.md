@@ -11,7 +11,7 @@ summary: >-
   environment they want.
 tags: 'Testing, Recruitment, CV, Keyword-bingo, learning'
 categories:
-  - testing
+  - Testing
 ---
 ### Our tester offering
 Before you apply, we presume you want to know what we offer and the standards we hold ourselves to. We believe in [Passion, Respect, Excellence, Collaboration and Professionalism](https://www.scottlogic.com/who-we-are/) in our dealings with our clients and our colleagues. 

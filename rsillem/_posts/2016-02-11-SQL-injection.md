@@ -4,7 +4,7 @@ title: Securing Web Applications, Part 2. SQL (and other) Injection Attacks
 summary: "In this post, we discuss SQL and other injection attacks against web apps, and how to defend against them."
 layout: default_post
 categories:
-  - Web
+  - Tech
 ---
 Robin Sillem, William Ferguson
 

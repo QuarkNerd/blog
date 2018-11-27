@@ -9,7 +9,7 @@ tags:
   - Zookeeper
   - Curator
 categories:
-  - Java
+  - Tech
 ---
 
 Distributed computing is difficult, but fortunately it's never been easier. Companies like Netflix, Facebook, LinkedIn, etc, have been solving difficult problems and open sourcing the solutions. This post is going to look at how we can easily implement distributed leadership election using Apache Curator.
