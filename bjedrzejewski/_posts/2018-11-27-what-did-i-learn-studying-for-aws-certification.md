@@ -96,7 +96,7 @@ cloud platform. If it costs too much, people may simply opt-out of the cloud ent
 This lesson goes beyond simply learning the exam material. With the idea of taking the certification, came also an idea of
 doing it together and creating a little AWS Breakfast Club with a few of my colleagues that were on the same project.
 
-This breakfast club made the experience much more fun and effective. In the end, all of us that took the exam past it with
+This breakfast club made the experience much more fun and effective. In the end, all of us that took the exam passed it with
 flying colours (special mentions to James Wren and James Dunkerley, each scoring an insane 974/1000). I don't think we would
 have all achieved it on our own without motivating each other.
 
