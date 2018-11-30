@@ -75,9 +75,9 @@ layout: default
         {% include gravatar.html %}
         <a rel="author" href="{{ site.baseurl }}/{{ authorUsername }}">{{ author.name }}</a>
          {% for contributorId in page.contributors %}
-             {% assign author = site.data.authors.authors[contributorId] %}
-             {% assign authorUsername = contributorId %}
-            , <a rel="author" href="{{ site.baseurl }}/{{ authorUsername }}">{{ author.name }}</a>
+             {% assign contributor = site.data.authors.authors[contributorId] %}
+             {% assign contributorUsername = contributorId %}
+            , <a rel="author" href="{{ site.baseurl }}/{{ contributorUsername }}">{{ contributor.name }}</a>
          {% endfor %}
       </div>
       {% include social.html %}
