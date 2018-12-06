@@ -61,10 +61,10 @@ prose:
                             value: Tech
                         -
                             name: 'Data Engineering'
-                            value: Data Engineering
+                            value: 'Data Engineering'
                         -
                             name: 'UX Design'
-                            value: UX Design
+                            value: 'UX Design'
                         -
                             name: Testing
                             value: Testing
@@ -309,3 +309,6 @@ prose:
         -
             login: bborowski1
             user: bborowski@scottlogic.com
+        -
+            login: jamesmporter
+            user: jporter
