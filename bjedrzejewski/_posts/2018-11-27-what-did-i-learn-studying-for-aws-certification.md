@@ -4,7 +4,7 @@ title: What did I learn studying for AWS Solution Architect Associate Certificat
 summary: "This month I have sat and passed the AWS Solution Architect Associate exam. Like with many things, the journey is more exciting than the destination. In this article, I share lessons and observations I made along the way."
 layout: default_post
 categories:
-  - Tech
+  - Cloud
 ---
 ## Introduction
 

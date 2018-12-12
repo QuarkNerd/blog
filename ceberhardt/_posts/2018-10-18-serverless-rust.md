@@ -4,8 +4,10 @@ layout: default_post
 title: Serverless Rust with AWS Lambda and WebAssembly
 summary: In this post, I look at how WebAssembly can be used to create serverless functions and demonstrate an AWS Lambda function written entirely in Rust.
 categories:
-  - Tech
+  - Cloud
 image: ceberhardt/assets/featured/rust-wasm.jpg
+tags:
+  - featured
 ---
 
 In this post, I look at how WebAssembly can be used to create serverless functions and demonstrate an AWS Lambda function written entirely in Rust.

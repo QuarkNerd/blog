@@ -6,7 +6,7 @@ title: Deploying PR branches with Gitlab review apps and Elastic Beanstalk
 summary: >
   I describe setting up feature branch deployments with Gitlab's Review Apps and AWS Elastic Beanstalk. This gives a fairly straightforward means of setting up automated deployment of PR branches, but I discuss some issues I encountered along the way.
 categories:
-  - Tech
+  - Cloud
 ---
 
 For another instalment of Build Friday (see: [(Multi-stage Docker) in Docker as CI Sledgehammer](http://blog.scottlogic.com/2018/02/09/multi-dind-ci-boxes.html)) I'm going to describe setting up feature branch deployments with Gitlab's Review Apps and AWS Elastic Beanstalk.

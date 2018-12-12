@@ -4,15 +4,16 @@ author: cmeehan
 layout: default_post
 title: Infrastructure as Code - Getting Started with Terraform
 categories:
-  - Tech
+  - Cloud
 summary: >-
   The popularity of Infrastructure as Code has skyrocketed in the last few
   years. Such tools allow the rapid and reliable provisioning of resources
   straight to the cloud, saving huge amounts of time and effort in the long run.
   One of the most prominent of these tools is Terraform, which this post will
   focus on, particularly with regards to AWS.
-image: cmeehan/assets/terraform-logo.PNG
-tags: 'terraform infrastructure-as-code cloud aws '
+image: cmeehan/assets/terraform.jpg
+tags:
+  - featured
 ---
 This blog post serves as a brief introduction to what Infrastructure as Code is, as well as how to get started using it with Terraform. Although Terraform can be used with many cloud providers, the post focuses particularly on deploying resources to AWS.
 

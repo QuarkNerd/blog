@@ -8,7 +8,7 @@ summary: >
 image: ''
 tags: ''
 categories:
-  - Tech
+  - Cloud
 ---
 
 AWS has a bewildering array of services, so much so that the full page service dropdown now has a scrollbar,  but when it comes to compute, these effectively all boil down to different flavours of VMs and containers. EC2 is at the root of it all; Batch is a way of firing off EC2 instances for batch workloads; ECS is running containers on EC2. Lambda is containers in disguise with elastic scaling (and the mask slips when you start to look at caching and container reuse - e.g. some like to [keep their lambdas warm](https://serverless.com/blog/keep-your-lambdas-warm/)).
