@@ -109,7 +109,7 @@ Inclusive of guidance messages it’s also worth ensuring that the application i
 Some users can’t use a mouse. This could be due to a temporary issue (their mouse is broken or they don’t have one) or a more permanent issue (the user has a medical condition that prevents them from using their hands). It’s also possible that some users simply prefer to use the keyboard. For example, when filling in a web form, some users find it easier to tab from field to field rather than clicking in each input. This requires the tab index to be set on the fields correctly. When developing an application, considering keyboard-only use requires very little extra effort and should always be considered.
 
 ## Accessibility in a nutshell
-Accessibility is often considered an afterthought and labelled as only being for required for users that have a ‘disability’. As we have seen though, accessibility consists of so much more and plays a large part in the user experience of an application. If we develop our applications with accessibility in mind from the start, we can add a massive benefit with very little effort. It’s a small price to pay to keep our users happy.
+Accessibility is often considered an afterthought and labelled as only being required for users that have a ‘disability’. As we have seen though, accessibility consists of so much more and plays a large part in the user experience of an application. If we develop our applications with accessibility in mind from the start, we can add a massive benefit with very little effort. It’s a small price to pay to keep our users happy.
 
 If you would like to know more about accessibility and the standards around it, you can visit the W3C accessibility website [here](https://www.w3.org/WAI/)
 
