@@ -12,6 +12,7 @@ active-authors:
     - callan
     - cbrown
     - ceberhardt
+    - clee
     - cmcormack
     - cprice
     - croberts
@@ -835,3 +836,8 @@ authors:
         author-summary: '<p>I''m Frances, a graduate tester working in the Scott Logic Bristol office. </p> <p>I''m immersing myself in testing at Scott Logic and in the wider South-West test community</p>'
         twitter-handle: FranMayB
         twitter-url: 'http://www.twitter.com/FranMayB'
+    clee:
+        name: 'Yui-Wah (Clement) Lee'
+        email: clee@scottlogic.com
+        gravatar: 622f7d1078c49f826b490386f0a31a50
+        author-summary: 'Yui-Wah (Clement) Lee, Ph.D., is a senior developer in Scott Logic.  His current technical interests in the industry are Java, SQL, and data engineering, and he has a background in academic and industrial research in mobile computing.   Dr. Lee is a co-inventor of four US patents and worked in Bell Labs (New Jersey, USA) and Nokia (New Jersey, USA).  He taught at the Chinese University of Hong Kong in 2006-2007.'
