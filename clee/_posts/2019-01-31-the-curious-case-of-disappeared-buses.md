@@ -8,16 +8,16 @@ tags: 'Open Data, REST API, Postman, Tableau'
 summary: >-
   Riders of public transportation rely on real-time traffic information (RTI)
   systems to make informed decisions. But really how accurately are those
-  systems? By systematically collect and analysis the Open Data exposed, we can
-  gain some insight into the question.
+  systems? By systematically collecting and analysing the Open Data exposed, we
+  can gain some insight into the question.
 ---
-Riders of public transportation rely on real-time traffic information (RTI) systems to make informed decisions.  But really how accurately are those systems? With the advent of the Open Data movement, answering this question has become so much more easier.  It may take just a little bit of curiosity and know-how.
+Riders of public transportation rely on real-time traffic information (RTI) systems to make informed decisions.  But really how accurately are those systems? With the advent of the Open Data movement, answering this question has become so much easier.  It may take just a little bit of curiosity and know-how.
 
 ## A local mystery in Bristol
 
-This story is about the curious case of disappearing buses that happens with the bus service in Bristol, where my office is located.  Like in many cities in the UK, real-time traffic information is provided to riders, and it shows the promised arrival time of the upcoming buses for a given bus stop.  The information is disseminated on smartphone app, webpage, and display boards mounted on bus stops (Figure 1).
+This story is about the curious case of disappearing buses that happens with the bus service in Bristol, where my office is located.  Like in many cities in the UK, real-time traffic information is provided to riders, and it shows the promised arrival time of the upcoming buses for a given bus stop.  The information is disseminated on smartphone apps, webpages, and display boards mounted on bus stops (Figure 1).
 
-![Figure 1: Real-time Traffic Information shown on a display board and on smartphone app]({{site.baseurl}}/clee/assets/stopBoard_n_app.png)_Figure 1: Real-time Traffic Information shown on a display board (left) and on smartphone app (right)_
+![Figure 1: Real-time Traffic Information shown on a display board and on smartphone app]({{site.baseurl}}/clee/assets/stopBoard_n_app.png)_Figure 1: Real-time Traffic Information shown on a display board (left) and on a smartphone app (right)_
 
 However, Bristol riders often observe the following phenomenon.  Standing on a bus stop and waiting for a certain bus (say, Bus Number 8), they see a promise from the RTI that the next bus is coming in, say, 5 minutes.  One minute later, the promise updates to 4 minutes.  As time progresses, the promise counts down to 3 minutes, 2 minutes, 1 minutes, and then "due".  At this point, the bus is supposed to show up -- except that it does not always,  and then a moment later the RTI would say that the next bus will arrive in 10 minutes.  In other words, the earlier promised bus just disappeared from the system!
 
@@ -231,10 +231,10 @@ In this limited-scoped study, I cannot establish an estimate on how prevalent ar
 
 ### Illustrative Plots of Promised Time vs Report Time
 
-To help the readers to more easily visualise the intuition behind the plot type of _Promised Time vs Report Time_ , here I include four plots that illustrative how would the chart look like under four different qualities of data feed.  In each case, we assume that the actual arrival time is 8:03 am
+To help the readers to more easily visualise the intuition behind the plot type of _Promised Time vs Report Time_ , here I include four plots that illustrative how would the chart look like under four different qualities of data feed.  In each case, we assume that the actual arrival time is 7:53 am
 
-1. _Pseudo Real-time_ : The RTI system promised a static constant arrival time of 8:00 am, which turned out to be wrong.  After 8:01 am, information about the bus disappeared from the system.  And then the bus showed up at 8:03 am
-2. _Genuine Real-time with No Delay_ : This is an idealized situation that there is no traffic on the road that delayed the bus, so the promise arrival time of 8:03 was correct all the way through.
+1. _Pseudo Real-time_ : The RTI system promised a static constant arrival time of 7:50 am, which turned out to be wrong.  At 7:51 am, information about the bus disappeared from the system.  And then the bus showed up at 7:53 am
+2. _Genuine Real-time with No Delay_ : This is an idealized situation that there is no traffic on the road that delayed the bus, so the promise arrival time of 7:53 was correct all the way through.
 3. _Genuine Real-time with Delay_ : Realistically this should happen more often.  The bus was delayed a bit by traffic, but the RTI knew the actual location of the bus and could take the real-time information as feedback and update the promised.  Eventually the last few promises converged to accurate predictions.  The slope of the trend line is correlated with the severity of the traffic congestion as well as the inaccuracy of prediction.
 4. _Genuine Real-time with Adaptive Prediction_ : Compared to the last one, this one is assuming that the system has an advanced mechanism (machine learning, maybe) that can adaptively predict more accurate promised time.  For example, if a traffic jam was detected at 7:54 or 7:55 am, the system can immediately forecast more delays ahead and adjust the promised time more aggressively than the last case.  The first few promised were compromised by the traffic condition, but the system can adapt and gave out more accurate promised time subsequently.  The slope of the later part of the curve indicates that it was giving out more accurate predictions despite the same severity of traffic congestion as in the last case.
 
