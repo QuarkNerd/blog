@@ -25,10 +25,9 @@ Comparison charts, as their name suggests, are great for comparing the percentag
 This post continues a series of posts on making financial charts using D3. We've seen how to use the pattern of reusable components to make <a href="{{site.baseurl}}{% post_url tsimmons/2014-08-19-an-ohlc-chart-component-for-d3 %}">simple OHLC and candlestick charts</a> with 
 <a href="{{site.baseurl}}{% post_url aaiken/2014-08-26-two-line-components-for-d3-charts %}">annotations</a>, <a href="{{site.baseurl}}{% post_url aaiken/2014-08-28-bollinger %}">technical studies</a> and <a href="{{site.baseurl}}{% post_url aaiken/2014-09-19-interactive %}">interactive navigators</a>, as well as how to <a href="{{site.baseurl}}{% post_url tsimmons/2014-09-19-d3-svg-chart-performance %}">boost performance</a> when panning and zooming.
 
-<!-- Here it is -->
-Here's what we'll be making - try zooming and panning the chart!
+Here's what we'll be making.
 
-<iframe src="http://tlsim.github.io/sl-blog-d3/comparisonSemanticZoom.html" width="680" height="430" scrolling="no" frameborder="0"> </iframe>
+<img src="{{ site.baseurl }}/tsimmons/assets/comparison.png"/>
 
 ## Comparison Series Component
 First, a word about data. We'll assume that our chart data is an array of objects, each with `name` and `data` properties. The `data` property will be an array of price objects with `date`, `open`, `high`, `low`, and `close` properties, sorted by `date`. Our component will plot the percentage change of the `close` prices for each named series.
@@ -289,35 +288,4 @@ In an <a href="{{site.baseurl}}{% post_url tsimmons/2014-09-19-d3-svg-chart-perf
 
 A disadvantage of geometric zooming was the relative complexity of the  implementation compared to semantic zooming with features like an automatically updating y scale. This is true for our comparison series component as well. On zoom, we can't just apply a single transformation to the comparison series element - the series lines need to be moved independently to their new positions.
 
-The solution is to have the component itself implement geometric zooming of the series lines, by internally computing a transformation for each line. Each transformation is the composition of 2 transformations - one to move the line to reflect the new initial date on the x axis, and one to reflect the updated y scale domain.
-
-This turns out to be another win for the component pattern - components can internally implement an optimised zoom method, so the component user gets fast zooming without any extra effort.
-
-The chart below uses geometric zooming for the series lines, and should perform better for larger datasets.
-
-<iframe src="http://tlsim.github.io/sl-blog-d3/comparisonGeometricZoom.html" width="680" height="430" scrolling="no" frameborder="0"> </iframe>
-
-For full code of the components, see [GitHub](https://github.com/tlsim/sl-blog-d3/tree/gh-pages/js/components).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+A solution is to have the component itself implement geometric zooming of the series lines, by internally computing a transformation for each line. Each transformation is the composition of 2 transformations - one to move the line to reflect the new initial date on the x axis, and one to reflect the updated y scale domain.
