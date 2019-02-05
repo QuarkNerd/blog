@@ -1,0 +1,11 @@
+---
+layout: default
+title: Diversity
+summary: Scott Logic's thoughts and ideas relating to Diversity
+image: /assets/diversity.jpg
+---
+{% assign posts = site.categories["Diversity"] %}
+{% if posts %}
+  {% assign posts = posts | sort: 'date' | reverse | uniq %}
+{% endif %}
+{% include post_index.html posts=posts categoryName="Diversity" %}

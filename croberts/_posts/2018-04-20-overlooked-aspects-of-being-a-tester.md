@@ -9,7 +9,7 @@ summary: >-
 tags: 'Tester, Testing, featured'
 image: croberts/assets/brain.jpg
 categories:
-  - Testing
+  - Diversity
 ---
 Patience, Resourcefulness, Listening, Questioning, Love of communication, Empathy, Engaging, Building Rapport and Nurturing. There are many traits, skills and experiences that lend themselves brilliantly to being a great tester. Yet it is often these kinds of aspects that are overlooked. I will explore why and how these predispositions are desirable attributes to excelling in the field of testing. 
 

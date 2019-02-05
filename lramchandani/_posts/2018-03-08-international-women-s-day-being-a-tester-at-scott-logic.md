@@ -8,7 +8,7 @@ summary: >-
   Furthermore, the blog explains my time at Scott Logic so far.
 tags: 'Testing, International Women’s Day'
 categories:
-  - Testing
+  - Diversity
 image: ''
 ---
 
