@@ -66,6 +66,7 @@ active-authors:
     - nowen
     - okenyon
     - phands
+    - pkhan
     - pshek
     - rbeckett
     - rmarcalo
@@ -841,3 +842,10 @@ authors:
         email: clee@scottlogic.com
         gravatar: 622f7d1078c49f826b490386f0a31a50
         author-summary: 'Yui-Wah (Clement) Lee, Ph.D., is a senior developer in Scott Logic.  His current technical interests in the industry are Java, SQL, and data engineering, and he has a background in academic and industrial research in mobile computing.   Dr. Lee is a co-inventor of four US patents and worked in Bell Labs (New Jersey, USA) and Nokia (New Jersey, USA).  He taught at the Chinese University of Hong Kong in 2006-2007.'
+    pkhan:
+        name: 'Parveen Khan'
+        email: pkhan@scottlogic.com
+        gravatar: 0b9da340f00bbed2684ecba3152c6d91
+        author-summary: 'I''m a Senior Test Engineer at Scott Logic.I''m very passionate about testing and very keen in learning new things so I can use it in my testing and deliver better quality.I''m always interested to share my testing lessons learned or experiences in the form of stories and I like brainstorming and bouncing ideas by having deep diving conversations.I have gone from being a solo test advocate to building up a team of 4 testers.I challenged myself to step out of my comfort zone and do some talks in 2019. Apart from work, I''m a super mom of two lovely kids.'
+        twitter-handle: Parveen_Khan10
+        twitter-url: 'http://www.twitter.com/Parveen_Khan10'
