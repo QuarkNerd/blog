@@ -62,6 +62,7 @@ active-authors:
     - mjose
     - mmathew
     - msinton
+    - mstobbs
     - msuperina
     - nowen
     - okenyon
@@ -837,6 +838,11 @@ authors:
         author-summary: '<p>I''m Frances, a graduate tester working in the Scott Logic Bristol office. </p> <p>I''m immersing myself in testing at Scott Logic and in the wider South-West test community</p>'
         twitter-handle: FranMayB
         twitter-url: 'http://www.twitter.com/FranMayB'
+    mstobbs:
+        name: 'Matt Stobbs'
+        email: mstobbs@scottlogic.com
+        gravatar: fb56e78eb671aaac98d996b25bc936dd
+        author-summary: '<p>I am a software developer at Scott Logic, based in Newcastle. I am particularly interested in web app development, especially React/Redux.</p>'
     clee:
         name: 'Yui-Wah (Clement) Lee'
         email: clee@scottlogic.com
