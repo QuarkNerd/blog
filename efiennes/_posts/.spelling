@@ -3,8 +3,6 @@
 # global dictionary is at the start, file overrides afterwards
 # one word per line, to define a file override use ' - filename'
 # where filename is relative to this configuration file
-
-#- efiennes/_posts/2018-06-06-we-need-to-talk.md
 brekkie
 2000s
 no.1
@@ -18,8 +16,6 @@ tekkie
 brekkie
 no.1
 Nikolaos
-
-#- efiennes/_posts/2018-04-23-2018-04-23-from-the-realms-of-the-katabasis.md
 katabasis
 gonna'
 'ilities
@@ -28,8 +24,6 @@ Katabasis
 staplegun
 ilities
 gonna
-
-#- efiennes/_posts/2018-04-16-a-hire-standard.md
 grads 
 grad 
 get-togethers 
@@ -47,8 +41,6 @@ learnie
 lunchies
 pairy
 Aaargh
-
-#- efiennes/_posts/2018-05-14-the-a-word-the-bad-a-word.md
 gamut
 toolsmiths
 Okayyyyy
@@ -67,8 +59,6 @@ Leinster
 Wonka’s
 chanteurs
 Ridgeley
-
-#- efiennes/_posts/2018-08-28-finding-your-groove-as-they-are-not-finding-their-shoes.md
 Skillz
 camomile
 Dettol
@@ -103,8 +93,6 @@ babywipes
 #SoBlessed
 eyerolling
 SoBlessed
-
-#- efiennes/_posts/2018/09/09/becoming-a-trusted-adviser-as-a-tester.html
  m’ladys
 moneypit
 Tumbridge
@@ -130,8 +118,6 @@ lunchies
 teachy 
 teatimes
 socialness
-
-#- efiennes/_posts/2018-12-31-introduction-to-contract-testing-pt-1.md
 2-part
 2pm
 windspeed
@@ -158,3 +144,21 @@ Part2
 (im)passible
 im
 (im)
+subflowcharts
+whitepapers 
+yadda
+Shewhart
+development
+Feigenbaum
+practiced 
+CMMi 
+TMMi
+agilists
+WOMANifesto 
+Easley
+Colored 
+Nasa 
+NASA
+Tasmanian 
+mindshift
+Armand
