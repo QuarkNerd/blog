@@ -9,6 +9,7 @@ active-authors:
     - bdimitrov-SL
     - bjedrzejewski
     - bmacdonald
+    - cakehurstryan
     - callan
     - cbrown
     - ceberhardt
@@ -855,3 +856,8 @@ authors:
         author-summary: 'I''m a Senior Test Engineer at Scott Logic.I''m very passionate about testing and very keen in learning new things so I can use it in my testing and deliver better quality.I''m always interested to share my testing lessons learned or experiences in the form of stories and I like brainstorming and bouncing ideas by having deep diving conversations.I have gone from being a solo test advocate to building up a team of 4 testers.I challenged myself to step out of my comfort zone and do some talks in 2019. Apart from work, I''m a super mom of two lovely kids.'
         twitter-handle: Parveen_Khan10
         twitter-url: 'http://www.twitter.com/Parveen_Khan10'
+    cakehurstryan:
+        name: 'Callum Akehurst-Ryan'
+        email: CAkehurst-Ryan@scottlogic.com
+        gravatar: 3d4ceaa6276c616f2f7c180ee7219136
+        author-summary: 'Senior Test Engineer with 10+ years as a software tester across the banking, broadcast and commercial industries.'
