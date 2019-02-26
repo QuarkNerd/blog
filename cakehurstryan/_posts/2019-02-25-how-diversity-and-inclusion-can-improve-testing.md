@@ -22,7 +22,7 @@ Mono-culture is problematic for quality because it results in a bias towards a c
 
 ![Rainbow.jpg]({{site.baseurl}}/cakehurstryan/assets/Rainbow.jpg)
 
-As a member of the LGBTQ+ community I’ve identified bugs and design flaws in systems that weren’t obvious to my colleagues, such as noticing that a pensions tool didn’t allow for the selection of a Civil Partnership (an issue which would have put the system in breech of law). Other people could have found these issues, but they were easier for me to identify as they related directly to my life.
+As a member of the LGBTQ+ community I’ve identified bugs and design flaws in systems that weren’t obvious to my colleagues, such as noticing that a pensions tool didn’t allow for the selection of a Civil Partnership (an issue which would have put the system in breach of law). Other people could have found these issues, but they were easier for me to identify as they related directly to my life.
 
 Everybody has a unique perspective on life, shaped by their background and personality, which can be a great heuristic for testing:
 
@@ -30,7 +30,7 @@ Everybody has a unique perspective on life, shaped by their background and perso
 - Localisation: People fluent in the languages and cultures being used will be able to inform greatly on what would make sense.
 - Usability: Reading comprehension, short term memory, how you use a screen; everybody has different ways of doing things so can have an idea on what would work.
 
-The more diverse our teams are, the more we’re able to tap into these different view points and increase the quality of what we design and build. Something that we loose if we ignore the human side of testing in favour of only engineering.
+The more diverse our teams are, the more we’re able to tap into these different view points and increase the quality of what we design and build. Something that we lose if we ignore the human side of testing in favour of only engineering.
 
 ### Empathy
 
