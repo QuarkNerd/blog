@@ -9,7 +9,7 @@ summary: >-
   to address that and allow us to improve quality.
 image: cakehurst/assets/Gummy.jpg
 ---
-As the testing pendulum has swing towards more engineering in recent years we’re facing a new issue, the prevalence of an engineering mono-culture. There’s a view that there’s one “correct” way to do things, which is an engineering way that nobody questions. As we become increasingly technical as testers we run the risk of losing diversity of thought and test ideas by becoming part of this mono-culture, an issue that can be compounded by a lack of diversity in the people within teams too:
+As the testing pendulum has swung towards more engineering in recent years we’re facing a new issue, the prevalence of an engineering mono-culture. There’s a view that there’s one “correct” way to do things, which is an engineering way that nobody questions. As we become increasingly technical as testers we run the risk of losing diversity of thought and test ideas by becoming part of this mono-culture, an issue that can be compounded by a lack of diversity in the people within teams too:
 
 - [Studies show that women are increasingly put off by “all the technologies” job adverts.](https://textio.ai/gendered-language-in-your-job-post-predicts-the-gender-of-the-person-youll-hire-cd150452407d)
 - Some teams have a “people like us” mentality when it comes to hiring.
