@@ -284,3 +284,6 @@ Bringolf
 axel
  - ceberhardt/_posts/2018-10-18-serverless-rust.md
 v8.10
+ - ceberhardt/_posts/2019-03-04-lambda-global-state.md
+ElastiCache
+AWS-hosted
