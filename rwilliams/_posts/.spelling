@@ -40,5 +40,8 @@ browserslist
 dropdowns
 jQueryUI
 teardown
-- rwilliams/_posts/2019-03-04-retroactively-applying-prettier-to-existing-branches.md
+ - rwilliams/_posts/2019-03-04-retroactively-applying-prettier-to-existing-branches.md
 setups
+ - rwilliams/_posts/2019-03-07-tips-for-effective-issue-tracker-usage.md
+MYPROJ-123
+antipatterns
