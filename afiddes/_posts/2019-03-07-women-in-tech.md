@@ -2,14 +2,15 @@
 published: true
 author: afiddes
 layout: default_post
-category: Tech
 title: Encouraging women in the tech industry
-tags: Diversity
+categories:
+  - Diversity
 summary: >-
   It can be hard to be a minority in any environment, which is the case for
   women in the software industry. At the Scott Logic Edinburgh office we’re in
   the great position to be able to host tech groups, and we’re keen to support
   women in the tech industry.
+image: afiddes/assets/meetup.jpg
 ---
 
 It can be hard to be a minority in any environment, which is still the case for women in the software industry today. However, my experience of being involved with women in tech groups is that it can be incredibly motivating and invigorating to realise that there’s a encouraging community of like-minded people out there. At the Scott Logic Edinburgh office we’re in the great position to be able to host tech groups, and we’re keen to do as much as we can to support women in the tech industry.
