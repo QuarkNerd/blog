@@ -7,7 +7,9 @@ summary: >-
   As we become increasingly technical as testers we run the risk of joining an
   engineering monoculture. Diversity of thought and people within teams can help
   to address that and allow us to improve quality.
-image: cakehurst/assets/Gummy.jpg
+image: cakehurstryan/assets/Gummy.jpg
+tags: 
+  - featured
 ---
 As the testing pendulum has swung towards more engineering in recent years we’re facing a new issue, the prevalence of an engineering mono-culture. There’s a view that there’s one “correct” way to do things, which is an engineering way that nobody questions. As we become increasingly technical as testers we run the risk of losing diversity of thought and test ideas by becoming part of this mono-culture, an issue that can be compounded by a lack of diversity in the people within teams too:
 

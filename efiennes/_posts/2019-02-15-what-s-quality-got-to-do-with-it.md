@@ -10,7 +10,7 @@ summary: >-
   measure it? Should you even try? What does it really mean if you have 1
   person or a team looking after the quality? 
   After being told the quality was my new role, I did some research to find out the answers to these questions and more.
-tags: 'testing, quality, delivery, SDLC, coaching, mentoring'
+tags: 'testing, quality, delivery, SDLC, coaching, mentoring, featured'
 ---
 This is the full version of my talk for our Edinburgh office [tech talks](https://www.eventbrite.co.uk/e/an-evening-of-tech-talks-at-scott-logic-tickets-51818533629#) last year. This is the platform that our company offers to all staff to speak about what they do and how they do it. If you want to join a company that will encourage you in your public speaking ambitions, come and [talk to us](https://www.scottlogic.com/careers/).
 
