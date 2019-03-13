@@ -72,6 +72,7 @@ active-authors:
     - pkhan
     - pshek
     - rbeckett
+    - rgraham
     - rmarcalo
     - rnewsome
     - rrhodes
@@ -866,3 +867,8 @@ authors:
         email: CAkehurst-Ryan@scottlogic.com
         gravatar: 3d4ceaa6276c616f2f7c180ee7219136
         author-summary: 'Senior Test Engineer with 10+ years as a software tester across the banking, broadcast and commercial industries.'
+    rgraham:
+        name: 'Ronan Graham'
+        email: rgraham@scottlogic.com
+        gravatar: 41d5ac942c3a7d95260e5109a0c78741
+        author-summary: '<p>I''m a developer that started as a graduate in 2018. You can find me mostly using front-end tech. I''m also on GitHub as <a href="https://github.com/Ro4052">Ro4052</a>.</p>'
