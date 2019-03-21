@@ -75,6 +75,7 @@ active-authors:
     - rgraham
     - rmarcalo
     - rnewsome
+    - robsmith
     - rrhodes
     - rwilliams
     - sbaker
@@ -872,3 +873,8 @@ authors:
         email: rgraham@scottlogic.com
         gravatar: 41d5ac942c3a7d95260e5109a0c78741
         author-summary: '<p>I''m a developer that started as a graduate in 2018. You can find me mostly using front-end tech. I''m also on GitHub as <a href="https://github.com/Ro4052">Ro4052</a>.</p>'
+    robsmith:
+        name: 'Rob Smith'
+        email: robsmith@scottlogic.com
+        gravatar: "9ba2502163a339b212bcb953aefad9ea"
+        author-summary: 'Sales and Marketing Director here at Scott Logic. I have a passion for all things related to delivery excellence, and in my spare time I enjoy football, cycling and mountains (where I often inadvertently get lost).'
