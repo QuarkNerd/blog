@@ -92,6 +92,7 @@ active-authors:
     - wreilly
     - wsalt
     - wtrimble
+    - zrubin
     - zwali
 authors:
     aaiken:
@@ -876,5 +877,10 @@ authors:
     robsmith:
         name: 'Rob Smith'
         email: robsmith@scottlogic.com
-        gravatar: "9ba2502163a339b212bcb953aefad9ea"
+        gravatar: 9ba2502163a339b212bcb953aefad9ea
         author-summary: 'Sales and Marketing Director here at Scott Logic. I have a passion for all things related to delivery excellence, and in my spare time I enjoy football, cycling and mountains (where I often inadvertently get lost).'
+    zrubin:
+        name: 'Zac Rubin'
+        email: zrubin@scottlogic.com
+        gravatar: 3f6291371115adc6164960eb6bc8822b
+        author-summary: 'I''''m a Test Engineer at Scott Logic, based in Newcastle.'
