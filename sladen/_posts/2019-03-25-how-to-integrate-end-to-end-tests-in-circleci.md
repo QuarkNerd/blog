@@ -12,7 +12,6 @@ image: sladen/assets/circleCI.png
 ---
 
 
-## How to integrate end-to-end tests in CircleCI?
 Recently I joined a project using CircleCI to manage their continuous integration. The workflow was lacking end to end tests, yet the tests were already present in the repository!
 In order to not leave these tests to waste, add a safeguard after each check-in, and learn how to use CircleCI, I decided to modify the current workflow to add their execution.
 
