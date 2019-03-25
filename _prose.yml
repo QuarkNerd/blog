@@ -339,3 +339,6 @@ prose:
         -
             login: z-0
             user: zrubin
+        -
+            login: sladenSL
+            user: sladen

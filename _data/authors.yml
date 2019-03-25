@@ -82,6 +82,7 @@ active-authors:
     - sbulut
     - shogarth
     - shunton
+    - sladen
     - sobrien
     - sroebuck
     - tclarke-scottlogic
@@ -884,3 +885,8 @@ authors:
         email: zrubin@scottlogic.com
         gravatar: 3f6291371115adc6164960eb6bc8822b
         author-summary: 'I''m a Test Engineer at Scott Logic, based in Newcastle.'
+    sladen:
+        name: 'Simon Laden'
+        email: sladen@scottlogic.com
+        gravatar: f6394d3ec61588472708360240a049e8
+        author-summary: '<p>I got into testing by force, I remained in testing by choice</p>'
