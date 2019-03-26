@@ -19,6 +19,7 @@ active-authors:
     - cprice
     - croberts
     - cyule
+    - dcastellano
     - dgorst
     - dkerr
     - dmcnamee
@@ -890,3 +891,8 @@ authors:
         email: sladen@scottlogic.com
         gravatar: f6394d3ec61588472708360240a049e8
         author-summary: '<p>I got into testing by force, I remained in testing by choice</p>'
+    dcastellano:
+        name: 'Debbie Barkey'
+        email: dbarkey@scottlogic.com
+        gravatar: a611d5fc8ca4ed00ff542556d4fb6356
+        author-summary: '<p>I''m a Lead Developer at Scott Logic, in Edinburgh.</p>'
