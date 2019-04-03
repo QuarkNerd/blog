@@ -45,3 +45,10 @@ setups
  - rwilliams/_posts/2019-03-07-tips-for-effective-issue-tracker-usage.md
 MYPROJ-123
 antipatterns
+- rwilliams/_posts/2019-04-03-upcoming-webhid-api.md
+awesome-webhid
+Fugu
+navigator.hid
+permissioning
+WebHID
+WebUSB
