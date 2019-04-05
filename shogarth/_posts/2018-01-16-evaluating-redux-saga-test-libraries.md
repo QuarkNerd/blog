@@ -27,7 +27,7 @@ This functional approach makes Redux easy to test, but it means that your reduce
 
 Enter Redux Saga. A saga uses the dispatching of an action as a signal to asynchronously perform a side effect. Your Redux application becomes nicely separated: the pure state updates to your reducers, and the impure work in your sagas. Alternatives do exist, such as [redux-thunk](https://github.com/gaearon/redux-thunk), but over time I've come to appreciate that sagas are more expressive and are my go-to choice.
 
-Everything connects together using Redux's middleware chain. When an action is dispatched, Redux passes this through a chain of middleware functions. Reducers are just one example of a piece of middleware. Redux Saga is another, which runs [after the reducer middleware](https://redux-saga.js.org/docs/api/index.html#selectselector-args). This may seem initially strange, but makes sense when you consider that you want your `select` calls to be returning up-to-date values.
+Everything connects together using Redux's middleware chain. When an action is dispatched, Redux passes this through a chain of middleware functions. Reducers run after the middleware chain. Redux Saga is a middleware, which generates effects that will run [after the reducers have updated the state](https://redux-saga.js.org/docs/api/index.html#selectselector-args). This may seem initially strange, but makes sense when you consider that you want your `select` calls to be returning up-to-date values.
 
 Redux Saga's middleware is responsible for starting, pausing and resuming sagas, as well as executing the effects that are yielded from a saga.
 

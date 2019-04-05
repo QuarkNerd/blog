@@ -1,4 +1,4 @@
-# markdown-spellcheck spelling configuration file
+﻿# markdown-spellcheck spelling configuration file
 # Format - lines beginning # are comments
 # global dictionary is at the start, file overrides afterwards
 # one word per line, to define a file override use ' - filename'
@@ -31,3 +31,8 @@ Staltz
 kellabyte
 Alfoni
 Jørgensen
+Timandra
+Harkness
+Jez
+Farley
+bodge
