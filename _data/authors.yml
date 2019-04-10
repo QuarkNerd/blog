@@ -38,6 +38,7 @@ active-authors:
     - hcarter
     - hmumford
     - hpretswell
+    - hsteele@scottlogic.com
     - hubinf@scottlogic.com
     - imaxwell@scottlogic.com
     - janakerman
@@ -896,3 +897,8 @@ authors:
         email: dbarkey@scottlogic.com
         gravatar: a611d5fc8ca4ed00ff542556d4fb6356
         author-summary: '<p>I''m a Lead Developer at Scott Logic, in Edinburgh.</p>'
+    hsteele@scottlogic.com:
+        name: 'Huw Steele'
+        email: hsteele@scottlogic.com@scottlogic.com
+        gravatar: 428426f22f79d7e7c236185af9a60e9b
+        author-summary: 'I''m a lead developer for Scott Logic, based in Bristol, focused primarily on .Net and Azure.'
