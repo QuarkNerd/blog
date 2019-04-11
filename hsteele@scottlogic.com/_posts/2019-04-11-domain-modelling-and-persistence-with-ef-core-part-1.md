@@ -146,16 +146,17 @@ This would work fine, but it’s a little obtuse. We have to access a method on 
 Let’s try this instead:
 
 
-    private List<string> _comments;
+    private List<Comment> _comments;
     public IReadOnlyList<Comment> Comments => _comments.AsReadOnly();
 
-    public void AddComment(string newComment)
+    public void AddComment(string newCommentContent)
     {
+        var newComment = new Comment(newCommentContent);
         _comments.Add(newComment);
     }
 
 
-This allows us to define whatever behaviour we like for adding a new comment. Changing the property to return an `IReadOnlyList` allows us to specify that the collection is read-only, and the getter body is defined by returning the read-only form of the backing field. This backing field is where we store the actual comments; the property is now just a read-only view of that private field.
+This allows us to define whatever behaviour we like for adding a new comment. Changing the property to return an `IReadOnlyList` allows us to specify that the collection is read-only, and the getter body is defined by returning the read-only form of the backing field. This backing field is where we store the actual comments; the property is now just a read-only view of that private field. It also exposes a more easily-consumable method that takes a string, so callers don't have to supply their own `Comment` objects.
 
 This brings us back to good OOP; the shape and behaviours on your class are an API into your domain! It’s good etiquette to provide a neat and coherent interface for other developers to work with when using your class, and that’s what we’ve done here. Now any calling code knows that it should expect to read the list of comments, and can sort them, but that it can’t add or remove them. We can also change the underlying list to another collection type without needing to alter anything else.
 
