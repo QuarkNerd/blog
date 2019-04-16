@@ -66,7 +66,7 @@ I’m not really satisfied with that assumption. Some of those properties are th
 
     public Guid Id { get; }
     public DateTime CreatedOn { get; }
-    public List<Comment> { get; }
+    public List<Comment> Comments { get; }
 
     public BlogPost(string title, string content)
     {
