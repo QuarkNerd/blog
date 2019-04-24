@@ -167,4 +167,4 @@ This brings us back to good OOP; the shape and behaviours on your class are an A
 So where are we after these changes? With relatively little effort, we’ve embedded some of our domain logic right into the model. The result is an easily-testable class that can manage its own internal state without needing any help from any other part of the application. If you want to create a new blog, you have to provide some initial information via the constructor, which also sets some key information such as the `Id` and `CreatedOn` properties.
 
 
-Our next step - how do we save it? Part two will cover how we use these models with Entity Framework Core to be able to save and load our data.
+Our next step - how do we save it? [Part two](https://blog.scottlogic.com/2019/04/24/domain-modelling-and-persistence-with-ef-core-part-2.html) will cover how we use these models with Entity Framework Core to be able to save and load our data.
