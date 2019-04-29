@@ -10,7 +10,7 @@ summary: >-
   idioms of both platforms. With this knowledge we can define a cross-platform
   design strategy which should result in efficient design and development cycles
   and an effective app experience.
-image: CyuleSL/assets/Monzo-Home.png
+image: cyule/assets/Monzo-Home.png
 tags: 'UX, UX Design, Mobile, Banking, Mobile Banking, Challenger Banks'
 ---
 
