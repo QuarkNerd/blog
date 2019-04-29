@@ -310,9 +310,6 @@ prose:
             login: bborowski1
             user: bborowski@scottlogic.com
         -
-            login: jamesmporter
-            user: jporter
-        -
             login: fbromley
             user: fbromley
         -
@@ -348,3 +345,6 @@ prose:
         -
             login: huwsteele
             user: hsteele@scottlogic.com
+        -
+            login: jamesmporter
+            user: jporter
