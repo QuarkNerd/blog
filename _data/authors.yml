@@ -70,6 +70,7 @@ active-authors:
     - msuperina
     - nowen
     - okenyon
+    - pgraham
     - phands
     - pkhan
     - pshek
@@ -902,3 +903,10 @@ authors:
         email: hsteele@scottlogic.com@scottlogic.com
         gravatar: 428426f22f79d7e7c236185af9a60e9b
         author-summary: 'I''m a lead developer for Scott Logic, based in Bristol, focused primarily on .Net and Azure.'
+    pgraham:
+        name: 'Paul Graham'
+        email: pgraham@scottlogic.com
+        gravatar: 5253ff30ccf1e848bf0530b02267cbe9
+        author-summary: "<p>Senior Developer with over 20 years of experience. Always keen to broaden my horizons.</p>\n\n<p>Particularly interested in UX theory and Agile methodologies.</p>"
+        twitter-handle: svenadultbooks
+        twitter-url: 'http://www.twitter.com/svenadultbooks'
