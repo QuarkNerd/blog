@@ -12,9 +12,9 @@ summary: >-
   peaceful iOS testing.
 image: cbrown/assets/xctest-logo.jpg
 ---
-Apple’s XCTest could be described as an untamed beast. An all-encompassing, powerful framework with a range of abilities that you can use to your advantage when automating iOS testing. It holds similarities to a ‘<a href="#red-death">Red Death</a>’ dragon, being the controlling force in the world of iOS testing frameworks. On the other hand, I’d also describe it as erratic or unpredictable. It has copious firepower as it can be used for both Unit and UI test. Maybe a ‘<a href="#nightmare">Monstrous Nightmare</a>’ dragon is a better analogy?
+Apple’s XCTest could be described as an untamed beast. An all-encompassing, powerful framework with a range of abilities that you can use to your advantage when automating iOS testing. It holds similarities to a ‘<a href="#red-death">Red Death</a>’ dragon, being the controlling force in the world of iOS testing frameworks. On the other hand, I’d also describe it as erratic or unpredictable. It has copious firepower as it can be used for both Unit and UI testing. Maybe a ‘<a href="#nightmare">Monstrous Nightmare</a>’ dragon is a better analogy?
 
-But, if I was to pick the biggest and most irritating trait that XCTest has, it would be its unknowns. I’ve found in particular that when performing UI tests using XCTest, you’re greeted with a plague of issues including race conditions and implementation limitations. In a desperate attempt to tackle these you turn to the docs for help. However this leads to further questions and confusion as Apple have gone to town with ambiguity in their descriptions and examples.
+However, if I was to pick the biggest and most irritating trait that XCTest has, it would be its unknowns. I’ve found in particular that when performing UI tests using XCTest, you’re greeted with a plague of issues including race conditions and implementation limitations. In a desperate attempt to tackle these you turn to the docs for help. But this leads to further questions and confusion as Apple have gone to town with ambiguity in their descriptions and examples.
 
 Consequently, I would describe XCTest as a ‘<a href="#night-fury">Night Fury</a>’ dragon: Powerful but vastly obscure and mysterious.
 
@@ -85,7 +85,7 @@ The DataCreator classes play a key part in this framework design. Both the page 
 
 ### Navigation
 
-Navigating around an application can often come paired with a sizable overhead. This is because a user can’t simply type in a url like they can in a web browser. Instead they are required to navigate through a flow in order to reach their to the desired page. When we consider automating this journey, it creates the challenge of trying to reduce implicit test duplication whilst achieving good test separation.
+Navigating around an application can often come paired with a sizable overhead. This is because a user can’t simply type in a url like they can in a web browser. Instead they are required to navigate through a flow in order to reach their desired page. When we consider automating this journey, it creates the challenge of trying to reduce implicit test duplication whilst achieving good test separation.
 
 Fortunately Apple introduced ‘Universal Links’ as part of iOS 9. This allows a user to seamlessly jump to a particular place in your application via a web link. It is fairly common to include such a system as it can be beneficial for marketing purposes, for example taking a user from an advert to a signup page.
 
@@ -299,7 +299,7 @@ _“How can an element not exist when it exists?”_
 
 I have found that regardless of whether ‘exists’ returned true, it is irrelevant when evaluating `isHittable`. Do they use different APIs?
 
-Based on much Googling, the theory is that an XCUIElement is lazily initialised until a property other than `exists` is called. If this is true, this would mean that isHittable could determine that an element does not exist, despite `exists` returning true.
+Based on much Googling, the theory is that an XCUIElement is lazily initialised until a property other than `exists` is called. If this is true, this would mean that `isHittable` could determine that an element does not exist, despite `exists` returning true.
 
 I tested this theory by forcing the XCUIElement initialisation. Ultimately a reference to an XCUIElement is created by evaluating an XCUIElementQuery. In our example framework, if we restructure each page object selector to return an element query, this will mean that the element evaluation will occur at the point of usage before being picked up by the garbage collector:
 
