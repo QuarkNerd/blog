@@ -1,6 +1,7 @@
 active-authors:
     - aaiken
     - aaspellc
+    - abagdonaite
     - acarr
     - afiddes
     - alee
@@ -910,3 +911,8 @@ authors:
         author-summary: "<p>Senior Developer with over 20 years of experience. Always keen to broaden my horizons.</p>\n\n<p>Particularly interested in UX theory and Agile methodologies.</p>"
         twitter-handle: svenadultbooks
         twitter-url: 'http://www.twitter.com/svenadultbooks'
+    abagdonaite:
+        name: 'Auguste Bagdonaite'
+        email: abagdonaite@scottlogic.com
+        gravatar: 8f5eb604ed37e1b6b388583db9bb7d51
+        author-summary: '<p>Software Developer at Scott Logic, based in Newcastle.</p>'
