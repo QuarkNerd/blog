@@ -52,6 +52,7 @@ active-authors:
     - jrice
     - jwhite
     - jwilson
+    - jwren
     - jwright
     - khurley
     - lcollingwood
@@ -435,6 +436,11 @@ authors:
         author-summary: "\t"
         email: jwilson@scottlogic.com
         name: 'Jule Wilson'
+    jwren:
+        email: jwren@scottlogic.com
+        author-summary: ""
+        name: 'James Wren'
+        gravatar: eb1e4b3e512e5fa8a95591b4b7c522df
     jwright:
         author-summary: ""
         email: jwright@scottlogic.com
