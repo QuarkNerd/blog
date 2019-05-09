@@ -6,7 +6,7 @@ contributors:
 layout: default_post
 category: Tech
 title: Building a better D3 axis
-image: alee/assets/new-d3fc-features/axis-animation.gif
+image: alee/assets/new-d3fc-features/axis-screenshot.jpg
 summary: Recently we've been looking at enhancing the D3 axis component to implement a number of common features including more flexible label placement (e.g. positioning labels between ticks) and rotation / offset of labels to avoid collisions. This blog post demonstrates some of these features and how they were implemented.
 ---
 
