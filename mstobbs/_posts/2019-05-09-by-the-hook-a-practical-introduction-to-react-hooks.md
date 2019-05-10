@@ -30,7 +30,7 @@ The `Board` and the `Square` components simply take an input in the form of "pro
 
 Things are less straight forward with the `Game` component. It contains local state, so in order to convert the component to a function, we will need a way to handle that state.
 
-Our first idea might be to store the state as a local variable. However, when we try this, we find that the component doesn't re-render when the variable updates. This is because `setState` function is not being called. In addition, this would not be taking advantage of the [performance gains](https://reactjs.org/docs/state-and-lifecycle.html#state-updates-are-merged) that React uses on the `setState` function.
+Our first idea might be to store the state as a local variable. However, when we try this, we find that the component doesn't re-render when the variable updates. This is because `setState` function is not being called. In addition, this would not be taking advantage of the [performance gains](https://overreacted.io/react-as-a-ui-runtime/#batching) that React uses on the `setState` function by batching the calls into a single update.
 
 So if we can't just use a local variable, how can we use...state?
 
@@ -151,7 +151,7 @@ If we pass an empty array, no values within that array will ever change after a 
 
 ![Tic tac toe working correctly]({{ site.baseurl }}/mstobbs/assets/Tic%20Tac%20Toe%20Working.gif "Tic tac toe working correctly")
 
-This functionality begins to give us a glimpse of the real benefits of hooks. With classes, the side effects were separated in code by the lifecycle method that calls them. For example, in `componentDidMount`, we may be subscribe to an event listener, and then unsubscribe from it in `componentDidUnmount`. With [hooks](https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup), these two related tasks are [brought together](https://twitter.com/prchdk/status/1056960391543062528) in the code. As Dan Abramov put it in his ["90% Cleaner React With Hooks"](https://www.youtube.com/watch?v=dpw9EHDh2bM&t=17m40s) talk, "with Hooks we separate code not based on the lifecycle method name but based on what the code is doing."
+This functionality begins to give us a glimpse of the real benefits of hooks. With classes, the side effects were separated in code by the lifecycle method that calls them. For example, in `componentDidMount`, we may be subscribe to an event listener, and then unsubscribe from it in `componentDidUnmount`. With [hooks](https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup), these two related tasks are [brought together](https://twitter.com/prchdk/status/1056960391543062528) in the code. As Dan Abramov put it in his ["React Today and Tomorrow"](https://www.youtube.com/watch?v=dpw9EHDh2bM&t=17m40s) talk, "with Hooks we separate code not based on the lifecycle method name but based on what the code is doing."
 
 ## useReducer
 
