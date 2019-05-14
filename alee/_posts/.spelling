@@ -42,3 +42,7 @@ openflights
 xScale
 Centering
 yScale
+ - alee/_posts/2019-05-14-building-a-more-flexible-d3-chart.md
+d3fc-flexi-chart
+seriesMulti
+flexiChart
