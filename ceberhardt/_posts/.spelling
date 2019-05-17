@@ -288,3 +288,8 @@ v8.10
  - ceberhardt/_posts/2019-03-04-lambda-global-state.md
 ElastiCache
 AWS-hosted
+ - ceberhardt/_posts/2019-05-17-webassembly-compiler.md
+FullStackNYC
+param
+tokenizer
+whitespace
