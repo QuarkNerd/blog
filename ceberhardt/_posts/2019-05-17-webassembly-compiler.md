@@ -97,7 +97,7 @@ WebAssembly is a binary format, which isn't terribly readable (to humans at leas
 )
 ~~~
 
-If you just want to experiment with WAT you can use the `wat2wasm` tool from the [WebAssembly Binary Toolkit](TODO) to compile WAT files into wasm modules.
+If you just want to experiment with WAT you can use the `wat2wasm` tool from the [WebAssembly Binary Toolkit](https://github.com/WebAssembly/wabt) to compile WAT files into wasm modules.
 
 The above code reveals some interesting details around WebAssembly -
 
@@ -131,7 +131,7 @@ const codeSection = createSection(Section.code /** 0x0a */,
   encodeVector([functionBody]));
 ~~~
 
-I've defined an `Opcodes` enum (I'm using TypeScript), which contains all of the wasm instructions. The `unsignedLEB128` function is a standard [foo bar variable length encoding](unsignedLEB128) which is used for encoding instruction parameters.
+I've defined an `Opcodes` enum (I'm using TypeScript), which contains all of the wasm instructions. The `unsignedLEB128` function is a standard [variable length encoding](https://en.wikipedia.org/wiki/LEB128) which is used for encoding instruction parameters.
 
 The instructions for a function are combined with the function's local variables (of which there are none in this case), and an `end` opcode that signals the end of a function. Finally all the functions are encoded into a section. The `encodeVector` function simply prefixes a collection of byte arrays with the total length.
 
