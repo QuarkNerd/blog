@@ -28,6 +28,7 @@ To minify JS, run:
 npm run scripts
 ```
 
+
 To minify SCSS, run:
 ```
 npm run style
