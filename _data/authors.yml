@@ -620,8 +620,7 @@ authors:
         gravatar: b2e17d98db06119a53fffd5666848871
         twitter-url: 'https://twitter.com/_rwms'
         twitter-handle: _rwms
-        google-plus-url: 'https://plus.google.com/u/0/111956836520400525467'
-        author-summary: '<p>I work building web applications for our clients at Scott Logic. I mainly work with HTML5/JavaScript front end technologies, and Java.</p>'
+        author-summary: '<p>I work developing web applications for our clients at Scott Logic. You can also find me on <a href="https://github.com/robatwilliams">GitHub</a>.</p>'
     sbaker:
         author-summary: '<p>I am a senior developer at Scott Logic, working primarily with Java. I''m currently fascinated by data science and machine learning</p>'
         email: sbaker@scottlogic.com
