@@ -46,3 +46,13 @@ yScale
 d3fc-flexi-chart
 seriesMulti
 flexiChart
+ - alee/_posts/2019-05-28-drawing-2d-charts-with-webgl.md
+shader
+TRIANGLE_STRIP
+TRIANGLE_FAN
+d1
+d2
+r1
+r2
+d3fc-webgl-proc
+SegmentCount
