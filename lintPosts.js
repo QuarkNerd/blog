@@ -86,8 +86,8 @@ const lintPosts = () => {
         const summary = frontMatter.data.summary;
         const postDateString = path.split("/")[2].substring(0, 10);
         const postDate = new Date(postDateString);
-        // linting checks just got a whole lot stricter!
         if (postDate > new Date("2018-03-26")) {
+          // Note _prose.yml specifies 130 characters are needed, so if you change this please also change the instructions
           if (!summary || summary.length < 130) {
             console.error(
               "The post " + path + " does not have a summary of > 130 characters"

@@ -34,7 +34,7 @@ prose:
                     element: text
                     label: Summary
                     value: ""
-                    help: 'The index pages for the blog and author pages includes summaries of each blog post. You can use summary to provide a summary for your blog post, otherwise the first 50 words of the post itself are used. When writing your own summary, please try to make it roughly two sentences.'
+                    help: 'The index pages for the blog and author pages includes summaries of each blog post. You can use summary to provide a summary for your blog post, otherwise the first 50 words of the post itself are used. When writing your own summary the mimimum is 130 characters (roughly two sentences).'
             -
                 name: image
                 field:
