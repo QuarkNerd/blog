@@ -72,7 +72,7 @@ layout: default
   <div class="grid-x grid-margin-x grid-padding-y">
     <div class="cell primary-meta-data large-1 large-offset-1 grid-x">
       <div class="author-information cell medium-10 small-9 hide-for-large">
-        {% include gravatar.html %}
+        {% include author_picture.html %}
         <a rel="author" href="{{ site.baseurl }}/{{ authorUsername }}">{{ author.name }}</a>
          {% for contributorId in page.contributors %}
              {% assign contributor = site.data.authors.authors[contributorId] %}

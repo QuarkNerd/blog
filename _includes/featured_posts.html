@@ -22,7 +22,7 @@
       <div class="cell">{{ post.summary }}</div>
       <div class="avatar-metadata cell">
           {% assign author = site.data.authors.authors[post.author] %}
-          {% include gravatar.html %}
+          {% include author_picture.html %}
           {% include post_metadata.html post=post %}
       </div>
     </div>
