@@ -14,8 +14,8 @@
     <script type="text/javascript">siteGithubOwnerName = '{{ site.github.owner_name }}'</script>
 
     {% comment %} OpenGraph MetaData - Twitter / Facebook {% endcomment %}
-    <meta property="og:title" content="{{ page.title }}" />
-    <meta property="og:description"content="{{ page.summary }}"/>
+    <meta property="og:title" content="{{ page.title | escape }}" />
+    <meta property="og:description" content="{{ page.summary | escape }}"/>
     {% if page.image %}
         {% assign thumbnailImage = site.canonical.url | append: '/' | append: page.image %}
     {% else %}
