@@ -97,6 +97,7 @@ active-authors:
     - zrubin
     - zwali
     - msuperina
+    - skondru
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -919,3 +920,9 @@ authors:
         author-summary: 'Developer at Scott Logic. Lately I have been experimenting with C.'
         twitter-handle: marziosuperina
         twitter-url: 'http://www.twitter.com/marziosuperina'
+    skondru:
+        name: 'Sai Kondru'
+        email: skondru@scottlogic.com
+        author-summary: "I am a Senior Test Engineer with 9+ years of experience mainly in medical research and publication, and banking domains, with a strong manual and automation testing background.\nI have experience in leading test automation approaches for both frontend and backend technical stacks using a variety of frameworks. I frequently train others in the use of automation tools and languages in order to demystify the automation process.\n"
+        twitter-handle: null
+        picture: MyPhoto.jpg
