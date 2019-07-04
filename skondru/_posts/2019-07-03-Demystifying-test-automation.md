@@ -165,13 +165,15 @@ Be a jack of all trades, develop a breadth of programming understanding across a
 I hope this blog is energising you to motivate yourself moving towards test automation and enjoy the new learning to explore future automation.
 
 Some good links for learning automation:
-- [Ministry of Testing](https://www.ministryoftesting.com/dojo/lessons/podcast-richard-bradshaw-test-automation) 
-- [Practice site if you are learning to code](https://www.sololearn.com/Courses/) 
-- [The basic general automation practices a tester should have](https://www.edx.org/course/software-testing-fundamentals) 
-- [Different automation approaches and tools](https://testautomationu.applitools.com/)
+- [Ministry of Testing][1]
+- [Practice site if you are learning to code][2]
+- [The basic general automation practices a tester should have][3]
+- [Different automation approaches and tools][4]
 
-
-
+[1]: https://www.ministryoftesting.com/dojo/lessons/podcast-richard-bradshaw-test-automation
+[2]: https://www.sololearn.com/Courses
+[3]: https://www.edx.org/course/software-testing-fundamentals
+[4]: https://testautomationu.applitools.com/
 
 Be slow but steady, just like a tortoise. This way you reach your aims easily and in an impactful way.
 
