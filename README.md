@@ -1,6 +1,6 @@
 ## Scott Logic Blogs
 
-See the confluence page for user instructions: https://scottlogic.atlassian.net/wiki/spaces/INT/pages/219054172/Blog+Publishing
+See the [confluence page for user instructions](https://scottlogic.atlassian.net/wiki/spaces/INT/pages/219054172/Blog+Publishing), and use the [blog tool](https://cz90l8ad7e.execute-api.eu-west-2.amazonaws.com/production/) for an easy way to publish blog posts 
 
 ## Run local copy of blog (for blog devs only)
 
