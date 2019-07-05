@@ -94,6 +94,7 @@ During the course of my whole career, there have been differences in the test au
 Frameworks are built by analysing the purpose of automation testing for the project and applying suitable test techniques. To be more specific it is the working style of writing, running, reporting and maintaining the tests. In your agile team, you are always open to seek help and suggest improvements to your team. So why not pair up with developers to have a conversation and make recommendations on this? 
 
 I have added some simple descriptions below which are quite easy to understand and compare with the projects you are currently working on or will be in the future.
+
 - **Linear Scripting Framework:** Consists of a process that automatically records steps from a tester manually using the software, allowing for automated playback of those steps at a later date (example: Selenium IDE).
 - **Modular Testing Framework:** Consists of a technique where workflows are broken up into a library of smaller reusable scripts (e.g. login steps, search steps, filling a form steps, submitting a form steps), these are then reused across multiple tests.
 - **Data-driven Framework:** This technique is used to keep the test steps and test data independent from each other. The test is written to execute by calling multiple sets of test data that are stored outside of the test in a separate file. This means the same test steps can be used across different data easily and that test data can be updated without impacting the test steps.
@@ -165,6 +166,7 @@ Be a jack of all trades, develop a breadth of programming understanding across a
 I hope this blog is energising you to motivate yourself moving towards test automation and enjoy the new learning to explore future automation.
 
 Some good links for learning automation:
+
 - [Ministry of Testing][1]
 - [Practice site if you are learning to code][2]
 - [The basic general automation practices a tester should have][3]
@@ -178,5 +180,3 @@ Some good links for learning automation:
 Be slow but steady, just like a tortoise. This way you reach your aims easily and in an impactful way.
 
 ![blogimage.png]({{site.baseurl}}/skondru/assets/blogimage.png)
-
-                                                             GOOD LUCK
