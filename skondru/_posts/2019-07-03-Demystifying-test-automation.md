@@ -47,11 +47,13 @@ A test engineer with the ability to automate tests should keep the spirit of a t
 Test automation is the process of writing,  executing, reporting and maintaining the tests using a set of tools.
 
 **Why we automate**
+
 - Reduces human effort and time in running repetitive tasks to ensure that code changes have not broken the build.
 - It allows regression testing to be conducted as part of the build pipeline.
 - To run large volumes of tests in a short amount of time for volume and performance testing.
 
 **When we automate**
+
 - When there is a test that we want to re-run multiple times.
 - When the feature or behaviour will be static and not changed.
 - When there is a predictable expected outcome of the behaviour.
@@ -60,11 +62,13 @@ Test automation is the process of writing,  executing, reporting and maintaining
 
 
 **When don’t we automate**
+
 - When we don’t have to repeat the test, or it’s not valuable to repeat the test.
 - When it would be too expensive to create the test.
 - *When there is no Continuous Integration in the build pipeline.
 
 *However there are some exceptions to automate with No CI (CI/CD)
+
 - During the time we are waiting on the pipelines to be built
 - Projects too small to justify pipelines 
 - Projects in which development and testing are done in different phases and kept separately.
@@ -82,6 +86,7 @@ This means that every time there’s a fix implemented or change in code the tes
 - **Performance Testing:** Similar to bulk data testing with a simulation of thousands of concurrent users (load testing), sharp increases in users (spike testing) and long-running user processes (endurance testing) requires automation testing.
 
 **Main parts of Test Automation:**
+
 - Test framework - How you write, execute, report and maintain tests?
 - Automation tool - Tool that could execute and report tests on your behalf
 - Writing tests - Some code in a specified language – handcrafted or snippets
@@ -120,6 +125,7 @@ Example:
 ## Worrying about writing tests?
 
 This is another thing where some testers can feel panicky, but it is as simple as seeding a plant. A test automation tool is a robot or an agent that has some features to understand your commands and process them. For example, in a UI test, you ask the selenium web driver to:
+
 - Open a specific browser
 - navigate to a specified URL
 - Check that conditions exist on the page
