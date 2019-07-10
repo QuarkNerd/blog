@@ -259,9 +259,6 @@ prose:
             login: CianLMcCormack
             user: cmcormack
         -
-            login: ElizaTWF
-            user: efiennes
-        -
             login: carterh1
             user: hcarter
         -
@@ -363,3 +360,6 @@ prose:
         -
             login: pauldykes
             user: pdykes
+        -
+            login: ElizaTWF
+            user: efiennes

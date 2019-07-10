@@ -12,10 +12,11 @@ image: efiennes/assets/NCLhands1.jpg
 tags: '#featured #diversity #learning #Tech(k)now #London'
 summary: >-
   If I said the words "a tech conference for women" - what would you imagine?
-  Would it be the attendees sitting in circles, holding hands, admiring each other's beads, singing kumbaya and plotting the downfall of   the patriarchy? 
+  Would it be the attendees sitting in circles, holding hands and admiring each other's beads?
+  Do you picture 'sisters' singing kumbaya and plotting the downfall of the patriarchy? 
   Would you picture sessions such as "how to code for fluffy-wuffy knitting sites?"
   Would you wonder if it was full of hardcode coding and hacking sessions to get women further up the knowledge ladder?
-  Some of the Scott Logic tech staff went to a tech conf for women. This is what it was like.
+  Some of the Scott Logic tech staff went to a technical conference for women. This is what it was like.
 ---
 
 ## Elizabeth:
@@ -23,7 +24,7 @@ summary: >-
 It started with a tweet from a friend about an all day London tech event for those who identify as female. I had a look and the event grabbed my attention for a lot of reasons...
 
 ### Variety
-Rather than being all talks or all workshops, the TechKnow event was an interesting mix of the two. Annoyingly, it was multiple tracks at once which meant some decisions had to be made in order to pick one session over another but being spoiled for choice is a nice complaint to have about a tech event. My only gripe is that I wish I could have attended them all.
+Rather than being all talks or all workshops, the Tech(K)now event was an interesting mix of the two. Annoyingly, it was multiple tracks at once which meant some decisions had to be made in order to pick one session over another but being spoiled for choice is a nice complaint to have about a tech event. My only gripe is that I wish I could have attended them all.
 
 ### Enrichment
 We run an internal mentoring / hands on training series of workshops for our delivery teams within Scott Logic and some of the tracks covered material we had already covered or intended to cover.  I am a big fan of seeing how other people teach and incorporating the good into what I do and I fully intended to take some lessons away about ways to teach new technical concepts to a group of people.
@@ -37,7 +38,7 @@ Within the talks and the workshops themselves, there was a huge array of topics 
 I love a bargain. This price for early bird tickets was a very reasonable £50. An unbelievable £50. Wait, £50 for an all-day conference with a two hour React for beginners workshop? Could this be right? Similar workshops in London were priced around £500.
 I was so puzzled about this that I was wondering if the event was too good to be true. 
 
-For that reason, I did some searching online.  I was so glad to find myself wrong. TechKnow has been running twice a year since 2017 and there was some very positive and credible involvement from people I respected on the London tech scene such as [Gen Ashley](https://twitter.com/coderinheels).
+For that reason, I did some searching online.  I was so glad to find myself wrong. Tech(K)now has been running twice a year since 2017 and there was some very positive and credible involvement from people I respected on the London tech scene such as [Gen Ashley](https://twitter.com/coderinheels).
 
 ### Location
 The Curtain is a huge quirky space with loads of small, medium and large event rooms. The decoration was what I would imagine the fevered dreams of Eva Hesse on a bender with Terry Gillingham would look like. Madly wonderful. Even the loos were a steampunk daydream with 3D effect floor tiles and high thin-piped cast iron taps. It's a very inspiring place to learn.

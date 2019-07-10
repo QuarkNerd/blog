@@ -28,7 +28,6 @@ active-authors:
     - dogle
     - dsmith
     - dtheasby
-    - efiennes
     - emason
     - fbromley
     - garora
@@ -99,6 +98,7 @@ active-authors:
     - msuperina
     - skondru
     - pdykes
+    - efiennes
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -751,13 +751,6 @@ authors:
         twitter-handle: aCyanNinja
         twitter-url: 'http://www.twitter.com/aCyanNinja'
         picture: picture.png
-    efiennes:
-        name: 'Elizabeth Fiennes'
-        email: efiennes@scottlogic.com
-        author-summary: "<p>I've been in testing and QA since 1998 (yes, we had computers way back then).\n\n<p>Since then I got some time off for two people shaped development projects of my own.\n\n<p>I am cat slave to a very large and opinionated Tuxedo Tom who likes walking across keyboards and spilling tea.\n\n<p>Doing talks and writing blogs were not something I was comfortable with so I challenged myself to do a lot of them in 2018 which was an interesting and social experiment. It also led to me making new wonderful friends which is one of the best outcomes of breaking out of any comfort zone.\n\n<p>For 2019, I am going to (re)learn C#, start to play the drums, study Italian and continue to use my evil powers for good."
-        twitter-handle: ElizaFx
-        twitter-url: 'http://www.twitter.com/ElizaFx'
-        picture: picture.png
     hcarter:
         name: 'Heather Carter'
         email: hcarter@scottlogic.com
@@ -933,3 +926,9 @@ authors:
         author-summary: '<p>Content and Channel Manager at Scott Logic, with a background in digital marketing, content management and product management in the creative industries and the IT sector.</p>'
         twitter-handle: null
         picture: 'Profile pic for blog-1-2.jpg'
+    efiennes:
+        name: 'Elizabeth Fiennes'
+        email: efiennes@scottlogic.com
+        author-summary: "<p>I've been in testing and QA since 1998. Yes, we had computers way back then. No, my first tablet was not made of stone.\n\n<p>Since then I got some time off for two people shaped development projects of my own.\n\n<p>I am cat slave to a very large and opinionated Tuxedo Tom who likes walking across keyboards and spilling tea.\n\n<p>For 2019, I am going to (re)learn C# and continue to use my evil powers for good."
+        twitter-handle: ElizaFx
+        picture: EF.PNG
