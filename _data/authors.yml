@@ -16,6 +16,7 @@ active-authors:
     - cbrown
     - ceberhardt
     - clee
+    - cmcknight
     - cmcormack
     - cprice
     - croberts
@@ -752,6 +753,11 @@ authors:
         twitter-handle: aCyanNinja
         twitter-url: 'http://www.twitter.com/aCyanNinja'
         picture: picture.png
+    cmcknight:
+        name: 'Chloe McKnight'
+        email: cmcknight@scottlogic.com
+        author-summary: 'I am a grad from Livingston with a passion for tech, getting my first experience in industry with Scott Logic! I have lived in Edinburgh for the last few years and still enjoy exploring the city.'
+        picture: picture.jpg
     hcarter:
         name: 'Heather Carter'
         email: hcarter@scottlogic.com
