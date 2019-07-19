@@ -12,7 +12,7 @@ summary: >-
 
 Over the last few years, British Politics has been an amazing case study in attempting to bring an ambitious, far-ranging project to reality.
 
-It is hard to argue that it has gone well.
+[It is hard to argue that it has gone well.](https://ukandeu.ac.uk/wp-content/uploads/2019/06/The-Brexit-Scorecard.pdf)
 
 Still, as we are always told, we can learn more from failure than success. So, let's see if there are any general lessons from this we can apply to software development.
 
