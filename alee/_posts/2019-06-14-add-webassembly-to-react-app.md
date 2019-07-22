@@ -5,6 +5,9 @@ layout: default_post
 category: Tech
 title: Adding a WebAssembly component to a React App
 summary: As a front-end developer working on real-world applications, WebAssembly isn't something I can actually use, is it? Let's find out how easy it can be using AssemblyScript.
+image: ceberhardt/assets/featured/wasm.png
+tags:
+  - featured
 ---
 
 As a front-end developer working on real-world applications, I'd imagine that WebAssembly isn't something I can actually use. For one thing, it often requires special tools and platform support (e.g. likely emscripten and some form of Linux/Docker if you're using C++). Secondly, aren't WASM modules harder to work with than JavaScript modules?

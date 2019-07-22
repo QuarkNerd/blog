@@ -4,11 +4,12 @@ author: dsmith
 layout: default_post
 category: Tech
 title: Getting started with Amazon Web Services (AWS)
-tags: cloud aws learning
+tags: cloud aws learning featured
 summary: >-
   This article is for anyone interested in learning more about Amazon Web
   Services (AWS). It talks about training resources, getting practical
   experience and staying up-to-date.
+image: dsmith/assets/featured/aws-logo.png
 ---
 ## Introduction
 This article is for anyone interested in learning more about Amazon Web Services (AWS). I've tried to keep things relevant to people with a wide range of roles. This includes Software developers, testers, technical sales and others.
