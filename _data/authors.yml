@@ -10,7 +10,6 @@ active-authors:
     - bborowski@scottlogic.com
     - bdimitrov-SL
     - bjedrzejewski
-    - bmacdonald
     - cakehurstryan
     - callan
     - cbrown
@@ -19,8 +18,6 @@ active-authors:
     - cmcknight
     - cmcormack
     - cprice
-    - croberts
-    - cyule
     - dcastellano
     - dgorst
     - dkerr
@@ -36,21 +33,17 @@ active-authors:
     - gthompson
     - hashbyha
     - hbedford
-    - hcarter
     - hmumford
     - hpretswell
     - hsteele@scottlogic.com
     - hubinf@scottlogic.com
     - imaxwell@scottlogic.com
-    - jayphi11ips
     - jdunkerley
     - jharris
     - jhill
     - jmelon
     - jporter
-    - jrice
     - jwhite
-    - jwilson
     - jwren
     - jwright
     - khurley
@@ -63,21 +56,17 @@ active-authors:
     - mdebeneducci
     - mdunsdon
     - mjose
-    - mmathew
     - msinton
     - mstobbs
     - nowen
-    - okenyon
     - pgraham
     - phands
     - pkhan
     - pshek
     - rbeckett
     - rgraham
-    - rmarcalo
     - rnewsome
     - robsmith
-    - rrhodes
     - rwilliams
     - sbaker
     - sbulut
@@ -940,7 +929,7 @@ authors:
         twitter-handle: ElizaFx
         picture: EF.PNG
     bquinn:
-        name: Benedict
+        name: 'Benedict Quinn'
         email: bquinn@scottlogic.com
         author-summary: 'I am a developer at Scott Logic. I am currently developing iOS apps using the amazing Swift, a programming language created by Apple.'
         twitter-handle: null
