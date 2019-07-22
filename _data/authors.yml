@@ -90,6 +90,7 @@ active-authors:
     - pdykes
     - efiennes
     - bquinn
+    - sbreingan
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -934,3 +935,9 @@ authors:
         author-summary: 'I am a developer at Scott Logic. I am currently developing iOS apps using the amazing Swift, a programming language created by Apple.'
         twitter-handle: null
         picture: thumbnail_IMG_5969.jpg
+    sbreingan:
+        name: 'Stuart Breingan'
+        email: sbreingan@scottlogic.com
+        author-summary: "I'm a Senior Developer at Scott Logic, based in Edinburgh.\nMy background is in Java and .NET but interested in technologies across the stack."
+        twitter-handle: null
+        picture: picture-square.jpg
