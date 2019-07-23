@@ -14,7 +14,7 @@ tags: PublicSpeaking
 ---
 A little over a year ago, I wrote [“We need to talk”](https://blog.scottlogic.com/2018/06/06/we-need-to-talk.html) about my early forays into public speaking. Intersprinkled with the most usefully useless top tips it was possible to muster, it was a light-hearted look at my early days [standing up on my hind legs](https://www.goodreads.com/book/show/357205.Rumpole_Misbehaves) addressing rooms of people.
 
-Now a little older and a smidgen wiser, I’m going back to this subject to talk about the fear of what could go wrong in public speaking. This is something that those new to the madness of speaking have a lot of questions about. During the course of this post, I will introduce you to a some Gremlins I have met along the way and suggest some ways to deal with the little critters. 
+Now a little older and a smidgen wiser, I’m going back to this subject to talk about the fear of what could go wrong in public speaking. This is something that those new to the madness of speaking have asked me a lot of questions about. During the course of this post, I will introduce you to some Gremlins I have met along the way and suggest some ways to deal with the little critters. 
 
 Also, there will be more chocolate teapot style tips. Numbers 1-5 are in the previous post.
 
@@ -58,7 +58,7 @@ I have 2 approaches for coping with this – a long walk and a long talk with my
 
 **Top Tip on public speaking no.8 – If you are taking a walk to help with the nerves, don’t walk so far away, you can’t get back in time for your talk to start.**
 
-** No comment if this is based on what was very nearly a true story.
+This may or may not be based on what was very nearly a true story.
 
 When I have words with myself, I apply my version of self-comfort.  It has been commented on more than once that I have a very strange idea of self-comfort, so be warned, this approach may not be for everyone.
 
@@ -132,7 +132,6 @@ Now, I'm not saying that you should do this but I'm not saying that you shouldn'
 
 Of course, a nicer a nicer way of dealing with this is making sure that the organisers remind people to turn off their phones or put them on silent before the talk starts. Your choice. 
 <br>
-
 
 ## Epilogue
 I now expect things to go wrong during talks but I do whatever is in my control to stop that. I pack spare cables, test the equipment as soon as I am given access, don’t bend the mic stand too much and practice, practice, practice. 

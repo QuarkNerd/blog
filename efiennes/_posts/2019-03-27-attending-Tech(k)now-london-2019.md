@@ -7,16 +7,18 @@ contributors:
   - lramchandani
 layout: default_post
 category: News
-title: Attending TechKnow London 2019
+title: Attending Tech(K)now London 2019
 image: efiennes/assets/NCLhands1.jpg
 tags: '#featured #diversity #learning #Tech(k)now #London'
 summary: >-
   If I said the words "a tech conference for women" - what would you imagine?
-  Would it be the attendees sitting in circles, holding hands and admiring each other's beads?
-  Do you picture 'sisters' singing kumbaya and plotting the downfall of the patriarchy? 
-  Would you picture sessions such as "how to code for fluffy-wuffy knitting sites?"
-  Would you wonder if it was full of hardcode coding and hacking sessions to get women further up the knowledge ladder?
-  Some of the Scott Logic tech staff went to a technical conference for women. This is what it was like.
+  Would it be the attendees sitting in circles, holding hands and admiring each
+  other's beads? Do you picture 'sisters' singing kumbaya and plotting the
+  downfall of the patriarchy?  Would you picture sessions such as "how to code
+  for fluffy-wuffy knitting sites?" Would you wonder if it was full of hardcode
+  coding and hacking sessions to get women further up the knowledge ladder? Some
+  of the Scott Logic tech staff went to a technical conference for women. This
+  is what it was like.
 ---
 
 ## Elizabeth:
@@ -24,7 +26,7 @@ summary: >-
 It started with a tweet from a friend about an all day London tech event for those who identify as female. I had a look and the event grabbed my attention for a lot of reasons...
 
 ### Variety
-Rather than being all talks or all workshops, the Tech(K)now event was an interesting mix of the two. Annoyingly, it was multiple tracks at once which meant some decisions had to be made in order to pick one session over another but being spoiled for choice is a nice complaint to have about a tech event. My only gripe is that I wish I could have attended them all.
+Rather than being all talks or all workshops, the Tech(K)now event was an interesting mix of the two. It was multiple tracks at once which meant some decisions had to be made in order to pick one session over another but being spoiled for choice is a nice complaint to have about a tech event. My only gripe is that I wish I could have attended them all.
 
 ### Enrichment
 We run an internal mentoring / hands on training series of workshops for our delivery teams within Scott Logic and some of the tracks covered material we had already covered or intended to cover.  I am a big fan of seeing how other people teach and incorporating the good into what I do and I fully intended to take some lessons away about ways to teach new technical concepts to a group of people.
