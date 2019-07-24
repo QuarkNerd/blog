@@ -91,6 +91,7 @@ active-authors:
     - efiennes
     - bquinn
     - sbreingan
+    - chedler
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -941,3 +942,9 @@ authors:
         author-summary: "I'm a Senior Developer at Scott Logic, based in Edinburgh.\nMy background is in Java and .NET but interested in technologies across the stack."
         twitter-handle: null
         picture: picture-square.jpg
+    chedler:
+        name: 'Catherine Hedler'
+        email: chedler@scottlogic.com
+        author-summary: 'UX Designer at Scott Logic based in Edinburgh. Enjoys rock climbing, fungi foraging and comfortable shoes.'
+        twitter-handle: null
+        picture: IMG_2198.jpg
