@@ -91,6 +91,7 @@ active-authors:
     - efiennes
     - bquinn
     - sbreingan
+    - hwilliams
     - chedler
 authors:
     aaiken:
@@ -942,6 +943,12 @@ authors:
         author-summary: "I'm a Senior Developer at Scott Logic, based in Edinburgh.\nMy background is in Java and .NET but interested in technologies across the stack."
         twitter-handle: null
         picture: picture-square.jpg
+    hwilliams:
+        name: 'Herb Williams'
+        email: hwilliams@scottlogic.com
+        gravatar: 89f352eee3f1c02d6d53446c275fbfd8
+        author-summary: 'I was born into the world testing everything I could touch or taste. 20 years on, here I am - Testing still...'
+        active: true
     chedler:
         name: 'Catherine Hedler'
         email: chedler@scottlogic.com
