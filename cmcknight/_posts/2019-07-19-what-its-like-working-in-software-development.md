@@ -5,6 +5,8 @@ title: What it’s like working in software development
 layout: default_post
 categories:
   - Careers
+tags:
+  - featured
 summary: >-
   Looking back on the questions I had when I was just starting out, I wanted to share my thoughts and advice to anyone interested in getting into software development.
 ---

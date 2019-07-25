@@ -51,7 +51,9 @@
           <polygon points="0 0 650 0 650 109.736 353 410 0 410"/>
         </svg>
       {% endcase %}
-      <img class="cell show-for-large" src="{{ site.baseurl }}/{{post.image}}"/>
+      {% if post.image %}
+        <img class="cell show-for-large" src="{{ site.baseurl }}/{{post.image}}"/>
+      {% endif %}
     </div>
   </div>
   {% endfor %}
