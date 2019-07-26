@@ -946,8 +946,8 @@ authors:
     hwilliams:
         name: 'Herb Williams'
         email: hwilliams@scottlogic.com
-        gravatar: 89f352eee3f1c02d6d53446c275fbfd8
         author-summary: 'I was born into the world testing everything I could touch or taste. 20 years on, here I am - Testing still...'
+        picture: herbs-gravatar.png
         active: true
     chedler:
         name: 'Catherine Hedler'
