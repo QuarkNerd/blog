@@ -40,6 +40,7 @@ active-authors:
     - imaxwell@scottlogic.com
     - jdunkerley
     - jharris
+    - jhenderson
     - jhill
     - jmelon
     - jporter
@@ -955,3 +956,8 @@ authors:
         author-summary: 'UX Designer at Scott Logic based in Edinburgh. Enjoys rock climbing, fungi foraging and comfortable shoes.'
         twitter-handle: null
         picture: IMG_2198.jpg
+    jhenderson:
+        name: 'Jonathon Henderson'
+        email: jhenderson@scottlogic.com
+        author-summary: '<p>I''m a Senior Developer at Scott Logic, based in Newcastle.</p><p>I''ve been hooked on software engineering ever since I watched GoldenEye as a teenager and I''m passionate about Java, Kotlin and Python.</p><p>My interests lie within search engines, distributed systems, microservices and cloud computing.</p><p>I''m the proud father of two rescue cats, Olive and Ziggy, commonly known as Cutie-Cat and The Tron.</p>'
+        picture: picture.jpg
