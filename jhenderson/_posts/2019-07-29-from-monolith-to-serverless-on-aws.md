@@ -9,7 +9,7 @@ categories:
 
 Since the 2006 release of Amazon Web Services (AWS) and its Simple Storage Service (S3), "The Cloud" has dramatically risen in popularity and continues to do so with no signs of stopping any time soon. It has also helped to shape the future of software development, giving rise to alternative models and concepts.
 
-One such model is "serverless", which is based on the premise that that applications run on-demand and are only charged for the units of computation consumed, as opposed to pre-purchasing capacity. Contrary to what the name suggests, "serverless" doesn't actually mean that apps run without a server - they just don't need to care about them. The cloud provider handles incoming requests, calls the serverless function and handles outgoing responses.
+One such model is "serverless", which is based on the premise that applications run on-demand and are only charged for the units of computation consumed, as opposed to pre-purchasing capacity. Contrary to what the name suggests, "serverless" doesn't actually mean that apps run without a server - they just don't need to care about them. The cloud provider handles incoming requests, calls the serverless function and handles outgoing responses.
 
 The rise of cloud computing has caused developers to re-think software design, ultimately leading to further modularisation by breaking up applications into smaller, single-purpose services that function independently and cooperate with each other to form a single application. This is in contrast to the more traditional model of monolithic development, where a single, heavy-duty application would be developed to be capable of handling everything required for it to fulfill its purpose.
 
