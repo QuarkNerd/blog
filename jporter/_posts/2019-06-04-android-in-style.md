@@ -73,9 +73,6 @@ The user can change the display size through the settings app. Here are two scre
   </div>
 </div>
 
-<!--    <img id="oneplus-largest" src="{{site.baseurl}}/jporter/assets/OnePlus%206T%20Largest%20Display.jpg" alt="OnePlus 6T Largest Display" style="display:block;margin-left:auto;margin-right:auto;width:40%"> -->
-
-
 ## Media Queries vs Resource Qualifiers
 
 Media queries are a useful tool in CSS to enable different styles to be applied to an application depending on the window size. Resource qualifiers are similar in Android but far more powerful. Whereas on the web the media queries for each screen size are defined within the same stylesheet, the design of resource qualifiers means that each screen size has a different XML file. There are directories for each type of resource, for example `layout` and `drawable`. If a qualifier is used, a directory for that specific qualifier is created, for example `layout-w240dp` would contain all `layout` resources for screen widths smaller than `240dp`. Android qualifiers are versatile; they can select from a wide range of device and user attributes, from language and country to whether night mode is enabled, to Android version and screen orientation.
