@@ -93,6 +93,7 @@ active-authors:
     - sbreingan
     - hwilliams
     - chedler
+    - jmorris
     - amcdevitt
 authors:
     aaiken:
@@ -961,6 +962,11 @@ authors:
         email: jhenderson@scottlogic.com
         author-summary: '<p>I''m a Senior Developer at Scott Logic, based in Newcastle.</p><p>I''ve been hooked on software engineering ever since I watched GoldenEye as a teenager and I''m passionate about Java, Kotlin and Python.</p><p>My interests lie within search engines, distributed systems, microservices and cloud computing.</p><p>I''m the proud father of two rescue cats, Olive and Ziggy, commonly known as Cutie-Cat and The Tron.</p>'
         picture: picture.jpg
+    jmorris:
+        name: 'Jamie Morris'
+        email: jmorris@scottlogic.com
+        author-summary: 'I''m a Senior Developer based in Scott Logic''s London office.'
+        picture: Jamie-Morris.jpg
     amcdevitt:
         name: 'Adam McDevitt'
         email: amcdevitt@scottlogic.com
