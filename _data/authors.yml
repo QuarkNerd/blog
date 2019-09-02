@@ -94,6 +94,7 @@ active-authors:
     - hwilliams
     - chedler
     - jmorris
+    - asureshkumar
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -972,3 +973,9 @@ authors:
         author-summary: 'I''m an Intern Software Developer at Scott Logic in Edinburgh for Summer 2019. In September 2019 I will be entering my 4th year of studying BSc Computer Science at the University of Edinburgh'
         twitter-handle: null
         picture: adam.jpg
+    asureshkumar:
+        name: 'Adrian Sureshkumar'
+        email: asureshkumar@scottlogic.com
+        author-summary: 'I''m a Lead Developer at Scott Logic in London. My background is primarily in .NET with over 10 years experience in the motorsport industry. I also work on web applications using technologies such as TypeScript, React/Redux and D3.'
+        twitter-handle: null
+        picture: Profile.jpg
