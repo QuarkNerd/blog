@@ -89,12 +89,12 @@ active-authors:
     - skondru
     - pdykes
     - efiennes
-    - bquinn
     - sbreingan
     - hwilliams
     - chedler
     - jmorris
     - asureshkumar
+    - bquinn
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -933,12 +933,6 @@ authors:
         author-summary: "<p>I've been in testing and QA since 1998. Yes, we had computers way back then. No, my first tablet was not made of stone.\n\n<p>Since then I got some time off for two people shaped development projects of my own.\n\n<p>I am cat slave to a very large and opinionated Tuxedo Tom who likes walking across keyboards and spilling tea.\n\n<p>For 2019, I am going to (re)learn C# and continue to use my evil powers for good."
         twitter-handle: ElizaFx
         picture: EF.PNG
-    bquinn:
-        name: 'Benedict Quinn'
-        email: bquinn@scottlogic.com
-        author-summary: 'I am a developer at Scott Logic. I am currently developing iOS apps using the amazing Swift, a programming language created by Apple.'
-        twitter-handle: null
-        picture: thumbnail_IMG_5969.jpg
     sbreingan:
         name: 'Stuart Breingan'
         email: sbreingan@scottlogic.com
@@ -979,3 +973,9 @@ authors:
         author-summary: 'I''m a Lead Developer at Scott Logic in London. My background is primarily in .NET with over 10 years experience in the motorsport industry. I also work on web applications using technologies such as TypeScript, React/Redux and D3.'
         twitter-handle: null
         picture: Profile.jpg
+    bquinn:
+        name: 'Benedict Quinn'
+        email: bquinn@scottlogic.com
+        author-summary: 'I am a developer at Scott Logic. I am currently developing iOS apps using the amazing Swift, a programming language created by Apple.'
+        twitter-handle: null
+        picture: thumbnail_IMG_5969.jpg

@@ -364,9 +364,6 @@ prose:
             login: ElizaTWF
             user: efiennes
         -
-            login: BenedictQ
-            user: bquinn
-        -
             login: sbreingan
             user: sbreingan
         -
@@ -387,3 +384,6 @@ prose:
         -
             login: adrian-sureshkumar
             user: asureshkumar
+        -
+            login: BenedictQ
+            user: bquinn
