@@ -4,7 +4,7 @@
     <title>Circle: Canvas (WebGL)</title>
   </head>
   <body style="height: 100%; width: 100%; margin: 0px">
-    <canvas id="my-canvas" style="height: 100%; width: 100%"></canvas>
+    <canvas id="my-canvas" style="height: 100%; width: 100%; display: block"></canvas>
     <script>
       const canvas = document.getElementById("my-canvas");
       const context = canvas.getContext("webgl");
@@ -75,8 +75,8 @@
         context.useProgram(program);
 
         // Scale projection to maintain 1:1 ratio between height and width on canvas.
-        projectionMatrix[0] = canvas.height > canvas.width ? canvas.height / canvas.width : 1.0;
-        projectionMatrix[5] = canvas.width > canvas.height ? canvas.width / canvas.height : 1.0;
+        projectionMatrix[0] = canvas.width > canvas.height ? canvas.height / canvas.width : 1.0;
+        projectionMatrix[5] = canvas.height > canvas.width ? canvas.width / canvas.height : 1.0;
         context.uniformMatrix4fv(projectionUniform, false, projectionMatrix);
 
         const vertexSize = 2;

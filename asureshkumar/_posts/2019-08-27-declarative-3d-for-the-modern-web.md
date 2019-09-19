@@ -21,8 +21,9 @@ Let's consider an [example]({{ site.github.url }}/asureshkumar/assets/2019-08-27
 ~~~ html
 <html style="height: 100%; width: 100%">
   <body style="height: 100%; width: 100%; margin: 0px">
-    <svg style="height: 100%; width: 100%">
-      <circle cx="50%" cy="50%" r="25%" fill="red" stroke="black" />
+    <svg style="height: 100%; width: 100%; display: block" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="25" fill="red" stroke="black"
+              vector-effect="non-scaling-stroke" />
     </svg>
   </body>
 </html>
@@ -56,7 +57,7 @@ Let's take a look at an [example]({{ site.github.url }}/asureshkumar/assets/2019
 ~~~ html
 <html style="height: 100%; width: 100%">
   <body style="height: 100%; width: 100%; margin: 0px">
-    <canvas id="my-canvas" style="height: 100%; width: 100%"></canvas>
+    <canvas id="my-canvas" style="height: 100%; width: 100%; display: block"></canvas>
     <script>
       const canvas = document.getElementById("my-canvas");
       const context = canvas.getContext("2d");
@@ -69,9 +70,9 @@ Let's take a look at an [example]({{ site.github.url }}/asureshkumar/assets/2019
         context.beginPath();
 
         // Calculate relative size and position of circle in pixels.
-        const x = canvas.width / 2;
-        const y = canvas.height / 2;
-        const radius = Math.max(canvas.height, canvas.width) / 4;
+        const x = 0.5 * canvas.width;
+        const y = 0.5 * canvas.height;
+        const radius = 0.25 * Math.min(canvas.height, canvas.width);
 
         context.arc(x, y, radius, 0, 2 * Math.PI);
         
@@ -101,7 +102,7 @@ Let's now take a look at an [example]({{ site.github.url }}/asureshkumar/assets/
 ~~~ html
 <html style="height: 100%; width: 100%">
   <body style="height: 100%; width: 100%; margin: 0px">
-    <canvas id="my-canvas" style="height: 100%; width: 100%"></canvas>
+    <canvas id="my-canvas" style="height: 100%; width: 100%; display: block"></canvas>
     <script>
       const canvas = document.getElementById("my-canvas");
       const context = canvas.getContext("webgl");
@@ -172,8 +173,8 @@ Let's now take a look at an [example]({{ site.github.url }}/asureshkumar/assets/
         context.useProgram(program);
 
         // Scale projection to maintain 1:1 ratio between height and width on canvas.
-        projectionMatrix[0] = canvas.height > canvas.width ? canvas.height / canvas.width : 1.0;
-        projectionMatrix[5] = canvas.width > canvas.height ? canvas.width / canvas.height : 1.0;
+        projectionMatrix[0] = canvas.width > canvas.height ? canvas.height / canvas.width : 1.0;
+        projectionMatrix[5] = canvas.height > canvas.width ? canvas.width / canvas.height : 1.0;
         context.uniformMatrix4fv(projectionUniform, false, projectionMatrix);
 
         const vertexSize = 2;
@@ -229,6 +230,7 @@ Let's take a look at what our circle [example]({{ site.github.url }}/asureshkuma
   <head>
     <script type="text/javascript" src="http://www.x3dom.org/release/x3dom-full.js"></script>
     <link rel="stylesheet" type="text/css" href="http://www.x3dom.org/release/x3dom.css">
+    <style>x3d > canvas { display: block; }</style>
   </head>
   <body style="height: 100%; width: 100%; margin: 0px">
     <x3d style="height: 100%; width: 100%">
@@ -261,17 +263,19 @@ Now it's _finally_ time to step out of our "flat" world and render something in 
   <head>
     <script type="text/javascript" src="http://www.x3dom.org/release/x3dom-full.js"></script>
     <link rel="stylesheet" type="text/css" href="http://www.x3dom.org/release/x3dom.css">
+    <style>x3d > canvas { display: block; }</style>
   </head>
   <body style="height: 100%; width: 100%; margin: 0px">
     <x3d style="height: 100%; width: 100%">
       <scene>
+        <orthoviewpoint></orthoviewpoint>
         <navigationinfo headlight="false"></navigationinfo>
         <directionallight direction="1 -1 -1" on="true" intensity="1.0"></directionallight>
         <shape>
           <appearance>
             <material diffuseColor="1 0 0"></material>
           </appearance>
-          <sphere outerRadius="0.5"></sphere>
+          <sphere radius="0.5"></sphere>
         </shape>
       </scene>
     </x3d>
@@ -288,3 +292,5 @@ X3DOM also provides navigation out of the box, allowing you to rotate, pan and z
 That's it! We've seen that we can use X3D with the X3DOM library to write declarative 3D graphics that will run in most modern web browsers. It is a much simpler way to get started with 3D graphics for the web than diving straight into WebGL, at the expense of control over the underlying rendering. If you are interested in finding out more about this library, there are some [tutorials](https://doc.x3dom.org/tutorials/index.html) in the official X3DOM documentation.
 
 In my next blog post, I will be demonstrating how to combine X3DOM with D3 to produce dynamic 3D charts.
+
+_Updated 19 September 2019: Consistent shape sizing and removal of vertical scrollbars in code examples._
