@@ -94,7 +94,7 @@ Let's take a closer look at one of the hooks within the library to give a better
 
 If you were to implement this functionality without hooks, it would look something like this:
 
-```jsx
+~~~jsx
 import React from "react";
 
 class Maximize extends React.Component {
@@ -139,7 +139,7 @@ class Maximize extends React.Component {
     );
   }
 }
-```
+~~~
 
 As you can see, it's quite verbose and you've got a common issue with having to manage listeners and their cleanup.
 
@@ -147,7 +147,7 @@ On top of this, the logic is split across lifecycles...in a more complex compone
 
 Let's take a look at how this logic looks with hooks:
 
-```jsx
+~~~jsx
 import React, { useEffect, useState } from "react";
 
 const updateWindow = isMaximized => {
@@ -181,13 +181,13 @@ const Maximize = () => {
     </div>
   );
 };
-```
+~~~
 
 Here, the code is more concise and the listener-related logic is grouped together appropriately rather than split across lifecycles arbitrarily.
 
 But why bother writing and maintaining all that code when you can use an OpenFin React Hook?
 
-```jsx
+~~~jsx
 import { useMaximized } from "openfin-react-hooks";
 
 const Maximize = () => {
@@ -204,7 +204,7 @@ const Maximize = () => {
     </div>
   );
 };
-```
+~~~
 
 Voilà!
 
