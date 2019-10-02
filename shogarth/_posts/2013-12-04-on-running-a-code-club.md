@@ -9,7 +9,7 @@ summary: "Scott Logic have been helping out with a Code Club at a local primary 
 oldlink: "http://www.scottlogic.com/blog/2013/12/04/on-running-a-code-club.html"
 disqus-id: /2013/12/04/on-running-a-code-club.html
 categories:
-  - News
+  - Careers
 ---
 
 Since September, a colleague (Pat Armstrong) and I have been taking part in a local school's after-school [Code Club](https://www.codeclub.org.uk/), [backed by Scott Logic](http://www.scottlogic.com/news/20131203-certificates-awarded-to-code-club-whiz-kids/). This is a nationwide, non-governmental initiative to aid children, aged 9-11, to learn programming. It's operated purely on a voluntary basis and is free for a school, library or community centre to set up. In this post, I'd like to discuss my personal experiences from the initiative and provide some tips I found useful during the sessions.

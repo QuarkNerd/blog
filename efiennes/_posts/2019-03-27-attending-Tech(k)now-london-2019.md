@@ -6,7 +6,7 @@ contributors:
   - sbaker
   - lramchandani
 layout: default_post
-category: News
+category: Tech
 title: Attending Tech(K)now London 2019
 image: efiennes/assets/NCLhands1.jpg
 tags: '#featured #diversity #learning #Tech(k)now #London'

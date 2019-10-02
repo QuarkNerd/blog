@@ -5,7 +5,7 @@ tags:
   - Conferences
   - Bristech
 categories:
-  - News
+  - Tech
 layout: default_post
 ---
 

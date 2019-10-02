@@ -5,7 +5,7 @@ tags:
   - Conferences
   - DeveloperDeveloperDeveloper
 categories:
-  - News
+  - Tech
 layout: default_post
 ---
 

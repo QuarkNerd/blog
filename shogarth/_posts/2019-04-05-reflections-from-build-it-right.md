@@ -5,7 +5,7 @@ tags:
   - Conferences
   - BuildITRight
 categories:
-  - News
+  - Tech
 layout: default_post
 summary: "My personal reflections on the sessions that I attended at the 2019 Build IT Right conference. Continuous Delivery, embracing conflict and fighting entropy."
 ---
