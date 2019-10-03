@@ -2,8 +2,9 @@
 published: true
 author: pdykes
 layout: default_post
-category: News
+category: Tech
 title: Be inspired by Scott Logic
+redirect_to: https://www.scottlogic.com/were-one-of-1000-companies-to-inspire-britain/
 summary: >-
   Scott Logic is proud to have been identified as one of 1000 Companies to
   Inspire Britain in 2019 by the London Stock Exchange Group (LSEG).
