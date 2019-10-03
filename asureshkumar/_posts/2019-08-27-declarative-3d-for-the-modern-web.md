@@ -291,6 +291,6 @@ X3DOM also provides navigation out of the box, allowing you to rotate, pan and z
 
 That's it! We've seen that we can use X3D with the X3DOM library to write declarative 3D graphics that will run in most modern web browsers. It is a much simpler way to get started with 3D graphics for the web than diving straight into WebGL, at the expense of control over the underlying rendering. If you are interested in finding out more about this library, there are some [tutorials](https://doc.x3dom.org/tutorials/index.html) in the official X3DOM documentation.
 
-In my next blog post, I will be demonstrating how to combine X3DOM with D3 to produce dynamic 3D charts.
+In my [next blog post]({{ site.github.url }}/2019/10/03/how-to-make-3d-charts-for-the-web-using-d3-and-x3dom.html), I will be demonstrating how to combine X3DOM with D3 to produce dynamic 3D charts.
 
 _Updated 19 September 2019: Consistent shape sizing and removal of vertical scrollbars in code examples._

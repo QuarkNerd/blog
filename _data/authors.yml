@@ -970,7 +970,7 @@ authors:
     asureshkumar:
         name: 'Adrian Sureshkumar'
         email: asureshkumar@scottlogic.com
-        author-summary: 'I''m a Lead Developer at Scott Logic in London. My background is primarily in .NET with over 10 years experience in the motorsport industry. I also work on web applications using technologies such as TypeScript, React/Redux and D3.'
+        author-summary: '<p>I''m a Lead Developer at Scott Logic in London, having previously spent over 10 years working as a Software Engineer and Architect in the motorsport industry.</p><p>My background has historically been in .NET applications written in C#, although I also work on web applications using technologies such as TypeScript, React/Redux and D3.</p>'
         twitter-handle: null
         picture: Profile.jpg
     bquinn:
