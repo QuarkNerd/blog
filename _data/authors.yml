@@ -95,6 +95,7 @@ active-authors:
     - jmorris
     - asureshkumar
     - bquinn
+    - mmoxon
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -979,3 +980,9 @@ authors:
         author-summary: 'I am a developer at Scott Logic. I am currently developing iOS apps using the amazing Swift, a programming language created by Apple.'
         twitter-handle: null
         picture: thumbnail_IMG_5969.jpg
+    mmoxon:
+        name: 'Martin Moxon'
+        email: mmoxon@scottlogic.com
+        author-summary: '<p>I''m a developer at Scott Logic. I like to break things and sometimes fix them. </p>'
+        twitter-handle: null
+        picture: IMG_20190921_204539.jpg
