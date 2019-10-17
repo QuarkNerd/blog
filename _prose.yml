@@ -310,9 +310,6 @@ prose:
             login: fbromley
             user: fbromley
         -
-            login: mattstobbs
-            user: mstobbs
-        -
             login: leeyuiwah-sl
             user: clee
         -
@@ -393,3 +390,6 @@ prose:
         -
             login: JonathanDHarris
             user: jharris
+        -
+            login: mattstobbs
+            user: mstobbs

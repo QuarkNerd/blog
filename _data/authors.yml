@@ -57,7 +57,6 @@ active-authors:
     - mdunsdon
     - mjose
     - msinton
-    - mstobbs
     - nowen
     - pgraham
     - phands
@@ -96,6 +95,7 @@ active-authors:
     - asureshkumar
     - bquinn
     - mmoxon
+    - mstobbs
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -846,11 +846,6 @@ authors:
         twitter-handle: FranMayB
         twitter-url: 'http://www.twitter.com/FranMayB'
         picture: picture.png
-    mstobbs:
-        name: 'Matt Stobbs'
-        email: mstobbs@scottlogic.com
-        author-summary: '<p>I am a software developer at Scott Logic, based in Newcastle. I am particularly interested in web app development, especially React/Redux.</p>'
-        picture: picture.jpg
     clee:
         name: 'Yui-Wah (Clement) Lee'
         email: clee@scottlogic.com
@@ -987,3 +982,9 @@ authors:
         author-summary: '<p>I''m a developer at Scott Logic. I like to break things and sometimes fix them. </p>'
         twitter-handle: null
         picture: IMG_20190921_204539.jpg
+    mstobbs:
+        name: 'Matt Stobbs'
+        email: mstobbs@scottlogic.com
+        author-summary: '<p>I am a software developer at Scott Logic, based in Newcastle. I am particularly interested in web app development, especially React/Redux.</p>'
+        twitter-handle: null
+        picture: received_686603728391672.jpeg
