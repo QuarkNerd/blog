@@ -6,13 +6,16 @@ active-authors:
     - afiddes
     - alee
     - amjones
+    - asureshkumar
     - bborowski@scottlogic.com
     - bdimitrov-SL
     - bjedrzejewski
+    - bquinn
     - cakehurstryan
     - callan
     - cbrown
     - ceberhardt
+    - chedler
     - clee
     - cmcknight
     - cmcormack
@@ -25,6 +28,7 @@ active-authors:
     - dogle
     - dsmith
     - dtheasby
+    - efiennes
     - emason
     - fbromley
     - garora
@@ -36,12 +40,14 @@ active-authors:
     - hpretswell
     - hsteele@scottlogic.com
     - hubinf@scottlogic.com
+    - hwilliams
     - imaxwell@scottlogic.com
     - jdunkerley
     - jharris
     - jhenderson
     - jhill
     - jmelon
+    - jmorris
     - jporter
     - jwhite
     - jwren
@@ -56,8 +62,12 @@ active-authors:
     - mdebeneducci
     - mdunsdon
     - mjose
+    - mmoxon
     - msinton
+    - mstobbs
+    - msuperina
     - nowen
+    - pdykes
     - pgraham
     - phands
     - pkhan
@@ -68,10 +78,12 @@ active-authors:
     - robsmith
     - rwilliams
     - sbaker
+    - sbreingan
     - sbulut
     - sduncan
     - shogarth
     - shunton
+    - skondru
     - sladen
     - sroebuck
     - tclarke-scottlogic
@@ -84,18 +96,6 @@ active-authors:
     - wtrimble
     - zrubin
     - zwali
-    - msuperina
-    - skondru
-    - pdykes
-    - efiennes
-    - sbreingan
-    - hwilliams
-    - chedler
-    - jmorris
-    - asureshkumar
-    - bquinn
-    - mmoxon
-    - mstobbs
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -927,9 +927,11 @@ authors:
     efiennes:
         name: 'Elizabeth Fiennes'
         email: efiennes@scottlogic.com
+        picture: EF.PNG
+        gravatar: 6f9b6b30d4081522a9d3e10916cee092
         author-summary: "<p>I've been in testing and QA since 1998. Yes, we had computers way back then. No, my first tablet was not made of stone.\n\n<p>Since then I got some time off for two people shaped development projects of my own.\n\n<p>I am cat slave to a very large and opinionated Tuxedo Tom who likes walking across keyboards and spilling tea.\n\n<p>For 2019, I am going to (re)learn C# and continue to use my evil powers for good."
         twitter-handle: ElizaFx
-        picture: EF.PNG
+        twitter-url: 'http://www.twitter.com/ElizaFx'
     sbreingan:
         name: 'Stuart Breingan'
         email: sbreingan@scottlogic.com

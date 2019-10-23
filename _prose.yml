@@ -358,9 +358,6 @@ prose:
             login: pauldykes
             user: pdykes
         -
-            login: ElizaTWF
-            user: efiennes
-        -
             login: sbreingan
             user: sbreingan
         -
@@ -393,3 +390,6 @@ prose:
         -
             login: mattstobbs
             user: mstobbs
+        -
+            login: ElizaTWF
+            user: efiennes
