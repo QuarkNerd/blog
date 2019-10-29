@@ -471,7 +471,7 @@ authors:
     mamos:
         name: 'Matthew Amos'
         email: mamos@scottlogic.com
-        author-summary: 'I''m a Lead Developer at Scott Logic, based in London, with over 10 years experience in Java'
+        author-summary: 'I''m a Lead Developer at Scott Logic, based in London, with almost 15 years experience in Java. I also write Scala, Kotlin, Python and some JavaScript. I am a certified AWS solutions architect, and Terraform fan.'
         picture: picture.jpg
     mcrease:
         author-summary: ""
