@@ -35,7 +35,7 @@ Running these checks doesn't require a running instance of the consumer services
 
 It is possible to use CDCs without having a framework however there are some great ones available which help you get up and running quickly.
 
-Probably the most commonly used framework at the minute is called Pact.  This framework supports a wide range of languages including [Java](https://github.com/DiUS/pact-jvm), [JavaScript](https://github.com/pact-foundation/pact-js), [.net](https://github.com/SEEK-Jobs/pact-net), [Ruby](https://github.com/realestate-com-au/pact), [Go](https://github.com/pact-foundation/pact-go) and [Swift](https://github.com/DiUS/pact-consumer-swift).  It can even work for providers written in any language using a [command line tool](https://github.com/pact-foundation/pact-provider-verifier).
+Probably the most commonly used framework at the minute is called Pact.  This framework supports a wide range of languages including [Java](https://github.com/DiUS/pact-jvm), [JavaScript](https://github.com/pact-foundation/pact-js), [.net](https://github.com/SEEK-Jobs/pact-net), [Ruby](https://github.com/pact-foundation/pact-ruby), [Go](https://github.com/pact-foundation/pact-go) and [Swift](https://github.com/DiUS/pact-consumer-swift).  It can even work for providers written in any language using a [command line tool](https://github.com/pact-foundation/pact-provider-verifier).
 
 From a consumer perspective Pact acts as a mock HTTP server.  The team that owns the consumer write a set of tests which exercise their code against the mock server and set up expected results from the provider.
 
@@ -85,9 +85,9 @@ export const eventsClientFixtures = {
 };
 ~~~
 
-Using a fixtures file or a factory is recommended [in the Pact documentation](https://github.com/realestate-com-au/pact/wiki/Best-practices#ensure-the-models-you-use-in-other-tests-could-actually-be-created-from-the-responses-you-expect) to help check that there are no invalid mocks used anywhere in your tests.  Pact checks that your mocks are correct against the provider but it would be too expensive to use it in every test.  Using the same fixtures everywhere ensures that they have been checked by Pact at least once (as long as your fixtures or factories have full coverage).  [For a more detailed explanation see this Gist](https://gist.github.com/bethesque/69ae590e8312523e5337).
+Using a fixtures file or a factory is recommended [in the Pact documentation](https://docs.pact.io/best_practices/consumer#ensure-the-models-you-use-in-other-tests-could-actually-be-created-from-the-responses-you-expect) to help check that there are no invalid mocks used anywhere in your tests.  Pact checks that your mocks are correct against the provider but it would be too expensive to use it in every test.  Using the same fixtures everywhere ensures that they have been checked by Pact at least once (as long as your fixtures or factories have full coverage).  [For a more detailed explanation see this Gist](https://gist.github.com/bethesque/69ae590e8312523e5337).
 
-Pact recommends sending all [provider requests through central classes which are tested by Pact](https://github.com/realestate-com-au/pact/wiki/Best-practices#ensure-all-calls-to-the-provider-go-through-classes-that-have-been-tested-with-pact).  For the `Events` functionality we will be using an `ES6` class called `EventsClient`.
+Pact recommends sending all [provider requests through central classes which are tested by Pact](https://docs.pact.io/best_practices/consumer#ensure-all-calls-to-the-provider-go-through-classes-that-have-been-tested-with-pact).  For the `Events` functionality we will be using an `ES6` class called `EventsClient`.
 
 In order to test-drive the development of this class create a test file called `events-frontend/src/EventsClient.test.js` with the following content:
 
@@ -422,8 +422,8 @@ Since we see one interaction and no failure this indicates that the CDC passed a
 
 ## Conclusion
 
-This was a basic introduction to Consumer Driven Contract testing with Pact.  Since it is such a fully-featured library there were plenty of topics which aren't covered here.  To keep things simple I haven't used [regular expression/flexible matching](https://github.com/realestate-com-au/pact/wiki/Regular-expressions-and-type-matching-with-Pact) or [provider states](https://github.com/realestate-com-au/pact/wiki/Provider-states), however, I would recommend looking into these topics and perhaps implementing them as an exercise.
+This was a basic introduction to Consumer Driven Contract testing with Pact.  Since it is such a fully-featured library there were plenty of topics which aren't covered here.  To keep things simple I haven't used [regular expression/flexible matching](https://docs.pact.io/getting_started/matching#regular-expressions) or [provider states](https://docs.pact.io/getting_started/provider_states), however, I would recommend looking into these topics and perhaps implementing them as an exercise.
 
 Pact seems like a really useful and well thought-out tool and I would definitely recommend giving it a go if you're considering introducing Consumer Driven Contracts into your pipeline.  Being able to test your mocks and avoid drifting from the real provider over time feels like a killer feature for me.
 
-To learn more about Pact the [documentation](https://docs.pact.io/) and [project wiki](https://github.com/realestate-com-au/pact/wiki) are great sources of further information and there is also support available on the project [Gitter](https://gitter.im/realestate-com-au/pact).
+To learn more about Pact see the [documentation](https://docs.pact.io/) or visit the project [Slack](https://slack.pact.io).
