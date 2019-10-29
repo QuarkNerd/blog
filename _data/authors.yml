@@ -96,6 +96,7 @@ active-authors:
     - wtrimble
     - zrubin
     - zwali
+    - awojtczuk
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -990,3 +991,9 @@ authors:
         author-summary: '<p>I am a software developer at Scott Logic, based in Newcastle. I am particularly interested in web app development, especially React/Redux.</p>'
         twitter-handle: null
         picture: received_686603728391672.jpeg
+    awojtczuk:
+        name: 'Anna Wojtczuk'
+        email: awojtczuk@scottlogic.com
+        author-summary: 'A Senior UX Designer at Scott Logic. Evangelist of User Centered Design & fan of good workshops. An amateur triathlete and a proud mum of two devils.  '
+        twitter-handle: null
+        picture: IMG_5028-2.jpg
