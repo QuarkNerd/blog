@@ -36,4 +36,4 @@ Whilst the new rules are deemed unfair by some, being described in [itcontractin
 
 We find ourselves ideally placed; over the last 15 years we have prided ourselves in our investment in our own people. Our UK-based workforce are **all permanent employees** and are therefore unaffected by the new rules. We will continue to provide the professional level of service our clients have come to rely on. Similarly, we can mobilise quickly in support of new clients as they grapple with the changes.
 
-If you’d like to know how we can help you, please email [rob@scottlogic.com](mailto:rob@scottlogic.com).
+If you’d like to know how we can help you with [Bespoke Software Development](https://www.scottlogic.com/what-we-do/bespoke-software-development/), please email [rob@scottlogic.com](mailto:rob@scottlogic.com)
