@@ -43,7 +43,7 @@ Now why on EARTH would anyone want to send testers to a conference?</ul></p>
 <p style="text-align:center;"><b>Frances and Herb... and that sign again</b></p>
 <br>
 <b>Frances</b>
-<p>This conferance, <a href="https://www.ministryoftesting.com/events/test-dot-bash-2019" target="_blank">Test.bash() Manchester</a> is the first-ever testing event I have attended, ever! I didn’t expect to gain as much from it as I did, it helped me gain a real perspective on the breadth of application that automation can have.</p>
+<p>This conference, <a href="https://www.ministryoftesting.com/events/test-dot-bash-2019" target="_blank">Test.bash() Manchester</a> is the first-ever testing event I have attended, ever! I didn’t expect to gain as much from it as I did, it helped me gain a real perspective on the breadth of application that automation can have.</p>
 
 <p>It made me reconsider what automation means to me, it’s not just selenium and web driver - it’s innovation and smart product delivery, it’s addressing human bias and easing the delivery of high-quality products. I loved meeting and talking to others in a place where I felt part of that community where everyone was there to share, learn and question.</p>
 
@@ -73,7 +73,7 @@ Now why on EARTH would anyone want to send testers to a conference?</ul></p>
 
 <br>
 <b>Elizabeth and Callum</b>
-<p>For those of us who were getting up on our hind legs to address our peers, the speaker experience at Testbash is 2nd to none. For all the work of putting your research or experience into a talk, they cover your travel and accomodation to get you there. Once there you have free entry to the half day workshops, conferance, the UnExpo and the OpenSpace. See <a href="https://www.ministryoftesting.com/testbash/speak" target="_blank">here</a> for more information .</p>
+<p>For those of us who were getting up on our hind legs to address our peers, the speaker experience at Testbash is 2nd to none. For all the work of putting your research or experience into a talk, they cover your travel and accommodation to get you there. Once there you have free entry to the half day workshops, conference, the UnExpo and the OpenSpace. See <a href="https://www.ministryoftesting.com/testbash/speak" target="_blank">here</a> for more information .</p>
 
 <p>Best of all, Testbash are not <a href ="https://www.cassandrahl.com/blog/why-i-dont-pay-to-speak" target="_blank">#PayToSpeak</a>
  which means that there is no financial barrier for entry for anyone who wants to tell their story or share their research. If you are thinking of submitting, please just do. The care and attention the organisers take to ensure the best speaker experience really shows.</p>
@@ -106,15 +106,14 @@ Now why on EARTH would anyone want to send testers to a conference?</ul></p>
   
 <p>Conferences also have a great potential for meeting people diverse people face to face – a warm handshake and a conversation rather than a digital click on Twitter. It was at a previous conference that I met some of Scott Logic team, who subsequently reeled me in to working at this great organisation.</p>
 
- <p style="text-align:center;"><img src="{{site.baseurl}}/efiennes/assets/shiftR.jpg" alt="@PierreVincent's slide of moving from monitering to exploring logs"></p>
+ <p style="text-align:center;"><img src="{{site.baseurl}}/efiennes/assets/shiftR.jpg" alt="@PierreVincent's slide of moving from monitoring to exploring logs"></p>
  <p style="text-align:center;"><b>Pierre Vincent's talk on observability and testing</b></p>
 
 <br>
 <b>Elizabeth</b> <br>
 <p>The talk that resonated most with me was <a href="https://twitter.com/@ms__chief" target="_blank">Saskia Coplan’s</a> threat Modelling talk. It was a combination of timing, what’s going on in my working life, conversations with peers and <a href="https://twitter.com/lisihocke/status/1180230128632250369" target="_blank">OMG, is that the Death Star in her slides?!?.</a></p>
 
-<p>Saskia's talk was insightful, passionate and most of all, accessible. I can appriciate the amount of work that has to go into making Infosec look this understandable.</p>
-
+<p>Saskia's talk was insightful, passionate and most of all, accessible. I can appreciate the amount of work that has to go into making Infosec look this understandable.</p
 <P>All the talks I saw over the 2 days were excellent. I loved the fact that there was a mini-tools track within the main theme with 2 great talks on uses of Charles Proxy and Bash. With a lot of focus going on DevOps and automation, it is good to be reminded of the power of these seemingly small tools in doing a lot of the heavy lifting to help testers out if only they were aware of their capabilities. </p>
 
 <p style="text-align:center;"><img src="{{site.baseurl}}/efiennes/assets/Charles2.jpg" alt="Picture of @sumanbala867's slides from her talk on Charles"></p>
