@@ -7,7 +7,7 @@ categories:
   - Tech
 ---
 
-The term "microservices" is used to describe a software architectural design whereby many loosely-coupled components run independently as service, but ultimately work together as a single application. Services typically focus on particular aspects of a business domain or business entities and they tyically use a network to communicate.
+The term "microservices" is used to describe a software architectural design whereby many loosely-coupled components run independently, but ultimately work together as a single application. Services typically focus on particular aspects of a business domain or business entities and they tyically use a network to communicate.
 
 When I became interested in microservices, I felt that I understood the idea at a conceptual level, but I still had many knowledge gaps surrounding the intricacies of their implementation. Without practical experience, I had little understanding of how services communicated, scaled, handled failures or how they were arranged and exposed to the outside world.
 
@@ -181,7 +181,7 @@ server.port=3002
 
 Finally, let's run the Order Service (`./gradlew bootRun`) and [verify that everything is working](http://localhost:3002).
 
-# Service Discovery
+## Service Discovery
 
 A microservice architecture can be incredibly dynamic. Services don't necessarily have fixed addresses, known ahead of time. They can be moved around onto different ports, machines and even different data centres entirely. More often than not, there will be many instances of a given service - a number that is rarely constant as new instances are often introduced to meet demand and are removed when demand decreases. They also need to discover other services in order to communicate with them.
 
@@ -189,7 +189,7 @@ Netflix's Eureka is a service discovery tool, designed to solve this problem. Wh
 
 ![Eureka Diagram]({{ site.github.url }}/jhenderson/assets/building-microservices-with-spring-boot/eureka-diagram.jpg "Eureka Diagram")
 
-### Discovery Service
+## Discovery Service
 
 Create a new project using [start.spring.io](https://start.spring.io) with an *Artifact* of `discovery-service`. Select *Eureka Server* as its sole dependency and hit *Generate*. Open up the `DiscoveryClientApplication` class and add the `@EnableEurekaServer` annotation, to stand up a Eureka service registry:
 
@@ -209,13 +209,15 @@ public class DiscoveryServiceApplication {
 }
 ~~~
 
-By default, a Eureka server communicates with peers to share their registry information in order to provide high availability, but since we're just going to run a single instance here, let's disable that feature by configuring our service *not* to register with a peer and not to fetch a peer registry. We'll also give it a name and a default port of `3000` (the default for Eureka is 8761). In `application.properties` add the following:
+By default, a Eureka server communicates with peers to share their registry information in order to provide high availability, but since we're just going to run a single instance here, let's disable that feature and configure our service *not* to register with a peer and *not* to fetch a peer registry. We'll also give it a name and a default port of `3000` (the default for Eureka is 8761). In `application.properties` add the following:
 
 ~~~properties
 spring.application.name=discovery-service
 server.port=3000
 eureka.client.registerWithEureka=false
 eureka.client.fetchRegistry=false
+eureka.instance.hostname=localhost
+eureka.client.serviceUrl.defaultZone=http://${eureka.instance.hostname}:${server.port}/eureka/
 ~~~
 
 Build and run the service (`./gradlew bootRun`) and confirm that it works by visiting [http://localhost:3000](http://localhost:3000). You should see a Eureka dashboard which displays information about the running instance:
@@ -303,7 +305,7 @@ Zuul also supports *filters* which allows developers to intercept requests befor
 
 ![Zuul Diagram]({{ site.github.url }}/jhenderson/assets/building-microservices-with-spring-boot/zuul-diagram.jpg "Zuul Diagram")
 
-### Gateway Service
+## Gateway Service
 
 Back at [start.spring.io](https://start.spring.io), create a new project with the *Artifact* `gateway-service` with *Zuul* and *Eureka Discovery Client* as dependencies. Once generated, open up the `GatewayServiceApplication` class and add the `@EnableZuulProxy` and `@EnableEurekaClient` annotations.
 
@@ -358,3 +360,6 @@ Let's run through what currently happens in our system:
 
 In *part 2*, we'll discuss inter-service communication, scaling out, client-side load balancing and communication fault tolerance using OpenFeign, Ribbon and Hystrix.
 
+---
+
+<sub><sup>*Thanks to [@nomadcanuck](https://github.com/nomadcanuck) for raising an issue regarding peer-replication in the Discovery Service.*</sup></sub>
