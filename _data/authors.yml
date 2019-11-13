@@ -61,15 +61,18 @@ active-authors:
     - mdunsdon
     - mjose
     - mmoxon
+    - mnicholson
     - msinton
     - mstobbs
     - msuperina
+    - mwalker
     - nowen
     - pdykes
     - pgraham
     - phands
     - pkhan
     - rbeckett
+    - rgarside
     - rgraham
     - rnewsome
     - robsmith
@@ -993,3 +996,18 @@ authors:
         author-summary: "<p>I've been in testing and QA since 1998. Yes, we had computers way back then. No, my first tablet was not made of stone.\n\n<p>Since then I got some time off for two people shaped development projects of my own.\n\n<p>I am cat slave to a very large and opinionated Tuxedo Tom who likes walking across keyboards and spilling tea.\n\n<p>For 2019, I am going to continue to use my evil powers for good."
         twitter-handle: ElizaFx
         picture: EF.PNG
+    mwalker:
+        author-summary: 'Technical Recruiter'
+        email: mwalker@scottlogic.com
+        name: 'Martin Walker'
+        picture: MartinWalker.jpg
+    mnicholson:
+        author-summary: 'Technical Recruiter'
+        email: mnicholson@scottlogic.com
+        name: 'Matthew Nicholson'
+        picture: MattNicholson.jpg
+    rgarside:
+        author-summary: 'Technical Recruiter'
+        email: rgarside@scottlogic.com
+        name: 'Rupert Garside'
+        picture: RupertGarside.jpg

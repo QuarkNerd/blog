@@ -57,14 +57,17 @@ active-authors:
     - mdebeneducci
     - mdunsdon
     - mjose
+    - mnicholson
     - msinton
     - mstobbs
+    - mwalker
     - nowen
     - pgraham
     - phands
     - pkhan
     - pshek
     - rbeckett
+    - rgarside
     - rgraham
     - rnewsome
     - robsmith
@@ -966,3 +969,18 @@ authors:
         email: jhenderson@scottlogic.com
         author-summary: '<p>I''m a Senior Developer at Scott Logic, based in Newcastle.</p><p>I''ve been hooked on software engineering ever since I watched GoldenEye as a teenager and I''m passionate about Java, Kotlin and Python.</p><p>My interests lie within search engines, distributed systems, microservices and cloud computing.</p><p>I''m the proud father of two rescue cats, Olive and Ziggy, commonly known as Cutie-Cat and The Tron.</p>'
         picture: picture.jpg
+    mwalker:
+        author-summary: 'Technical Recruiter'
+        email: mwalker@scottlogic.com
+        name: 'Martin Walker'
+        picture: MartinWalker.jpg
+    mnicholson:
+        author-summary: 'Technical Recruiter'
+        email: mnicholson@scottlogic.com
+        name: 'Matthew Nicholson'
+        picture: MattNicholson.jpg
+    rgarside:
+        author-summary: 'Technical Recruiter'
+        email: rgarside@scottlogic.com
+        name: 'Rupert Garside'
+        picture: RupertGarside.jpg
