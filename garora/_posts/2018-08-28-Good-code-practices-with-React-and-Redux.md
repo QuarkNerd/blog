@@ -179,7 +179,7 @@ class School extends Component {
 }
 {% endhighlight %}
 
-This is much nicer. Notice the change in the definition of change reminder. This is because of the nature of the keyword `this`. By using an arrow function in one of the 2 places we ensure that `this` refers to the instance of the Component `School` that we clicked. Alternatively what `this` refers to depends on how the function was called. To learn more click [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this).
+This is much nicer. Notice the change in the definition of `addStudent`. This is because of the nature of the keyword `this`. By using an arrow function in one of the 2 places we ensure that `this` refers to the instance of the Component `School` that we clicked. Alternatively what `this` refers to depends on how the function was called. To learn more click [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this).
 
 ### Bonus tip - Get dev tools
 
