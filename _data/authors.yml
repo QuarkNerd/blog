@@ -713,8 +713,9 @@ authors:
         twitter-url: 'http://twitter.com/TamaraCMakarem'
         picture: picture.jpg
     tsimmons:
-        email: tsimmons@scottlogic.co.uk
+        email: tsimmons@scottlogic.com
         name: 'Tom Simmons'
+        author-summary: '<p>I am a Senior Developer at Scott Logic.</p>'
         picture: picture.jpg
     wcaine:
         name: 'Will Caine'
