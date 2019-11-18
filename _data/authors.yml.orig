@@ -58,6 +58,7 @@ active-authors:
     - mdunsdon
     - mjose
     - mnicholson
+    - mphillips
     - msinton
     - mstobbs
     - mwalker
@@ -984,3 +985,8 @@ authors:
         email: rgarside@scottlogic.com
         name: 'Rupert Garside'
         picture: RupertGarside.jpg
+    mphillips:
+        author-summary: 'Delivery Director'
+        email: mphillips@scottlogic.com
+        name: 'Matthew Phillips'
+        picture: MattPhillips.jpg
