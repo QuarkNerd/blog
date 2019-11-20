@@ -45,9 +45,10 @@ ansi-styles@^3.2.1:
   dependencies:
     color-convert "^1.9.0"
 
-applause-button@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/applause-button/-/applause-button-2.0.0.tgz#f17b11442c016a1b6526217a2d821b8d14b5cb45"
+applause-button@^3.0.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/applause-button/-/applause-button-3.3.0.tgz#fab542b5cede45a2cc81e3149bd282f32ca88af5"
+  integrity sha512-9HJHAhhn2w1J5qJOZbRkC5SPE1LyP7PBzmJS20yCYQO+EpAEjU6AMkREFCa2bZlK05UcnOVaskvWHL+nVmLOgQ==
   dependencies:
     document-register-element "^1.8.1"
 
@@ -283,6 +284,11 @@ concat-stream@^1.4.7:
 console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
+
+cookieconsent@3:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/cookieconsent/-/cookieconsent-3.1.1.tgz#f90bfadcaeef7d2bdcdd8278257f7264cb5d6819"
+  integrity sha512-v8JWLJcI7Zs9NWrs8hiVldVtm3EBF70TJI231vxn6YToBGj0c9dvdnYwltydkAnrbBMOM/qX1xLFrnTfm5wTag==
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"

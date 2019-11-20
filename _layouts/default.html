@@ -63,18 +63,17 @@
    </script>
 </head>
 <body>
-
 <div id="off-canvas-wrapper" style="">
     {% include site-header.html %}
     {{ content }}
 </div>
-
 
 <script src="{{ site.baseurl | remove_first: 'http:' }}/script.js" type="text/javascript"></script>
 <script type="text/javascript">jQuery.noConflict();</script>
 <script>
 initialiseMenu();
 loadClapCount();
+loadGTM();
 </script>
 
 {% if page.paginated %}
