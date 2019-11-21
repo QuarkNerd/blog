@@ -65,7 +65,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.Arrays;
 import java.util.List;
 
-@Controller
+@RestController
 public class CustomerController {
     private List<Customer> customers = Arrays.asList(
             new Customer(1, "Joe Bloggs"),
@@ -191,7 +191,7 @@ A microservice architecture can be incredibly dynamic. Services don't necessaril
 
 ## Discovery Service
 
-Create a new project using [start.spring.io](https://start.spring.io) with an *Artifact* of `discovery-service`. Select *Eureka Server* as its sole dependency and hit *Generate*. Open up the `DiscoveryClientApplication` class and add the `@EnableEurekaServer` annotation, to stand up a Eureka service registry:
+Create a new project using [start.spring.io](https://start.spring.io) with an *Artifact* of `discovery-service`. Select *Eureka Server* as its sole dependency and hit *Generate*. Open up the `DiscoveryServiceApplication` class and add the `@EnableEurekaServer` annotation, to stand up a Eureka service registry:
 
 ~~~java
 package com.github.jrhenderson1988.discoveryservice;
