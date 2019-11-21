@@ -11,7 +11,7 @@ The term "microservices" is used to describe a software architectural design whe
 
 When I became interested in microservices, I felt that I understood the idea at a conceptual level, but I still had many knowledge gaps surrounding the intricacies of their implementation. Without practical experience, I had little understanding of how services communicated, scaled, handled failures or how they were arranged and exposed to the outside world.
 
-This post intends to be a hands-on, introductory guide to building microservices with Spring Boot and software developed by Netflix with the intention of answering these questions. You can find all of the code on [GitHub](https://github.com/jrhenderson1988/building-microservices-with-spring-boot.git).
+This post intends to be a hands-on, introductory guide to building microservices with Spring Boot and software developed by Netflix with the intention of answering these questions. You can find all of the code on [GitHub](https://github.com/jrhenderson1988/building-microservices-with-spring-boot/tree/part-1).
 
 ## Spring Cloud and Netflix OSS
 
@@ -185,7 +185,7 @@ Finally, let's run the Order Service (`./gradlew bootRun`) and [verify that ever
 
 A microservice architecture can be incredibly dynamic. Services don't necessarily have fixed addresses, known ahead of time. They can be moved around onto different ports, machines and even different data centres entirely. More often than not, there will be many instances of a given service - a number that is rarely constant as new instances are often introduced to meet demand and are removed when demand decreases. They also need to discover other services in order to communicate with them.
 
-Netflix's Eureka is a service discovery tool, designed to solve this problem. When a service starts up, it registers itself with Eureka, specifying its name, address and other relevant information. It regularly sends heartbeat messages to Eureka to communicate that it's still alive and able to handle requests. If that heartbeat stops for any reason, Eureka will de-register that particular service after a configured timeout. Services can also request registry information from Eureka in order to discover other services.
+[Netflix's Eureka](https://github.com/Netflix/eureka) is a service discovery tool, designed to solve this problem. When a service starts up, it registers itself with Eureka, specifying its name, address and other relevant information. It regularly sends heartbeat messages to Eureka to communicate that it's still alive and able to handle requests. If that heartbeat stops for any reason, Eureka will de-register that particular service after a configured timeout. Services can also request registry information from Eureka in order to discover other services.
 
 ![Eureka Diagram]({{ site.github.url }}/jhenderson/assets/building-microservices-with-spring-boot/eureka-diagram.jpg "Eureka Diagram")
 
@@ -299,7 +299,7 @@ Spin up your `discovery-service`, followed by the `customer-service` and `order-
 
 In a microservice architecture there can be tens, hundreds or even thousands of services. Many are private and internal, but some need to be exposed to the outside world. We need a single entry point into the system to allow us to wire up and expose selected services to the outside world.
 
-Netflix's Zuul (a reference to the [Gatekeeper of Gozer](https://ghostbusters.fandom.com/wiki/Zuul) in Ghostbusters) is a JVM based router and server-side load balancer. By mapping routes to services via its configuration, Zuul can integrate with Eureka to discover service locations to load-balance and proxy requests to them.
+[Netflix's Zuul](https://github.com/Netflix/zuul) (a reference to the [Gatekeeper of Gozer](https://ghostbusters.fandom.com/wiki/Zuul) in Ghostbusters) is a JVM based router and server-side load balancer. By mapping routes to services via its configuration, Zuul can integrate with Eureka to discover service locations to load-balance and proxy requests to them.
 
 Zuul also supports *filters* which allows developers to intercept requests before they are sent to services (Pre-filters) and responses before being sent back to clients (Post-filters). This enables developers to implement functionality that is common to all services, running either before or after requests are handled. Filters are often used for features such as authentication, load shedding and CORS management, to name just a few.
 
@@ -358,7 +358,7 @@ Let's run through what currently happens in our system:
 - When a request is sent to the Gateway Service, it checks its mapped routes for a match. If it finds one, it looks up the name of the target service in its local registry that it retrieved from the Discovery Service, to work out the physical address of the target service and then proxies the incoming request to it.
 - The target service handles the incoming request and responds back to the Gateway Service which then responds back to the client.
 
-In *part 2*, we'll discuss inter-service communication, scaling out, client-side load balancing and communication fault tolerance using OpenFeign, Ribbon and Hystrix.
+In [part 2]({{ site.github.url }}/2019/11/19/building-microservices-with-spring-boot-2.html), we'll discuss inter-service communication, scaling out, client-side load balancing and communication fault tolerance using Feign, Ribbon and Hystrix.
 
 ---
 
