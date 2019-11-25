@@ -5,7 +5,7 @@ layout: default_post
 title: JVM numeric types - Integer types
 summary: >-
   I am constantly amazed at how unfamiliar otherwise competent developers can be with numeric types. In a series of two blog posts I will explain what you need to know to understand the JVM's numeric types. This first installment covers the integer types.
-tags: 'Java, JVM, numbers, numerics, integers, binary'
+tags: 'Java, JVM, numbers, numerics, integers, binary, featured'
 categories:
   - Tech
 ---
