@@ -4,7 +4,7 @@ author: thands
 layout: default_post
 category: Tech
 title: 'Now we''re hooking: Redux catches on'
-tags: react redux hooks selectors useSelector useDispatch featured
+tags: react redux hooks selectors useSelector useDispatch
 summary: >-
   Earlier this year React released hooks, shaking the codebase of developers all
   over the world and changing the way we write React web applications.
