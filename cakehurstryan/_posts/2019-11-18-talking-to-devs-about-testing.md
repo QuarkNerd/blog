@@ -7,7 +7,7 @@ title: Why I'm talking to developers about Exploratory Testing
 summary: >-
   As a tester in a cross disciplined agile team I frequently talk to and teach developers what Exploratory Testing is and how to do it.
   This account shows what I've been talking about and explains why it's beneficial for other testers to do the same.
-tags: Testing
+tags: 'Testing, featured'
 image: cakehurstryan/assets/explorer2.jpg
 ---
 
