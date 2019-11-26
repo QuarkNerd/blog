@@ -16,6 +16,9 @@ function getCookieConsent() {
                 "text": "#ffffff"
             }
         },
+        "cookie": {
+            "domain": "scottlogic.com"
+        },
         "theme": "classic",
         "onStatusChange": function(){location.reload()},
         "position": "bottom-left",
