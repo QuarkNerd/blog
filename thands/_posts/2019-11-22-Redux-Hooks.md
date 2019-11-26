@@ -135,7 +135,7 @@ const Counter = () => {
         <div>
             <div>
             	{ count }
-        	</div>
+            </div>
             <MyCustomButton onClick={ increment } title="Increment Counter" />
             <MyCustomButton onClick={ decrement } title="Decrement Counter" />
         </div>
