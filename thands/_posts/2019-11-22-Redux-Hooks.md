@@ -10,7 +10,7 @@ summary: >-
   over the world and changing the way we write React web applications.
   Functional components with hooks have largely replaced class components and
   now Redux has followed.
-image: 'thands/assets/hooks[2].jpg'
+image: 'thands/assets/hooks.jpg'
 ---
 
 Earlier this year [React](https://reactjs.org/docs/hooks-intro.html) released [hooks](https://blog.scottlogic.com/2019/05/09/by-the-hook-a-practical-introduction-to-react-hooks.html), shaking the codebase of developers all over the world and changing the way we write React web applications. [Functional components](https://reactjs.org/docs/components-and-props.html) with hooks have largely replaced class components and now [Redux](https://react-redux.js.org/next/api/hooks) has followed.
