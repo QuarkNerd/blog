@@ -100,6 +100,7 @@ active-authors:
     - awojtczuk
     - efiennes
     - thands
+    - oforeman
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -1025,3 +1026,9 @@ authors:
         author-summary: "I am a software developer at Scott Logic with a keen interest in web development with a specific love for the React framework.\n\nOutside of the office I like to keep active, taking part in a multitude of activities and have a strong passion for travelling."
         twitter-handle: tomhands1
         picture: profpic.jpg
+    oforeman:
+        name: 'Oliver Foreman'
+        email: oforeman@scottlogic.com
+        author-summary: 'Hi I''m Oliver. I''m a developer for Scott Logic based in the Newcastle office with an interest in web app development.'
+        twitter-handle: null
+        picture: Picture.jpg
