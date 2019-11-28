@@ -69,7 +69,7 @@ export default Counter;
 
 The `useSelector` hook is called when the component renders and only causes a re-render if the result of the selector is different to the previous result.
 
-`mapStateToProps` returns an object containg all individualy specified values of state as fields, which `connect` compares with shallow equality checks to determine if re-rendering of individual values is necessary.
+`mapStateToProps` returns an object containing all individually specified values of state as fields, which `connect` compares with shallow equality checks to determine if re-rendering of individual values is necessary.
 In contrast, `useSelector` uses a default strict comparison `===`, which allows us to extract a single value. This leaves you with a few options if you want to retrieve multiple values from the store.
 
 1.	Call useSelector() multiple times, with each call returning a single field value (as above).
@@ -129,7 +129,7 @@ const Counter = () => {
     const dispatch = useDispatch();
 
     const increment = useCallback(() => dispatch(incrementCounter()), [dispatch]);
-  	const decrement = useCallback(() => dispatch(decrementCounter()), [dispatch]);
+    const decrement = useCallback(() => dispatch(decrementCounter()), [dispatch]);
 
     return (
         <div>
