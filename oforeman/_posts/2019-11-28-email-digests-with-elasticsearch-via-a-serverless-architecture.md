@@ -34,7 +34,7 @@ Daily digests require a different approach in order to be effective, the solutio
 
 ### Setup
 
-To provide alerts in real-time we are going to use a `percolator` field type so that when we have new data we can check it against any searches we have stored. To do this we will create an index within our Elasticsearch cluster where we will store all of our searches. The creation of our new index looks something like this:
+To provide alerts in real-time we are going to use a `percolator` field type so that when we have new data we can check it against any searches we have stored. To do this we will create an index within our Elasticsearch cluster where we will store all of our searches. Creating an index requires a request to our elasticsearch cluster, the full details of the request can be found in the [`createIndex`](https://github.com/ScottLogic/search-data-exports-backend/blob/93da54390d9878c5c588031d94318a02acbb379c/dataimport/app/createIndex.js) file, however the part we are interested in looks like this:
 
 ~~~javascript
 properties: {
@@ -71,11 +71,11 @@ To delete a digest a request is made containing a users’ ID and the search tha
 
 ### Delivering real-time digests
 
-Delivering real-time digests is a workflow that is hooked into the process of creating a new post for the system. The following diagram shows the `create-post-request-step-function` that is executed in order to manage this process:
+Delivering real-time digests is a workflow that is hooked into the process of creating a new post for the system. The following diagram shows the [`create-post-request-step-function`](https://github.com/ScottLogic/search-data-exports-backend/blob/93da54390d9878c5c588031d94318a02acbb379c/serverless.yml#L446) that is executed in order to manage this process:
 
 ![Post creation Step Function]({{site.baseurl}}/oforeman/assets/sde-create-post-step-function.png)
 
-The first step is to create and store the new post in the system so that it is visible to all users, then the process for managing the digests begins. This happens in the `matchRealTimeDigests` Lambda where we use our percolator type field to get all the searches that would match the post. On its own however this search is not the most useful as it can return multiple entries for the same user, for example a response could look like this:
+The first step is to create and store the new post in the system so that it is visible to all users, then the process for managing the digests begins. This happens in the [`matchRealTimeDigests`](https://github.com/ScottLogic/search-data-exports-backend/blob/93da54390d9878c5c588031d94318a02acbb379c/functions/matchRealTimeDigests.js) Lambda where we use our percolator type field to get all the searches that would match the post. On its own however this search is not the most useful as it can return multiple entries for the same user, for example a response could look like this:
 
 ~~~json
 // Digests matching post 'Hello World'
@@ -148,7 +148,7 @@ As the management functionality is very similar for both the daily and real-time
 
 ### Delivering daily digests
 
-To start the process of sending daily digests we use a [CloudWatch Event](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/WhatIsCloudWatchEvents.html) with a Cron expression to run our `scheduledDailyDigests` Lambda once a day. This Lambda gets all the entries from our DynamoDB table and for each user starts an invocation of the `calculateUserDailyDigest` Lambda to handle their subscriptions, this allows us to process each users subscriptions in parallel. The final workflow for this system looks something like this:
+To start the process of sending daily digests we use a [CloudWatch Event](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/WhatIsCloudWatchEvents.html) with a Cron expression to run our [`scheduledDailyDigests`](https://github.com/ScottLogic/search-data-exports-backend/blob/93da54390d9878c5c588031d94318a02acbb379c/functions/scheduledDailyDigests.js) Lambda once a day. This Lambda gets all the entries from our DynamoDB table and for each user starts an invocation of the [`calculateUserDailyDigest`](https://github.com/ScottLogic/search-data-exports-backend/blob/93da54390d9878c5c588031d94318a02acbb379c/functions/calculateUserDailyDigest.js) Lambda to handle their subscriptions, this allows us to process each users subscriptions in parallel. The final workflow for this system looks something like this:
 
 ![Daily digest workflow]({{site.baseurl}}/oforeman/assets/sde-daily-digest-cloudwatch.png)
 
@@ -167,7 +167,7 @@ _What we want to aim for:_
 
 ## Sending Digests
 
-The `sendDigestEmail` Lambda accepts a common data format that is shared between both the real-time and daily digests to ensure that users receive emails of a common and familiar format. This also improves the reusability of the Lambda within the system as it is designed to be more generic and not accept data specific to a single use case. Examples of both a real-time and daily digest can be seen below.
+The [`sendDigestEmail`](https://github.com/ScottLogic/search-data-exports-backend/blob/93da54390d9878c5c588031d94318a02acbb379c/functions/sendDigestEmail.js) Lambda accepts a common data format that is shared between both the real-time and daily digests to ensure that users receive emails of a common and familiar format. This also improves the reusability of the Lambda within the system as it is designed to be more generic and not accept data specific to a single use case. Examples of both a real-time and daily digest can be seen below.
 
 _Real-time:_
 
