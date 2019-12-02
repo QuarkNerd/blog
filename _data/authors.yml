@@ -101,6 +101,7 @@ active-authors:
     - efiennes
     - thands
     - oforeman
+    - swoods
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -1032,3 +1033,9 @@ authors:
         author-summary: 'Hi I''m Oliver. I''m a developer for Scott Logic based in the Newcastle office with an interest in web app development.'
         twitter-handle: null
         picture: Picture.jpg
+    swoods:
+        name: 'Scott Woods'
+        email: swoods@scottlogic.com
+        author-summary: 'Hello, I am Scott. A Developer working for Scott Logic in Newcastle.'
+        twitter-handle: null
+        picture: profile.png
