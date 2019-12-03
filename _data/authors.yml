@@ -940,7 +940,7 @@ authors:
     hwilliams:
         name: 'Herb Williams'
         email: hwilliams@scottlogic.com
-        author-summary: 'I was born into the world testing everything I could touch or taste. 20 years on, here I am - Testing still...'
+        author-summary: "I'm a strategic tester at Scott Logic, London.  I don't find bugs - they find me!"
         picture: herbs-gravatar.png
         active: true
     chedler:
