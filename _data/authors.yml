@@ -10,7 +10,6 @@ active-authors:
     - bborowski@scottlogic.com
     - bdimitrov-SL
     - bjedrzejewski
-    - bquinn
     - cakehurstryan
     - callan
     - cbrown
@@ -102,6 +101,7 @@ active-authors:
     - thands
     - oforeman
     - swoods
+    - bquinn
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -971,12 +971,6 @@ authors:
         author-summary: '<p>I''m a Lead Developer at Scott Logic in London, having previously spent over 10 years working as a Software Engineer and Architect in the motorsport industry.</p><p>My background has historically been in .NET applications written in C#, although I also work on web applications using technologies such as TypeScript, React/Redux and D3.</p>'
         twitter-handle: null
         picture: Profile.jpg
-    bquinn:
-        name: 'Benedict Quinn'
-        email: bquinn@scottlogic.com
-        author-summary: 'I am a developer at Scott Logic. I am currently developing iOS apps using the amazing Swift, a programming language created by Apple.'
-        twitter-handle: null
-        picture: thumbnail_IMG_5969.jpg
     mmoxon:
         name: 'Martin Moxon'
         email: mmoxon@scottlogic.com
@@ -1039,3 +1033,9 @@ authors:
         author-summary: 'Hello, I am Scott. A Developer working for Scott Logic in Newcastle.'
         twitter-handle: null
         picture: profile.png
+    bquinn:
+        name: 'Benedict Quinn'
+        email: bquinn@scottlogic.com
+        author-summary: 'I am a developer at Scott Logic. I am currently developing iOS apps using the amazing Swift, a programming language created by Apple.'
+        twitter-handle: null
+        picture: 'Newcastle staff photos 2019 - 156 (1).jpg'

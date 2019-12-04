@@ -379,9 +379,6 @@ prose:
             login: adrian-sureshkumar
             user: asureshkumar
         -
-            login: BenedictQ
-            user: bquinn
-        -
             login: moxon6
             user: mmoxon
         -
@@ -402,3 +399,6 @@ prose:
         -
             login: OliverForeman
             user: oforeman
+        -
+            login: BenedictQ
+            user: bquinn
