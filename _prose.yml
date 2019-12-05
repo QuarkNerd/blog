@@ -400,5 +400,8 @@ prose:
             login: OliverForeman
             user: oforeman
         -
+            login: bobrippling
+            user: rpilling
+        -
             login: BenedictQ
             user: bquinn

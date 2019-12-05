@@ -76,6 +76,7 @@ active-authors:
     - rgraham
     - rnewsome
     - robsmith
+    - rpilling
     - rwilliams
     - sbaker
     - sbreingan
@@ -875,6 +876,14 @@ authors:
         email: rgraham@scottlogic.com
         author-summary: '<p>I''m a developer that started as a graduate in 2018. You can find me mostly using front-end tech. I''m also on GitHub as <a href="https://github.com/Ro4052">Ro4052</a>.</p>'
         picture: picture.png
+    rpilling:
+        name: 'Rob Pilling'
+        email: rpilling@scottlogic.com
+        gravatar: 7624dfa1354f4110ed809ae343066549
+        twitter-handle: bobrippling
+        twitter-url: 'http://www.twitter.com/bobrippling'
+        author-summary: "<p>I develop software at Scott Logic and have an interest in compilers, following Rust, JavaScript and Swift language development especially. I also enjoy a good walk.</p>\n<p>I can be found on <a href=\"https://github.com/bobrippling\">GitHub</a>.</p>"
+        picture: picture.jpg
     robsmith:
         name: 'Rob Smith'
         email: robsmith@scottlogic.com
