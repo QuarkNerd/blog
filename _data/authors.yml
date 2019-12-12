@@ -100,6 +100,7 @@ active-authors:
     - oforeman
     - swoods
     - bquinn
+    - slaing
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -1045,3 +1046,9 @@ authors:
         author-summary: 'I am a developer at Scott Logic. I am currently developing iOS apps using the amazing Swift, a programming language created by Apple.'
         twitter-handle: null
         picture: 'Newcastle staff photos 2019 - 156 (1).jpg'
+    slaing:
+        name: 'Simon Laing'
+        email: slaing@scottlogic.com
+        author-summary: 'I''m a lead developer at Scott Logic in Bristol. I enjoy the opportunity to share my experiences I''ve had, and skills I''ve learnt, for the benefit of others.'
+        twitter-handle: null
+        picture: 'profile.png'
