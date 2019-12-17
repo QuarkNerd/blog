@@ -71,3 +71,19 @@ poc
 precompute
 sw-delta
 vcdiff
+- rwilliams/_posts/2019-12-17-performant-large-scale-web-applications.md
+100ms
+700ms
+ad-hoc
+deprioritisation
+devserver
+firehose
+frontends
+GraphQL
+Moment.js
+performantly
+reflow
+retrospecting
+small-ish
+transactionality
+webpack
