@@ -2,7 +2,7 @@
 author: rpilling
 title: Pros, Cons, Tips and Tricks when using Prettier in a large codebase
 layout: default_post
-tags: prettier, git
+tags: prettier, git, featured
 summary: "Prettier, or code formatting in general can polarise developers - everyone has an opinion on braces. There are changes we can make and tricks we can apply to streamline all of this. Or: How I Learnt to Stop Worrying and Love Automated Code Formatting"
 categories:
   - Tech

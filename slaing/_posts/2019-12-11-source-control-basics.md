@@ -5,8 +5,6 @@ title: 'Source control: The basics'
 summary: 'We are taught how to write good code, but we''re not taught how to use source control properly. Why is the history of our code any less important than the code itself?'
 categories:
   - Tech
-tags:
-  - featured
 ---
 
 This blog post is targeted at people with (at least) a basic knowledge of [what source control (aka version control)](https://www.atlassian.com/git/tutorials/what-is-version-control) is. The post doesn’t describe the different tools, or how to operate them, it approaches a subject common to all of them.
