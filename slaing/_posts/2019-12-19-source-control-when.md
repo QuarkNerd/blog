@@ -11,7 +11,7 @@ tags:
 
 We're told that we need to [commit early and often](https://blog.beanstalkapp.com/post/147799908084/commit-early-commit-often). But what does this mean...? What is the right frequency? When should branches be used? When do they work well, and when should they be avoided?
 
-If [my last post](/blog/2019/12/11/source-control-basics) was about the _why_, this one is about the _when_. We tend to figure these things out on our own, we try things in all sorts of different ways until we land roughly on an approach that normally resembles what the rest of us (hopefully) do.
+If [my last post](/2019/12/11/source-control-basics) was about the _why_, this one is about the _when_. We tend to figure these things out on our own, we try things in all sorts of different ways until we land roughly on an approach that normally resembles what the rest of us (hopefully) do.
 
 > "Those who cannot remember the past are condemned to repeat it"<br />
 [George Santayana](https://en.wikipedia.org/wiki/George_Santayana)
