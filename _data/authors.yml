@@ -101,6 +101,7 @@ active-authors:
     - swoods
     - bquinn
     - slaing
+    - swaterman
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -1051,4 +1052,10 @@ authors:
         email: slaing@scottlogic.com
         author-summary: 'I''m a lead developer at Scott Logic in Bristol. I enjoy the opportunity to share the experiences I''ve had, and skills I''ve learnt, for the benefit of others.'
         twitter-handle: null
-        picture: 'profile.png'
+        picture: profile.png
+    swaterman:
+        name: 'Steven Waterman'
+        email: swaterman@scottlogic.com
+        author-summary: 'I''m a graduate developer who just joined Scott Logic. I''m interested in back-end development and language design, especially type systems and how they can be leveraged to make code more sustainable long-term. <br/> Find me on <a href="https://github.com/stevenwaterman">GitHub</a>.'
+        twitter-handle: null
+        picture: steven-waterman.jpg

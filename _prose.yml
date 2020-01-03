@@ -408,3 +408,6 @@ prose:
         -
             login: sl-slaing
             user: slaing
+        -
+            login: stevenwaterman
+            user: swaterman
