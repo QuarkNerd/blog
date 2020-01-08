@@ -315,7 +315,7 @@ authors:
     garora:
         name: 'Gurveer Arora'
         email: garora@scottlogic.com
-        author-summary: '<p>I am a developer Intern at Scott Logic, Newcastle</p>'
+        author-summary: '<p>I am a developer at Scott Logic, Newcastle. <a href="https://github.com/QuarkNerd"> Find me on Github </a> </p>'
         picture: picture.jpg
     godds:
         author-summary: '<p>I''m a designer and developer working on complex systems across desktop, web and mobile.  As Innovation Director at Scott Logic, I work primarily with financial services and energy trading institutions, creating everything from direct-to-consumer investment applications to research, trading and analysis tools. I delight in pushing at what is possible to discover beautiful, effective solutions to problems.</p>'
