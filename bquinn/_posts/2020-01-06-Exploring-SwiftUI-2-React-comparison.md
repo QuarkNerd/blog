@@ -10,7 +10,7 @@ summary: >-
   framework for developing UI natively, while React is a declarative UI
   framework for the web.
 tags: 'SwiftUI, React, Swift, Web, Mobile'
-image: bquinn/assets.swiftui-96x96.png
+image: bquinn/assets/swiftui-logo.png
 ---
 
 This post is my second in a series on SwiftUI. In the [first post](https://blog.scottlogic.com/2019/12/11/Exploring-SwiftUI-1.html) I looked at the history of iOS development and some of the nice changes that SwiftUI introduced. In this post I look at how SwiftUI manages state, and how it is inspired by React in web technology, quite likely in response  to the popularity of React Native on mobile platforms. But first, I will define declarative and imperative UI, to see why SwiftUI can be compared to React.
