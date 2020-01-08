@@ -1,6 +1,6 @@
 ---
 author: garora
-title: "What Improv can teach us about good code design"
+title: "What the art of Improv can teach us about the craft of software"
 categories:
   - Tech
 layout: default_post
