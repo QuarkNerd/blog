@@ -10,6 +10,7 @@ categories:
 tags:
   - java
   - dto
+  - featured
   - single-method-interface
   - software-engineering
 image: swaterman/assets/rethinking-the-java-dto/layers.png
