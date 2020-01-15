@@ -102,6 +102,7 @@ active-authors:
     - bquinn
     - slaing
     - swaterman
+    - mridene
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -948,7 +949,7 @@ authors:
     hwilliams:
         name: 'Herb Williams'
         email: hwilliams@scottlogic.com
-        author-summary: "I'm a strategic tester at Scott Logic, London.  I don't find bugs - they find me!"
+        author-summary: 'I''m a strategic tester at Scott Logic, London.  I don''t find bugs - they find me!'
         picture: herbs-gravatar.png
         active: true
     chedler:
@@ -1059,3 +1060,9 @@ authors:
         author-summary: 'I''m a graduate developer who just joined Scott Logic. I''m interested in back-end development and language design, especially type systems and how they can be leveraged to make code more sustainable long-term. <br/> Find me on <a href="https://github.com/stevenwaterman">GitHub</a>.'
         twitter-handle: null
         picture: steven-waterman.jpg
+    mridene:
+        name: 'Mehdi Ridene'
+        email: mridene@scottlogic.com
+        author-summary: 'Test engineer with 7 years of experience across telecommunications, video-on-demand and financial industries.'
+        twitter-handle: null
+        picture: Untitled.png
