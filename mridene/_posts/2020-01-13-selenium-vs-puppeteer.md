@@ -5,7 +5,7 @@ title: "Selenium vs Puppeteer: testing the testing tools"
 summary: "In this post, through experimentation, I will be comparing the two most popular browser automation frameworks: Selenium and Puppeteer"
 categories:
   - Testing
-tags: "Testing, featured"
+tags: "Testing"
 image: mridene/assets/2020-01-13-selenium-vs-puppeteer/deer-fight.jpg
 ---
 
