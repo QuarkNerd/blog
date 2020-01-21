@@ -103,6 +103,8 @@ active-authors:
     - slaing
     - swaterman
     - mridene
+    - jstrachan
+    - ashing
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -1066,3 +1068,15 @@ authors:
         author-summary: 'Test engineer with 7 years of experience across telecommunications, video-on-demand and financial industries.'
         twitter-handle: null
         picture: Untitled.png
+    jstrachan:
+        name: 'James Strachan'
+        email: jstrachan@scottlogic.com
+        author-summary: 'Hi! I''m James, a graduate developer at Scott Logic with passion for language design and an interest in Typescript and Rust. I also love a hike or a paddle. '
+        twitter-handle: null
+        picture: jstrachan.jpeg
+    ashing:
+        name: 'Alex Shing'
+        email: ashing@scottlogic.com
+        author-summary: "I joined Scott Logic as a graduate developer after completing CodeClan's software development course. I previously worked as a sushi chef, and studied Product Design Engineering.\n\nI love eating."
+        twitter-handle: null
+        picture: blogpic.jpg
