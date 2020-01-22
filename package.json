@@ -6,7 +6,7 @@
   "dependencies": {
     "applause-button": "^3.0.0",
     "cookieconsent": "3",
-    "foundation-sites": "^6.4.2"
+    "foundation-sites": "6.4.2"
   },
   "devDependencies": {
     "globby": "^7.1.1",
