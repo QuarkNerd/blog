@@ -881,7 +881,6 @@ authors:
     rpilling:
         name: 'Rob Pilling'
         email: rpilling@scottlogic.com
-        gravatar: 7624dfa1354f4110ed809ae343066549
         twitter-handle: bobrippling
         twitter-url: 'http://www.twitter.com/bobrippling'
         author-summary: "<p>I develop software at Scott Logic and have an interest in compilers, following Rust, JavaScript and Swift language development especially. I also enjoy a good walk.</p>\n<p>I can be found on <a href=\"https://github.com/bobrippling\">GitHub</a>.</p>"
@@ -926,10 +925,10 @@ authors:
     msuperina:
         name: 'Marzio Superina'
         email: msuperina@scottlogic.com
-        gravatar: 4c10e298294956f7d395af53cdde07e2
         author-summary: 'Developer at Scott Logic. Lately I have been experimenting with C.'
         twitter-handle: marziosuperina
         twitter-url: 'http://www.twitter.com/marziosuperina'
+        picture: picture.jpg
     skondru:
         name: 'Sai Kondru'
         email: skondru@scottlogic.com
