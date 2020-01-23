@@ -29,27 +29,6 @@ The AWS vision for Fargate basically seems to be if you don't have custom requir
 
 Right now, the pricing model doesn't seem to support this. Let's compare with on-demand EC2 pricing in the us-east-1 region. Prices are showing as of just now in $/hour, on a basis of the listed 0.0506 vCPU/h and 0.0127 GB/h:
 
-<style type="text/css">
-  table thead {
-    border-bottom: 1px solid #333;
-  }
-  table th {
-    font-weight: bold;
-  }
-  table td, table th {
-    padding: 5px;
-  }
-  table tr:first-child td {
-    padding-top 10px;
-  }
-  th:nth-child(5), td:nth-child(5) {
-    border-left: 1px solid gray;
-  }
-  table {
-    margin-bottom: 17px;
-  }
-</style>
-
 | Fargate | vCPU | Memory | Price ($/h) | EC2 | Class  | vCPU   | Memory   | Price ($/h)  |   |
 |---|---|---|---|---|---|---|---|---|---|
 || 0.25 | 0.5 |0.019   |   | t2.nano | 1 | 0.5 | 0.0058 |
