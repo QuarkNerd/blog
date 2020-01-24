@@ -105,6 +105,7 @@ active-authors:
     - mridene
     - jstrachan
     - ashing
+    - kday
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -1079,3 +1080,9 @@ authors:
         author-summary: "I joined Scott Logic as a graduate developer after completing CodeClan's software development course. I previously worked as a sushi chef, and studied Product Design Engineering.\n\nI love eating."
         twitter-handle: null
         picture: blogpic.jpg
+    kday:
+        name: 'Kyle Day'
+        email: kday@scottlogic.com
+        author-summary: 'I am a Test Engineer at Scott Logic, based in Newcastle.'
+        twitter-handle: null
+        picture: photo.jpg
