@@ -106,6 +106,7 @@ active-authors:
     - jstrachan
     - ashing
     - kday
+    - jgrant
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -1086,3 +1087,9 @@ authors:
         author-summary: 'I am a Test Engineer at Scott Logic, based in Newcastle.'
         twitter-handle: null
         picture: photo.jpg
+    jgrant:
+        name: 'James Grant'
+        email: jgrant@scottlogic.com
+        author-summary: 'I am a developer for Scott Logic in London, interested in cloud and containerisation technologies.'
+        twitter-handle: null
+        picture: sl-profile-picture.jpeg
