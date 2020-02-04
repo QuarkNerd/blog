@@ -107,6 +107,7 @@ active-authors:
     - ashing
     - kday
     - jgrant
+    - smangan
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -1093,3 +1094,9 @@ authors:
         author-summary: 'I am a developer for Scott Logic in London, interested in cloud and containerisation technologies.'
         twitter-handle: null
         picture: sl-profile-picture.jpeg
+    smangan:
+        name: 'Stephen Mangan'
+        email: smangan@scottlogic.com
+        author-summary: 'I''m a graduate test engineer at Scott Logic in Edinburgh. Since starting, I''ve taken a big interest in automated testing and testing in an agile environment. In my spare time I enjoy playing music !'
+        twitter-handle: null
+        picture: MyFace.jfif
