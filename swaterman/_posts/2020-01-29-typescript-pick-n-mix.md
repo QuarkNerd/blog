@@ -11,7 +11,7 @@ tags:
   - typescript
   - SOLID
   - interface-segregation
-image: swaterman/assets/typescript-pick-n-mix/flow.png
+image: swaterman/assets/typescript-pick-n-mix/pick.png
 ---
 
 *In this article, I discuss how the `Pick` utility type can help satisfy the Interface Segregation Principle in TypeScript*
