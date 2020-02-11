@@ -5,13 +5,13 @@ layout: default_post
 category: Testing
 title: 8 Out of 10 QATs Said They Prefer Cypress.
 summary: >-
-  A short story on my virgin voyage into the world of Cypress - the test tool,
+  A short story on my maiden voyage into the world of Cypress - the test tool,
   not the country. This is an overview on how I discovered Cypress, how I
   configured it, created tests and how I drifted away from the standard setup to
   utilise the provided TypeScript and Cucumber plugins to make it work with the
   application development project we were delivering.
 tags: 'Cypress, test-automation, testing,qa'
-image: hwilliams/assets/qat.jpg
+image: hwilliams/assets/8-out-of-10-cats-sitting.jpeg
 ---
 ![cat study]({{site.baseurl}}/hwilliams/assets/8-out-of-10-cats-sitting.jpeg)
 
@@ -383,4 +383,4 @@ Cypress helps you to avoid situations like the above by automatically "chaining"
 Believe or not, this was the tip of the iceberg of my virgin journey into Cypress testing. You may ask, "Was it a good experience? Was it easy to learn? Did it provide everything required out of the box to test effectively?  Did it help us to deliver the best desk booking application the world has ever seen?". The answers to the above are Yes!, Yes!, Yes! And let's leave that one for another blog!
 
 
-I enjoyed my first foray into Cypress. Although it's bursting at the seams with features, they're all logically put together and work just as I want them to, out of the box. Where it doesn't quite meet your requirements it's customisable too. If you need fancy reports or want to test WebSockets - with a plugin or some coding - it's all doable. Amazingly, you get all this and more for the low, low price of free! A common complaint I hear about Cypress - including from those two QATs I mentioned earlier - is its lack of of support for cross-browser testing. In February 2020, Cypress made the shock announcement that they had added [support for both Firefox and Edge](https://www.cypress.io/blog/2020/02/06/introducing-firefox-and-edge-support-in-cypress-4-0/). I mean, what more could you possibly want from a tool - Safari?
+I enjoyed my first foray into Cypress. Although it's bursting at the seams with features, they're all logically put together and work just as I want them to, out of the box. Where it doesn't quite meet your requirements it's customisable too. If you need fancy reports or want to test WebSockets - with a plugin or some coding - it's all doable. Amazingly, you get all this and more for the low, low price of free! A common complaint I hear about Cypress - including from those two QATs I mentioned earlier - is its lack of of support for cross-browser testing. In February 2020, Cypress made the shock announcement that they had added [support for both Firefox and Edge](https://www.cypress.io/blog/2020/02/06/introducing-firefox-and-edge-support-in-cypress-4-0/). I mean, what more could you possibly want from a tool? - Safari support?
