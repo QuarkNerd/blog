@@ -11,7 +11,7 @@ summary: >-
   pipeline is complete. Wonderful! - but what do we do if failing tests block
   your pipeline?
 tags: 'test automation, testing, QA, DevOps, CI,'
-image: 'https://blog.scottlogic.com/hwilliams/assets/wile-coyote-fail.jpg'
+image: hwilliams/assets/wile-coyote-fail.jpg
 ---
 ![wile-e-coyote-fail-test]({{site.baseurl}}/hwilliams/assets/wile-coyote-fail.jpg)
 
