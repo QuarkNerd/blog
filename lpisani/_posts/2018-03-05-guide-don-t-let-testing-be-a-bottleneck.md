@@ -27,4 +27,4 @@ Do you find that your testing is feeling squeezed into tighter and tighter time-
 
 Using our extensive experience and knowledge of applying simple yet effective techniques within agile projects, the guide gives key insights and practical ideas to help you effect change and improvement in your testing efforts.
 
-[Download the guide now](https://cdn2.hubspot.net/hubfs/452398/Dont-let-test-be-a-bottleneck_Scott_Logic.pdf). Prefer to receive a printed version through the post? [Email me](mailto:lpisani@scottlogic.com) and I’ll send you a copy.
+[Download the guide now]({{site.baseurl}}/lpisani/assets/white-papers/Agile_Testing_Guide.pdf. Prefer to receive a printed version through the post? [Email me](mailto:lpisani@scottlogic.com) and I’ll send you a copy.
