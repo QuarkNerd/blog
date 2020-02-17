@@ -116,7 +116,7 @@ I knew I could do better if I tried to write an optimised version, so I started 
 I was led down a rabbit-hole of svelte optimisation, exploring the intricacies of the HTML rendering pipeline.
 
 This is a whole story in itself, and one I wanted to write about in more detail.
-You can read all about the optimisation process in my next blog post [Slow Code HATES him!](https://blog.scottlogic.com/2020/02/10/minesweeper-optimisation.html)
+You can read all about the optimisation process in my next blog post [Slow Code HATES him!](https://blog.scottlogic.com/2020/02/17/minesweeper-optimisation.html)
 
 # Obsessions are good
 

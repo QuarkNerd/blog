@@ -12,7 +12,7 @@ tags:
   - svelte
   - html
   - javascript
-image: swaterman/assets/minesweeper-optimisation/pyramid.png
+image: swaterman/assets/minesweeper-optimisation/layers.jpg
 ---
 
 *This post explores my experience optimising a web app through iterative improvement.*
