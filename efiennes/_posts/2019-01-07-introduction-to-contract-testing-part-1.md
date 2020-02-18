@@ -275,7 +275,9 @@ We are a scrum team. We have built a new component to replace one already in pro
 **Use case 4 - Which technical design decision to make**<br>
 We are a scrum team. We intend to build and deploy a new API to a cloud-based container. However, there is some debate within the team whether to use a REST or a SOAP service. There are good points on both sides for using either. The decision is taken to do a POC with both and see how responsive both APIs are at a feature level. This means that we will be monitoring the SLA times for the responses to the calls to the APIs. We write our tests and put in a clause for the assertion to be marked as failed if the response takes more than 100ms from first call to response. This way, we will know for the happy paths in our application which features are the most performant in the same environments but with a different service design.
 <br>
+<br>
 *****
+<br>
 That’s it, Contract testing, how to do it, some use cases and what it can and cannot do for you as a provider or a consumer. Not in a nutshell, perhaps more of a hutshell really. 
 <br>
 In the meantime, my colleague Darren Smith, based in Newcastle has written an excellent post on [Consumer driven testing using PACT](https://blog.scottlogic.com/2017/01/10/consumer-driven-contracts-using-pact.html) which is a great overview of some of the capabilities of that tool.
