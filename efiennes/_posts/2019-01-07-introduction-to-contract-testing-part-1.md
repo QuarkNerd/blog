@@ -3,24 +3,24 @@ published: true
 author: efiennes
 layout: default_post
 category: Testing
-title: Introduction to contract testing - pt.1
+title: Introduction to contract testing 
 summary: 'Have you heard of contract testing and want to know more?  Are your company asking you to consider this future-facing way of testing? Are you wondering of its relevance to you as a functional or non-functional tester? Then this article can help you with some of the questions you have on the subject.'
 image: efiennes/assets/hutshell.png
 ---
-This is a 2-part post. In this first part, I will go through the terminology, the use cases and what contract testing does and doesn’t deliver.  
+In this post, I will go through the terminology, the use cases and what contract testing does and doesn’t deliver. There may be a follow up post with some tests implemented in a tool.
 
 These posts are written for anyone new to the concept, anyone who wants to understand contract testing from a range of perspectives and anyone looking for more context than they may have otherwise experienced. 
 
 In this post, there are some examples to work through in this post with the help of the Swagger Pet Store and a tool like cURL or Postman. These sections do rely on a passing knowledge of how to install and use these tools in order to replicate the test conditions.
 
-Towards the end of the 2nd part of the posts, we’ll get hands-on with some tooling that is specifically designed for contract testing . 
+Towards the end of the 2nd part of the posts, we’ll get hands-on with some tooling that is specifically designed for contract testing. 
 
 Feel free to skip the terminology section (immediately below) if you already have a working knowledge of one or more uses for contract testing.
 
 ## What is contract testing? ##
 Contract testing is the interrogation of a deployed or mocked services endpoint to get information back or define an endpoint in testing prior to deployment.
 
-In old-fashioned money, it provides smoke testing coverage each time a change is planned or made to your code.
+It provides complimentary testing coverage each time a change is planned or made to your code. We will talk more about how it can form part of your test approach later on in this post.
 
 ### **Breaking it down to a simple analogy** ###
 
@@ -100,7 +100,7 @@ When testing against an API yet to be developed, the tests will all fail as they
 
 Are you the provider or the consumer? Is your consumption internally or externally focused? If you are the provider, you need to look at all your endpoints and internal integrations. If you are the consumer (externally facing), you may just be looking at the endpoints you consume not every endpoint. 
 
-The above, dear readers, is why testers say “it depends” a lot and ask bundles of questions. It is not that we don’t have a concrete answer, it just happens we need a lot of information and context to give you the RIGHT concrete answer.
+The above, dear readers is why testers say “it depends” a lot and ask bundles of questions. It is not that we don’t have a concrete answer, it just happens we need a lot of information and context to give you the RIGHT concrete answer.
 
 **API Docs**
 
@@ -156,7 +156,8 @@ GET an endpoint which does not exist to ensure the service can deal with this cl
 GET a generated STATUS endpoint for an endpoint that exists
 
 **Request:** <br>
-`C:\DEV\cURL\bin>curl -I -X GET "https://petstore.swagger.io/v2/pet/findByStatus?status=BLAH"`<br>
+`C:\DEV\cURL\bin>curl -I -X GET "https://petstore.swagger.io/v2/pet/findByStatus?status=available"`<br>
+Available is a status supported by the Petstore
 
 **Response:** <br>
 `HTTP/1.1 200 OK` <br>
@@ -169,25 +170,20 @@ GET a generated STATUS endpoint for an endpoint that exists
 `Server: Betty Boo` <br>
 
 ### __**Test:**__ ###
-GET a generated STATUS endpoint for an endpoint that exists
+GET a generated STATUS endpoint for an endpoint that does not exist
 
 **Request:**<br> 
-`C:\DEV\cURL\bin>curl -I -X GET "https://petstore.swagger.io/v2/pet/findByStatus?status=available"`<br>
+`C:\DEV\cURL\bin>curl -I -X GET "https://petstore.swagger.io/v2/pet/findByStatus?status=Blah"`<br>
+Blah is not a status supported by the Petstore
 
 **Response:** <br>
-`HTTP/1.1 200 OK` <br>
-`Date: Thu, 20 Dec 2019 14:16:29 GMT`<br>
-`Access-Control-Allow-Origin: *` <br>
-`Access-Control-Allow-Methods: GET, POST, DELETE, PUT` <br>
-`Access-Control-Allow-Headers: A, B, C, D` <br>
-`Content-Type: application/json` <br>
-`Connection: close` <br>
-`Server: Betty Boo` <br>
+[ ]
+Now you need to talk to your team about the specification and decide if the specs are thorough enough to deal with unexpected endpoints OR decide on the endpoints that are likely to be miscalled and deal with them appropriately.
 
 ## Mocked endpoints / TDD - Classic or London school ##
 
 There has been so much written on one way of doing TDD over the other that it does not bear repeating here. It also borders on a whole load of debate that falls more under a TDD rather than a contract testing discussion. <br>
-For anyone who does want to look into this in more detail,  I’ve provided links to provide more context if you want to research the ways and means of looking into algorithmic verses role-based testing focus.
+For anyone who does want to look into this in more detail, I’ve provided links to provide more context if you want to research the ways and means of looking into algorithmic verses role-based testing focus.
 [London School](http://coding-is-like-cooking.info/2013/04/the-london-school-of-test-driven-development/) and the [Chicago School](https://8thlight.com/blog/georgina-mcfadyen/2016/06/27/inside-out-tdd-vs-outside-in.html)
 
 
@@ -200,7 +196,7 @@ A good contract test for a deployed service will tell you if:<br>
 * The provider and the consumer have a working connection if you are testing against a deployed service<br>
 * If an expected integration is in place<br>
 <br>
-The same can be said for mocked and TDD contract testing only IF the deployed version of the service corresponds to the mocks and tests. For that reason mocked and TDD tests should be used to drive design decisions rather than to provide information.
+The same can be said for mocked and TDD contract testing only IF the deployed version of the service corresponds to the mocks and tests. For that reason, mocked and TDD tests should be used to drive design decisions rather than to provide information.
 
 ## What does contract testing NOT do? ##
 
@@ -222,7 +218,7 @@ If you are mocking the API endpoints for your testing, contract testing will not
 
 ### **Data Semantics** ###
 
-If you have rules around your data such as maximum and minimum boundaries, format and size. Contract testing will not tests these rules in an effective way unless you are testing the deployed version of the service. 
+If you have rules around your data such as maximum and minimum boundaries, format and size. Contract testing will not test these rules in an effective way unless you are testing the deployed version of the service. 
 
 ### **Unknown (unknown) consumer actions** ###
 
@@ -231,7 +227,7 @@ If your internal or external consumers expect to be able to use your service in 
 
 ## What can contract testing actually test? ##
 
-Contract-based unit tests only check that API endpoint connections are active and functioning  (responding) correctly. A contract test ensures a service responds as advertised in terms of it’s agreement. To provide an example of an agreement in action, I am going to use the Swagger Petstore API endpoints - 
+Contract-based unit tests only check that API endpoint connections are active and functioning (responding) correctly. A contract test ensures a service responds as advertised in terms of it’s agreement. To provide an example of an agreement in action, I am going to use the Swagger Petstore API endpoints - 
 
 According to the spec, the Petstore API will return a 200 for any queries which ask it to find a pet with the status of ‘available’, ‘pending’ or ‘sold’. For anything else, it will return a 400. For more on http requests and responses - have a look here. Let’s test this agreement:
 
@@ -241,7 +237,7 @@ If I sent the request:
 => I should get a 200 response as this is a valid request. The status "available" is supported by the Petstore<br>
 
 `GET https://petstore.swagger.io/v2/pet/findBySize`<br>
-=>I should get a 400 response as this is an invalid request. As the "findbysize" option is not supported by the Petstore`<br>
+=>I should get a 400 or empty brackets [] response. This is an invalid request as the "findbysize" option is not supported by the Petstore`<br>
 
 You can use the Swagger ‘Try it out’ function,  cURL or Postman to have a play with the Petstore requests. Please keep in mind, the swagger.io interface only tests the happy paths so you will need to use one of the other tools to send the request syntax to invoke 400 / 500 type responses.
 
@@ -269,7 +265,7 @@ I am a tester on TeamA (the consumer). TeamB (the provider) will be developing a
 <br>
 <br>
 **Use case 2 - The external consumer with a developed service**<br>
-I am a web developer who consumes the Marvel comics APIs in my comic book store shopfront. I want to make sure that any changes to the Marvel APIs don’t break the services I advertise as this would break several parts of my landing page. I will provide my tester with the API specification so we can mock the API. The resulting contract testing will help us verify that all the agreements that we expect from Marvel as our provider are still in place after any changes to the service URL or individual endpoints.
+I am a web developer who consumes the Marvel comics APIs in my comic bookstore shopfront. I want to make sure that any changes to the Marvel APIs don’t break the services I advertise as this would break several parts of my landing page. I will provide my tester with the API specification so we can mock the API. The resulting contract testing will help us verify that all the agreements that we expect from Marvel as our provider are still in place after any changes to the service URL or individual endpoints.
 <br>
 <br>
 **Use case 3 - The internal consumer with endpoints in production**<br>
@@ -277,10 +273,9 @@ We are a scrum team. We have built a new component to replace one already in pro
 <br>
 <br>
 **Use case 4 - Which technical design decision to make**<br>
-We are a scrum team. We intend to build and deploy a new API to a cloud based container. However there is some debate within the team whether to use a REST or a SOAP service. There are good points on both sides for using either. The decision is taken do do a POC with both and see how responsive both APIs are at a feature level. This means that we will be monitoring the SLA times for the responses to the calls to the APIs. We write our tests and put in a clause for the assertion to be marked as failed if the response takes more than 100ms from first call to response. This way, we will know for the happy paths in our application which features are the most performant in the same environments but with a different service design.
+We are a scrum team. We intend to build and deploy a new API to a cloud-based container. However, there is some debate within the team whether to use a REST or a SOAP service. There are good points on both sides for using either. The decision is taken to do a POC with both and see how responsive both APIs are at a feature level. This means that we will be monitoring the SLA times for the responses to the calls to the APIs. We write our tests and put in a clause for the assertion to be marked as failed if the response takes more than 100ms from first call to response. This way, we will know for the happy paths in our application which features are the most performant in the same environments but with a different service design.
 <br>
 *****
-That’s it, Contract testing, how to do it, some usecases and what it can and cannot do for you as a provider or a consumer. Not in a nutshell, perhaps more of a hutshell really. Part2 in January. 
+That’s it, Contract testing, how to do it, some use cases and what it can and cannot do for you as a provider or a consumer. Not in a nutshell, perhaps more of a hutshell really. 
 <br>
-<br>
-In the meantime, my colleague Darren Smith, based in Newcastle has written an excellent post on [Consumer driven testing using PACT] (https://blog.scottlogic.com/2017/01/10/consumer-driven-contracts-using-pact.html) which is a great overview of some of the capabilities of that tool.
+In the meantime, my colleague Darren Smith, based in Newcastle has written an excellent post on [Consumer driven testing using PACT](https://blog.scottlogic.com/2017/01/10/consumer-driven-contracts-using-pact.html) which is a great overview of some of the capabilities of that tool.
