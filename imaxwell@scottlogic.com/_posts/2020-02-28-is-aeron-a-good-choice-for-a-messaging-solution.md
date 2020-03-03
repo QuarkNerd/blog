@@ -109,10 +109,11 @@ However, Aeron will only be a good tool for those willing to put in the time to 
 
 ## Resources
 I’ve barely scratched the surface of the technical details of Aeron. If you’re interested there’s a lot more detail available from these resources. Some of these are a little outdated, but the underlying design remains.
-- **Github Repository**: https://github.com/real-logic/aeron
-- **Github issue ‘Encryption/Security Discussion’:** https://github.com/real-logic/aeron/issues/203
-- **Aeron: Do We Really Need Another Messaging System?:** http://highscalability.com/blog/2014/11/17/aeron-do-we-really-need-another-messaging-system.html
-- **Google Group discussing StrangeLoop 2014:** https://groups.google.com/forum/#!msg/mechanical-sympathy/fr7moLcsuiI/IMvQY_bCQf8J
-- **Aeron talk at StrangeLoop 2014:** https://www.youtube.com/watch?v=tM4YskS94b0
-- **Alexey Piogov’s Blog (2017):** https://medium.com/@pirogov.alexey/aeron-low-latency-transport-protocol-9493f8d504e8
-- **Info Q Podcast MAY 07, 2018:** https://www.infoq.com/podcasts/aeron-raft/
+
+- **Github Repository**: [https://github.com/real-logic/aeron](https://github.com/real-logic/aeron)
+- **Aeron: Do We Really Need Another Messaging System?:** [http://highscalability.com/blog/2014/11/17/aeron-do-we-really-need-another-messaging-system.html](http://highscalability.com/blog/2014/11/17/aeron-do-we-really-need-another-messaging-system.html)
+- **Github issue ‘Encryption/Security Discussion’:** [https://github.com/real-logic/aeron/issues/203](https://github.com/real-logic/aeron/issues/203)
+- **Google Group discussing StrangeLoop 2014:** [https://groups.google.com/forum/#!msg/mechanical-sympathy/fr7moLcsuiI/IMvQY_bCQf8J](https://groups.google.com/forum/#!msg/mechanical-sympathy/fr7moLcsuiI/IMvQY_bCQf8J)
+- **Aeron talk at StrangeLoop 2014:** [https://www.youtube.com/watch?v=tM4YskS94b0](https://www.youtube.com/watch?v=tM4YskS94b0)
+- **Alexey Piogov’s Blog (2017):** [https://medium.com/@pirogov.alexey/aeron-low-latency-transport-protocol-9493f8d504e8](https://medium.com/@pirogov.alexey/aeron-low-latency-transport-protocol-9493f8d504e8)
+- **Info Q Podcast MAY 07, 2018:** [https://www.infoq.com/podcasts/aeron-raft/](https://www.infoq.com/podcasts/aeron-raft/)
