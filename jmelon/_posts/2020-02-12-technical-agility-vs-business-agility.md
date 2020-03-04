@@ -4,7 +4,6 @@ title: 'Technical agility vs. business agility'
 layout: default_post
 category: Delivery
 tags:
-  - featured
   - Agile
   - Business Agility
   - Evidence Based Management
