@@ -4,7 +4,6 @@ title: 'Agile Progress and Quality Reporting'
 layout: default_post
 category: Delivery
 tags:
-  - featured
   - Agile
   - Reporting
   - Evidence Based Management
