@@ -108,6 +108,7 @@ active-authors:
     - jgrant
     - smangan
     - pgraham
+    - ssibanda
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -1098,4 +1099,10 @@ authors:
         email: pgraham@scottlogic.com
         author-summary: "<p>Senior Developer with over 20 years of experience. Always keen to broaden my horizons.</p>\n\n<p>Particularly interested in UX theory and Agile methodologies. Co-organiser of the Agile North East Meetup.</p>"
         twitter-handle: svenadultbooks
+        picture: picture.jpg
+    ssibanda:
+        name: 'Siso Sibanda'
+        email: ssibanda@scottlogic.com
+        author-summary: "<p>I am a Delivery Manager based in Scott Logic's London office.</p>"
+        twitter-handle: null
         picture: picture.jpg
