@@ -41,7 +41,6 @@ The code is available [on GitHub](https://github.com/stevenwaterman/microbit-ray
 You can try it out for yourself [in the official emulator](https://makecode.microbit.org/_dRJ72yCK0V6E) or [in my custom-made HTML test bench](http://microbit-raytracer.stevenwaterman.uk/index.html) (which generated the hi-res images in the top left of the video).
 
 The remainder of this post discusses more about the Micro:Bit, and explains what a ray tracer actually is and how it works.
-In my next blog post, I will discuss the actual implementation, and the challenges I faced when optimising such an intensive algorithm for the Micro:Bit.
 
 ## A :bit more about the Micro:Bit
 
@@ -125,4 +124,5 @@ Frankly, I think this was an outstanding success.
 It works well enough on the Micro:Bit, it's accurate, and it works really well as a learning tool.
 I understand ray tracers much better, and it was a great excuse to play with the Micro:Bit!
 
-Keep an eye out for Part 2 (ETA 10th March), where I discuss how you actually implement a ray tracer, and how I approached programming the Micro:Bit for maximum performance.
+If you want to learn more about how a ray tracer works, [check out Part 2](https://blog.scottlogic.com/2020/03/10/how-to-raytracer.html), discusses how to actually implement one, and the maths behind it.
+Keep an eye out for Part 3 (ETA 17th Match), where I talk about how to optimise your Micro:Bit code.
