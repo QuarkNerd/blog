@@ -109,6 +109,7 @@ active-authors:
     - smangan
     - pgraham
     - ssibanda
+    - sburnstone
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -1106,3 +1107,9 @@ authors:
         author-summary: "<p>I am a Delivery Manager based in Scott Logic's London office.</p>"
         twitter-handle: null
         picture: picture.jpg
+    sburnstone:
+        name: 'Sam Burnstone'
+        email: sburnstone@scottlogic.com
+        author-summary: "<p>I develop front end applications at Scott Logic. I started out working on iOS apps and frameworks, cutting my teeth during the Objective-C days (this might explain my love of long method names and square brackets).</p>\n<p>Outside of work, I can often be found walking up hills in the Lake District and Scotland.</p>"
+        twitter-handle: null
+        picture: profileimage.jpeg
