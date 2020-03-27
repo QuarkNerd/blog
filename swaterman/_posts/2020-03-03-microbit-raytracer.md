@@ -125,4 +125,4 @@ It works well enough on the Micro:Bit, it's accurate, and it works really well a
 I understand ray tracers much better, and it was a great excuse to play with the Micro:Bit!
 
 If you want to learn more about how a ray tracer works, [check out Part 2](https://blog.scottlogic.com/2020/03/10/how-to-raytracer.html), discusses how to actually implement one, and the maths behind it.
-Keep an eye out for Part 3 (ETA 17th Match), where I talk about how to optimise your Micro:Bit code.
+[Part 3](https://blog.scottlogic.com/2020-03-27/microbit-optimisation.html) explores how to use a profiler to optimise your Micro:Bit code.
