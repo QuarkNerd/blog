@@ -124,5 +124,5 @@ Frankly, I think this was an outstanding success.
 It works well enough on the Micro:Bit, it's accurate, and it works really well as a learning tool.
 I understand ray tracers much better, and it was a great excuse to play with the Micro:Bit!
 
-If you want to learn more about how a ray tracer works, [check out Part 2](https://blog.scottlogic.com/2020/03/10/how-to-raytracer.html), discusses how to actually implement one, and the maths behind it.
-[Part 3](https://blog.scottlogic.com/2020-03-27/microbit-optimisation.html) explores how to use a profiler to optimise your Micro:Bit code.
+If you want to learn more about how a ray tracer works, [check out Part 2](https://blog.scottlogic.com/2020/03/10/raytracer-how-to.html), discusses how to actually implement one, and the maths behind it.
+[Part 3](https://blog.scottlogic.com/2020/03/27/microbit-optimisation.html) explores how to use a profiler to optimise your Micro:Bit code.
