@@ -20,14 +20,15 @@ The tool used for that traditionally is tracking progress against a plan often b
 In an agile environment, we are using mechanisms for regular inspection like the daily standup or sprint review in Scrum that provide invaluable insight on short time horizons, usually for the current iteration and in some cases for the next, too.
 We cannot replace this insight gained from the place where the work happens. We can, however, look into all the data we gather along the way and use it to add to our understanding. Some data is already used routinely, e.g. for sprint burndown and velocity charts that provide insight to the team itself. Other tools, e.g. Cycle Time scatter plots and cumulative flow diagrams are less well known and not so well supported by typical issue tracking systems. Even when systems like Jira or Azure DevOps do provide some, it is worthwhile to check their implementation by comparing these artefacts with one you have built yourself. You also have much more flexibility in the fine-tuning of those custom made charts.
 
-We could use Excel for building those charts and for the sake of checking their implementation it would probably be fine to do so. However, when looking into publishing these visuals for a larger audience we don’t want the typical level of manual interaction for data refresh and maintenance. Tools like Power BI also provide powerful transformations that can be used to create insight without programming experience and do not need any scripting.
+We could use Excel for building those charts and for the sake of checking their implementation it would probably be fine to do so. However, when looking into publishing these visuals for a larger audience we don’t want the typical level of manual interaction for data refresh and maintenance. 
+An alternative approach is to use a business intelligence tool like Power BI that provides a robust way of working with the data using transformations that create easily refreshable, shareable and maintainable visuals.
 
 For these reasons - and out of sheer curiosity - I have had a look into creating some of those visuals in Power BI, taking data from both Azure DevOps and Jira. 
 Understanding how to get data out of Jira and Azure DevOps has been an exciting journey, hunting for tutorials, how-tos and examples. Some things have been very easy and straight forward others were surprisingly difficult. This post gives step-by-step instructions for those wanting to try the same - a tutorial that I was missing.
 
 Azure DevOps supports queries using OData which makes connecting Power BI to Azure DevOps straightforward and quick. 
 For Jira there is the option to use a 3rd party tool, e.g. from CData or AIO, or we can use Jira’s REST API.
-My main example will be the Cycle Time scatter plot which is less widely used and not natively supported by Jira or Azure DevOps (there is probably some third party tool in the marketplace though).
+My main example will be the [Cycle Time scatter plot](https://knowledgebase.kanbanize.com/hc/en-us/articles/115000969551-Actionable-Agile-Cycle-Time-Scatterplot-upon-request-) which is less widely used and not natively supported by Jira or Azure DevOps (there is probably some third party tool in the marketplace though).
 
 ## Connecting Power BI with Azure DevOps
 
@@ -70,7 +71,7 @@ If you don’t like the result you can also sort by CompletedDate and create a n
 There are a couple of options when connecting to Jira: We can use a third-party tool like the CData or AIO connectors that I have tried or we use Jira’s own REST API.
 Using the connectors is straightforward and allows for loading tables together with their relationships into Power BI. Although there are significant differences between the two connectors both do the job of getting the data for Cycle Time scatter plots and Cumulative Flow Diagrams and other analytics. 
 
-But so does the REST API which is free to use and does not need us to install anything in addition either locally (as CData does) or adding an App to our Jira instance (as the AIO connector does). Gaining approval for additional license cost and for installing additional software can be very time consuming - especially in highly regulated environments.
+So does the REST API which is free to use and does not need us to install anything in addition either locally (as CData does) or adding an App to our Jira instance (as the AIO connector does). Gaining approval for additional license cost and for installing additional software can be very time consuming - especially in highly regulated environments.
 For these reasons I personally prefer the REST API as it enables me to demonstrate the value of using different metrics and forecasting techniques without needing to get approvals for tools first.
 
 ### Jira API Token
