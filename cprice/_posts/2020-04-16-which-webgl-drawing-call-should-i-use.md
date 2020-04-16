@@ -4,14 +4,14 @@ layout: default_post
 title: Which WebGL drawing call should I use?
 categories:
   - Tech
-summary: "WebGL presents you with a blank canvas (literally!) and leaves you with what feels like an overwhelming set of decisions to make before you can render your idea on screen. This post introduces a quick reference guide to picking the right draw call for those trying to decipher the difference between `drawArrays`, `drawElements` and their oddly-`ANGLE`'d instanced equivalents."
+summary: "WebGL presents you with a blank canvas (literally!) and leaves you with what feels like an overwhelming set of decisions to make before you can render your idea on screen. This post introduces a quick reference guide to picking the right draw call for those trying to decipher the difference between drawArrays, drawElements and their oddly-ANGLE'd instanced equivalents."
 ---
 
-Getting started with WebGL at a low-level is hard and in many cases you'd be better off with a [high-level library](https://threejs.org/). However, I've found that having an understanding of the low-level API can be useful when trying to understand the trade-offs these libraries make and how to optimise your usage of them.
+Getting started with WebGL at a low-level is hard and in many cases you'd be better off with a [high-level](https://www.babylonjs.com/) [library](https://threejs.org/). However, I've found that having an understanding of the low-level API can be useful when trying to understand the trade-offs these libraries make and how to optimise your usage of them.
 
 This post introduces a quick reference guide to picking the right low-level draw call for those trying to decipher the difference between `drawArrays`, `drawElements` and their oddly-`ANGLE`'d instanced equivalents. It will not cover the detail of how to use these calls (e.g. setting up attributes, writing shaders, etc.), just an overview of the method calls themselves, what they're good for and how to go about picking between them.
 
-[<img src="assets/webgl-draw-call/screenshot.gif" alt="Example showing (clockwise-from top-left) drawArrays, drawElements, drawElementsInstancedANGLE and drawArraysInstancedANGLE">](https://chrisprice.io/which-webgl-draw-call/)
+[<img src="{{ site.baseurl }}/cprice/assets/webgl-draw-call/screenshot.gif" alt="Example showing (clockwise-from top-left) drawArrays, drawElements, drawElementsInstancedANGLE and drawArraysInstancedANGLE">](https://chrisprice.io/which-webgl-draw-call/)
 
 ## Introduction
 
@@ -35,7 +35,7 @@ void drawArrays(GLenum mode, GLint first, GLsizei count)
 
 We'll use it to draw a cluster of triangles. I know triangles aren't very original but I'm all out of cubes and [teapots](https://en.wikipedia.org/wiki/Utah_teapot). Also, as it's WebGL we should probably apply a gradient and make them jiggle about -
 
-[<img src="assets/webgl-draw-call/drawArrays.png" alt="Example showing drawArrays">](https://chrisprice.io/which-webgl-draw-call/)
+[<img src="{{ site.baseurl }}/cprice/assets/webgl-draw-call/drawArrays.png" alt="Example showing drawArrays">](https://chrisprice.io/which-webgl-draw-call/)
 
 For this case, `drawArrays` works well. Notice how the triangles are disjoint (they do not share any vertices with each other) and don't share any other common attributes.
 
@@ -49,7 +49,7 @@ void drawElements(GLenum mode, GLsizei count, GLenum type, GLintptr offset)
 
 The additional `type` argument refers to the element indices buffer which allows you to inform the GPU which vertices are shared. Which in turn, allows it to optimise its processing.  We'll use it to draw an approximation of a circle out of triangles -
 
-[<img src="assets/webgl-draw-call/drawElements.png" alt="Example showing drawElements">](https://chrisprice.io/which-webgl-draw-call/)
+[<img src="{{ site.baseurl }}/cprice/assets/webgl-draw-call/drawElements.png" alt="Example showing drawElements">](https://chrisprice.io/which-webgl-draw-call/)
 
 
 `drawElements` works well in this case. Notice how the triangles share vertices with their adjacent neighbours and have one globally common vertex in the center. However, they don't share any other common attributes.
@@ -74,7 +74,7 @@ void drawArraysInstancedANGLE(GLenum mode, GLint first, GLsizei count, GLsizei p
 
 The additional `primcount` argument refers to the number of instances that will be drawn. Instead of drawing a single cluster of triangles, let's draw multiple instances of the cluster, each translated to a different spot -
 
-[<img src="assets/webgl-draw-call/drawArraysInstancedANGLE.png" alt="Example showing drawArraysInstancedANGLE">](https://chrisprice.io/which-webgl-draw-call/)
+[<img src="{{ site.baseurl }}/cprice/assets/webgl-draw-call/drawArraysInstancedANGLE.png" alt="Example showing drawArraysInstancedANGLE">](https://chrisprice.io/which-webgl-draw-call/)
 
 `drawArraysInstancedANGLE` works well in this case. Notice how the triangles are all disjoint but the triangles within each cluster do share common attributes.
 
@@ -88,7 +88,7 @@ void drawElementsInstancedANGLE(GLenum mode, GLsizei count, GLenum type, GLintpt
 
 There's nothing new to introduce here, just the combination of the arguments from the previous two calls. So let's use it to draw multiple circle instances -
 
-[<img src="assets/webgl-draw-call/drawElementsInstancedANGLE.png" alt="Example showing drawElementsInstancedANGLE">](https://chrisprice.io/which-webgl-draw-call/)
+[<img src="{{ site.baseurl }}/cprice/assets/webgl-draw-call/drawElementsInstancedANGLE.png" alt="Example showing drawElementsInstancedANGLE">](https://chrisprice.io/which-webgl-draw-call/)
 
 `drawElementsInstancedANGLE` works well in this case. Notice how the triangles within an instance share vertices with their adjacent neighbours, have one globally common vertex in the center and share other common attributes.
 
@@ -98,7 +98,7 @@ There's nothing new to introduce here, just the combination of the arguments fro
 
 Let's combine all of the calls into one image -
 
-[<img src="assets/webgl-draw-call/screenshot.png" alt="Example showing (clockwise-from top-left) drawArrays, drawElements, drawElementsInstancedANGLE and drawArraysInstancedANGLE">](https://chrisprice.io/which-webgl-draw-call/)
+[<img src="{{ site.baseurl }}/cprice/assets/webgl-draw-call/screenshot.png" alt="Example showing (clockwise-from top-left) drawArrays, drawElements, drawElementsInstancedANGLE and drawArraysInstancedANGLE">](https://chrisprice.io/which-webgl-draw-call/)
 
 On the vertical axis we're looking at how many instances of a thing are we rendering. If it just a single instance, we want the top row. However, if we're rendering significant numbers of instances, we want the bottom row.
 
