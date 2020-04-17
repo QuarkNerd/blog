@@ -117,7 +117,7 @@ public class AuthorService {
 
 That's all that is required. The application can be started and the local endpoint, `http://localhost:8080/authors/`, will display the list of authors. Spring is filling in the dependency that `AuthorController` has on `AuthorService` *as if by magic*.
 
-So what's really going on? To see what's happening enable `TRACE` level logging in the application. This is simply a case of passing `--trace` as a program argument at runtime. In IntelliJ Idea that looks like this (open these images in a new tab to see them in more detail).
+So, what's really going on? To see what's happening enable `TRACE` level logging in the application. This is simply a case of passing `--trace` as a program argument at runtime. In IntelliJ Idea that looks like this (open these images in a new tab to see them in more detail).
 
 ![Adding --trace as a program argument in IntelliJ Idea]({{site.baseurl}}/pgraham/assets/IntelliJTrace.png)
 
@@ -202,7 +202,7 @@ To make it clearer which beans are defined in the [project](https://github.com/p
 
 That's all that is required. The application can be started and the local endpoint, `http://localhost:8080/authorswithconstructor/`, will display the list of authors. Spring is calling the constructor in `AuthorController` and passing in the `AuthorService` as a parameter *as if by magic*.
 
-So what's really going on? This time the `TRACE` level logging in the application provides little detail.
+So, what's really going on? This time the `TRACE` level logging in the application provides little detail.
 
 ~~~text
 TRACE 28728 --- [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating instance of bean 'authorControllerWithConstructor'
@@ -211,8 +211,7 @@ DEBUG 28728 --- [           main] o.s.b.f.s.DefaultListableBeanFactory     : Aut
 TRACE 28728 --- [           main] o.s.b.f.s.DefaultListableBeanFactory     : Eagerly caching bean 'authorControllerWithConstructor' to allow for resolving potential circular references
 ~~~
 
-> Note - the singleton bean `autowire.AuthorService` has already been cached 
-by Spring at the point in time when the `AuthorControllerWithConstructor` is being created. This is because it is included in the beans definition.
+> Note - the singleton bean `autowire.AuthorService` has already been cached by Spring at the point in time when the `AuthorControllerWithConstructor` is being created. This is because it is included in the beans definition.
 
 It's possible to see how Spring is creating the `AuthorControllerWithConstructor` by adding a breakpoint in the constructor and debugging the process.
 
@@ -238,4 +237,4 @@ The first part of this post looked into the detail of how the Spring Framework r
 
 Dependency injection by `@Autowired` is a convenient way to wire beans together within a Spring application. It's easy to use and powerful enough to, at times, appear somewhat magical. While it would be nice to believe in magic, it's better to have a more detailed answer prepared for the question, "How does it work?" 
 
-Thanks for taking the time to read this post. The next post in this series will look into some of the quirks of Spring Autowiring and dependency injection, including cases where Spring copes with incomplete configuration details *as if by magic*.
+Thanks for taking the time to read this post. The [next post]({{ site.github.url }}/2020/04/16/spring-autowiring-its-a-kind-of-magic-2.html) in this series will look into some of the quirks of Spring Autowiring and dependency injection, including cases where Spring copes with incomplete configuration details *as if by magic*.
