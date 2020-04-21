@@ -6,6 +6,7 @@ active-authors:
     - alee
     - amjones
     - asureshkumar
+    - awelsh
     - bborowski@scottlogic.com
     - bdimitrov-SL
     - bjedrzejewski
@@ -176,6 +177,12 @@ authors:
         name: 'Allen Wallis'
         email: awallis@scottlogic.com
         picture: picture.jpg
+    awelsh:
+        name: 'Antony Welsh'
+        email: awelsh@scottlogic.com
+        author-summary: 'Lead Developer based in Edinburgh. My career in software is old enough to drink.'
+        twitter-handle: null
+        picture: blogpic.jpg
     bdimitrov-SL:
         name: 'Bogdan Dimitrov'
         email: bdimitrov@scottlogic.com
