@@ -2,7 +2,7 @@
 published: true
 author: jgrant
 layout: default_post
-category: Tech
+category: Cloud
 title: 'OK Google, what do you see? - Labelling images in Google Cloud'
 summary: >-
   In this hands-on tutorial, I'll introduce Google Cloud Platform and use it to
