@@ -61,7 +61,6 @@ active-authors:
     - mnicholson
     - mphillips
     - msinton
-    - mstobbs
     - msuperina
     - mwalker
     - nowen
@@ -111,6 +110,7 @@ active-authors:
     - pgraham
     - ssibanda
     - sburnstone
+    - mstobbs
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -992,12 +992,6 @@ authors:
         author-summary: '<p>I''m a developer at Scott Logic. I like to break things and sometimes fix them. </p>'
         twitter-handle: null
         picture: IMG_20190921_204539.jpg
-    mstobbs:
-        name: 'Matt Stobbs'
-        email: mstobbs@scottlogic.com
-        author-summary: '<p>I am a software developer at Scott Logic, based in Newcastle. I am particularly interested in web app development, especially React/Redux.</p>'
-        twitter-handle: null
-        picture: received_686603728391672.jpeg
     awojtczuk:
         name: 'Anna Wojtczuk'
         email: awojtczuk@scottlogic.com
@@ -1111,7 +1105,7 @@ authors:
     ssibanda:
         name: 'Siso Sibanda'
         email: ssibanda@scottlogic.com
-        author-summary: "<p>I am a Delivery Manager based in Scott Logic's London office.</p>"
+        author-summary: '<p>I am a Delivery Manager based in Scott Logic''s London office.</p>'
         twitter-handle: null
         picture: picture.jpg
     sburnstone:
@@ -1120,3 +1114,10 @@ authors:
         author-summary: "<p>I develop front end applications at Scott Logic. I started out working on iOS apps and frameworks, cutting my teeth during the Objective-C days (this might explain my love of long method names and square brackets).</p>\n<p>Outside of work, I can often be found walking up hills in the Lake District and Scotland.</p>"
         twitter-handle: null
         picture: profileimage.jpeg
+    mstobbs:
+        name: 'Matt Stobbs'
+        email: mstobbs@scottlogic.com
+        author-summary: '<p>I am a software developer at Scott Logic, based in Newcastle. I am particularly interested in web app development, especially React/Redux.</p>'
+        twitter-handle: matt_stobbs
+        twitter-url: 'http://www.twitter.com/matt_stobbs'
+        picture: received_686603728391672.jpeg
