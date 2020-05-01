@@ -21,7 +21,7 @@ To help demystify React Hooks, [Ryan Florence](https://twitter.com/ryanflorence)
 <img src="{{ site.baseurl }}/mstobbs/assets/demystifying-react-redux/javascript_curtain.gif" alt="Pay no attention to the JavaScript behind the curtain!" title="Pay no attention to the JavaScript behind the curtain!">
 </div>
 
-During the past year, I've had the opportunity to work with several of the graduate developers here at Scott Logic. One of the most common complaints I hear when they're learning [Redux Redux](https://react-redux.js.org/) (the library that connects Redux to your React application) is that it's too magic. They don't understand how Redux is able to update their components, or how their components can update the Redux store by dispatching actions into the abyss. And because they don't understand how it's working, they struggle to debug their code when something breaks.
+During the past year, I've had the opportunity to work with several of the graduate developers here at Scott Logic. One of the most common complaints I hear when they're learning [React Redux](https://react-redux.js.org/) (the library that connects Redux to your React application) is that it's too magic. They don't understand how Redux is able to update their components, or how their components can update the Redux store by dispatching actions into the abyss. And because they don't understand how it's working, they struggle to debug their code when something breaks.
 
 So, in this post, I'll be implementing "crappy React Redux". This is intended to give a general idea of what's going on when you connect your React app to Redux, rather than give a detailed description of how React Redux is implemented in practice.
 
@@ -430,6 +430,6 @@ And that's React Redux! As I said at the start, this isn't exactly how React Red
 
 You can see the final code on [github](https://github.com/mattstobbs/simplified-react-redux) or on [CodeSandbox](https://codesandbox.io/s/github/mattstobbs/simplified-react-redux/tree/master/?fontsize=14&hidenavigation=1&theme=dark).
 
-If you're interested in learning more about React Redux, [Mark Erikson](https://twitter.com/acemarke) wrote a great blog post called [The History and Implementation of React-Redux](https://blog.isquaredsoftware.com/2018/11/react-redux-history-implementation/). In it, he explains what React Redux does, how it works, and how the API and implementation have evolved.
+If you're interested in learning more about React Redux, [Mark Erikson](https://twitter.com/acemarke) wrote a great blog post called [The History and Implementation of React-Redux](https://blog.isquaredsoftware.com/2018/11/react-redux-history-implementation/). In it, he explains what React Redux does, how it works, and how the API and implementation have evolved. Mark also did a [talk](https://blog.isquaredsoftware.com/2019/06/presentation-react-redux-deep-dive/) at ReactNext 2019 based on that blog post.
 
 There's also an episode of [readthesource](https://www.youtube.com/watch?v=VJ38wSFbM3A) in which [Dan Abramov](https://twitter.com/dan_abramov), the creator of Redux, takes a deep dive into the React Redux code at that time (2016) and shows some of the optimisations and edge cases they had to consider.
