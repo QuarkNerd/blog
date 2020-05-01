@@ -47,7 +47,7 @@ Despite having 'official' support for JavaScript / WebAssembly, OpenCV isn't all
 
 The collective goal of the first few processing steps is to locate the sudoku grid within the image, the first of which is to find the outline for the various shapes within the image.
 
-OpenCV supports [various approaches to theresholding images](https://docs.opencv.org/master/d7/d4d/tutorial_py_thresholding.html), in this case we cannot guarantee even lighting across the sudoku grid, therefore an adaptive thresholding approach is most appropriate.
+OpenCV supports [various approaches to thresholding images](https://docs.opencv.org/master/d7/d4d/tutorial_py_thresholding.html), in this case we cannot guarantee even lighting across the sudoku grid, therefore an adaptive thresholding approach is most appropriate.
 
 The following code demonstrates how to create an OpenCV image buffer via `matFromImageData` (the buffer is an [instance of the `Mat` class](https://docs.opencv.org/master/d3/d63/classcv_1_1Mat.html)), and apply an adaptive threshold:
 
@@ -146,7 +146,7 @@ In the above image the contours with the dark greenish colour have four vertices
 The next step is to use a geometric transformation in order to create an image with just the sudoku grid, transformed such that it is a square. Once again, OpenCV has the required tools!
 
 
-The following code uses `getPerspectiveTransform` to create a suitable transform given the 4 vertices of the sudoku grid and the desired location for each in te destination image. In this case the destination is a square buffer with dimensions of 180 x 180. The `warpPerspective` method performs the transformation on the source image.
+The following code uses `getPerspectiveTransform` to create a suitable transform given the 4 vertices of the sudoku grid and the desired location for each in the destination image. In this case the destination is a square buffer with dimensions of 180 x 180. The `warpPerspective` method performs the transformation on the source image.
 
 ~~~javascript
 const srcCoords = ... // the vertices from the contour detection step
@@ -208,7 +208,7 @@ One important aspect I learnt through trial-and-error is that as well as trainin
 
 Once trained, the network, including the resulting weightings, can be saved. The whole process was really quite quick - taking about one minute on my machine.
 
-The TensorFlow API allows you to perform multiple predictions in one go. The process of creating the model, and feeding it with theimage data in a suitable format is really straightforward:
+The TensorFlow API allows you to perform multiple predictions in one go. The process of creating the model, and feeding it with the same data in a suitable format is really straightforward:
 
 ~~~javascript
 const model = await tf.loadLayersModel("./training/my-model-3.json");
@@ -245,7 +245,7 @@ for (let i = 0; i < TOTAL_CELLS; i++) {
 return result;
 ~~~
 
-A typical output is as follows (I've manually line-wrapped toi make it clear this is a grid):
+A typical output is as follows (I've manually line-wrapped to make it clear this is a grid):
 
 ~~~
 ...2...63
@@ -302,7 +302,7 @@ The following command builds the project, with the `web` target indicating that 
 $ wasm-pack build --target web
 ~~~
 
-The output of this build is a small (70KByte) wasm module and an accompanying JavaScript file which fetches the wasm module and adapts the functions, performing various type conversions. This is where much of the value is added, WebAassembly only supports numeric types, however the code above exports a function with a string argument and return value. The [wasm-bindgen](https://github.com/rustwasm/wasm-bindgen) project, automatically generates bindings to simplify communication between JavaScript and Rust (compiled to WebAassembly), in this case it handles the encoding and decoding of strings to linear memory, which significantly reduces the effort involved in using Rust code on the web.
+The output of this build is a small (70KByte) wasm module and an accompanying JavaScript file which fetches the wasm module and adapts the functions, performing various type conversions. This is where much of the value is added, WebAssembly only supports numeric types, however the code above exports a function with a string argument and return value. The [wasm-bindgen](https://github.com/rustwasm/wasm-bindgen) project, automatically generates bindings to simplify communication between JavaScript and Rust (compiled to WebAssembly), in this case it handles the encoding and decoding of strings to linear memory, which significantly reduces the effort involved in using Rust code on the web.
 
 Using this WebAssembly module couldn't be easier:
 

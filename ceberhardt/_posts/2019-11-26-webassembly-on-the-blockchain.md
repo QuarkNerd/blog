@@ -48,7 +48,7 @@ The Ethereum team has a [v2.0 roadmap](https://medium.com/swlh/a-comprehensive-v
 
 Over the next few years the Ethereum team are planning to move to proof-of-stake consensus (as an alternative to the costly proof-of-work), and will introduce sharding - both of which are intended to make the network faster and cheaper. The final thing they want to do is remove the dependency on Solidity and replace their current virtual machine (EVM). With the Solidity programming language numeric types are 256-bit, which at runtime require multiple 32/64 bit operations on the target CPU.
 
-WebAssembly has emerged as a strong candidate replacement for the current EVM. Its host independence, security sandbox and overall simplicity make it an ideal runtime for smart contracts. Furthermore, it also allows the development of contracts in a wide range of modern programming languages (Rust, C++, JavaScript). The Ethereum team have been trialing a WebAssembly-based contract engine, called eWASM, and plan to go live with it at some point in 2021.
+WebAssembly has emerged as a strong candidate replacement for the current EVM. Its host independence, security sandbox and overall simplicity make it an ideal runtime for smart contracts. Furthermore, it also allows the development of contracts in a wide range of modern programming languages (Rust, C++, JavaScript). The Ethereum team have been trialling a WebAssembly-based contract engine, called eWASM, and plan to go live with it at some point in 2021.
 
 Ethereum isn’t the only blockchain company investigating WebAssembly; there are a whole host of others betting on this technology, including Perlin, Parity, NEAR, Tron, EOS, U°OS, Spacemesh and many more - it appears to have become the [de-facto standard for building a new blockchain](https://hackernoon.com/the-three-eggs-in-a-distributed-basket-wasm-blockchain-and-reputation-296892cdd77c).
 
@@ -142,7 +142,7 @@ Starting deployment. Account id: hello-world,
 
 ### Invoking smart contract methods
 
-NEAR has a JavaScript SDK, [nearlib](https://github.com/nearprotocol/nearlib), for interacting with the blockchain network. The following example uses this SDK to connect to the network, themn load and interact with the "hello-world" smart contract:
+NEAR has a JavaScript SDK, [nearlib](https://github.com/nearprotocol/nearlib), for interacting with the blockchain network. The following example uses this SDK to connect to the network, then load and interact with the "hello-world" smart contract:
 
 ~~~javascript
 // the configuration required to connect to the network 
