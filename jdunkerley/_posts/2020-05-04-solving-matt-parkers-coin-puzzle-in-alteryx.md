@@ -11,7 +11,7 @@ image: jdunkerley/assets/coinpuzzle/logo.png
 ---
 Matt Parker is publishing a weekly puzzle on his [Think Maths](https://www.think-maths.co.uk/) website every Wednesday. This week's puzzle was a [Coin Puzzle](https://www.think-maths.co.uk/coin-puzzle).
 
-[youtube https://www.youtube.com/watch?v=TEkJMFTyZwM]
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TEkJMFTyZwM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 This puzzle felt like one that Alteryx would be well suited to solving.
 
