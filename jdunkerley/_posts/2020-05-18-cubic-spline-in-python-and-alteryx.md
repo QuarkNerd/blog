@@ -2,15 +2,15 @@
 author: jdunkerley
 title: Creating a Cubic Spline in Python and Alteryx
 summary: >-
-  In this post, we work through building up a cubic spline from first principles first in python, and then converting the python code into an Alteryx macro
+  In this post, we work through building up a cubic spline from first principles first in Python, and then converting the Python code into an Alteryx macro
 layout: default_post
 categories:
   - Tech
 image: jdunkerley/assets/spline/test_plot.png
 ---
-As a bit of a thought experiment, I wondered if how hard it would be to create a cubic spline interpolation within Alteryx. As with many of my experiments [*BaseA* rules](https://jdunkerley.co.uk/2019/11/29/lets-alteryx-the-advent-of-code-2019/) apply. 
+As a bit of a thought experiment, I wondered how hard it would be to create a cubic spline interpolation within Alteryx. As with many of my experiments [*BaseA* rules](https://jdunkerley.co.uk/2019/11/29/lets-alteryx-the-advent-of-code-2019/) apply. 
 
-Stealing an [idea from Tasha Alfano](https://twitter.com/tasha_alfano/status/1257768213300916225), I thought I would do it in both python and Alteryx from first principles. A quick shout out to [MathAPI](https://math.now.sh/home) - a handy site and used to render all the LaTeX to SVG.
+Stealing an [idea from Tasha Alfano](https://twitter.com/tasha_alfano/status/1257768213300916225), I thought I would do it in both Python and Alteryx from first principles. A quick shout out to [MathAPI](https://math.now.sh/home) - a handy site and used to render all the LaTeX to SVG.
 
 So let's start by reviewing how to create a cubic spline and then build it up. I chose to use the algorithm as described in [Wikiversity](https://en.wikiversity.org/wiki/Cubic_Spline_Interpolation). Specifically with type II simple boundary conditions. I'm not going through the maths but will define the steps to build the spline.
 
@@ -48,7 +48,7 @@ Please note the indexes here are different from those used in the Wikiversity ar
 
 <img src="{{ site.baseurl }}/jdunkerley/assets/spline/equation_c.svg" alt="Equation for C" /> for <img src="{{ site.baseurl }}/jdunkerley/assets/spline/i_1_n2.svg" alt="i=1 to n-2" />
 
-Using the simple boundary condition that the second derivative is equal to 0 at the end, gives the values for c<sub>0</sub> and a<sub>n-2</sub> both equal to 0. This can easily be coded up in python:
+Using the simple boundary condition that the second derivative is equal to 0 at the end, gives the values for c<sub>0</sub> and a<sub>n-2</sub> both equal to 0. This can easily be coded up in Python:
 
 ~~~python
 from typing import Tuple, List
@@ -129,7 +129,7 @@ So the last step is to convert this into a set of cubic curves. To find the valu
 
 <img src="{{ site.baseurl }}/jdunkerley/assets/spline/spline.svg" alt="Equation of spline" />
 
-Now to put it all together and create a function to build the spline coefficients. The final part needed is to create a closure and wrap it up as a function which will find *j* and then evaluate the spline. There is an excellent library in python, [bisect](https://docs.python.org/3/library/bisect.html) which will do a binary search to find *j* easily and quickly. 
+Now to put it all together and create a function to build the spline coefficients. The final part needed is to create a closure and wrap it up as a function which will find *j* and then evaluate the spline. There is an excellent library in Python, [bisect](https://docs.python.org/3/library/bisect.html) which will do a binary search to find *j* easily and quickly. 
 
 The code below implements this, and also validates the input arrays:
 
