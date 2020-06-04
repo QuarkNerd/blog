@@ -3,7 +3,7 @@ published: true
 author: hubinf@scottlogic.com
 layout: default_post
 category: Delivery
-title: k-19-or-how-to-not-run-a-team
+title: K-19 or How to not run a team
 summary: >-
   In this article, I would like to look at some traps that often impact
   performance in the workplace and outline some efficient ways to ensure your
