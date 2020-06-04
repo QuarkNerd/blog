@@ -2,8 +2,11 @@
 published: true
 author: hubinf@scottlogic.com
 layout: default_post
-category: Tech
+category: delivery
+tags delivery team empowerment
 title: 2020-06-04-k-19-or-how-to-not-run-a-team
+summary: In this article, I would like to look at some traps that often impact performance in the workplace and outline some efficient ways to ensure your team is doing a good job
+summary-short: A perilous parallel between a submarine crew and a software delivery team.
 ---
 In this article, I would like to look at some traps that often impact performance in the workplace and outline some efficient ways to ensure your team is doing a good job.
 
