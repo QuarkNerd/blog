@@ -66,6 +66,7 @@ active-authors:
     - nowen
     - pdykes
     - phands
+    - phughes
     - pkhan
     - rbeckett
     - rgarside
@@ -1121,3 +1122,9 @@ authors:
         twitter-handle: matt_stobbs
         twitter-url: 'http://www.twitter.com/matt_stobbs'
         picture: received_686603728391672.jpeg
+    phughes:
+        name: 'Peter Hughes'
+        email: phughes@scottlogic.com
+        author-summary: '<p>As a Principal Consultant here at Scott Logic, I focus on improving the performance of our clients businesses through the application of modern technologies.</p><p> When I am not in the office, you will find me out on the trails having fun on my mountain bike.</p>'
+        twitter-handle: null
+        picture: 'PFH Picture (Square).jpg'
