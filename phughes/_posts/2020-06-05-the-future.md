@@ -13,7 +13,7 @@ image: phughes/assets/thefuture.jpg
 ---
 
 ## The Post Pandemic Context
-There isn’t a sector, business or government which has not been impacted in both the near and long term by the Covid-19 (C19) pandemic. Some will adapt to survive, but many including some famous brands like Hertz Car Rental, will not emerge from this downturn. 
+There isn’t a sector, business or government which has not been impacted in both the near and long term by the Covid-19 (C19) pandemic. Some will adapt to survive, but many, including some famous brands, will not emerge from this downturn. 
 
 This pandemic has provided a relatively brief insight into a future world, one in which virtual and digital has become central to every interaction, forcing organisations and their leaders to go further and to deepen their IT adoption and business change. 
 A world in which omni digital channels become the main customer engagement model, fully automated processes become a primary driver of productivity and the very basis of flexible and transparent supply chains. 
