@@ -112,6 +112,7 @@ active-authors:
     - ssibanda
     - sburnstone
     - mstobbs
+    - nbetts
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -1128,3 +1129,9 @@ authors:
         author-summary: '<p>As a Principal Consultant here at Scott Logic, I focus on improving the performance of our clients businesses through the application of modern technologies.</p><p> When I am not in the office, you will find me out on the trails having fun on my mountain bike.</p>'
         twitter-handle: null
         picture: 'PFH Picture (Square).jpg'
+    nbetts:
+        name: 'Nick Betts'
+        email: nbetts@scottlogic.com
+        author-summary: 'I''m a Principal Consultant at Scott Logic in Newcastle. I have a keen interest in FinTech and technology delivery excellence.    In my spare time I enjoy all things fitness related.'
+        twitter-handle: null
+        picture: 'NBProfile (2).JPG'
