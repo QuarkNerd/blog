@@ -113,6 +113,7 @@ active-authors:
     - sburnstone
     - mstobbs
     - nbetts
+    - csanderson
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -1135,3 +1136,9 @@ authors:
         author-summary: 'I''m a Principal Consultant at Scott Logic in Newcastle. I have a keen interest in FinTech and technology delivery excellence.    In my spare time I enjoy all things fitness related.'
         twitter-handle: null
         picture: 'NBProfile (2).JPG'
+    csanderson:
+        name: 'Chloe Sanderson'
+        email: csanderson@scottlogic.com
+        author-summary: 'UX designer at Scott Logic since 2016, based in Edinburgh'
+        twitter-handle: null
+        picture: me.png
