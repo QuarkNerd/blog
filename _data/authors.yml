@@ -3,6 +3,7 @@ active-authors:
     - aaspellc
     - abagdonaite
     - acarr
+    - ahickman
     - alee
     - amjones
     - asureshkumar
@@ -152,6 +153,11 @@ authors:
         author-summary: '<p>I am an intern going into my fourth year at Edinburgh Napier univeristy, and I have been working on a <a href="https://github.com/ScottLogic/foyer-screen">foyer screen</a> for the offices.</p>'
         email: agard@scottlogic.com
         name: 'Alec Gard'
+        picture: picture.jpg
+    ahickman:
+        email: ahickman@scottlogic.com
+        name: 'Andy Hickman'
+        author-summary: '<p>I am a Principle Consultant at Scott Logic. I have led software teams in several organisations as a Delivery Manager, CTO and Software Development Manager. My interest is in the approaches – whether they are Agile practices, technical skills, management styles or tools – that make software teams most effective.</p>'
         picture: picture.jpg
     alee:
         name: 'Andy Lee'
