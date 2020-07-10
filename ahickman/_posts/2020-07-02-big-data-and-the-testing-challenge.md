@@ -5,8 +5,6 @@ category: Data Engineering
 title: Big Data and the Testing Challenge
 summary: This blog is about tools that help address the challenge of testing systems which handle large data volumes. We’ll see why creating a large, realistic and valid test data set is hard, how test data generators can help, and compare some of those available.
 image: ahickman/assets/2020-06-01/Database-growth.png
-tags:
-  - featured
 ---
 
 ![Exponential Data Growth]({{ site.github.url }}/ahickman/assets/2020-06-01/Database-growth.png "Data Growth"){:width="40%" style="float:right"}
