@@ -5,7 +5,7 @@ layout: default_post
 category: Delivery
 title: 'Demystifying Open Banking'
 image: nbetts/assets/openbanking.jpg
-tags: 'Open Banking , Delivery, FinTech, Open Finance'
+tags: 'Open Banking , Delivery, FinTech, Open Finance, featured'
 summary: "If you don’t work in finance or technology then the chances are, you may not have heard of Open Banking.  In this article I’ll explain more about Open Banking, my own experience of implementing an Open Banking API solution for a UK challenger bank, and a brief look at what's coming next... "
 ---
     
