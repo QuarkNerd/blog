@@ -36,7 +36,7 @@ $yellow: #f8be4f;
 }
 // PINK COLOUR SCHEME
 .pink-colour-scheme {
-    @include colour-scheme($light-pink, $pink, $white, $black);
+    @include colour-scheme($light-pink, $pink, $white, $white);
 }
 // YELLOW COLOUR SCHEME
 .yellow-colour-scheme {
