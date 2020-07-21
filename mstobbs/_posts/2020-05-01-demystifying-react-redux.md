@@ -4,7 +4,7 @@ author: mstobbs
 layout: default_post
 category: Tech
 title: Demystifying React Redux
-tags: react redux
+tags: react redux featured
 image: mstobbs/assets/demystifying-react-redux/Provider%20Satellite.jpg
 summary: >-
   One of the most common complaints when someone starts learning React Redux is

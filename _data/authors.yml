@@ -3,21 +3,17 @@ active-authors:
     - aaspellc
     - abagdonaite
     - acarr
+    - ahickman
     - alee
     - amjones
-    - asureshkumar
     - awelsh
     - bborowski@scottlogic.com
     - bdimitrov-SL
-    - bjedrzejewski
     - cakehurstryan
     - callan
     - cbrown
     - ceberhardt
     - chedler
-    - clee
-    - cmcknight
-    - cmcormack
     - cprice
     - dcastellano
     - dgorst
@@ -34,7 +30,6 @@ active-authors:
     - hashbyha
     - hbedford
     - hpretswell
-    - hsteele@scottlogic.com
     - hubinf@scottlogic.com
     - hwilliams
     - imaxwell@scottlogic.com
@@ -71,15 +66,12 @@ active-authors:
     - rbeckett
     - rgarside
     - rgraham
-    - rnewsome
     - robsmith
     - rpilling
     - rwilliams
     - sbaker
     - sbreingan
     - sbulut
-    - sduncan
-    - shogarth
     - shunton
     - skondru
     - sladen
@@ -112,6 +104,8 @@ active-authors:
     - ssibanda
     - sburnstone
     - mstobbs
+    - nbetts
+    - csanderson
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -150,6 +144,11 @@ authors:
         author-summary: '<p>I am an intern going into my fourth year at Edinburgh Napier univeristy, and I have been working on a <a href="https://github.com/ScottLogic/foyer-screen">foyer screen</a> for the offices.</p>'
         email: agard@scottlogic.com
         name: 'Alec Gard'
+        picture: picture.jpg
+    ahickman:
+        email: ahickman@scottlogic.com
+        name: 'Andy Hickman'
+        author-summary: '<p>I am a Principle Consultant at Scott Logic. I have led software teams in several organisations as a Delivery Manager, CTO and Software Development Manager. My interest is in the approaches – whether they are Agile practices, technical skills, management styles or tools – that make software teams most effective.</p>'
         picture: picture.jpg
     alee:
         name: 'Andy Lee'
@@ -664,6 +663,11 @@ authors:
         email: sfoley@scottlogic.com
         name: 'Simon Foley'
         picture: picture.jpg
+    sgrant:
+        author-summary: '<p>The ol'' job descrip'' says "developer", but I prefer the term "technical doer"; I feel it more adequately encompasses the breadth of what we do. Variety is of course the spice of life and, to stretch that metaphor, whilst I like a bit of this and that, ElasticSearch is my salt, and .NET my pepper.</p>'
+        email: sgrant@scottlogic.com
+        name: 'Sam Sutherland Grant'
+        picture: thinkyMe_150x150.jpg
     shall:
         email: stevenhall@scottlogic.com
         name: 'Steven Hall'
@@ -1128,3 +1132,15 @@ authors:
         author-summary: '<p>As a Principal Consultant here at Scott Logic, I focus on improving the performance of our clients businesses through the application of modern technologies.</p><p> When I am not in the office, you will find me out on the trails having fun on my mountain bike.</p>'
         twitter-handle: null
         picture: 'PFH Picture (Square).jpg'
+    nbetts:
+        name: 'Nick Betts'
+        email: nbetts@scottlogic.com
+        author-summary: 'I''m a Principal Consultant at Scott Logic in Newcastle. I have a keen interest in FinTech and technology delivery excellence.    In my spare time I enjoy all things fitness related.'
+        twitter-handle: null
+        picture: 'NBProfile (2).JPG'
+    csanderson:
+        name: 'Chloe Sanderson'
+        email: csanderson@scottlogic.com
+        author-summary: 'UX designer at Scott Logic since 2016, based in Edinburgh'
+        twitter-handle: null
+        picture: me.png
