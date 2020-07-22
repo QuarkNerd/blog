@@ -1,4 +1,4 @@
-@mixin article-colour-scheme($primary-colour) {
+@mixin article-colour-scheme($primary-colour, $contrast-colour) {
 
   .social {
     color: $primary-colour;
@@ -19,6 +19,7 @@
 
       a:hover {
         background-color: $primary-colour;
+        color: $contrast-colour;
       }
     }
   }
@@ -32,6 +33,7 @@
 
     a:hover {
       background-color: $primary-colour;
+      color: $contrast-colour;
     }
 
     code {
