@@ -52,7 +52,7 @@ Testing in production is also one of the best ways to find problems. Provide tes
 Do test after everything is built, but do also test during development. Provide fast feedback by testing in small increments. Use feature branches, prototyping or pair testing. Enable testers to build and test locally rather than waiting for builds to provide fast feature feedback. More in depth testing can then be conducted in an integrated build with less time being spent on the functionality itself.
 
 ### 5. Fix bugs early
-Don't sacrifice features for quality. Fix bugs as quickly as possible. Not just major failures. Sometimes the small problems can be irritating to a user. Left unchecked or unfixed these can pile up quickly. 
+Don't sacrifice quality for features. Fix bugs as quickly as possible. Not just major failures. Sometimes the small problems can be irritating to a user. Left unchecked or unfixed these can pile up quickly. 
 A good rule of thumb if you're working in sprints is to fix bugs found in sprint in the sprint. Or for Kanban, any issues found with a feature that is in WiP should be fixed before marking as complete.
 Any issues logged should be regularly reviewed as a team, where bug advocates can make their case as to why issues need fixing. These should then be fixed as part of the normal workload. This may slow down development for new features, but ultimately produce a more robust solution. 
 
