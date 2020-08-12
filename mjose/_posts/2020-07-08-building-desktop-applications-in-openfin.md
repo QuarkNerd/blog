@@ -1,6 +1,6 @@
 ---
 author: mjose
-title: Building desktop containers in OpenFin
+title: Building desktop applications with OpenFin
 summary: This technical webinar sets out the steps involved in migrating a legacy application into the OpenFin desktop container, and introduces some of OpenFin's main features.
 categories:
   - Tech

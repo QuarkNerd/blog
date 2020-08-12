@@ -1,6 +1,6 @@
 ---
 author: mjose
-title: Building desktop containers with Glue42
+title: Building desktop applications with Glue42
 summary: This technical webinar sets out the steps involved in migrating a legacy application into the Glue42 desktop container, and introduces some of Glue42's main features.
 categories:
   - Tech
