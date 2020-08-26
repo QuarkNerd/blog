@@ -106,6 +106,7 @@ active-authors:
     - mstobbs
     - nbetts
     - csanderson
+    - isugar
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -1144,3 +1145,9 @@ authors:
         author-summary: 'UX designer based in Edinburgh. Fan of design systems and good puns.'
         twitter-handle: null
         picture: me.png
+    isugar:
+        name: 'Ian Sugar'
+        email: isugar@scottlogic.com
+        author-summary: 'I''m a Technical Principal at Scott Logic in Bristol with particular interest in data engineering, cloud architecture, microservices and functional programming. Especially Clojure! I''m also interested in software engineering culture and how to make fun equal productive.'
+        twitter-handle: iansugar
+        picture: 0.jpeg
