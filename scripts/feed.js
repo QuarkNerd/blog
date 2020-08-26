@@ -1,6 +1,6 @@
 var feed = document.getElementById("feed");
 if (feed) {
-    var eventsUrl = "https://www.scottlogic.com/events/feed/";
+    var eventsUrl = "../events.xml";
     httpGetAsync(eventsUrl, displayFeedAsTalkList);
 }
 
