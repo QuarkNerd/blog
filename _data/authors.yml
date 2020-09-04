@@ -107,6 +107,7 @@ active-authors:
     - nbetts
     - csanderson
     - isugar
+    - mmcalroy
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -1151,3 +1152,9 @@ authors:
         author-summary: 'I''m a Technical Principal at Scott Logic in Bristol with particular interest in data engineering, cloud architecture, microservices and functional programming. Especially Clojure! I''m also interested in software engineering culture and how to make fun equal productive.'
         twitter-handle: iansugar
         picture: 0.jpeg
+    mmcalroy:
+        name: 'Martin McAlroy'
+        email: mmcalroy@scottlogic.com
+        author-summary: 'I''m a Test Engineer at Scott Logic in Newcastle Upon Tyne.'
+        twitter-handle: null
+        picture: scott_logic_pic.jpg
