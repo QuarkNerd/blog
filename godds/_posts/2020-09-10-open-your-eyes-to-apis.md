@@ -51,7 +51,7 @@ NatWest Group has achieved this change in mindset through its Open Banking Progr
 
 ### Register for API Revisited to explore further
 
-Join us in [Digital Leaders Week](https://digileaders.com/week/) (12-16 October) for APIs Revisited, a series of non-technical online events encouraging you to look again at APIs and the transformative role they could play at your organisation. 
+Join us in [Digital Leaders Week (12-16 October) for APIs Revisited](https://www.scottlogic.com/apis#schedule), a series of non-technical online events encouraging you to look again at APIs and the transformative role they could play at your organisation. 
 
 Every day, 3pm–4pm will be ‘API Hour’! I’ll be getting the week started with a talk on the ‘Oft-untapped business potential of APIs’ and then each subsequent day, one of my expert colleagues will dig deeper into specific topics, from taking control of legacy to defining your API strategy to reflecting on the opportunities of open APIs.
 
