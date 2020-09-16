@@ -10,7 +10,7 @@ categories:
 tags:
   - typescript
   - types
-image: swaterman/assets/ts-builders/Builders-Usage.svg
+image: swaterman/assets/ts-builders/Builders-Usage.png
 ---
 
 The builder pattern in TypeScript is amazing.
