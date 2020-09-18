@@ -41,7 +41,7 @@ Let's imagine a basic data processing task:
 ~~~ts
 const input = "524";
 const a = input.split("").reverse().join("");
-const b = parseInt(input, 10);
+const b = parseInt(a, 10);
 const c = b * 5;
 ~~~
 
@@ -58,7 +58,7 @@ We can define a function that takes a few config parameters:
 ~~~ts
 function process(input: string, radix: number, multiplicand: number) {
   const a = input.split("").reverse().join("");
-  const b = parseInt(input, radix);
+  const b = parseInt(a, radix);
   const c = b * multiplicand;
   return c;
 }
@@ -72,7 +72,7 @@ Often, it's easier to take the config as a single object:
 ~~~ts
 function process(input: string, config: {radix: number, multiplicand: number}) {
   const a = input.split("").reverse().join("");
-  const b = parseInt(input, config.radix);
+  const b = parseInt(a, config.radix);
   const c = b * config.multiplicand;
   return c;
 }
