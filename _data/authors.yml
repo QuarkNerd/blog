@@ -848,8 +848,9 @@ authors:
     jporter:
         name: 'James Porter'
         email: jporter@scottlogic.com
-        author-summary: '<p>Hi, I''m James. I am an Android developer at Scott Logic, based in Newcastle. I enjoy blogging about my work and I am always keen to experiment with and learn new technologies.</p>'
-        picture: picture.jpg
+        author-summary: 'Hi, I''m James. I am a software developer working on applications across web and mobile. I enjoy exploring new technologies and experimenting with agile processes to increase team performance. Outside of work you can find me hiking in the Lake District, playing board games and discussing politics with friends.'
+        twitter-handle: null
+        picture: picture.jpg        
     fbromley:
         name: 'Frances Bromley'
         email: fbromley@scottlogic.co.uk
