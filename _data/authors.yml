@@ -90,6 +90,7 @@ active-authors:
     - csanderson
     - isugar
     - mmcalroy
+    - aburgess
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -850,7 +851,7 @@ authors:
         email: jporter@scottlogic.com
         author-summary: 'Hi, I''m James. I am a software developer working on applications across web and mobile. I enjoy exploring new technologies and experimenting with agile processes to increase team performance. Outside of work you can find me hiking in the Lake District, playing board games and discussing politics with friends.'
         twitter-handle: null
-        picture: picture.jpg        
+        picture: picture.jpg
     fbromley:
         name: 'Frances Bromley'
         email: fbromley@scottlogic.co.uk
@@ -1141,3 +1142,9 @@ authors:
         author-summary: 'I''m a Test Engineer at Scott Logic in Newcastle Upon Tyne.'
         twitter-handle: null
         picture: scott_logic_pic.jpg
+    aburgess:
+        name: 'Andrew Burgess'
+        email: aburgess@scottlogic.com
+        author-summary: 'A Senior User Experience Designer with Scott Logic''s London office, I''m interested in exploring user requirements, improving how teams approach solutions, and creating successful products that address those needs.'
+        twitter-handle: null
+        picture: IMG_0604.jpg
