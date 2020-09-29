@@ -10,6 +10,7 @@ categories:
 tags:
   - typescript
   - types
+  - featured
 image: swaterman/assets/ts-builders/Builders-Usage.png
 ---
 
