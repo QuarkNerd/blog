@@ -3,6 +3,8 @@ author: garora
 title: To quantum computing and beyond!
 categories:
   - Tech
+tags:
+  - featured
 layout: default_post
 summary: The world is racing for quantum supremacy, to solve problems once thought impossible on any reasonable timescale. In this post, I explain the fundamental principles that allow this to be possible.
 category: Tech
