@@ -8,6 +8,7 @@ tags:
 layout: default_post
 summary: The world is racing for quantum supremacy, to solve problems once thought impossible on any reasonable timescale. In this post, I explain the fundamental principles that allow this to be possible.
 category: Tech
+image: garora/assets/2020-09-23/chips_talking.png
 ---
 
 <script type="text/javascript" async
