@@ -848,6 +848,6 @@ Feel free to contact me on [Twitter](https://twitter.com/SteWaterman) with any q
 
 ---
 
-My follow up post '[Better Redux Reducers with TypeScript Builders](https://blog.scottlogic.com/2020/09/29/reducer-builder.html)' is now live.
+My follow up post '[Better Redux Reducers with TypeScript Builders](https://blog.scottlogic.com/2020/10/01/reducer-builder.html)' is now live.
 It demonstrates how to use the builder pattern we saw in this post to create Redux Reducers.
 If you want a more realistic example of where builders can help in your TypeScript projects, go check it out!
