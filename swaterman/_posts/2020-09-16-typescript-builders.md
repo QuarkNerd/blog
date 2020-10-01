@@ -10,8 +10,7 @@ categories:
 tags:
   - typescript
   - types
-  - featured
-image: swaterman/assets/ts-builders/Builders-Usage.png
+image: swaterman/assets/ts-builders/Builders-Usage.svg
 ---
 
 The builder pattern in TypeScript is amazing.
@@ -23,7 +22,7 @@ We can actually use builders as a workaround for other issues in the type system
 In TypeScript, that means a way to enforce complex constraints like `only allow sending an event if anyone is listening for that event`.
 In this (long but beginner-friendly) post, we do an in-depth walkthrough of how to create a TypeScript builder class to enforce a complex constraint like that one.
 
-In this post, we start by introducing a simple data processing task and discuss how it would be useful to create a generic version.
+We start by introducing a simple data processing task and discuss how it would be useful to create a generic version.
 That immediately gets too hard, so we introduce builders to save the day.
 Step-by-step, we analyse the problem and design a builder to solve the problem.
 We then discuss the pros and cons of that approach, and explore whether it was even necessary in the first place.
@@ -42,7 +41,7 @@ Let's imagine a basic data processing task:
 ~~~ts
 const input = "524";
 const a = input.split("").reverse().join("");
-const b = parseInt(a, 10);
+const b = parseInt(input, 10);
 const c = b * 5;
 ~~~
 
@@ -59,7 +58,7 @@ We can define a function that takes a few config parameters:
 ~~~ts
 function process(input: string, radix: number, multiplicand: number) {
   const a = input.split("").reverse().join("");
-  const b = parseInt(a, radix);
+  const b = parseInt(input, radix);
   const c = b * multiplicand;
   return c;
 }
@@ -73,7 +72,7 @@ Often, it's easier to take the config as a single object:
 ~~~ts
 function process(input: string, config: {radix: number, multiplicand: number}) {
   const a = input.split("").reverse().join("");
-  const b = parseInt(a, config.radix);
+  const b = parseInt(input, config.radix);
   const c = b * config.multiplicand;
   return c;
 }
@@ -92,7 +91,7 @@ This pattern is really common, and goes by a few names.
 Most commonly in computing, it's known as a [pipeline](https://en.wikipedia.org/wiki/Pipeline_(computing)) - a function which takes data and performs a sequence of transformations.
 The fundamental technique in mathematics is called [function composition](https://en.wikipedia.org/wiki/Function_composition) - combining many small functions into one larger function.
 
-Pipelines are used for things like application build config, or for HTTP request middleware.
+Pipelines are used for things like application build config, or for http request middleware.
 Their main benefit is the ability to *encapsulate* many functions, allowing them to be treated as one.
 
 <img style="width: 100%" src="{{ site.github.url }}/swaterman/assets/ts-builders/Builders-Encapsulation.svg" alt="All good technical diagrams include a red scribble" aria-label="We can treat the entire pipeline as a single function">
@@ -106,8 +105,8 @@ The JavaScript implementation is simple using higher-order functions:
 function createPipeline(functions) {
   return function pipeline(initState, config) {
     let state = initState;
-    for (let func of functions) {
-      state = func(state, config),
+    for (function of functions) {
+      state = function(state, config),
     }
     return state;
   }
@@ -118,7 +117,7 @@ It's even possible as a (long) one-liner:
 
 ~~~js
 const createPipeline = initState => 
-  functions.reduce((state, func) => func(state, config), initState);
+  functions.reduce((state, function) => function(state, config), initState);
 ~~~
 
 <img style="width: 100%" src="{{ site.github.url }}/swaterman/assets/ts-builders/Builders-Factory.svg" alt="If only it was that easy" aria-label="We pass the three functions as a list into the pipeline factory, which outputs the factory">
@@ -203,8 +202,8 @@ They are typically used for the creation of complex objects.
 For example, a string concatenation function could be written as:
 
 ~~~ts
-function concat(...sections: string[]): string {/*...*/}
-const output = concat("Hi", "my", "pals");
+function concat(...sections: string[]): string { }
+const output = concat("hi", "my", "pals");
 ~~~
 
 <img style="width: 100%" src="{{ site.github.url }}/swaterman/assets/ts-builders/Builders-String-Factory.svg" alt="ARGH I FORGOT THE SPACES!!!" aria-label="A simple function that takes a list of strings and joins them together">
@@ -273,7 +272,7 @@ const a = wrap("hello")
 
 <img style="width: 100%" src="{{ site.github.url }}/swaterman/assets/ts-builders/Builders-MGS.svg" alt="Sadly, one thing builders can't solve is YOU BEING AN IDIOT THAT FORGETS THE SPACES" aria-label="Achieves the same thing but using repeated append calls on a builder">
 
-From the user's perspective, it's like we've *mutated* the generic type from `"Hello"` to `"there"` to `"friends!"`.
+From the user's perspective, it's like we've *mutated* the generic type from `"hello"` to `"there"` to `"friends!"`.
 The generic type tells us something about the current state of the builder, and it mutates when the builder does.
 That's where the name comes from - it's *state*, stored in the *generic* types, which is *mutable*.
 
@@ -297,7 +296,7 @@ A constraint can only be complex if it is potentially infinite.
 Otherwise, we could just list all valid type combinations.
 Our string wrapper has an infinite number of strings it could hold, and no limit on the number of calls to `.set()`.
 
-## When to use Builders
+## When to use builders
 
 Builders are clunky, hard to write, and hard to use.
 If you can do it without a builder, that's probably best.
@@ -338,9 +337,9 @@ Next, we need to think about the constraints on our builder and how they map to 
 
 To create our pipeline, we need a sequence of stages where:
 
-1. There is a defined order
-1. Each one has two arguments - input and config
-1. The output of one stage is the first argument to the next stage
+* There is a defined order
+* Each one has two arguments - input and config
+* The output of one stage is the first argument to the next stage
 
 <img style="width: 100%" src="{{ site.github.url }}/swaterman/assets/ts-builders/Builders-Mutation-Constraint.svg" alt="Make them all fit together" aria-label="Visual representation of those bullet points using the jigsaw-like style">
 
@@ -405,7 +404,7 @@ When talking about function parameters, it's simplest to just use a single confi
 In other words, rather than our stages looking like this:
 
 ~~~ts
-function multiply(input: number, multiplicand: number): number {/*...*/}
+function multiply(input: number, multiplicand: number): number { }
 /*...*/
 type Pipeline = (input: number, multiplicand: number, radix: number, ...) => number;
 ~~~
@@ -413,7 +412,7 @@ type Pipeline = (input: number, multiplicand: number, radix: number, ...) => num
 We should just require them to look like this:
 
 ~~~ts
-function multiply(input: number, config: {multiplicand: number}): number {/*...*/}
+function multiply(input: number, config: {multiplicand: number}): number { }
 /*...*/
 type Pipeline = (input: number, config: {
   multiplicand: number; 
@@ -845,4 +844,10 @@ If you made it this far, congrats.
 This is the longest blog post I've ever written, by a large margin, and it's taken me 6 months to finish.
 
 I really hope you enjoyed it, and I hope you found it useful.
-Feel free to contact me on [twitter](https://twitter.com/SteWaterman) with any questions, feedback, or to point out mistakes!
+Feel free to contact me on [Twitter](https://twitter.com/SteWaterman) with any questions, feedback, or to point out mistakes!
+
+---
+
+My follow up post '[Better Redux Reducers with TypeScript Builders](https://blog.scottlogic.com/2020/09/29/reducer-builder.html)' is now live.
+It demonstrates how to use the builder pattern we saw in this post to create Redux Reducers.
+If you want a more realistic example of where builders can help in your TypeScript projects, go check it out!
