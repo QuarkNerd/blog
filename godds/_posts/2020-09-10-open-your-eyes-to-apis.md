@@ -56,3 +56,5 @@ Join us in [Digital Leaders Week (12-16 October) for APIs Revisited](https://www
 Every day, 3pm–4pm will be ‘API Hour’! I’ll be getting the week started with a talk on the ‘Oft-untapped business potential of APIs’ and then each subsequent day, one of my expert colleagues will dig deeper into specific topics, from taking control of legacy to defining your API strategy to reflecting on the opportunities of open APIs.
 
 [Find out more and register your place here](https://www.scottlogic.com/apis#schedule) – we look forward to welcoming you.
+
+[Download our 'Open Your Eyes To APIs' white paper](https://www.scottlogic.com/white-paper-open-your-eyes-apis) for a more detailed non-techical exploration of the oft-untapped potential of APIs.

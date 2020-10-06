@@ -66,7 +66,7 @@ Here at Scott Logic, we have been exploring [how banking might add to and enhanc
 
 <img class="aligncenter" src="{{ site.baseurl }}/godds/assets/trim.png" alt="Trim" style="max-width: 325px;" />
 
-## Think. Don't case technology.
+## Think. Don't chase technology.
 
 Microsoft CEO Satya Nadella’s unveiling of the [company’s vision of “conversation as a platform”](http://www.theverge.com/2016/3/30/11331388/microsoft-chatbots-ai-build) in amongst the flurry of major messaging applications opening up to 3rd party integrations was a clear signal of the gold rush occurring around conversational commerce. The potential of conversational UIs is undoubtedly significant, but, as always with technology hype, it pays not to get blindly swept along with a trend. Take the time to properly understand and explore the technology in question to establish if and how it might be of use to you.
 
