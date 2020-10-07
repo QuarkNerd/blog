@@ -91,6 +91,7 @@ active-authors:
     - isugar
     - mmcalroy
     - aburgess
+    - ckurzeja
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -208,6 +209,11 @@ authors:
         email: cgrant@scottlogic.com
         name: 'Chris Grant'
         picture: picture.jpg
+    ckurzeja:
+      email: ckurzeja@scottlogic.com
+      name: 'Chris Kurzeja'
+      picture: image.jpg
+      author-summary: "<p>I'm a Lead Developer at Scott Logic working in the London office. I''m full-stack developer who is always keen on finding ways to help a team improve their coding quality and practices."
     cmeehan:
         email: cmeehan@scottlogic.com
         name: 'Chris Meehan'
