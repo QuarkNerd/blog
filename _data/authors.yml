@@ -964,7 +964,7 @@ authors:
     jhenderson:
         name: 'Jonathon Henderson'
         email: jhenderson@scottlogic.com
-        author-summary: '<p>I''m a Senior Developer at Scott Logic, based in Newcastle.</p><p>I''ve been hooked on software engineering ever since I watched GoldenEye as a teenager and I''m passionate about Java, Kotlin, Go and Python.</p><p>My interests lie within search engines, distributed systems, microservices, cloud computing and learning new languages.</p><p>I''m the proud father of two rescue cats, Olive and Ziggy, commonly known as Cutie-Cat and The Tron.</p>'
+        author-summary: '<p>I''m a Senior Developer at Scott Logic, based in Newcastle.</p><p>I''ve been hooked on software engineering ever since I watched GoldenEye as a teenager and I''m passionate about Java, Kotlin, Rust, Go and Python.</p><p>My interests lie within search engines, distributed systems, microservices, cloud computing and learning new languages.</p><p>I''m the proud father of two rescue cats, Olive and Ziggy, commonly known as Cutie-Cat and The Tron.</p><p>I also write on my <a href="https://jonathonhenderson.co.uk/blog">personal blog</a>.</p>'
         picture: picture.jpg
     jmorris:
         name: 'Jamie Morris'
