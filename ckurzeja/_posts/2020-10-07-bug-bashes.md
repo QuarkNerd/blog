@@ -9,7 +9,7 @@ summary: >-
 image: ckurzeja/assets/2020-10-07-bug-bash.jpg
 ---
 
-Recently I was leading a team delivering a proof a concept for a client with no testing resources. I was looking for a tool that would ‘shake out’ issues in the product and improve the overall quality. Given our lack of dedicated testers, I turned to colleagues in the testing community at Scott Logic for advice - they suggested running a bug bash.
+Recently I was leading a team delivering a proof of concept for a client with no testing resources. I was looking for a tool that would ‘shake out’ issues in the product and improve the overall quality. Given our lack of dedicated testers, I turned to colleagues in the testing community at Scott Logic for advice - they suggested running a bug bash.
 
 ## What is a bug bash?
 
