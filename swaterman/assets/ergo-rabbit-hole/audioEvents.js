@@ -40,7 +40,7 @@ audio.ontimeupdate = function() {
 }
 
 function skip() {
-  const marker = document.getElementById(`audio_book_paragraph_1924.5`);
+  const marker = document.getElementById(`audio_book_paragraph_1924`);
   const conclusion = marker.nextElementSibling;
   conclusion.scrollIntoView({
     behavior: "smooth",
@@ -49,6 +49,6 @@ function skip() {
   });
 
   if (!audio.paused) {
-    audio.currentTime = 1924.5;
+    audio.currentTime = 1924;
   }
 }
