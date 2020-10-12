@@ -61,11 +61,11 @@ Enums in Rust are just like those found in Java; they define a fixed set of poss
 
 A [trait](https://doc.rust-lang.org/book/ch10-02-traits.html) in Rust is similar to an interface with default methods in Java 8+. It is an abstraction which can declare methods that either contain a body, or must be implemented by the concrete type.
 
-The traits named in the `#[derive(...)]` attribute come from the Rust standard library and they each have a special meaning. By using this attribute, Rust automatically makes our struct implement those traits and provides their implementations.
+The traits named in the `#[derive(...)]` attribute come from the Rust standard library and they each have a special meaning. By using this attribute, Rust automatically makes our enum implement those traits and provides their implementations.
 
 ### The Command Enum
 
-The controls for the game will be pretty simple. The player will use the directional arrows on a keyboard to tell the snake to *turn* to face a different direction. We'll also let the player *quit* the game by pressing the `ESC` or `Q` keys.
+The controls for the game will be pretty simple. The player will use the directional arrows on a keyboard to tell the snake to *turn* to face a different direction. We'll also let the player *quit* the game by pressing `ESC`, `Q` or `CTRL+C`.
 
 Let's create an enum to represent these commands:
 
@@ -174,7 +174,7 @@ The presence of `&self` (or `&mut self`) as the first item in the parameter list
 let a = Point::new(1, 2);
 
 // but we use dot notation to call an instance method: instance.method(...)
-let b = a.transform((-1, 1)); 
+let b = a.transform(Direction::Up, 1);
 ~~~
 
 `transform` accepts a `Direction` and `times`, an unsigned 16-bit integer and returns a *new* `Point`. It first casts `times` to a signed integer so that it can support negative values and uses a `match` to work out a transformation to apply based on the current `direction`.
@@ -313,7 +313,7 @@ impl Foo {
 
 fn main() {
     let a = Foo { value: 12 };      // Declare a as Foo, with the value field initialised to 12
-    a.bar();                        // Call the bar method on a; a is passed as an immutable reference
+    a.bar();                        // Call the bar method on a; a is passed as an immutable
                                     // reference to the bar method
     println!("{:?}", a);
 }
@@ -345,8 +345,8 @@ fn main() {
     let mut a = Foo {};     // Declare a as a mutable instance of Foo
     let b = &mut a;         // Declare b as a mutable reference of a
     let c = &mut a;         // Declare c as a mutable reference of a; b is invalidated
-    println!("{:?}", b);    // Compilation error. Since b is invalid. If we'd tried to print c 
-}                           // instead, compilation would have succeeded.
+    println!("{:?}", b);    // Compilation error. Since b is invalid. If we'd tried to 
+                            // print c instead, compilation would have succeeded.
 ~~~
 
 Functions can also accept mutable references and may modify the value that they refer to:
@@ -469,7 +469,7 @@ The next four read-only methods above are significantly simpler.
     }
 ~~~
 
-`get_head_point` gets the first value from the `body` field which is a `Vec<Point>` and then returns a clone of that point.
+`get_head_point` returns a clone of the first `Point` of the `body` field, which represents the head of the snake.
 
 The `first` method returns an `Option<&Point>` which is an enum that represents either `Some` value or `None`, which would be returned if the vector was empty. Rust doesn't have a concept of null, so it relies on types like `Option` to represent the existence or lack of a value.
 
@@ -568,7 +568,7 @@ We match on `self`, which is the current direction, and compare it to each of th
 
 Congratulations for getting this far. This blog post is turning out to be a lot longer than I expected and it's about to get longer!
 
-We have all of our building blocks together so it's now time to work on fitting it all together.
+We have all of our building blocks so it's now time to work on fitting it all together.
 
 ### Some Dependencies
 
@@ -580,7 +580,7 @@ crossterm = "0.17"
 rand = "0.7.3"
 ~~~
 
-Since we're going to build the UI of the game in the terminal, we'll use [Crossterm](https://github.com/crossterm-rs/crossterm) to handle the differences between different platforms.
+Since we're going to build the UI of the game in the terminal, we'll use [Crossterm](https://github.com/crossterm-rs/crossterm) to handle the differences between different platforms and generally make interacting with the terminal a bit easier.
 
 We'll also need to generate some random numbers to position the food on the grid so we'll use the [`rand`](https://github.com/rust-random/rand) crate for that.
 
@@ -756,11 +756,11 @@ The next part of the `run` method is a call to a `render` method.
 
 This method and those it calls simply use Crossterm's API to draw all of the visual aspects of the game including the snake itself, the border around the grid and the food.
 
-We won't dig into this method any further since this post is already long enough! If you'd like to dig into the rendering side of the game, check out the [source code on GitHub](https://github.com/jrhenderson1988/snake-rs/blob/df500ed74194c7b4e3bc4d55cd892b377f3960fc/src/game.rs#L171).
+We won't dig into this method any further since this post is already long enough! If you'd like to dig into the rendering side of the game, check out the [source code on GitHub](https://github.com/jrhenderson1988/snake-rs/blob/5ee9763c8e26f76d7af9a401f58bcce04f181833/src/game.rs#L176).
 
 ### The Loop
 
-Next, we set up a flag `done` which provides our `while` loop with an exit condition. The `while` loop begins with a little bit of setup. First, we call a method to calculate the `interval`, which is effectively how long each iteration of the while loop should take:
+Next, we set up a flag, `done` which provides our `while` loop with an exit condition. The `while` loop begins with a little bit of setup. First, we call a method to calculate the `interval`, which is effectively how long each iteration of the while loop should take:
 
 ~~~rust
     fn calculate_interval(&self) -> Duration {
@@ -854,7 +854,7 @@ Finally, we use an `if let` to assert that the event was a Crossterm `KeyEvent` 
 
 Back to `get_command`, we then `match` the keycode of the key event and return a `Command` wrapped in a `Some` (since the method returns an `Option<Command>`) if the key-press corresponds to one we were expecting.
 
-All other key-presses, events or if the `wait_for` duration passed to the method elapses result in a `None` being returned.
+All other key-presses, events or if the `wait_for` duration passed to the method elapses, result in a `None` being returned.
 
 Back to the game loop, we use `if let` again to check that `Some(Command)` was returned and we then `match` the command to an appropriate action.
 
@@ -928,9 +928,9 @@ Finally, we draw the next frame of the game by calling the `render` method and t
 
 ### Ending the Game
 
-If the player sends a quit command to the game, by pressing `Q`, `ESC` or `CTRL+C` or if the player loses by colliding with the wall or by allowing the snake to bite its own tail, the game ends.
+If the player sends a quit command to the game, by pressing `Q`, `ESC` or `CTRL+C` or if the player loses by colliding with the wall or by allowing the snake to bite itsself, the game ends.
 
-We call the `restore_ui` method to reset all of the adjustments we've made to the terminal by restoring the size, clearing the game from the screen, showing the cursor, resetting the colour and enabling raw mode:
+We call the `restore_ui` method to reset all of the adjustments we've made to the terminal by restoring the size, clearing the game from the screen, showing the cursor, resetting the colour and disabling raw mode:
 
 ~~~rust
     fn restore_ui(&mut self) {
@@ -948,7 +948,7 @@ Once the terminal has been restored, we print out the user's score and the `run`
 
 ## The Entry Point
 
-Back to our `~/src/main.rs`, we just need to stitch everything together:
+Back to our `~/src/main.rs`, we just need to initialise and run the game:
 
 ~~~rust
 mod snake;
@@ -965,7 +965,7 @@ fn main() {
 }
 ~~~
 
-In Rust, the `main` function inside `~/src/main.rs` is the entry point to an application. We instantiate a `Game` by calling `Game::new(...)` passing through the stdout object which we get from calling the `std::io::stdout` function as well as the game grid width of 10 and height of 10. We then call the `run` method on the `Game` struct that is returned.
+In Rust, the `main` function inside `~/src/main.rs` is the entry point to an application. We instantiate a `Game` by calling `Game::new(...)` passing through the stdout object which we get from calling the `std::io::stdout` function as well as the game grid width of `10` and height of `10`. We then call the `run` method on the `Game` struct that is returned.
 
 An important thing to note is that Rust's [module system](https://doc.rust-lang.org/1.30.0/book/2018-edition/ch07-01-mod-and-the-filesystem.html) requires the developer to be more explicit when creating modules than in other languages.
 
@@ -996,4 +996,4 @@ I hope this has been an insightful and practical introduction to Rust. We've com
 
 If you would like to learn more about Rust, I'd recommend reading [the Rust Book](https://doc.rust-lang.org/book/) or [Rust by Example](https://doc.rust-lang.org/rust-by-example/) for those who prefer a more practical approach to learning.
 
-The code for Snake can be found on [GitHub](https://github.com/jrhenderson1988/snake-rs). If you would like to raise a problem, or submit a correction to this article, please raise an issue there.
+The code for Snake can be found on [GitHub](https://github.com/jrhenderson1988/snake-rs) where you can also raise an issue or submit a correction to this article.
