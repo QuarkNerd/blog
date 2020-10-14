@@ -31,12 +31,4 @@ humans bring free-form creativity and thought at the expense of speed and scale;
 
 <p style="margin-bottom: 3em;"><a href="https://www.scottlogic.com/white-paper-open-your-eyes-apis">Download our 'Open Your Eyes To APIs' white paper</a> to continue this non-techical exploration of the oft-untapped potential of APIs.</p>
 
-### Register for API Revisited to explore further
-
-Join us in [Digital Leaders Week (12-16 October) for APIs Revisited](https://www.scottlogic.com/apis#schedule), a series of non-technical online events encouraging you to look again at APIs and the transformative role they could play at your organisation. 
-
-Every day, 3pm–4pm will be ‘API Hour’! I’ll be getting the week started with a talk on the ‘Oft-untapped business potential of APIs’ and then each subsequent day, one of my expert colleagues will dig deeper into specific topics, from taking control of legacy to defining your API strategy to reflecting on the opportunities of open APIs.
-
-[Find out more and register your place here](https://www.scottlogic.com/apis#schedule) – we look forward to welcoming you.
-
 

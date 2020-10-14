@@ -49,12 +49,4 @@ The even better news is that with APIs, you have the option of focusing your ene
 
 NatWest Group has achieved this change in mindset through its Open Banking Programme, in which we’ve been proud to play a part. In the space of two years, the group went from having 0 public APIs to serving 10s of millions of hits every month, thanks to the 100s of third-party providers that can now integrate with them. Reuse of the services has saved millions of pounds in the budgets of the group’s recent change programmes; and automation of internal processes using the services has brought major efficiency improvements. Cumulatively, APIs have more than proven their worth and transformed the group’s perspective on its role, from being the single provider of value to its customers to being a key enabler of beneficial customer outcomes. Through its APIs, NatWest Group has fundamentally repositioned itself to thrive in a new era of banking.
 
-### Register for API Revisited to explore further
-
-Join us in [Digital Leaders Week (12-16 October) for APIs Revisited](https://www.scottlogic.com/apis#schedule), a series of non-technical online events encouraging you to look again at APIs and the transformative role they could play at your organisation. 
-
-Every day, 3pm–4pm will be ‘API Hour’! I’ll be getting the week started with a talk on the ‘Oft-untapped business potential of APIs’ and then each subsequent day, one of my expert colleagues will dig deeper into specific topics, from taking control of legacy to defining your API strategy to reflecting on the opportunities of open APIs.
-
-[Find out more and register your place here](https://www.scottlogic.com/apis#schedule) – we look forward to welcoming you.
-
 [Download our 'Open Your Eyes To APIs' white paper](https://www.scottlogic.com/white-paper-open-your-eyes-apis) for a more detailed non-techical exploration of the oft-untapped potential of APIs.
