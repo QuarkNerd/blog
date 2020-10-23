@@ -182,7 +182,7 @@ If the worker is consuming all the GPU resources then the main window is going t
 
 An area we haven't explored that may offer further performance improvements is the murky world of [context attributes](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext#Parameters). This time around my excuse is a lack of device support for these features.
 
-Most relevant to OffscreenCanvas rendering is the `desynchronized` attribute which, where supported and with restrictions, removes the synchronisation between the main window and worker rendering minimising the update lag. This is covered in more detail in this [Google Developers post](https://developers.google.com/web/updates/2018/08/offscreen-canvas).
+Most relevant to OffscreenCanvas rendering is the `desynchronized` attribute which, where supported and with restrictions, removes the synchronisation between the main window and worker rendering minimising the update lag. This is covered in more detail in this [Google Developers post](https://developers.google.com/web/updates/2019/05/desynchronized).
 
 ## Conclusion
 
