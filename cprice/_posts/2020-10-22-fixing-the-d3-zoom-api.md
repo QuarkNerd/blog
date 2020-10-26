@@ -67,19 +67,27 @@ const chart = fc
     .canvasPlotArea(series)
     .decorate(sel => {
         sel.enter()
-            .select('.plot-area')
+            .selectAll('.x-axis')
             .on('measure.range', event => {
                 x2.range([0, event.detail.width]);
+            });
+        sel.enter()
+            .selectAll('.y-axis')
+            .on('measure.range', event => {
                 y2.range([event.detail.height, 0]);
-            })
+            });
+        sel.enter()
+            .selectAll('.plot-area')
             .call(zoom);
     });
 ~~~
 
-This code block creates a cartesian chart, then configures it with the x/y scales and series. The [decorate](https://github.com/d3fc/d3fc/blob/master/docs/decorate-pattern.md) function is really the only interesting bit, when the plot-area is created it-
+This code block creates a cartesian chart, then configures it with the x/y scales and series. The [decorate](https://github.com/d3fc/d3fc/blob/master/docs/decorate-pattern.md) function is really the only interesting bit, when the elements are created it-
 
-* Listens to `measure` events to ensure the range values on the copies of the x/y scales are kept up-to-date. These are used internally by the rescaleX/Y transform utilities.
-* Applies the zoom behaviour which internally adds the listeners for user interactions.
+* Listens to `measure` events on the axes to ensure the range values on the copies of the x/y scales are kept up-to-date. These are used internally by the rescaleX/Y transform utilities. 
+* Applies the zoom behaviour to the plot-area which internally adds the listeners for user interactions.
+
+As the decorate method is manipulating the internals of the chart component, it requires some defensive programming. The `selectAll` method is used, rather than `select`, to avoid interfering with the data binding established by the chart component (using `select` modifies bound data). Also, the event handlers are namespaced `.range` to avoid interfering with the existing handlers added by the chart component (which are un-namespaced).
 
 ~~~js
 function render() {
