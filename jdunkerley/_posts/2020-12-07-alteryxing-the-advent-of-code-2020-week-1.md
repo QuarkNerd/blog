@@ -27,7 +27,7 @@ If you want to join us, we have an Alteryx leaderboard you can join by going to 
 
 For this year, I thought I would write up my solutions with some alternatives solutions from other people every week (well at least while we succeed in solving them!). When building a workflow, there are a couple of other dimensions we can look at beyond just working: how fast is the workflow and 'Tool Golf' (i.e. how few tools can we use)! So I will try and pick different approaches to my own for each day.
 
-# [Day 1 - Report Repair](https://adventofcode.com/2020/day/1)
+## [Day 1 - Report Repair](https://adventofcode.com/2020/day/1)
 - [Community Discussion](https://community.alteryx.com/t5/General-Discussions/Advent-of-Code-2020-BaseA-Style-Day-1/m-p/675532)
 
 <img src="{{ site.baseurl }}/jdunkerley/assets/advent-2020-1/day1.jd.jpg" alt="My solution day 1" />
@@ -39,7 +39,7 @@ For part 2, you need to do the same but with three numbers. First, I chose to ma
 
 For best 'tool golf', I could have merged a lot of this into the formula tool (doing the comparison and only producing a `Miss` if fields will be in order) and then join tool would produce a unique result.
 
-## All Possible Combinations
+### All Possible Combinations
 
 <img src="{{ site.baseurl }}/jdunkerley/assets/advent-2020-1/day1.jb.jpg" alt="Jean-B's Solution" />
 
@@ -47,7 +47,7 @@ This solution belongs to [@JeanBalteryx](https://community.alteryx.com/t5/user/v
 
 For part 2, the process starts from the full set of pairs using another Append Fields tool to get the complete set of triplets. After this performing the same filtering and sampling to produce the required result.
 
-# [Day 2 - Password Philosophy](https://adventofcode.com/2020/day/2)
+## [Day 2 - Password Philosophy](https://adventofcode.com/2020/day/2)
 - [Community Discussion](https://community.alteryx.com/t5/General-Discussions/Advent-of-Code-2020-BaseA-Style-Day-2/m-p/675534)
 
 <img src="{{ site.baseurl }}/jdunkerley/assets/advent-2020-1/day2.jd.jpg" alt="Count Matches" />
@@ -64,7 +64,7 @@ I then fed this into the filter tool using `REGEX_CountMatches` to count the num
 
 For part 2, I relied on the simple `Substring` function to find the characters to compare. Watch out for the [off by 1 error](https://twitter.com/codinghorror/status/506010907021828096?lang=en) - my brain wasn't working well at the time when I was building it and became off by 2 before realigning!
 
-## Regex For The Win
+### Regex For The Win
 
 <img src="{{ site.baseurl }}/jdunkerley/assets/advent-2020-1/day2.nh.jpg" alt="ColoradoNed's Solution" />
 
@@ -88,7 +88,7 @@ In this case, the input `1-8 n` is turned into `(^(?=.{1}[^n])(?=.{8}n).*$)|(^(?
 
 Some very clever regular expressions in here but not simple!
 
-# [Day 3 - Toboggan Trajectory](https://adventofcode.com/2020/day/3)
+## [Day 3 - Toboggan Trajectory](https://adventofcode.com/2020/day/3)
 
 <img src="{{ site.baseurl }}/jdunkerley/assets/advent-2020-1/SQCNh1k.gif" alt="Image chosen by CGoodman3" />
 
@@ -111,7 +111,7 @@ Pos=iif([Pos]=0,[Len],[Pos])
 
 Having produced this value, you can filter it for when the `Pos=Col`. Finally, a summarize tool and a multi-row formula allow the computation of the counts and the product.
 
-## Substrings
+### Substrings
 
 <img src="{{ site.baseurl }}/jdunkerley/assets/advent-2020-1/day3.dl.jpg" alt="Danilang's Solution" />
 
@@ -127,7 +127,7 @@ substring([Field_1],
 
 A nice clean solution and with a win of 7 in Tool Golf!
 
-# [Day 4 - Passport Processing](https://adventofcode.com/2020/day/4)
+## [Day 4 - Passport Processing](https://adventofcode.com/2020/day/4)
 
 - [Community Discussion](https://community.alteryx.com/t5/General-Discussions/Advent-of-Code-2020-BaseA-Style-Day-4/m-p/675657)
 
@@ -149,7 +149,7 @@ For part one, it's just a case of counting the number of matching valid fields (
 
 I was in the mood to do everything within the regex. This meant I didn't need to do any range checks on top as it was all built into these expressions. So, for example, to check for a 4 digit year from 1920 to 2002 becomes `19[2-9]\d|200[0-2]`. The first part (`19[2-9]\d`) deals with all values from 1920 to 1999 and the second (`200[0-2]`) deals with the last 3 years needed.
 
-## No Regex
+### No Regex
 
 <img src="{{ site.baseurl }}/jdunkerley/assets/advent-2020-1/day4.cg.1.jpg" alt="CGoodman's Solution Part 1" />
 
@@ -184,7 +184,7 @@ Height:
 
 One advantage of this approach is that each expression is simple and easy to debug. Each filter deals with one type of field, and then the valid results can be joined together using a Union tool.
 
-# [Day 5 - Binary Boarding](https://adventofcode.com/2020/day/5)
+## [Day 5 - Binary Boarding](https://adventofcode.com/2020/day/5)
 
 - [Community Discussion](https://community.alteryx.com/t5/General-Discussions/Advent-of-Code-2020-BaseA-Style-Day-5/m-p/676290)
 
@@ -214,7 +214,7 @@ BinToInt(ReplaceChar(ReplaceChar(
 
 The `ReplaceChar` function allows for a list of target characters so you can reduce to 2 calls instead of 4.
 
-## A Non-BinToInt Approach
+### A Non-BinToInt Approach
 
 The vast majority of submissions for this question were basically the same. There were a few variations. As a bit of a fun experiment, Ned and I came up with an alternative approach:
 
@@ -230,7 +230,7 @@ This checks the character and using its position within the input string to turn
 
 To find the missing seat and the maximum, these are then sorted, and a Multi-Row formula is used to compute the difference with the next row. The 2 cases where this is not 1 gives the required output for parts 1 and 2.
 
-# Wrapping Up
+## Wrapping Up
 
 So that's week one (well first 5 days) down. Generally, these puzzles have been well suited to Alteryx. If you want to take a deeper look at my solutions, they are posted to [GitHub](https://github.com/jdunkerley/adventofcode/). A few other git repositories are listed below:
 
