@@ -23,7 +23,7 @@ A couple of years ago, [Adam Riley](https://twitter.com/AlteryxAd/status/1069619
 - No Formula SDK extensions
 - Download tool allowed for downloading (no posting to APIs to get answers from!)
 
-If you want to join us, we have an Alteryx leaderboard you can join by going to https://adventofcode.com/2019/leaderboard/private and using the code `453066-ca912f80`. We are chatting on the Alteryx Community under the [Advent of Code label](https://community.alteryx.com/t5/forums/filteredbylabelpage/board-id/general-discussions/label-name/advent%20of%20code). The leaderboard awards points by order in which they are solved. As the puzzles are published at midnight Eastern time, this gives those who live on the West Coast an advantage. Those of us in the UK, it's 5 am, which is not a good time for my brain at least! Generally, this means it is fairest to look at total stars rather than points.
+If you want to join us, we have an Alteryx leaderboard you can join by going to [https://adventofcode.com/2019/leaderboard/private](https://adventofcode.com/2019/leaderboard/private) and using the code `453066-ca912f80`. We are chatting on the Alteryx Community under the [Advent of Code label](https://community.alteryx.com/t5/forums/filteredbylabelpage/board-id/general-discussions/label-name/advent%20of%20code). The leaderboard awards points by order in which they are solved. As the puzzles are published at midnight Eastern time, this gives those who live on the West Coast an advantage. Those of us in the UK, it's 5 am, which is not a good time for my brain at least! Generally, this means it is fairest to look at total stars rather than points.
 
 For this year, I thought I would write up my solutions with some alternatives solutions from other people every week (well at least while we succeed in solving them!). When building a workflow, there are a couple of other dimensions we can look at beyond just working: how fast is the workflow and 'Tool Golf' (i.e. how few tools can we use)! So I will try and pick different approaches to my own for each day.
 
@@ -234,9 +234,9 @@ To find the missing seat and the maximum, these are then sorted, and a Multi-Row
 
 So that's week one (well first 5 days) down. Generally, these puzzles have been well suited to Alteryx. If you want to take a deeper look at my solutions, they are posted to [GitHub](https://github.com/jdunkerley/adventofcode/). A few other git repositories are listed below:
 
-- NicoleJohnson: https://github.com/AlteryxNJ/AdventOfCode_2020
-- ColoradoNed: https://github.com/NedHarding/Advent2020
-- CGoodman3: https://github.com/ChrisDataBlog/AdventOfCode_2020
+- NicoleJohnson: [https://github.com/AlteryxNJ/AdventOfCode_2020](https://github.com/AlteryxNJ/AdventOfCode_2020)
+- ColoradoNed: [https://github.com/NedHarding/Advent2020](https://github.com/NedHarding/Advent2020)
+- CGoodman3: [https://github.com/ChrisDataBlog/AdventOfCode_2020](https://github.com/NedHarding/Advent2020)
 
 As it stands at 2 pm on 5th December, the leaderboard looks like:
 
