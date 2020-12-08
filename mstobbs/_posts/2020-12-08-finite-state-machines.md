@@ -61,13 +61,13 @@ Looking back at our Pacman example, a naive approach may be to control our Pacma
     </tr>
     <tr>
       <td align="center"><code class="language-plaintext highlighter-rouge">isFrightened</code></td>
-      <td><img src="/blog/mstobbs/assets/reducing-bugs-with-finite-state-machines/pacman-ghost-frightened.png" alt="A frightened Pacman ghost being chased by Pacman" title="A frightened Pacman ghost being chased by Pacman"></td>
+      <td><img src="{{ site.baseurl }}/mstobbs/assets/reducing-bugs-with-finite-state-machines/pacman-ghost-frightened.png" alt="A frightened Pacman ghost being chased by Pacman" title="A frightened Pacman ghost being chased by Pacman"></td>
       <td align="center">⚠ Invalid state</td>
     </tr>
     <tr>
       <td align="center"><code class="language-plaintext highlighter-rouge">!isFrightened</code></td>
-      <td><img src="/blog/mstobbs/assets/reducing-bugs-with-finite-state-machines/pacman-ghost-chase.png" alt="A Pacman ghost chasing Pacman" title="A Pacman ghost chasing Pacman"></td>
-      <td><img src="/blog/mstobbs/assets/reducing-bugs-with-finite-state-machines/pacman-ghost-dead.png" alt="A dead Pacman ghost" title="A dead Pacman ghost"></td>
+      <td><img src="{{ site.baseurl }}/mstobbs/assets/reducing-bugs-with-finite-state-machines/pacman-ghost-chase.png" alt="A Pacman ghost chasing Pacman" title="A Pacman ghost chasing Pacman"></td>
+      <td><img src="{{ site.baseurl }}/mstobbs/assets/reducing-bugs-with-finite-state-machines/pacman-ghost-dead.png" alt="A dead Pacman ghost" title="A dead Pacman ghost"></td>
     </tr>
   </tbody>
 </table>
