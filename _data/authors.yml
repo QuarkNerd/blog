@@ -1114,10 +1114,10 @@ authors:
     mstobbs:
         name: 'Matt Stobbs'
         email: mstobbs@scottlogic.com
-        author-summary: '<p>I am a software developer at Scott Logic, based in Newcastle. I am particularly interested in web app development, especially React/Redux.</p>'
+        author-summary: '<p>I build apps at Scott Logic. I have an interest in all things front-end and love to share the things I learn.</p>'
         twitter-handle: matt_stobbs
         twitter-url: 'http://www.twitter.com/matt_stobbs'
-        picture: received_686603728391672.jpeg
+        picture: ProfilePhoto.jpg
     phughes:
         name: 'Peter Hughes'
         email: phughes@scottlogic.com
