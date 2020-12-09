@@ -92,6 +92,8 @@ active-authors:
     - mmcalroy
     - aburgess
     - ckurzeja
+    - mbuhagiar
+    - shamiltonritchie
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -484,6 +486,11 @@ authors:
         email: mamos@scottlogic.com
         author-summary: 'I''m a Lead Developer at Scott Logic, based in London, with almost 15 years experience in Java. I also write Scala, Kotlin, Python and some JavaScript. I am a certified AWS solutions architect, and Terraform fan.'
         picture: picture.jpg
+    mbuhagiar:
+        name: 'Mark Buhagiar'
+        email: mbuhagiar@scottlogic.com
+        author-summary: 'I''m a Senior Developer at Scott Logic based in London. When not frantically typing away at a keyboard, I can usually be found either cooking or out on a run.'
+        picture: picture.jpg        
     mcrease:
         author-summary: ""
         email: mcrease@scottlogic.com
@@ -654,6 +661,10 @@ authors:
         email: sfoley@scottlogic.com
         name: 'Simon Foley'
         picture: picture.jpg
+    shamiltonritchie:
+        email: shamiltonritchie@scottlogic.com
+        name: 'Simon Hamilton Ritchie'
+        author-summary: 'Lead Developer in London'
     sgrant:
         author-summary: '<p>The ol'' job descrip'' says "developer", but I prefer the term "technical doer"; I feel it more adequately encompasses the breadth of what we do. Variety is of course the spice of life and, to stretch that metaphor, whilst I like a bit of this and that, ElasticSearch is my salt, and .NET my pepper.</p>'
         email: sgrant@scottlogic.com
