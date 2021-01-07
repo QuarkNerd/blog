@@ -94,6 +94,7 @@ active-authors:
     - ckurzeja
     - mbuhagiar
     - shamiltonritchie
+    - abirch
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -1165,3 +1166,9 @@ authors:
         author-summary: 'A Senior User Experience Designer with Scott Logic''s London office, I''m interested in exploring user requirements, improving how teams approach solutions, and creating successful products that address those needs.'
         twitter-handle: null
         picture: IMG_0604.jpg
+    abirch:
+        name: 'Alex Birch'
+        email: 'abirch@scottlogic.com'
+        author-summary: 'A very full-stack developer'
+        twitter-handle: null
+        picture: abirch.png
