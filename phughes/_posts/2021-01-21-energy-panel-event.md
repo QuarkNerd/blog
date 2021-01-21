@@ -11,7 +11,7 @@ categories:
 image: phughes/assets/energy-panel.png
 ---
 
-<img src="{{ site.baseurl }}/phughes/assets/energy-panel.jpg" alt="co2-gradient" title="co2 gradient">
+<img src="{{ site.baseurl }}/phughes/assets/energy-panel.png" alt="co2-gradient" title="co2 gradient">
 
 This is not the first time a *regulator* has challenged the *regulated* to transform how a sector manages data and makes that data available on an open basis. Since 2016, the banking sector in the UK has been required to transition to Open Banking, making data available with consent, to those who can create new value from that data, faster and in the interests of the customer.
 
