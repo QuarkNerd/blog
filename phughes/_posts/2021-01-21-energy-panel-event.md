@@ -11,7 +11,9 @@ categories:
 image: phughes/assets/energy-panel.png
 ---
 
-<img src="{{ site.baseurl }}/phughes/assets/energy-panel.png" alt="co2-gradient" title="co2 gradient">
+<img src="{{ site.baseurl }}/phughes/assets/energy-panel.png" width="100%" alt="co2-gradient" title="co2 gradient">
+
+According to the power sector regulator, Ofgem, “The fastest route to NetZero is via data and digitalisation”. The endeavor of making energy data open presents a significant challenge — but power companies can take reassurance and learn valuable lessons from the success of the UK’s rapid implementation of Open Banking.
 
 This is not the first time a *regulator* has challenged the *regulated* to transform how a sector manages data and makes that data available on an open basis. Since 2016, the banking sector in the UK has been required to transition to Open Banking, making data available with consent, to those who can create new value from that data, faster and in the interests of the customer.
 
