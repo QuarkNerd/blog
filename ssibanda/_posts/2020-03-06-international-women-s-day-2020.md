@@ -2,7 +2,7 @@
 published: true
 author: ssibanda
 layout: default_post
-category: Careers
+category: people
 title: International Women’s Day 2020
 tags: 'International Women''s Day, Women in Tech, Diversity and Inclusion, Careers'
 image: /ssibanda/assets/IWD-2020-Timeline.png

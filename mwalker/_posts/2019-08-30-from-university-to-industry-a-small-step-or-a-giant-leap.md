@@ -2,7 +2,7 @@
 published: true
 author: mwalker
 layout: default_post
-category: Careers
+category: people
 title: From university to industry – a small step or a giant leap?
 image: mwalker/assets/Adam-McDevitt.jpg
 tags: 'Intern, Summer Internships'

@@ -4,7 +4,7 @@ author: afiddes
 layout: default_post
 title: Encouraging women in the tech industry
 categories:
-  - Diversity
+  - People
 summary: >-
   It can be hard to be a minority in any environment, which is the case for
   women in the software industry. At the Scott Logic Edinburgh office we’re in

@@ -4,7 +4,7 @@ title: "How to assess a developers technical ability: A guide for interviewers"
 summary: "If you're hiring developers you're always going to need a technical interview as part of the process.  This post discusses what you should look for in this interview to find the best applicants."
 layout: default_post
 categories:
-  - Careers
+  - People
 ---
 
 When you're hiring developers the process is always going to involve a technical interview at some stage.  It's often the company's current developers that interview the candidates, they're probably best placed to assess the the candidate's technical ability after all.  But its not an easy task, strong candidates might not be given the chance to shine because they're not asked the right questions and in a worst case scenario someone with only a surface knowledge can present themselves as a much better developer than they actually are.

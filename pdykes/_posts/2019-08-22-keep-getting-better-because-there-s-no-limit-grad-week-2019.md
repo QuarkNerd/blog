@@ -2,7 +2,7 @@
 published: true
 author: pdykes
 layout: default_post
-category: Careers
+category: people
 title: '“Keep getting better, because there’s no limit” – Grad Week 2019'
 summary: >-
   In this blog, we will introduce four of our new graduate colleagues as they

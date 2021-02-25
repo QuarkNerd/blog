@@ -2,7 +2,7 @@
 published: true
 author: mnicholson
 layout: default_post
-category: Careers
+category: people
 title: Test-driving tech consultancy as a career option
 image: mnicholson/assets/Harry-Brooks.jpg
 tags: 'Interns, Summer Internships'

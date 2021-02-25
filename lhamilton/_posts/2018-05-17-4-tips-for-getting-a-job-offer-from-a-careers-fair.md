@@ -7,7 +7,7 @@ summary: >-
   The four most helpful tips for getting a job offer from a careers fair based
   on my successful experience at the SiliconMilkRoundabout event last year. 
 categories:
-  - Careers
+  - People
 ---
 I first encountered Scott Logic at the [SiliconMilkRoundabout](https://www.siliconmilkroundabout.com/) recruitment event last year, and the Monday after attending the event I was offered a job interview. Having successfully navigated the rest of the hiring process, this year I’ll be attending the same event as a member of staff and meeting potential applicants. 
 

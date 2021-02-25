@@ -2,7 +2,7 @@
 published: true
 author: rgarside
 layout: default_post
-category: Careers
+category: people
 title: An internship with friendly people who want you to do well
 summary: >-
   Tilly wanted her internship to be at a consultancy firm, allowing her to get

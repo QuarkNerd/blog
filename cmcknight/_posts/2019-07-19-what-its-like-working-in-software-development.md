@@ -4,7 +4,7 @@ author: cmcknight
 title: What it’s like working in software development
 layout: default_post
 categories:
-  - Careers
+  - People
 tags:
   - featured
 summary: >-

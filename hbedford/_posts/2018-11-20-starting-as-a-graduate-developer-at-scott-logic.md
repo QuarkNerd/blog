@@ -11,7 +11,7 @@ summary: >-
   thinking about joining Scott Logic, want to find out more about their graduate
   scheme, or who they are, then this article is for you.</p>
 categories:
-  - careers
+  - People
 image: hbedford/assets/Grads2018.jpg
 ---
 ## Intro

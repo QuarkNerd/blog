@@ -9,7 +9,7 @@ summary: >-
   is and how we can develop with it in mind.
 tags: accessibility user-experience development colours layout disability featured
 categories:
-  - Diversity
+  - People
 image: cbrown/assets/accessible.jpg
 ---
 

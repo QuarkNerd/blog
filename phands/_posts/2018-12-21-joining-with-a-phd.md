@@ -10,7 +10,7 @@ summary: >-
   made to feel like my qualification was truly valued at Scott Logic.
 tags: 'Career, Qualification, Development'
 categories:
-  - Careers
+  - People
 image: phands/assets/work-code-example.png
 ---
 

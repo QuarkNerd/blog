@@ -2,7 +2,7 @@
 published: true
 author: fbromley
 layout: default_post
-category: Careers
+category: people
 title: 'So, you heard about testing…'
 summary: >-
   What can testing offer you, and what can you offer it? Here's what I have

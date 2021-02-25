@@ -2,7 +2,7 @@
 published: true
 author: rgarside
 layout: default_post
-category: Careers
+category: people
 title: 'Clear communication: the key to a career in tech'
 image: rgarside/assets/Sibela-Chinareva.jpg
 tags: 'Interns, Summer Internships'

@@ -1,7 +1,7 @@
 ---
 author: cakehurstryan
 layout: default_post
-category: Diversity
+category: people
 title: How Diversity and Inclusion can improve testing
 summary: >-
   As we become increasingly technical as testers we run the risk of joining an

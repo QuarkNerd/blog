@@ -2,7 +2,7 @@
 published: true
 author: mwalker
 layout: default_post
-category: Careers
+category: people
 title: 'Working hard and playing hard: that’s a career in tech'
 image: mwalker/assets/Jerome-Illgner-2.jpg
 tags: 'Interns, Summer Internships'

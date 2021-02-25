@@ -5,7 +5,7 @@ layout: default_post
 summary: >-
   This blog post, written by a graduate developer joining the Edinburgh team, reflects on his induction week experience at Newcastle. A total of sixteen graduates across UX, development, and testing joined this August, and the induction was an ideal opportunity for everyone to meet.
 categories:
-  - Careers
+  - People
 tags:
   - featured
 image: rrhodes/assets/featured/bridge_building.jpg

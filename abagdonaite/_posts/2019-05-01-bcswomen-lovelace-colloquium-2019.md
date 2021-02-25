@@ -2,7 +2,7 @@
 published: true
 author: abagdonaite
 layout: default_post
-category: Diversity
+category: people
 title: BCSWomen Lovelace Colloquium 2019
 tags: Ada Lovelace Colloquium 2019 BCSWomen
 summary: >-

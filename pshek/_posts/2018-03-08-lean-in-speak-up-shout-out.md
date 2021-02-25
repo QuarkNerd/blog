@@ -6,7 +6,7 @@ tags:
   - conference
   - speakers
 categories:
-  - Careers
+  - People
 summary:
   A call to arms for better representation of women at tech conferences, followed by some practical tips for first-time speakers.
 layout: default_post

@@ -2,7 +2,7 @@
 published: true
 author: amcdevitt
 layout: default_post
-category: Careers
+category: people
 title: Looking At You - 2019 Edinburgh Intern Project
 summary: >-
   The summer 2019 intern developers at the Edinburgh office created a web-based

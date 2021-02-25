@@ -11,7 +11,7 @@ summary: >-
   ago for anyone going through that frustration today.
 tags: 'Testing, Learning, featured'
 categories:
-  - Diversity
+  - People
 image: efiennes/assets/groove.jpg
 ---
 (…or how to take on continuous learning while trying to keep  a shred of sanity as a parent in testing)

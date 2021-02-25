@@ -2,7 +2,7 @@
 published: true
 author: rgarside
 layout: default_post
-category: Careers
+category: people
 title: 'Entering the world of technology as a mathematician '
 image: rgarside/assets/Isabelle-Atkins.jpg
 tags: 'Interns, Summer Internships'
