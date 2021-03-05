@@ -89,6 +89,7 @@ active-authors:
     - mbuhagiar
     - shamiltonritchie
     - abirch
+    - rgrey
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -207,10 +208,10 @@ authors:
         name: 'Chris Grant'
         picture: picture.jpg
     ckurzeja:
-      email: ckurzeja@scottlogic.com
-      name: 'Chris Kurzeja'
-      picture: image.jpg
-      author-summary: "<p>I'm a Lead Developer at Scott Logic working in the London office. I''m full-stack developer who is always keen on finding ways to help a team improve their coding quality and practices."
+        email: ckurzeja@scottlogic.com
+        name: 'Chris Kurzeja'
+        picture: image.jpg
+        author-summary: '<p>I''m a Lead Developer at Scott Logic working in the London office. I''''m full-stack developer who is always keen on finding ways to help a team improve their coding quality and practices.'
     cmeehan:
         email: cmeehan@scottlogic.com
         name: 'Chris Meehan'
@@ -485,7 +486,7 @@ authors:
         name: 'Mark Buhagiar'
         email: mbuhagiar@scottlogic.com
         author-summary: 'I''m a Senior Developer at Scott Logic based in London. When not frantically typing away at a keyboard, I can usually be found either cooking or out on a run.'
-        picture: picture.jpg        
+        picture: picture.jpg
     mcrease:
         author-summary: ""
         email: mcrease@scottlogic.com
@@ -1162,7 +1163,13 @@ authors:
         picture: IMG_0604.jpg
     abirch:
         name: 'Alex Birch'
-        email: 'abirch@scottlogic.com'
+        email: abirch@scottlogic.com
         author-summary: 'A very full-stack developer'
         twitter-handle: null
         picture: abirch.png
+    rgrey:
+        name: 'Ryan Grey'
+        email: rgrey@scottlogic.com
+        author-summary: 'I am a Lead Developer based in Scott Logic''s Newcastle Office. My main interests include native iOS development, software development processes and more recently cloud computing architecture.'
+        twitter-handle: null
+        picture: rgrey-profile-pic-small-2019.png
