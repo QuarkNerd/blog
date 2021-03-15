@@ -91,6 +91,7 @@ active-authors:
     - abirch
     - rgrey
     - jspruce
+    - ckoris
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -212,7 +213,7 @@ authors:
         email: ckurzeja@scottlogic.com
         name: 'Chris Kurzeja'
         picture: image.jpg
-        author-summary: '<p>I''m a Lead Developer at Scott Logic working in the London office. I''''m full-stack developer who is always keen on finding ways to help a team improve their coding quality and practices.'
+        author-summary: '<p>I''m a Lead Developer at Scott Logic working in the London office. I''m full-stack developer who is always keen on finding ways to help a team improve their coding quality and practices.'
     cmeehan:
         email: cmeehan@scottlogic.com
         name: 'Chris Meehan'
@@ -1180,3 +1181,9 @@ authors:
         author-summary: 'I''m a Graduate Developer at Scott Logic''s Newcastle Office. I''m most familiar with both Node and Python development but am always keen to learn more. Outside of work I enjoy singing/playing guitar and playing football.'
         twitter-handle: 'http://www.twitter.com/jonnyspruce'
         picture: jspruce.png
+    ckoris:
+        name: 'Cat Koris'
+        email: ckoris@scottlogic.com
+        author-summary: 'I am a Delivery Principal at Scott Logic. I am passionate about technology and driving transformation and innovation.</p><p>I am a seasoned expert, highly skilled at translating our customers'' business needs into scalable and sustainable solutions, and driving those solutions to success. I have worked across both a traditional landscape and the core cloud platforms: AWS, Azure, GCP, Private Cloud, Hybrid Cloud and an ever-growing collection of best-of-breed tools.</p><p>I am a spiritual leader, I love building strong partnerships and thrive on empowering, supporting and coaching organisations, teams and individuals to success.'
+        twitter-handle: null
+        picture: ckoris.png
