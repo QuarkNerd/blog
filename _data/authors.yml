@@ -90,6 +90,7 @@ active-authors:
     - shamiltonritchie
     - abirch
     - rgrey
+    - jspruce
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -1173,3 +1174,9 @@ authors:
         author-summary: 'I am a Lead Developer based in Scott Logic''s Newcastle Office. My main interests include native iOS development, software development processes and more recently cloud computing architecture.'
         twitter-handle: null
         picture: rgrey-profile-pic-small-2019.png
+    jspruce:
+        name: 'Jonny Spruce'
+        email: jspruce@scottlogic.com
+        author-summary: 'I''m a Graduate Developer at Scott Logic''s Newcastle Office. I''m most familiar with both Node and Python development but am always keen to learn more. Outside of work I enjoy singing/playing guitar and playing football.'
+        twitter-handle: 'http://www.twitter.com/jonnyspruce'
+        picture: jspruce.png
