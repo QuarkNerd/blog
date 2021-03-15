@@ -4,7 +4,7 @@ author: bquinn
 layout: default_post
 category: Tech
 title: 'Flutter: Just another mobile UI framework?'
-tags: 'Flutter, Dart, Mobile, UI, iOS, Android'
+tags: 'Flutter, Dart, Mobile, UI, iOS, Android, featured'
 image: bquinn/assets/Flutter_logo.png
 summary: >-
   Flutter is a cross-platform mobile UI framework which allows you to 
