@@ -92,6 +92,7 @@ active-authors:
     - rgrey
     - jspruce
     - ckoris
+    - dgrew
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -1187,3 +1188,9 @@ authors:
         author-summary: 'I am a Delivery Principal at Scott Logic. I am passionate about technology and driving transformation and innovation.</p><p>I am a seasoned expert, highly skilled at translating our customers'' business needs into scalable and sustainable solutions, and driving those solutions to success. I have worked across both a traditional landscape and the core cloud platforms: AWS, Azure, GCP, Private Cloud, Hybrid Cloud and an ever-growing collection of best-of-breed tools.</p><p>I am a spiritual leader, I love building strong partnerships and thrive on empowering, supporting and coaching organisations, teams and individuals to success.'
         twitter-handle: null
         picture: ckoris.png
+    dgrew:
+        name: 'David Grew'
+        email: dgrew@scottlogic.com
+        author-summary: 'A history student turned software developer with experience in financial services and public sector, primarily working on backend projects.'
+        twitter-handle: dw_grew
+        picture: dgrew_author_picture.png
