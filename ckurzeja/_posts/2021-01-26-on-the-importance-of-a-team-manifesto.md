@@ -13,7 +13,7 @@ summary: >-
   Manifestos have become much more important to us in the context of
   remote-first team formation.
 ---
-_This is the third in a series of blog posts that we’re publishing about how to build effective remote teams. We’re sharing insights and experiences from the Scott Logic delivery team working on the Scottish Government Payment Service as they shape optimal ways of working on this important project._
+_This is the third in a series of blog posts that we’re publishing about how to build effective remote teams. We’re sharing insights and experiences from the Scott Logic delivery team working on the Scottish Government Payment Service as they shape optimal ways of working on this important project. You can read the earlier posts in the series here: [Remote Possibilities](https://blog.scottlogic.com/2020/12/02/remote-possibilities.html) and [Sense and Sustainability](https://blog.scottlogic.com/2020/12/17/sense-and-sustainability.html)._
 
 The phrase, “more important now than ever” has become a bit of a COVID cliché. But as is often the case with clichés, it’s because it’s a quick expression of a simple truth. In the global pandemic, the importance of a whole range of things we previously took for granted has been thrown into stark relief.
 
@@ -92,3 +92,7 @@ ____
 - Ask if you are unsure, rather than making assumptions
 - Think before acting
 - Acknowledge mistakes and learn and improve from them
+
+____
+
+If you enjoyed reading this, you can find the earlier posts in the series here: [Remote Possibilities](https://blog.scottlogic.com/2020/12/02/remote-possibilities.html) and [Sense and Sustainability](https://blog.scottlogic.com/2020/12/17/sense-and-sustainability.html).

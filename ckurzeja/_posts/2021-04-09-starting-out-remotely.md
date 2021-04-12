@@ -13,7 +13,7 @@ tags: >-
   remote working, ways of working, team formation, team retrospectives,
   COVID-19, onboarding, junior team members, graduates
 ---
-_This is the fourth in a series of blog posts that we’re publishing about how to build effective remote teams. We’re sharing insights and experiences from the Scott Logic delivery team working on the Scottish Government Payment Platform as they shape optimal ways of working on this important project._
+_This is the fourth in a series of blog posts that we’re publishing about how to build effective remote teams. We’re sharing insights and experiences from the Scott Logic delivery team working on the Scottish Government Payment Platform as they shape optimal ways of working on this important project. You can read the earlier posts in the series here: [Remote Possibilities](https://blog.scottlogic.com/2020/12/02/remote-possibilities.html), [Sense and Sustainability](https://blog.scottlogic.com/2020/12/17/sense-and-sustainability.html) and [On the Importance of a Team Manifesto](https://blog.scottlogic.com/2021/01/26/on-the-importance-of-a-team-manifesto.html)._
 
 Working remotely day in, day out has been an unusual and disorienting experience for everyone at Scott Logic. But what has it been like for the more junior consultants, being onboarded onto their first client projects while physically isolated from each other?
 
@@ -62,3 +62,5 @@ As well as the support they’ve been able to give each other, the four of them 
 While nothing can replicate being in the office, chatting at your desk or sharing lunch, the ‘Friday Night Check-Out’ has been a very welcome regular event&mdash;a scheduled ‘down-tools’ moment, and a chance to ease into the weekend, chat to colleagues and enjoy a drink.
 
 And with lockdown slowly easing across the UK, they’re all looking forward to doing that in person before too long!
+
+If you enjoyed reading this, you can find the earlier posts in the series here: [Remote Possibilities](https://blog.scottlogic.com/2020/12/02/remote-possibilities.html), [Sense and Sustainability](https://blog.scottlogic.com/2020/12/17/sense-and-sustainability.html) and [On the Importance of a Team Manifesto](https://blog.scottlogic.com/2021/01/26/on-the-importance-of-a-team-manifesto.html).

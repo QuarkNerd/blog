@@ -13,7 +13,7 @@ summary: >-
   practical ways to address this and promote sustainable working. We want to
   share them here in case any are useful on your own projects.
 ---
-_This is the second in a series of blog posts that we’re publishing about how to build effective remote teams. We’re sharing insights and experiences from the Scott Logic delivery team working on the Scottish Government Payment Service as they shape optimal ways of working on this important project._
+_This is the second in a series of blog posts that we’re publishing about how to build effective remote teams. We’re sharing insights and experiences from the Scott Logic delivery team working on the Scottish Government Payment Service as they shape optimal ways of working on this important project. You can read the first post in the series here: [Remote Possibilities](https://blog.scottlogic.com/2020/12/02/remote-possibilities.html)._
 
 Back in the days before the pandemic, modern life could all be a bit much. Cast your mind back twelve months. You were probably racing to tame your to-do list before the Christmas break while recovering from last night’s staff party, planning your Yuletide itinerary, finishing off (or starting) your Christmas shopping… oh, and voting in a General Election.
 
@@ -58,3 +58,5 @@ Again, while virtual library sessions did not fit with everyone’s working patt
 These are just some of the ways that the team is making a conscious and active effort to overcome the challenges of team formation while working in isolation. In pre-pandemic conditions, it was easy to take for granted how all of our senses were engaged in the formal and informal interactions that propelled us along the learning curve of team formation and project onboarding. Replacing these in the context of remote working requires commitment. That’s exactly what the team is bringing to the project and this will contribute to sustained motivation and morale.
 
 We’ll continue to share insights from the team retros via this series of blog posts in the New Year, along with posts on related topics such as the foundational workshops and artefacts that helped to set the team up for sustainable remote working.
+
+If you enjoyed reading this, you can find the first post in the series here: [Remote Possibilities](https://blog.scottlogic.com/2020/12/02/remote-possibilities.html)
