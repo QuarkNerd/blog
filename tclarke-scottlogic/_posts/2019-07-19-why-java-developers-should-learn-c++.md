@@ -23,7 +23,7 @@ summary: >-
 	}
 ~~~
 
-[Feel free to run it](https://www.onlinegdb.com/online_c++_compiler).
+[Feel free to run it](https://onlinegdb.com/G_6CeufMM).
 
 For a Scott Logic employee, my background is a little unconventional. I came out of a predominantly "[Java School](https://www.joelonsoftware.com/2005/12/29/the-perils-of-javaschools-2/)" education in the heady days of 2007, but like many of my peers, was happy to take any job that would begin a career in software development, in [less than ideal circumstances](https://en.wikipedia.org/wiki/Financial_crisis_of_2007%E2%80%932008).
 
