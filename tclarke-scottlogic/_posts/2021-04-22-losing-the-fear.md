@@ -6,10 +6,10 @@ layout: default_post
 categories:
   - Tech
 summary: >-
-  If you are interested in picking up C++, or enjoyed [my previous post]({{ site.baseurl }}/2019/07/19/why-java-developers-should-learn-c++.html), this can help you get started.
+  Follow-up article to "Why Java Developers Should Learn C++". If you are interested in picking up C++, or enjoyed my previous post, this can help you get started.
 ---
 
-> Also, my next planned post is going to be on some of the best introductory functionality of C++, how it relates to equivalents in Java, and some advice about how to interact with it when learning C++. So hopefully that'll be helpful. - Thomas Clarke, July 2019
+> Also, my next planned post is going to be on some of the best introductory functionality of C++, how it relates to equivalents in Java, and some advice about how to interact with it when learning C++. So hopefully that'll be helpful. - [Thomas Clarke, July 2019]({{ site.baseurl }}/2019/07/19/why-java-developers-should-learn-c++.html)
 
 Look, stuff happened, okay? There was a complicated project and a global pandemic, I didn't *forget* about this. I'm *sorry*.
 
@@ -17,7 +17,8 @@ Anyway.
 
 So, you've got some experience with Java and you'd like to learn some of the basics of C++?
 
-This article attempts are some of the fundamental features, distinctions and, to be honest, traps that you will encounter when first picking up the language. Note that I do mean fundamental. These are very much the low-hanging fruit of a very complex language. But these are the main hurdles I expect Java programmers to encounter early on.
+This article attempts to introduce some of the fundamental features, distinctions and, to be honest, traps that you will encounter when first picking up the language. Note that I do mean fundamental. These are very much the low-hanging fruit of a very complex language. But these are the main hurdles I expect Java programmers to encounter early on.
+
 ### Object Construction
 
 Consider the following example of classic "Java dev new to C++ code"
@@ -335,7 +336,13 @@ int main()
 
 Note that the constness has to completely unravel, right up to the declaration of the variables. You simply can't call a non-const function on a const object, nor pass that object as a non-const reference.
 
-This makes it *incredibly* useful when it comes to threading, because if you pass a const object or const reference around a parallelised system, it's an guaranteed immutable object; you can do whatever you want to it, and be sure that it won't be edited by a different thread, something that is painfully hard to do in Java.
+This makes it *incredibly* useful [when it comes to threading](https://youtu.be/2yXtZ8x7TXw?t=379), because if you pass a const object around a parallelised system, it's an immutable object; you can be sure it won't change.
+
+You can also use a const reference to a non-const object, but you need a little more care here; obviously you can still mutate the state via the original object and any non-const references to it, but const helps you to confirm the coding standard of *not* doing that at compile-time.
+
+> Technical Note: You can actually deliberately choose to convert a const reference into a non-const reference using `const_cast`, but again, see previous note about being pointlessly self-destructive.
+>
+> "tl;dr: const_cast is likely something you should never use. If you do use it, understand the dangers!" - Aaron Ballman, "[When Should You Use const_cast?](https://blog.aaronballman.com/2011/06/when-should-you-use-const_cast/)"
 
 ### Vectors
 
@@ -421,7 +428,7 @@ Do not use exception specifications in C++.
 
 ### Inheritance
 
-I think the biggest thing Java programmers will struggle with when it comes to C++ is the way inheritance, which is the most go-to tool in Java, is far 
+I think the biggest thing Java programmers will struggle with when it comes to C++ is the way inheritance, possibly the most common architectural tool in Java, is far more awkward to work with in C++. However, in some ways, this is less a bug than a feature.
 
 Firstly, [inheritance is traditionally overused in every language](https://en.wikipedia.org/wiki/Composition_over_inheritance). Having it be more inconvenient, pushes you towards composition, which is often a far better pattern.
 
@@ -431,7 +438,7 @@ If you are comfortable with Java's boxing and unboxing of objects, in many ways 
 
 Note that inheritance in C++ only works via pointer or reference lookup. If you try and access an inherited class via a non-reference to the base class, you get a weird effect called "[slicing](https://www.geeksforgeeks.org/object-slicing-in-c/)", where derived aspects are simply wiped out of existence. Java dodges this by making every object a reference, but this would be wildly inefficient by C++ standards (AFAIK, opinion is divided on how inefficient it is by Java standards).
 
-This can lead to a lot of , but as established above, the case of function parameters this is unnecessary; a reference will work perfectly well.
+Inheritance-based code tends to be fairly pointer-heavy, but as established above, the case of function parameters (e.g. passing a derived class into a function that takes the base class) this is unnecessary; a reference will work perfectly well, and is less troublesome to work with.
 
 ### But what about...?
 
