@@ -7,7 +7,6 @@ active-authors:
     - alee
     - amjones
     - awelsh
-    - bborowski@scottlogic.com
     - bdimitrov-SL
     - cbrown
     - ceberhardt
@@ -36,18 +35,15 @@ active-authors:
     - lcollingwood
     - lpisani
     - magnussmith
-    - mamos
     - masmith
     - mdebeneducci
     - mdunsdon
     - mjose
     - mmoxon
-    - mnicholson
     - mphillips
     - msuperina
     - pdykes
     - phughes
-    - pkhan
     - rbeckett
     - rgarside
     - rgraham
@@ -90,10 +86,12 @@ active-authors:
     - mbuhagiar
     - shamiltonritchie
     - abirch
-    - rgrey
     - jspruce
     - ckoris
     - dgrew
+    - redwin
+    - jheward
+    - nwilson
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -1200,3 +1198,21 @@ authors:
         author-summary: 'A history student turned software developer with experience in financial services and public sector, primarily working on backend projects.'
         twitter-handle: dw_grew
         picture: dgrew_author_picture.png
+    redwin:
+        name: 'Richard Edwin'
+        email: redwin@scottlogic.com
+        author-summary: 'I am a Delivery Principal at Scott Logic. I am passionate about technology and driving transformation and innovation.'
+        twitter-handle: null
+        picture: redwin.jpg
+    jheward:
+        name: 'James Heward'
+        email: jheward@scottlogic.com
+        author-summary: 'I am a Solution Architect at Scott Logic.'
+        twitter-handle: null
+        picture: jheward.jpg
+    nwilson:
+        name: 'Nigel Wilson'
+        email: nwilson@scottlogic.com
+        author-summary: 'I am General Manager at Scott Logic.'
+        twitter-handle: null
+        picture: nwilson.jpg

@@ -69,7 +69,7 @@ And with this control, you’re free to innovate and experiment. You can test ou
 
 ## Get started today
 
-To help you get started in using APIs properly, have a read of my new white paper, [Open your eyes to APIs](https://www.scottlogic.com/white-paper-open-your-eyes-apis). 
+To help you get started in using APIs properly, have a read of my new white paper, [Open your eyes to APIs]({{site.baseurl}}/godds/assets/white-papers/open-your-eyes-to-apis.pdf). 
 
 You can also [access recordings here](https://www.scottlogic.com/apis) of some of our recent webinars on the topic, and find out how we can support you on your journey.
 

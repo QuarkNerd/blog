@@ -29,6 +29,6 @@ We should not fear or fight these capabilities, and we should not allow them to 
 humans bring free-form creativity and thought at the expense of speed and scale; while machines bring narrow hyper-efficiency and accuracy at the expense of adaptability.
 </p>
 
-<p style="margin-bottom: 3em;"><a href="https://www.scottlogic.com/white-paper-open-your-eyes-apis">Download our 'Open Your Eyes To APIs' white paper</a> to continue this non-techical exploration of the oft-untapped potential of APIs.</p>
+<p style="margin-bottom: 3em;"><a href="{{site.baseurl}}/godds/assets/white-papers/open-your-eyes-to-apis.pdf">Download our 'Open Your Eyes To APIs' white paper</a> to continue this non-techical exploration of the oft-untapped potential of APIs.</p>
 
 

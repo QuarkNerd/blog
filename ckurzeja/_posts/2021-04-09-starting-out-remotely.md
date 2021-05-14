@@ -11,7 +11,7 @@ summary: >-
   physically isolated from each other?
 tags: >-
   remote working, ways of working, team formation, team retrospectives,
-  COVID-19, onboarding, junior team members, graduates
+  COVID-19, onboarding, junior team members, graduates, featured
 ---
 _This is the fourth in a series of blog posts that we’re publishing about how to build effective remote teams. We’re sharing insights and experiences from the Scott Logic delivery team working on the Scottish Government Payment Platform as they shape optimal ways of working on this important project. You can read the earlier posts in the series here: [Remote Possibilities](https://blog.scottlogic.com/2020/12/02/remote-possibilities.html), [Sense and Sustainability](https://blog.scottlogic.com/2020/12/17/sense-and-sustainability.html) and [On the Importance of a Team Manifesto](https://blog.scottlogic.com/2021/01/26/on-the-importance-of-a-team-manifesto.html)._
 
