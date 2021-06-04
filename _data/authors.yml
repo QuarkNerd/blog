@@ -92,6 +92,7 @@ active-authors:
     - redwin
     - jheward
     - nwilson
+    - sforeshew-cain
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -1216,3 +1217,9 @@ authors:
         author-summary: 'I am General Manager at Scott Logic.'
         twitter-handle: null
         picture: nwilson.jpg
+    sforeshew-cain:
+        name: 'Steve Foreshew-Cain'
+        email: sforeshew-cain@scottlogic.com
+        author-summary: 'I am Scott Logic''s CEO, and have over 20 years of leadership experience from private enterprise and public bodies including ITV, The Co-operative Group and the UK’s Government Digital Service.'
+        twitter-handle: 'https://twitter.com/s_foreshew_cain'
+        picture: sforeshew-cain.jpg
