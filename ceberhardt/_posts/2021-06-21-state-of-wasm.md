@@ -35,7 +35,7 @@ Rust, at 26%, is the most frequently used language, followed by C++ then Assembl
 
 What are the reasons behind Rust's success? To my mind they are two-fold, firstly, Rust is a very popular language among developers, achieving the status of ['most loved' language](https://stackoverflow.blog/2020/01/20/what-is-rust-and-why-is-it-so-popular/) in StackOverflow's developer survey four years running. Secondly, and perhaps more importantly in this instance, Rust is currently a good 'fit' from a technology perspective for WebAssembly. It doesn't require garbage collection, it creates lightweight binaries, the tooling and community support is strong.
 
-I recall Michael Gattozzi writing back in 2017:
+I recall [Michael Gattozzi writing back in 2017](https://blog.mgattozzi.dev/rust-wasm/):
 
 > We're poised to be THE language of choice for wasm.
 
