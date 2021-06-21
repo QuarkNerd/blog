@@ -124,7 +124,7 @@ The survey received results from 196 countries, with the most from USA (21.8%), 
 
 Thanks to everyone who participated in this survey. The results are [available as a CSV file](https://wasmweekly.news/assets/state-of-webassembly-2021.csv) if you wish to do your own analysis. If you uncover any interesting results, please do share them.
 
-If you have any comments, suggestions or ideas for future surveys, please share via the Hacker News discussion thread.
+If you have any comments, suggestions or ideas for future surveys, please share via the [Hacker News discussion thread](https://news.ycombinator.com/item?id=27578123).
 
 I look forward to making this an annual event.
 
