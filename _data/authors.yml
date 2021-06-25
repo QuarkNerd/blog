@@ -89,6 +89,7 @@ active-authors:
     - jspruce
     - ckoris
     - dgrew
+    - pburgess
     - redwin
     - jheward
     - nwilson
@@ -1199,6 +1200,12 @@ authors:
         author-summary: 'A history student turned software developer with experience in financial services and public sector, primarily working on backend projects.'
         twitter-handle: dw_grew
         picture: dgrew_author_picture.png
+    pburgess:
+        name: 'Paul Burgess'
+        email: pburgess@scottlogic.com
+        author-summary: "I'm a Lead Developer at Scott Logic and am passionate about using technology to solve real world problems.\n\nI use a wide range of languages and write about TypeScript, JavaScript, React, C# and .NET as well as how to best work together as a project team to deliver solutions."
+        twitter-handle: null
+        picture: HeadShot.jpeg
     redwin:
         name: 'Richard Edwin'
         email: redwin@scottlogic.com
