@@ -134,4 +134,6 @@ Finally, this blogpost is written in markdown, so I suppose it makes sense for m
 
 Such modesty!
 
+Share your thoughts, ideas and comments of this article over on [r/programming](https://www.reddit.com/r/programming/comments/odfibi/github_copilot_experiences_a_glimpse_of_an/).
+
 Regards, Colin E.
