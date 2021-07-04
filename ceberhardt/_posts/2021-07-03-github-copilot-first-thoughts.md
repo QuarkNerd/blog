@@ -10,7 +10,15 @@ categories:
 
 I've been lucky enough to be granted access to the preview of Copilot, GitHub's new "AI pair programmer" that is causing quite a stir. This blog post shares my initial thoughts and experiences with this tool. In brief, I'm stunned by its capabilities. It has genuinely made me say "wow" out loud a few times in the past few hours, not something you come to expect from your developer tools!
 
-However, there are some genuine practical limitations to this tool at the moment, which I'll discuss in this post. My feeling is this tool isn't something that is going to revolutionise programming just yet, but I firmly believe it will have a significant and game-changing impact in the future.
+However, there are some genuine practical limitations to this tool at the moment, which I'll discuss in this post. In brief:
+
+ - Copilot pops up at unexpected moments, breaking my flow
+ - Autocomplete feels like the wrong interaction paradigm for a "pair"
+ - Checking Copilot's work adds cognitive load
+ 
+My feeling is this tool isn't something that is going to revolutionise programming just yet, but despite the above points, I firmly believe it will have a significant and game-changing impact in the future.
+
+If you're interested to learn more, read on ...
 
 ## What is Copilot?
 
