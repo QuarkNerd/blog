@@ -6,16 +6,10 @@ categories:
   - Tech
 ---
 
-<style>
-iframe {
-  border: 0;
-}
-</style>
-
 Every year Scott Logic takes on a number of interns who spend 12 weeks writing code, working on projects and having a great time in the offices. My name is Ruth, and along with Chris Barrett, I am an intern in the Newcastle office; and this summer we’ve been working on creating a real-time financial charting application. The application is built on top of Scott Logic’s own open source [d3fc](https://d3fc.io/) library, which itself is built upon the increasingly popular [d3.js](http://d3js.org/) (Data driven documents) library for javascript.
 
 
-Our goal was to create an application similar to many commercial, mid-range chart offerings, and in doing so test the approach and capability of d3fc. Our chart has a number of typical features, including:
+Our goal was to create an application similar to many commercial, mid-range chart offerings, and in doing so test the approach and capability of d3fc. Our [chart](http://scottlogic.github.io/BitFlux/releases/0.5.0/) has a number of typical features, including:
 
 * A range of graph types to choose from (i.e. Candlestick, OHLC)
 * A number of common financial indicators (i.e. Moving Average)
@@ -24,7 +18,6 @@ Our goal was to create an application similar to many commercial, mid-range char
 * Ability to load and stream real data (in this case, data about bitcoin prices)
 * Pan and zoom functionality on every visible chart
 
-<iframe src="http://scottlogic.github.io/BitFlux/releases/0.5.0/" width='100%' height='700px'></iframe>
 
 ## What is D3?
 
@@ -86,11 +79,11 @@ Our main reason for using d3fc was to develop upon the original code, discover i
 
  One of our tougher jobs early on in the project was finding a source to use for our historic and real-time data. The original idea was to create a Websocket to the [Yahoo Finance API](https://code.google.com/p/yahoo-finance-managed/wiki/YahooFinanceAPIs), however this turned out to be an impossibility due to the privacy of the real-time information.
 
- Finally we found a good API with the [Coinbase exchange API](https://docs.gdax.com/) reference Websocket feed, which gave us the real-time market data updates:
+ Finally we found a good API with the [Coinbase exchange API](https://cryptoassetrecovery.com/2021/08/03/what-happened-to-gdax-com/) reference Websocket feed, which gave us the real-time market data updates:
 {% highlight js %}
 coinbaseSocket = new WebSocket('wss://ws-feed.exchange.coinbase.com');
 {% endhighlight %}
-<small>Source of [Websocket](https://docs.gdax.com/#websocket-feed)</small>
+<small>Source of Websocket</small>
 
 To begin the feed messages we had to send in a subscribe message to the Coinbase server indicating which product type we wanted:
 {% highlight js %}
@@ -105,7 +98,7 @@ Unfortunately the information came through in a format that was not suitable for
 
 ## Bringing the data together
 
-One of the more problematic tasks we faced, was when working with combining the live data stream from the Websocket with the [historic data](https://docs.gdax.com/#get-historic-rates) from Coinbase.
+One of the more problematic tasks we faced, was when working with combining the live data stream from the Websocket with the historic data from Coinbase.
 
 The Websocket gave individual transactions, whereas the historic feed gave its data in OHLC form:
 {% highlight js %}
@@ -202,7 +195,7 @@ multi.series([gridlines, currentSeries, closeLine, currentIndicator]);
 
 Which would look something like this:
 
-<img src="{{ site.baseurl }}/rcaulcott-cooper/assets/bollinger-chart.png" alt="Bollinger bands chart example"/>
+<img src="{{ site.github.url }}/rcaulcott-cooper/assets/bollinger-chart.png" alt="Bollinger bands chart example"/>
 <small>Assuming the `currentSeries = candlestick` and `currentIndicator = bollingerBands`.
 
 ## Adding a Menu
@@ -293,7 +286,7 @@ var point = sc.menu.option('Point', 'point', fc.series.point());
 var area = sc.menu.option('Area', 'area', fc.series.area());
 {% endhighlight %}
 
-<img src="{{ site.baseurl }}/rcaulcott-cooper/assets/menu-random-data.PNG" alt="Data Random"/>
+<img src="{{ site.github.url }}/rcaulcott-cooper/assets/menu-random-data.PNG" alt="Data Random"/>
 
 Finally, the most important button to be added to the menu is a dropdown for changing the data stream between randomly generated data, and real time data coming in through the Coinbase `websocket`. This functionality also included the ability to change which time period the chart was rendering on (either 1hr, 5mins or 1min):
 
@@ -327,7 +320,7 @@ sc.util.filterDataInDateRange = function(data, dateExtent) {
 };
 {% endhighlight %}
 
-<img src="{{ site.baseurl }}/rcaulcott-cooper/assets/menu-drop-down.png" alt="Data time changed"/>
+<img src="{{ site.github.url }}/rcaulcott-cooper/assets/menu-drop-down.png" alt="Data time changed"/>
 
 ## Refactoring
 
@@ -385,7 +378,7 @@ function render() {
 
 Which would give us our original three standard charts just like they were before refactoring:
 
-<img src="{{ site.baseurl }}/rcaulcott-cooper/assets/charts.png" alt="Primary chart, RSI chart, navbar and shared axis"/>
+<img src="{{ site.github.url }}/rcaulcott-cooper/assets/charts.png" alt="Primary chart, RSI chart, navbar and shared axis"/>
 <small>In this case the `secondaryChart()` is an RSI (Relative Strength Index) chart, and the primary chart's `indicator` is the moving average.</small>
 
 ## Testing
