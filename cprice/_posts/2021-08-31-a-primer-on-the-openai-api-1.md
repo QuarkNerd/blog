@@ -13,7 +13,7 @@ I recently received an invite to try out the [OpenAI API beta](https://beta.open
 However, after a little while I realised I didn't really understand what was happening or what the various parameters really did. So I jumped into the docs and read/watched around the subject. This mini-series of posts are a summary of what I've learnt -
 
 * Part 1 (this post) covers the basics of tokens, the model and prompt design. 
-* Part 2 will cover logprobs and the "creativity" controls. 
+* [Part 2 covers logprobs and the "creativity" controls](../../09/01/a-primer-on-the-openai-api-2.html). 
 * Part 3 will cover few shot learning and fine-tuning.
 
 *If you were hoping for examples of what it can do, this isn't going to be for you. I'd recommend checking out the [impressive examples](https://beta.openai.com/examples) in the documentation.*
@@ -87,4 +87,4 @@ Whilst it is reasonable to assume that a human would still complete this with `"
 
 When I first played with the API in the playground, I quickly learnt not to end my prompts with whitespace. However, I was only doing so to placate the annoying warning message that popped up, I had no real understand of why I needed to do it and I found that incredibly frustrating. 
 
-Hopefully this post has saved you from that same fate, or at the least, inspired you to keep reading about some of the more interesting options I'll cover in the next post. In the meantime, here's a great OpenAI blog post covering an [alternative application for a transformer architecture](https://openai.com/blog/image-gpt/).
+Hopefully this post has saved you from that same fate, or at the least, inspired you to keep reading about some of the more interesting options I'll cover in [part 2](../../09/01/a-primer-on-the-openai-api-2.html). In the meantime, here's a great OpenAI blog post covering an [alternative application for a transformer architecture](https://openai.com/blog/image-gpt/).

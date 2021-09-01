@@ -5,7 +5,6 @@ title: A primer on the OpenAI API - Part 2
 categories:
   - Tech
 summary: "...or what I should have known before I jumped in and started playing around. In this post I cover logprobs and the \"creativity\" controls."
-published: false
 ---
 ...or what I should have known before I jumped in
 
