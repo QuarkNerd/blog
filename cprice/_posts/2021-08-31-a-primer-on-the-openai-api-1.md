@@ -14,7 +14,7 @@ However, after a little while I realised I didn't really understand what was hap
 
 * Part 1 (this post) covers the basics of tokens, the model and prompt design. 
 * [Part 2 covers logprobs and the "creativity" controls](../../09/01/a-primer-on-the-openai-api-2.html). 
-* Part 3 will cover few shot learning and fine-tuning.
+* [Part 3 covers few shot learning and fine-tuning](../../09/02/a-primer-on-the-openai-api-3.html).
 
 *If you were hoping for examples of what it can do, this isn't going to be for you. I'd recommend checking out the [impressive examples](https://beta.openai.com/examples) in the documentation.*
 

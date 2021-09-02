@@ -5,7 +5,6 @@ title: A primer on the OpenAI API - Part 3
 categories:
   - Tech
 summary: "...or what I should have known before I jumped in and started playing around. In this post I cover few shot learning and fine-tuning."
-published: false
 ---
 ...or what I should have known before I jumped in
 
@@ -21,7 +20,7 @@ However, after a little while I realised I didn't really understand what was hap
 
 ## Few shot learning
 
-Zero, one or few shot learning is the holy grail of text-based AI models. Instead of requiring a (often very!) large set of examples to use as training data, the model is able to generate a meaningful text completion from a very small set of examples. 
+Almost any use of the [playground](https://beta.openai.com/playground), is an example of zero, one or few shot learning. Instead of requiring a (often very!) large set of examples to use as training data, a generic model is able to generate a meaningful text completion for a huge variety of intents, from a very small set of examples. 
 
 The most basic example I can think of is the prompt -
 
@@ -65,7 +64,7 @@ In the case of the [OpenAI API per-token pricing model](https://beta.openai.com/
 
 ## Conclusion
 
-The models behind the OpenAI API are very impressive but, as with all new technology, I find it can be very easy to get carried away with the hype. Having a basic understanding of what is going on behind the scenes, helps me understand how I can make the best use of it and also gain an intuitive understanding of when it may or may not be appropriate to apply it to a problem. Hopefully this post helps someone else gain that understanding... or at the very least serves as a reminder to myself in the future!
+The models behind the OpenAI API are very impressive but, as with all new technology, I find it can be very easy to get carried away with the hype. Having a basic understanding of what is going on behind the scenes, helps me understand how I can make the best use of it and also gain an intuitive understanding of when it may or may not be appropriate to apply it to a problem. Hopefully this series of posts helps someone else gain that understanding... or at the very least serves as a reminder to myself in the future!
 
 If you found the underlying AI content interesting, [Robert Miles' Computerphile episodes](https://www.youtube.com/watch?v=rURRYI66E54) cover these topics far better than I ever could. The [AI safety videos on his channel](https://www.youtube.com/channel/UCLB7AzTwc6VFZrBsO2ucBMg) are also great.
 
@@ -73,4 +72,4 @@ I think it is inevitable that AI will change the way I work as a developer. Wher
 
 In summary, *I think it's important to remember that AI is a tool, just like any other. It's important to understand how it works, what the limitations are and what it can and cannot do. But most importantly, it's important to understand that AI is not magic and, just like any other tool, it's important to use it in the right way.*
 
-(OpenAI wrote that last bit)
+(OpenAI wrote that last bit - I should probably have tweaked the frequency penalties!)

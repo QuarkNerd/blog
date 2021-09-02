@@ -14,7 +14,7 @@ However, after a little while I realised I didn't really understand what was hap
 
 * [Part 1 covers basics of tokens, the model and prompt design](../../08/31/a-primer-on-the-openai-api-1.html).
 * Part 2 (this post) covers the logprobs and the "creativity" controls. 
-* Part 3 will cover few shot learning and fine-tuning.
+* [Part 3 covers few shot learning and fine-tuning](../../09/02/a-primer-on-the-openai-api-3.html).
 
 *If you were hoping for examples of what it can do, this isn't going to be for you. I'd recommend checking out the [impressive examples](https://beta.openai.com/examples) in the documentation.*
 
@@ -94,4 +94,4 @@ These penalties can be freely combined to gently nudge the model away from repea
 
 One of the standout things to me which is obvious in retrospect but definitely wasn't when I first interacted with the models, is that they are pure functions. I think it's easy to assume with all of the talk of probabilities, along with the lack of anyone really understanding what the models are doing internally, that they are in some way non-deterministic in their "thinking". Knowing that they are in fact deterministic somehow puts my mind at ease. 
 
-But then I get carried away thinking philosophically - what really is creativity? Luckily for you, I dodge this question and others in the next post.
+But then I get carried away thinking philosophically - what really is creativity? Luckily for you, I dodge this question and others in [part 3](../../09/02/a-primer-on-the-openai-api-3.html).
