@@ -108,7 +108,7 @@ I am quite certain that this will further reduce over time.
 
 The evidence in favour of daylight saving is somewhat flimsy, based on arguments from the tail-end of the Industrial Revolution, whilst there is growing evidence that it no longer makes sense in the Information Age. A 2016 study found that the economic impact of Daylight Saving, due to increased heart attacks, workplace accidents and cyberloafing (slacking off at work!) [cost the US economy $434 million each year](https://www.chmura.com/blog/2016/march/11/sleepbetter-lost-hour-economic-index), there are a great many others that present similar evidence.
 
-In 2019 the European Union voted to [abolish daylight saving in 2021](https://www.bloomberg.com/news/articles/2019-03-28/why-time-changes-are-a-transportation-matter), similarly a the “Sunshine Protection Act of 2021” is gaining traction in the US. Over the next decade I feel quite sure that most of the globe will reject daylight saving entirely.
+In 2019 the European Union voted to [abolish daylight saving in 2021](https://www.bloomberg.com/news/articles/2019-03-28/why-time-changes-are-a-transportation-matter), similarly the “Sunshine Protection Act of 2021” is gaining traction in the US. Over the next decade I feel quite sure that most of the globe will reject daylight saving entirely.
 
 From a developer perspective, abolishing this somewhat dated practice is going to make my life just a little bit easier - but there is more than enough complexity in date and time handling, that will likely never go away!
 
