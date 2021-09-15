@@ -54,7 +54,7 @@ The first place to adopt daylight saving was the municipality of Thunder Bay (Ca
 
 ## 1918
 
-Shortly afterwards in 1918 we can see that much of America adopted daylight saving as a result of the aforementioned Standard Time Act.
+Shortly afterwards in 1918 we can see that much of America adopted daylight saving as a result of the [Standard Time Act](https://en.wikipedia.org/wiki/Standard_Time_Act).
 
 <img src="{{site.baseurl}}/ceberhardt/assets/timezone/1918.png"/>
 
@@ -64,7 +64,7 @@ However, this proved to be so unpopular that just a year later the act was repea
 
 <img src="{{site.baseurl}}/ceberhardt/assets/timezone/1920.png"/>
 
-While the concept of daylight saving might not have got off to a great start, the number of timezones with non-integer offsets was decreasing considerably. The following chart shows the percentage of timezones with non-integer offsets over the past 120 years:
+While the concept of daylight saving might not have got off to a great start, the number of timezones with non-integer offsets was decreasing considerably. The following chart shows the percentage of timezones with integer offsets over the past 120 years:
 
 <img src="{{site.baseurl}}/ceberhardt/assets/timezone/integer-offset.png"/>
 
