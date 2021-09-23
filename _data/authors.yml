@@ -95,6 +95,7 @@ active-authors:
     - nwilson
     - sforeshew-cain
     - jbeckles
+    - kangel
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -1237,3 +1238,9 @@ authors:
         author-summary: 'I am a language agnostic developer interested in scalable software solutions, hardware-software systems and data analytics.'
         twitter-handle: null
         picture: me.png
+    kangel:
+        name: 'Kat Angel'
+        email: kangel@scottlogic.com
+        author-summary: 'Developer at Scott Logic working primarily with ReactJS'
+        twitter-handle: null
+        picture: headshot2.PNG
