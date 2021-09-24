@@ -259,3 +259,5 @@ As code tends to be more information dense than natural language, it makes sense
 Hopefully this post has dispelled some of the magic from what is happening in the sandbox. That's not to say there isn't still a lot of magic at play but hopefully you now feel you have a clearer idea of what the capabilities of the model are, and how they can be applied to create something like the sandbox.
 
 Of course the sandbox is but one way of using the Codex series models, for other examples of cross-programming language code translation, smart refactoring and mock data generation, check out the [documentation](https://beta.openai.com/docs/guides/completion/working-with-code).
+
+Note that at this time the codex series models are in private beta. To gain access you can [sign up to the waiting list](https://beta.openai.com/codex-waitlist).
