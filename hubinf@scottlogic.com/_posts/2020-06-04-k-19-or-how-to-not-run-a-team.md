@@ -82,7 +82,7 @@ Vostrikov clearly understands the challenges of the situation, but he has his ow
 
 We could spend a long time debating whether Vostrikov was put in charge precisely because of his personal circumstances, precisely because he could be manipulated into pushing the politicians' agenda in order to progress his own, but let us not get sidetracked.
 
-In truth, various, sometimes contradictory orders frustrate a team and prevent them from performing well. New ordersor instructions are given in the name of speed and efficiency, but ultimately have the opposite effect: they confuse the crew by disregarding standard safety and security rules.
+In truth, various, sometimes contradictory orders frustrate a team and prevent them from performing well. New orders or instructions are given in the name of speed and efficiency, but ultimately have the opposite effect: they confuse the crew by disregarding standard safety and security rules.
 
 **The take-away of the points above** is that no-one is irreplaceable, but equally, no-one is seamlessly interchangeable. One of the most basic and fundamental things to learn when managing teams is that a change in team fabric, _any_ change, will alter team dynamics and performance. It will actually bring productivity down, at least for a time.
 
@@ -101,7 +101,7 @@ In the film, Vostrikov confronts and criticises his crew members, openly doubts 
 
 He submits the crew to incessant fire drills (literally) and deep-diving tests. His point is to see how the boat and the crew will react in extreme conditions, such as a war. Doing so prior to gaining the crew's respect, Vostrikov’s main achievement is to be disliked by the crew.
 
-Vostrikov is clearly "not there to make friends," a phrase many of us will have heard in the corporate world too. What he is seemingly oblivious to is how detrimental that attitude is to the overarching goal: the crew has no incentive to do things as best as they can, since that would mean serving someone they neither like nor trust, but hate. Team morale goes down and whatever trust was there is scorned; respect and loyalty are absent.
+Vostrikov is clearly "not there to make friends," a phrase many of us will have heard in the corporate world too. What he is seemingly oblivious to is how detrimental that attitude is to the overarching goal: the crew has no incentive to do things as best they can, since that would mean serving someone they neither like nor trust, but hate. Team morale goes down and whatever trust was there is scorned; respect and loyalty are absent.
 
 The crew’s hatred eases somewhat when they successfully fire a missile from the Arctic, thereby achieving the main objective of their mission. They celebrate that milestone by playing ball on the pack, around the emerged submarine.
 Hitting a milestone is not successfully delivering a project, though, the same way winning a battle is not winning the war. Vostrikov drives the crew to short-term success, but he does little to invest in a constructive and productive relationship that would ensure long-term results. In that way, he fails.
