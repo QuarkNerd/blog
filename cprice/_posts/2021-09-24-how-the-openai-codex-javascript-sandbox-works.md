@@ -5,6 +5,8 @@ image: cprice/assets/openai-codex-javascript-sandbox.png
 title: How the OpenAI Codex JavaScript Sandbox works
 categories:
   - Tech
+tags:
+  - featured
 summary: "The OpenAI Codex JavaScript Sandbox and the API which backs it, have (rightly!) generated a lot of interest and comment in the development community. When faced with something so different to what we expect, it's easy to assume it's all magic. In this post I'll peel back some of the layers and try to describe what's going on."
 ---
 

@@ -4,7 +4,7 @@ author: pburgess
 layout: default_post
 category: Tech
 title: 'Using TypeScript to Express Intent'
-tags: 'TypeScript'
+tags: 'TypeScript, featured'
 summary: 'When coming to TypeScript from OOP languages it can be very easy to fall into the trap of using types the same way you are used to. But this is missing a lot of power of TypeScript. This article looks at how you can extend your TypeScript use to not only represent types, but also express the intent and document your code better.'
 ---
 
