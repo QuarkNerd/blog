@@ -96,6 +96,7 @@ active-authors:
     - sforeshew-cain
     - jbeckles
     - kangel
+    - ddiep
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -1244,3 +1245,9 @@ authors:
         author-summary: 'Developer at Scott Logic working primarily with ReactJS'
         twitter-handle: null
         picture: headshot2.PNG
+    ddiep:
+        name: 'Dillon Keith Diep'
+        email: ddiep@scottlogic.com
+        author-summary: 'I am a developer at Scott Logic in the Bristol office. I like to learn about all sorts of tech and often hop between topics of my interest.'
+        twitter-handle: null
+        picture: me.jpg
