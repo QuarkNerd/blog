@@ -1,7 +1,7 @@
 ---
 author: cprice
 layout: default_post
-image: cprice/assets/big-data.png
+image: cprice/assets/arrow/big-data.png
 title: Efficiently loading massive D3 datasets using Apache Arrow
 categories:
   - Tech
