@@ -10,6 +10,8 @@ tags:
 image: ceberhardt/assets/d3fc-webgl/hathi-library-visualisation.png
 ---
 
+*Read the follow on post [to this one which optimises the loading behaviour to use Apache Arrow]({{site.baseurl}}/2021/10/15/efficiently-loading-massive-d3-datasets-using-apache-arrow.html).*
+
 This blog post introduces the WebGL components which we recently added to [D3FC](https://d3fc.io/), this suite of components make it easy to render charts with a very large number of datapoints using D3. Throughout this post I'll describe the creation of the following visualisation, which displays 1 million books from the Hathi Trust library as showcase for what these components are capable of:
 
 <img src="{{site.baseurl}}/ceberhardt/assets/d3fc-webgl/hathi-library-visualisation.png"/>
@@ -408,3 +410,5 @@ const redraw = () => {
 This couldn't be simpler!
 
 Hopefully this blog post has inspired you to take a look at the newly added D3FC WebGL components, and you'll be able to put them to good use in your own charts and visualisations.
+
+*Read the follow on post [to this one which optimises the loading behaviour to use Apache Arrow]({{site.baseurl}}/2021/10/15/efficiently-loading-massive-d3-datasets-using-apache-arrow.html).*
