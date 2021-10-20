@@ -1,6 +1,6 @@
 ---
 published: true
-author: hubinf@scottlogic.com
+author: fhubin
 layout: default_post
 category: Delivery
 title: K-19 or How to not run a team

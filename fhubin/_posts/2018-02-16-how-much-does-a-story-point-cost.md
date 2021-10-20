@@ -1,6 +1,6 @@
 ---
 published: true
-author: hubinf@scottlogic.com
+author: fhubin
 layout: default_post
 title: How much does a story point cost?
 tags: agile scrum cost project management self-organised team

@@ -1,6 +1,6 @@
 ---
 published: true
-author: hubinf@scottlogic.com
+author: fhubin
 layout: default_post
 title: Date-Driven Delivery vs. Delivery-Driven Dates
 summary: >-

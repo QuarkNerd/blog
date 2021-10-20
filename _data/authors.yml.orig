@@ -36,7 +36,7 @@ active-authors:
     - hmumford
     - hpretswell
     - hsteele@scottlogic.com
-    - hubinf@scottlogic.com
+    - fhubin
     - imaxwell@scottlogic.com
     - jdunkerley
     - jharris
@@ -346,7 +346,7 @@ authors:
         twitter-url: 'https://twitter.com/HannahPretswell'
         twitter-handle: HannahPretswell
         picture: picture.jpg
-    hubinf@scottlogic.com:
+    fhubin:
         name: 'Frank Hubin'
         email: frank.hubin@gmail.com
         author-summary: 'I am a Technical Project Manager at Scott Logic. Using a lean approach, Agile values and team empowerment, I build bridges between business and technical teams to improve collaboration and make delivery a reality.'

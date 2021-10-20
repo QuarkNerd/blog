@@ -97,6 +97,7 @@ active-authors:
     - jbeckles
     - kangel
     - ddiep
+    - fhubin
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -1246,9 +1247,9 @@ authors:
         author-summary: 'I am a developer at Scott Logic in the Bristol office. I like to learn about all sorts of tech and often hop between topics of my interest.'
         twitter-handle: null
         picture: me.jpg
-    hubinf:
+    fhubin:
         name: 'Frank Hubin'
-        email: hubinf@scottlogic.com
+        email: fhubin@scottlogic.com
         author-summary: 'I am a Delivery Manager at Scott Logic. Using a lean approach, Agile values and team empowerment, I build bridges between business and technical teams to improve collaboration and make delivery a reality.'
         twitter-handle: null
-        picture: me.jpg
+        picture: picture.jpg
