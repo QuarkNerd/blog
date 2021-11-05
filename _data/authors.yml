@@ -1081,7 +1081,7 @@ authors:
     jstrachan:
         name: 'James Strachan'
         email: jstrachan@scottlogic.com
-        author-summary: 'Hi! I''m James, a graduate developer at Scott Logic with passion for language design and an interest in Typescript and Rust. I also love a hike or a paddle. '
+        author-summary: 'Hi! I''m James, a developer at Scott Logic with passion for language design and an interest in TypeScript and Rust. I also love a hike or a paddle. '
         twitter-handle: null
         picture: jstrachan.jpeg
     ashing:
