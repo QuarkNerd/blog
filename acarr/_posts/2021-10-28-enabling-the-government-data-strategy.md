@@ -72,3 +72,5 @@ The good news is that the technology exists to meet this requirement. Open Banki
 Similarly, we are working with DWP on Citizen Event History, which treats data as a product, combining information from multiple different trusted sources. In this way it can better understand the transactions of individuals, in the wider context of their lives, ultimately facilitating better, frictionless services.
 
 There is still a long way to go, and many hurdles to be overcome, but the ingredients are there to have a transformative impact on our lives, whilst protecting our personal information and liberties.
+
+Scott Logic is currently gathering contributions from department directors across Government to produce a report on the topic of data sharing in Government. It will explore the opportunities and challenges, and what the future holds. [Sign up here to receive a copy of the report.](https://forms.gle/oxbHcuLwZmL3bhj16)
