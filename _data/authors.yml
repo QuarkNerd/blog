@@ -98,6 +98,7 @@ active-authors:
     - kangel
     - ddiep
     - fhubin
+    - mjrichards
 authors:
     aaiken:
         email: aaiken@scottlogic.com
@@ -1253,3 +1254,9 @@ authors:
         author-summary: 'I am a Delivery Manager at Scott Logic. Using a lean approach, Agile values and team empowerment, I build bridges between business and technical teams to improve collaboration and make delivery a reality.'
         twitter-handle: null
         picture: picture.jpg
+    mjrichards:
+        name: 'Mark Richards'
+        email: mjrichards@scottlogic.com
+        author-summary: 'I am a Senior Developer at Scott Logic.'
+        twitter-handle: null
+        picture: picture.png
