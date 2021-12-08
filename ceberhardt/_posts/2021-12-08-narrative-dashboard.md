@@ -3,7 +3,7 @@ author: ceberhardt
 layout: default_post
 title: "Creating personalised data stories with GPT-3"
 summary: "You can tell powerful stories with data, but so often we are faced with raw data (albeit beautifully presented), and are left to create our own narratives. My previous attempts at turning data into stories have been time consuming and underwhelming. In this post I demonstrate how GPT-3, a new and advanced language model, can construct engaging and unique stories from user-specific data, with relative ease."
-image: ceberhardt/assets/gpt3/strava.png
+image: ceberhardt/assets/gpt3/report.png
 categories:
   - Tech
 ---
