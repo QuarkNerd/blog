@@ -8,6 +8,7 @@ summary: >-
   There is a lot of information available to us, but we often just read and
   forget. Using a digital Zettelkasten is an effective way to store and make use
   of the things you learn.
+image: ebrown/assets/vscodefoam.webp
 ---
 
 There is a lot of information available to us - more than ever before. Thousands of books and scientific papers are being published each day, along with millions of websites and hours upon hours of video resources. There are so many tools, frameworks and packages available for a developer to use. How do you keep track of it all and make use of it effectively? It’s impossible for one person to make good use of this much information without help or tools.
@@ -42,7 +43,7 @@ Zettelkasten*](https://wiki.nikitavoloboev.xyz/)
 
 ## How it can help you
 
-We use Zettelkasten-like things on a daily basis; Confluence pages within Scott Logic with details on how to fix a problem people have had, or in a project with details of hurdles you’ll have to deal with when onboarding. Having this kind of information available helps things move along quickly instead of having to discover and explain the steps every time.
+We use Zettelkasten-like things on a daily basis: Confluence pages that show us how to fix a common problem, or a list of hurdles you might come across when onboarding on a project. Having this kind of information available helps things move along quickly instead of having to discover and explain the steps every time.
 
 A personal Zettelkasten helps you achieve this but is tailored specifically to you. For example your notes can have a StackOverflow link along with some context and a title and some tags which you can then refer back to and easily locate and use this information again. When you discover a really neat fix to an issue, you can write a brief note about your solution and have it ready next time you come across the problem. You don’t have to format your notes in a way that’s suitable to be consumed by others, and you can store anything that you think will be of value to you later.
 
