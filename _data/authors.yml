@@ -17,6 +17,7 @@ active-authors:
     - dnicholas
     - dogle
     - dsmith
+    - ebrown
     - emason
     - garora
     - gkendall
@@ -307,6 +308,11 @@ authors:
         name: 'David Wybourn'
         email: dwybourn@scottlogic.com
         picture: picture.jpg
+    ebrown:
+        name: 'Eddy Brown'
+        email: ebrown@scottlogic.com
+        picture: picture.png
+        author-summary: '<p>I am a Developer at Scott Logic and I love learning and building new things! I also like to drive and fix machines.</p>'
     ekouri:
         name: 'Effrosyni Kouri'
         email: ekouri@scottlogic.com

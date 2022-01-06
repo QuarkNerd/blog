@@ -127,6 +127,9 @@ prose:
             login: dtheasby
             user: dtheasby
         -
+            login: ebrown-SL
+            user: ebrown
+        -
             login: godds
             user: godds
         -
@@ -474,7 +477,7 @@ prose:
         -
             login: DillonKeithDiep
             user: ddiep
-        
+
         -
             login: mjrichardsSL
             user: mjrichards
