@@ -1,8 +1,11 @@
 {% assign post = include.post %}
+{% assign hideCategory = include.hideCategory %}
 {% assign author = site.data.authors.authors[post.author] %}
 <div class="post-summary grid-margin-y grid-padding-y {% include post_colour.html post=post %}">
     <div class="post-summary cell grid-margin-y">
-        {% include category_display.html post = post %}
+        {% unless hideCategory %}
+            {% include category_display.html post = post %}
+        {% endunless %}
         <div class="title">
             <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
             {% include post_summary_social.html post=post %}

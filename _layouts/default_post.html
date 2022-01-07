@@ -82,11 +82,20 @@ layout: default
       </div>
       {% include social.html %}
     </div>
-    <div class="post-content cell large-6">
-      <div class="cell">
+    <div class="cell large-6">
+      <div class="cell post-content">
         {{ content }}
       </div>
+
       {% include read_more.html author=author authorUsername=authorUsername page=page %}
+
+      {% assign category = page.categories[1] %}
+      {% assign posts = site.categories[category] %}
+      {% if posts %}
+        {% assign posts = posts | sort: 'date' | reverse | uniq | where_exp:"item", "item.title <> page.title" | slice: 0, 2 %}
+        {% include post_summary_list.html posts=posts hideCategory=true %}
+      {% endif %}
+      
       {% include recruitment.html page=page %}
     </div>
     <div class="side-lists cell large-3 large-offset-1 show-for-large grid-padding-y">
