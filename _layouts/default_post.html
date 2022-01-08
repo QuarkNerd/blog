@@ -116,3 +116,28 @@ layout: default
 </div>
 
 {% include site-footer.html %}
+
+{% if site.github.owner_name == 'ScottLogic' %}
+<script type="text/javascript">
+if (IntersectionObserver) {
+  ga("send", "event", "article", "view", "{{ page.url }}");
+
+  let endOfPageReached = false;
+  let observer = new IntersectionObserver((entries) => {
+    if (entries.length && !endOfPageReached) {
+      const entry = entries[0];
+      if (entry.intersectionRatio === 1) {
+        endOfPageReached = true;
+        ga("send", "event", "article", "read", "{{ page.url }}");
+      }
+    }
+  }, {
+    root: null,
+    rootMargin: "0px",
+    threshold: 1.0
+  });
+
+  observer.observe(document.querySelector("#read-more"));
+}
+</script>
+{% endif %}

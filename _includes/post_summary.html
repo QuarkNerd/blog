@@ -7,7 +7,11 @@
             {% include category_display.html post = post %}
         {% endunless %}
         <div class="title">
-            <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+            <a href="{{ site.baseurl }}{{ post.url }}"
+            {% if hideCategory %}
+                onclick="ga('send', 'event', {transport: 'beacon', eventAction: 'read-more', eventCategory: 'article'})"
+            {% endif %}
+            >{{ post.title }}</a>
             {% include post_summary_social.html post=post %}
         </div>
         <div class="cell">
