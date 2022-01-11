@@ -13,10 +13,6 @@
 
 
             <h2>Read more</h2>
-            {% if allPosts.size > 1 %}
-                <div class="cell"><a rel="author" href="{{ site.baseurl }}/{{ authorUsername }}">View more by {{ author.name }}</a></div>
-            {% endif %}
-            <div class="cell">{% include category_display.html post = page read_more=true %}</div>
         </div>
         <div class="small-2 cell hide-for-large">
             {% include social.html %}
