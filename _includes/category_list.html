@@ -1,10 +1,15 @@
 {% assign selectedIndex = include.selectedIndex %}
+{% assign trackLinks = include.trackLinks %}
 <div class="category-list cell">
     <h4>Categories</h4>
     <ul>
         {% for category in site.data.categories %}
             <li>
-                <a href="{{ site.baseurl }}{{ category.url }}">
+                <a href="{{ site.baseurl }}{{ category.url }}" 
+                {% if trackLinks %}
+                    onclick="ga('send', 'event', {transport: 'beacon', eventAction: 'visit-category', eventCategory: 'article'})"
+                {% endif %}
+                >
                     <span class="{% if selectedIndex == forloop.index0 %}active {% endif %}">{{ category.title }}</span>
                 </a>
             </li>

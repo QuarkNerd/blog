@@ -107,7 +107,7 @@ layout: default
         {% assign authorUsername = contributorId %}
         {% include author_summary.html %}
       {% endfor %}
-      {% include category_list.html selectedIndex=0 %}
+      {% include category_list.html selectedIndex=0 trackLinks=true %}
       <div class="back cell">
         <a href="{{ site.baseurl }}/index.html">Back to all posts</a>
       </div>
