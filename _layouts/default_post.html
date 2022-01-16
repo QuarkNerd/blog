@@ -89,10 +89,11 @@ layout: default
 
       {% include read_more.html author=author authorUsername=authorUsername page=page %}
 
-      {% assign category = page.categories[1] %}
-      {% assign posts = site.categories[category] %}
-      {% if posts %}
-        {% assign posts = posts | sort: 'date' | reverse | uniq | where_exp:"item", "item.title <> page.title" | slice: 0, 2 %}
+      {% if site.data.related contains post.url %}
+        {% assign related = site.data.related[post.url] %}
+        {% assign posts = site.posts | where_exp:"item", "item.url == related[0]" %}
+        {% include post_summary_list.html posts=posts hideCategory=true %}
+        {% assign posts = site.posts | where_exp:"item", "item.url == related[1]" %}
         {% include post_summary_list.html posts=posts hideCategory=true %}
       {% endif %}
       
