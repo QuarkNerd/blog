@@ -10,6 +10,7 @@ active-authors:
     - bdimitrov-SL
     - cbrown
     - ceberhardt
+    - ccocks
     - cprice
     - dgorst
     - dkerr
@@ -77,7 +78,6 @@ active-authors:
     - ssibanda
     - sburnstone
     - mstobbs
-    - nbetts
     - isugar
     - mmcalroy
     - aburgess
@@ -223,6 +223,11 @@ authors:
         email: cmeehan@scottlogic.com
         name: 'Chris Meehan'
         author-summary: '<p>I''m a software developer at Scott Logic focusing primarily on JavaScript development, particularly with React. Recently, I''ve also taken an interest in mobile development.</p> <p>I joined the company after studying Mechanical Engineering at Bath and Computer Science (MSc) at Bristol. The fantastic learning opportunities at Scott Logic are one of the main reasons I joined, and as a result I''m currently learning functional programming (F#) in between projects.</p>'
+        picture: picture.jpg
+    ccocks:
+        author-summary: '<p>I’m a Business Development Campaign Manager at Scott Logic. I have a background in Sales, Marketing and PR and a keen interest in gardening.</p>'
+        email: ccocks@scottlogic.com
+        name: 'Claire Cocks'
         picture: picture.jpg
     cprice:
         author-summary: '<p>My name is Chris Price, I''m based in Newcastle upon Tyne and work as a Software Engineer at Scott Logic. I spend my days developing web apps for financial services companies (unfortunately mostly hidden behind paywalls). I do like to blog about things when I can and do some interesting stuff on <a href="https://github.com/chrisprice">GitHub</a>.</p>'
