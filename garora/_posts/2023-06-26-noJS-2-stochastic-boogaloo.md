@@ -1,6 +1,6 @@
 --- TEST FIREFOX TODO, and think about shape of aduio control
 author: garora
-title: NoJS 2':' Random Boogaloo - Making a game with 'randomness' using pure HTML and CSS
+title: NoJS 2':' Stochastic Boogaloo - Making a game with 'randomness' using pure HTML and CSS
 categories:
   - Tech
 layout: default_post
@@ -86,12 +86,12 @@ This rule could be simplified by moving each pair of `input`s to just before the
 
 Now we need some endgame logic
 
-DOES THIS PART NEED EXPLAING? HOW
+DOES THIS PART NEED MORE EXPLAING?
 ```css
-body:has(input[id^="X"]:nth-of-type(3n-2):checked + input:checked + input:checked),
-body:has(input[id^="X"]:checked + * + * + input:checked + * + * + input[id^="X"]:checked),
-body:has(input#X-1:checked ~ input#X-5:checked ~ input#X-9:checked),
-body:has(input#X-3:checked ~ input#X-5:checked ~ input#X-7:checked)
+body:has(input[id^="X"]:nth-of-type(3n-2):checked + input:checked + input:checked), /* rows */
+body:has(input[id^="X"]:checked + * + * + input:checked + * + * + input[id^="X"]:checked), /* columns */
+body:has(input#X-1:checked ~ input#X-5:checked ~ input#X-9:checked), /* top-left to bottom-right diagonal */
+body:has(input#X-3:checked ~ input#X-5:checked ~ input#X-7:checked), /* top-right to bottom-left diagonal */
 {
     --has-X-won: 1;
 }
@@ -118,8 +118,13 @@ Using the new variables `--has-X-won`, `--has-O-won` and `--has-drawn` we can di
 
 ### Random
 
+
+<!-- pausing of animation- alos causes shrink issues
+shadow has to be on outer thinkg becusase overflow hiiden
+:has operator
+grid is used to auto fill space -->
 ### Audio
-If you've played the game you've probably noticed an audio easter egg. Before trying this I had thought that playing audio would require javascript to function, however the audio control works javascript disabled at the browser level so I'm going to allow it. 
+If you've played the game you've probably noticed an audio easter egg. Before trying this I had thought that playing audio would require javascript to function, however the audio control works with javascript disabled at the browser level so I'm going to allow it. 
 
 The audio controls has many buttons (for volume, downloading ect). In order to only make the play button accessible, we first wrap it in a div and then apply the following css.
 ```css
@@ -130,7 +135,7 @@ The audio controls has many buttons (for volume, downloading ect). In order to o
     overflow: hidden;
 }
 
-.div-around-audio audio {
+audio {
     position: absolute;
     top: -11px;
     left: -11px;
@@ -142,29 +147,35 @@ The key part is `overflow: hidden;` which ensures the overflow of the audio cont
 And then the play button can be made invisble or placed behind an element that has `pointer-events: none;`, which allows clicks to pass through it.
 
 ## Calculator Extension
-Since making the calcultor, the `has` has been introduced, which allows selectoing parents based on children. In the cacluaotr this could be used to avoid the excessive nesting. REMOVE REPETIONS
+Since making the calcultor, the `has` has been introduced, which allows selectoing parents based on children. In the calculator this could be used to avoid the excessive nesting. I also added basic trignometric functions, for this I followed the below steps
 
-There has salso been trig and stuff (exprimental), this could thortically open thegates for a scientific calculoro, but the main limtation to do this with calc limitis SOURCE
+1. Use integer division (see pervious post) to create a modulo function and map the input to between 0 and 2π
+2. Use a bunch of maths and retries to map the input to a value between 0 and π/2
+3. Painfully implement the expansion series of trig functions
+4. Realise that while I've been playing around with this, trig functiona have been added the spec
+5. Question my life choices
 
----- ADD STEPS with questin life choices joke
--- has and is
---- ask if specific code is needed for the audio things
+Given the advances in the css spec to add trignometric and other mathmatical functions, writing a full scientific calculator is further within reach. While I have not yet attempted this, a possible limitation is that the [css spec](https://www.w3.org/TR/css-values-3/#calc-syntax) only asks browsers to support up to 20 terms in a `calc`, and while I haven't seen this exact limit in action, the main browsers do give up after a certain amount of complexity.
 
 ## FAQ
 
 #### When are you gonna stop?
 Probably now
 
-#### Did you write this blog post just so you could say the words "Random Boogaloo"?
+#### Did you write this blog post just so you could say the words "Stochastic Boogaloo"?
 No comment
 
-#### Can you fix my CSS?
-Have you tried turning it off and on again?
+## Wrap up
+While I was making this , there were many points at which I deemed something to be 'impossible'. Things like functioning decimals; an evenly distributed 'random' selector; and functioning audio seemed out of scope for rules and format I had chosen. But because I had the freedom to stop and think about this with no deadline, I was able to overcome the challenges. When working with practical problems, we are faced with real-world pressures and time limits and this can often leave us with an incomplete view of the true power of the tech we work with. I encourage anyone with an interest to explore the limits of a technology and the power of their creativity. Maybe this will help you in your day to day job, but I wouldn't suggest rewriting any of your webapps in css only.
 
 NOTES
-Mentio  calc in summary?
 image change
 update question with correct titles
-test audio in firefox with javscripit.
+test audio in firefox with javscripit disabled.
+
+Questions
+Worth posting
 is it okay to ask people to read the previous post?
-:has()
+all makes sense
+should I use code when talking about how did trig
+help with sentiment in last paragraph
